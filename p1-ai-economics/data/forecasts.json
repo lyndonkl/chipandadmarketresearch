@@ -135,7 +135,10 @@
    "spread": [
     0.27,
     0.61
-   ]
+   ],
+   "status": "SUPERSEDED",
+   "superseded_by": "T-payback-total",
+   "superseded_note": "Reframed to the total-program NPV question on 2026-07-23 (user decision). Retained for transparency."
   },
   {
    "target_id": "T-price-decline",
@@ -515,6 +518,277 @@
     0.32,
     0.37
    ]
+  },
+  {
+   "target_id": "T-payback-total",
+   "supersedes": "T-payback (vintage-scoped; retained as superseded)",
+   "question": "Will the TOTAL US AI-industry investment (all vintages 2024-2030 + terminal) be NPV-positive at cost of capital (~9-10% WACC)?",
+   "framing": {
+    "horizon": "end-2030 + explicit terminal",
+    "scope": "US total AI industry",
+    "payoff_bar": "NPV-positive at cost of capital",
+    "note": "total-program framing dissolves vintage attribution"
+   },
+   "kind": "binary",
+   "headline_probability_median": 0.52,
+   "panel": [
+    {
+     "persona": "outside-view",
+     "probability": 0.44,
+     "reasoning": "Outside-view anchor first: total buildouts of a new general-purpose technology, judged at cost of capital over full life for the ORIGINAL funders, clear the bar only ~35-40% of the time (passes: electrification, cloud 2010-20, 4G \u2014 incumbents into sold-out demand ~70%; fails: fiber 1998-2001, 3G, shale, nuclear, railway-mania late vintages, airlines ~20%). AI splits ~40% incumbent/power-land class and ~60% short-life/neocloud/SPV/vendor-financed class \u2192 blended anchor ~37%. The digest's own 3-panelist forecast on the EASIER, narrower question (2024-26 vintage payback by 2030, lenient 'consensus/not-written-down' resolution) was median 0.56 / extremized 0.60, spread 0.27-0.61. My question is net a few points harder: strict Damodaran economic-NPV test removes the panelists' flagged 'cheap yes' incumbent leniency (\u2212); TOTAL 2024-30 scope (~$4.5-5.6T, ~65-70% of dollars in later vintages deploying into the ~2028 oversupply window) (\u2212); total framing dissolves the scarcity-rent argument that lifted the unit-econ/contrarian panelists from ~0.50 to ~0.60, reverting toward pro-rata coverage ~0.72x=NO (\u2212); to-end-2030-plus-terminal credits the tail (+), but the panel's operationalization already embedded most forward credit. Structural decomposition from 0.56 lands ~0.46; outside-view discipline trims to ~0.44. The crux, confirmed by all three DCFs: ~100% of positive NPV lives in the post-2030 terminal (strip it and even the bull is \u2212$3.3T), so the answer reduces to whether mature AI ROIC beats ~9-10% WACC. Bear 32% margin\u2192ROIC~7%<WACC (\u2212$2.3T); base 43%\u2192ROIC~8%\u2248WACC (+$487B but knife-edge, flips to \u2212$1.5T on a mere revenue plateau); bull 55%\u2192ROIC~22% but on 5% perpetual growth and margins holding against open-weight competition. Thompson's price-convergence claim (T5) is graded 'unresolved \u2014 the claim with the money on it.' My scenario weighting (A validated ROIC>WACC 0.28\u00d70.90; B muddle-through ROIC\u2248WACC 0.42\u00d70.45; C convergence/plateau/OpenAI-restructure 0.30\u00d70.08) = 0.465, converging with the structural ~0.44. Slightly below a coin flip: strict test + terminal-heavy left-skewed knife-edge + huge capex base, offset by genuinely validated, contracted, repeatedly-over-delivering demand (the real break from fiber-1999) that keeps it well above the ~30% pure-mania base rate.",
+     "reference_classes": [
+      "Hype-driven general-purpose-technology infrastructure buildouts judged over full life for original funders (railroads, electrification, telecom/fiber 1998-2001, European 3G, US shale, 1970s nuclear, airlines cumulative) \u2014 ~30-40% cleared cost of capital",
+      "Cash-rich incumbents expanding capex into a proven, sold-out adjacency (AWS/Azure/GCP 2010-2020, 4G/LTE) \u2014 ~70% payback; AI is ~40% this class",
+      "Short-lived assets bought at scarcity prices / commodity supercycles at peak (DRAM/NAND, GPU mining rigs, shipping orders) \u2014 ~20-25% for peak vintage",
+      "Vendor-financed / circular-revenue booms (Lucent-Nortel customer financing 1999-2001, dot-com infra on VC money) \u2014 near-universal capital impairment; analog to the Nvidia\u2192OpenAI\u2192Oracle\u2192private-credit circularity",
+      "Terminal-value-dominated growth DCFs where perpetual g approaches WACC and terminal ROIC\u2248WACC \u2014 inherently knife-edge and left-skewed; small margin/growth changes flip the sign"
+     ],
+     "key_uncertainties": [
+      "Post-2030 steady-state margin (bear 32% / base 43% / bull 55%) \u2014 the master lever that sets whether terminal ROIC beats WACC; current company-wide GMs are ~40-43% (OpenAI, Anthropic) and under open-weight/convergence pressure",
+      "Post-2030 terminal growth / demand durability \u2014 the largest single swing; a revenue plateau flips even the +$487B base case to roughly \u2212$1.5T because the structure is terminal-heavy with g near WACC",
+      "OpenAI counterparty solvency \u2014 highest-leverage discrete node ($21B/yr loss, $1.25T commitments, 2030 plan already cut then raised); a restructuring cascade to Oracle/CoreWeave/Stargate drops payoff odds to ~0.30",
+      "Whether AI commoditizes toward a utility with ROIC\u2264WACC (Thompson's T5, graded 'unresolved') or sustains oligopoly rents via product integration, token efficiency and durable power scarcity on the ~42% long-lived asset base",
+      "Chip economic life (booked 5-6yr vs Epoch's 3.9yr frontier life; Amazon's 6\u21925yr reversal) \u2014 swings the annual capital-recovery charge by ~$0.3T",
+      "Total capex magnitude and overrun risk ($4.5-5.6T; HBM/memory supercycle, honored commitments, power costs) \u2014 a ~24% overrun flips even the bull negative",
+      "Resolution/attribution ambiguity: strict economic-NPV reading vs a lenient one, and the boundary of 'US AI-attributable' revenue and capex (internal-use returns at Meta/Google/Amazon never appear in AI-revenue tallies)"
+     ],
+     "terminal_sensitivity": "The answer is dominated by the post-2030 tail and is left-skewed. One notch WORSE on steady-state margin (~\u22125pp, e.g. base 43%\u219238%): base-case NPV falls ~$0.5T from +$487B to roughly breakeven/negative and terminal ROIC drops clearly below WACC \u2192 my probability falls ~9 points to about 0.35. One notch WORSE on terminal growth (e.g. 3.5%\u21922%, toward the plateau the base case's own sensitivity models): the terminal collapses to roughly \u2212$1.5T \u2192 my probability falls ~14 points to about 0.30. Growth is the more damaging lever because the structure is terminal-heavy with g close to WACC and terminal ROIC\u2248WACC, so downside per notch exceeds upside per notch \u2014 that asymmetry is itself why the central estimate sits below 0.50. Symmetrically, one notch BETTER on either lever (margins hold high-40s or growth compounds >4%) pushes past ~0.55-0.60, but the outside-view reference class caps how much weight the bullish 'margins hold / scarcity permanent' terminal deserves."
+    },
+    {
+     "persona": "valuation",
+     "probability": 0.53,
+     "reasoning": "Valuation-persona forecast reasoning from three DCFs of the TOTAL US AI buildout (bear \u2212$2.3T / base +$487B / bull +$907B), with base as anchor and bear/bull as tails. The distribution is strongly left-skewed: base\u2192bear = $2,787B versus base\u2192bull = $420B, so base +$487B behaves more like the mode than the median and there is substantial NPV mass below zero. The base is the most defensible set (WACC 9.5% matches the question's 9-10% band; 43% margin matches OpenAI's ~43% company-wide GM and Anthropic's blended; 41% rev CAGR sits below current lab trajectory), yet it is fragile: value/cost is only ~1.11x and terminal ROIC (~8%) is BELOW WACC (9.5%), meaning the positive NPV is an artifact of crediting a 2031-2035 transition-growth harvest, not perpetual value creation. Structurally decisive feature (agreed across all three models): every year 2024-2030 is FCF-negative and ~100% of any positive NPV lives in the post-2030 terminal \u2014 a severe reliability red flag for a decade-plus horizon. The TOTAL framing dissolves the prior panel's pro-rata-vs-scarcity-rent attribution debate (which had pulled the outside view to 0.27) but loads the answer onto the forward revenue/margin/terminal forecast and includes the larger, riskier 2027-2030 vintages that deploy into a potential 2028 oversupply window. Modeling NPV as continuous (center near/just-below base, combined SD ~$1.2-1.3T dominated by the \u00b1$2T terminal swing) with a left-skew correction gives P(NPV>0) ~0.52-0.55; a premortem (demand plateau, margin compression, OpenAI/SPV credit cascade, 4yr chip life, capex overrun) implies ~45-48% correlation-adjusted failure, corroborating. Countervailing evidence keeping it above 0.50: two of three models pay off; the scarcity umbrella outlasted bear predictions (2026 prices up, H100 rentals re-tightened to $2.35, sold-out backlogs, $514B Google RPO); demand elasticity beat constant-quality deflation for three years; ~80% of the buildout is self-funded incumbents with contracted take-or-pay backlogs and ~42% is genuinely scarce long-lived power/land. Because this is a clean economic-truth NPV question, no consensus-affirmation haircut is applied. Net: 0.53.",
+     "reference_classes": [
+      "Peak/near-peak vintages of hype-driven general-purpose-technology infrastructure booms (UK/US rail, telecom/fiber 1998-2001, 3G spectrum, Chinese solar, US shale, 1920s utilities): only ~2 in 10 earned their cost of capital within ~5 years",
+      "Cash-rich incumbents adding capacity to a proven, sold-out adjacency (AWS/Azure/GCP 2012-2020, datacenter REITs, TSMC leading edge): ~7 in 10 pay back",
+      "High-growth negative-earnings platform buildouts valued on a terminal harvest (Damodaran special-situations / revenue-based DCF where ~100% of value sits in the terminal): historically low-reliability, terminal-dependent valuations frequently disappoint",
+      "Prior internal forecasting panel on the 2024-2026 US AI vintage: 27% / 56% / 61%, middle 56%, blended ~60% (a related but narrower slice than the total-program question)"
+     ],
+     "key_uncertainties": [
+      "Post-2030 terminal growth and steady-state margin: the dominant swing \u2014 base plateau collapses NPV to ~\u2212$1.5T, strong compounding lifts it to ~+$2T; ~100% of positive NPV lives here",
+      "Mature ROIC vs WACC: base terminal ROIC ~8% is BELOW 9.5% WACC, so base's +$487B rests on the transition-stage growth harvest and is structurally fragile",
+      "Effective chip economic life: Epoch ~3.9yr frontier life vs 5-6yr accounting books; resale/cascade value (CoreWeave 95% re-sign, A100s still booked) vs Amazon's 6\u21925yr reversal and Burry's $176B understated-depreciation claim",
+      "Margin trajectory under open-weight competition and price convergence (Thompson T5 unresolved; panel gave only 13% to convergence-within-1.5x by 2028)",
+      "OpenAI / neocloud / SPV counterparty solvency and 5-7yr private-credit funding against 3-5yr assets \u2014 the highest-leverage discrete write-down trigger; OpenAI cut its 2030 compute plan from ~$1.4T of commitments to ~$750B",
+      "Cumulative capex level and WACC: bear/base/bull span $4.49-5.59T of capex and 8.5-11% WACC; a ~24% capex overrun or +1-1.5pp WACC flips the base negative"
+     ],
+     "terminal_sensitivity": "Highly sensitive to the terminal, which is the entire ballgame. One notch worse on the post-2030 steady-state margin (~\u22125pp, e.g. base 43-45% \u2192 ~38-40%) moves base NPV by ~\u2212$0.5T, taking it from +$487B to roughly zero-to-negative; the anchor scenario then fails and only the bull tail pays off, dropping my probability by ~10-13 points to about 0.41-0.43. One notch worse on terminal growth (fading toward plateau, e.g. terminal_g 3.5% \u2192 2% / faster transition decay) knocks off ~$0.5-0.7T, taking base to roughly \u2212$200B and producing a similar drop to ~0.40-0.44. Symmetrically, one notch BETTER on either lever pushes the probability up to ~0.62-0.65. This ~\u00b111-point swing per single-notch terminal change is precisely why the point estimate sits near a coin flip and the 80% band is wide (~0.40-0.66)."
+    },
+    {
+     "persona": "contrarian",
+     "probability": 0.52,
+     "reasoning": "The DCF spread (bear -$2.3T fails; base +$487B and bull +$907B clear) implies a marginal YES on the strict Damodaran bar (cumulative AI revenue at realistic margin covering depreciation plus a ~9-10% return over 2024-2030 + terminal). Attacking both ways: the value-trap case is strong because ~100% of the positive NPV lives in an unobservable post-2030 terminal harvest (strip it and every model is ~-$3.3T), the base case's own steady-state ROIC (~8%) is already below its 9.5% WACC so positivity is borrowed from a fragile 2031-2035 transition, chip economic life leans short (Epoch 3.9yr frontier, Amazon's 6->5yr reversal, negative-NPV new H100 deployments), constant-quality prices fall 10-50x/yr, and OpenAI (-$21B/yr, cut its 2030 plan $1.4T->$750B) anchors ~$800B of private credit funding long debt against short assets. The clears-easily case is equally real and CURRENT: demand has grown 35-200%/yr unbroken for three years, in 2026 all three labs RAISED prices 4x with $850B of new supply landing while still sold out ($514B Google backlog, $80B MSFT unfulfillable), inference margins are ~72% and rising with Anthropic already at operating profit, 42% of capex is genuinely scarce power/shells/land likely worth more in 2030, and the fortress-balance-sheet incumbent owners can actually hold and harvest the terminal (unlike fiber speculators), with prior gap analyses repeatedly overtaken within 18 months. I anchored on the prior superforecaster panel (56% median / 60% extremized on the narrower 2024-26 vintage) and adjusted for this TOTAL/strict question: -4 for the true-NPV bar removing the 'not written down' consensus cushion, -3 for greater terminal dependence and late vintages deploying into the ~2028 oversupply window, +4 for the total framing dissolving the vintage-attribution haircut. A breakeven-percentile analysis (bear/base/bull ~ 15th/50th/85th) puts NPV crossing zero near the 44th-50th percentile, i.e. ~50-56%, pulled toward the low end because the labeled base is itself mildly optimistic (margins converging UP from today's 40-43%, 7yr blended chip life vs mounting evidence of shorter economic life) and because the outside-view reference class (peak-vintage infrastructure booms clear cost of capital only ~20-40% of the time) disciplines the inside-view DCF read down. Net: a genuine near-coin-flip with a fat left tail, landing at 0.52.",
+     "reference_classes": [
+      "Hype-driven general-purpose-technology infrastructure buildouts at peak/near-peak vintage (UK/US rail manias, 1920s utilities, telecom/fiber 1998-2001, European 3G spectrum, Chinese solar 2010-12, US shale 2011-15, streaming content 2019-22): ~20% cleared cost of capital within ~5 years",
+      "Cash-rich incumbents expanding capex into a proven, sold-out adjacency (AWS/Azure/GCP 2012-2020, Amazon fulfillment, datacenter REITs, TSMC leading-edge fabs): ~70% cleared cost of capital",
+      "High-growth negative-earnings platform projects valued almost entirely on a terminal harvest (Amazon 1997-2015, Tesla, Uber): terminal realized for some, permanently deferred for others",
+      "Megacap capex programs that were value-destructive yet never impaired (Meta Reality Labs ~$80B): separates the strict-NPV question from the softer 'not written down' consensus bar",
+      "Track record of published AI revenue-gap analyses (Cahn's $200B and $600B questions): repeatedly overtaken by realized revenue growth within ~18 months",
+      "Prior GJP-style superforecaster panel on the adjacent 2024-26 US AI capex-vintage payback question: 56% median, 60% extremized, spread 27-61%"
+     ],
+     "key_uncertainties": [
+      "Post-2030 steady-state MARGIN: today's company-wide 40-43% vs the ~72% inference-only figure; whether blended margin rises as training-R&D amortizes over a larger base, or is competed away by open-weight convergence. Each 5pp is worth ~$0.5T of NPV and flips the base case.",
+      "Post-2030 REVENUE GROWTH / demand elasticity vs 10-50x/yr constant-quality price deflation - the single dominant swing; a plateau at the 2030 run-rate sends the base to ~-$1.5T. OpenAI's cut 2030 plan and missed early-2026 targets are the first cracks.",
+      "Chip economic life (3.9yr frontier / Amazon's 5yr vs 6yr+ books): sets the capital-recovery charge; 4yr vs 6yr swings breakeven revenue by ~$0.7T.",
+      "WACC on the MARGINAL dollar: 8.5% self-funded incumbent vs 11-13% neocloud/SPV/private-credit; each +1pp cuts NPV ~$0.7-1.0T in this terminal-heavy structure.",
+      "OpenAI counterparty solvency and the vendor/private-credit financing chain: the highest-leverage discrete node; a restructuring cascading to Oracle/CoreWeave/Stargate drops the estimate to ~0.30.",
+      "Whether the post-2030 terminal harvest accrues to the original (incumbent) owners or is competed away to consumers/new owners - historically the exception, but incumbent balance sheets and contracted backlogs make capture more plausible here.",
+      "Total capex magnitude ($4.5-5.6T) given HBM/memory inflation and how much of OpenAI's $1.25T of commitments is actually honored.",
+      "Resolution philosophy: strict steady-state capital-recovery bar (bear's implied ~$3.2T breakeven) vs terminal-harvest DCF (base ~$640B breakeven) - the modeling frame alone moves the verdict."
+     ],
+     "terminal_sensitivity": "The answer is extremely terminal-sensitive because ~100% of the positive NPV lives in the post-2030 tail. One notch WORSE on the post-2030 steady-state margin (base 45%->40%, ~-$0.5T) OR on growth (base 3.5%->2.5%, roughly -$0.5-0.8T given the (WACC-g) denominator) flips the base DCF from +$487B to approximately breakeven-or-negative, and since the base case is the fragile center, my probability falls about 9-12 points to ~0.40-0.42. A full revenue plateau (more than one notch) sends the base to ~-$1.5T and would drop me toward ~0.32. Symmetrically, one notch BETTER on either lever moves me up to ~0.60-0.62. This knife-edge around a single unobservable assumption is the main reason I stay near a coin flip rather than committing to the DCF's nominal 2-of-3 'pays off'."
+    }
+   ],
+   "dcf_models": [
+    {
+     "variant": "bear",
+     "wacc_pct": 11,
+     "cumulative_capex_2024_2030_usd_bn": 4750,
+     "cumulative_capex_ci80": [
+      4000,
+      5700
+     ],
+     "ai_revenue_2030_runrate_usd_bn": 560,
+     "revenue_cagr_2026_2030_pct": 35,
+     "ai_gross_margin_pct": 32,
+     "terminal_growth_pct": 2,
+     "npv_usd_bn": -2300,
+     "irr_pct": 4,
+     "breakeven_revenue_2030_usd_bn": 3200,
+     "terminal_value_usd_bn": 550,
+     "failure_writedown_prob_pct": 55,
+     "pays_off": false,
+     "key_assumptions": [
+      "Classification: ONE high-growth / negative-earnings project (revenue-based DCF + margin convergence + failure adjustment; special-situations Pattern 1). Taking the TOTAL across all vintages dissolves the scarcity-rent-vs-pro-rata attribution debate per the digest decision frame.",
+      "Cumulative US AI-attributable capex 2024-2030 = $4.75T (path 200/430/800/920/950/800/650 $B). Anchored on the three-panel Fermi sizings (2024-26 ~$1.4-1.5T) and extended with BEAR out-year discipline: 2029-30 capex is pulled back, not compounded, because demand disappoints. Composition 58% short-life IT / 42% shells-power-land (cx-17).",
+      "BEAR depreciation: frontier/IT silicon on ~4-yr economic life (Epoch frontier lifespan 3.9yr dp-10; older gens re-price down fast; Amazon's 6->5yr reversal), shells/power/land on 15yr. Steady-state depreciation on the full fleet ~$823B/yr.",
+      "WACC 11% = ~4.3% risk-free + elevated premium for unproven demand durability, circular/vendor financing (Nvidia->OpenAI, Oracle/SPV/private-credit funding 5-7yr debt vs 3-5yr assets), and short-life asset risk. This is the discount rate AND embedded in the capital-recovery charge.",
+      "Capital-recovery (annuity) charge = depreciation + 11% return = ~$1.17T/yr on the built-out fleet (CRF 0.322 on 4yr IT + 0.139 on 15yr infra). This is the strict payoff bar the cash flows must clear, not a soft revenue>capex test.",
+      "BEAR AI gross margin compresses to ~32% (mid of 30-35%) as open-weight competition + convergence bite (T5/T6). Cash EBITDA margin (gross margin + heavy D&A add-back - cash opex) ramps 30%->46% by maturity; consolidated end-user EBITDA margin ~44-46% is consistent with the panel's 72% infra margin x ~53% infra revenue share.",
+      "Revenue path is BEAR: 2026 ~$155B recognized (exit run-rate ~$220B) -> 2030 ~$520B recognized / ~$560B exit run-rate. 2026->2030 recognized CAGR ~35%. This deliberately undershoots the panel's 'forgiving' $750B bar because cheaper intelligence does NOT fully absorb new supply (demand elasticity disappoints).",
+      "Explicit forecast boundary = end-2030. Terminal (2031+): steady-state EBITDA margin 46%, growth 2%, fleet right-sized to surviving demand at sales-to-capital 0.55 (overbuild retired). Terminal value ~$550B (PV ~$265B). Mature ROIC ~7% < WACC 11% -> the going concern is worth far less than the capital sunk into it.",
+      "Failure/writedown probability ~55% on the neocloud/SPV/lab-directed tranche (~27% of the buildout, ~$1.3T) - the OpenAI-solvency-dependent, vendor/private-credit-financed slice. OpenAI is the digest's highest-leverage node ($20.9B loss on $13.1B revenue; 2030 compute plan already cut $1.4T->$750B).",
+      "Tax ~0 through 2030 (aggregate operating losses); modest 15% applied only in the mature terminal. FCFF = EBITDA - capex (depreciation not double-counted; capex is the real outflow). Valued as an inception (start-2024) project NPV."
+     ],
+     "sensitivities": [
+      {
+       "driver": "Mature ROIC = margin x capital-efficiency (the master lever)",
+       "effect": "BEAR mature ROIC ~7% < 11% WACC => value destroyed regardless of growth. Restore ~48% gross margin (non-bear) and less overbuild (sales-to-capital 0.8) so ROIC>WACC, and NPV swings from -$2.3T to roughly +$0.8-1.2T. This single node flips the verdict."
+      },
+      {
+       "driver": "Chip economic life: 4yr (bear) vs 6yr (booked)",
+       "effect": "Lengthening IT life to 6yr cuts the capital-recovery charge from ~$1.17T to ~$0.90T/yr and drops breakeven revenue ~$0.7T; NPV improves ~+$550-650B. Amazon's 6->5yr move and Epoch's 3.9yr frontier data are why bear holds 4yr."
+      },
+      {
+       "driver": "2030 revenue / demand elasticity",
+       "effect": "Bear $560B run-rate vs base ~$900B (demand durability holds, agentic workloads absorb supply): higher revenue lifts EBITDA and terminal; NPV improves ~+$1.1-1.3T. Still short of breakeven unless margins also hold. Demand elasticity is Thompson's own flagged uncertainty and the widest swing."
+      },
+      {
+       "driver": "WACC: 11% (bear) vs 9%",
+       "effect": "Lower discount + lower capital charge; breakeven falls ~$0.4T and NPV improves ~+$450-550B. At a 9% 'neutral' WACC with 6yr life and 48% margin, breakeven lands ~$2.0T, matching Bain."
+      },
+      {
+       "driver": "Terminal growth 2% (bear) vs continued 8-10% compounding into the 2030s",
+       "effect": "Because bear mature ROIC<WACC, faster growth paradoxically destroys MORE value in the strict model; positive-NPV requires fixing ROIC first, then higher terminal growth adds ~+$0.6-1.5T. The forecast/terminal boundary is where most of the bull case lives - truncating it at 2% is the core bear bet."
+      },
+      {
+       "driver": "Writedown on neocloud/SPV/lab-directed tranche",
+       "effect": "At 55% probability x ~$1.3T tranche, expected impairment ~$0.7T (already largely inside the -$2.3T NPV). An OpenAI restructuring cascading to Oracle/CoreWeave/Stargate would realize it visibly and is the single most likely headline trigger."
+      }
+     ],
+     "reasoning": "VERDICT: Under the full BEAR stack the total US AI buildout does NOT pay off. NPV approx -$2.3T on ~$4.75T of cumulative 2024-2030 capex; IRR ~4% vs an 11% hurdle; pays_off = sign(NPV) = FALSE.\n\nWHY (the arithmetic, not a vibe): This is deliberately the TOTAL-industry question, so there is no vintage to attribute - the entire difficulty is the forward revenue/margin/terminal forecast. The built-out fleet must throw off a capital-recovery charge of ~$1.17T/yr (depreciation on 4yr IT + 15yr infra, PLUS an 11% return) to clear its cost of capital. To generate that at a bear ~46% cash EBITDA margin, sustained AI revenue must reach ~$3.1-3.3T/yr. The bear revenue path tops out near a ~$560B run-rate in 2030 - about 0.18x of breakeven. Equivalently: a $4.75T fleet producing ~$520B of revenue is a sales-to-capital of ~0.11, a catastrophic overbuild; even at 46% EBITDA margin that is a ~5% cash return on capital against 11% required. PV of the 2024-2030 build burn is ~-$2.57T and the bear terminal (2% growth, mature ROIC ~7% < WACC) is only ~$0.27T PV, so the industry recovers roughly a quarter of its invested capital in present-value terms.\n\nWHERE THIS SITS vs THE PANEL: The digest panel put ~56-60% (extremized) on payoff, with a bear voice at 27% implying a ~0.98x (roughly-breakeven) payback. My -$2.3T is MORE bearish than even that voice because I simultaneously impose every bear lever the variant specifies - 4yr silicon life, 32% gross margin, 11% WACC, 2% terminal growth, and disappointing demand - whereas the panel treated each probabilistically and credited contracted scarcity rents, internal-use (Meta/Google ad) returns, 5-6yr lives, and continued post-2030 compounding. Those offsets are exactly what the bear thesis denies. So this is the ~P25-P30 tail made concrete and internally consistent; it is NOT a claim that failure is the modal outcome (base case is a coin flip slightly favoring payoff).\n\nTRIANGULATION with the digest anchors: My ~$3.2T bear breakeven exceeds Cahn (~$1.5T lifetime per year of build) and Bain (~$2T/yr new revenue by 2030). The gap is the bear premium: neutralize the three levers (6yr life, 9% WACC, ~48% margin) and breakeven falls to ~$1.9-2.1T, landing squarely on Bain, and Cahn's 2x-capex-for-margin heuristic annualizes to ~$1.6-1.7T on the same base. So the mainstream anchors are recoverable as the non-bear parameterization of one identity; the ~$1.2T excess prices aggressive depreciation plus circular-financing risk.\n\nWHAT WOULD FLIP IT: The verdict is a bet on post-2030 demand durability and margin. The master node is mature ROIC - restore ~48% gross margin and reduce overbuild so ROIC>WACC and NPV turns positive; the digest's own kill-criteria (2027 AI end-revenue clearing ~$450B with margins intact; hyperscalers keeping >=5yr lives; token demand still outrunning compute stock) are precisely the observations that would move a rational analyst off this bear. Absent those, the strict NPV-positive bar is missed by a wide margin. CAVEAT: out-year capex, the terminal boundary, and the 2030 revenue level are the least-anchored inputs (stated assumptions, flagged in key_assumptions); the CI80 on cumulative capex is ~$4.0-5.7T and the NPV is dominated by the terminal/ROIC assumption, which is why the sensitivities, not the point estimate, carry the message."
+    },
+    {
+     "variant": "base",
+     "wacc_pct": 9.5,
+     "cumulative_capex_2024_2030_usd_bn": 4490,
+     "cumulative_capex_ci80": [
+      3600,
+      5500
+     ],
+     "ai_revenue_2030_runrate_usd_bn": 740,
+     "revenue_cagr_2026_2030_pct": 41,
+     "ai_gross_margin_pct": 43,
+     "terminal_growth_pct": 3.5,
+     "terminal_value_usd_bn": 5920,
+     "npv_usd_bn": 487,
+     "irr_pct": 12.6,
+     "breakeven_revenue_2030_usd_bn": 640,
+     "failure_writedown_prob_pct": 40,
+     "pays_off": true,
+     "key_assumptions": [
+      "Scope: consolidated US AI industry as ONE project. Cumulative US AI-attributable capex 2024-2030 = ~$4.49T (2024 $200B, 2025 $420B, 2026 $700B, then a ~$780-810B plateau 2027-2030 as growth decelerates). This sits between the digest panel's low sizing (outside-view ~$1.05-1.2T for 2024-26) and high sizing (unit-econ ~$1.5T for 2024-26), extended to 2030.",
+      "Revenue = net end-customer US AI revenue (lab + cloud AI + app), net of intercompany double-counting (labs paying clouds nets out). Exit-2026 run-rate ~$185B net (from digest's $180-230B gross). Path compounds but decelerates: exit run-rates 185 (2026) -> 280 -> 400 -> 555 -> 740 (2030). 2026->2030 run-rate CAGR = 41% (recognized-revenue CAGR ~45%).",
+      "'Gross margin 40-45%' is used as the consolidated conversion of end-customer revenue into cash available to service capital (revenue minus power, labor, R&D-ex-compute, SG&A). Converges 40% (2024) -> 45% (2030); blended ~43%. Reconciles with the digest unit-economics math (~$302B capital charge / ~$755B revenue ~= 40%).",
+      "Payoff test is the STRICT Damodaran bar: PV(gross profit) must cover PV(capex) plus a 9.5% WACC return (equivalent to covering depreciation + return on capital). Not a soft revenue>capex test - and note cumulative revenue through 2030 (~$2.0T) is well UNDER cumulative capex (~$4.5T), so the entire payoff rests on the post-2030 tail.",
+      "Blended economic life ~7yr (58% short-lived silicon at 5-6yr books but ~3.9yr frontier life; 42% shell/power/land at ~15yr). Depreciation is implicit in the direct-capex DCF; the short-life risk is expressed as heavy 55% reinvestment in the 2031-2035 transition (fleet replacement) plus the writedown.",
+      "Forecast/terminal boundary stated explicitly: explicit revenue/capex to end-2030, then a TRANSITION stage 2031-2035 (revenue fades 30%->9% to ~$1.73T run-rate, 45% margin, 55% reinvestment) to avoid slapping stable growth on a still-40%-growing business, THEN steady state 2036+ at g=3.5%, 45% margin, 42% reinvestment (ROIC ~8%, just below WACC).",
+      "WACC 9.5% (self-funded incumbent hyperscalers, low leverage, beta ~1.1-1.2). The speculative neocloud/SPV/private-credit slice at 11-13% is handled via a ~$180B PV writedown, not a blended-up discount rate.",
+      "Modest speculative writedown (~$180B PV, ~4-5% of capex): the most speculative lab-directed/SPV builds with weak contracts, consistent with Burry's $176B claim and Amazon's server-life reversal.",
+      "Valued from project inception (end-2023). ~$1.3T of capex (2024-H1 2026) is already sunk as of the July 2026 valuation date; a go-forward-only NPV would look better, but 'does the TOTAL investment pay off' requires inception-to-terminal appraisal."
+     ],
+     "sensitivities": [
+      {
+       "driver": "Post-2030 growth tail (the single dominant swing)",
+       "effect": "If revenue plateaus at ~$740B run-rate with no further compounding, terminal collapses and NPV goes to roughly -$1.5T (fails decisively). If it compounds to ~$2.5T by 2035, NPV rises to ~+$2T. The entire sign of the answer lives here - this is Cahn/Bain's implicit bear point (they do not credit the tail)."
+      },
+      {
+       "driver": "AI gross margin (40 / 43 / 48%)",
+       "effect": "Revenue-driven PV scales ~linearly with margin. Each +5pp on the ~43% base moves NPV by ~+$0.5T; at 40% NPV is near zero, at 48% NPV ~+$1.0T. Margin is hostage to compute costs (Anthropic cut its 2025 GM projection 50->40% on a 23% cost overrun)."
+      },
+      {
+       "driver": "WACC (8.5 / 9.5 / 11%)",
+       "effect": "Terminal-heavy structure makes this potent: each +1pp WACC cuts NPV by ~$0.7-1.0T. At 11% (reflecting the private-credit-funded marginal dollar) NPV turns negative; at 8.5% NPV ~+$1.5T."
+      },
+      {
+       "driver": "Effective chip economic life (7yr blended vs ~5yr)",
+       "effect": "Shortening effective life toward the ~3.9yr frontier reality raises replacement capex in the transition stage; moving blended life to ~5yr lowers NPV by ~$0.4-0.6T and can flip it negative when combined with any margin slippage."
+      },
+      {
+       "driver": "Cumulative capex overrun (component inflation, commitments honored)",
+       "effect": "+$0.5T of capex (e.g., OpenAI honoring more of its $1.25T commitments, HBM price inflation) cuts NPV by ~$0.35T; the 2026-2028 tranche deploys into the consensus ~2028 oversupply window."
+      },
+      {
+       "driver": "OpenAI counterparty solvency (highest-leverage discrete risk)",
+       "effect": "OpenAI anchors much of the take-or-pay backlog protecting merchant compute owners while losing ~$21B/yr and having already cut its 2030 plan ~45%. A restructuring strands speculative builds and removes demand - per the panel this drops payoff odds from ~60% to ~30% and pushes NPV clearly negative."
+      }
+     ],
+     "reasoning": "CLASSIFICATION: The total US AI buildout is a high-growth, negative-earnings 'project' (revenue compounding >100%/yr, consolidated cash flow deeply negative), so I applied a revenue-based DCF with margin convergence, an explicit terminal, and a failure/writedown adjustment. Taking the TOTAL (all capex vs all revenue, net of double-counting) dissolves the vintage-attribution debate and reduces the question to the forward revenue/margin/terminal forecast.\n\nMODEL (BASE, WACC 9.5%): Cumulative US AI-attributable capex 2024-2030 ~= $4.49T (PV $3.00T). Net end-customer revenue exit run-rate 185 (2026) -> 740 (2030), a 41% 2026->2030 CAGR, at a 40%->45% converging margin (~43% blended). PV of explicit 2024-2030 gross profit = +$529B. Because cumulative revenue through 2030 (~$2.0T) is under HALF cumulative capex (~$4.5T), the payoff depends entirely on the tail. I made the forecast/terminal boundary explicit: explicit to end-2030, then a transition stage 2031-2035 (revenue fading 30%->9% to ~$1.73T run-rate, 45% margin, 55% reinvestment to replace the aging fleet) before true steady state 2036+ (g=3.5%, 45% margin, 42% reinvestment). Terminal value = $5.92T at end-2030 (PV $3.14T). Net of a ~$180B modest speculative writedown, NPV = 529 - 3000 + 3138 - 180 = +$487B. IRR ~12.6% (pre-tax), a ~3pp spread over WACC. So the sign of NPV is POSITIVE -> pays_off = true.\n\nBUT IT IS MARGINAL AND FRAGILE. The NPV point estimate is +$0.5T on a ~$3.0T PV capital base (~+16%), yet the confidence band is roughly -$1.5T to +$2.5T, implying P(NPV>0) ~= 60% - matching the digest panel's extremized 56-60%. Breakeven 2030 run-rate is ~$640B (base $740B sits only ~15% above it). The result is a slightly-better-than-even bet whose sign flips on the terminal tail, margin, WACC, chip life, and above all OpenAI's solvency.\n\nTRIANGULATION vs Cahn/Bain: My growth-credited breakeven (~$640B 2030 run-rate) is far below Cahn (~$1.5T/yr) and Bain (~$2T/yr by 2030) for one reason: it credits revenue compounding to ~$1.7-2.0T by mid-2030s. The FLAT, no-growth-credit breakeven - the sustained revenue needed to service $4.5T at 45% margin via the capital-recovery factor - is ~$2.0T/yr, essentially identical to Bain's global figure and the same order as Cahn. Bain's ~$800B '2030 shortfall' is exactly my model's finding that revenue reaches the required ~$2T level ~3-5 years AFTER 2030, not by 2030. So the anchors are not in conflict with my result; they price the same capital but refuse to credit the post-2030 tail, which is the whole ballgame. Cahn's and Bain's stance is the coherent bear case; my BASE is the coherent constructive case; the gap between them is one assumption - whether demand keeps compounding into the 2030s (Thompson's flagged uncertainty, with OpenAI's compute-plan cut the first crack).\n\nBOTTOM LINE: Under BASE assumptions the total US AI buildout clears its cost of capital, but only just, and only because a large terminal tail credits the 2027-2030 capex with post-2030 revenue. Through 2030 alone it is deeply cash-negative. Verdict: conditional pass (~60% odds), thin margin of safety, sign reverses if the growth tail disappoints or OpenAI's contracted backlog restructures."
+    },
+    {
+     "variant": "bull",
+     "wacc_pct": 8.5,
+     "cumulative_capex_2024_2030_usd_bn": 5590,
+     "cumulative_capex_ci80": [
+      4700,
+      6600
+     ],
+     "ai_revenue_2030_runrate_usd_bn": 1000,
+     "revenue_cagr_2026_2030_pct": 45,
+     "ai_gross_margin_pct": 55,
+     "terminal_growth_pct": 5,
+     "terminal_value_usd_bn": 7491,
+     "npv_usd_bn": 907,
+     "irr_pct": 17.9,
+     "breakeven_revenue_2030_usd_bn": 810,
+     "failure_writedown_prob_pct": 15,
+     "pays_off": true,
+     "key_assumptions": [
+      "SCOPE & BOUNDARY: the entire 2024-2030 US AI-attributable buildout is valued as ONE high-growth negative-earnings project (revenue-based DCF, Damodaran special-situations). Valuation date 1 Jan 2024; 2024-25 are in-project outflows, not sunk-excluded. Explicit forecast is year-by-year 2024-2030; a terminal tail is attached at end-2030. The boundary is stark: EVERY year 2024-2030 is FCF-negative because capex exceeds operating cash flow throughout the build, so ~100% of the positive NPV lives in the post-2030 terminal harvest. In 2030 itself, hardware depreciation (~$697B) still exceeds cash operating profit (~$460B).",
+      "CAPEX: cumulative US AI-attributable capex 2024-2030 = $5.59T (2024 $200B, 2025 $430B, 2026 $780B, 2027 $950B, 2028 $1,050B, 2029 $1,080B, 2030 $1,100B). The 2024-26 slice ($1.41T) matches the digest panel's $1.4-1.5T. Mix ~58% short-lived accelerators / ~42% long-lived shells-power-land (cx-17). CI80 [$4.7T, $6.6T] reflects AI-attribution % and memory/HBM price inflation.",
+      "BULL HARDWARE LIFE: accelerators depreciate on an extended ~6yr accounting life AND earn a long post-frontier tail (CoreWeave re-signed H100s at ~95% of prior price, dp-09; 2020 A100s still fully booked), so economic life exceeds the ~3.9yr frontier-training life (dp-10). Terminal maintenance capex only ~12% of revenue.",
+      "REVENUE: US AI-attributable end-customer revenue (recognized, net of intra-industry double-counting): 2024 $45B, 2025 $100B, 2026 $200B, 2027 $330B, 2028 $500B, 2029 $690B, 2030 $884B; 2030 exit run-rate ~$1.0T. 2026->2030 CAGR 45%, decelerating from ~65% to ~28% (below the current >100%/yr lab trajectory). Calibrated to panel: OpenAI+Anthropic combined end-2028 run-rate ~$224B, with total industry (labs + cloud AI + app, net) larger.",
+      "MARGINS HOLD (bull T6): blended cash operating (EBITDA) margin converges from -40% (2024, heavy training-R&D burn) to +52% (2030); terminal 55%. Reflects inference gross margins ~70%+ (Anthropic ~72%, SemiAnalysis mc-09) net of fixed training R&D and S&M; today's reported company-wide GM is ~40-43% (OpenAI 43% rv-03, Anthropic 40% rv-13). The 55% figure is the MATURE blended gross/cash-operating margin available to cover depreciation + return on capital.",
+      "DISCOUNTING: WACC 8.5% (bull, low end of hyperscaler cost of capital, per variant). Terminal growth 5.0% (top of bull 4-5% band; ~nominal GDP; flagged as sitting AT/above the g<=risk-free guardrail, which is why terminal value is knife-edge). Terminal ROIC 22%, tax 15%, terminal FCFF margin 28.2%.",
+      "FAILURE/WRITEDOWN: probability 15% (bull: sold-out demand persists, negligible aggregate impairment; residual OpenAI-counterparty and private-credit fragility). Distress recovery ~55% of going-concern value (hardware retains resale value; power/shells genuinely scarce). Failure-adjusted NPV still +$590B, so pays_off is robust to the haircut."
+     ],
+     "sensitivities": [
+      {
+       "driver": "Terminal growth g (4% / 5% / 5.5%)",
+       "effect": "NPV +$127B / +$907B / +$1,489B. Single most powerful lever: with g near WACC (spread 3.5%), terminal value dominates and is knife-edge."
+      },
+      {
+       "driver": "Strip the post-2030 harvest tail (economic life = accounting life; no terminal)",
+       "effect": "NPV collapses to -$3.32T (the PV of the 2024-2030 build outflows). The ENTIRE positive verdict is the terminal harvest, NOT the build phase. This is the crux of the whole question."
+      },
+      {
+       "driver": "WACC (8.0% / 8.5% / 9.0%)",
+       "effect": "NPV ~ +$1.6T / +$0.91T / +$0.43T. Each +50bp roughly halves NPV via both discounting and the (WACC-g) terminal denominator."
+      },
+      {
+       "driver": "Terminal EBITDA margin (50% / 55% / 60%)",
+       "effect": "NPV +$415B / +$907B / +$1,400B. Direct test of the bull 'margins hold via product integration and token efficiency' thesis (T6)."
+      },
+      {
+       "driver": "Capex overrun +20% (memory/HBM supercycle, power, component inflation)",
+       "effect": "NPV falls to +$142B - nearly wiped out. The program is extremely capex-sensitive; a ~24% overrun flips it negative."
+      },
+      {
+       "driver": "2030 revenue run-rate vs $810B breakeven",
+       "effect": "Bull $1.0T gives a 24% cushion (value/cost 1.24x). Each -$100B of run-rate ~ -$112B NPV (linear via revenue scalar); below ~$810B run-rate NPV turns negative."
+      }
+     ],
+     "reasoning": "BULL VERDICT: the total US AI buildout 2024-2030 pays off, NPV +$907B (value/cost 1.24x, IRR ~17.9% vs 8.5% WACC), but the result is knife-edge and 100% terminal-driven. pays_off = true is the sign of NPV under bull assumptions, as instructed.\n\nFRAMEWORK: This is a Damodaran high-growth/negative-earnings special situation. I value the whole industry as one project: capex outflows each year 2024-2030 against AI revenue x a converging cash-operating margin, plus a terminal tail. Because I take the TOTAL there is no vintage attribution to do (the debate the digest panel split on dissolves).\n\nTHE NUMBERS (valuation date 1 Jan 2024, WACC 8.5%): Cumulative capex $5.59T. Revenue path 2024 $45B -> 2026 $200B -> 2030 $884B recognized (~$1.0T exit run-rate), CAGR 45%. Cash-operating (EBITDA) margin converges -40% -> +52%, terminal 55%. Every explicit year is FCF-negative (EBITDA minus gross capex): -$218B, -$452B, -$796B, -$910B, -$910B, -$804B, -$640B. PV of that build = -$3.32T. Terminal (g 5%, 55% EBITDA margin, ROIC 22%, tax 15% => 28.2% FCFF margin) = FCFF_2031 $262B / (0.085-0.05) = $7.49T at end-2030, PV $4.23T. NPV = -3.32T + 4.23T = +$907B. IRR (treating the WACC-based terminal as a t7 lump) ~17.9%.\n\nTHE BOUNDARY, MADE EXPLICIT (the task's core requirement): the buildout is cash-negative through 2030 because capex is still ramping; in 2030 hardware depreciation (~$697B) alone exceeds cash operating profit (~$460B). So on an accounting basis the industry is STILL losing money at the operating line in 2030 even in the bull case. The payoff is entirely the post-2030 harvest, when capex drops to ~12%-of-revenue maintenance and the installed base throws off cash at 55% margins for a long tail. Strip that tail (set economic life = accounting life, no terminal) and NPV is -$3.32T. The bull case is therefore a bet that (a) demand stays sold-out so capex was not wasted, (b) GPUs keep earning post-frontier (95% price retention, A100s still booked), and (c) pricing power / up-stack products hold margins. All three are the explicit bull inputs.\n\nBREAKEVEN & CAHN/BAIN TRIANGULATION: NPV=0 requires a 2030 run-rate of ~$810B (bull delivers ~$1.0T -> 24% cushion). This is far BELOW Cahn (~$1.5T/yr) and Bain (~$2T by 2030), and the reconciliation is instructive. A STRICT annuity test - recover the full $5.59T + 8.5% return within the blended accounting life, with NO perpetual tail - needs a ~$995B/yr capital charge => ~$1.9T/yr of revenue at a 53% margin, which lands essentially ON Bain's $2T. Cahn's ~$1.5T is a LIFETIME requirement per single vintage-year of capex (the digest flags that TechCrunch mis-stated it as an annual run-rate). So my low breakeven is not a disagreement on arithmetic; the entire gap between $1.9T (strict, truncated at accounting life) and $0.81T (DCF credited with the harvest tail) IS the terminal-tail assumption. The bull thesis is precisely that economic life >> accounting life, so the strict Bain/Cahn bar overstates the true NPV hurdle. Under bull assumptions the buildout clears; under the strict no-tail bar it does not - and that single knife-edge, not the revenue growth rate, is what the whole verdict turns on.\n\nCALIBRATION & HONESTY: the digest panel put the (narrower 2024-26 vintage) payoff at 27%/56%/61%. My bull +$907B corresponds to the optimistic end of that distribution and should be read as one tail, not a consensus. It is fragile: a 20% capex overrun cuts NPV to +$142B; +50bp WACC roughly halves it; g=4% instead of 5% cuts it to +$127B. Failure-adjusted (15% writedown prob, 55% distress recovery) NPV is +$590B - still positive, so the bull conclusion is robust to a modest impairment probability but NOT to the terminal-tail assumption itself. The single highest-leverage real-world node (all three panelists agreed) is OpenAI solvency: it backs a large share of the take-or-pay contracts that shelter the merchant capacity; a restructuring would strip the umbrella and push this toward the bear case."
+    }
+   ],
+   "npv_spread_usd_bn": [
+    -2300,
+    907
+   ]
+  }
+ ],
+ "method_caveats": [
+  "EXTREMIZATION PATHOLOGY: extremizing (factor 1.73) assumes panelists are independent and individually under-confident. When panelists strongly AGREE, it over-sharpens. On T-convergence the three panelists gave 0.12/0.13/0.13 and extremizing produced 0.036 \u2014 below every individual estimate, which is not a defensible aggregate. RULE ADOPTED: report the plain median as the headline figure; carry the extremized value as secondary only. Chapter 08 follows this rule.",
+  "T-price-decline's wide 80% CI (17%-195% of the mid-2026 level) is driven mainly by DEFINITIONAL ambiguity about what counts as the 'flagship' tier in 2028, not by economic uncertainty. Panelists' point estimates were tightly clustered (45/58/66). If this forecast is used in the visualization, the definition should be pinned first.",
+  "Panel size is 3 per target. Spread between panelists is reported as a finding, not smoothed away."
+ ],
+ "headline_rule": "median (not extremized) is the headline probability for binary targets",
+ "reframes": [
+  {
+   "date": "2026-07-23",
+   "from": "T-payback (vintage)",
+   "to": "T-payback-total",
+   "reason": "total-program framing dissolves vintage attribution; NPV-positive at cost of capital"
   }
  ]
 }

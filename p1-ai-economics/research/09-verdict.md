@@ -2,9 +2,10 @@
 title: The Verdict
 project: p1-ai-economics
 chapter: 9
-claims_used: [fx-06, fx-13, mc-08, mc-09, px-01, px-04, px-05, px-06, px-07, px-08, cx-11, cx-13, rv-01, rv-02, rv-03, rv-05, rv-10, rv-12, cd-01, cd-02, cd-04, cd-07, cd-09, cd-12, ce-05, ce-08, sd-05, sd-06, sd-09, sd-13, sd-16, dp-01, dp-02, dp-09, dp-10, dp-14]
-readability: "PASS fk_grade=6.08 reading_ease=71.68 gunning_fog=8.29 smog=9.02"
+claims_used: [fx-06, fx-13, mc-08, mc-09, px-01, px-04, px-05, px-06, px-07, px-08, cx-11, cx-13, cx-17, rv-01, rv-02, rv-03, rv-05, rv-10, rv-12, cd-01, cd-02, cd-04, cd-07, cd-09, cd-12, ce-05, ce-08, sd-05, sd-06, sd-09, sd-13, sd-16, dp-01, dp-02, dp-09, dp-10, dp-14]
+readability: "PASS fk_grade=5.73 reading_ease=75.67 gunning_fog=7.89 smog=8.61"
 status: draft-for-review
+framing: total-program-npv
 ---
 
 # The Verdict
@@ -65,15 +66,33 @@ When OpenAI doubled its rate in April 2026, the measured cost of a like-for-like
 
 The rest of this claim is a forecast, so we leave it open. Thompson expects labs to live on serving skill and on products built above the raw API. One early sign: Anthropic booked $10.9 billion of sales in the June 2026 quarter and its first operating profit, near $559 million, though those numbers come from a fundraising deck, not an audit.[^27]
 
-## The bill
+## Does the whole build pay?
 
-One question remains. Does the building pay for itself?
+One question is left. Does the building pay for itself?
 
-Our forecasting panel's middle estimate is 56% that the 2024-2026 vintage of US AI spending earns back its cost of capital by 2030, and the three views ran from 27% to 61%. That spread is the honest answer.
+We ask it a new way this time. An earlier draft weighed just one batch of spending — the chips bought from 2024 to 2026 — and asked whether that batch alone earned its keep. That framing hid a trap. You had to decide how much of tomorrow's revenue belonged to those chips, and how much to the chips bought later. The two ways of splitting it moved the answer by about 25 points. It was a fight about accounting, not about the world.
 
-The arithmetic shows why. David Cahn of Sequoia puts the lifetime revenue needed to justify one year of building at this scale at about $1.5 trillion.[^28] One year of it, from four firms alone, is $717.5 billion.[^23] Anthropic's stated run-rate was $47 billion in May 2026,[^29] and OpenAI's about $24 billion in March.[^30] Both are growing several times a year. Neither is close.
+So we dropped the slice and took the whole. The question now covers every dollar of US AI building, early and late, from 2024 out past 2030, plus a tail for the years beyond. Does the whole program pay?
 
-The clock matters as much as the sum. Epoch finds a leading chip design serves at the frontier about 3.9 years, on a range of 2.5 to 4.5.[^31] Microsoft writes its servers off over six; Amazon cut part of its fleet to five and named AI as the reason.[^32][^33] But leaving the frontier is not the same as stopping work. CoreWeave re-signed an expiring H100 deal at about 95% of the old price.[^34] What old chips earn after new ones land is the hinge of the payback case.
+Taking the whole is a real simplification, and worth saying plainly. With no single slice to carve out, there is nothing to argue about carving. The scarcity-rent fight simply goes away. What is left is one clean question about the future: how much revenue, at what margin, for how long.
+
+First the bar, because it has a name. The test is net present value, positive, at the cost of capital. In plain words: the build must earn back the money spent on it, and then some. The "and then some" is the point. The same money could have gone into bonds or other firms and earned a return there. So the build cannot just return the cash. It has to beat what the cash would have made elsewhere. That hurdle is the cost of capital, near 9 to 10 cents on the dollar each year for these firms. Clear it and value was made. Miss it and value was burned, even if every chip ran flat out.
+
+Now the sum, built three ways.[^37] The bear case spends $4.75 trillion through 2030, holds the margin at 32 cents on the dollar, and lands $2.3 trillion short. It does not pay. The base case spends $4.49 trillion, holds the margin near 43 cents, and clears the bar by $487 billion. It pays, but barely. The bull case spends $5.59 trillion, holds the margin at 55 cents, and clears it by $907 billion.
+
+Two of the three pay. But read the spread, not the count. From the base case down to the bear is $2.8 trillion. From the base up to the bull is $420 billion. The fall is six times the climb. The middle guess sits close to the edge, with a long drop on one side.
+
+One fact decides the rest. In every case, every year from 2024 to 2030 loses cash: the building always costs more than the selling. Through 2030 the base case sells about $2 trillion of AI against $4.5 trillion spent. The selling never catches the spending inside the decade. So all of the payoff — every dollar of it — waits for the years after 2030. Strip those years out and even the bull case loses $3.3 trillion.[^37]
+
+That narrows the whole question to one thing: whether a grown-up AI business, years from now, earns more than the cost of its money. And that turns on the margin. In the bear case a mature 32-cent margin returns about 7 cents on the dollar, under the bar; the build loses. In the base case 43 cents returns about 8 cents, level with the bar, which is why it clears by so little. In the bull case 55 cents returns far more. A few cents of margin, years out, is the whole game.
+
+The clock under the margin is chip life. Epoch finds a leading chip serves at the frontier about 3.9 years, on a range of 2.5 to 4.5.[^31] Microsoft writes its servers off over six years; Amazon cut part of its fleet to five and named AI as the reason.[^32][^33] A shorter life means a bigger yearly charge to earn back, which lifts the margin the build needs. But old chips still earn after new ones land: CoreWeave re-signed an expiring H100 deal at about 95% of the old price.[^34] How long a chip keeps paying is the hinge under the tail.
+
+Set all this against today. Anthropic's run-rate crossed $47 billion in May 2026; OpenAI's was near $24 billion in March.[^29][^30] Both grow several times a year. Both are still small beside a bill in the trillions. David Cahn of Sequoia puts the revenue needed to justify one year of building at this scale near $1.5 trillion.[^28] The gap is not damning on its own — a young business earns most of its money late — but it is why the whole case rests on the tail.
+
+So we put the whole question to the panel. Will the total US AI build, all vintages plus the tail, earn back its cost of capital? The middle answer was 52%, and the three forecasters landed at 44%, 52% and 53%.[^38] Close to a coin toss, and if anything a shade under. An earlier panel, asked only about the 2024-to-2026 batch, had landed near 56%.[^38]
+
+The reasons rhyme. The payoff hides in years no one can see yet. It rests on a margin that could hold or could be competed away. Two of three models pay, but the one that fails, fails big. And the spending is still climbing, not winding down, so most of the bill is a bet on the future, not a record of the past. That is why the honest answer is a probability, not a yes or a no.
 
 ## What would change the verdict
 
@@ -81,13 +100,13 @@ T2 weakens if a lab discloses serving margins near cost, or if the clouds stop r
 
 T5 is the big one. It resolves for the thesis if flagship prices fall for two quarters while chip rentals soften and the clouds drop the word "constrained." It resolves against if supply lands and prices hold anyway.
 
-The payback case breaks if OpenAI reworks its compute deals. It has announced about $1.25 trillion of them, on a range of $0.8 trillion to $1.65 trillion, so much of the demand protecting this vintage runs through one buyer.[^35]
+The payback verdict turns on two dials, both set after 2030. The first is the mature margin: about five cents either way moves the base case by roughly half a trillion dollars and can flip its sign.[^37] The second is how long revenue keeps growing: a flat market past 2030 drops the base case from plus $487 billion to about minus $1.5 trillion.[^37] One buyer sits under much of it. OpenAI has announced about $1.25 trillion of compute deals,[^35] and if those are torn up and rewritten, the odds fall toward one in three.[^38]
 
 ## What to watch
 
-Four gauges, in the order they move. The chip rental index, which turned up first.[^12] The word "constrained" on cloud earnings calls.[^10] The flagship list price, the thesis in one number.[^21] And OpenAI's compute plan, near $750 billion through 2030, on a range of $480 billion to $900 billion, cut and then raised inside one year.[^36]
+Four gauges, in the order they matter. The mature margin, first: whether the labs hold something near 40 cents on the dollar as rivals crowd in, or give it back.[^27] The flagship list price, the thesis in one number.[^21] The word "constrained" on cloud earnings calls, which says whether the shortage still holds.[^10] And OpenAI's compute plan, near $750 billion through 2030, on a range of $480 billion to $900 billion, cut and then raised inside one year — the single buyer the whole sum leans on.[^36]
 
-Thompson's core point has held up. Marginal costs are back. What we cannot yet say is who ends up paying for the ovens.
+Thompson's core point has held up. Marginal costs are back. What we still cannot say is whether the whole build earns its keep. Because the spending is still climbing, that answer stays a bet on the future, not a fact about the past.
 
 [^1]: "Compute accounts for the majority of expenses of AI companies" — Epoch AI. https://epoch.ai/data-insights/company-spending-breakdown
 [^2]: "OpenAI's financials have leaked" — Fortune, June 16, 2026. https://fortune.com/2026/06/16/openai-financials-leaked-losses-revenue-profit/
@@ -125,3 +144,5 @@ Thompson's core point has held up. Marginal costs are back. What we cannot yet s
 [^34]: "The question everyone in AI is asking: How long before a GPU depreciates?" — CNBC, November 14, 2025. https://www.cnbc.com/2025/11/14/ai-gpu-depreciation-coreweave-nvidia-michael-burry.html
 [^35]: "OpenAI's $1 trillion infrastructure spend" — Tomasz Tunguz, November 2025. https://tomtunguz.com/openai-hardware-spending-2025-2035/
 [^36]: "OpenAI lifts planned compute spending to $750 billion through 2030" — Yahoo Finance, citing The Wall Street Journal, July 22, 2026. https://finance.yahoo.com/technology/ai/articles/openai-lifts-planned-compute-spending-144917731.html
+[^37]: P1 total-program discounted-cash-flow model, three scenarios (bear / base / bull), July 2026. Values the entire 2024-2030 US AI build plus an explicit post-2030 terminal as one project, discounted at a 9-10% cost of capital. Scenario NPVs: bear -$2.3 trillion, base +$487 billion, bull +$907 billion; cumulative capex $4.49-5.59 trillion; mature margins 32% / 43% / 55%.
+[^38]: P1 superforecaster panel, total-program payback question (target T-payback-total), July 2026. Three forecasters; median probability 0.52, spread 0.44-0.53; a restructuring of OpenAI's compute commitments cuts the estimate toward 0.30. The earlier panel on the narrower 2024-2026 vintage question had a median near 0.56.
