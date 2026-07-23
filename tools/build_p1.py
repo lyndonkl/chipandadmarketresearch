@@ -25,7 +25,10 @@ for _s in specs:
         if _v["type"] == "particles":
             continue
         for d in _v["series"]:
-            cid = d.get("claim_id"); c = claims.get(cid)
+            cid = d.get("claim_id")
+            # "derived:xx-nn" marks a figure computed from a claim rather than quoted from it
+            derived_marker = isinstance(cid, str) and cid.startswith("derived:")
+            c = None if derived_marker else claims.get(cid)
             if c is not None:
                 # intervals come from the claim record, never re-authored per chart —
                 # but only when the series quotes the claim rather than deriving from it
@@ -34,7 +37,7 @@ for _s in specs:
                     d["grade"] = c["grade"]; audit["sourced"] += 1
                 else:
                     d["derived_from_claim"] = True; audit["derived"] += 1
-            elif cid:
+            elif cid and not derived_marker:
                 audit["value_mismatch"].append((_s["chapter"], cid, d.get("label")))
             if d.get("grade") == "A" and cid not in KEEP_CI_GRADE_A:
                 if d.pop("low", None) is not None:
@@ -340,7 +343,7 @@ function lineChart(v){
   out+=`<polyline fill="none" stroke="var(--amber)" stroke-width="2.4" points="${s.map((d,i)=>X(xs[i])+','+Y(d.value)).join(' ')}"/>`;
   s.forEach((d,i)=>{out+=`<circle cx="${X(xs[i])}" cy="${Y(d.value)}" r="4" fill="var(--graphite)"/>`;
     out+=`<text class="sub" x="${X(xs[i])}" y="${top+innerH+16}" text-anchor="middle">${esc(d.label)}</text>`;
-    if(d.sublabel)out+=`<text class="sub" x="${X(xs[i])}" y="${top+innerH+28}" text-anchor="middle">${esc(d.sublabel)}</text>`;
+    if(d.sublabel)out+=`<text class="sub" x="${X(xs[i])}" y="${top+innerH+28+(i%2)*12}" text-anchor="middle">${esc(d.sublabel)}</text>`;
     out+=`<text class="val" x="${X(xs[i])}" y="${Y(d.value)-10}" text-anchor="middle">${fmt(d.value)}</text>`;});
   return out+'</svg>';
 }

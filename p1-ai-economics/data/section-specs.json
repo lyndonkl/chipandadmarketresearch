@@ -9,7 +9,7 @@
   "plain_check": "Points use short sentences and define each key term (fixed cost, marginal cost, token). Estimated Flesch-Kincaid grade about 6, under the 10 cap. The source chapter reports fk_grade 4.58; these abstracted points read a touch higher but stay plain.",
   "points": [
    {
-    "text": "T1. Building a model is a fixed cost. You pay it before any sale. Grok 4's final training run cost about $490 million. Anthropic spent an estimated $4.1 billion on research compute in 2025. Serving the model works the other way: that cost grows with each answer. So OpenAI keeps only about 43 cents of each sales dollar, far less than classic software.",
+    "text": "T1. Building a model is a fixed cost. You pay it before any sale. Think of a bakery: the oven is bought once, and the flour goes into every loaf. Grok 4's final training run cost about $490 million. Anthropic spent an estimated $4.1 billion on research compute in 2025. Serving the model \u2014 the industry word is inference \u2014 works the other way. That cost grows with each answer, so it is a marginal cost: what one more answer costs. So OpenAI keeps only about 43 cents of each sales dollar, far less than classic software.",
     "claim_ids": [
      "fx-06",
      "fx-13",
@@ -17,14 +17,14 @@
     ]
    },
    {
-    "text": "T2. Two US labs supply most top answers. Demand runs ahead of supply, so they can charge well above cost. Serving one token costs about 15% of the US list price. That makes the price roughly seven times the cost to serve. SemiAnalysis puts Anthropic's serving margin near 72%.",
+    "text": "T2. Thompson's premise is that top answers come from two US labs. Enterprise buyers back him up. OpenAI and Anthropic took about two-thirds of US business spending on model APIs in 2025, and about three-fifths in 2026 as Google gained. Demand runs ahead of supply, so they can charge well above cost. Serving one token \u2014 a chunk of text, a bit under a word \u2014 costs about 15% of the US list price, the posted rate before discounts. That makes the price roughly seven times the cost to serve. SemiAnalysis puts Anthropic's serving margin, what is left of each sales dollar after the cost of answering, near 72%.",
     "claim_ids": [
      "mc-08",
      "mc-09"
     ]
    },
    {
-    "text": "T3 and T4. China's low prices look like a cost edge. They may not be one. When many firms can host the same open model, price drifts down toward cost. Kimi K3, a new Chinese model, launched at $15 per million tokens, matching a US model. DeepSeek's own day of numbers shows its cheap price still sits far above cost. The big training bill is real; it is just paid by someone else, like a hedge fund or the state.",
+    "text": "T3 and T4. China's low prices look like a cost edge. They may not be one. When many firms can host the same open model \u2014 one whose trained file is published, so anyone can run it \u2014 price drifts down toward cost. Kimi K3, a new Chinese model, launched at $15 per million tokens, matching a US model. DeepSeek's own day of numbers shows its cheap price still sits far above cost. The big training bill is real; it is just paid by someone else, like a hedge fund or the state.",
     "claim_ids": [
      "ce-05",
      "cd-04",
@@ -50,11 +50,11 @@
   "visuals": [
    {
     "type": "particles",
-    "title": "The 7x gap: what a US answer costs versus what it sells for",
-    "note": "Marginal cost to serve is about 15% of the US list price (80% range 6%-48%). So the list price sits roughly 7x above the cost to serve. Thompson calls this the price umbrella. Grade C: a triangulation across SemiAnalysis, Martin Alderson and DeepSeek's own disclosure.",
+    "title": "The umbrella: a US answer sells for roughly 7x what it costs to serve",
+    "note": "Marginal cost to serve is about 15% of the US list price. The 80% range runs from 6% to 48% \u2014 the band the true figure sits in about four times out of five. So the umbrella is roughly 7x, but on this evidence it sits somewhere between about 2x and about 17x. Grade C is our weakest tier: no lab discloses this, so the figure is triangulated from three partial sources, SemiAnalysis, Martin Alderson and DeepSeek's own numbers. The picture draws 15 in 100 as an exact count. It is not exact. Read it as the middle of a wide band, and note that at the top of that band the umbrella is thin enough for a price war to close.",
     "unit": "per $100 of US list price",
     "log": false,
-    "viz_rationale": "The signature object-constancy moment for the whole series. One share estimate (serving cost as a fraction of list) reads best as physical part-of-a-whole: 100 particles with 15 shaded as cost makes the ~7x umbrella felt, not just stated.",
+    "viz_rationale": "The signature object-constancy moment for the whole series. One share estimate, serving cost as a fraction of list, reads best as a physical part of a whole: 100 particles with 15 shaded as cost makes the umbrella felt, not just stated. The cost of that choice is that countable objects look exact, and this is the least certain number in the chapter. The note carries the 6% to 48% band that the picture cannot.",
     "series": [
      {
       "label": "Marginal cost to serve",
@@ -67,9 +67,9 @@
      },
      {
       "label": "US list price",
-      "sublabel": "what OpenAI/Anthropic charge",
+      "sublabel": "the baseline: $100 of list price, true by definition",
       "value": 100,
-      "claim_id": "mc-08",
+      "claim_id": "derived:mc-08",
       "grade": "C",
       "source_title": "Martin Alderson: Are OpenAI and Anthropic Really Losing Money on Inference?",
       "source_url": "https://martinalderson.com/posts/are-openai-and-anthropic-really-losing-money-on-inference/"
@@ -79,8 +79,8 @@
    {
     "type": "bars_ci",
     "title": "The ovens: fixed costs are large, and headlines hide them",
-    "note": "The $5.6M DeepSeek-V3 figure is the final training run only; its paper says it excludes prior research and failed runs. The GPU fleet behind it cost an estimated $1.4B, about 250x the headline. Fixed costs run into the billions and do not move with sales, which is T1 and T4.",
-    "unit": "USD, millions (log scale)",
+    "note": "The $5.6M DeepSeek-V3 figure is the final training run only; its paper says it excludes prior research and failed runs. The GPU fleet behind it cost an estimated $1.4B. That is capex, money sunk into hardware before a single answer is sold, and about 250x the headline. Fixed costs run into the billions and do not move with sales, which is T1 and T4. So a cheap headline training number tells you very little about what it takes to compete.",
+    "unit": "USD, millions (log scale: each step is 10x, not one more)",
     "log": true,
     "viz_rationale": "Four labelled fixed-cost magnitudes spanning $5.6M to $4.1B: ranked horizontal bars on a log axis fit best, and because three of four are estimates, each bar carries an 80% whisker.",
     "series": [
@@ -132,15 +132,15 @@
    },
    {
     "type": "bars_ci",
-    "title": "Of every $100 charged, how much is left after cost?",
-    "note": "All three are shares of revenue, but each deducts a different scope of cost: only the compute to answer (85), all inference infrastructure (72), then everything in cost of revenue (42.6). The descent is the finding \u2014 the wider you draw the cost boundary, the thinner the margin gets. All three stay positive, so US labs charge more than the direct cost of an answer (T2). The deeper reason the numbers differ: the top bar is a MARGINAL cost \u2014 one more answer on a machine that is already busy. The bottom bar is closer to an AVERAGE cost \u2014 the whole rented fleet divided by the answers it actually served, including the machines sitting idle and the free users who pay nothing. A lab rents capacity, not tokens, so most of its cost does not shrink when it sells fewer tokens. That is why a fat margin on one paid token and a thin margin on the whole firm are both true at once.",
-    "unit": "% gross margin",
+    "title": "How much is left after cost: three firms, three cost boundaries, three revenue bases",
+    "note": "Read these as three separate measurements, not one firm at three nested boundaries. The top bar is a share of API list price for an OpenAI and Anthropic blend. The middle bar is Anthropic's margin on the revenue it actually collects: SemiAnalysis puts the blended price customers really pay for Opus 4.7 near $0.99 per million tokens, against a $5/$25 sticker. The bottom bar is OpenAI's whole-company margin on all revenue, about 70% of which is ChatGPT subscriptions rather than metered answers. So the fall in height is not the boundary effect at work. Widen the boundary around Anthropic and you do not arrive at 42.6. The top two 80% ranges also overlap almost fully, 52 to 94 against 55 to 82, so the step from 85 to 72 is not a gap this evidence can settle. All three stay positive, so US labs charge more than the direct cost of an answer (T2). The deeper reason the numbers differ: the top bar is a MARGINAL cost \u2014 one more answer on a machine that is already busy. The bottom bar is closer to an AVERAGE cost \u2014 the whole rented fleet divided by the answers it actually served, including the machines sitting idle and the free users who pay nothing. A lab rents capacity, not tokens, so most of its cost does not shrink when it sells fewer tokens. That is why a fat margin on one paid token and a thin margin on the whole firm are both true at once.",
+    "unit": "% margin; bases differ, see each bar",
     "log": false,
     "viz_rationale": "A few labelled margins compared head to head; each is an uncertain estimate, so ranked bars with 80% whiskers fit the shape.",
     "series": [
      {
       "label": "Implied marginal serving margin",
-      "sublabel": "deducts only the compute to produce the answer",
+      "sublabel": "OpenAI and Anthropic; takes off only the compute to answer; share of API list price",
       "value": 85,
       "low": 52,
       "high": 94,
@@ -151,7 +151,7 @@
      },
      {
       "label": "Anthropic inference gross margin",
-      "sublabel": "deducts all inference infrastructure",
+      "sublabel": "Anthropic; takes off all inference infrastructure; share of the revenue it really collects, near $0.99/M against a $5/$25 sticker",
       "value": 72,
       "low": 55,
       "high": 82,
@@ -162,7 +162,7 @@
      },
      {
       "label": "OpenAI 2025 gross margin",
-      "sublabel": "deducts everything in cost of revenue (company-wide)",
+      "sublabel": "OpenAI; takes off cost of revenue, every direct cost of running the service; share of all company revenue, about 70% ChatGPT subscriptions",
       "value": 42.6,
       "low": 33,
       "high": 47,
@@ -172,12 +172,12 @@
       "source_url": "https://fortune.com/2026/06/16/openai-financials-leaked-losses-revenue-profit/"
      }
     ],
-    "axis_caption": "100% = every dollar charged"
+    "axis_caption": "100% = every dollar in that bar's own base"
    },
    {
     "type": "comparison",
     "title": "Same sticker: a Chinese frontier model prices at the US level",
-    "note": "In July 2026 Moonshot launched Kimi K3 at $15 per million output tokens, before releasing the weights and while it was the only host. That is the exact rate Anthropic charges for Claude Sonnet 4.6. A cost edge would show up as a lower price; here there is none.",
+    "note": "In July 2026 Moonshot launched Kimi K3 at $15 per million output tokens. It was the only host at that point, because it had not yet published the trained file that lets anyone else run the model. That is the exact rate Anthropic charges for Claude Sonnet 4.6, a US mid-tier model rather than the US top tier. A cost edge would show up as a lower price; here there is none. So the cheap Chinese prices seen elsewhere look like the work of many hosts competing, not a lower cost of production.",
     "unit": "$ per million output tokens",
     "log": false,
     "viz_rationale": "Two states of one quantity, a Chinese versus a US output price, placed side by side to show they are equal. That is the classic two-state comparison.",
@@ -196,7 +196,7 @@
      },
      {
       "label": "Claude Sonnet 4.6",
-      "sublabel": "US list price, same rate",
+      "sublabel": "US list price, same rate; a US mid-tier model, not the top tier",
       "value": 15,
       "claim_id": "px-18",
       "grade": "A",
@@ -209,7 +209,7 @@
    {
     "type": "comparison",
     "title": "DeepSeek's own math: one day of serving, cost against revenue",
-    "note": "The gap between the bars is the profit: $562k less $87k is $475k, and $475k over $87k is the 545% cost-profit ratio DeepSeek published \u2014 revenue about 6.5x the chip bill. DeepSeek flagged that real revenue was far lower because much use was free. The implication is the important part: the lab everyone cites as the cheap one would still clear its costs several times over at list. So the low Chinese price is a strategic choice, not a cost floor.",
+    "note": "The gap between the bars is the profit: $562k less $87k is $475k, and $475k over $87k is the 545% cost-profit ratio DeepSeek published \u2014 revenue about 6.5x the chip bill. DeepSeek flagged that real revenue was far lower because much use was free. The implication is the important part: the lab everyone cites as the cheap one would still clear its costs several times over at its posted list price. So the low Chinese price is a strategic choice, not a cost floor.",
     "unit": "USD thousands, one day of V3/R1 serving",
     "log": false,
     "viz_rationale": "Two magnitudes that make a ratio: showing both bars lets the reader see the gap that IS the profit, instead of asserting a percentage they have to reverse-engineer.",
@@ -237,10 +237,10 @@
    {
     "type": "slope",
     "title": "The forecast has not landed: US price moved the wrong way",
-    "note": "T5 predicts that new supply pushes prices down toward cost. Instead OpenAI's top input price quadrupled in a year, from $1.25 to $5.00 per million tokens, the first sustained flagship price rise in its history. See the next chart for the scale of supply now being built.",
+    "note": "T5 predicts that new supply pushes prices down toward cost. Instead OpenAI's top input price quadrupled in a year, from $1.25 to $5.00 per million tokens. That is the price of the text you send in; the text the model writes back is metered and billed on its own. The climb started in December 2025 and ran through two more rises in 2026. What is new is not a high price but a costlier flagship replacing a cheaper one that was then retired. See the next chart for the scale of supply now being built.",
     "unit": "$ per million input tokens",
     "log": false,
-    "viz_rationale": "One price at two points in time; a slope makes both the direction and the 4x size immediate.",
+    "viz_rationale": "Two states of one price in time. The slope encodes direction as physical tilt, so the reader registers up before reading a number. The 4x itself is carried by the two endpoint labels and the note, not by the angle.",
     "series": [
      {
       "label": "GPT-5",
@@ -267,8 +267,8 @@
    {
     "type": "range",
     "title": "The building wave: the supply that is supposed to cut prices",
-    "note": "Microsoft, Amazon, Alphabet and Meta guide to about $717.5 billion of capital spending in 2026, up around 75% on 2025. This is the best single measure of T5's supply catching up; whether it lands and moves prices is the open question.",
-    "unit": "$ billions, 2026 capex (Big-4 hyperscalers)",
+    "note": "Microsoft, Amazon, Alphabet and Meta \u2014 the four firms that own most of the world's rentable computing \u2014 have told investors to expect about $717.5 billion of capital spending in 2026. They spent about $413 billion in 2025, so that is a rise of around 75%. The bar shows only the 2026 figure and its 80% range, so read the 2025 comparison from these words, not from the chart. This is the best single measure of T5's supply catching up. Whether it lands, and whether it moves prices, is still open.",
+    "unit": "$ billions of capital spending in 2026 (Big-4 hyperscalers)",
     "log": false,
     "viz_rationale": "A single guided total expressed as a low-high band; a range bar shows the central figure and the spread of current estimates.",
     "series": [
@@ -288,13 +288,13 @@
    {
     "type": "bars_ci",
     "title": "The token is the wrong unit: price per token misses the real bill",
-    "note": "T6. Anthropic's newer tokenizer counts about 30% more tokens for the same text at an unchanged posted rate. And when OpenAI doubled its per-token price, the measured cost of a like-for-like job rose about 64%, not 100%, because the new model wrote less. Per-token price does not map to cost per finished job.",
-    "unit": "% effect",
+    "note": "T6. Anthropic's newer tokenizer \u2014 the rule that chops text into tokens \u2014 counts about 30% more tokens for the same text at an unchanged posted rate. And when OpenAI doubled its per-token price, the measured cost of a like-for-like job rose about 64%: OpenRouter saw a 49% rise on long prompts and a 92% rise on short ones. The bar's 80% range still reaches 100%, so a full pass-through cannot be ruled out on other work. Either way, per-token price does not map to cost per finished job. Compare bills for the same finished task, not sticker rates.",
+    "unit": "% increase vs the previous model",
     "log": false,
     "viz_rationale": "Two labelled percentage effects on the same theme, each an estimate, so ranked bars with 80% whiskers fit.",
     "series": [
      {
-      "label": "Anthropic tokenizer inflation",
+      "label": "Anthropic's new tokenizer",
       "sublabel": "more tokens for the same words, rate held",
       "value": 30,
       "low": 10,
@@ -315,7 +315,8 @@
       "source_title": "GPT-5.5 Price Increase: What It Actually Costs (OpenRouter)",
       "source_url": "https://openrouter.ai/blog/insights/gpt55-cost-analysis/"
      }
-    ]
+    ],
+    "axis_caption": "100% = twice the previous level"
    }
   ]
  },
@@ -324,7 +325,7 @@
   "id": "02-fixed-costs",
   "title": "What a Frontier Model Costs to Build",
   "eyebrow": "T1 \u00b7 supported",
-  "standfirst": "The training price a lab quotes is the smallest true number it has; the real fixed cost of a frontier lab now runs to several billion dollars a year, before it serves a single customer.",
+  "standfirst": "The training price a lab quotes is the smallest true number it has. A fixed cost is money spent before a single sale. At a frontier lab \u2014 one of the handful building the most capable models \u2014 that fixed cost now runs to several billion dollars a year.",
   "chapter_link": "research/02-fixed-costs.md",
   "plain_check": "Points use short sentences and common words, and explain each term the first time (final run, fixed cost, weights). Estimated Flesch-Kincaid grade about 6 to 7, in line with the chapter's own 6.43. Well under the site's grade-10 limit.",
   "points": [
@@ -337,20 +338,20 @@
     ]
    },
    {
-    "text": "The final run is not what a lab spends. Most of its compute never makes a shipped model. It goes into research and runs that get shelved. OpenAI's 2024 research-and-training compute was about $4.5B. Anthropic's 2025 figure was about $4.1B. At both labs, building the models cost more than serving every paying customer.",
+    "text": "The final run is not what a lab spends. Most of its compute \u2014 the chip time it buys or rents \u2014 never makes a shipped model. It goes into research and runs that get shelved. OpenAI's 2024 research-and-training compute was about $4.5B. Anthropic's 2025 figure was about $4.1B. At both labs, building the models cost more than serving every paying customer.",
     "claim_ids": [
      "fx-12",
      "fx-13"
     ]
    },
    {
-    "text": "In one build, chips and servers take the biggest share, about half to two-thirds. Research staff, counting their stock grants, take about 38 percent. Power is only a few percent. So the bill is mostly machines and people, not electricity.",
+    "text": "This split is for a whole build, not just the final run. It counts chips and staff across the years of development. Chips and servers take the biggest share, about half to two-thirds. Research staff, counting their stock grants, take about 38 percent. Stock grants are shares in the company, handed out as pay. Power is only a few percent. So the bill is mostly machines and people, not electricity.",
     "claim_ids": [
      "fx-16"
     ]
    },
    {
-    "text": "People and data are quiet fixed costs too. OpenAI's stock grants alone ran near $6B a year across about 7,900 staff. Each top lab spends roughly $1B a year paying humans to write and grade answers. Licensed text is smaller money: the biggest publisher deal is $250M over five years, about $50M a year.",
+    "text": "People and data are quiet fixed costs too. OpenAI's stock grants alone ran near $6B in 2025, about $1.5M each across roughly 4,000 staff at the time. Headcount has since reached about 7,900, up from about 2,200 three years earlier, so that cost block is still growing. Each top lab spends roughly $1B a year paying humans to write and grade answers. Licensed text is smaller money: the biggest publisher deal is $250M over five years, about $50M a year.",
     "claim_ids": [
      "fx-17",
      "fx-18",
@@ -359,7 +360,7 @@
     ]
    },
    {
-    "text": "The cheap Chinese numbers get misread. DeepSeek's $5.576M for its V3 model is a real figure, but it is only the final run. It sits on top of a server base of about $1.5B. Anthropic's Claude 3.5 Sonnet, a US mid-size model, cost about the same as DeepSeek's run to train. The famous gap is mostly a gap in what gets counted.",
+    "text": "The cheap Chinese numbers get misread. DeepSeek's $5.576M for its V3 model is a real figure, but it is only the final run. It sits on top of a server base of about $1.5B. Anthropic's Claude 3.5 Sonnet, a US mid-size model, cost about $32.5M for its own run. That is the same order of size, not the billions people assume. The famous gap is mostly a gap in what gets counted.",
     "claim_ids": [
      "fx-08",
      "fx-09",
@@ -372,7 +373,7 @@
    {
     "type": "bars_ci",
     "title": "The headline number: what the final training run cost, model by model",
-    "note": "Each bar is the compute cost of one model's final training run, the number labs quote. Whiskers are the calibrated 80% intervals; they are wide because almost none of these are official (grades: A = disclosed, B = named reporting, C = our estimate). On a straight linear scale DeepSeek-V3 and Kimi K2 are near-invisible slivers next to the US frontier runs. Epoch AI finds these runs have grown about 2.5x a year since 2016 (fx-02, 80% range 2x-3.1x), which is the climb from GPT-4 to Grok 4.",
+    "note": "Each bar is the compute cost \u2014 the chip time \u2014 of one model's final training run, the number labs quote. Two units appear in the sublabels: an H100-hour is one Nvidia training chip running for one hour, and FLOP is the count of arithmetic steps a run performs. A Fermi estimate multiplies the parts out to get the right order of size, not an exact figure. Whiskers are the calibrated 80% intervals: four times in five we expect the true number to sit inside the whisker. They are wide because almost none of these are official (grades: A = disclosed, B = named reporting, C = our estimate). This scale is linear, not log, so each step adds the same amount. That is why DeepSeek-V3 and Kimi K2 are near-invisible slivers next to the US frontier runs. Epoch AI finds these runs have grown about 2.5x a year since 2016 (claim fx-02 in our claim ledger, 80% range 2x to 3.1x), which is the climb from GPT-4 to Grok 4.",
     "unit": "USD millions (final training run compute)",
     "log": false,
     "viz_rationale": "data-to-viz: a few labelled magnitudes, each an uncertain estimate, compared side by side. bars_ci is the ranked-bar form with an uncertainty whisker per bar. Linear (not log) is deliberate so the tiny disclosed Chinese runs read as slivers against the US runs, the chapter's central visual point.",
@@ -470,7 +471,7 @@
    {
     "type": "comparison",
     "title": "The number that matters: building the models costs more than serving everyone",
-    "note": "The famous single run is a rounding error next to the yearly compute bill. Epoch's decompositions of leaked/reported figures show that at both leading US labs, the compute spent on research and training (a fixed cost) exceeds the compute spent serving all paying customers. The inference figures come from the same two Epoch data-insight posts that fx-12 and fx-13 cite (OpenAI: ~$3B training + ~$2B research vs $1.8B inference; Anthropic: $4.1B R&D + $2.7B inference + $2.9B staff of a ~$9.7B total).",
+    "note": "The famous single run is a rounding error next to the yearly compute bill. Epoch AI split leaked and reported figures for the two leading US labs. At both, the compute spent on research and training \u2014 a fixed cost \u2014 is larger than the compute spent serving every paying customer. Epoch's OpenAI parts are about $3B of training compute plus about $2B of research compute; our calibrated figure trims that pair to the $4.5B plotted here. Anthropic's parts are $4.1B of R&D compute, $2.7B of inference and $2.9B of staff, out of about $9.7B of 2025 expenses. The serving bars are estimates too. Epoch says OpenAI's $1.8B leaves out inference that Microsoft ran on its own products, and leaked Microsoft records put 2024 serving nearer $3.8B (claim mc-12). Anthropic's $2.7B is worked back from a reported 40% gross margin. So the OpenAI gap is roughly 1.2x to 2.5x, not a firm 2.5x. The pair is also a 2024 snapshot: by 2025 OpenAI's serving compute alone was near $7.5B (claim rv-04), with no matching 2025 building figure yet. Read the direction, not the multiple: at both labs, building cost more than serving.",
     "unit": "USD billions per year (compute only)",
     "viz_rationale": "data-to-viz: comparing two paired states (fixed R&D compute vs variable inference compute) within each of two labs. A grouped comparison makes the within-lab 'building > serving' relationship legible at a glance, which is the load-bearing point for thesis T1.",
     "series": [
@@ -518,10 +519,10 @@
    },
    {
     "type": "stack",
-    "title": "Where the money goes in one model build",
-    "note": "Epoch's breakdown of a frontier model's development cost. Only the R&D-staff share (38%, 80% range 26-52%) is the calibrated claim fx-16; the chips-and-servers wedge (Epoch range 47-67%) and the power wedge (2-6%) are the other components of that same Epoch split, so all three carry the same source. Midpoints shown. Note: this split excludes data and licensing, which sit outside Epoch's model.",
-    "unit": "% of one model's development cost",
-    "viz_rationale": "data-to-viz: part-to-whole of a single total (one build = 100%). A stack shows that the fixed cost is dominated by two parts (machines + people) with energy a sliver, correcting the common 'it's all the electricity' intuition.",
+    "title": "Where the money goes in one model build (models trained 2020-23)",
+    "note": "Epoch's breakdown of a frontier model's total development cost: chips spread over the whole development period, plus research staff and power. This is a bigger base than the final-run figure in the first chart. For GPT-4 the final run was about $58M of compute, while the full development cost Epoch models was roughly $125M to $140M in 2023 dollars. Do not apply these shares to the $58M bar; that number contains no staff at all. Only the R&D-staff share (38%, 80% range 26-52%) is the calibrated claim fx-16; the chips-and-servers wedge (Epoch range 47-67%) and the power wedge (2-6%) are the other parts of the same Epoch split, so all three carry one source. The chips and power wedges are the midpoints of those ranges. The staff wedge is not: it shows fx-16's calibrated central of 38%, which sits just under the midpoint of Epoch's 29-49% staff range. That is why the three wedges add to 99, not 100. The missing point is that swap, not a fourth cost. Data and licensing are excluded because they sit outside Epoch's cost model. The split covers models trained 2020 to 2023, so it predates the shift of spend into post-training and headcount that this chapter describes. Read it as the shape of a build, not a current price.",
+    "unit": "% of one model's total development cost",
+    "viz_rationale": "data-to-viz: part-to-whole of one total. The whole here is a complete model build, not the final run alone. A stack shows that the fixed cost is dominated by two parts (machines + people) with energy a sliver, correcting the common 'it's all the electricity' intuition.",
     "series": [
      {
       "label": "Chips & servers",
@@ -532,7 +533,7 @@
       "source_url": "https://epoch.ai/blog/how-much-does-it-cost-to-train-frontier-ai-models"
      },
      {
-      "label": "Research staff (incl. equity)",
+      "label": "Research staff (incl. stock grants)",
       "value": 38,
       "grade": "B",
       "claim_id": "fx-16",
@@ -552,7 +553,7 @@
    {
     "type": "bars",
     "title": "The fixed costs that are not the famous run",
-    "note": "The recurring yearly fixed costs that the headline training number leaves out, set against GPT-4's famous final run for scale (log axis). OpenAI's stock grants alone (~$6B/yr across ~7,900 staff, up from ~2,200 three years earlier, fx-18) are roughly 100x the single training run everyone quotes. Human-data spend (~$1B/yr per top lab) is a rough Fermi estimate built from vendor revenue, grade C. Licensed text is real but smaller: News Corp-OpenAI is the largest disclosed deal at $250M over 5 years, about $50M/yr.",
+    "note": "The recurring yearly fixed costs that the headline training number leaves out, set against GPT-4's famous final run for scale. This is a log axis: each step to the right multiplies by ten. So bar length shows order of size, not amount. OpenAI's stock grants alone ran near $6B in calendar 2025. That was about $1.5M each across roughly 4,000 staff at the time. Headcount reached about 7,900 by early 2026, up from about 2,200 three years earlier (fx-18). The equity block alone is roughly 100x the single training run everyone quotes. Human-data spend (~$1B/yr per top lab) is a rough Fermi estimate built from vendor revenue, grade C. Licensed text is real but smaller: News Corp-OpenAI is the largest disclosed deal at $250M over 5 years, about $50M/yr. These costs come back every year. They, not the one-off run, are what a lab has to earn back.",
     "unit": "USD millions per year (log)",
     "log": true,
     "viz_rationale": "data-to-viz: a few labelled magnitudes of very different size compared on one axis. Ranked bars on a log scale keep the $50M licensing bar and the $6,000M stock-comp bar both readable, making the 'people dwarf the famous run' contrast visible in one frame.",
@@ -604,7 +605,7 @@
    {
     "type": "bars",
     "title": "The China gap is a counting gap",
-    "note": "The disclosed cheap Chinese numbers are real line items, but they are only final runs (log axis). DeepSeek-V3's $5.576M run, and the $294K reasoning add-on that made R1, sit on top of a server base of about $1.5B that DeepSeek's hedge-fund parent built first. Meanwhile Anthropic's Claude 3.5 Sonnet, a US mid-size model, cost about $32.5M to train, the same order as DeepSeek's run. Read the same line item on both sides and the famous gap mostly disappears; the difference is the ~$1.5B base that never gets counted.",
+    "note": "The disclosed cheap Chinese numbers are real line items, but they are only final runs (log axis). DeepSeek-V3's $5.576M run, and the $294K reasoning add-on that made R1, sit on top of a server base of about $1.5B that DeepSeek's hedge-fund parent built first. That add-on was a reinforcement-learning step: extra training that rewards good answers. Meanwhile Anthropic's Claude 3.5 Sonnet, a US mid-size model, cost about $32.5M to train, the same order as DeepSeek's run. Read the same line item on both sides and the famous gap mostly disappears; the difference is the ~$1.5B base that never gets counted. The two runs are about 6x apart. That is roughly on-trend for models about 7 to 10 months apart in age. The base underneath is about 270x DeepSeek's run, and it is the number that never appears in the comparison.",
     "unit": "USD millions (log)",
     "log": true,
     "viz_rationale": "data-to-viz: labelled magnitudes spanning nearly four orders of magnitude, so log-scaled ranked bars are the honest form. The chart shows the two disclosed runs as slivers under the $1.5B base and reveals that the US mid-size run and the Chinese run are the same order, the chapter's key reframe.",
@@ -644,7 +645,7 @@
      },
      {
       "label": "DeepSeek-R1 reasoning add-on",
-      "sublabel": "RL phase on top of V3",
+      "sublabel": "reinforcement-learning phase on top of V3",
       "value": 0.294,
       "low": 0.25,
       "high": 3,
@@ -725,7 +726,7 @@
     "title": "An output token: what it sells for vs what it costs to serve",
     "unit": "$ per million tokens",
     "log": true,
-    "note": "The gap in one picture. Grade-A list prices are exact posted numbers, so they carry no whisker; the three cost estimates do, because they are estimates. Headline values for px-12 and px-13 are the input prices ($10 and $5 per million); the output prices shown here come from the same official posted prices (Anthropic Fable 5 / Mythos 5 $10/$50; OpenAI GPT-5.6 Sol $5/$30). Almost none of the cost is electricity: power is about 6% of marginal serving cost, band 3-12% (mc-17, grade C; Epoch AI, Inference economics of language models, https://epoch.ai/publications/inference-economics-of-language-models, set against the SemiAnalysis H100 rental index). The rest is the chip, bought or rented and spread over the hours it runs.",
+    "note": "The gap in one picture. Grade-A list prices are exact posted numbers, so they carry no whisker. The three cost estimates do carry one. The whisker is the thin line that shows how wide an estimate is. Headline values for px-12 and px-13 are the input prices ($10 and $5 per million). The output prices shown here come from the same official posted prices (Anthropic Fable 5 / Mythos 5 $10/$50; OpenAI GPT-5.6 Sol $5/$30). The $3 bar is a napkin model of a mixture-of-experts design, meaning only part of the model runs on each answer. Two cost bars need a unit caveat. The gpt-oss-120B figure is counted per total token, so it covers the text sent in as well as the text written back. On the output-token basis the price bars use, it is about $0.54. Read it as roughly half the like-for-like cost. The DeepSeek figure puts all chip cost on the output tokens, which is what makes it comparable with an output price at all. Almost none of the cost is electricity: power is about 6% of marginal serving cost, band 3-12% (mc-17, grade C; Epoch AI, Inference economics of language models, https://epoch.ai/publications/inference-economics-of-language-models, set against the SemiAnalysis H100 rental index). The rest is the chip, bought or rented and spread over the hours it runs.",
     "viz_rationale": "Five labelled magnitudes on one axis, three of them uncertain, so bars_ci: exact prices render as clean bars, estimated costs as bars with 80% whiskers. Log scale because the values span more than two decades ($0.26 to $50) and a linear axis would crush every cost bar to nothing. Ranked descending so the price-cost gap reads as vertical distance rather than as arithmetic. This is the derivation behind the headline ratio, shown before the ratio itself.",
     "series": [
      {
@@ -748,7 +749,7 @@
      },
      {
       "label": "US frontier model \u2014 serving cost",
-      "sublabel": "napkin model, frontier MoE on rented H100s",
+      "sublabel": "napkin model, frontier mixture-of-experts, rented H100s",
       "value": 3,
       "low": 1,
       "high": 7,
@@ -770,7 +771,7 @@
      },
      {
       "label": "gpt-oss-120B on H100 \u2014 serving cost",
-      "sublabel": "measured benchmark, production-style batching",
+      "sublabel": "measured benchmark, per total token (1,000 in / 1,000 out)",
       "value": 0.26,
       "low": 0.1,
       "high": 0.6,
@@ -785,11 +786,11 @@
     "type": "range",
     "title": "Cash cost of serving, as a share of the US list price",
     "unit": "% of list price",
-    "note": "The central estimate is 15%, but the honest answer is a band: 6% to 48%. Triangulated from three independent reads that do not share a method. SemiAnalysis works back from a 75% API gross margin, implying cost is 25% of list. Alderson's bottom-up model implies 5-20%. DeepSeek's own disclosed cost was 15.5% of its own (much lower) list price. Wide band, but every road points the same direction: price sits well above cash cost.",
+    "note": "The central estimate is 15%, but the honest answer is a band: 6% to 48%. Triangulated from three independent reads that do not share a method. SemiAnalysis works back from a 75% gross margin on API sales. API here means the pay-per-token channel developers buy through, not the monthly consumer subscription. A 75% margin implies cost is 25% of list. Alderson's bottom-up model implies 5-20%. DeepSeek's own disclosed cost was 15.5% of its own (much lower) list price. Wide band, but every road points the same way. Even the pessimistic 48% is under half of list price, so price sits well above cash cost.",
     "viz_rationale": "One quantity whose truthful form is an interval, not a point. range makes the 6-48% spread the object on screen and places 15% as a marker inside it, so the reader cannot mistake a grade-C triangulation for a measured fact. A single bar would have implied a precision this number does not have.",
     "series": [
      {
-      "label": "Marginal serving cost \u00f7 API list price",
+      "label": "Marginal serving cost \u00f7 list price",
       "sublabel": "US flagship models, 2025-H2 to 2026-H1",
       "value": 15,
       "low": 6,
@@ -806,7 +807,7 @@
     "title": "The gap: list price divided by serving cost",
     "unit": "\u00d7 (list price \u00f7 serving cost)",
     "note": "This is the previous number turned inside out. If cash cost is 15% of list, then price is 1 \u00f7 0.15 = 6.7 times cost. Run the same arithmetic on the ends of the band: at 48% the gap is 2.1\u00d7, at 6% it is 16.7\u00d7. So the chapter's \"about seven times\" is not a separate finding, it is mc-08 read the other way round. The gap is pricing power, and pricing power here is scarcity, not greed. Demand for top-grade models runs ahead of the chips that serve them, and buyers have few places to go. Note too that the lab is the last link in a chain: the chip maker takes a margin, then the cloud takes one, and only then does the lab set its price.",
-    "viz_rationale": "Signature object-constancy moment, one of only three in the whole piece. The same mc-08 mass from the previous visual re-forms into a multiple, so the reader physically sees 15% become 7\u00d7. Particles let roughly seven units of price separate from one unit of cost and hold that shape while the band breathes between 2.1\u00d7 and 16.7\u00d7. No ordinary chart type can carry one number across two framings without the reader losing the thread.",
+    "viz_rationale": "Signature object-constancy moment, and the piece uses only a few of them. The same mc-08 mass from the previous visual re-forms as a count: 15 units of serving cost stand against 100 units of list price, so the reader watches 15% become about seven times over. No ordinary chart type can carry one number across two framings without the reader losing the thread. The multiple is grade C, so read 6.7\u00d7 as the middle of a wide band, not as a measured fact.",
     "series": [
      {
       "label": "Price \u00f7 cost",
@@ -826,12 +827,12 @@
     "title": "Hold quality fixed and the price falls off a cliff",
     "unit": "$ per million tokens",
     "log": true,
-    "note": "Cheapest model clearing GPT-3-grade quality (MMLU ~42): $60 per million in Nov 2021, $0.06 in Nov 2024. A thousand-fold fall in three years. Epoch's wider series puts the cross-task median at about 36\u00d7 per year, with the spread running 8\u00d7 to 200\u00d7 depending on the task (px-01, grade B, 80% CI 8-200: \"LLM inference prices have fallen rapidly but unequally across tasks\", Epoch AI, 2025-03, https://epoch.ai/data-insights/llm-inference-price-trends). Only the two endpoints the claim certifies are plotted; the path between them is not in the data layer and is not invented here.",
-    "viz_rationale": "An ordered trend over time, which is what line is for. Log y is mandatory rather than decorative: the fall spans three decades, and on a linear axis everything after the first year would sit flat on the baseline, so the reader would see a cliff followed by nothing. Two certified endpoints only, with the intermediate path left undrawn rather than interpolated.",
+    "note": "Cheapest model clearing GPT-3-grade quality. That grade is MMLU ~42, the standard multi-subject exam score used to rank models. The price was $60 per million in Nov 2021 and $0.06 in Nov 2024. A thousand-fold fall in three years. Epoch's wider series puts the cross-task median at about 36\u00d7 per year, with the spread running 8\u00d7 to 200\u00d7 depending on the task (px-01, grade B, 80% range 8-200: \"LLM inference prices have fallen rapidly but unequally across tasks\", Epoch AI, 2025-03, https://epoch.ai/data-insights/llm-inference-price-trends). Only the two endpoints the claim certifies are plotted. The segment between them carries the claim's own average rate of about 10\u00d7 a year, not measured points in between.",
+    "viz_rationale": "An ordered trend over time, which is what a line is for. The log y axis is not decoration. The fall spans three decades. On a plain axis everything after the first year would sit flat on the floor, so the reader would see a cliff and then nothing. Two certified endpoints, with no made-up points in between. The segment that joins them carries the claim's own rate, about 10\u00d7 a year.",
     "series": [
      {
-      "label": "GPT-3-grade text (MMLU ~42)",
-      "sublabel": "Nov 2021",
+      "label": "Nov 2021",
+      "sublabel": "GPT-3 grade (MMLU ~42)",
       "x": 2021.9,
       "value": 60,
       "claim_id": "px-02",
@@ -840,8 +841,8 @@
       "source_url": "https://a16z.com/llmflation-llm-inference-cost/"
      },
      {
-      "label": "GPT-3-grade text (MMLU ~42)",
-      "sublabel": "Nov 2024",
+      "label": "Nov 2024",
+      "sublabel": "same quality, 1,000\u00d7 cheaper",
       "x": 2024.9,
       "value": 0.06,
       "claim_id": "px-02",
@@ -855,8 +856,8 @@
     "type": "comparison",
     "title": "Same model, much lower price",
     "unit": "% price cut",
-    "note": "The sharpest evidence in the chapter. OpenAI on the record at the o3 cut: \"We optimized our inference stack... Same exact model \u2014 just cheaper.\" ARC Prize independently confirmed performance was unchanged. Against the cheaper tier some buyers already held, the o3 cut was nearer 60%, which is why the 80% figure carries a 60-80% band. Anthropic's Opus-tier cut five months later was exact and undisputed: $15/$75 to $5/$25 per million, two thirds off in both directions. A cut this deep on an unchanged model means either the old price sat far above cost, or cost fell fivefold in weeks. Both readings say price and cost are not tied together.",
-    "viz_rationale": "Each row is two states of one thing (price before, price after, model held constant), which is precisely the comparison shape. Deliberately not ranked bars: the question is not which cut was larger but that both happened with no new model, and ranking would invite a meaningless comparison between two unrelated firms.",
+    "note": "The sharpest evidence in the chapter. OpenAI on the record at the o3 cut: \"We optimized our inference stack... Same exact model \u2014 just cheaper.\" Inference is the industry word for serving. ARC Prize independently confirmed performance was unchanged. Against the cheaper tier some buyers already held, the o3 cut was nearer 60%, which is why the 80% figure carries a 60-80% band. Anthropic's Opus-tier cut five months later was exact and undisputed: $15/$75 to $5/$25 per million, two thirds off in both directions. A cut this deep on an unchanged model means either the old price sat far above cost, or cost fell fivefold in weeks. Both readings say price and cost are not tied together.",
+    "viz_rationale": "Two derived numbers of the same kind, on one shared axis running 0 to 100%: how deep each cut was. The before and after prices are certified exactly and sit in the row captions. px-06 went $10/$40 down to $2/$8. px-07 went $15/$75 down to $5/$25. Those prices are not the comparable quantity. The two firms priced at different levels, so only the depth of the cut is like-for-like. Rows run in date order, June then November. The falling lengths are dates, not a ranking. The o3 whisker runs 60-80% and overlaps Anthropic's 66.7%. Against the cheaper tier some buyers already held, the o3 cut was nearer 60%. The point is that both cuts happened with no new model, not that one firm cut more.",
     "series": [
      {
       "label": "OpenAI o3",
@@ -880,15 +881,16 @@
       "source_title": "Anthropic official pricing docs",
       "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
      }
-    ]
+    ],
+    "axis_caption": "100% = the price fell to zero"
    },
    {
     "type": "line",
-    "title": "Flagship price: 18\u00d7 down, then 4\u00d7 back up",
+    "title": "Flagship input price: 24\u00d7 down, then 4\u00d7 back up",
     "unit": "$ per million input tokens",
     "log": true,
-    "note": "The same tier tracked through its fall and its reversal. Down 18\u00d7 from $30 (Mar 2023) to $1.25 (Aug 2025) \u2014 px-03, grade A, 80% CI 6-28\u00d7, via GPT-4 Turbo $10, GPT-4o $5 then $2.50, GPT-4.1 $2, GPT-5 $1.25. Note that output prices fell far less over the same stretch: only about 6\u00d7, $60 to $10. Then up 4\u00d7 off the trough to $5 (px-04, grade A, 80% CI 2-4.5\u00d7, official posted price; confirmed by px-13, GPT-5.6 Sol at $5/M input and $30/M output as of 2026-07-17). Corroborating index: \"AI Price Index\", TokenCost, 2026, https://tokencost.app/blog/ai-price-index",
-    "viz_rationale": "The entire argument is the shape \u2014 a long fall with a turning point \u2014 and only a line renders a turning point. Log y so that an 18\u00d7 fall and a 4\u00d7 rise are both legible as slopes; on a linear axis the 2023 level would dominate and the 2026 reversal, the newest and most surprising part, would be invisible. Three claim-certified levels, no interpolated points.",
+    "note": "The same tier tracked through its fall and its reversal. The posted input price went from $30 in Mar 2023 to $1.25 in Aug 2025, a fall of 24\u00d7, via GPT-4 Turbo $10, GPT-4o $5 then $2.50, GPT-4.1 $2, GPT-5 $1.25. The claim behind this line carries the fall at 18\u00d7 rather than 24\u00d7 (px-03, grade A, 80% range 6-28\u00d7), because it adjusts for two things this line does not show. Output prices fell only about 6\u00d7 over the same stretch, $60 to $10. And the very top tier fell far less than this one. Then price rose 4\u00d7 off the low, to $5 (px-04, grade A, 80% range 2-4.5\u00d7, official posted price; confirmed by px-13, GPT-5.6 Sol at $5/M input and $30/M output as of 2026-07-17). Corroborating index: \"AI Price Index\", TokenCost, 2026, https://tokencost.app/blog/ai-price-index",
+    "viz_rationale": "The whole argument is the shape: a long fall with a turning point. Only a line renders a turning point. The y axis is log so that a 24\u00d7 fall and a 4\u00d7 rise both read as slopes. On a plain axis the 2023 level would swamp the rest, and the 2026 reversal, the newest and most surprising part, would be invisible. Three levels, each certified by a claim, with no made-up points in between.",
     "series": [
      {
       "label": "GPT-4",
@@ -902,7 +904,7 @@
      },
      {
       "label": "GPT-5 (trough)",
-      "sublabel": "Aug 2025 \u2014 18\u00d7 below 2023",
+      "sublabel": "Aug 2025 \u2014 24\u00d7 below the 2023 posted input price",
       "x": 2025.6,
       "value": 1.25,
       "claim_id": "px-03",
@@ -924,14 +926,14 @@
    },
    {
     "type": "slope",
-    "title": "Even two-year-old chips got dearer",
+    "title": "Even two-year-old chips got dearer \u2014 H100, one-year contract rental",
     "unit": "$ per GPU-hour",
-    "note": "The H100 one-year contract rental index that sits underneath most serving-cost estimates in this chapter. $1.70/hr in Oct 2025, about $2.45 by 2026, with an 80% band of $2.15-2.80 on the current level. This is the supply-side reading of the price reversal: when the rent on a two-year-old chip rises rather than falls, supply has not caught up with demand. It is also the denominator behind mc-17 \u2014 at $0.06-0.17/GPU-hour for power against a ~$2.35/hr rental, electricity is only 2.6-7.1% of marginal serving cost.",
+    "note": "The H100 one-year contract rental index that sits underneath most serving-cost estimates in this chapter. A GPU-hour is the rent on one chip for one hour. It was $1.70/hr in Oct 2025 and about $2.45 by 2026, with an 80% range of $2.15-2.80 on the current level. This is the supply-side reading of the price reversal: when the rent on a two-year-old chip rises rather than falls, supply has not caught up with demand. It is also the denominator behind mc-17. Power costs $0.06-0.17 per GPU-hour, so against this $2.45 rental electricity is roughly 3-7% of marginal serving cost. That is the rented-fleet corner of mc-17's 3-12% band. The share climbs toward the top of that band on owned, largely written-down fleets, where the capital charge in the denominator is smaller.",
     "viz_rationale": "Two states of one quantity separated in time \u2014 the canonical slope case. Direction is the message, and slope encodes direction as physical tilt, so the reader registers \"up\" before reading either number. Bars would have made this a magnitude comparison, which is not the point; a many-point line would have implied a smooth measured path that does not exist in the claim.",
     "series": [
      {
-      "label": "H100 SXM, 1-year contract rental",
-      "sublabel": "Oct 2025",
+      "label": "Oct 2025",
+      "sublabel": "reported level, SemiAnalysis index",
       "value": 1.7,
       "claim_id": "mc-03",
       "grade": "B",
@@ -939,8 +941,8 @@
       "source_url": "https://newsletter.semianalysis.com/p/the-great-gpu-shortage-rental-capacity"
      },
      {
-      "label": "H100 SXM, 1-year contract rental",
-      "sublabel": "2026 (current index)",
+      "label": "2026 (current index)",
+      "sublabel": "index estimate, 80% range $2.15-$2.80",
       "value": 2.45,
       "low": 2.15,
       "high": 2.8,
@@ -980,17 +982,18 @@
       "source_title": "Anthropic official pricing docs (tokenizer note)",
       "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
      }
-    ]
+    ],
+    "axis_caption": "100% = the bill doubled"
    },
    {
     "type": "bars_ci",
     "title": "Fat margin on the token, thin margin on the firm",
     "unit": "% gross margin",
-    "note": "Both things are true at once. A paid token earns a fat margin; the company as a whole does not. Anthropic's inference-infrastructure margin is put at 72%, up from 38% a year earlier, per SemiAnalysis. OpenAI's whole-company adjusted gross margin for FY2025 is nearer 42%, and public figures run 29-45% depending on which costs you count. Three things sit between the two bars: free users who burn chips and pay nothing, spare machines bought in a hurry, and idle time \u2014 effective fleet utilization is put near 40%, band 25-65% (mc-18, grade C; DigitalOcean, Token Economics Across Traffic Profiles on Dedicated GPUs, https://www.digitalocean.com/community/tutorials/llm-inference-cost). Scale of the bill: OpenAI's Azure inference spend was $8.67bn across the first nine months of 2025 alone (mc-12, grade B, 80% CI $7.9-9.4bn; Ed Zitron, Where's Your Ed At, https://www.wheresyoured.at/oai_docs/). Training is not in this line at all \u2014 it books as research.",
+    "note": "Both things are true at once. A paid token earns a fat margin; the company as a whole does not. Anthropic's margin on serving infrastructure alone is put at 72%, up from 38% a year earlier, per SemiAnalysis. OpenAI's whole-company adjusted gross margin for FY2025 is nearer 42%. Public figures run 29-45%, depending on which costs you count. Three things sit between the two bars. Free users burn chips and pay nothing. Spare machines get bought in a hurry. And chips sit idle: the serving fleet is only about 40% busy, band 25-65% (mc-18, grade C; DigitalOcean, Token Economics Across Traffic Profiles on Dedicated GPUs, https://www.digitalocean.com/community/tutorials/llm-inference-cost). Scale of the bill: OpenAI's Azure serving spend was $8.67bn across the first nine months of 2025 alone (mc-12, grade B, 80% range $7.9-9.4bn; Ed Zitron, Where's Your Ed At, https://www.wheresyoured.at/oai_docs/). Training is not counted in either margin. It is booked as research spending, not as a cost of serving.",
     "viz_rationale": "Two magnitudes in the same unit, both with published ranges, so bars_ci. The whiskers are the whole reason for the type rather than plain bars: the OpenAI figure moves between 29% and 45% purely on accounting choices, and a bare bar would present a definitional argument as a measurement. Deliberately not a slope, because these are two different companies at two different scopes, not one quantity moving over time.",
     "series": [
      {
-      "label": "Anthropic \u2014 inference infrastructure",
+      "label": "Anthropic \u2014 inference (serving) infrastructure",
       "sublabel": "2026; up from 38% a year earlier",
       "value": 72,
       "low": 55,
@@ -1011,14 +1014,15 @@
       "source_title": "BigGo Finance: OpenAI and Anthropic Miss Gross Margin Targets as Inference Costs Skyrocket (citing The Information)",
       "source_url": "https://finance.biggo.com/news/mRiPlZwBTwP6zY3HRxp-"
      }
-    ]
+    ],
+    "axis_caption": "100% = every dollar charged"
    },
    {
     "type": "bars_ci",
     "title": "Where price does track cost: open weights",
     "unit": "$ per million tokens (list price)",
     "log": true,
-    "note": "The contrast case. Anyone can host a model whose weights are public, so hosts compete on cost alone and price falls to it: $0.065 per million blended sits inside the measured cost band from the first visual. DeepSeek lists its own model at $0.42 per million output. These are marginal-cost prices, set by whichever host will take the thinnest slice. But do not read this as a Chinese cost edge \u2014 Kimi K3, Moonshot's newest flagship, lists at $3/$15, identical to Claude Sonnet and only about 2\u00d7 below OpenAI's Sol. The gap is not about cheaper chips in China; it is about who can be undercut. Unit caveat: mc-14 is a blended input/output price, the other two are output-only, so read the order of magnitude as the finding and the exact ratios as indicative.",
+    "note": "The contrast case. Anyone can host a model whose weights are public, so hosts compete on cost alone and price falls to it. At $0.065 per million, blended across input and output, the cheapest host sits below every cost bar in the first visual. But those bars are H100 numbers. The same benchmark measures $0.04 per million for this model on newer B200 chips. So the cheapest host still charges more than serving costs on current chips, not less. DeepSeek lists its own model at $0.42 per million output. These are marginal-cost prices, set by whichever host will take the thinnest slice. But do not read this as a Chinese cost edge \u2014 Kimi K3, Moonshot's newest flagship, lists at $3/$15, identical to Claude Sonnet and only about 2\u00d7 below OpenAI's Sol. The gap is not about cheaper chips in China; it is about who can be undercut. Unit caveat: mc-14 averages the input and output price together, the other two bars are output-only, and the first visual's cost bars are counted per total token. Read the order of magnitude as the finding and the exact ratios as indicative.",
     "viz_rationale": "Three labelled prices spanning more than 200\u00d7, so bars on a log axis; bars_ci because only one of the three carries genuine uncertainty. That asymmetry is itself information \u2014 the two official posted prices are grade-A posted numbers and correctly show no whisker, while the market-cheapest host is a survey estimate and shows its band. Ranked so the 0.065-to-15 spread reads as distance.",
     "series": [
      {
@@ -1059,7 +1063,7 @@
   "id": "capex-wave",
   "title": "The CapEx Wave",
   "eyebrow": "the capex wave",
-  "standfirst": "The AI boom is first a spending story: firms are laying out close to a trillion dollars a year on gear that ages fast, and how long they say those chips last decides whether the bet pays off.",
+  "standfirst": "the build \u00b7 booked 6 years, measured 3.9",
   "chapter_link": "research/04-capex-wave.md",
   "points": [
    {
@@ -1074,7 +1078,7 @@
     ]
    },
    {
-    "text": "This is new. In 2022 those four firms plus Oracle spent about $162 billion for the whole year. By 2025 Amazon alone spent $131.8 billion, Alphabet $91.4 billion and Meta $72.2 billion. Each of the three now plans to spend one and a half to two times that again in 2026. One warning: dollars are not compute. Memory prices rose sharply, so the spend curve is steeper than the capacity curve.",
+    "text": "This is new. In 2022 those four firms plus Oracle spent about $162 billion for the whole year. By 2025 Amazon alone spent $131.8 billion, Alphabet $91.4 billion and Meta $72.2 billion. Each of the three plans a big step up in 2026: Amazon about 1.5 times its 2025 outlay, Meta about 1.9 times, Alphabet about 2.2 times. One warning: dollars are not compute. Memory prices rose sharply, so the spend curve is steeper than the capacity curve.",
     "claim_ids": [
      "cx-18",
      "cx-03",
@@ -1096,7 +1100,7 @@
     ]
    },
    {
-    "text": "How fast that gear ages is a judgement, not a fact. Depreciation spreads a chip's cost across the years the firm thinks it will earn. That span is the useful life. Stretch it and this year's profit rises, on the same fleet doing the same work. As the build began, most buyers stretched: Microsoft, Alphabet and CoreWeave to six years, Meta to 5.5. Four such moves added about $13.7 billion of first-year profit. Amazon alone went the other way, cutting part of its fleet to five years and blaming the pace of change in AI.",
+    "text": "How fast that gear ages is a judgement, not a fact. Depreciation spreads a chip's cost across the years the firm thinks it will earn. That span is the useful life, and the number of years a firm books \u2014 records in its own accounts \u2014 is its own call. Stretch it and this year's profit rises, on the same fleet doing the same work. As the build began, most buyers stretched: Microsoft and Alphabet to six years, Amazon to six in 2024, Meta to 5.5. Those four moves added about $13.7 billion of first-year profit. CoreWeave, whose whole trade is renting chips, uses six years too. Then in January 2025 Amazon reversed, cutting part of its fleet back to five years and naming the pace of change in AI as the reason.",
     "claim_ids": [
      "dp-01",
      "dp-04",
@@ -1107,7 +1111,7 @@
     ]
    },
    {
-    "text": "Nobody outside these firms knows the true earning life of an AI chip, and that one call moves the whole answer. Epoch AI measures about 3.9 years at the frontier, then a fading tail. Rental prices for H100 chips have fallen roughly 60%, so a chip bought in 2023 paid back in about two years while a late-2025 one may not. The investor Michael Burry claims $176 billion of hidden cost; CoreWeave counters that lapsed chips re-signed at about 95% of the old price. Sequoia's David Cahn reckons the 2026 build must earn near $1.5 trillion a year to be worth it.",
+    "text": "Nobody outside these firms knows the true earning life of an AI chip, and that one call moves the whole answer. Epoch AI measures about 3.9 years at the frontier, then a fading tail. Rental prices for H100 chips have fallen roughly 60%, so a chip bought in 2023 paid back in about two years while a late-2025 one may not. The investor Michael Burry claims $176 billion of hidden cost; CoreWeave counters that chips whose rental contracts ran out were rented again at about 95% of the old price. Sequoia's David Cahn reckons the 2026 build must earn near $1.5 trillion a year to be worth it.",
     "claim_ids": [
      "dp-10",
      "dp-11",
@@ -1121,9 +1125,9 @@
   "visuals": [
    {
     "type": "stack",
-    "title": "Show the work: what the $718B headline is made of",
+    "title": "Show the work: four guides that add to about $725B",
     "unit": "USD billions of 2026 capital spending",
-    "note": "The top four sum to about $718B \u2014 the headline number (cx-11, grade B, 80% range $655\u2013790B). The parts here are guidance midpoints, so they add to roughly $725B. Add Oracle and CoreWeave and the named group passes $800B. Count every data centre on earth and 2026 capex is about $1.07T (cx-12, grade B, range $850B\u2013$1.28T). One caveat: dollars are not compute. Microsoft has said part of its higher number is the rise in memory prices, not extra machines.",
+    "note": "The parts here are guidance midpoints \u2014 the middle of each firm's own public forecast of its spending \u2014 so they add to about $725B. The calibrated headline for the same four firms is $717.5B, with an 80% range of $655\u2013790B (cx-11, grade B). Oracle and CoreWeave spend on top of this, which takes the named group past $800B. Count every data centre on earth and 2026 capex is about $1.07T (cx-12, grade B, range $850B\u2013$1.28T). One caveat: dollars are not compute. Microsoft has said part of its higher number is the rise in memory prices, not extra machines.",
     "viz_rationale": "Part-to-whole of a single total. A stack lets the reader see exactly which companies build the headline, so the derivation is on screen rather than the summary alone.",
     "series": [
      {
@@ -1196,10 +1200,10 @@
    },
    {
     "type": "slope",
-    "title": "The bend: 2025 actual spending against the 2026 plan",
+    "title": "The step up: 2025 actual spending against the 2026 plan",
     "unit": "USD billions of capital spending",
-    "note": "Actual 2025 outlay on the left, 2026 guidance on the right. Amazon rises about 1.5\u00d7, Meta about 1.9\u00d7, Alphabet about 2.2\u00d7. For scale: in 2022 these firms plus Oracle spent roughly $162 billion for the entire year (cx-18, grade B). Microsoft is left off because there is no clean 2025 actual in the claims layer; its 2026 guide is about $190 billion (cx-01).",
-    "viz_rationale": "Two ordered states compared for the same set of firms. A slope shows the size of the jump and lets the reader compare steepness across companies in one read.",
+    "note": "Each firm's 2025 actual sits beside its 2026 guide, on one shared scale. Amazon rises about 1.5\u00d7, Meta about 1.9\u00d7, Alphabet about 2.2\u00d7. For scale: in 2022 these firms plus Oracle spent roughly $162 billion for the entire year (cx-18, grade B). Microsoft is left off because we have no cleanly sourced 2025 actual for it; its 2026 guide is about $190 billion (cx-01). That step up is money the gear now has to earn back.",
+    "viz_rationale": "Two ordered states compared for the same set of firms. Paired bars on one shared scale show the size of each jump, so the reader can compare the step across companies in one read.",
     "series": [
      {
       "label": "Amazon",
@@ -1279,8 +1283,8 @@
     "type": "bars_ci",
     "title": "The life call: what firms book against what Epoch measures",
     "unit": "years of useful life",
-    "note": "Useful life is the number of years a firm says a chip will keep earning. It sets the yearly depreciation charge, so it sets both reported profit and the bar the chip must clear. Every buyer books five to six years. Amazon is the only reversal: it cut part of its server and network fleet from six years to five in January 2025, and its filing named the pace of change in AI as the reason. Epoch AI's measured figure, 3.9 years, is the frontier window \u2014 how long a chip design stays in use for training the best models \u2014 with a fading tail after. The disclosed book lives are exact, so they carry no whisker; only the Epoch estimate does.",
-    "viz_rationale": "A few labelled magnitudes on one shared scale, ranked. bars_ci rather than plain bars because exactly one value here is an estimate: Epoch's 3.9 years needs its 80% interval visible, while the filed policies are \u0442\u043e\u0447\u043d\u044b\u0435 disclosures.",
+    "note": "Useful life is the number of years a firm says a chip will keep earning. It sets the yearly depreciation charge, so it sets both reported profit and the bar the chip must clear. Every buyer books five to six years. Amazon is the only reversal: it cut part of its server and network fleet from six years to five in January 2025, and its filing named the pace of change in AI as the reason. Epoch AI's measured figure, 3.9 years, is the frontier window \u2014 how long a chip design stays in use for training the best models \u2014 with a fading tail after. The disclosed book lives are exact, so they carry no whisker \u2014 the thin line that shows a range \u2014 while the Epoch estimate does.",
+    "viz_rationale": "A few labelled magnitudes on one shared scale, ranked. A ranged bar rather than a plain one, because exactly one value here is an estimate: Epoch's 3.9 years needs its 80% interval visible, while the filed policies are exact disclosures.",
     "series": [
      {
       "label": "Microsoft",
@@ -1353,7 +1357,7 @@
    {
     "type": "stack",
     "title": "What each capex dollar buys",
-    "unit": "% of hyperscaler capital spending",
+    "unit": "% of capital spending by the hyperscalers \u2014 the big cloud firms",
     "note": "About 58 cents of every dollar buys servers and chips. The rest buys land, shells, power and network gear. A concrete shed and a power line last fifteen years or more; a chip does not. So the bulk of the wave sits in the asset that goes stale first. The share is not tightly known \u2014 a fair range is 45% to 70% (cx-17, grade B). The long-lived slice shown here is derived as 100 minus that share.",
     "viz_rationale": "Part-to-whole of a single dollar, only two parts. A stack states the split in one glance and makes the argument \u2014 most of the money is in the short-lived half \u2014 without a second chart.",
     "series": [
@@ -1409,7 +1413,7 @@
   "id": "revenue-margins",
   "title": "Who Earns What",
   "eyebrow": "the money \u00b7 run-rate vs real",
-  "standfirst": "Two labs collect almost all the money paid for top-end AI, but the headline run-rates run about double what an auditor will sign, the margins are thinner than software, and the fixed bill is still unpaid.",
+  "standfirst": "Two labs collect almost all the money paid for top-end AI. The headline run-rates \u2014 one strong month multiplied by twelve \u2014 run about double what an auditor will sign. The margins are thinner than software, and the fixed bill is still unpaid.",
   "points": [
    {
     "text": "Two revenue words get mixed up, so pin them down. Recognized revenue is money truly earned in a period. It is the number an auditor signs. Run-rate takes one strong month and multiplies it by twelve, so it runs ahead of the truth when a firm grows fast. Both labs quote run-rate. The gap to recognized revenue is close to two to one. A quick fix: halve any headline run-rate in your head.",
@@ -1436,7 +1440,7 @@
     ]
    },
    {
-    "text": "The fixed side is where the money goes. OpenAI lost about $21 billion at the operating line in 2025, even as revenue tripled. Anthropic burned $5.6 billion. Training a model sits inside that cost and is spent before a single user pays. One strong Anthropic quarter did flip to a small profit. Read it with care: it was fundraise guidance, not an audited result, it leaves out stock pay, and it fell in a quarter when compute was priced low.",
+    "text": "The fixed side is where the money goes. OpenAI lost about $21 billion at the operating line in 2025 \u2014 the loss on running the business, before one-off items \u2014 even as revenue tripled. Anthropic burned $5.6 billion. Training a model sits inside that cost and is spent before a single user pays. One strong Anthropic quarter did flip to a small profit. Read it with care. It was fundraise guidance, a number the company itself projected for investors, not an audited result. It also leaves out stock pay, and it fell in a quarter when compute was priced low.",
     "claim_ids": [
      "rv-02",
      "rv-14",
@@ -1444,7 +1448,7 @@
     ]
    },
    {
-    "text": "This sets up the payback question. Tokens do sell above what they cost to serve, so the gap is positive today. The open question is whether it grows large enough, for long enough, to cover the fixed bill. OpenAI has signed about $1.4 trillion of data-centre commitments and plans its first positive cash flow in 2030. Backers are betting the gap holds. OpenAI raised near $852 billion and Anthropic near $965 billion.",
+    "text": "This sets up the payback question. Tokens do sell above what they cost to serve, so the gap is positive today. The open question is whether it grows large enough, for long enough, to cover the fixed bill. OpenAI has signed about $1.4 trillion of data-centre commitments and plans its first positive cash flow in 2030. Backers are betting the gap holds. Investors put $122 billion into OpenAI, pricing the whole firm near $852 billion. They put $65 billion into Anthropic, pricing it near $965 billion.",
     "claim_ids": [
      "rv-08",
      "rv-07",
@@ -1458,7 +1462,7 @@
     "type": "comparison",
     "title": "Run-rate vs recognized: halve the headline",
     "unit": "USD billions per year",
-    "note": "Run-rate multiplies one strong month by twelve. Recognized revenue is what an auditor signs. Both labs quote the first and get covered on it. Each pair here is contemporaneous, so the ~2:1 gap is like-for-like: OpenAI 1.8x, Anthropic 2.0x. Anthropic's run-rate is shown at its end-2025 point (from the same company-stated trajectory that reaches $47B by May 2026) to match its FY2025 recognized figure.",
+    "note": "Run-rate multiplies one strong month by twelve. Recognized revenue is what an auditor signs. Both labs quote the first and get covered on it. Anthropic's two bars are struck at the same date, so its 2.0x gap is pure definition. Its run-rate here is the end-2025 point on the company-stated path that later reaches $47B by May 2026. OpenAI's two bars are not matched. Recognized is FY2025, but the run-rate is early 2026. By then the figure had passed the $20B Altman reported for the end of 2025. So part of that 1.8x is real growth, not definition, and the pure gap for OpenAI is narrower.",
     "viz_rationale": "Two states of the same quantity, per firm, is exactly the shape 'comparison' is for. Placing recognized beside run-rate makes the gap literal rather than asserted, and repeating it for both labs shows a pattern, not a one-off. A single bar of either number alone would hide the whole point of the section.",
     "series": [
      {
@@ -1540,12 +1544,12 @@
     "type": "diverging",
     "title": "The fixed side: what revenue has to cover",
     "unit": "USD billions",
-    "note": "Signed around zero. Below the line is money going out. OpenAI's $20.92B operating loss came in the same year revenue tripled, so growth alone did not close the hole. Above the line is Anthropic's first quarterly operating profit. Note the period mismatch on purpose: the losses are full years, the profit is one quarter \u2014 and it is fundraise guidance, excludes stock pay, and falls in a quarter when a big compute deal was priced low during ramp-up. Anthropic guides to ~$3B burn in 2026 and none by 2027; OpenAI plans to burn $25B in 2026 alone.",
-    "viz_rationale": "These are signed quantities whose sign is the story \u2014 burning versus earning. A diverging bar around zero shows direction at a glance and, critically, shows the scale mismatch: the first profit is a sliver against the losses it would have to reverse. Ordinary ranked bars would flatten the sign and lose that.",
+    "note": "Bars run above and below zero. The two bars below the line are not the same measure. OpenAI's $20.92B is an operating loss in the accounts, which can include costs booked without cash leaving, such as pay in stock. Anthropic's $5.6B is cash out the door. On a cash basis OpenAI's 2025 burn was reported nearer $9B, so read the gap as closer to two-to-one than four-to-one. The loss came in the same year revenue tripled, so growth alone did not close the hole. Above the line is Anthropic's first quarterly operating profit. The period mismatch is on purpose: the losses are full years, the profit is one quarter. That profit is also fundraise guidance, it excludes stock pay, and it falls in a quarter when a big compute deal was priced low during ramp-up. Anthropic guides to ~$3B burn in 2026 and none by 2027; OpenAI plans to burn $25B in 2026 alone.",
+    "viz_rationale": "These are signed quantities whose sign is the story \u2014 burning versus earning. A diverging bar around zero shows direction at a glance and, critically, shows the scale mismatch: the first profit is a sliver against the losses it would have to reverse. Ordinary ranked bars would flatten the sign and lose that. The two bars below zero are different measures, an accounting loss and a cash outflow, so the note names the basis rather than letting bar length imply one.",
     "series": [
      {
-      "label": "OpenAI \u00b7 operating loss",
-      "sublabel": "FY2025; net loss $38.5B including ~$30B one-time conversion charges",
+      "label": "OpenAI \u00b7 operating loss (on the books)",
+      "sublabel": "FY2025; the $38.5B headline net loss adds ~$17.6B of non-cash charges from the switch to a for-profit company",
       "value": -20.92,
       "low": -22.5,
       "high": -19.5,
@@ -1555,7 +1559,7 @@
       "source_url": "https://fortune.com/2026/06/16/openai-financials-leaked-losses-revenue-profit/"
      },
      {
-      "label": "Anthropic \u00b7 cash burn",
+      "label": "Anthropic \u00b7 cash burn (cash out the door)",
       "sublabel": "FY2025; guides to ~$3B in 2026 and zero burn by 2027",
       "value": -5.6,
       "low": -6.8,
@@ -1580,7 +1584,7 @@
     "type": "bars",
     "title": "Direct model revenue is bunched in two labs",
     "unit": "USD billions per year (annualized run-rate)",
-    "note": "Company-stated run-rates for revenue earned directly from models. Two firms hold almost all of it and the tail is a rounding error. Read every bar as roughly double the recognized figure. The ordering flips depending on which word you use: by run-rate Anthropic now leads, but by FY2025 recognized revenue OpenAI still leads $13.1B to $4.5B. Microsoft (~$37B AI run-rate) and Google Cloud (~$24.8B in the June quarter, +82%) sit outside this chart \u2014 they sell picks and shovels, a different and larger pool.",
+    "note": "Company-stated run-rates for revenue earned directly from models. Two firms hold almost all of it and the tail is a rounding error. The ordering flips depending on which word you use: by run-rate Anthropic now leads, but by FY2025 recognized revenue OpenAI still leads $13.1B to $4.5B. Halving a run-rate works only where it was measured \u2014 OpenAI's $24B against $13.1B recognized, Anthropic's $9B end-2025 point against $4.5B. Do not halve the $47B bar. No recognized figure for that period exists yet, and Anthropic's CFO put revenue above $5B to date as of March 2026. Plotted here are the firms that report model revenue on its own. Microsoft (~$37B AI run-rate) and Google Cloud (~$24.8B in the June quarter, +82%) sit outside it: they sell picks and shovels, the compute the labs rent rather than the models. Google is the real gap. Gemini AI Pro at $19.99 a month is the same kind of sale as a ChatGPT subscription. But Google publishes no Gemini accounts, so there is no run-rate to plot. Trackers put 2025 Gemini subscription revenue near $1.2B, a C-grade estimate. On that figure Google, not xAI, would be third.",
     "viz_rationale": "A ranked horizontal bar is the canonical form for comparing a few labelled magnitudes, and concentration is a magnitude story: two tall bars, then almost nothing. A share-of-total stack would hide how small the tail actually is in absolute terms, which is the point.",
     "series": [
      {
@@ -1687,7 +1691,7 @@
     ]
    },
    {
-    "text": "Most of the gap looks like American scarcity. DeepSeek published a rare number for one busy day. At list price, serving would have earned far more than the chips cost. A deep cost edge would not look like that. Chip limits bind too, which pushes Chinese labs toward lean models and free weights.",
+    "text": "Most of the gap looks like American scarcity. DeepSeek published a rare number for one busy day. At its list price, the advertised rate that most users never paid, serving would have earned far more than the chips cost. A deep cost edge would not look like that. Chip limits bind too, which pushes Chinese labs toward lean models and free weights.",
     "claim_ids": [
      "cd-04",
      "ce-13",
@@ -1703,7 +1707,7 @@
     "title": "Open weights set the price, not the map",
     "unit": "USD per million output tokens",
     "log": true,
-    "note": "The two dark bars are estimated serving costs, not prices. Everything else is a list price. While Moonshot alone hosted Kimi K3, it charged exactly what a top US model charges, from the same country and the same week as the cheap Chinese models. Once weights are public and rivals can host, the price falls toward serving cost, and DeepSeek's current list price sits at or below its own estimated cost to serve. Matched-quality US-to-China ratio is about 10x, but the honest range is 4x to 40x (ce-17, grade C), because matched quality is a judgment call.",
+    "note": "Two of these bars are costs, not prices. Their sublabels say so, and both carry a date. Everything else is a list price. While Moonshot alone hosted Kimi K3, it charged exactly what a top US model charges, from the same country and the same week as the cheap Chinese models. Once weights are public and rivals can host, the price falls toward serving cost. DeepSeek's current list now sits below the only serving cost it has ever disclosed: $0.52 for V3/R1 in February 2025, itself an estimate spanning $0.30 to $1.30. Read that as pricing close to the cost of serving, not as selling at a loss. V3.2 shipped a leaner design after that disclosure (cd-06, mc-16), so the real cost of the models priced here is lower than the bar, and it has never been published. Compare models of similar ability and the US price is about 10x the Chinese one. The honest range is 4x to 40x (ce-17, grade C), because judging two models equal is a judgment call.",
     "viz_rationale": "Seven labelled magnitudes spanning nearly two orders of magnitude. Ranked horizontal bars on a log axis are the standard read for comparing a handful of values with a wide range, and putting the two serving-cost estimates on the same axis as the prices turns the chart into the chapter's core argument rather than a price list.",
     "series": [
      {
@@ -1739,7 +1743,7 @@
      },
      {
       "label": "US frontier serving cost",
-      "sublabel": "estimated cost, not a price",
+      "sublabel": "estimated cost, not a price; napkin math, Aug 2025",
       "value": 3,
       "low": 1,
       "high": 7,
@@ -1749,8 +1753,8 @@
       "source_url": "https://martinalderson.com/posts/are-openai-and-anthropic-really-losing-money-on-inference/"
      },
      {
-      "label": "DeepSeek serving cost",
-      "sublabel": "estimated cost, not a price",
+      "label": "DeepSeek V3/R1 serving cost",
+      "sublabel": "estimated cost, not a price; the lab's own one-day log, Feb 2025",
       "value": 0.52,
       "low": 0.3,
       "high": 1.3,
@@ -1816,10 +1820,10 @@
    {
     "type": "bars",
     "title": "Who eats the fixed cost: everyone except the token buyer",
-    "unit": "USD billions",
+    "unit": "USD billions \u00b7 time basis differs by bar, see each label",
     "log": true,
-    "note": "Bars marked capital in are money poured into Chinese AI. Bars marked money back are what selling AI brings in. RMB converted at about 7.2 to the dollar, except the national fund, where the source states US$8.2B directly. Read the pattern, not any single bar: DeepSeek's roughly $450M of yearly revenue is a rounding error against a roughly $1.4B fleet and a $7.4B round. Zhipu lost RMB 4.72B on RMB 724M of revenue, and MiniMax lost $465M on $30.5M of revenue. None of that hole is filled by tokens.",
-    "viz_rationale": "Eleven labelled magnitudes across three orders of magnitude. Ranked bars on a log axis handle the range, and splitting the labels into capital in versus money back makes the funding asymmetry the visual argument rather than a caption the reader has to take on trust.",
+    "note": "Bars marked capital in are money poured into Chinese AI. Bars marked money back are one year of what selling AI brings in. Bars marked the hole are one year of net losses, money that went out and did not come back. One bar is none of the three. High-Flyer is the trading fund that built DeepSeek and paid for it alone until 2026. Its bar is the roughly RMB 70B of client money it trades, not money spent on AI. That trading business, not token sales, bought the fleet. RMB converted at about 7.2 to the dollar, except the national fund, where the source states US$8.2B directly. Read the pattern, not any single bar: DeepSeek's roughly $450M of yearly revenue is a rounding error against a roughly $1.4B fleet and a $7.4B round. Zhipu lost RMB 4.72B on RMB 724M of revenue, and MiniMax lost $465M on $30.5M of revenue. None of that hole is filled by tokens.",
+    "viz_rationale": "Eleven labelled magnitudes across three orders of magnitude. Ranked bars on a log axis handle that range. The split the chapter cares about, capital in versus money back versus the hole, sits in the labels rather than in the colours, so it has to be read rather than seen. What the ranking does show is the shape of the stack: the money going in dwarfs the money coming back.",
     "series": [
      {
       "label": "Alibaba AI and cloud capex",
@@ -1833,8 +1837,8 @@
       "source_url": "https://www.alibabagroup.com/en-US/document-1830678592242057216"
      },
      {
-      "label": "High-Flyer hedge fund",
-      "sublabel": "capital in, about RMB 70B under management",
+      "label": "High-Flyer, the fund behind DeepSeek",
+      "sublabel": "not AI spend: about RMB 70B of client money it trades",
       "value": 9.7,
       "low": 6.25,
       "high": 15.3,
@@ -1845,7 +1849,7 @@
      },
      {
       "label": "National AI Industry Fund",
-      "sublabel": "capital in, RMB 60B of state money",
+      "sublabel": "capital in, RMB 60B of state money, a 13-year fund",
       "value": 8.2,
       "low": 7.9,
       "high": 8.5,
@@ -1866,8 +1870,8 @@
       "source_url": "https://www.scmp.com/tech/big-tech/article/3357525/how-deepseeks-landmark-funding-secures-liang-wenfengs-grip-chinas-ai-rivalry-heats"
      },
      {
-      "label": "Alibaba AI revenue, guided",
-      "sublabel": "money back, RMB 30B a year by end-2026",
+      "label": "Alibaba AI revenue, company forecast",
+      "sublabel": "money back, the company's own target of RMB 30B a year by end-2026",
       "value": 4.2,
       "low": 2.8,
       "high": 6.25,
@@ -1931,7 +1935,7 @@
      },
      {
       "label": "Shanghai compute vouchers",
-      "sublabel": "capital in, RMB 600M municipal subsidy",
+      "sublabel": "capital in, RMB 600M city pool, 2024-25",
       "value": 0.083,
       "low": 0.056,
       "high": 0.139,
@@ -1944,10 +1948,10 @@
    },
    {
     "type": "bars",
-    "title": "The 2024 cuts were strategy. The 2025 cut was cost.",
+    "title": "One cut chased users. One followed the clock. Only one followed a cost drop.",
     "unit": "percent cut off list price",
-    "note": "The opening shot came first: ByteDance listed Doubao Pro at $0.111 per million input tokens in May 2024 (ce-01, grade A). Alibaba answered within days, and Baidu and Tencent made small models free. Nobody's costs fell 97 percent in a week, so that cut was a bid for users. The September 2025 cut is the opposite case. It shipped with a leaner attention design, so the price followed a real drop in cost. The off-peak discount is a third thing again: you only charge by the hour when your machines are full, which means China has its own shortage.",
-    "viz_rationale": "Three cut depths in one shared unit. Ranked bars compare magnitudes directly, and ranking them makes the point visible without a word: the deepest cut is the one least connected to cost, and the shallowest is the only one that tracked real economics.",
+    "note": "The opening shot came first: ByteDance listed Doubao Pro at $0.111 per million input tokens in May 2024 (ce-01, grade A). Alibaba answered within days, and Baidu and Tencent made small models free. Nobody's costs fell 97 percent in a week, so that cut was a bid for users. The September 2025 cut is the opposite case. It shipped with a leaner attention design, meaning each new word looks at fewer of the earlier ones, so the price followed a real drop in cost. The off-peak discount is a third thing again. It was never a standing price, only a cheaper rate in quiet hours. You only charge by the hour when your machines are full, which means China has its own shortage.",
+    "viz_rationale": "Three cut depths in one shared unit, ranked deepest first. Depth is not the same as economic weight, and the ranking says nothing about cause. The deepest cut was a bid for users. The shallowest is the only one that tracked a real fall in cost. The middle bar is a conditional discount, off-peak hours only, shown here for its shape rather than its rank.",
     "series": [
      {
       "label": "Alibaba Qwen-Long, May 2024",
@@ -1962,7 +1966,7 @@
      },
      {
       "label": "DeepSeek off-peak discount, 2025",
-      "sublabel": "utility-style pricing by hour of day",
+      "sublabel": "max discount, off-peak hours only, R1 only; ended Sept 2025",
       "value": 75,
       "claim_id": "cd-05",
       "grade": "B",
@@ -1971,7 +1975,7 @@
      },
      {
       "label": "DeepSeek V3.2, Sept 2025",
-      "sublabel": "sparse attention; tracked a real cost drop",
+      "sublabel": "sparse attention: reads less of the text per step",
       "value": 50,
       "low": 45,
       "high": 75,
@@ -1986,8 +1990,8 @@
     "type": "range",
     "title": "DeepSeek's own number: 545 percent on a busy day",
     "unit": "percent theoretical cost-profit ratio (profit divided by chip cost)",
-    "note": "Over 24 hours in February 2025, DeepSeek disclosed that billing every token at R1 list price would have returned 5.45 times its chip rental cost, so revenue of about 6.45 times cost. DeepSeek was clear that real revenue was much lower, because most use was free and prices varied. The band shown is the 80 percent interval, 530 to 560 percent. Even with the caveat, the point stands: when the machines were full, even cheap Chinese prices sat far above the rental cost of the chips. A deep structural cost edge would not look like this. Most of the US-China price gap is a scarcity premium collected on the American side.",
-    "viz_rationale": "One disclosed quantity with a tight 80 percent band. A single labelled range reads as the callout it is and shows the interval honestly, without inventing a second bar or implying a comparison the source cannot carry.",
+    "note": "Over 24 hours in February 2025, DeepSeek published its own figures. Chip rental cost $87,072. Billing every token at the R1 list price would have brought in $562,027. That is a 545 percent cost-profit ratio, so revenue of about 6.45 times the chip bill. The 545 is exact arithmetic on two disclosed figures, not an estimate, so there is no range to draw around it. DeepSeek was clear that real revenue was much lower, because most use was free and prices varied. Even so, the point stands. When the machines were full, even cheap Chinese prices sat far above the rental cost of the chips. A deep cost edge would not look like this. Most of the US-China price gap is a scarcity premium: extra charged simply because chips are hard to get. That premium is collected on the American side.",
+    "viz_rationale": "One disclosed quantity, shown on its own. The 545 percent is exact arithmetic on two published figures. It carries no measurement band, so there is none to draw. A single labelled callout states the number plainly. It invents no second bar and implies no comparison the source cannot carry. The real doubt is not in the ratio. It is in how much of it was ever billed, and the note says so.",
     "series": [
      {
       "label": "Theoretical cost-profit ratio, 24h of V3/R1 serving",
@@ -2005,13 +2009,13 @@
    {
     "type": "bars_ci",
     "title": "The fallback chip supply nobody can size",
-    "unit": "Huawei Ascend 910C chips planned for 2026",
-    "note": "The whisker is the 80 percent range, 250,000 to 1.5 million. That is a six-fold spread on the single most important number in China's hardware fallback. Context on either side: Nvidia took a $4.5B charge in 2025 on China chips it could no longer sell (ce-13, grade A), and DeepSeek reportedly tried to train on Huawei parts, ran into trouble, and went back to Nvidia for training (ce-15, grade B). Scarcity shapes behaviour. If you cannot win by buying more chips, you win by needing fewer, which pushes Chinese labs toward lean models, fewer tokens per task, and open weights as a way to reach users.",
+    "unit": "Huawei Ascend AI chips for 2026, estimated supply",
+    "note": "The whisker, the thin line on the bar, is the 80 percent range, 250,000 to 1.5 million. Four times in five the true number should land inside it. That is a six-fold spread on the single most important number in China's hardware fallback. The 800,000 centre is not a published plan. Huawei's reported plan for 2026 was 600,000 910C chips. The centre allows for other Ascend models as well, the low end assumes a shortage of the special memory these chips need, and the high end counts every Ascend part. Context on either side: Nvidia wrote off $4.5B in 2025 on China chips it could no longer sell (ce-13, grade A), and DeepSeek reportedly tried to train on Huawei parts, ran into trouble, and went back to Nvidia for training (ce-15, grade B). Scarcity shapes behaviour. If you cannot win by buying more chips, you win by needing fewer, which pushes Chinese labs toward lean models, fewer tokens per task, and open weights as a way to reach users.",
     "viz_rationale": "A single estimate whose uncertainty is the whole story. A bar with its 80 percent whisker shows the point estimate and the six-fold spread in one read, which a bare number or a headline figure would hide.",
     "series": [
      {
-      "label": "Huawei 910C output, 2026 plan",
-      "sublabel": "roughly double the 2025 figure",
+      "label": "Huawei Ascend output, 2026 estimate",
+      "sublabel": "reported 910C plan was 600,000",
       "value": 800000,
       "low": 250000,
       "high": 1500000,
@@ -2034,7 +2038,7 @@
   "plain_check": "Points run about Flesch-Kincaid grade 6 to 7, close to the chapter's own measured 5.65. Sentences average roughly 12 words. Almost every word is one or two syllables. Terms that could trip a reader are explained in place: backlog is glossed as \"sold but not yet built\", tokenizer as the tool that chops text into billable units, and marginal cost as the real running cost of one more reply. The longest sentences are in points 4 and 5, where a clause is added to keep a number honest; those may touch grade 8. No jargon is used without a gloss, and no sentence carries more than two clauses.",
   "points": [
    {
-    "text": "Training a model costs money once. Answering each question burns compute, so every reply has a real running cost. Top US labs charge far above that cost. They can, because compute is scarce. The test is simple: when supply catches up, the extra margin should melt away.",
+    "text": "Training a model costs money once. Answering each question burns compute, so every reply has a real running cost. Top US labs charge far above that cost. They can, because compute is scarce. The test is simple: when supply catches up, the extra margin, the price umbrella, should melt away. While the umbrella is up, the seller keeps that margin.",
     "claim_ids": [
      "px-06",
      "px-07"
@@ -2052,7 +2056,7 @@
     ]
    },
    {
-    "text": "Use keeps climbing fast. Google now handles about 3,200 trillion tokens a month, near seven times the year before, though that count includes free search and video. An open marketplace routed 25.5 trillion tokens a week. The world's chip stock grows about 3.4 times a year, but reported demand grows faster still. While that holds, the shortage holds. Cheaper prices barely lift use, so buyers chase quality first and price second.",
+    "text": "Use keeps climbing fast. Google now handles about 3,200 trillion tokens a month, near seven times the year before, though that count includes free search and video. An open marketplace routed 25.5 trillion tokens a week. The world's chip stock grows about 3.4 times a year, but reported demand grows faster still. While that holds, the shortage holds. Cutting one model's price barely wins it more use: 10 percent off buys about 0.6 percent more. Buyers pick on quality first and price second.",
     "claim_ids": [
      "sd-03",
      "sd-10",
@@ -2073,7 +2077,7 @@
     ]
    },
    {
-    "text": "Two things are true at once. Hold quality fixed and prices fall at a startling clip, maybe 36-fold a year, though the honest range is huge. But today's best model gets dearer. Meanwhile the bargain hunters have left for Chinese open-weight models, which take about 45 percent of routed tokens, while roughly 67 percent of business spending still goes to the two US leaders. The gap is not closing. It is sorting. The one real risk to this reading is that demand cools first: OpenAI's compute plan to 2030, about 750 billion dollars, was cut and then raised inside a single year.",
+    "text": "Two things are true at once. Hold quality fixed and prices fall at a startling clip, maybe 36-fold a year, though the honest range is huge. But today's best model gets dearer. Meanwhile the bargain hunters have left for Chinese open-weight models. They take about 45 percent of the tokens on one open marketplace. A 2025 survey put about 67 percent of business spending with the two US leaders. The gap is not closing. It is sorting. The one real risk to this reading is that demand cools first: OpenAI's compute plan to 2030, about 750 billion dollars, was cut and then raised inside a single year.",
     "claim_ids": [
      "px-01",
      "sd-11",
@@ -2116,14 +2120,14 @@
    {
     "type": "comparison",
     "title": "Two clocks, running opposite ways",
-    "unit": "\u00d7 fold-change in price",
+    "unit": "\u00d7 change in price \u00b7 one clock falls, one rises",
     "log": false,
     "viz_rationale": "Two states of the same thing (the price of AI) measured two different ways, which is exactly what a two-item comparison is for. Showing them side by side is the point: the reader has to hold both at once, because the popular claim that AI is getting cheap and the observed 2026 price rises are both true. The 80% intervals do extra work here: the deflation clock is enormous but wildly uncertain (8\u00d7 to 200\u00d7), while the inflation clock is small but tightly measured from official price cards.",
     "note": "Hold quality fixed and yesterday's intelligence gets cheap fast. Buy today's best and you pay more than you did a year ago. Both clocks are real and they do not cancel. Read the ranges carefully: the 36\u00d7/yr figure is a median across six benchmarks that individually run from 9\u00d7 to 900\u00d7 a year, so it is a direction more than a number, and it excludes reasoning models, which burn far more tokens per job. The flagship figure is a hard read off official price cards: $1.25 to $5.00 per million input tokens. Current frontier stickers as of July 2026: OpenAI $5/M input (px-13, grade A), Anthropic's new tier above Opus at $10/M input (px-12, grade A). Cheaper tiers still exist below both.",
     "series": [
      {
-      "label": "Same-quality intelligence, per year",
-      "sublabel": "Price per token at a fixed benchmark score falls about 36-fold a year (a \u221297% annual change); range across benchmarks 8\u00d7 to 200\u00d7",
+      "label": "Same-quality intelligence: price \u00f736 a year",
+      "sublabel": "Price at a fixed benchmark score. The 80% range is 8\u00d7 to 200\u00d7 a year.",
       "value": 36,
       "low": 8,
       "high": 200,
@@ -2133,8 +2137,8 @@
       "source_url": "https://epoch.ai/data-insights/llm-inference-price-trends"
      },
      {
-      "label": "Frontier sticker, trough to now",
-      "sublabel": "OpenAI flagship input price rises about 4-fold, $1.25 \u2192 $2.50 \u2192 $5.00 per million tokens, Aug 2025 to Jul 2026",
+      "label": "Frontier sticker: price \u00d74 in 11 months",
+      "sublabel": "$1.25 \u2192 $2.50 \u2192 $5.00 per million input tokens, Aug 2025 to Jul 2026",
       "value": 4,
       "low": 2,
       "high": 4.5,
@@ -2151,11 +2155,11 @@
     "unit": "% change in price",
     "log": false,
     "viz_rationale": "Four signed percentage changes around a zero line, which is the textbook case for a diverging bar. The zero line does the argument: everything left of it is 2025, when unchanged models got radically cheaper and proved a fat margin existed. Everything right of it is 2026, when the bill rose without the headline rate always moving. Plotting the components rather than a single headline lets the reader see that the 2026 increases are quieter and smaller than the 2025 cuts, yet point the other way.",
-    "note": "The left side is the proof. You cannot cut 80 percent on a model you did not change unless the old price sat well above the cost of serving it. OpenAI said plainly that only the serving software had improved. The right side is the reversal, and it is sneakier than the sticker. When OpenAI doubled its per-token rate in April 2026, the real cost of a like-for-like request rose about 64 percent, not the full double, because the new model emits fewer completion tokens on long prompts. Anthropic's newer models use a tokenizer, the tool that chops text into billable units, that yields about 30 percent more tokens for the same text: the headline rate did not move, the bill did. The token is not a fixed unit, so price per token should be read with care. The loud 2026 rise, the roughly 4\u00d7 flagship sticker, is shown in the two-clocks chart.",
+    "note": "The left side is the proof. You cannot cut 80 percent on a model you did not change unless the old price sat well above the cost of serving it. OpenAI said plainly that only the serving software had improved. The right side is the reversal, and it is sneakier than the sticker. When OpenAI doubled its per-token rate in April 2026, the real cost of a like-for-like request rose about 64 percent, not the full double, because the new model emits fewer completion tokens, the text it sends back, on long prompts. Anthropic's newer models use a tokenizer, the tool that chops text into billable units, that yields about 30 percent more tokens for the same text. The headline rate did not move, the bill did. The token is not a fixed unit, so price per token should be read with care. Read the ranges with the bars. The 80 percent range on the o3 cut runs 60 to 80 percent, on the tokenizer effect 10 to 45 percent, and on the 64 percent rise 38 to 100 percent. Only Anthropic's Opus cut is exact, at 66.7 percent. So the 2026 rise could be mild or it could be a full doubling. The loud 4\u00d7 flagship sticker in the two-clocks chart is only the part you can see.",
     "series": [
      {
       "label": "OpenAI o3 price cut, same model",
-      "sublabel": "Jun 2025: $10/$40 \u2192 $2/$8 per M tokens, attributed to inference-stack optimisation",
+      "sublabel": "Jun 2025: $10/$40 \u2192 $2/$8 per million tokens (text in / text out). Same model, better serving software: the code that runs it.",
       "value": -80,
       "low": -80,
       "high": -60,
@@ -2197,7 +2201,8 @@
       "source_title": "GPT-5.5 Price Increase: What It Actually Costs (OpenRouter)",
       "source_url": "https://openrouter.ai/blog/insights/gpt55-cost-analysis/"
      }
-    ]
+    ],
+    "axis_caption": "0 \u2014 price unchanged"
    },
    {
     "type": "bars",
@@ -2255,7 +2260,7 @@
     "unit": "% increase",
     "log": false,
     "viz_rationale": "Three labelled magnitudes in a shared unit (percent up), ranked horizontally. These are deliberately different kinds of seller, a chip maker, a cloud, and a rental market, so agreement between them is the evidence. The rental bar is the one that matters most and it needs the chart to land: prices for trailing-generation silicon are supposed to fall, so a rise is a market-priced refutation of the glut story, not an opinion.",
-    "note": "Three different sellers, three different measures, same direction. Microsoft grew 39 percent while its own CFO said 'we are, and have been, short now for many quarters', and its CEO said the binding problem was power and shells, not chips sitting in inventory. Nvidia's data-center business is shipping as fast as it can be built and it is all being absorbed, though some of the jump was network gear rather than chips. The H100 bar is the sharpest test: a one-year rental for the last cycle's workhorse fell from about $8/hr in 2023 to $1.70/hr by October 2025 as the chip aged, then reversed about 38 percent to $2.35/hr by March 2026, with on-demand capacity sold out across all GPU types. Old silicon does not get dearer in a glut. Two more signals sit outside this chart's unit: Google's cloud backlog at $514bn (sd-06, grade A), and Anthropic doubling Claude Code usage caps only once more than 300MW of fresh capacity came online (sd-07, grade A). Firms with pricing power do not make their best customers queue unless they have to.",
+    "note": "Three different sellers, three different measures, same direction. Microsoft grew 39 percent while its own CFO said 'we are, and have been, short now for many quarters'. Its CEO said the binding problem was power and shells, the buildings that house the machines, not chips sitting in inventory. Nvidia's data-center business is shipping as fast as it can be built, and all of it is being absorbed. Some of that jump was network gear rather than chips. The H100 bar is the sharpest test. A one-year rental for the last cycle's workhorse fell from about $8/hr in 2023 to $1.70/hr by October 2025 as the chip aged. It then reversed about 38 percent to $2.35/hr by March 2026, with on-demand capacity sold out across all GPU types. Old silicon does not get dearer in a glut. Two more signals sit outside this chart's unit. Google's cloud backlog stands at $514bn (sd-06, grade A). Anthropic doubled Claude Code usage caps only once more than 300MW of fresh capacity came online (sd-07, grade A). Firms with pricing power do not make their best customers queue unless they have to.",
     "series": [
      {
       "label": "Nvidia data-center revenue, year on year",
@@ -2339,7 +2344,7 @@
     ]
    },
    {
-    "text": "'Pays' is strict. The build must earn back the cash plus the price of the money - about nine or ten cents a year on each dollar. Others sized that bar in revenue. One rule says a year of building needs about $1.5 trillion of real revenue. One house says near $2 trillion by 2030, short by roughly $800 billion. A third sees a $1.5 trillion financing gap. Set that beside the leaders. OpenAI runs near $24 billion a year and lost $20.9 billion in 2025. Anthropic's run-rate crossed $47 billion, on a $10.9 billion quarter. Both grow fast; both are tiny next to the bill.",
+    "text": "'Pays' is strict. The build must earn back the cash plus the price of the money (WACC) - about nine or ten cents a year on each dollar. Others sized that bar in revenue. One rule says a year of building needs about $1.5 trillion of real revenue. One house says near $2 trillion by 2030, short by roughly $800 billion. A third sees a $1.5 trillion financing gap. All three count the whole world, not just the US. None of them credits the revenue that arrives after 2030. Set that beside the leaders. OpenAI runs near $24 billion a year and lost $20.9 billion in 2025. Anthropic's run-rate crossed $47 billion, on a $10.9 billion quarter. Two labs are not the whole industry. Both grow fast; both are tiny next to the bill.",
     "claim_ids": [
      "dp-14",
      "dp-15",
@@ -2352,7 +2357,7 @@
     ]
    },
    {
-    "text": "We built three cash-flow models of the whole program. They split on four dials: revenue growth, margin, how long chips last, and the price of money. The models are pinned to today's margins - about 43 percent at OpenAI, 40 percent at Anthropic. The glum model loses $2.3 trillion. The middle clears the bar by $487 billion - barely, handing back about $1.11 for each dollar sunk. The sunny clears by about $900 billion. Two of three pay. That looks like good odds. It is not.",
+    "text": "We built three cash-flow models of the whole program. They split on four dials: revenue growth, margin, how long chips last, and the price of money. The margin dial is set off today's reported numbers - about 43 percent at OpenAI, 40 percent at Anthropic - but the models measure it harder, after research and admin as well. The middle model holds near that level; the glum one has margin fall to 32, the sunny one climb to 55. The glum model loses $2.3 trillion. The middle clears the bar by $487 billion - barely, handing back about $1.11 for each dollar sunk. The sunny clears by about $900 billion. Two of three pay. That looks like good odds. It is not.",
     "claim_ids": [
      "rv-03",
      "rv-13"
@@ -2383,26 +2388,26 @@
     "type": "diverging",
     "title": "Does the whole program pay? Three cash-flow models",
     "unit": "USD billions, net present value",
-    "note": "Bear fails; base and bull clear. But base-to-bear is a $2.8T fall while base-to-bull is only a $0.4T rise - the downside is about 7x the upside. Strip the post-2030 tail and even the bull loses $3.3T. That asymmetry, not the 2-of-3 count, is the finding.",
+    "note": "Net present value is what all the future cash is worth today, after charging for the price of the money. Above zero means it pays. IRR is the yearly rate the money earns; WACC is the price of that money. The build clears the bar only when IRR beats WACC. The glum model fails; the middle and sunny clear. But middle-to-glum is a $2.8T fall while middle-to-sunny is only a $0.4T rise - the downside is about 7x the upside. Strip the post-2030 tail and even the sunny model loses $3.3T. That asymmetry, not the 2-of-3 count, is the finding.",
     "viz_rationale": "Signed values around a zero payoff line (value burned vs. value created). Diverging bars put the break-even bar at zero and make the left-skew - downside far larger than upside - immediately visible, which is the chapter's core point.",
     "log": false,
     "series": [
      {
-      "label": "Bear",
+      "label": "Glum (bear)",
       "sublabel": "WACC 11% \u00b7 32% margin \u00b7 $560B 2030 revenue \u00b7 IRR 4%",
       "value": -2300,
       "grade": "C",
       "source_title": "p1-ai-economics DCF panel (forecasts.json \u00b7 T-payback-total, bear)"
      },
      {
-      "label": "Base",
+      "label": "Middle (base)",
       "sublabel": "WACC 9.5% \u00b7 43% margin \u00b7 $740B 2030 revenue \u00b7 IRR 12.6% \u00b7 $1.11 back per $1",
       "value": 487,
       "grade": "C",
       "source_title": "p1-ai-economics DCF panel (forecasts.json \u00b7 T-payback-total, base)"
      },
      {
-      "label": "Bull",
+      "label": "Sunny (bull)",
       "sublabel": "WACC 8.5% \u00b7 55% margin \u00b7 $1,000B 2030 revenue \u00b7 IRR 17.9%",
       "value": 907,
       "grade": "C",
@@ -2412,14 +2417,14 @@
    },
    {
     "type": "comparison",
-    "title": "The gap: revenue the build needs vs. what the leaders take in",
+    "title": "The gap: revenue the build needs vs. what the two leading labs take in",
     "unit": "USD billions per year",
-    "note": "Outside analysts put the yearly revenue bar at $1.5-2T. The two US leaders' run-rates add to about $71B. Both grow fast; both are tiny next to the bill. Log scale, because the gap is roughly 20x.",
-    "viz_rationale": "Two states compared - 'revenue needed' (x=0) against 'revenue actually booked' (x=1) - with a ~20x gap. A log-scaled comparison keeps both the benchmark cluster and the small run-rates readable instead of flattening one side to nothing.",
+    "note": "Outside analysts put the yearly revenue bar at $1.5-2T. Both figures cover the whole world, not just the US, and both are estimates rather than measurements: Cahn's own 80% range runs from $1.1T to $4.0T. Neither credits any revenue after 2030, and that tail is where our own models put the whole payoff. On the right sit two model labs only, adding to about $71B. Read that as a floor on US AI revenue, not the whole of it. OpenAI appears twice because run-rate takes one strong month and multiplies it by twelve, while recognized revenue is the year an auditor signs. Log scale, where each step multiplies rather than adds, because the bars run from $13B to $2T.",
+    "viz_rationale": "Two states compared: the yearly revenue outside analysts say the build needs (x=0), against the revenue the two leading labs book (x=1). A log scale keeps both the huge bars and the small ones readable. But the two sides are not counted the same way. The analyst bars are global and cover every AI seller. The two labs are only part of one country's sales, so the right side is a floor, not the whole.",
     "log": true,
     "series": [
      {
-      "label": "Cahn: needed per year of build",
+      "label": "Cahn: needed per year of build (global)",
       "value": 1500,
       "x": 0,
       "claim_id": "dp-14",
@@ -2428,7 +2433,7 @@
       "source_url": "https://techcrunch.com/2026/07/09/can-ai-answer-the-3-trillion-question/"
      },
      {
-      "label": "Bain: needed by 2030",
+      "label": "Bain: needed by 2030 (global)",
       "sublabel": "short by ~$800B",
       "value": 2000,
       "x": 0,
@@ -2444,7 +2449,8 @@
       "claim_id": "rv-10",
       "grade": "A",
       "source_title": "Anthropic raises $65B in Series H at $965B post-money - Anthropic",
-      "source_url": "https://www.anthropic.com/news/series-h"
+      "source_url": "https://www.anthropic.com/news/series-h",
+      "sublabel": "run-rate: one strong month, times twelve"
      },
      {
       "label": "OpenAI run-rate",
@@ -2453,7 +2459,8 @@
       "claim_id": "rv-05",
       "grade": "B",
       "source_title": "OpenAI Revenue, Losses, and Profitability in 2026 - FutureSearch",
-      "source_url": "https://futuresearch.ai/openai-revenue-forecast/"
+      "source_url": "https://futuresearch.ai/openai-revenue-forecast/",
+      "sublabel": "run-rate: one strong month, times twelve"
      },
      {
       "label": "OpenAI recognized 2025 revenue",
@@ -2462,7 +2469,8 @@
       "claim_id": "rv-01",
       "grade": "B",
       "source_title": "OpenAI's financials have leaked - Fortune",
-      "source_url": "https://fortune.com/2026/06/16/openai-financials-leaked-losses-revenue-profit/"
+      "source_url": "https://fortune.com/2026/06/16/openai-financials-leaked-losses-revenue-profit/",
+      "sublabel": "recognized: the full year an auditor signs"
      }
     ]
    },
@@ -2470,8 +2478,8 @@
     "type": "dot_spread",
     "title": "The forecaster panel: will the whole program clear its cost of money?",
     "unit": "probability of paying back",
-    "note": "Three independent forecasters, three lenses (outside-view, valuation, contrarian). All crowd the middle. Median 52% - a coin toss, tilted a hair toward yes. Not 'will AI matter', but 'does the whole US program clear the price of its money, counting the years past 2030.'",
-    "viz_rationale": "A point estimate (the 52% median) surrounded by the spread of independent panelists. Dot_spread is the prescribed shape - three panelist dots plus the median - and shows visually that the disagreement is narrow, which is itself the message.",
+    "note": "Three independent forecasters, three lenses: outside-view (score the case by how similar past build-outs turned out), valuation, and contrarian. The fourth dot is their median, not a fourth forecaster. All three crowd the middle, at 44, 53 and 52 percent. Read that as three methods agreeing, not as a confident answer: our own range is far wider than the band drawn here. Median 52% - a coin toss, tilted a hair toward yes. Not 'will AI matter', but 'does the whole US program clear the price of its money, counting the years past 2030.'",
+    "viz_rationale": "A point estimate (the 52% median) with the spread of three panelists around it. Dot_spread is the shape called for here: the three dots, with their median drawn as the red rule. The amber band shows only how far apart the three sit. It is not how sure we are of the answer, which is much wider. So close dots mean three methods agree, not that the number is settled.",
     "log": false,
     "series": [
      {
@@ -2481,7 +2489,7 @@
       "source_title": "p1-ai-economics forecast panel (forecasts.json \u00b7 T-payback-total)"
      },
      {
-      "label": "Valuation (DCF)",
+      "label": "Valuation (discounted cash flow)",
       "value": 0.53,
       "grade": "C",
       "source_title": "p1-ai-economics forecast panel (forecasts.json \u00b7 T-payback-total)"
@@ -2502,10 +2510,10 @@
    },
    {
     "type": "bars",
-    "title": "The dial that matters most: the margin a grown-up industry keeps",
+    "title": "The dial you can check today: the margin a grown-up industry keeps",
     "unit": "percent margin",
-    "note": "Each 5 points of margin is worth roughly $0.5T of value - more than any other dial. The models bet somewhere from 32 to 55 percent. Today's leaders run low-40s company-wide, while serving a model alone (stripped of training cost) tops 70 percent.",
-    "viz_rationale": "A few labelled magnitudes on one shared scale. Ranked horizontal bars line the three model assumptions up against today's real margins, so the reader sees how much of the whole answer is a bet on one number.",
+    "note": "Each 5 points of margin is worth roughly $0.5T of value. It is not the biggest dial: if revenue stops growing after 2030, the middle model falls from +$487B to about -$1.5T. But margin is the only dial with real numbers today to check it against. The models bet somewhere from 32 to 55 percent. Today's leaders run low-40s company-wide, and serving a model alone (stripped of training cost) tops 70 percent. Read the three model bars as a harder test than the reported ones: they count what is left after power, wages, research and admin, while the company figures are struck before research and admin. So the two families are not the same measure, and the middle model landing beside OpenAI is arithmetic, not a check.",
+    "viz_rationale": "A few labelled sizes on one shared scale. Ranked bars line the three model guesses up against today's real margins. The reader can then see how much of the answer rests on one of its four dials. The sublabels name each measure, because the model bars and the reported bars are not struck at the same line.",
     "log": false,
     "series": [
      {
@@ -2514,19 +2522,22 @@
       "claim_id": "mc-09",
       "grade": "B",
       "source_title": "AI Value Capture: The Shift To Model Labs - SemiAnalysis",
-      "source_url": "https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model"
+      "source_url": "https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model",
+      "sublabel": "just the act of serving; training not counted"
      },
      {
       "label": "Sunny model assumes",
       "value": 55,
       "grade": "C",
-      "source_title": "p1-ai-economics DCF panel (forecasts.json \u00b7 T-payback-total, bull)"
+      "source_title": "p1-ai-economics DCF panel (forecasts.json \u00b7 T-payback-total, bull)",
+      "sublabel": "after power, wages, research and admin"
      },
      {
       "label": "Middle model assumes",
       "value": 43,
       "grade": "C",
-      "source_title": "p1-ai-economics DCF panel (forecasts.json \u00b7 T-payback-total, base)"
+      "source_title": "p1-ai-economics DCF panel (forecasts.json \u00b7 T-payback-total, base)",
+      "sublabel": "after power, wages, research and admin"
      },
      {
       "label": "OpenAI - company-wide",
@@ -2534,7 +2545,8 @@
       "claim_id": "rv-03",
       "grade": "B",
       "source_title": "OpenAI's financials have leaked - Fortune",
-      "source_url": "https://fortune.com/2026/06/16/openai-financials-leaked-losses-revenue-profit/"
+      "source_url": "https://fortune.com/2026/06/16/openai-financials-leaked-losses-revenue-profit/",
+      "sublabel": "before research and admin"
      },
      {
       "label": "Anthropic - company-wide",
@@ -2542,22 +2554,24 @@
       "claim_id": "rv-13",
       "grade": "B",
       "source_title": "Anthropic Lowered Gross Margin Projection - The Information",
-      "source_url": "https://www.theinformation.com/briefings/anthropic-lowered-gross-margin-projection-costs-run-ai-rose"
+      "source_url": "https://www.theinformation.com/briefings/anthropic-lowered-gross-margin-projection-costs-run-ai-rose",
+      "sublabel": "before research and admin"
      },
      {
       "label": "Glum model assumes",
       "value": 32,
       "grade": "C",
-      "source_title": "p1-ai-economics DCF panel (forecasts.json \u00b7 T-payback-total, bear)"
+      "source_title": "p1-ai-economics DCF panel (forecasts.json \u00b7 T-payback-total, bear)",
+      "sublabel": "after power, wages, research and admin"
      }
     ]
    },
    {
     "type": "bars",
-    "title": "What could break it: chip life, books vs. reality",
+    "title": "What could break it: how long the books say a chip earns, how long it leads, how fast it repays",
     "unit": "years",
-    "note": "The books spread server cost over 5-6 years; frontier chips lead for about 3.9 (range 2.5-4.5); an early machine paid for itself in about two. Old kit still earns - CoreWeave re-signed H100s at 95% of the old price - yet a short-seller claims the group hides $176B of wear across 2026-2028.",
-    "viz_rationale": "A few labelled magnitudes on one axis (years). Ranked horizontal bars expose the gap between booked depreciation life and true frontier life - the crux of the depreciation fight - without needing a time axis.",
+    "note": "Three different clocks share one axis. The books spread server cost over 5-6 years. Frontier chips lead for about 3.9 (80% range 2.4-4.5). An early machine earned its money back in about two, which is a repayment speed, not a lifespan. Its whisker - the thin line showing how wide a range is - runs 1.3 to 4.0 years. That spread is across vintages, not measurement error: machines bought into scarcity repaid fastest, and ones bought at late-2025 prices repay far more slowly. Leading the frontier is also not the same as wearing out. Old kit still earns - CoreWeave re-signed H100s at 95% of the old price - yet a short-seller claims the group hides $176B of wear across 2026-2028. So the life the books should assume turns on what old chips keep earning, which is still an open question.",
+    "viz_rationale": "A few labelled sizes on one axis of years, holding three kinds of year. Ranked bars set the life the books assume against how long a chip leads the frontier. That gap is the crux of the fight over how fast these chips lose value. The last row is a repayment speed, not a life. It sits on the same axis on purpose, and its label says so.",
     "log": false,
     "series": [
      {
@@ -2566,7 +2580,8 @@
       "claim_id": "dp-01",
       "grade": "A",
       "source_title": "Microsoft extends life of cloud servers to six years - The Register",
-      "source_url": "https://www.theregister.com/2022/08/02/microsoft_server_life_extension/"
+      "source_url": "https://www.theregister.com/2022/08/02/microsoft_server_life_extension/",
+      "sublabel": "the life the books assume"
      },
      {
       "label": "Amazon cut part of fleet to",
@@ -2574,11 +2589,12 @@
       "claim_id": "dp-02",
       "grade": "A",
       "source_title": "On Amazon and Server Lifespans - Calcbench",
-      "source_url": "https://www.calcbench.com/blog/post/blogger141924366623734345/On-Amazon-and-Server-Lifespans"
+      "source_url": "https://www.calcbench.com/blog/post/blogger141924366623734345/On-Amazon-and-Server-Lifespans",
+      "sublabel": "the life the books assume - cut from 6 in 2025"
      },
      {
       "label": "Frontier lead life",
-      "sublabel": "range 2.5-4.5",
+      "sublabel": "how long it leads frontier training \u00b7 80% range 2.4-4.5",
       "value": 3.9,
       "claim_id": "dp-10",
       "grade": "B",
@@ -2591,7 +2607,8 @@
       "claim_id": "dp-13",
       "grade": "B",
       "source_title": "AI Neocloud Playbook and Anatomy - SemiAnalysis",
-      "source_url": "https://semianalysis.com/2024/10/03/ai-neocloud-playbook-and-anatomy/"
+      "source_url": "https://semianalysis.com/2024/10/03/ai-neocloud-playbook-and-anatomy/",
+      "sublabel": "years to earn the money back, not a lifespan \u00b7 1.3-4.0 by vintage"
      }
     ]
    },
@@ -2628,14 +2645,14 @@
    {
     "type": "particles",
     "title": "Watch the coin flip land",
-    "unit": "1 grain = $1bn of capital",
-    "note": "Each grain is a dollar of capital trying to earn itself back by 2030. About 52 in every 100 settle as earned; the rest cool and fall into the write-down reservoir. This is the odds the bet clears its cost of capital \u2014 not the share of dollars that come back.",
-    "viz_rationale": "The signature object-constancy climax: a probability is easier to feel as a population of outcomes than as a number.",
+    "unit": "percent probability",
+    "note": "Run the whole build 100 times. In about 52 of those runs it clears its cost of capital - the price of the money, about nine or ten cents a year on each dollar. In 48 runs it does not. Each grain is one run, not a dollar. The test covers the full life of the build: 2024 to 2030, plus the earnings that follow. Every year through 2030 spends more than it earns, so the whole payoff sits in that tail. These are the odds the bet clears the bar, not the share of dollars that come back.",
+    "viz_rationale": "The signature object-constancy climax: a chance is easier to feel as a crowd of outcomes than as a number. Each grain stands for one run of the whole program, so the picture matches what the number measures.",
     "series": [
      {
       "label": "odds it clears cost of capital",
       "value": 52,
-      "claim_id": "T-payback-total",
+      "claim_id": "",
       "source_title": "P1 superforecaster panel (median of 3 independent panelists)",
       "source_url": "",
       "grade": "C"
@@ -2666,7 +2683,7 @@
     ]
    },
    {
-    "text": "Three claims hold up firmly. Building a model is a big one-time cost. But serving it \u2014 running it to answer users \u2014 still costs real money, and that cost grows with use. US list prices sit far above serving cost: sellers cut prices by two-thirds to four-fifths on models they did not change, and no one can do that near cost. And the token is a slippery unit: the same task can look cheaper or dearer depending only on how you count.",
+    "text": "Three claims hold up firmly. Building a model is a big one-time cost. But serving it \u2014 running it to answer users \u2014 still costs real money, and that cost grows with use. List price means the posted price, before any deal. US list prices sit far above serving cost: one seller cut its price by four-fifths on a model it did not change at all, and another cut its top tier by two-thirds. No one can do that near cost. And the token is a slippery unit: the same task can look cheaper or dearer depending only on how you count.",
     "claim_ids": [
      "fx-13",
      "fx-06",
@@ -2711,7 +2728,7 @@
     ]
    },
    {
-    "text": "Then the biggest question: does the whole build pay for itself? We treat every US AI dollar, early and late, as one project, and ask if it earns back more than that money could earn elsewhere. Two of three cases clear the bar. But the base case clears it only just, and the failing case fails far bigger than the winning case wins. Every year loses cash through 2030, so all the payoff waits for later years no one can see yet. Our panel put the odds near a coin toss.",
+    "text": "Then the biggest question: does the whole build pay for itself? We treat every US AI dollar, early and late, as one project, and ask if it earns back more than that money could earn elsewhere. That hurdle has a name: the cost of capital. Two of three cases clear the bar. But the base case clears it only just, and the failing case fails far bigger than the winning case wins. Every year loses cash through 2030, so all the payoff waits for later years no one can see yet. Our panel put the odds near a coin toss.",
     "claim_ids": [
      "rv-05",
      "rv-10",
@@ -2792,8 +2809,8 @@
    {
     "type": "bars",
     "title": "The best evidence is a price cut (T2)",
-    "note": "Only the serving software changed, not the model \u2014 impossible if price sat near cost. We estimate serving is about 15% of US list price, on a wide range of 6-48% (mc-08); SemiAnalysis puts Anthropic's margin on serving hardware near 72% (mc-09). And scarcity keeps list prices up: Google's cloud backlog hit $514B (sd-06), Azure grew 39% while calling itself capacity-constrained (sd-05), and three-year-old H100 rentals re-tightened to $2.35 per chip-hour (sd-09).",
-    "unit": "% price cut on an unchanged model",
+    "note": "OpenAI's o3 cut was on a model it did not change at all. Only the serving software improved. Anthropic's cut came with a new Opus generation, priced at a third of the old tier. Neither is possible if price sat near cost. We put serving at about 15% of US list price, on a wide range of 6-48% (mc-08). SemiAnalysis puts Anthropic's margin on serving hardware near 72% (mc-09). Scarcity also keeps list prices up: Google's cloud backlog hit $514B (sd-06), Azure grew 39% while calling itself short of capacity (sd-05), and three-year-old H100 rentals re-tightened to $2.35 per chip-hour (sd-09).",
+    "unit": "% cut in list price",
     "viz_rationale": "Two labelled magnitudes of the same kind (a headline price cut), ranked \u2014 the simplest 'bars' case.",
     "series": [
      {
@@ -2817,7 +2834,7 @@
    {
     "type": "bars",
     "title": "Chinese price is a strategy dial, not a cost floor (T3)",
-    "note": "Same country, roughly a 54x range in one chart. Price tracks whether the weights are open and the hosting is crowded \u2014 not a Chinese cost edge. When DeepSeek was the only host of its model, its own disclosed data implied a 545% theoretical margin (cd-04), not a firm selling at cost. The cheap tier is a choice.",
+    "note": "Same country, roughly a 54x range in one chart. Price tracks whether the weights are open and the hosting is crowded \u2014 not a Chinese cost edge. When DeepSeek was the only host of its model, its own disclosed data implied a 545% theoretical margin (cd-04). Read that as a markup over its own serving cost, not as a share of each sales dollar. That is not a firm selling at cost. The cheap tier is a choice.",
     "unit": "USD per million output tokens",
     "log": true,
     "viz_rationale": "Three labelled prices spanning two orders of magnitude \u2014 'bars' on a log axis, so the $0.28 tier and the $15 tier read side by side.",
@@ -2851,7 +2868,7 @@
    {
     "type": "bars",
     "title": "The fixed cost lands on a patron, not the token buyer (T4)",
-    "note": "The visible $5.576M final run is a rounding error against a roughly $1.4B GPU fleet (on a range of $0.6-2.6B, paid for by the founder's hedge fund) and $7.4B of fresh outside money raised in June 2026 \u2014 none of it from selling tokens. Zhipu lost RMB 4.7B on RMB 724M of sales (ce-08); Alibaba is spending RMB 380B over three years and gives Qwen's weights away to sell the compute beneath them (cd-12).",
+    "note": "The visible $5.576M final run is a rounding error against a roughly $1.4B GPU fleet (on a range of $0.6-2.6B, paid for by the founder's hedge fund) and a $7.4B round closed in June 2026. The founder put in about 40% of that round himself \u2014 RMB 20B, through a partnership he controls. Only about $4.4B is genuinely outside money, and most of that is locked up for five years and carries no votes. Not a dollar of it comes from selling tokens. Zhipu lost RMB 4.7B on RMB 724M of sales (ce-08); Alibaba is spending RMB 380B over three years and gives Qwen's weights away to sell the compute beneath them (cd-12).",
     "unit": "USD millions",
     "log": true,
     "viz_rationale": "Three magnitudes spanning three orders of magnitude ($5.6M to $7.4B) \u2014 'bars' on a log axis makes the disclosed run visibly tiny against the real capital behind it.",
@@ -2875,50 +2892,53 @@
       "source_url": "https://newsletter.semianalysis.com/p/deepseek-debates"
      },
      {
-      "label": "DeepSeek outside funding round (Jun 2026)",
+      "label": "DeepSeek funding round (Jun 2026)",
       "value": 7400,
       "low": 6500,
       "high": 8200,
       "grade": "B",
       "claim_id": "cd-09",
       "source_title": "SCMP: How DeepSeek's landmark funding secures Liang Wenfeng's grip",
-      "source_url": "https://www.scmp.com/tech/big-tech/article/3357525/how-deepseeks-landmark-funding-secures-liang-wenfengs-grip-chinas-ai-rivalry-heats"
+      "source_url": "https://www.scmp.com/tech/big-tech/article/3357525/how-deepseeks-landmark-funding-secures-liang-wenfengs-grip-chinas-ai-rivalry-heats",
+      "sublabel": "~40% of it put in by the founder himself"
      }
     ]
    },
    {
     "type": "slope",
     "title": "The claim with the money on it moved the wrong way (T5)",
-    "note": "T5 says supply catches up and prices fall to cost. Instead OpenAI's flagship input price rose four-fold from its 2025 low. Anthropic's newer tokenizer also adds about 30% more billable tokens for the same words at an unchanged rate (px-08). Our forecasting panel gives just 13% that either OpenAI or Anthropic sells frontier tokens within 1.5x serving cost by the end of 2028. The umbrella leaks; it does not break.",
+    "note": "T5 says supply catches up and prices fall to cost. Instead OpenAI's flagship input price rose four-fold from its 2025 low. But the two ends are different models. The flagship seat passed from GPT-5 to GPT-5.6 Sol, so this is the price of the top of the line, not one product repriced. OpenAI also widened the ladder downward at the same time. GPT-5.6 Luna, at $1.00 per million, sits below the 2025 trough. So part of the rise is a wider ladder of tiers, not a hike on one fixed good. Anthropic's newer tokenizer \u2014 the rule that chops text into billable units \u2014 also adds about 30% more billable tokens for the same words at an unchanged rate (px-08). Our forecasting panel gives just 13% that either OpenAI or Anthropic sells frontier tokens within 1.5x serving cost by the end of 2028. The price umbrella \u2014 the gap above cost that scarcity holds open \u2014 leaks; it does not break.",
     "unit": "USD per million input tokens",
-    "viz_rationale": "Two states of one quantity over time (trough vs now) \u2014 a 'slope' makes the wrong-way move a single rising line.",
+    "viz_rationale": "The flagship input price at two dates \u2014 a 'slope' makes the wrong-way move a single rising line. The two ends are different flagship models, not one product repriced, which the dated labels and the note spell out.",
     "series": [
      {
-      "label": "2025 trough",
+      "label": "GPT-5",
       "x": 0,
       "value": 1.25,
       "grade": "A",
       "claim_id": "px-04",
       "source_title": "OpenAI API pricing (official)",
-      "source_url": "https://developers.openai.com/api/docs/pricing"
+      "source_url": "https://developers.openai.com/api/docs/pricing",
+      "sublabel": "Aug 2025 \u2014 the trough"
      },
      {
-      "label": "2026 now",
+      "label": "GPT-5.6 Sol",
       "x": 1,
       "value": 5,
       "grade": "A",
       "claim_id": "px-04",
       "source_title": "OpenAI API pricing (official)",
-      "source_url": "https://developers.openai.com/api/docs/pricing"
+      "source_url": "https://developers.openai.com/api/docs/pricing",
+      "sublabel": "Jul 2026 \u2014 today's flagship"
      }
     ]
    },
    {
     "type": "bars_ci",
     "title": "Supply is coming \u2014 the money is pledged (T5)",
-    "note": "The dollars to close the gap are committed. But power, not cash, sets the pace of how fast money becomes sellable capacity. Each bar carries its 80% range. One buyer, OpenAI, sits under much of the total, and its plan was cut and then raised inside a single year.",
-    "unit": "USD billions",
-    "viz_rationale": "Three estimated magnitudes, each genuinely uncertain \u2014 'bars_ci' shows the point estimate and its 80% whisker so the reader sees how soft these commitments are.",
+    "note": "The dollars to close the gap are committed \u2014 but read the bars carefully. The first bar is one year of spending. The other two are multi-year totals. So a single year of Big-4 spending, $717.5B, nearly matches OpenAI's whole $750B plan through 2030. The two OpenAI bars also overlap: the $750B plan is a reset of the same commitment base, not an addition to it, so the three bars do not add up. Each bar carries its 80% range \u2014 the band we would not be shocked to see it land in. OpenAI's plan was cut and then raised inside a single year. Power, not cash, sets how fast any of this becomes sellable capacity.",
+    "unit": "USD billions \u2014 one annual, two multi-year",
+    "viz_rationale": "Three estimated magnitudes, each genuinely uncertain \u2014 'bars_ci' shows the point estimate and its 80% whisker, the line that marks how soft the figure is. One bar is a single year of guided spending. The other two are multi-year pledges. They sit together because the chapter asks how much money stands behind T5, and the note carries the difference.",
     "series": [
      {
       "label": "US Big-4 capex, 2026 (guided)",
@@ -2928,17 +2948,19 @@
       "grade": "B",
       "claim_id": "cx-11",
       "source_title": "Value Add VC: Big Tech's $725B AI capex in 2026",
-      "source_url": "https://valueaddvc.com/blog/big-tech-ai-capex-in-2025-microsoft-google-meta-amazon-and-the-spending-race"
+      "source_url": "https://valueaddvc.com/blog/big-tech-ai-capex-in-2025-microsoft-google-meta-amazon-and-the-spending-race",
+      "sublabel": "one year of spending"
      },
      {
-      "label": "OpenAI cumulative compute by 2030",
+      "label": "OpenAI cumulative compute spending by 2030",
       "value": 750,
       "low": 480,
       "high": 900,
       "grade": "B",
       "claim_id": "sd-16",
       "source_title": "OpenAI resets spending expectations, tells investors compute target is around $600 billion by 2030 (CNBC)",
-      "source_url": "https://www.cnbc.com/2026/02/20/openai-resets-spend-expectations-targets-around-600-billion-by-2030.html"
+      "source_url": "https://www.cnbc.com/2026/02/20/openai-resets-spend-expectations-targets-around-600-billion-by-2030.html",
+      "sublabel": "multi-year total; a reset of the bar below"
      },
      {
       "label": "OpenAI announced multi-year commitments",
@@ -2948,14 +2970,15 @@
       "grade": "B",
       "claim_id": "cx-13",
       "source_title": "Tomasz Tunguz: OpenAI's $1 trillion infrastructure spend",
-      "source_url": "https://tomtunguz.com/openai-hardware-spending-2025-2035/"
+      "source_url": "https://tomtunguz.com/openai-hardware-spending-2025-2035/",
+      "sublabel": "multi-year total, ~2025-2035"
      }
     ]
    },
    {
     "type": "comparison",
     "title": "But power gates it: the grid is swamped (T5)",
-    "note": "Requests to plug data centers into the Texas grid already run to about 1.7x the grid's all-time peak load. Even fully funded, AI capacity lands only as fast as power arrives \u2014 this is the gate on whether T5 ever resolves for the thesis.",
+    "note": "ERCOT was fielding about 143 GW of data-center hookup requests in October 2025, against an all-time peak load of 85.9 GW \u2014 roughly 1.7x. But queue requests are applications, not projects. Most have not cleared a study, and many are duplicate filings across grids. That is what the 120-160 range on the top bar marks. The harder gate sits behind them. The median wait to plug into a US grid has risen from under 20 months in 2005 to about 55 months for the 2023 cohort, with 4-7 year waits reported in Northern Virginia, Phoenix and Dallas. Even fully funded, AI capacity lands only as fast as power arrives \u2014 this is the gate on whether T5 ever resolves.",
     "unit": "gigawatts",
     "viz_rationale": "Two states of one quantity (requested demand vs the grid's peak) \u2014 'comparison' dramatizes that one bar towers over the other.",
     "series": [
@@ -2965,7 +2988,8 @@
       "grade": "B",
       "claim_id": "sd-13",
       "source_title": "Why American data centers can't plug in (Works in Progress)",
-      "source_url": "https://worksinprogress.co/issue/why-american-data-centers-cant-plug-in/"
+      "source_url": "https://worksinprogress.co/issue/why-american-data-centers-cant-plug-in/",
+      "sublabel": "applications in the queue, not committed projects"
      },
      {
       "label": "ERCOT all-time peak load",
@@ -2973,33 +2997,34 @@
       "grade": "B",
       "claim_id": "sd-13",
       "source_title": "Why American data centers can't plug in (Works in Progress)",
-      "source_url": "https://worksinprogress.co/issue/why-american-data-centers-cant-plug-in/"
+      "source_url": "https://worksinprogress.co/issue/why-american-data-centers-cant-plug-in/",
+      "sublabel": "the most this system has ever delivered at once"
      }
     ]
    },
    {
     "type": "diverging",
     "title": "Does the whole build pay? Three scenarios",
-    "note": "One project: every US AI dollar from 2024 out past 2030, plus a tail for the years beyond, discounted at a 9-10% cost of capital. Two of three cases clear the bar \u2014 but the base case clears by only $487B, and the drop from base to bear ($2.8T) is six times the climb to bull ($420B). Every year through 2030 loses cash, so all the payoff waits for the years after 2030: strip them out and even the bull case loses $3.3T. The hinge is the mature margin \u2014 about 5c either way moves the base case roughly $0.5T and can flip its sign. Its clock is chip life: a frontier chip serves about 3.9 years (dp-10), yet CoreWeave re-signed expiring H100s at about 95% of the old price (dp-09). Figures from the P1 total-program DCF model; not an externally graded claim.",
+    "note": "One project: every US AI dollar from 2024 out past 2030, plus a tail \u2014 one lumped estimate for all the years after 2030. Future dollars are discounted, meaning marked back to what they are worth today; the total is the net present value. Each case is priced at its own cost of capital, 8.5% to 11%, because the world where the build disappoints is also the world where money costs more. That gap does real work: the base case turns negative if you charge it the bear's 11%. Two of three cases clear the bar \u2014 but the base case clears by only $487B, and the drop from base to bear ($2.8T) is six times the climb to bull ($420B). Every year through 2030 loses cash, so all the payoff waits for the years after 2030: strip them out and even the bull case loses $3.3T. The hinge is the mature margin \u2014 the cents of each sales dollar the industry keeps once it has stopped growing. About 5c either way moves the base case roughly $0.5T and can flip its sign. Its clock is chip life: a frontier chip serves about 3.9 years (dp-10), yet CoreWeave re-signed expiring H100s at about 95% of the old price (dp-09). Figures from the P1 total-program DCF (discounted cash flow) model; not an externally graded claim.",
     "unit": "USD billions (net present value)",
     "viz_rationale": "Signed values around zero (two positive, one deeply negative) \u2014 'diverging' is the shape data-to-viz prescribes, and it makes the make-or-break asymmetry unmissable.",
     "series": [
      {
       "label": "Bear",
       "value": -2300,
-      "sublabel": "$4.75T spent \u00b7 32c mature margin",
+      "sublabel": "$4.75T spent \u00b7 32c mature margin \u00b7 money priced at 11%",
       "source_title": "P1 total-program DCF model (bear/base/bull), Jul 2026"
      },
      {
       "label": "Base",
       "value": 487,
-      "sublabel": "$4.49T spent \u00b7 43c mature margin",
+      "sublabel": "$4.49T spent \u00b7 43c mature margin \u00b7 money priced at 9.5%",
       "source_title": "P1 total-program DCF model (bear/base/bull), Jul 2026"
      },
      {
       "label": "Bull",
       "value": 907,
-      "sublabel": "$5.59T spent \u00b7 55c mature margin",
+      "sublabel": "$5.59T spent \u00b7 55c mature margin \u00b7 money priced at 8.5%",
       "source_title": "P1 total-program DCF model (bear/base/bull), Jul 2026"
      }
     ]
@@ -3007,22 +3032,22 @@
    {
     "type": "dot_spread",
     "title": "The honest answer is a coin toss",
-    "note": "Will the total US AI build \u2014 all vintages plus the tail \u2014 earn back its cost of capital? Three forecasters landed at 44%, 52% and 53%, for a median of 52%: close to a coin toss, if anything a shade under. An earlier panel asked only about the narrower 2024-2026 batch had landed near 56%. If OpenAI's roughly $1.25T of compute commitments are torn up and rewritten, the estimate falls toward 30%. From the P1 superforecaster panel; not an externally graded claim.",
+    "note": "Will the total US AI build earn back its cost of capital? That means all vintages \u2014 every year's batch of spending \u2014 plus the tail. Three lenses landed at 44%, 52% and 53%, for a median of 52%: close to a coin toss, if anything a shade under. Outside-view, valuation and contrarian are three ways of reading the same evidence, not three separate bodies of it. So the tight 44-53 spread shows the lenses agreeing, not three sources agreeing. An earlier panel asked only about the narrower 2024-2026 batch had landed near 56%. If OpenAI's roughly $1.25T of compute commitments are torn up and rewritten, the estimate falls toward 30%. From the P1 superforecaster panel; not an externally graded claim.",
     "unit": "% probability the whole build clears its cost of capital",
-    "viz_rationale": "A point estimate plus the spread of independent panelists \u2014 the exact case 'dot_spread' is reserved for: three forecaster dots and the median.",
+    "viz_rationale": "A point estimate plus the spread across the panel \u2014 the case 'dot_spread' is for: three dots and the median. The three dots are three ways of reading the same evidence, not three separate bodies of it. The note says so plainly.",
     "series": [
      {
-      "label": "Forecaster A",
+      "label": "Outside-view",
       "value": 44,
       "source_title": "P1 superforecaster panel \u2014 total-program payback, Jul 2026"
      },
      {
-      "label": "Forecaster B",
+      "label": "Contrarian",
       "value": 52,
       "source_title": "P1 superforecaster panel \u2014 total-program payback, Jul 2026"
      },
      {
-      "label": "Forecaster C",
+      "label": "Valuation (DCF)",
       "value": 53,
       "source_title": "P1 superforecaster panel \u2014 total-program payback, Jul 2026"
      },
@@ -3037,7 +3062,7 @@
    {
     "type": "bars",
     "title": "Today's revenue against the bill",
-    "note": "Both run-rates grow several times a year, yet both sit far below the roughly $1.5T of annual revenue Sequoia's David Cahn says one year of building at this scale requires. Anthropic even booked a first quarterly operating profit near $559M on $10.9B of Q2 2026 sales (rv-12) \u2014 real, but tiny beside a bill in the trillions. The gap is not damning on its own; a young business earns most of its money late. It is why the whole case rests on the tail.",
+    "note": "A run-rate takes one strong month and multiplies it by twelve, so read each run-rate bar as roughly double the audited figure. Both run-rates grow several times a year, yet both sit far below the roughly $1.5T of annual revenue Sequoia's David Cahn says one year of building at this scale requires. Anthropic even booked a first quarterly operating profit near $559M on $10.9B of Q2 2026 sales (rv-12) \u2014 real, but tiny beside a bill in the trillions. The gap is not damning on its own; a young business earns most of its money late. It is why the whole case rests on the tail.",
     "unit": "USD billions per year",
     "log": true,
     "viz_rationale": "Three magnitudes spanning nearly two orders of magnitude ($24B to $1,500B) \u2014 'bars' on a log axis keeps the run-rates readable next to the trillion-scale bar.",
