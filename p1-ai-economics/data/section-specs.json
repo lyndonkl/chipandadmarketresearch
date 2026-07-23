@@ -132,15 +132,15 @@
    },
    {
     "type": "bars_ci",
-    "title": "Serving pays: margins sit above the cost to serve",
-    "note": "All three are positive, so US labs charge more than the direct cost of an answer, which is T2. Caveat: free-tier compute and training amortization pull the all-in figure lower, and a classic software firm keeps more still.",
+    "title": "Of every $100 charged, how much is left after cost?",
+    "note": "All three are shares of revenue, but each deducts a different scope of cost: only the compute to answer (85), all inference infrastructure (72), then everything in cost of revenue (42.6). The descent is the finding \u2014 the wider you draw the cost boundary, the thinner the margin gets. All three stay positive, so US labs charge more than the direct cost of an answer (T2).",
     "unit": "% gross margin",
     "log": false,
     "viz_rationale": "A few labelled margins compared head to head; each is an uncertain estimate, so ranked bars with 80% whiskers fit the shape.",
     "series": [
      {
       "label": "Implied marginal serving margin",
-      "sublabel": "100 minus serving cost (from mc-08)",
+      "sublabel": "deducts only the compute to produce the answer",
       "value": 85,
       "low": 52,
       "high": 94,
@@ -151,7 +151,7 @@
      },
      {
       "label": "Anthropic inference gross margin",
-      "sublabel": "SemiAnalysis, May 2026",
+      "sublabel": "deducts all inference infrastructure",
       "value": 72,
       "low": 55,
       "high": 82,
@@ -162,7 +162,7 @@
      },
      {
       "label": "OpenAI 2025 gross margin",
-      "sublabel": "leaked FY2025 accounts",
+      "sublabel": "deducts everything in cost of revenue (company-wide)",
       "value": 42.6,
       "low": 33,
       "high": 47,
@@ -190,29 +190,42 @@
       "claim_id": "ce-05",
       "grade": "A",
       "source_title": "Kimi K3 - API Pricing & Benchmarks (OpenRouter)",
-      "source_url": "https://openrouter.ai/moonshotai/kimi-k3"
+      "source_url": "https://openrouter.ai/moonshotai/kimi-k3",
+      "color": "var(--amber)"
      },
      {
       "label": "Claude Sonnet 4.6",
-      "sublabel": "US list price (reference, no claim)",
-      "value": 15
+      "sublabel": "US list price, same rate",
+      "value": 15,
+      "claim_id": "mc-15",
+      "grade": "A",
+      "source_title": "Anthropic pricing (Claude Sonnet 4.6 output)",
+      "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "color": "var(--amber)"
      }
     ]
    },
    {
-    "type": "range",
-    "title": "DeepSeek's own math: even the cheap price clears cost",
-    "note": "For one day of V3/R1 serving, DeepSeek disclosed a cost of about $87k against theoretical revenue of about $562k if every token were billed at list, a 545% cost-profit ratio, so revenue would be roughly 6.5x the chip bill. It flagged that real revenue was far lower because much use was free. Still, this is not a firm selling below cost.",
-    "unit": "% theoretical cost-profit ratio (24h)",
+    "type": "comparison",
+    "title": "DeepSeek's own math: one day of serving, cost against revenue",
+    "note": "The gap between the bars is the profit: $562k less $87k is $475k, and $475k over $87k is the 545% cost-profit ratio DeepSeek published \u2014 revenue about 6.5x the chip bill. DeepSeek flagged that real revenue was far lower because much use was free. The implication is the important part: the lab everyone cites as the cheap one would still clear its costs several times over at list. So the low Chinese price is a strategic choice, not a cost floor.",
+    "unit": "USD thousands, one day of V3/R1 serving",
     "log": false,
-    "viz_rationale": "A single disclosed quantity with a tight interval reads best as one range bar with a marked point.",
+    "viz_rationale": "Two magnitudes that make a ratio: showing both bars lets the reader see the gap that IS the profit, instead of asserting a percentage they have to reverse-engineer.",
     "series": [
      {
-      "label": "DeepSeek theoretical cost-profit ratio",
-      "sublabel": "if all V3/R1 tokens billed at R1 list",
-      "value": 545,
-      "low": 530,
-      "high": 560,
+      "label": "Theoretical revenue",
+      "sublabel": "if every token were billed at R1 list price",
+      "value": 562,
+      "claim_id": "cd-04",
+      "grade": "A",
+      "source_title": "DeepSeek-V3/R1 Inference System Overview (open-infra-index)",
+      "source_url": "https://github.com/deepseek-ai/open-infra-index/blob/main/202502OpenSourceWeek/day_6_one_more_thing_deepseekV3R1_inference_system_overview.md"
+     },
+     {
+      "label": "Cost of the chips",
+      "sublabel": "GPU rental for the same 24 hours",
+      "value": 87,
       "claim_id": "cd-04",
       "grade": "A",
       "source_title": "DeepSeek-V3/R1 Inference System Overview (open-infra-index)",

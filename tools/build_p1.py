@@ -8,6 +8,42 @@ import json, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 specs = json.loads((ROOT / "p1-ai-economics/data/section-specs.json").read_text())
+claims = {c["id"]: c for c in json.loads((ROOT / "p1-ai-economics/data/claims.json").read_text())["claims"]}
+
+# Grade-A figures keep their interval ONLY where the source itself gave a range or the figure is
+# forward-looking (a plan/guidance), i.e. where the uncertainty is real rather than an artifact.
+KEEP_CI_GRADE_A = {"fx-04","fx-10","px-04","px-06","px-08","cx-01","cx-04","cx-06","cx-08","cd-12"}
+
+audit = {"sourced": 0, "derived": 0, "ci_dropped": 0, "value_mismatch": [], "log_tagged": 0}
+for _s in specs:
+    for _v in _s["visuals"]:
+        if _v.get("log") and "log" not in (_v.get("unit") or "").lower():
+            _v["unit"] = (_v.get("unit") or "").rstrip() + " · log scale"
+            audit["log_tagged"] += 1
+for _s in specs:
+    for _v in _s["visuals"]:
+        if _v["type"] == "particles":
+            continue
+        for d in _v["series"]:
+            cid = d.get("claim_id"); c = claims.get(cid)
+            if c is not None:
+                # intervals come from the claim record, never re-authored per chart —
+                # but only when the series quotes the claim rather than deriving from it
+                if abs(float(d.get("value", 0)) - float(c["value"])) < 1e-6:
+                    d["low"], d["high"] = c["ci80_low"], c["ci80_high"]
+                    d["grade"] = c["grade"]; audit["sourced"] += 1
+                else:
+                    d["derived_from_claim"] = True; audit["derived"] += 1
+            elif cid:
+                audit["value_mismatch"].append((_s["chapter"], cid, d.get("label")))
+            if d.get("grade") == "A" and cid not in KEEP_CI_GRADE_A:
+                if d.pop("low", None) is not None:
+                    d.pop("high", None); audit["ci_dropped"] += 1
+print(f"  log charts signposted: {audit['log_tagged']}")
+print(f"  intervals sourced from claims: {audit['sourced']} · derived series left as authored: {audit['derived']} · "
+      f"grade-A intervals dropped: {audit['ci_dropped']} · unknown claim ids: {len(audit['value_mismatch'])}")
+for m in audit["value_mismatch"][:8]:
+    print(f"    unknown claim id ch{m[0]} {m[1]} ({m[2]})")
 
 TEMPLATE = r"""<meta charset="utf-8">
 <title>The Economics of Intelligence</title>
@@ -167,18 +203,34 @@ const W=820;
 function barChart(v){
   const s=v.series, log=!!v.log, n=s.length;
   // label gutter sized to the longest label so nothing clips on the left
-  const padL=Math.min(330,Math.max(130,Math.max(
+  const padL=Math.min(400,Math.max(130,Math.max(
     ...s.map(d=>String(d.label||'').length*6.4),
     ...s.map(d=>String(d.sublabel||'').length*5.5))+16));
   const rowH=s.some(d=>d.sublabel)?46:36, padR=76, top=8;
   const h=top+n*rowH+22, innerW=W-padL-padR;
   const vals=s.flatMap(d=>[d.value, d.low??d.value, d.high??d.value]).filter(x=>isFinite(x));
   const lo=log?Math.max(1e-3,Math.min(...vals.filter(x=>x>0))):0;
-  const hi=Math.max(...vals)||1;
+  let hi=Math.max(...vals)||1;
+  if(/%|percent/i.test(v.unit||'') && !log && hi<=100) hi=100;
   const sc=x=>{if(!log)return innerW*(Math.max(0,x)/hi);
     const l=Math.log10(Math.max(lo,x)), a=Math.log10(lo), b=Math.log10(hi);
     return innerW*Math.max(0,(l-a)/(b-a||1));};
-  let out=`<svg viewBox="0 0 ${W} ${h}" role="img">`;
+  const isPct=/%|percent/i.test(v.unit||'') && !log && hi<=100;
+  const h2=h+(isPct?20:0)+(log?34:0);
+  let out=`<svg viewBox="0 0 ${W} ${h2}" role="img">`;
+  if(log){   // make the compression visible: a gridline every power of ten
+    const e0=Math.floor(Math.log10(lo)), e1=Math.ceil(Math.log10(hi));
+    for(let e=e0;e<=e1;e++){ const gv=Math.pow(10,e);
+      if(gv<lo*0.999||gv>hi*1.001) continue;
+      const gx=padL+sc(gv);
+      out+=`<line class="grid" x1="${gx}" y1="${top}" x2="${gx}" y2="${top+n*rowH}"/>`
+         +`<text class="sub" x="${gx}" y="${top+n*rowH+15}" text-anchor="middle">${fmt(gv)}</text>`; }
+    out+=`<text class="sub" x="${padL}" y="${top+n*rowH+30}">each gridline is 10× the one before — bar length shows order of magnitude, not amount</text>`;
+  }
+  if(isPct){ [0,25,50,75,100].forEach(t=>{const gx=padL+innerW*(t/100);
+    out+=`<line class="grid" x1="${gx}" y1="${top}" x2="${gx}" y2="${top+n*rowH}"/>`
+       +`<text class="sub" x="${gx}" y="${top+n*rowH+16}" text-anchor="middle">${t}%</text>`;});
+    out+=`<text class="sub" x="${padL+innerW}" y="${top+n*rowH+30}" text-anchor="end">100% = every dollar charged</text>`; }
   out+=`<line class="axis" x1="${padL}" y1="${top}" x2="${padL}" y2="${top+n*rowH}"/>`;
   s.forEach((d,i)=>{
     const y=top+i*rowH+rowH/2, bw=sc(d.value);
@@ -193,8 +245,9 @@ function barChart(v){
         +`<line x1="${a}" y1="${y-5}" x2="${a}" y2="${y+5}" stroke="var(--graphite)" stroke-width="1.2" opacity=".55"/>`
         +`<line x1="${b}" y1="${y-5}" x2="${b}" y2="${y+5}" stroke="var(--graphite)" stroke-width="1.2" opacity=".55"/>`;
     }
-    out+=`<text class="val" x="${padL+Math.max(1.5,bw)+9}" y="${y+4}">${fmt(d.value)}</text>`;
-    if(d.grade)out+=`<text class="gr ${GC[d.grade]}" x="${W-14}" y="${y+4}" text-anchor="end">${d.grade}</text>`;
+    const endX=Math.max(bw, (isFinite(d.high)?sc(d.high):0));   // clear the whisker
+    out+=`<text class="val" x="${padL+Math.max(1.5,endX)+10}" y="${y+4}">${fmt(d.value)}</text>`;
+    if(d.grade)out+=`<text class="gr ${GC[d.grade]}" x="${W-14}" y="${y+4}">${d.grade}</text>`;
   });
   return out+'</svg>';
 }
@@ -435,6 +488,34 @@ SPECS.forEach(sp=>{
       <a class="readmore" href="${esc(sp.chapter_link)}">read the full chapter →</a></div>
     ${viz}</section>`);
 });
+
+/* auto-fit every chart's viewBox to its real rendered text — guarantees nothing clips,
+   regardless of font metrics (character-width estimates are never exact) */
+function autofitCharts(){
+  document.querySelectorAll('figure.viz svg').forEach(svg=>{
+    const vb=svg.viewBox.baseVal; if(!vb||!vb.width) return;
+    // grade markers sit in a column past the longest value label, so they can never collide
+    const grades=[...svg.querySelectorAll('text.gr')];
+    if(grades.length){
+      let rightMost=0;
+      svg.querySelectorAll('text.val').forEach(t=>{ let b; try{b=t.getBBox();}catch(e){return;}
+        rightMost=Math.max(rightMost,b.x+b.width); });
+      if(rightMost>0) grades.forEach(g=>g.setAttribute('x', rightMost+14));
+    }
+    let minX=0,minY=0,maxX=vb.width,maxY=vb.height;
+    svg.querySelectorAll('text').forEach(t=>{ let b; try{b=t.getBBox();}catch(e){return;}
+      if(!b||(!b.width&&!b.height))return;
+      minX=Math.min(minX,b.x); minY=Math.min(minY,b.y);
+      maxX=Math.max(maxX,b.x+b.width); maxY=Math.max(maxY,b.y+b.height); });
+    const pad=5;
+    if(minX<0||minY<0||maxX>vb.width||maxY>vb.height){
+      svg.setAttribute('viewBox',
+        (minX-pad)+' '+(minY-pad)+' '+((maxX-minX)+pad*2)+' '+((maxY-minY)+pad*2));
+    }
+  });
+}
+autofitCharts();
+addEventListener('resize',autofitCharts);
 
 /* wire scenes */
 const scenes={};
