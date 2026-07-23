@@ -133,7 +133,7 @@
    {
     "type": "bars_ci",
     "title": "Of every $100 charged, how much is left after cost?",
-    "note": "All three are shares of revenue, but each deducts a different scope of cost: only the compute to answer (85), all inference infrastructure (72), then everything in cost of revenue (42.6). The descent is the finding \u2014 the wider you draw the cost boundary, the thinner the margin gets. All three stay positive, so US labs charge more than the direct cost of an answer (T2).",
+    "note": "All three are shares of revenue, but each deducts a different scope of cost: only the compute to answer (85), all inference infrastructure (72), then everything in cost of revenue (42.6). The descent is the finding \u2014 the wider you draw the cost boundary, the thinner the margin gets. All three stay positive, so US labs charge more than the direct cost of an answer (T2). The deeper reason the numbers differ: the top bar is a MARGINAL cost \u2014 one more answer on a machine that is already busy. The bottom bar is closer to an AVERAGE cost \u2014 the whole rented fleet divided by the answers it actually served, including the machines sitting idle and the free users who pay nothing. A lab rents capacity, not tokens, so most of its cost does not shrink when it sells fewer tokens. That is why a fat margin on one paid token and a thin margin on the whole firm are both true at once.",
     "unit": "% gross margin",
     "log": false,
     "viz_rationale": "A few labelled margins compared head to head; each is an uncertain estimate, so ranked bars with 80% whiskers fit the shape.",
@@ -661,7 +661,7 @@
   "id": "marginal-costs",
   "title": "What a Token Costs to Serve",
   "eyebrow": "T2 \u00b7 the price umbrella",
-  "standfirst": "Every token has a price on the rate card and a cost to make, and in mid-2026 the price still sits about seven times the cost.",
+  "standfirst": "Every token has a posted price and a cost to make, and in mid-2026 the price still sits about seven times the cost.",
   "chapter_link": "research/03-marginal-costs.md",
   "plain_check": "Flesch-Kincaid grade 2.6 across the five points (reading ease 92.3, average sentence 8.8 words, longest sentence 16 words) \u2014 comfortably inside the FK<=10 ceiling. Per point: P1 2.8, P2 1.7, P3 2.7, P4 1.1, P5 4.8. Jargon is defined inline on first use: \"marginal cost\" is glossed as \"the cash spent to make one more unit\"; \"serving\" and \"rate card\" are used instead of \"inference\" and \"API list price\". No sentence carries more than one number plus one clause. The only multi-syllable technical words left are model names and \"tokenizer\", and tokenizer appears only in a visual note, where it is glossed as \"the rule that chops text into billable units\".",
   "points": [
@@ -675,7 +675,7 @@
     ]
    },
    {
-    "text": "The rate card sits far higher. OpenAI's top tier lists at $5 in and $30 out per million tokens. Anthropic's lists at $10 and $50. Set cost against price and the cash cost is about 15% of list. That is a gap near seven times. The honest range runs from two times to sixteen.",
+    "text": "The posted price sits far higher. OpenAI's top tier lists at $5 in and $30 out per million tokens. Anthropic's lists at $10 and $50. Set cost against price and the cash cost is about 15% of list. That is a gap near seven times. The honest range runs from two times to sixteen.",
     "claim_ids": [
      "mc-08",
      "px-12",
@@ -693,7 +693,7 @@
     ]
    },
    {
-    "text": "Hold quality fixed and the price falls fast. Text of GPT-3 grade went from $60 per million in 2021 to $0.06 in 2024. Across tasks the median fall is about 36 times a year. But 2026 broke the trend. The flagship input price at OpenAI rose four times off its low. Rent on an H100 chip rose too. Some rises hide off the rate card, in the token count.",
+    "text": "Hold quality fixed and the price falls fast. Text of GPT-3 grade went from $60 per million in 2021 to $0.06 in 2024. Across tasks the median fall is about 36 times a year. But 2026 broke the trend. The flagship input price at OpenAI rose four times off its low. Rent on an H100 chip rose too. Some rises hide off the posted price, in the token count.",
     "claim_ids": [
      "px-01",
      "px-02",
@@ -724,7 +724,7 @@
     "title": "An output token: what it sells for vs what it costs to serve",
     "unit": "$ per million tokens",
     "log": true,
-    "note": "The gap in one picture. Grade-A list prices are exact posted numbers, so they carry no whisker; the three cost estimates do, because they are estimates. Headline values for px-12 and px-13 are the input prices ($10 and $5 per million); the output prices shown here come from the same official rate cards (Anthropic Fable 5 / Mythos 5 $10/$50; OpenAI GPT-5.6 Sol $5/$30). Almost none of the cost is electricity: power is about 6% of marginal serving cost, band 3-12% (mc-17, grade C; Epoch AI, Inference economics of language models, https://epoch.ai/publications/inference-economics-of-language-models, set against the SemiAnalysis H100 rental index). The rest is the chip, bought or rented and spread over the hours it runs.",
+    "note": "The gap in one picture. Grade-A list prices are exact posted numbers, so they carry no whisker; the three cost estimates do, because they are estimates. Headline values for px-12 and px-13 are the input prices ($10 and $5 per million); the output prices shown here come from the same official posted prices (Anthropic Fable 5 / Mythos 5 $10/$50; OpenAI GPT-5.6 Sol $5/$30). Almost none of the cost is electricity: power is about 6% of marginal serving cost, band 3-12% (mc-17, grade C; Epoch AI, Inference economics of language models, https://epoch.ai/publications/inference-economics-of-language-models, set against the SemiAnalysis H100 rental index). The rest is the chip, bought or rented and spread over the hours it runs.",
     "viz_rationale": "Five labelled magnitudes on one axis, three of them uncertain, so bars_ci: exact prices render as clean bars, estimated costs as bars with 80% whiskers. Log scale because the values span more than two decades ($0.26 to $50) and a linear axis would crush every cost bar to nothing. Ranked descending so the price-cost gap reads as vertical distance rather than as arithmetic. This is the derivation behind the headline ratio, shown before the ratio itself.",
     "series": [
      {
@@ -886,7 +886,7 @@
     "title": "Flagship price: 18\u00d7 down, then 4\u00d7 back up",
     "unit": "$ per million input tokens",
     "log": true,
-    "note": "The same tier tracked through its fall and its reversal. Down 18\u00d7 from $30 (Mar 2023) to $1.25 (Aug 2025) \u2014 px-03, grade A, 80% CI 6-28\u00d7, via GPT-4 Turbo $10, GPT-4o $5 then $2.50, GPT-4.1 $2, GPT-5 $1.25. Note that output prices fell far less over the same stretch: only about 6\u00d7, $60 to $10. Then up 4\u00d7 off the trough to $5 (px-04, grade A, 80% CI 2-4.5\u00d7, official rate card; confirmed by px-13, GPT-5.6 Sol at $5/M input and $30/M output as of 2026-07-17). Corroborating index: \"AI Price Index\", TokenCost, 2026, https://tokencost.app/blog/ai-price-index",
+    "note": "The same tier tracked through its fall and its reversal. Down 18\u00d7 from $30 (Mar 2023) to $1.25 (Aug 2025) \u2014 px-03, grade A, 80% CI 6-28\u00d7, via GPT-4 Turbo $10, GPT-4o $5 then $2.50, GPT-4.1 $2, GPT-5 $1.25. Note that output prices fell far less over the same stretch: only about 6\u00d7, $60 to $10. Then up 4\u00d7 off the trough to $5 (px-04, grade A, 80% CI 2-4.5\u00d7, official posted price; confirmed by px-13, GPT-5.6 Sol at $5/M input and $30/M output as of 2026-07-17). Corroborating index: \"AI Price Index\", TokenCost, 2026, https://tokencost.app/blog/ai-price-index",
     "viz_rationale": "The entire argument is the shape \u2014 a long fall with a turning point \u2014 and only a line renders a turning point. Log y so that an 18\u00d7 fall and a 4\u00d7 rise are both legible as slopes; on a linear axis the 2023 level would dominate and the 2026 reversal, the newest and most surprising part, would be invisible. Three claim-certified levels, no interpolated points.",
     "series": [
      {
@@ -952,7 +952,7 @@
    },
    {
     "type": "bars_ci",
-    "title": "Increases that never touched the rate card",
+    "title": "Increases that never touched the posted price",
     "unit": "% increase in what buyers actually pay",
     "note": "Two ways the bill rises while the posted price looks calm. At GPT-5.5 the per-token price doubled, but the model wrote shorter answers, so the realized cost per comparable job rose 64% rather than 100% (80% CI 38-100%, measured on OpenRouter traffic either side of launch). Separately, Anthropic's newer tokenizer \u2014 the rule that chops text into billable units \u2014 turns the same text into about 30% more tokens at an unchanged headline rate (80% CI 10-45%, stated in Anthropic's own docs for Opus 4.7+, Fable 5, Mythos 5 and Sonnet 5). Both make one point: a token is not a fixed unit of work, so the honest yardstick is cost per finished job, not cost per token.",
     "viz_rationale": "Two labelled magnitudes in the same unit, both genuine estimates with material uncertainty, so bars_ci. Not a line: these are two unrelated one-off events, not a series, and connecting them would fabricate a trend. The whiskers carry real weight here \u2014 the GPT-5.5 figure ranges from a mild 38% to a full doubling depending on how much shorter the answers actually got.",
@@ -1018,7 +1018,7 @@
     "unit": "$ per million tokens (list price)",
     "log": true,
     "note": "The contrast case. Anyone can host a model whose weights are public, so hosts compete on cost alone and price falls to it: $0.065 per million blended sits inside the measured cost band from the first visual. DeepSeek lists its own model at $0.42 per million output. These are marginal-cost prices, set by whichever host will take the thinnest slice. But do not read this as a Chinese cost edge \u2014 Kimi K3, Moonshot's newest flagship, lists at $3/$15, identical to Claude Sonnet and only about 2\u00d7 below OpenAI's Sol. The gap is not about cheaper chips in China; it is about who can be undercut. Unit caveat: mc-14 is a blended input/output price, the other two are output-only, so read the order of magnitude as the finding and the exact ratios as indicative.",
-    "viz_rationale": "Three labelled prices spanning more than 200\u00d7, so bars on a log axis; bars_ci because only one of the three carries genuine uncertainty. That asymmetry is itself information \u2014 the two official rate cards are grade-A posted numbers and correctly show no whisker, while the market-cheapest host is a survey estimate and shows its band. Ranked so the 0.065-to-15 spread reads as distance.",
+    "viz_rationale": "Three labelled prices spanning more than 200\u00d7, so bars on a log axis; bars_ci because only one of the three carries genuine uncertainty. That asymmetry is itself information \u2014 the two official posted prices are grade-A posted numbers and correctly show no whisker, while the market-cheapest host is a survey estimate and shows its band. Ranked so the 0.065-to-15 spread reads as distance.",
     "series": [
      {
       "label": "gpt-oss-120B \u2014 cheapest credible host",

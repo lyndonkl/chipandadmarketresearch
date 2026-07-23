@@ -9,7 +9,7 @@ status: draft-for-review
 
 # What a Token Costs to Serve
 
-Every token has two numbers attached. One is the price on the rate card. The other is what the seller paid to make it. This chapter is about the gap between them.
+Every token has two numbers attached. One is the posted price. The other is what the seller paid to make it. This chapter is about the gap between them.
 
 Serving a model reply is called inference. It runs each time the model answers you. Training a model is a one-time build cost. Serving is not. It runs again for every user, every day.
 
@@ -49,7 +49,7 @@ The sharpest clue came in June 2025. OpenAI cut the price of o3 by 80% and said 
 
 Then 2026 broke the trend. The flagship input price at OpenAI has gone the other way, up four times from its low of $1.25 to $5.[^17] Rent on an H100 chip rose from $1.70 an hour in October 2025 to about $2.45 by mid-2026.[^18] When two-year-old chips get dearer, supply has not caught up.
 
-Some of the rise is quieter than it looks. When OpenAI moved to GPT-5.5, the per-token price doubled, but the model wrote less. Real cost per job rose about 64%, and plausibly 38% to 100%.[^19] Newer Anthropic models use a tokenizer that turns the same text into about 30% more tokens.[^20] The rate card did not move. The bill did.
+Some of the rise is quieter than it looks. When OpenAI moved to GPT-5.5, the per-token price doubled, but the model wrote less. Real cost per job rose about 64%, and plausibly 38% to 100%.[^19] Newer Anthropic models use a tokenizer that turns the same text into about 30% more tokens.[^20] The posted price did not move. The bill did.
 
 ## Where price does track cost
 
