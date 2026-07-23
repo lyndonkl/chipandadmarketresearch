@@ -1,0 +1,260 @@
+{
+ "project": "p1-ai-economics",
+ "as_of": "2026-07-22",
+ "thesis": {
+  "summary": "Thompson's argument (\"Who's Afraid of Chinese Models?\", Stratechery, July 20, 2026, published as both essay and podcast) is that \"marginal costs are back in a big way.\" Training a frontier model is R&D \u2014 a fixed cost independent of revenue, effectively capex amortized over years \u2014 but inference is real COGS that scales with usage, unlike classic zero-marginal-cost software. Today US inference is supply-constrained: demand for frontier-quality intelligence exceeds available compute, so OpenAI and Anthropic (the two labs demand is concentrated on) can price tokens well above marginal serving cost, a \"price umbrella\" created by scarcity, with markups cascading from Nvidia through clouds to labs. Chinese open-weight models (Kimi K3, Qwen 3.8 Max) price near marginal cost because open weights enable competitive third-party hosting \u2014 the marginal supplier sets the price \u2014 while fixed training costs are partly externalized (distillation of US frontier outputs) and partly eaten by labs monetizing elsewhere (cloud, ecosystem, state strategy). Crucially, Thompson corrects the naive reading: he doubts Chinese inference is structurally cheaper on a true marginal-cost basis; the price gap mostly measures the US scarcity premium. He also insists tokens are not the commodity \u2014 different models need different token counts per task \u2014 intelligence is, so cost-per-outcome is the right metric (his mechanic analogy). When US compute supply catches demand, prices converge toward marginal cost, collapsing the umbrella, shifting advantage to operational efficiency (lowest cost per unit of intelligence) and up-stack integration (e.g., Claude Code's stickiness), and pressuring payback on training capex. Thompson flags as uncertain: demand elasticity (whether cheaper intelligence absorbs new supply), how labs will absorb fixed costs under commoditized pricing, whether China's distillation advantage persists, and the timing of supply catch-up. He is confident but not certain frontier labs survive via efficiency and product integration, and argues US policy should legalize training-as-fair-use and bar anti-distillation terms rather than fear Chinese models \u2014 while warning that restricting US models from cybersecurity use is strategically backwards.",
+  "propositions": [
+   {
+    "id": "T1",
+    "statement": "Frontier model training is a large fixed cost (R&D/capex, independent of revenue, amortized over multi-year horizons), while inference is a real marginal cost (COGS) that scales roughly linearly with usage/revenue \u2014 unlike classic zero-marginal-cost software.",
+    "testable_via": "Lab financial disclosures and credible leaks (OpenAI/Anthropic training-compute R&D vs. inference COGS lines); hyperscaler capex and GPU depreciation schedules (3-6 year lives vs. actual useful life); SemiAnalysis-style TCO models splitting training vs. serving cost; test whether reported inference cost tracks token volume ~1:1 while training spend is invariant to revenue."
+   },
+   {
+    "id": "T2",
+    "statement": "US inference is currently supply-constrained, and demand is concentrated on OpenAI and Anthropic, giving them pricing power: their per-token prices sit well above the marginal cost of serving (a scarcity 'price umbrella', with markups cascading from Nvidia through compute resellers to labs).",
+    "testable_via": "Estimate marginal serving cost per million tokens for comparable-size models on rented GPU capacity (e.g., cost to serve a Kimi K3-class model on Together/Fireworks/hyperscaler H100/B200 rates) and compare to OpenAI/Anthropic list prices; evidence of rationing (rate limits, capacity-constrained statements on earnings calls, enterprise waitlists); implied inference gross margins from disclosed revenue and compute contracts."
+   },
+   {
+    "id": "T3",
+    "statement": "Chinese open-weight token prices are set near the marginal cost of inference because open weights allow competitive third-party hosting (the marginal supplier prices at marginal cost); therefore the US-China price gap measures the US scarcity premium, not a structural Chinese cost advantage \u2014 Thompson doubts Chinese inference is cheaper on a true marginal-cost basis.",
+    "testable_via": "Price dispersion across independent hosts serving the identical open-weight model (competition should compress hosting margins to near zero); implied gross margins of open-model hosts vs. closed labs; input-cost parity checks (GPU rental and electricity in China vs. US, effect of export-controlled chips on Chinese cost per token) to see whether Chinese serving cost is actually equal or higher."
+   },
+   {
+    "id": "T4",
+    "statement": "Chinese open-source labs eat or externalize the fixed cost of training: distillation of US frontier model outputs lowers their training bill, and monetization runs through adjacent channels (Alibaba cloud/ecosystem, robotics/manufacturing adoption, state strategic goals) rather than token margins.",
+    "testable_via": "Technical evidence of distillation (output-similarity and model-fingerprinting studies, lab accusations with data); reported training budgets of Kimi/Qwen/DeepSeek vs. US frontier runs of comparable capability; business-model analysis showing Chinese labs' revenue is attributed to cloud/ecosystem rather than API token margins; policy statements (e.g., Xi-era open-weight encouragement) as corroborating motive."
+   },
+   {
+    "id": "T5",
+    "statement": "When US compute supply catches up with demand, US token prices converge toward marginal cost and the price umbrella collapses: constant-quality inference prices should fall materially as datacenter capacity comes online, and price cuts should correlate with supply additions (and competitive open-weight releases) rather than cost declines alone.",
+    "testable_via": "Time series of frontier API prices per constant-quality unit (price per benchmark-equivalent completed task, not per raw token) against capacity additions (datacenter GW energized, GPU shipment volumes); event studies around large capacity blocks coming online or major open-weight releases; whether OpenAI/Anthropic gross margins on inference compress as constraint eases."
+   },
+   {
+    "id": "T6",
+    "statement": "Per-token price comparisons are misleading because tokens are not a commodity (different models consume different token counts for the same task \u2014 intelligence is the commoditizing unit); as prices converge, capex payback depends on differentiation via lowest cost-per-unit-of-intelligence (token efficiency, serving scale) and up-stack product integration (e.g., Claude Code), which Thompson expects but does not guarantee will save the frontier labs.",
+    "testable_via": "Benchmark cost-per-completed-task across models (tokens consumed x price for identical task suites) to test whether nominally cheaper Chinese models are cheaper per outcome; retention/switching data for integrated products (Claude Code, ChatGPT apps) vs. raw API usage under price pressure; payback modeling of training capex under converged-price scenarios (does amortization complete before commoditization?); market share of labs with lowest cost-per-task as prices fall."
+   }
+  ],
+  "sources": [
+   {
+    "title": "Who's Afraid of Chinese Models? \u2013 Stratechery by Ben Thompson (primary; essay and podcast)",
+    "url": "https://stratechery.com/2026/whos-afraid-of-chinese-models/",
+    "date": "2026-07-20"
+   },
+   {
+    "title": "Who's Afraid of Chinese Models? \u2013 republication with extended excerpts, Phil Stock World",
+    "url": "https://www.philstockworld.com/2026/07/20/whos-afraid-of-chinese-models/",
+    "date": "2026-07-20"
+   },
+   {
+    "title": "Simon Willison \u2013 Who's Afraid of Chinese Models? (quotes Thompson's fair-use/distillation proposal; Qwen 3.8 Max context)",
+    "url": "https://simonwillison.net/2026/Jul/20/afraid-of-chinese-models/",
+    "date": "2026-07-20"
+   },
+   {
+    "title": "Daring Fireball \u2013 'Who's Afraid of Chinese Models?' (Gruber on distillation asymmetry and policy proposal)",
+    "url": "https://daringfireball.net/linked/2026/07/20/thompson-chinese-models-distillation",
+    "date": "2026-07-20"
+   },
+   {
+    "title": "Techmeme \u2013 Chinese open models like Kimi K3 and Qwen3.8 Max shift the industry's focus back to marginal costs and COGS (Ben Thompson/Stratechery)",
+    "url": "https://www.techmeme.com/260720/p16",
+    "date": "2026-07-20"
+   },
+   {
+    "title": "Rick's Cafe AI \u2013 Who's Afraid of Chinese Models? (verbatim lede: 'Marginal costs are back in a big way')",
+    "url": "https://cafeai.home.blog/2026/07/21/whos-afraid-of-chinese-models/",
+    "date": "2026-07-21"
+   },
+   {
+    "title": "Amazon Earnings, CapEx Concerns, Commodity AI \u2013 Stratechery (related essay on capex and commodity AI framing)",
+    "url": "https://stratechery.com/2026/amazon-earnings-capex-concerns-commodity-ai/",
+    "date": "2026"
+   }
+  ]
+ },
+ "topic_summaries": [
+  {
+   "topic": "fx",
+   "name": "Fixed costs of frontier training",
+   "summary": "The evidence strongly supports treating frontier training as a large, fast-compounding fixed cost. Epoch AI finds amortized final-run costs grew ~2.4x/year since 2016: GPT-4 ~$40-100M+ (Altman: \"more than $100M\"), Gemini Ultra ~$191M, Llama 3.1-405B ~$170M on a rental basis, Grok 4 ~$490M median (246M H100-hours), with $1B+ runs projected by 2027. But the final run understates the true fixed cost: most lab R&D compute goes to experiments and unreleased models. OpenAI's 2024 R&D compute was ~$5B versus $1.8B inference; Anthropic's 2025 R&D compute was ~$4.1B plus $2.9B staff versus $2.7B inference \u2014 at both leading labs, fixed costs (R&D compute + payroll) still exceed inference COGS, directly supporting T1. Development cost splits roughly: hardware/compute 47-67%, R&D staff 29-49%, energy 2-6% (Epoch), with data a smaller but real wedge \u2014 publisher deals run $5-60M/year each (News Corp-OpenAI, $250M/5yr, is the largest disclosed) and human-data vendor revenues (Surge ~$1.2B, Scale ~$870M in 2024) imply each major lab spends on the order of $1B/year on data. Payroll is now multi-billion: OpenAI has ~8,000 staff and ~$6B/year in stock comp alone. Chinese headline numbers (DeepSeek-V3 $5.6M final run, R1 $294K RL phase, Kimi K2 ~$4.6M reported) are genuine line items but exclude the fixed base \u2014 SemiAnalysis puts DeepSeek's server capex at ~$1.6B, and Moonshot's CEO concedes the $4.6M figure omits research and experiments \u2014 supporting Thompson's T4: Chinese labs eat or externalize fixed costs rather than possessing structurally cheaper training. One nuance: GPT-5 likely used less compute than GPT-4.5 as returns shifted to post-training, so final-run cost is not monotonically rising even as total fixed R&D spend is.",
+   "claimCount": 18
+  },
+  {
+   "topic": "mc",
+   "name": "Marginal cost of inference",
+   "summary": "Evidence strongly supports Thompson's marginal-cost picture, with one nuance. Measured hardware costs are low: SemiAnalysis InferenceX benchmarks show gpt-oss-120B served at ~$0.26 per million tokens on H100s and $0.02-0.31 on B200s; DeepSeek's own Feb-2025 disclosure (the only primary-source lab disclosure) implies ~$0.52/M output tokens ($87k/day serving 776B tokens on 2,224 H800s, a 545% theoretical margin \u2014 cost is ~15% of its own list price). Triangulated estimates put US flagship output serving cost at roughly $1-3/M against $15-30 list prices: marginal serving cost is plausibly ~10-30% of US API list price (70-90% API gross margins), consistent with SemiAnalysis's 75% working assumption and its estimate that Anthropic inference margins rose from 38% to over 70%. Yet company-wide reported gross margins are far lower \u2014 OpenAI 33% in 2025 (down from 40%, vs 46% forecast), Anthropic ~40% projected \u2014 because free-user inference and last-minute expensive compute load onto COGS. Inference is real, scaling COGS: OpenAI's inference bill was ~$8.4-8.7B in 2025, projected $14.1B in 2026. Supply constraint is directly visible: H100 one-year rental rates rose ~38% (Oct 2025 $1.70 to Mar 2026 $2.35/hr) with on-demand capacity sold out, even as constant-capability token prices fall 50-200x/year (Epoch AI) and third-party hosting of open weights (~$0.05/M blended for gpt-oss-120B) sits near measured marginal cost. Nuance for T3: Chinese flagship official pricing is not uniformly near marginal cost \u2014 Kimi K3 lists at $3/$15, matching Claude Sonnet \u2014 the near-marginal-cost regime shows up in DeepSeek ($0.28/$0.42) and commodity open-weight hosting. Electricity is only ~3-10% of marginal cost; GPU capital dominates.",
+   "claimCount": 18
+  },
+  {
+   "topic": "px",
+   "name": "API price history US",
+   "summary": "The 2022-2026 US API price record splits into three phases. Phase 1 (2022-mid-2025): steep deflation. GPT-3 davinci fell from $60 to $20/M tokens (Sept 2022); GPT-4 launched at $30/$60 (Mar 2023) and the flagship input price fell 24x to GPT-5's $1.25/$10 by Aug 2025. At constant capability the collapse was faster: a16z measures ~10x/year (GPT-3-quality: $60 to $0.06/M in 3 years); Epoch AI finds a 50x/year median (range 9x-900x) across benchmarks through Mar 2025. OpenAI's June 2025 o3 cut \u2014 80% off, \"same exact model,\" attributed to inference-stack optimization \u2014 is direct evidence prices sat far above marginal serving cost (Thompson's umbrella). Anthropic cut Opus 66% (to $5/$25) in Nov 2025. Phase 2 (late 2024-2025): scattered increases at the cheap tier (Claude 3.5 Haiku 4x, Gemini 2.5 Flash 2x input/4x output). Phase 3 (2026): broad nominal REVERSAL. OpenAI's flagship input price quadrupled ($1.25 to $2.50 in March, $5.00 by late April; GPT-5.6 Sol holds $5/$30), with real per-task costs up 49-92% despite lower verbosity. Google's Gemini 3.5 Flash costs 3x its predecessor; Anthropic introduced a $10/$50 tier above Opus and a tokenizer emitting ~30% more tokens at unchanged headline rates. Subscriptions ($20 Plus, $200 Pro, $100 Max tiers) are stable-to-rising. Net: capability-adjusted deflation continues, but the 2026 nominal repricing across all three labs is consistent with persistent supply constraint and pricing power (T2), shows the umbrella has not yet collapsed (T5 timing open), and validates Thompson's warning that per-token comparisons mislead (T6).",
+   "claimCount": 17
+  },
+  {
+   "topic": "cx",
+   "name": "Hyperscaler AI CapEx wave",
+   "summary": "The AI capex wave is real, enormous, and still accelerating as of July 2026. The big four hyperscalers spent roughly $413B in 2025 (Amazon $131.8B, Alphabet $91.4B, Meta $72.2B, Microsoft ~$118B calendar incl. finance leases) and have guided to roughly $725B for 2026 \u2014 Amazon ~$200B, Alphabet $195-205B (raised for the third time today, July 22), Microsoft ~$190B, Meta $125-145B. Adding Oracle ($55.7B FY2026 actual, $90-95B FY2027 gross guided), CoreWeave ($30-35B), xAI, neoclouds, China, and sovereigns pushes total 2026 data-center capex past $1 trillion (Dell'Oro). This is a 75-80% year-on-year jump after +57% in 2025 \u2014 five-company capex has roughly tripled from $162B in 2022. Demand-side commitments match: OpenAI has announced ~$1.4T of multi-year infrastructure commitments (Broadcom $350B, Oracle $300B, Microsoft $250B, Nvidia $100B, AMD $90B+) and per WSJ today plans ~$750B of compute spend through 2030; Anthropic has disclosed >$130B (AWS 5GW/>$100B, Azure $30B, Google ~1M TPUs \"tens of billions\"); xAI has ~555K GPUs (~$18B) at a 2GW Memphis site. For the thesis: this strongly supports T2/T5's premise \u2014 supply is still chasing demand (Amazon says all new AWS capacity sells out; Microsoft cites an ~$80B unfulfillable backlog; every raise is attributed to demand, plus ~$25B of Microsoft's 2026 plan is pure component-price inflation). Roughly 55-65% of hyperscaler capex is servers/accelerators \u2014 short-lived assets on 5-6 year depreciation \u2014 meaning the umbrella-collapse scenario (T5) would pressure payback on the fastest-depreciating half of ~$1T/year within this decade, exactly Thompson's capex-payback concern (T6).",
+   "claimCount": 18
+  },
+  {
+   "topic": "rv",
+   "name": "US lab revenues and margins",
+   "summary": "The evidence broadly supports Thompson's framing. Demand really is concentrated on two US labs, and their top lines are exploding: OpenAI went from $3.7B (2024) to $13.1B recognized revenue (2025, leaked FT-verified audited accounts) to a ~$25B run-rate by March 2026; Anthropic's company-stated run-rate went $1B (early 2025) to $9B (end-2025) to $30B (April 2026) to $47B (May 2026), overtaking OpenAI \u2014 though recognized revenue lags far behind run-rate ($4.5B in 2025). Both labs price above marginal serving cost: OpenAI's audited 2025 gross margin was ~43% (cost of revenue $7.5B), and Anthropic's Q2 2026 quarter was projected (WSJ) at $10.9B revenue with its first operating profit ($559M), with inference gross margins reported above 70%. That is consistent with a scarcity price umbrella. But margins are hostage to compute: Anthropic cut its 2025 gross-margin projection from 50% to 40% when cloud inference costs ran 23% over plan, and OpenAI's inference bill (~$9-13B in 2025 depending on definition) scales with usage \u2014 supporting the inference-is-COGS proposition. The fixed-cost side is enormous: OpenAI lost $20.9B at the operating line in 2025 ($19.2B R&D), carries ~$1.4T of compute commitments, and told investors it won't be cash-flow positive until 2030; Anthropic burned $5.6B in 2025 but projects a much shorter path to breakeven. Valuations ($852B OpenAI, $965B Anthropic) price in durable pricing power. Adjacent monetization is real but different in kind: Microsoft's AI run-rate hit $37B, Google Cloud grew 82% YoY on AI demand, while xAI (~$0.5B) and Meta (near-zero direct AI revenue) confirm token revenue concentration on the two labs.",
+   "claimCount": 18
+  },
+  {
+   "topic": "cd",
+   "name": "China deep tier: DeepSeek and Qwen",
+   "summary": "The evidence largely supports Thompson's framing, with two twists. DeepSeek's famous $5.6M figure is real but narrow: the V3 paper itself says it covers only the final training run (2.788M H800 GPU-hours at an assumed $2/hr rental) and \"excludes costs associated with prior research and ablation experiments.\" SemiAnalysis puts the real substrate at ~50,000 Hopper GPUs and ~$1.6B of server capex \u2014 fixed costs carried first by Liang Wenfeng's hedge fund High-Flyer (~RMB 70B AUM), and since June 2026 by a ~$7.4B founder-controlled round at ~$55-59B valuation. Annualized revenue (~$400-500M) is a rounding error against that capex, confirming token margins are not the monetization path. Crucially, DeepSeek's own February 2025 disclosure showed a theoretical 545% cost-profit ratio on inference \u2014 i.e., even Chinese open-model prices sit well above marginal serving cost at full utilization; the gap to US prices measures scarcity premium plus utilization, not a structural Chinese cost edge, exactly as Thompson argues. DeepSeek prices like a utility: off-peak discounts up to 75% in 2025, and from mid-July 2026, 2x peak-hour pricing \u2014 textbook congestion pricing revealing that China has its own compute scarcity. Prices fell in steps tied to efficiency releases (V3.2 sparse attention, -50%+; V4-flash now $0.14/$0.28 per M tokens, roughly 20-50x below US frontier list prices). Alibaba pays Qwen's fixed costs from a RMB 380B+ three-year capex program it now says it will exceed, gives weights away (700M-1B downloads, >200k derivatives) to sell cloud compute \u2014 with AI ARR guided above RMB 30B while net income collapsed ~99.7% and management calls margin \"secondary.\"",
+   "claimCount": 18
+  },
+  {
+   "topic": "ce",
+   "name": "China ecosystem: labs, price war, chips",
+   "summary": "The China ecosystem evidence largely supports Thompson, with one sharp nuance. The 2024 price war was strategy, not cost leadership: DeepSeek V2's ~1-yuan pricing and ByteDance's May 2024 Doubao Pro cut to RMB0.8 per million input tokens (~$0.11, ~99% below prevailing prices) forced Alibaba (Qwen-Long -97%), Baidu and Tencent (free tiers) to respond within a week. Prices then kept falling on real efficiency gains \u2014 DeepSeek V3.2's sparse attention halved prices to $0.28/$0.42 in September 2025 \u2014 and DeepSeek's own disclosed ~545% theoretical cost-profit ratio on R1 serving suggests Chinese open-weight inference prices sit near or above marginal cost, not subsidized dumping (supporting T3). Current constant-quality gaps run roughly 5-25x (Kimi K2.5 $0.6/$2.5 vs Claude Sonnet 4.6 $3/$15; DeepSeek vs GPT/Opus 20-60x), central ~10x. The key counterpoint: Kimi K3 launched July 16, 2026 at $3/$15 \u2014 parity with Claude Sonnet \u2014 while its weights were still unreleased, direct evidence that competitive third-party hosting (not Chinese location) is what pushes prices to marginal cost. Fixed costs are clearly externalized (T4): Zhipu lost RMB4.7B on RMB724M of 2025 revenue after ~RMB2.8B of municipal state money; MiniMax lost 15x revenue in 2024; both IPO'd in January 2026; Moonshot raised $2B at $20B from Meituan, Alibaba, Tencent and state-backed China Mobile. The state adds compute vouchers (Shanghai ~RMB600M, covering up to 80% of rental) and a RMB60B national AI fund under Big Fund III. Chips remain binding: the H20 ban/unban/Beijing-block saga ($4.5B Nvidia write-down, China share near zero), Huawei's ~600k 910C plan gated by domestic HBM (~250-300k equivalents), and DeepSeek's failed Ascend training run \u2014 scarcity that channels Chinese labs into token efficiency and open-weight distribution.",
+   "claimCount": 18
+  },
+  {
+   "topic": "sd",
+   "name": "Supply, demand, and capacity constraint",
+   "summary": "Evidence through July 2026 strongly supports the picture of a demand-led, supply-constrained US inference market \u2014 with the first cracks appearing on the demand side, not supply. Every hyperscaler is still rationing: Microsoft says it has been capacity-short \"for many quarters\" and will stay constrained through at least mid-2026, with Nadella admitting the binding constraint is power (\"chips sitting in inventory that I can't plug in\"); Alphabet's CFO said on July 22, 2026 that Google is \"still in a supply-constrained environment\" while its cloud backlog quintupled YoY to $514B; Anthropic rationed Claude Code with hard usage caps until a 300+MW, 220k-GPU SpaceX deal let it double limits in May 2026. Demand indicators are explosive: Google token volume grew ~7x YoY to 3.2 quadrillion/month, OpenRouter ~5x to ~25T tokens/week, Nvidia data-center revenue nearly doubled YoY to $75.2B in a single quarter with ~$1T in order visibility through 2027. Market prices confirm scarcity: after collapsing from ~$8/hr (2023) to $1.70/hr (Oct 2025), 1-year H100 rentals re-tightened ~40% to $2.35/hr by March 2026, with on-demand capacity sold out and new capacity booked through September 2026. Power is the bottleneck \u2014 ERCOT alone has 143.5 GW of data-center interconnection requests against an 85.9 GW all-time peak, with ~55-month median waits. The main counter-signal: OpenAI cut its 2030 compute target from $1.4T of commitments to ~$600B and missed early-2026 internal revenue targets, suggesting demand elasticity \u2014 Thompson's flagged uncertainty \u2014 is the live risk, and that supply catch-up (analysts' earliest broad-oversupply estimates cluster around 2028) may arrive partly via demand disappointment.",
+   "claimCount": 18
+  },
+  {
+   "topic": "dp",
+   "name": "Depreciation schedules and payback math",
+   "summary": "The accounting says 5-6 years; the frontier says ~3. Every hyperscaler stretched server useful lives (Microsoft 4\u21926 yrs FY2023, +$3.7B operating income; Alphabet 4\u21926 in 2023, -$3.9B depreciation; Amazon 5\u21926 in 2024, -$3.2B; Meta to 5.5 yrs in 2025, -$2.9B; Oracle 4\u21925), and CoreWeave \u2014 a GPU-pure business \u2014 uses 6 years while rival Nebius uses ~4. Amazon is the lone reversal: effective Jan 2025 it cut a server subset back to 5 years, explicitly citing the pace of AI \u2014 an A-grade admission that AI hardware ages faster than the group's schedules assume. Michael Burry's short thesis ($176B understated depreciation 2026-28; Oracle ~27%, Meta ~21% earnings overstatement) anchors the bear case; the best rebuttal evidence is CoreWeave's 2020-vintage A100s still fully contracted 5+ years on and an H100 batch re-signed at ~95% of original price. Epoch AI splits the difference: chips serve frontier *training* for only ~2.7 years median, then cascade to inference \u2014 supporting Thompson's fixed-cost-amortization framing but implying the premium-value window is short. Payback math is tightening exactly as T5 predicts: H100 rentals fell ~70-80% from 2023-24 peaks to ~$2-3.50/hr by early 2026 as supply (300+ neoclouds) arrived, and SemiAnalysis finds a newly deployed H100 now has negative NPV on short-term contracts, versus ~2-2.5-year payback for early deployers who enjoyed the scarcity umbrella. The revenue-gap literature (Cahn: ~$3T needed to justify 2026's ~$1.5T spend; Bain: $2T/yr needed by 2030, ~$800B short; Morgan Stanley: $1.5T financing gap on $2.9T capex through 2028) quantifies how much demand must materialize before depreciation-laden capex pays back.",
+   "claimCount": 17
+  }
+ ],
+ "chapters": [
+  {
+   "path": "/Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/01-thesis.md",
+   "title": "The Thesis",
+   "words": 1169,
+   "readability_pass": true,
+   "scores": "PASS  p1-ai-economics/research/01-thesis.md  fk_grade=4.58\u2713 reading_ease=80.94\u2713 gunning_fog=6.43\u2713 smog=7.51\u2713",
+   "headlines": [
+    "Path note: the brief's path/tool strings began with a literal `undefined` (broken template variable). Resolved against the repo root \u2014 chapter written to /Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/01-thesis.md and gated with tools/readability.py.",
+    "Passed all four readability gates on the first run with wide margin (FK 4.58 vs \u226410, Ease 80.94 vs \u226550, Fog 6.43 vs \u226412, SMOG 7.51 vs \u226412); the headroom came from short declarative sentences plus a plain-word bakery analogy (oven = fixed cost, flour = marginal cost, inference = flour not code). Body prose is 1169 words, inside the 800\u20131400 band.",
+    "Structured as T1\u2013T6 with a `Break it:` falsification test attached to every proposition, plus an explicit split in the closing: T1\u2013T4 are settleable from filings, leaks and posted prices, while T5\u2013T6 are forward-looking and can only be given odds. Thompson's own stated uncertainties (demand elasticity, fixed-cost absorption, timing of supply catch-up) are carried in his voice, not asserted as ours.",
+    "Used the post-verification CLAIMS values from the brief, not the on-disk data/claims-checkpoint.json \u2014 the checkpoint file is stale (e.g. it still shows mc-08=20/CI 8\u201345, mc-09=70, cd-02=1.6, cx-11=725, px-05=55, rv-03 CI 38\u201347). The data layer should be refreshed with the adjusted values before any chapter is built on the checkpoint.",
+    "Wide or contested intervals are stated in plain language rather than hidden: Grok 4 training run $490M with a $220M\u2013$900M range, serving cost ~15% of US list price with a 6%\u201348% band, OpenAI gross margin ~43% with a 33%\u201347% band, DeepSeek's fleet ~$1.4B flagged as an outside guess spanning $600M\u2013$2.6B. No status=disputed claim was used; the DeepSeek 545% figure is presented with its own 'theoretical, real revenue much lower' caveat."
+   ]
+  },
+  {
+   "path": "/Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/02-fixed-costs.md",
+   "title": "What a Frontier Model Costs to Build",
+   "words": 1324,
+   "readability_pass": true,
+   "scores": "PASS  p1-ai-economics/research/02-fixed-costs.md  fk_grade=6.43\u2713 reading_ease=74.89\u2713 gunning_fog=8.08\u2713 smog=8.32\u2713",
+   "headlines": [
+    "The quoted 'training cost' is only the final run \u2014 a clean line item that excludes research, failed runs and staff. GPT-4's run: ~$58M (25-150M); Gemini 1.0 Ultra ~$191M (90-400M); Grok 4 ~$490M (220-900M), roughly 246M H100-hours, or one chip running for ~28,000 years.",
+    "Final-run costs have grown ~2.5x/year since 2016 (range 2x-3.1x), about sixfold every two years \u2014 but the growth is not monotonic: GPT-5 appears to have used less training compute than GPT-4.5 as gains shifted to post-training.",
+    "The number that matters is the annual portfolio, not the run: OpenAI ~$4.5B of research and training compute in 2024 (3.3-7B); Anthropic ~$4.1B in 2025 against $2.7B of serving compute, with ~$2.9B for staff and everything else. At both labs, building cost more than serving.",
+    "Cost splits roughly: chips and servers about a half to two thirds, research staff ~38% (26-52%), power a few percent; people are now a multi-billion fixed cost (OpenAI ~7,900 staff, ~$6B/yr in stock grants). Data is the smallest leg \u2014 the largest visible publisher deal is News Corp-OpenAI at $250M over five years, with human-data spend perhaps ~$1B/yr per lab (weak, seller-side estimate).",
+    "The US-China 'training cost gap' is mostly an accounting gap: DeepSeek-V3's disclosed $5.576M run sits on top of an estimated ~$1.5B server base (0.6-2.8B), Kimi K2's reported $4.6M is contested by Moonshot's own CEO, and Anthropic's Claude 3.5 Sonnet run was itself only ~$32M \u2014 the same order of line item. Meta's Llama 3.1 405B (~$110M) shows a fixed cost deliberately never recovered through token prices."
+   ]
+  },
+  {
+   "path": "/Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/03-marginal-costs.md",
+   "title": "What a Token Costs to Serve",
+   "words": 1137,
+   "readability_pass": true,
+   "scores": "PASS  p1-ai-economics/research/03-marginal-costs.md  fk_grade=5.26\u2713 reading_ease=77.53\u2713 gunning_fog=7.63\u2713 smog=8.48\u2713",
+   "headlines": [
+    "The gap is the evidence: marginal serving cost is roughly 15% of US list price (honest range 6-48%), so price sits about seven times cost, with a defensible band of two to sixteen times. Anchors: DeepSeek's own disclosed log at ~$0.52/M output (range $0.30-$1.30), a measured open-model benchmark at ~$0.26/M, and an outside frontier estimate near $3/M (range $1-$7).",
+    "Company books contradict unit economics, and both are true. Anthropic's serving-fleet margin is put near 72% while OpenAI's whole-company gross margin lands near 42% (public figures span 29-45%). The wedge is free users, hurriedly bought spare machines, and a fleet doing maybe 40% of the work it could (25-65%). Training sits in research, not in this line.",
+    "The o3 cut is the cleanest single proof of a price-cost gap: 80% off with OpenAI stating 'same exact model - just cheaper' (nearer 60% against the discount tier some buyers already had), followed by Anthropic cutting its top tier two thirds. Either the old price sat far above cost or serving cost fell fivefold in weeks; both show price was not tracking cost.",
+    "The per-token collapse is real but capability-adjusted, and it reversed in 2026. GPT-3-grade text went $60/M to $0.06/M in three years; constant-quality prices fell a median ~36x/year (spread 8-200x); flagship input fell ~18x from 2023 to 2025. Then flagship input rose 4x to $5, H100 rent went $1.70 to ~$2.45/hour, realized cost per job rose ~64% at GPT-5.5, and a new tokenizer added ~30% more tokens at an unchanged rate card. The umbrella has not collapsed.",
+    "Where weights are open, price does track cost: cheapest solid hosting of an open model runs ~$0.065/M blended and DeepSeek lists $0.42/M output, both inside the measured cost band. But this is not a Chinese cost edge - Kimi K3 lists at $3/$15, identical to Claude Sonnet. The variable is who can be undercut, and the honest yardstick is cost per finished job, not cost per token."
+   ]
+  },
+  {
+   "path": "/Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/04-capex-wave.md",
+   "title": "The CapEx Wave",
+   "words": 1232,
+   "readability_pass": true,
+   "scores": "PASS  p1-ai-economics/research/04-capex-wave.md  fk_grade=4.59\u2713 reading_ease=80.97\u2713 gunning_fog=6.52\u2713 smog=7.57\u2713",
+   "headlines": [
+    "Passed the readability gate on the first run and held through three revision rounds; final scores sit far inside every threshold (FK 4.59 vs limit 10, ease 80.97 vs floor 50, Fog 6.52 vs 12, SMOG 7.57 vs 12). The headroom was spent adding two substantive passages rather than banked.",
+    "Used adjusted claim values throughout, not the originals: Big-4 2026 capex $718B (not $725B), world data-center capex $1.07T (not $1.05T), Epoch frontier chip life 3.9 years (not 2.7), H100 rental decline 60% (not 72%), H100 payback 1.9 years (not 2.5), Cahn requirement $1.5T (not $3T). The Epoch and Cahn corrections matter most: at 2.7 years and $3T the chapter would have overstated the bear case by roughly 2x on both.",
+    "Burry's $176B understated-depreciation figure is presented as a contested charge, never as fact, with the explicit caveats that he has not published his working and that independent rebuilds land materially lower. It is balanced in the same section against CoreWeave's ~95% price-retention datapoint, itself flagged as a single deal reported by the seller.",
+    "Added a caveat paragraph that dollars are not compute: memory price inflation means part of the 2026 capex jump is price rather than added capacity, so the spend curve is steeper than the capacity curve. Stated qualitatively because the underlying ~$25B figure lives only in cx-01's notes and verification, not in a value field.",
+    "Two numbers were deliberately softened during revision to stay strictly inside the claims list. The shed/power asset life moved from 'twenty years or more' to 'fifteen years or more' (cx-17 notes give 15-25 years), and the '3x tier premium' on GPU rentals was rewritten qualitatively since that figure appears only in dp-11's verification prose. All 20 footnote refs resolve to definitions; footnote entries are terse by design because the readability tool scores them as body prose."
+   ]
+  },
+  {
+   "path": "/Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/05-revenue-margins.md",
+   "title": "Who Earns What",
+   "words": 1093,
+   "readability_pass": true,
+   "scores": "PASS  /Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/05-revenue-margins.md  fk_grade=4.99\u2713 reading_ease=76.89\u2713 gunning_fog=6.75\u2713 smog=7.88\u2713",
+   "headlines": [
+    "Run-rate versus recognized revenue is the chapter's first correction: OpenAI booked $13.07B in 2025 against a >$20B exit run-rate (rv-01, rv-05), and Anthropic booked ~$4.5B against a $9B run-rate (rv-10, rv-11). The gap is close to two to one at both labs, so headline ARR should be roughly halved.",
+    "Margins are real but not software-like. OpenAI's audited 2025 gross margin was ~43% (rv-03) and Anthropic guided to ~40% for 2025 after cutting from 50% when cloud serving bills ran ~23% over plan (rv-13). Positive margin supports the scarcity price umbrella (T2); the volatility and level support inference-as-COGS (T1).",
+    "Serving cost cannot be pinned down from outside: reported 2025 inference spend ranges from ~$5.5B to ~$14.5B depending on which cost pot is counted, with the audited cost-of-revenue line at $7.5B (rv-04). Much serving compute appears to sit in the R&D line, so the true serving margin is below 43%. Stated as an honest wide band rather than a point.",
+    "The fixed side dominates: OpenAI lost $20.92B at the operating line on $34B of costs, $19.18B of it R&D (rv-02), plans $25B of burn in 2026 and no positive cash flow until 2030 (rv-07), against ~$1.4T of compute commitments (rv-08). Anthropic burned only $5.6B in 2025 and guides to zero burn by 2027 (rv-14) \u2014 the capital-efficiency divergence that matters for T6.",
+    "Anthropic's guided $10.9B Q2 2026 with $559M operating profit (rv-12) is presented with three caveats made explicit in the prose: fundraise-time forecast, excludes stock pay, and lands in a quarter with discounted ramp-priced compute. The company does not claim it persists. Concentration is confirmed on the other side: xAI ~$0.5B and Meta near-zero direct model revenue (rv-18), while Microsoft ($37B AI run-rate, rv-16) and Google Cloud ($24.77B quarter, +82%, rv-17) capture the picks-and-shovels layer."
+   ]
+  },
+  {
+   "path": "/Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/06-china.md",
+   "title": "China: Who Eats the Fixed Costs",
+   "words": 1125,
+   "readability_pass": true,
+   "scores": "PASS  p1-ai-economics/research/06-china.md  fk_grade=5.71\u2713 reading_ease=73.08\u2713 gunning_fog=7.1\u2713 smog=8.09\u2713",
+   "headlines": [
+    "The fixed costs are paid by everyone except token buyers: High-Flyer's ~RMB 70B hedge fund (cd-08), a $7.4B founder-led round (cd-09), Alibaba's RMB 380B capex program (cd-12), IPO buyers at Zhipu and MiniMax (ce-09, ce-10), and state money (ce-11, ce-12). DeepSeek's ~$450M revenue (cd-10) is a rounding error against ~$1.4B of server capex (cd-02).",
+    "The cleanest natural experiment for T3 is Kimi K3: launched July 16, 2026 at $15/M output, identical to Claude Sonnet 4.6, while its weights were still unreleased (ce-05). Competitive third-party hosting, not Chinese geography, is what pushes prices to marginal cost.",
+    "DeepSeek's own 545% cost-profit disclosure (cd-04) directly supports Thompson's correction: even cheap Chinese prices sat far above chip rental cost at high utilization, so the US-China gap measures scarcity premium, not a structural Chinese cost edge.",
+    "The 2024 price war was strategy, not cost leadership (Doubao at $0.11/M input, Qwen-Long cut 97% within days: ce-01, ce-02), but later cuts tracked real efficiency gains (V3.2 sparse attention, >50%: cd-06). DeepSeek's off-peak discounts and later peak-hour surcharges (cd-05) reveal China has its own compute scarcity, time-sliced rather than embedded in a flat umbrella.",
+    "Chip constraints are binding and shape strategy: Nvidia's $4.5B H20 charge (ce-13), Huawei's ~800k 910C plan with a very wide 250k-1.5M range (ce-14), and DeepSeek's reported failed Ascend training run (ce-15) channel Chinese labs into token efficiency and open-weight distribution. Distillation (cd-17) is presented as a contested allegation with DeepSeek's denial, never as fact."
+   ]
+  },
+  {
+   "path": "/Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/07-convergence.md",
+   "title": "Supply, Demand, and the Coming Convergence",
+   "words": 1228,
+   "readability_pass": true,
+   "scores": "PASS  p1-ai-economics/research/07-convergence.md  fk_grade=5.65\u2713 reading_ease=74.1\u2713 gunning_fog=7.45\u2713 smog=8.36\u2713",
+   "headlines": [
+    "Supply constraint is confirmed on four independent measures: Azure grew 39% YoY while telling the market demand exceeds capacity (sd-05), Google's cloud backlog hit $514B with the CFO saying 'still in a supply-constrained environment' (sd-06), H100 one-year rentals REVERSED upward ~40% to $2.35/chip-hour by March 2026 (sd-09), and Anthropic rationed Claude Code by hand until 300MW arrived (sd-07). Trailing-generation silicon does not re-price upward in a glut.",
+    "Convergence is NOT visible \u2014 the gap widened in 2026. The umbrella is proven by the 2025 cuts (o3 down 80% on an explicitly unchanged model, px-06; Opus down two-thirds, px-07), but 2026 moved the other way: OpenAI's flagship input price rose ~4x to $5/M (px-04, px-13) and Anthropic added a $10/M tier above Opus (px-12). Chapter states this plainly as 'No. It has widened.'",
+    "The token is not a stable unit, so per-token comparisons mislead in both directions: a doubled sticker price produced only ~64% higher realized cost per comparable request (px-05), while an unchanged headline rate plus a new tokenizer emitting ~30% more tokens is a hidden increase (px-08). Constant-quality deflation (~36x/yr, honest range 8x-200x, px-01) coexists with a rising frontier price \u2014 both are true at once.",
+    "The US-China gap is handled honestly as a hole in the evidence base: no verified Chinese price claims exist, so no figure is put on the gap. The one measurable signal is where volume goes \u2014 ~45% of OpenRouter tokens are Chinese-origin (sd-11, wide 35-55% range, bargain-hunter venue) while ~67% of enterprise spend stays with OpenAI+Anthropic (sd-17). Reading: the price-sensitive tail has already left; the market is sorting, not converging.",
+    "The live risk to the thesis is demand, not supply. OpenAI's compute plan (~$750B through 2030, honest range $480B-$900B, sd-16) was cut then raised inside one year against missed revenue targets, and OpenRouter measures only ~0.6% usage lift per 10% price cut (sd-12, flagged as soft and as cross-model substitution rather than aggregate demand). Power is the gate on catch-up: ERCOT alone fields 143GW of requests against an 85.9GW all-time peak (sd-13)."
+   ]
+  },
+  {
+   "path": "/Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/08-payback.md",
+   "title": "The Payback Question",
+   "words": 1370,
+   "readability_pass": true,
+   "scores": "PASS fk_grade=5.61 reading_ease=76.98 gunning_fog=7.63 smog=8.31",
+   "headlines": [
+    "Panel verdict on whether the 2024-2026 US AI capex vintage earns back its cost of capital by 2030 is a near coin toss: median 56%, extremized 60%. The chapter reports the median as the headline and refuses a firm answer in either direction.",
+    "The panel spread (27% / 56% / 61%) is presented as the finding, not noise. The gap traces to one unsettled modelling choice: whether to credit this vintage with revenue spread evenly across all kit ever built (pro-rata) or with the scarcity years it actually monopolised. That choice alone moves the answer ~25 points.",
+    "All three forecasters independently converged on the same single largest risk: OpenAI counterparty solvency. It stands behind roughly $1.25T of announced compute deals and shelters the contracted backlog that protects the rest of the vintage.",
+    "The strict convergence proposition (frontier inference at or below 1.5x marginal serving cost by end-2028) draws near-unanimous rejection at 12/13/13%. The panel's shared reasoning: cheap compute cuts price and serving cost together, so it does not by itself compress the markup; only rivals selling the identical model do, and closed weights cannot be copied. Thompson is likely right on mechanism, wrong on clock.",
+    "Extremizing is flagged as a method limitation, not applied blindly: on the convergence question it pushed the aggregate to ~4%, below every panelist's own estimate, so the plain median is quoted instead. The flagship-price forecast (58% of mid-2026 level, 80% CI 17-195%) is likewise disclosed as driven more by definitional ambiguity over what counts as 'flagship' than by economic uncertainty."
+   ]
+  },
+  {
+   "path": "/Users/kushaldsouza/Documents/Thinking/chipandadmarketresearch/p1-ai-economics/research/09-verdict.md",
+   "title": "The Verdict",
+   "words": 1397,
+   "readability_pass": true,
+   "scores": "PASS  p1-ai-economics/research/09-verdict.md  fk_grade=6.08\u2713 reading_ease=71.68\u2713 gunning_fog=8.29\u2713 smog=9.02\u2713",
+   "headlines": [
+    "Four of six propositions are supported (T1, T2, T4, T6), one is partly supported (T3), one is unresolved (T5), and none is refuted \u2014 a strong showing for Thompson, but the unresolved one is the proposition carrying all the capital risk.",
+    "T2 rests on a price cut, not a model: OpenAI cut o3 80% on an explicitly unchanged model, Anthropic cut Opus by two thirds, and serving is estimated at ~15% of US list (6-48%) against a 72% margin on Anthropic's serving hardware. No seller can cut like that at cost.",
+    "T3 is refined rather than confirmed: Kimi K3 launched at $15/M output \u2014 Claude Sonnet 4.6's exact rate \u2014 before its weights shipped, and DeepSeek's own disclosure implies 545% of the chip bill at list. Open weights and crowded hosting set the low price, not Chinese cost structure; the gap measures US scarcity plus Chinese strategy.",
+    "T5 is running the wrong way so far: flagship input prices rose four-fold to $5/M and Anthropic's tokenizer added ~30% to bills at an unchanged rate. Our forecasting panel gives only 13% (all three panellists within a point) to near-marginal-cost frontier pricing by end-2028, with a middle guess that flagship price falls to 58% of its mid-2026 level (80% CI 17-195%). The umbrella leaks; it does not break.",
+    "Payback is a genuine coin flip \u2014 panel middle estimate 56%, views spanning 27-61%. Cahn's $1.5T lifetime-revenue bar sits against $717.5B of single-year big-four capex, versus $47B and ~$24B run-rates; the hinge is what chips earn after their ~3.9-year frontier life, booked over five to six years."
+   ]
+  }
+ ]
+}
