@@ -22,18 +22,18 @@
   "dp": "Depreciation schedules and payback math"
  },
  "counts": {
-  "total": 160,
+  "total": 161,
   "by_status": {
    "adjusted": 60,
    "unverified": 89,
-   "confirmed": 11
+   "confirmed": 12
   },
   "by_grade": {
    "B": 89,
-   "A": 54,
+   "A": 55,
    "C": 17
   },
-  "load_bearing": 71
+  "load_bearing": 72
  },
  "claims": [
   {
@@ -5388,6 +5388,28 @@
    ],
    "notes": "Method: arithmetic sum of the four A-grade disclosed figures in the claims above (graded C because the aggregation and comparability judgment are mine; components are filed numbers; third parties cite '>$10B'). Understates cumulative effect since benefits compound as capex grows (Meta said its 2026 effect exceeds 2025's). Frames the materiality of the depreciation lever relative to the payback question \u2014 a low-double-digit-billions annual earnings cushion against a >$500B/yr capex wave.",
    "status": "unverified"
+  },
+  {
+   "id": "px-18",
+   "topic": "px",
+   "metric": "Official API list price, Claude Sonnet 4.6 output tokens (US comparator)",
+   "entity": "Anthropic (Claude Sonnet 4.6)",
+   "period": "as of 2026-07",
+   "value": 15,
+   "unit": "USD per million output tokens",
+   "ci80_low": 15,
+   "ci80_high": 15,
+   "grade": "A",
+   "load_bearing": true,
+   "status": "confirmed",
+   "notes": "Posted list price used as the US comparator against Kimi K3. Verified against Anthropic's live pricing page by both verification lenses on ce-05. Caveat: Sonnet 4.6 is a US mid-tier SKU as of July 2026, so the parity shown is with the US mid tier, not the US frontier tier.",
+   "sources": [
+    {
+     "title": "Anthropic: Pricing (Claude docs)",
+     "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+     "date": "2026-07"
+    }
+   ]
   }
  ]
 }

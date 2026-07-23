@@ -154,7 +154,7 @@ footer{padding:44px 0 80px;font-family:var(--mono);font-size:11px;color:var(--in
   <p class="dek">US labs charge about seven times what a token costs them to serve. This is the story of that gap — how it opened, who pays for it, and whether the trillion dollars behind it ever comes home.</p>
   <span class="teaser">the bet: ~$1,000,000,000,000 riding on whether the gap holds</span>
   <div class="mastmeta">
-    <div><b>160</b>calibrated claims</div>
+    <div><b>161</b>calibrated claims</div>
     <div><b>295</b>distinct sources</div>
     <div><b>71</b>adversarially verified</div>
     <div><b>52%</b>odds the buildout pays off</div>
@@ -209,8 +209,11 @@ function barChart(v){
   const rowH=s.some(d=>d.sublabel)?46:36, padR=76, top=8;
   const h=top+n*rowH+22, innerW=W-padL-padR;
   const vals=s.flatMap(d=>[d.value, d.low??d.value, d.high??d.value]).filter(x=>isFinite(x));
-  const lo=log?Math.max(1e-3,Math.min(...vals.filter(x=>x>0))):0;
+  const minPos=Math.min(...vals.filter(x=>x>0));
+  // decade-aligned floor: anchoring on the smallest value rendered it as a zero-length bar
+  const lo=log?Math.max(1e-6,Math.pow(10,Math.floor(Math.log10(minPos)))):0;
   let hi=Math.max(...vals)||1;
+  if(log) hi=Math.pow(10,Math.ceil(Math.log10(hi)));   // decade-aligned ceiling
   if(/%|percent/i.test(v.unit||'') && !log && hi<=100) hi=100;
   const sc=x=>{if(!log)return innerW*(Math.max(0,x)/hi);
     const l=Math.log10(Math.max(lo,x)), a=Math.log10(lo), b=Math.log10(hi);
@@ -230,7 +233,7 @@ function barChart(v){
   if(isPct){ [0,25,50,75,100].forEach(t=>{const gx=padL+innerW*(t/100);
     out+=`<line class="grid" x1="${gx}" y1="${top}" x2="${gx}" y2="${top+n*rowH}"/>`
        +`<text class="sub" x="${gx}" y="${top+n*rowH+16}" text-anchor="middle">${t}%</text>`;});
-    out+=`<text class="sub" x="${padL+innerW}" y="${top+n*rowH+30}" text-anchor="end">100% = every dollar charged</text>`; }
+    if(v.axis_caption) out+=`<text class="sub" x="${padL+innerW}" y="${top+n*rowH+30}" text-anchor="end">${esc(v.axis_caption)}</text>`; }
   out+=`<line class="axis" x1="${padL}" y1="${top}" x2="${padL}" y2="${top+n*rowH}"/>`;
   s.forEach((d,i)=>{
     const y=top+i*rowH+rowH/2, bw=sc(d.value);
@@ -304,7 +307,7 @@ function rangeChart(v){
   return out+'</svg>';
 }
 function slopeChart(v){
-  const s=v.series; if(s.length<2)return barChart(v);
+  const s=v.series; if(s.length!==2)return barChart(v);   // slope is a two-point form; anything else would drop data
   const h=250, xL=W*0.30, xR=W*0.70, top=34, bot=h-42;
   const vals=s.map(d=>d.value), lo=Math.min(...vals), hi=Math.max(...vals), span=(hi-lo)||1;
   const y=x=>bot-(bot-top)*((x-lo)/span);
@@ -337,6 +340,7 @@ function lineChart(v){
   out+=`<polyline fill="none" stroke="var(--amber)" stroke-width="2.4" points="${s.map((d,i)=>X(xs[i])+','+Y(d.value)).join(' ')}"/>`;
   s.forEach((d,i)=>{out+=`<circle cx="${X(xs[i])}" cy="${Y(d.value)}" r="4" fill="var(--graphite)"/>`;
     out+=`<text class="sub" x="${X(xs[i])}" y="${top+innerH+16}" text-anchor="middle">${esc(d.label)}</text>`;
+    if(d.sublabel)out+=`<text class="sub" x="${X(xs[i])}" y="${top+innerH+28}" text-anchor="middle">${esc(d.sublabel)}</text>`;
     out+=`<text class="val" x="${X(xs[i])}" y="${Y(d.value)-10}" text-anchor="middle">${fmt(d.value)}</text>`;});
   return out+'</svg>';
 }
