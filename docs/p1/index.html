@@ -1,0 +1,326 @@
+<!-- P1 · The Economics of Intelligence — "The Instrument" · self-contained GitHub Pages experience -->
+<meta charset="utf-8">
+<title>The Economics of Intelligence</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --bone:#F2EEE4; --paper:#efe9db; --graphite:#15181D; --ink2:#3a4149;
+  --amber:#E0972A; --cyan:#3AA6BD; --zinc:#838A93; --redline:#C6432B; --gold:#E0972A; --steel:#3E7385;
+  --serif:"Iowan Old Style",Georgia,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--graphite);font-family:var(--serif);
+  background-image:linear-gradient(#8389931a 1px,transparent 1px),linear-gradient(90deg,#8389931a 1px,transparent 1px);
+  background-size:22px 22px;-webkit-font-smoothing:antialiased;line-height:1.6}
+.mono{font-family:var(--mono)}
+a{color:#0a6a6a}
+
+/* intro / outro */
+.slab{max-width:760px;margin:0 auto;padding:0 22px}
+.intro{min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding-top:40px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--zinc)}
+h1{font-weight:600;font-size:clamp(30px,6vw,58px);letter-spacing:-.02em;line-height:1.05;margin:.28em 0 .2em;text-wrap:balance}
+.dek{font-size:clamp(17px,2.4vw,21px);color:var(--ink2);max-width:38ch}
+.teaser{font-family:var(--mono);font-size:12.5px;color:#7a5c14;background:#E0972A18;border:1px solid #E0972A55;
+  border-radius:5px;padding:8px 12px;display:inline-block;margin-top:26px}
+.scrollcue{margin-top:34px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--zinc)}
+.scrollcue:after{content:"↓";display:block;font-size:18px;margin-top:6px;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* scrolly */
+.scrolly{position:relative}
+.sticky{position:sticky;top:0;height:100vh;width:100%;overflow:hidden}
+#stage{display:block;width:100%;height:100%}
+.steps{position:relative;z-index:3;pointer-events:none}
+.step{min-height:100vh;display:flex;align-items:center;padding:0 22px}
+.step.right{justify-content:flex-end}
+.card{pointer-events:auto;background:rgba(242,238,228,.9);backdrop-filter:blur(3px);border:1px solid #d9d2c2;
+  border-radius:10px;padding:20px 22px;max-width:400px;box-shadow:0 6px 24px #15181d14}
+.card .beat{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.card h2{font-size:22px;font-weight:600;margin:.25em 0 .5em;letter-spacing:-.01em;text-wrap:balance}
+.card p{margin:.5em 0 0;font-size:15.5px;color:var(--ink2)}
+.card .num{font-family:var(--mono);font-weight:700;color:var(--graphite)}
+.controls{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.controls button{font-family:var(--mono);font-size:12px;border:1px solid var(--zinc);background:var(--bone);
+  color:var(--graphite);padding:7px 12px;border-radius:5px;cursor:pointer}
+.controls button:hover{border-color:var(--graphite)}
+.controls button.on{background:var(--graphite);color:var(--bone);border-color:var(--graphite)}
+.dialwrap{margin-top:16px}
+.dialwrap label{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--zinc);display:flex;justify-content:space-between}
+input[type=range]{width:100%;accent-color:var(--amber);margin-top:8px}
+.readout{font-family:var(--mono);font-size:12.5px;color:var(--graphite);margin-top:10px;border-top:1px dashed #cfc7b5;padding-top:8px}
+
+/* provenance + verdict */
+.verdict{max-width:760px;margin:0 auto;padding:70px 22px 30px}
+.verdict h2{font-size:clamp(22px,4vw,32px);font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:22px}
+.vc{background:var(--paper);border:1px solid #e4ddcd;border-left:3px solid var(--zinc);border-radius:6px;padding:13px 15px}
+.vc.sup{border-left-color:#2E7D5B}.vc.part{border-left-color:var(--amber)}.vc.un{border-left-color:var(--zinc)}
+.vc .t{font-family:var(--mono);font-size:12px;font-weight:700;color:#0a6a6a}
+.vc .v{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--zinc)}
+.vc p{margin:.4em 0 0;font-size:13.5px;color:var(--ink2)}
+.prov{max-width:760px;margin:0 auto;padding:14px 22px 80px;font-family:var(--mono);font-size:11px;color:var(--zinc);line-height:1.8}
+.prov b{color:var(--ink2)}
+.footnote{font-family:var(--mono);font-size:10.5px;color:var(--zinc);text-align:center;padding:0 22px 40px}
+@media (prefers-reduced-motion:reduce){.scrollcue:after{animation:none}}
+@media(max-width:560px){.card{max-width:none}}
+</style>
+
+<div class="intro slab">
+  <div class="eyebrow">Project 1 · The Chip &amp; Ad Market Research tree</div>
+  <h1>The Economics of Intelligence</h1>
+  <p class="dek">US labs charge about seven times what a token costs them to serve. This is the story of that gap — how it opened, and whether the trillion dollars behind it ever comes home.</p>
+  <span class="teaser">the bet: ~$1,000,000,000,000 riding on whether the gap holds</span>
+  <div class="scrollcue">scroll to begin</div>
+</div>
+
+<div class="scrolly" id="scrolly">
+  <div class="sticky"><canvas id="stage"></canvas></div>
+  <div class="steps" id="steps">
+    <div class="step" data-scene="0"><div class="card">
+      <div class="beat">the reading</div><h2>Every number here is a measurement</h2>
+      <p>Two stacks. The short <span class="num" style="color:#2a86a0">cyan</span> stack is what a token costs to serve. The tall <span class="num" style="color:#a06d10">amber</span> stack is what US labs charge. Watch the cyan one <em>shimmer</em> — it shakes because we are unsure of it. Every mark has error bars.</p>
+    </div></div>
+
+    <div class="step right" data-scene="1"><div class="card">
+      <div class="beat">calibration</div><h2>The whole field</h2>
+      <p>Pull back, and there are <span class="num">160</span> measurements behind this story. Each is a value with a range. The blurry ones shake; the solid, filed ones sit still. What you feel across the field is how much we do not know.</p>
+    </div></div>
+
+    <div class="step" data-scene="2"><div class="card">
+      <div class="beat">T1 · supported</div><h2>The gap is built, not claimed</h2>
+      <p>Serving a million tokens costs about <span class="num">15%</span> of the list price. So price is roughly <span class="num">7×</span> cost. The amber stack is the same unit as cyan — just seven times as many.</p>
+      <div class="controls"><button id="rebuild">▶ replay the build</button></div>
+    </div></div>
+
+    <div class="step right" data-scene="3"><div class="card">
+      <div class="beat">T2 · supported</div><h2>A price cut proves it</h2>
+      <p>In 2025 OpenAI cut its o3 price by <span class="num">80%</span> and said the model was unchanged. Anthropic cut its top tier by <span class="num">two thirds</span>. No one cuts like that if price sits near cost. The gap survives even a fuzzy cost estimate.</p>
+    </div></div>
+
+    <div class="step" data-scene="4"><div class="card">
+      <div class="beat">T6 · the wrong unit</div><h2>Two clocks, both right</h2>
+      <p>Hold quality fixed and the price of intelligence falls about <span class="num">36×</span> a year. Yet the flagship's sticker price <em>rose</em> — to <span class="num">$10</span> per million tokens, plus a tokenizer that bills <span class="num">30%</span> more. Cheaper and dearer at once. The token is not a stable ruler.</p>
+    </div></div>
+
+    <div class="step right" data-scene="5"><div class="card">
+      <div class="beat">T4 · China</div><h2>A controlled experiment</h2>
+      <p>Moonshot launched Kimi K3 at <span class="num">$15</span> per million tokens — exactly Claude's rate — <em>before</em> releasing the weights. Then flip to open weights: rival hosts pile in and the premium collapses. Cheap prices come from competition, not cheaper silicon.</p>
+      <div class="controls"><button id="kClosed" class="on">closed weights</button><button id="kOpen">open weights</button></div>
+    </div></div>
+
+    <div class="step" data-scene="6"><div class="card">
+      <div class="beat">T5 · unresolved</div><h2>The Convergence Dial</h2>
+      <p>Drag from scarce to abundant. As supply catches demand, the amber premium sinks toward the cost floor — but the floor is a <em>fog</em>, not a line, because we never learn the true cost exactly.</p>
+      <div class="dialwrap">
+        <label><span>scarce</span><span>abundant</span></label>
+        <input type="range" id="dial" min="0" max="100" value="0" aria-label="compute supply">
+        <div class="readout" id="dialOut">margin over cost: <b>high</b> · our panel gives near-cost pricing by 2028 just <b>13%</b></div>
+      </div>
+    </div></div>
+
+    <div class="step right" data-scene="7"><div class="card">
+      <div class="beat">the reckoning</div><h2>Does the bet pay off?</h2>
+      <p>About <span class="num">$650B</span> a year of building, chasing the <span class="num">$1.5T</span> of yearly revenue it would take to justify it. Each grain is a dollar of capital trying to earn itself back by 2030.</p>
+      <div class="readout" id="payOut">odds it clears its cost of capital: <b id="payPct">52%</b> — a coin flip</div>
+      <div class="controls"><button id="payReplay">▶ run it again</button></div>
+    </div></div>
+  </div>
+</div>
+
+<div class="verdict slab">
+  <h2>The verdict: four supported, one partly, one unresolved — and the open one holds all the money.</h2>
+  <div class="vgrid">
+    <div class="vc sup"><div class="t">T1</div><div class="v">supported</div><p>Training is a fixed cost; serving is a real, rising one.</p></div>
+    <div class="vc sup"><div class="t">T2</div><div class="v">supported</div><p>US prices sit far above serving cost — the 80% cut proves it.</p></div>
+    <div class="vc part"><div class="t">T3</div><div class="v">partly</div><p>China prices near cost because weights are open, not because inference is cheaper.</p></div>
+    <div class="vc sup"><div class="t">T4</div><div class="v">supported</div><p>Chinese labs push the fixed cost onto clouds, funds, and the state.</p></div>
+    <div class="vc un"><div class="t">T5</div><div class="v">unresolved</div><p>Convergence hasn't started — so far the flagship price rose. This is the claim with the money on it.</p></div>
+    <div class="vc sup"><div class="t">T6</div><div class="v">supported</div><p>The token is the wrong unit; cost per finished task is what matters.</p></div>
+  </div>
+</div>
+
+<div class="prov">
+  <b>Grounded in the data layer.</b> Every figure traces to a calibrated claim:
+  7× gap &amp; 15% serving cost <b>mc-08</b> · $10 flagship input <b>px-12</b> · 80% o3 cut <b>px-06</b> · two-thirds Opus cut <b>px-07</b> ·
+  36×/yr constant-quality decline <b>px-01</b> · 30% tokenizer inflation <b>px-08</b> · Kimi K3 $15 <b>mc-15</b> · DeepSeek 545% cost-profit <b>cd-04</b> ·
+  DeepSeek $0.28 floor <b>cd-07</b> · convergence-by-2028 13% <b>T-convergence</b> · 2026 capex ~$650B <b>cx-01/03/06/07/09</b> ·
+  $1.5T revenue needed <b>dp-14</b> · payback 52% &amp; DCF −$2.3T/+$487B/+$907B <b>T-payback-total</b>.
+</div>
+<div class="footnote">Stand-in fonts in this build (real: Martian Mono + Newsreader). Data as of 22 Jul 2026 · 160 claims, 295 sources · all load-bearing claims adversarially verified.</div>
+
+<script>
+const P1 = {
+  costPct:15, gap:7, flagship:10, cutO3:80, cutOpus:66.7, declC:36, tokInfl:30,
+  kimi:15, dsMargin:545, dsFloor:0.28, conv:13, capex:650, revNeed:1500,
+  payback:52, dcf:{bear:-2300, base:487, bull:907}
+};
+
+const cv=document.getElementById('stage'), ctx=cv.getContext('2d');
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const COL={cyan:[58,166,189], amber:[224,151,42], zinc:[131,138,147], steel:[62,115,133], gold:[224,151,42], grey:[139,144,153], red:[198,67,43]};
+let W,H,DPR, base, costX, priceX;
+const N_C=36, N_A=252, N=N_C+N_A;          // amber premium is 7x the cyan cost stack; sized to fit viewport
+const COLS=6, CELL=11, SIZE=7;
+let P=[], scene=0, supply=0, kimiOpen=false, payRun=0, lastW=0, lastH=0;
+
+function rnd(s){return (Math.sin(s*99.13)*43758.5)%1*0.5+0.5}
+function init(){
+  P=[];
+  for(let i=0;i<N;i++){
+    const cyan=i<N_C;
+    P.push({x:0,y:0,tx:0,ty:0, c:cyan?COL.cyan.slice():COL.amber.slice(), tc:cyan?COL.cyan.slice():COL.amber.slice(),
+      amp:cyan?2.1:0.7, tamp:cyan?2.1:0.7, ph:rnd(i)*6.28, ph2:rnd(i*1.7)*6.28, cyan, idx:i, kind:0});
+  }
+}
+function updateDims(){
+  const cw=cv.clientWidth, ch=cv.clientHeight;
+  DPR=Math.min(2,window.devicePixelRatio||1);
+  if(cw!==lastW || ch!==lastH){ cv.width=cw*DPR; cv.height=ch*DPR; lastW=cw; lastH=ch; }
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  W=cw; H=ch; base=H-Math.max(90,H*0.14); costX=W*0.32; priceX=W*0.66;
+}
+function resize(){ updateDims(); layout(); }
+function colStack(list, cx, rows0){
+  // stack `list` particles in COLS-wide column growing up from baseline
+  list.forEach((p,k)=>{ const row=Math.floor(k/COLS), col=k%COLS;
+    p.tx=cx-(COLS*CELL)/2+col*CELL+CELL/2; p.ty=base-row*CELL-CELL/2; });
+}
+function setColor(p,rgb){p.tc=rgb.slice()}
+
+// premiumFrac: fraction of amber particles held ABOVE cost as the premium stack; rest sink into the cost band
+function layoutGap(frac){
+  const cyan=P.filter(p=>p.cyan), amber=P.filter(p=>!p.cyan);
+  colStack(cyan, costX, 0); cyan.forEach(p=>{setColor(p,COL.cyan); p.tamp=2.1;});
+  const nPrem=Math.round(amber.length*frac);
+  const prem=amber.slice(0,nPrem), sunk=amber.slice(nPrem);
+  // premium stacks above the cost column top
+  const costRows=Math.ceil(N_C/COLS);
+  prem.forEach((p,k)=>{const row=Math.floor(k/COLS)+costRows, col=k%COLS;
+    p.tx=priceX-(COLS*CELL)/2+col*CELL+CELL/2; p.ty=base-row*CELL-CELL/2; setColor(p,COL.amber); p.tamp=0.7;});
+  // sunk amber FLOWS LEFT into the cost band, tinting toward cyan — price converging toward cost
+  sunk.forEach((p,k)=>{const a=rnd(p.idx*3.1), b=rnd(p.idx*5.7);
+    p.tx=costX-46+a*92; p.ty=base-6-b*84; setColor(p, lerpRGB(COL.amber,COL.cyan,0.6)); p.tamp=2.3;});
+}
+function layoutField(){
+  const cols=Math.max(14,Math.floor(W/34)); const cw=Math.min(30,(W-120)/cols);
+  const x0=(W-cols*cw)/2+cw/2, y0=120;
+  P.forEach((p,i)=>{const row=Math.floor(i/cols), col=i%cols;
+    p.tx=x0+col*cw; p.ty=y0+row*(cw*0.62);
+    const unc=rnd(i*2.3); p.tamp=0.4+unc*unc*3.2;              // varied CI -> varied shimmer
+    setColor(p, p.cyan?COL.cyan:COL.amber);});
+}
+function layoutClocks(t){
+  // two pens: falling (constant-quality) and rising (flagship). route particles along them.
+  const x0=W*0.16, x1=W*0.84, midY=H*0.5;
+  P.forEach((p,i)=>{const u=(i/N); const down=i%2===0;
+    p.tx=x0+u*(x1-x0);
+    if(down){ p.ty=midY-120+ Math.pow(u,0.5)*230; setColor(p,COL.cyan); p.tamp=0.6;}
+    else { p.ty=midY+40 - Math.pow(u,1.8)*150; setColor(p,COL.amber); p.tamp=0.6;}
+  });
+}
+function layoutPayback(runSeed){
+  // ~52% of grains become gold and RISE to fill the forecast cone; the rest fall to a grey reservoir band
+  const cx=W*0.5, apexY=base-40, topY=base-250;
+  P.forEach((p,i)=>{
+    const earned = rnd(i*1.7+runSeed*0.31) < P1.payback/100;
+    if(earned){
+      const u=rnd(i*2.9+runSeed), v=rnd(i*3.7+runSeed);   // u=height up the cone, v=lateral
+      const y=apexY-u*(apexY-topY), halfW=(apexY-y)*0.58+10;
+      p.tx=cx+(v-0.5)*2*halfW; p.ty=y; setColor(p,COL.gold); p.tamp=0.8; p.kind=1;
+    } else {
+      const u=rnd(i*4.3+runSeed);
+      p.tx=cx-210+u*420; p.ty=base+24+rnd(i*6.1)*20; setColor(p,COL.grey); p.tamp=1.3; p.kind=2;
+    }
+  });
+}
+function lerpRGB(a,b,t){return [a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t]}
+
+function layout(){
+  if(scene===1) return layoutField();
+  if(scene===4) return layoutClocks();
+  if(scene===7) return layoutPayback(payRun);
+  if(scene===5){ layoutGap(kimiOpen?0.10:1.0); return; }
+  if(scene===6){ layoutGap(1-supply/100); return; }
+  layoutGap(1.0); // scenes 0,2,3 default full premium; scene 3 handled by cut below
+  if(scene===3) layoutGap(0.2);
+}
+
+let last=performance.now();
+function frame(now){
+  const t=now/1000;
+  updateDims();                        // live canvas size every frame — no stale-width race
+  updateScene();                       // scene from scroll position every frame — no scroll-event dependence
+  layout();                            // every scene recomputes from live size; payback is deterministic on payRun so it's stable
+  ctx.clearRect(0,0,W,H);
+  // baseline + cost-band fog for gap-like scenes
+  if([0,2,3,5,6].includes(scene)){
+    ctx.strokeStyle='rgba(131,138,147,.5)'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(18,base+.5); ctx.lineTo(W-18,base+.5); ctx.stroke();
+  }
+  for(const p of P){
+    p.x+=(p.tx-p.x)*(reduce?1:0.12); p.y+=(p.ty-p.y)*(reduce?1:0.12);
+    for(let k=0;k<3;k++) p.c[k]+=(p.tc[k]-p.c[k])*0.1;
+    p.amp+=(p.tamp-p.amp)*0.08;
+    let jx=0,jy=0; if(!reduce){jx=p.amp*Math.sin(t*2.2+p.ph); jy=p.amp*Math.cos(t*2.6+p.ph2);}
+    ctx.fillStyle='rgb('+(p.c[0]|0)+','+(p.c[1]|0)+','+(p.c[2]|0)+')';
+    ctx.fillRect(p.x-SIZE/2+jx, p.y-SIZE/2+jy, SIZE, SIZE);
+  }
+  overlay(t);
+  requestAnimationFrame(frame);
+}
+
+function label(x,y,txt,color,size,weight){ctx.textAlign='center';ctx.fillStyle=color;
+  ctx.font=(weight||'400')+' '+(size||12)+'px '+'ui-monospace,Menlo,monospace';ctx.fillText(txt,x,y);}
+
+function overlay(t){
+  if([0,2,3,5,6].includes(scene)){
+    const frac = scene===3?0.2 : scene===5?(kimiOpen?0.1:1) : scene===6?(1-supply/100):1;
+    const premRows=Math.ceil(N_C/COLS)+Math.round(N_A*frac/COLS);
+    const priceTop=base-premRows*CELL-16, costTop=base-Math.ceil(N_C/COLS)*CELL-16;
+    label(costX, costTop, '~$'+ (P1.flagship*P1.costPct/100).toFixed(1) +' /M', '#15181D',14,'700');
+    label(costX, costTop+16,'cost to serve','#838A93',11);
+    label(priceX, Math.max(70,priceTop),'~$'+P1.flagship+' /M','#15181D',14,'700');
+    label(priceX, Math.max(86,priceTop+16),'US list price','#838A93',11);
+    if(scene===2||scene===0){label((costX+priceX)/2,(costTop+priceTop)/2, '≈ '+P1.gap+'×','#15181D',14,'700');}
+    if(scene===3){label(W*0.5, base+34,'price cut '+P1.cutO3+'% — model unchanged','#C6432B',12,'700');}
+  }
+  if(scene===4){ label(W*0.18,H*0.5-140,'constant quality: ↓ '+P1.declC+'×/yr','#2a86a0',12,'700');
+    label(W*0.82,H*0.5-70,'flagship sticker: ↑ to $'+P1.flagship,'#a06d10',12,'700'); }
+  if(scene===7){ const cx=W*0.5;
+    // widening cone
+    ctx.strokeStyle='rgba(131,138,147,.5)'; ctx.setLineDash([4,4]); ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(cx,base-40);ctx.lineTo(cx-150,base-260);ctx.moveTo(cx,base-40);ctx.lineTo(cx+150,base-260);ctx.stroke();ctx.setLineDash([]);
+    label(cx, base-278, P1.payback+'% earn back  ·  '+(100-P1.payback)+'% do not','#15181D',13,'700');
+    label(cx, base+52,'redline reservoir','#C6432B',11,'700');
+  }
+}
+
+// scene switching
+const steps=[...document.querySelectorAll('.step')];
+function updateScene(){
+  const mid=innerHeight/2; let best=scene, bd=1e9;
+  steps.forEach(el=>{const r=el.getBoundingClientRect(); const c=r.top+r.height/2; const d=Math.abs(c-mid);
+    if(d<bd){bd=d; best=+el.dataset.scene;}});
+  if(best!==scene){scene=best; layout();}       // nearest-to-centre step wins — robust with sticky canvas
+}
+addEventListener('scroll', updateScene, {passive:true});
+updateScene();
+
+// interactions
+document.getElementById('rebuild').onclick=()=>{ if(scene===2){ P.filter(p=>!p.cyan).forEach(p=>{p.y=base-6;}); }};
+document.getElementById('dial').oninput=(e)=>{ supply=+e.target.value; if(scene===6)layout();
+  const m = supply<25?'high':supply<60?'thinning':supply<88?'slim':'near zero';
+  document.getElementById('dialOut').innerHTML='margin over cost: <b>'+m+'</b> · our panel gives near-cost pricing by 2028 just <b>'+P1.conv+'%</b>'; };
+document.getElementById('kClosed').onclick=()=>{kimiOpen=false;setK();};
+document.getElementById('kOpen').onclick=()=>{kimiOpen=true;setK();};
+function setK(){document.getElementById('kClosed').classList.toggle('on',!kimiOpen);
+  document.getElementById('kOpen').classList.toggle('on',kimiOpen); if(scene===5)layout();}
+document.getElementById('payReplay').onclick=()=>{payRun++; if(scene===7)layout();};
+document.getElementById('payPct').textContent=P1.payback+'%';
+
+init(); resize(); requestAnimationFrame(frame);
+window.addEventListener('resize',resize);
+</script>
