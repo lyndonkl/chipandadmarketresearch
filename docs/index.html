@@ -1,0 +1,80 @@
+<meta charset="utf-8">
+<title>Chip &amp; Ad Market Research</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bone:#F2EEE4;--card:#f7f4ec;--graphite:#15181D;--ink2:#3a4149;--amber:#E0972A;--amber-d:#9a6612;
+  --cyan:#3AA6BD;--zinc:#838A93;--rule:#ddd5c4;
+  --serif:"Iowan Old Style",Georgia,"Times New Roman",serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bone);color:var(--graphite);font-family:var(--serif);line-height:1.6;
+  background-image:linear-gradient(#83839314 1px,transparent 1px),linear-gradient(90deg,#83839314 1px,transparent 1px);
+  background-size:22px 22px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px 80px}
+header{padding:72px 0 30px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--zinc)}
+h1{font-size:clamp(30px,5.6vw,52px);font-weight:600;letter-spacing:-.022em;line-height:1.05;margin:.3em 0 .3em;text-wrap:balance}
+.dek{font-size:clamp(16px,2.2vw,20px);color:var(--ink2);max-width:44ch}
+h2{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--zinc);
+  margin:44px 0 14px;padding-top:18px;border-top:1px solid var(--rule)}
+.node{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--rule);
+  border-left:3px solid var(--zinc);border-radius:9px;padding:18px 20px;margin-bottom:13px;transition:border-color .15s}
+.node.live{border-left-color:var(--amber)}
+.node.live:hover{border-color:var(--amber)}
+.node .src{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--zinc)}
+.node h3{font-size:21px;font-weight:600;margin:.3em 0 .3em;letter-spacing:-.01em}
+.node p{margin:0;font-size:15px;color:var(--ink2)}
+.node .state{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;margin-top:10px;display:inline-block}
+.live .state{color:var(--amber-d)}
+.soon{opacity:.72}
+.soon .state{color:var(--zinc)}
+.stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;padding-top:18px;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:11px;color:var(--ink2)}
+.stats b{display:block;font-size:19px;color:var(--graphite);margin-bottom:2px}
+footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);
+  font-size:11px;color:var(--zinc);line-height:1.8}
+a.plain{color:#0a6a6a}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">A research tree</div>
+  <h1>Chip &amp; Ad Market Research</h1>
+  <p class="dek">Two podcasts on a road trip became two research questions, and the two questions grew a third. Research delivered as interactive experiences — every number sourced, calibrated, and shown with its uncertainty.</p>
+  <div class="stats">
+    <div><b>161</b>calibrated claims</div>
+    <div><b>295</b>distinct sources</div>
+    <div><b>61</b>visuals</div>
+    <div><b>9</b>chapters</div>
+  </div>
+</header>
+
+<h2>The tree</h2>
+
+<a class="node live" href="p1/">
+  <div class="src">Stratechery · “Who’s Afraid of Chinese Models?”</div>
+  <h3>The Economics of Intelligence</h3>
+  <p>US labs charge about seven times what a token costs them to serve. How that gap opened, who pays for it, and whether the trillion dollars behind it ever comes home.</p>
+  <span class="state">▸ read it — nine chapters, 61 visuals</span>
+</a>
+
+<div class="node soon">
+  <div class="src">Acquired · “Google Part I: Origins of Search”</div>
+  <h3>The Attention Economy</h3>
+  <p>A century and a half of the advertising market, and what Google’s auction actually changed about who sets the price.</p>
+  <span class="state">research in progress</span>
+</div>
+
+<div class="node soon">
+  <div class="src">Grows out of both branches above</div>
+  <h3>Why Ads Won’t Save AI (or Will They?)</h3>
+  <p>Advertising solved the monetisation of zero-price search in the 2000s. Why isn’t it solving AI inference now — and is it really just that you can’t put ads in the answer?</p>
+  <span class="state">awaiting both foundations</span>
+</div>
+
+<footer>
+  Method: every figure carries a claim id, an 80% confidence interval and a source grade (A filed · B reported · C our own triangulation).
+  Forward-looking numbers come from multi-agent forecasting panels, and the disagreement between panelists is shown rather than hidden.
+  All prose passes four readability tests (Flesch-Kincaid ≤10, Reading Ease ≥50, Gunning Fog ≤12, SMOG ≤12).
+  Source: <a class="plain" href="https://github.com/lyndonkl/chipandadmarketresearch">github.com/lyndonkl/chipandadmarketresearch</a>
+</footer>
+</div>
