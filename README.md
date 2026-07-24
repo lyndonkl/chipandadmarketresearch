@@ -34,3 +34,7 @@ Forward-looking numbers come from multi-agent superforecaster panels; the disagr
 ## Process
 
 See [PROCESS.md](PROCESS.md). Sequential and gated: research → human review → data layer → design (architect variants + grilling) → experience → human review.
+
+## Status
+
+See [PROGRESS.md](PROGRESS.md) for a plain-language log of what is done, where every file lives, and what each folder holds. Start here when picking the work back up.
