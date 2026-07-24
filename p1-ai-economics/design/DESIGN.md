@@ -70,3 +70,7 @@ One fader, supply SCARCE ↔ ABUNDANT. Presets: **US CLOSED** (umbrella up, pric
 ## Stack
 
 Vanilla JS + Canvas/WebGL for the particle field, D3 for overlays/axes; static site in `docs/`. fifaworldcup2026 pattern.
+
+## The alternatives (seed for the post-P2 design review)
+
+Four directions were explored before "The Instrument" was chosen: The Instrument, The Essay, The Flow System, and The Reckoning. All four full proposals — palette, type, motion, unit metaphor, hub concept, scene beats — are preserved in `architect-proposals.json` in this folder. They are the seed material for the repo-wide design system and hub, which are designed after P2 so they serve both projects.

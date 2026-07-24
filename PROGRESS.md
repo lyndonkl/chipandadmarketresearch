@@ -58,6 +58,8 @@ The rest are working notes from the review rounds: `content-findings.json`, `jar
 
 `p1-ai-economics/design/DESIGN.md` is the design plan for Project 1. Its name is "The Instrument."
 
+`p1-ai-economics/design/architect-proposals.json` holds all four looks we weighed before we picked one. The three we did not use are kept as seed ideas for the shared design, which comes after Project 2.
+
 ## The shared tools
 
 `tools/readability.py` runs the four reading tests on any file. Use it on every piece of writing before it counts as done.
