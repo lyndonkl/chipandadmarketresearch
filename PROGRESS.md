@@ -88,6 +88,14 @@ Project 2 and Project 3 have no workflows yet. They will get their own once thei
 
 To run one again, open it, read the top of the file for what it needs, and start it with the Workflow tool. Point it at the script by its path.
 
+## The raw research transcripts
+
+The full agent transcripts from those runs sit outside this repo. They are at `~/.claude/projects/-Users-kushaldsouza-Documents-Thinking-chipandadmarketresearch/d49df9c4-fddb-4400-b13e-1a82c709e63f/subagents/workflows/`. That is about 100 MB of raw thinking and web reads.
+
+A new chat can read them by that path while they last. But they may be cleared over time, so do not count on them. We did not copy them into the repo, because 100 MB does not belong in git.
+
+You should not need them. Every number, source, finding, and design idea was already pulled out into the data files above. The transcripts are only the working notes behind that.
+
 ## What has been done, in order
 
 First, we shaped the three projects through a grilling session and set the rules.
