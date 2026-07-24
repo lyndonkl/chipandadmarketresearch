@@ -433,7 +433,7 @@
      "date": "2024-07"
     }
    ],
-   "notes": "Epoch (citing The Information and NYT): $3B on training compute + ~$2B research compute (2-yr amortization) vs $1.8B inference compute in 2024. Majority of R&D compute went to experiments and unreleased models, not the flagship final run. Central to T1: fixed R&D compute exceeded inference COGS ~2.7:1 in 2024, and the true fixed cost is the whole experiment portfolio (~$5B), not the ~$100M headline run.",
+   "notes": "The '~2.7:1' research-to-serving ratio quoted elsewhere is not supported by this record's own values; the defensible range is nearer 1.3-1.9:1. Epoch (citing The Information and NYT): $3B on training compute + ~$2B research compute (2-yr amortization) vs $1.8B inference compute in 2024. Majority of R&D compute went to experiments and unreleased models, not the flagship final run. Central to T1: fixed R&D compute exceeded inference COGS ~2.7:1 in 2024, and the true fixed cost is the whole experiment portfolio (~$5B), not the ~$100M headline run.",
    "verification": [
     {
      "lens": "primary-source",
@@ -770,7 +770,7 @@
   {
    "id": "mc-05",
    "topic": "mc",
-   "metric": "Measured serving cost, gpt-oss-120B on H100 at ~166 tok/s/user (production-style batching)",
+   "metric": "Measured serving cost, gpt-oss-120B on H100 \u2014 latency-optimised run at ~17 concurrent users, not production-style batching",
    "entity": "SemiAnalysis InferenceX benchmark",
    "period": "as of 2026 (InferenceX v2)",
    "value": 0.26,
@@ -791,7 +791,7 @@
      "date": "2026"
     }
    ],
-   "notes": "Independent measured benchmark (not vendor claim). Same workload on B200 measures $0.02-0.31/M depending on precision/interactivity (roughly 3-7x cheaper per token than H100); NVIDIA cites $0.14/M on H100 for this workload. CI reflects config sensitivity (tok/s/user target, FP8 vs FP4, batch size). Anchors the floor for a mid-size open frontier-adjacent model.",
+   "notes": "Metric corrected 2026-07-23: the record previously described this as production-style batching, which its own source contradicts (~17 concurrent users, a latency-optimised corner). Read as a floor measured in favourable conditions. Independent measured benchmark (not vendor claim). Same workload on B200 measures $0.02-0.31/M depending on precision/interactivity (roughly 3-7x cheaper per token than H100); NVIDIA cites $0.14/M on H100 for this workload. CI reflects config sensitivity (tok/s/user target, FP8 vs FP4, batch size). Anchors the floor for a mid-size open frontier-adjacent model.",
    "verification": [
     {
      "lens": "primary-source",
@@ -1173,7 +1173,7 @@
      "date": "2025-06"
     }
    ],
-   "notes": "Method: H100 SXM ~700W TDP; ~1.0-1.4 kW/GPU all-in with server overhead and PUE 1.2-1.3; at $0.06-0.12/kWh industrial power = $0.06-0.17/GPU-hour vs $2.35/hr contract rental = 2.6-7.1% (computed). Implication: near-term marginal serving cost is dominated by GPU capital recovery, not power \u2014 so 'prices converge to marginal cost' (T5) still leaves prices well above electricity-only short-run marginal cost; the floor depends on how depreciated the serving fleet is.",
+   "notes": "Band widens because the certified figure spans several serving configurations; the low end assumes heavy batching and the high end a latency-optimised run. Method: H100 SXM ~700W TDP; ~1.0-1.4 kW/GPU all-in with server overhead and PUE 1.2-1.3; at $0.06-0.12/kWh industrial power = $0.06-0.17/GPU-hour vs $2.35/hr contract rental = 2.6-7.1% (computed). Implication: near-term marginal serving cost is dominated by GPU capital recovery, not power \u2014 so 'prices converge to marginal cost' (T5) still leaves prices well above electricity-only short-run marginal cost; the floor depends on how depreciated the serving fleet is.",
    "status": "unverified"
   },
   {
@@ -2431,7 +2431,7 @@
      "date": "2026-06"
     }
    ],
-   "notes": "Total costs and expenses $34B: R&D $19.18B (incl. ~$10.6B to Microsoft for Azure compute), S&M $5.73B, cost of revenue $7.5B, G&A $1.57B. Directly supports T1: training/R&D is a giant fixed cost dwarfing revenue ($1.60 spent per $1 of revenue in 2025, improved from $2.37 in 2024). Headline net loss $38.5B includes large one-time non-cash conversion charges.",
+   "notes": "Value reconciles exactly from the disclosed components ($34B total costs less $13.07B revenue = $20.93B), so the residual uncertainty is in the leak's accuracy, not in the arithmetic. Total costs and expenses $34B: R&D $19.18B (incl. ~$10.6B to Microsoft for Azure compute), S&M $5.73B, cost of revenue $7.5B, G&A $1.57B. Directly supports T1: training/R&D is a giant fixed cost dwarfing revenue ($1.60 spent per $1 of revenue in 2025, improved from $2.37 in 2024). Headline net loss $38.5B includes large one-time non-cash conversion charges.",
    "verification": [
     {
      "lens": "primary-source",
@@ -4067,7 +4067,7 @@
      "date": "2025-10-02"
     }
    ],
-   "notes": "Reported plan: ~600k 910C units in 2026 (~2x 2025), up to ~1.6M Ascend dies across models, on SMIC N+2 7nm (~20k wafers/month sufficient). Binding constraint per SemiAnalysis is HBM: domestic CXMT ~2M HBM stacks in 2026 supports only ~250-300k 910C-equivalent packages absent stockpiled foreign HBM \u2014 so effective supply may undershoot the plan (hence wide, left-weighted CI). A 910C is roughly comparable to ~1x H100-class on paper but with weaker software/interconnect. Even at plan, China's domestic accelerator supply remains far below US hyperscaler additions, supporting the persistence of the compute gap that Thompson's T5 timing question hinges on.",
+   "notes": "Reconciliation: an earlier reported plan of ~600k units was revised upward to ~800k; the plotted value is the later figure and the wide interval reflects that the plan itself moved. Reported plan: ~600k 910C units in 2026 (~2x 2025), up to ~1.6M Ascend dies across models, on SMIC N+2 7nm (~20k wafers/month sufficient). Binding constraint per SemiAnalysis is HBM: domestic CXMT ~2M HBM stacks in 2026 supports only ~250-300k 910C-equivalent packages absent stockpiled foreign HBM \u2014 so effective supply may undershoot the plan (hence wide, left-weighted CI). A 910C is roughly comparable to ~1x H100-class on paper but with weaker software/interconnect. Even at plan, China's domestic accelerator supply remains far below US hyperscaler additions, supporting the persistence of the compute gap that Thompson's T5 timing question hinges on.",
    "verification": [
     {
      "lens": "primary-source",

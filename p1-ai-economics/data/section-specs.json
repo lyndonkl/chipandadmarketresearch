@@ -162,7 +162,7 @@
      },
      {
       "label": "OpenAI 2025 gross margin",
-      "sublabel": "OpenAI; takes off cost of revenue, every direct cost of running the service; share of all company revenue, about 70% ChatGPT subscriptions",
+      "sublabel": "OpenAI; takes off cost of revenue \u2014 every direct cost of delivering the service, every direct cost of running the service; share of all company revenue, about 70% ChatGPT subscriptions",
       "value": 42.6,
       "low": 33,
       "high": 47,
@@ -268,9 +268,9 @@
     "type": "range",
     "title": "The building wave: the supply that is supposed to cut prices",
     "note": "Microsoft, Amazon, Alphabet and Meta \u2014 the four firms that own most of the world's rentable computing \u2014 have told investors to expect about $717.5 billion of capital spending in 2026. They spent about $413 billion in 2025, so that is a rise of around 75%. The bar shows only the 2026 figure and its 80% range, so read the 2025 comparison from these words, not from the chart. This is the best single measure of T5's supply catching up. Whether it lands, and whether it moves prices, is still open.",
-    "unit": "$ billions of capital spending in 2026 (Big-4 hyperscalers)",
+    "unit": "$ billions of capital spending in 2026 (Big-4 hyperscalers \u2014 the handful of giant cloud firms that build most of the data centres)",
     "log": false,
-    "viz_rationale": "A single guided total expressed as a low-high band; a range bar shows the central figure and the spread of current estimates.",
+    "viz_rationale": "A single guided \u2014 the figure a company tells investors to expect total expressed as a low-high band; a range bar shows the central figure and the spread of current estimates.",
     "series": [
      {
       "label": "Big-4 hyperscaler capex",
@@ -957,7 +957,7 @@
     "type": "bars_ci",
     "title": "Increases that never touched the posted price",
     "unit": "% increase in what buyers actually pay",
-    "note": "Two ways the bill rises while the posted price looks calm. At GPT-5.5 the per-token price doubled, but the model wrote shorter answers, so the realized cost per comparable job rose 64% rather than 100% (80% CI 38-100%, measured on OpenRouter traffic either side of launch). Separately, Anthropic's newer tokenizer \u2014 the rule that chops text into billable units \u2014 turns the same text into about 30% more tokens at an unchanged headline rate (80% CI 10-45%, stated in Anthropic's own docs for Opus 4.7+, Fable 5, Mythos 5 and Sonnet 5). Both make one point: a token is not a fixed unit of work, so the honest yardstick is cost per finished job, not cost per token.",
+    "note": "Two ways the bill rises while the posted price looks calm. At GPT-5.5 the per-token price doubled, but the model wrote shorter answers, so the realized cost per comparable job rose 64% rather than 100% (80% CI 38-100%, measured on OpenRouter traffic either side of launch). Separately, Anthropic's newer tokenizer \u2014 the rule that chops text into billable units \u2014 turns the same text into about 30% more tokens at an unchanged posted price (80% CI 10-45%, stated in Anthropic's own docs for Opus 4.7+, Fable 5, Mythos 5 and Sonnet 5). Both make one point: a token is not a fixed unit of work, so the honest yardstick is cost per finished job, not cost per token.",
     "viz_rationale": "Two labelled magnitudes in the same unit, both genuine estimates with material uncertainty, so bars_ci. Not a line: these are two unrelated one-off events, not a series, and connecting them would fabricate a trend. The whiskers carry real weight here \u2014 the GPT-5.5 figure ranges from a mild 38% to a full doubling depending on how much shorter the answers actually got.",
     "series": [
      {
@@ -1425,7 +1425,7 @@
     ]
    },
    {
-    "text": "The top line is growing faster than almost anything on record, and it sits in two firms. OpenAI earned $13.07 billion in 2025, more than triple the year before. Anthropic's run-rate leapt from about $1 billion to $47 billion in eighteen months. Outside these two, direct model revenue is tiny. xAI is near half a billion. Meta earns close to nothing direct and makes its money from ads instead.",
+    "text": "revenue is growing faster than almost anything on record, and it sits in two firms. OpenAI earned $13.07 billion in 2025, more than triple the year before. Anthropic's run-rate leapt from about $1 billion to $47 billion in eighteen months. Outside these two, direct model revenue is tiny. xAI is near half a billion. Meta earns close to nothing direct and makes its money from ads instead.",
     "claim_ids": [
      "rv-01",
      "rv-10",
@@ -1440,7 +1440,7 @@
     ]
    },
    {
-    "text": "The fixed side is where the money goes. OpenAI lost about $21 billion at the operating line in 2025 \u2014 the loss on running the business, before one-off items \u2014 even as revenue tripled. Anthropic burned $5.6 billion. Training a model sits inside that cost and is spent before a single user pays. One strong Anthropic quarter did flip to a small profit. Read it with care. It was fundraise guidance, a number the company itself projected for investors, not an audited result. It also leaves out stock pay, and it fell in a quarter when compute was priced low.",
+    "text": "The fixed side is where the money goes. OpenAI lost about $21 billion at the operating line \u2014 profit after every running cost, before financing and tax in 2025 \u2014 the loss on running the business, before one-off items \u2014 even as revenue tripled. Anthropic burned $5.6 billion. Training a model sits inside that cost and is spent before a single user pays. One strong Anthropic quarter did flip to a small profit. Read it with care. It was fundraise guidance, a number the company itself projected for investors, not an audited result. It also leaves out stock pay, and it fell in a quarter when compute was priced low.",
     "claim_ids": [
      "rv-02",
      "rv-14",
@@ -1990,7 +1990,7 @@
     "type": "bars",
     "title": "DeepSeek's 545% depends on one assumption: the rental rate",
     "unit": "% profit over chip cost, one day of V3/R1 serving",
-    "note": "DeepSeek published one day: about $87k of chips against about $562k of revenue if every token were billed at list. That is the 545% in the middle row. The chips figure assumes $2.00 per GPU-hour, so the whole headline moves with that one input: cheaper rentals make it look better, dearer ones worse. Even at $3.00 an hour it still clears cost more than three times over. That is the point that survives the assumption \u2014 the cheap seller is not selling below cost, so the low Chinese price is a strategic choice, not a cost floor.",
+    "note": "DeepSeek published one day: about $87k of chips against about $562k of revenue if every token were billed at the posted price. That is the 545% in the middle row. The chips figure assumes $2.00 per GPU-hour, so the whole headline moves with that one input: cheaper rentals make it look better, dearer ones worse. Even at $3.00 an hour it still clears cost more than three times over. That is the point that survives the assumption \u2014 the cheap seller is not selling below cost, so the low Chinese price is a strategic choice, not a cost floor.",
     "viz_rationale": "One disclosed ratio tells you nothing about how fragile it is. Recomputing it across plausible rental rates shows the headline is an assumption as much as a measurement \u2014 arithmetic only, no new source.",
     "series": [
      {
@@ -2090,7 +2090,7 @@
     ]
    },
    {
-    "text": "In 2025 the labs cut prices hard on models they had not changed. OpenAI cut o3 by 80 percent and said only the serving software had improved. Anthropic cut its top tier by two thirds. You cannot cut that hard on a fixed product unless the old price sat well above the cost of serving it. Then 2026 turned. The flagship sticker rose about four times over, a new tier opened above the old top, and quieter changes pushed bills up even where the headline rate held still.",
+    "text": "In 2025 the labs cut prices hard on models they had not changed. OpenAI cut o3 by 80 percent and said only the serving software had improved. Anthropic cut its top tier by two thirds. You cannot cut that hard on a fixed product unless the old price sat well above the cost of serving it. Then 2026 turned. The flagship sticker rose about four times over, a new tier opened above the old top, and quieter changes pushed bills up even where the posted price held still.",
     "claim_ids": [
      "px-06",
      "px-07",
@@ -2147,8 +2147,8 @@
     "title": "Two clocks, running opposite ways",
     "unit": "\u00d7 change in price \u00b7 one clock falls, one rises",
     "log": false,
-    "viz_rationale": "Two states of the same thing (the price of AI) measured two different ways, which is exactly what a two-item comparison is for. Showing them side by side is the point: the reader has to hold both at once, because the popular claim that AI is getting cheap and the observed 2026 price rises are both true. The 80% intervals do extra work here: the deflation clock is enormous but wildly uncertain (8\u00d7 to 200\u00d7), while the inflation clock is small but tightly measured from official price cards.",
-    "note": "Hold quality fixed and yesterday's intelligence gets cheap fast. Buy today's best and you pay more than you did a year ago. Both clocks are real and they do not cancel. Read the ranges carefully: the 36\u00d7/yr figure is a median across six benchmarks that individually run from 9\u00d7 to 900\u00d7 a year, so it is a direction more than a number, and it excludes reasoning models, which burn far more tokens per job. The flagship figure is a hard read off official price cards: $1.25 to $5.00 per million input tokens. Current frontier stickers as of July 2026: OpenAI $5/M input (px-13, grade A), Anthropic's new tier above Opus at $10/M input (px-12, grade A). Cheaper tiers still exist below both.",
+    "viz_rationale": "Two states of the same thing (the price of AI) measured two different ways, which is exactly what a two-item comparison is for. Showing them side by side is the point: the reader has to hold both at once, because the popular claim that AI is getting cheap and the observed 2026 price rises are both true. The 80% intervals do extra work here: the deflation clock is enormous but wildly uncertain (8\u00d7 to 200\u00d7), while the inflation clock is small but tightly measured from official price lists.",
+    "note": "Hold quality fixed and yesterday's intelligence gets cheap fast. Buy today's best and you pay more than you did a year ago. Both clocks are real and they do not cancel. Read the ranges carefully: the 36\u00d7/yr figure is a median across six benchmarks that individually run from 9\u00d7 to 900\u00d7 a year, so it is a direction more than a number, and it excludes reasoning models, which burn far more tokens per job. The flagship figure is a hard read off official price lists: $1.25 to $5.00 per million input tokens. Current frontier stickers as of July 2026: OpenAI $5/M input (px-13, grade A), Anthropic's new tier above Opus at $10/M input (px-12, grade A). Cheaper tiers still exist below both.",
     "series": [
      {
       "label": "Same-quality intelligence: price \u00f736 a year",
@@ -2179,8 +2179,8 @@
     "title": "The cuts you could see, then the rises you could not",
     "unit": "% change in price",
     "log": false,
-    "viz_rationale": "Four signed percentage changes around a zero line, which is the textbook case for a diverging bar. The zero line does the argument: everything left of it is 2025, when unchanged models got radically cheaper and proved a fat margin existed. Everything right of it is 2026, when the bill rose without the headline rate always moving. Plotting the components rather than a single headline lets the reader see that the 2026 increases are quieter and smaller than the 2025 cuts, yet point the other way.",
-    "note": "The left side is the proof. You cannot cut 80 percent on a model you did not change unless the old price sat well above the cost of serving it. OpenAI said plainly that only the serving software had improved. The right side is the reversal, and it is sneakier than the sticker. When OpenAI doubled its per-token rate in April 2026, the real cost of a like-for-like request rose about 64 percent, not the full double, because the new model emits fewer completion tokens, the text it sends back, on long prompts. Anthropic's newer models use a tokenizer, the tool that chops text into billable units, that yields about 30 percent more tokens for the same text. The headline rate did not move, the bill did. The token is not a fixed unit, so price per token should be read with care. Read the ranges with the bars. The 80 percent range on the o3 cut runs 60 to 80 percent, on the tokenizer effect 10 to 45 percent, and on the 64 percent rise 38 to 100 percent. Only Anthropic's Opus cut is exact, at 66.7 percent. So the 2026 rise could be mild or it could be a full doubling. The loud 4\u00d7 flagship sticker in the two-clocks chart is only the part you can see.",
+    "viz_rationale": "Four signed percentage changes around a zero line, which is the textbook case for a diverging bar. The zero line does the argument: everything left of it is 2025, when unchanged models got radically cheaper and proved a fat margin existed. Everything right of it is 2026, when the bill rose without the posted price always moving. Plotting the components rather than a single headline lets the reader see that the 2026 increases are quieter and smaller than the 2025 cuts, yet point the other way.",
+    "note": "The left side is the proof. You cannot cut 80 percent on a model you did not change unless the old price sat well above the cost of serving it. OpenAI said plainly that only the serving software had improved. The right side is the reversal, and it is sneakier than the posted price. When OpenAI doubled its per-token rate in April 2026, the real cost of a like-for-like request rose about 64 percent, not the full double, because the new model emits fewer completion tokens, the text it sends back, on long prompts. Anthropic's newer models use a tokenizer, the tool that chops text into billable units, that yields about 30 percent more tokens for the same text. The posted price did not move, the bill did. The token is not a fixed unit, so price per token should be read with care. Read the ranges with the bars. The 80 percent range on the o3 cut runs 60 to 80 percent, on the tokenizer effect 10 to 45 percent, and on the 64 percent rise 38 to 100 percent. Only Anthropic's Opus cut is exact, at 66.7 percent. So the 2026 rise could be mild or it could be a full doubling. The loud 4\u00d7 flagship sticker in the two-clocks chart is only the part you can see.",
     "series": [
      {
       "label": "OpenAI o3 price cut, same model",
@@ -2206,7 +2206,7 @@
      },
      {
       "label": "Anthropic tokenizer inflation",
-      "sublabel": "2026: about 30% more billable tokens for the same text, at an unchanged headline rate",
+      "sublabel": "2026: about 30% more billable tokens for the same text, at an unchanged posted price",
       "value": 30,
       "low": 10,
       "high": 45,
@@ -2633,7 +2633,7 @@
       "grade": "B",
       "source_title": "AI Neocloud Playbook and Anatomy - SemiAnalysis",
       "source_url": "https://semianalysis.com/2024/10/03/ai-neocloud-playbook-and-anatomy/",
-      "sublabel": "years to earn the money back, not a lifespan \u00b7 1.3-4.0 by vintage"
+      "sublabel": "years to earn the money back, not a lifespan \u00b7 1.3-4.0 by vintage \u2014 all the kit bought in a given stretch of years"
      }
     ]
    },

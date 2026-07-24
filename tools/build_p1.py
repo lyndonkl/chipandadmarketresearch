@@ -87,6 +87,14 @@ h1{font-size:clamp(32px,6.2vw,62px);font-weight:600;letter-spacing:-.022em;line-
 .toc li{font-size:14.5px;margin:3px 0}
 @media(max-width:620px){.toc ol{columns:1}}
 
+.key{margin:22px 0 6px;padding:18px 20px;background:var(--card);border:1px solid var(--rule);border-radius:9px}
+.key h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--zinc);margin-bottom:12px}
+.key ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.key li{font-size:14.5px;color:var(--ink2);display:flex;gap:12px;align-items:baseline}
+.key .k-mark{flex:0 0 62px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--zinc)}
+.key .k-mark b{font-weight:700;margin:0 1px}
+.key b{color:var(--graphite)}
+
 /* sections */
 section.ch{padding:56px 0 10px;border-top:1px solid var(--rule);margin-top:44px}
 .chead{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber-d)}
@@ -165,6 +173,22 @@ footer{padding:44px 0 80px;font-family:var(--mono);font-size:11px;color:var(--in
 </header>
 
 <nav class="toc col" id="toc"><h4>The argument, in nine parts</h4><ol id="toclist"></ol></nav>
+
+<section class="key col">
+  <h4>How to read this page</h4>
+  <ul>
+    <li><span class="k-mark"><svg width="52" height="12"><line x1="4" y1="6" x2="48" y2="6" stroke="#15181D" stroke-width="1.2" opacity=".55"/><line x1="4" y1="1" x2="4" y2="11" stroke="#15181D" stroke-width="1.2" opacity=".55"/><line x1="48" y1="1" x2="48" y2="11" stroke="#15181D" stroke-width="1.2" opacity=".55"/></svg></span>
+      A bar with end-caps is an <b>80% interval</b>: we think the true figure sits in that span about four times in five. No caps means the number is exact — a posted price or a filed account.</li>
+    <li><span class="k-mark"><b class="gA">A</b> <b class="gB">B</b> <b class="gC">C</b></span>
+      <b>Source grade.</b> A is filed or officially posted. B is credible reporting. C is our own triangulation — the weakest tier, and we say so.</li>
+    <li><span class="k-mark mono">log</span>
+      A <b>log axis</b> means each gridline is ten times the one before, used where the values span hundreds of times. Bar length shows order of magnitude, not amount.</li>
+    <li><span class="k-mark">▪▪▪</span>
+      In the animated scenes, a mark that <b>shimmers</b> is one we are unsure of; a mark that sits still is a filed number. The shake is proportional to the doubt.</li>
+    <li><span class="k-mark mono">mc-08</span>
+      Every figure carries its <b>claim id</b>. Open “sources” under any chart to see the number, its grade and where it came from. Figures marked <b>our own estimate</b> are forecasts of ours, not reported facts.</li>
+  </ul>
+</section>
 
 <main id="main"></main>
 
