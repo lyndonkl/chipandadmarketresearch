@@ -90,8 +90,8 @@ h1{font-size:clamp(32px,6.2vw,62px);font-weight:600;letter-spacing:-.022em;line-
 .key{margin:22px 0 6px;padding:18px 20px;background:var(--card);border:1px solid var(--rule);border-radius:9px}
 .key h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--zinc);margin-bottom:12px}
 .key ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.key li{font-size:14.5px;color:var(--ink2);display:flex;gap:12px;align-items:baseline}
-.key .k-mark{flex:0 0 62px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--zinc)}
+.key li{font-size:14.5px;color:var(--ink2);position:relative;padding-left:76px;min-height:20px}
+.key .k-mark{position:absolute;left:0;top:1px;width:62px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--zinc)}
 .key .k-mark b{font-weight:700;margin:0 1px}
 .key b{color:var(--graphite)}
 
