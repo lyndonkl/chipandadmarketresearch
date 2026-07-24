@@ -1199,11 +1199,11 @@
     ]
    },
    {
-    "type": "slope",
+    "type": "comparison",
     "title": "The step up: 2025 actual spending against the 2026 plan",
     "unit": "USD billions of capital spending",
     "note": "Each firm's 2025 actual sits beside its 2026 guide, on one shared scale. Amazon rises about 1.5\u00d7, Meta about 1.9\u00d7, Alphabet about 2.2\u00d7. For scale: in 2022 these firms plus Oracle spent roughly $162 billion for the entire year (cx-18, grade B). Microsoft is left off because we have no cleanly sourced 2025 actual for it; its 2026 guide is about $190 billion (cx-01). That step up is money the gear now has to earn back.",
-    "viz_rationale": "Two ordered states compared for the same set of firms. Paired bars on one shared scale show the size of each jump, so the reader can compare the step across companies in one read.",
+    "viz_rationale": "Six labelled magnitudes across two years, so paired bars. A slope is a two-point form and silently drew only the first and last series, hiding four of the six.",
     "series": [
      {
       "label": "Amazon",
@@ -1987,22 +1987,47 @@
     ]
    },
    {
-    "type": "range",
-    "title": "DeepSeek's own number: 545 percent on a busy day",
-    "unit": "percent theoretical cost-profit ratio (profit divided by chip cost)",
-    "note": "Over 24 hours in February 2025, DeepSeek published its own figures. Chip rental cost $87,072. Billing every token at the R1 list price would have brought in $562,027. That is a 545 percent cost-profit ratio, so revenue of about 6.45 times the chip bill. The 545 is exact arithmetic on two disclosed figures, not an estimate, so there is no range to draw around it. DeepSeek was clear that real revenue was much lower, because most use was free and prices varied. Even so, the point stands. When the machines were full, even cheap Chinese prices sat far above the rental cost of the chips. A deep cost edge would not look like this. Most of the US-China price gap is a scarcity premium: extra charged simply because chips are hard to get. That premium is collected on the American side.",
-    "viz_rationale": "One disclosed quantity, shown on its own. The 545 percent is exact arithmetic on two published figures. It carries no measurement band, so there is none to draw. A single labelled callout states the number plainly. It invents no second bar and implies no comparison the source cannot carry. The real doubt is not in the ratio. It is in how much of it was ever billed, and the note says so.",
+    "type": "bars",
+    "title": "DeepSeek's 545% depends on one assumption: the rental rate",
+    "unit": "% profit over chip cost, one day of V3/R1 serving",
+    "note": "DeepSeek published one day: about $87k of chips against about $562k of revenue if every token were billed at list. That is the 545% in the middle row. The chips figure assumes $2.00 per GPU-hour, so the whole headline moves with that one input: cheaper rentals make it look better, dearer ones worse. Even at $3.00 an hour it still clears cost more than three times over. That is the point that survives the assumption \u2014 the cheap seller is not selling below cost, so the low Chinese price is a strategic choice, not a cost floor.",
+    "viz_rationale": "One disclosed ratio tells you nothing about how fragile it is. Recomputing it across plausible rental rates shows the headline is an assumption as much as a measurement \u2014 arithmetic only, no new source.",
     "series": [
      {
-      "label": "Theoretical cost-profit ratio, 24h of V3/R1 serving",
-      "sublabel": "Feb 27-28, 2025; disclosed Mar 1, 2025",
-      "value": 545,
-      "low": 530,
-      "high": 560,
-      "claim_id": "cd-04",
-      "grade": "A",
-      "source_title": "TechCrunch: DeepSeek claims 'theoretical' profit margins of 545%",
-      "source_url": "https://techcrunch.com/2025/03/01/deepseek-claims-theoretical-profit-margins-of-545/"
+      "label": "at $1.50 per GPU-hour",
+      "sublabel": "same day, different rental rate",
+      "value": 761,
+      "claim_id": "derived:cd-04",
+      "grade": "C",
+      "source_title": "Derived from DeepSeek's disclosed one-day figures ($562k revenue at list, $87k chips at $2.00/hr)",
+      "source_url": "https://github.com/deepseek-ai/open-infra-index/blob/main/202502OpenSourceWeek/day_6_one_more_thing_deepseekV3R1_inference_system_overview.md"
+     },
+     {
+      "label": "at $2.00 per GPU-hour",
+      "sublabel": "the rate the disclosure assumes",
+      "value": 546,
+      "claim_id": "derived:cd-04",
+      "grade": "C",
+      "source_title": "Derived from DeepSeek's disclosed one-day figures ($562k revenue at list, $87k chips at $2.00/hr)",
+      "source_url": "https://github.com/deepseek-ai/open-infra-index/blob/main/202502OpenSourceWeek/day_6_one_more_thing_deepseekV3R1_inference_system_overview.md"
+     },
+     {
+      "label": "at $2.50 per GPU-hour",
+      "sublabel": "same day, different rental rate",
+      "value": 417,
+      "claim_id": "derived:cd-04",
+      "grade": "C",
+      "source_title": "Derived from DeepSeek's disclosed one-day figures ($562k revenue at list, $87k chips at $2.00/hr)",
+      "source_url": "https://github.com/deepseek-ai/open-infra-index/blob/main/202502OpenSourceWeek/day_6_one_more_thing_deepseekV3R1_inference_system_overview.md"
+     },
+     {
+      "label": "at $3.00 per GPU-hour",
+      "sublabel": "same day, different rental rate",
+      "value": 331,
+      "claim_id": "derived:cd-04",
+      "grade": "C",
+      "source_title": "Derived from DeepSeek's disclosed one-day figures ($562k revenue at list, $87k chips at $2.00/hr)",
+      "source_url": "https://github.com/deepseek-ai/open-infra-index/blob/main/202502OpenSourceWeek/day_6_one_more_thing_deepseekV3R1_inference_system_overview.md"
      }
     ]
    },
@@ -2744,16 +2769,16 @@
   "plain_check": "Points use short sentences and everyday words, and they gloss the jargon in place: \"serving\" is explained as running the model to answer users, \"cost of capital\" is put as earning more than the money could earn elsewhere, and \"weights\" and \"run-rate\" are kept out of the points entirely. Estimated Flesch-Kincaid grade roughly 7-8, within the site's cap of 10. The source chapter itself measured FK 5.73; my points sit a shade higher because a few sentences carry an explanatory clause, but all stay well under grade 10.",
   "visuals": [
    {
-    "type": "comparison",
+    "type": "scorecard",
     "title": "The scorecard: six claims, four rulings",
     "note": "Supported = the numbers back the claim. Partly = part holds, the strong wording does not. Unresolved = the claim is about a future that has not arrived. None was refuted. T5 is the open one, and it is the claim the trillion-dollar build rests on.",
-    "unit": "ruling (1 = supported, 0.5 = partly supported, 0 = unresolved)",
-    "viz_rationale": "Six labelled items each carrying a categorical ruling plus its one-line strongest evidence \u2014 a scorecard, exactly the 'comparison' shape data-to-viz prescribes for comparing a small fixed set of named states.",
+    "unit": "ruling",
+    "viz_rationale": "Four categorical rulings, so chips \u2014 not bar length. The previous encoding put the verdicts on an invented 1 / 0.5 / 0 scale, which drew 'unresolved' as a zero-length bar and left no slot for 'refuted'.",
     "series": [
      {
       "label": "T1 \u00b7 Training is fixed, serving is not",
       "value": 1,
-      "sublabel": "Supported \u2014 Anthropic's 2025 training compute ($4.1B) still tops serving, but serving is real and climbs with use.",
+      "sublabel": "supported",
       "grade": "B",
       "claim_id": "fx-13",
       "source_title": "Epoch AI: Compute accounts for the majority of expenses of AI companies",
@@ -2762,7 +2787,7 @@
      {
       "label": "T2 \u00b7 US prices sit far above serving cost",
       "value": 1,
-      "sublabel": "Supported \u2014 OpenAI cut o3 by 80% on an unchanged model; impossible if price sat near cost.",
+      "sublabel": "supported",
       "grade": "A",
       "claim_id": "px-06",
       "source_title": "OpenAI Developers on X: o3 80% price cut announcement",
@@ -2771,7 +2796,7 @@
      {
       "label": "T3 \u00b7 Chinese prices are set at serving cost",
       "value": 0.5,
-      "sublabel": "Partly \u2014 Kimi K3 launched at $15, same as Claude, before opening its weights; the mechanism holds, the wording is too strong.",
+      "sublabel": "partly",
       "grade": "A",
       "claim_id": "ce-05",
       "source_title": "Kimi K3 - API Pricing & Benchmarks | OpenRouter",
@@ -2780,7 +2805,7 @@
      {
       "label": "T4 \u00b7 Chinese labs push the fixed cost elsewhere",
       "value": 1,
-      "sublabel": "Supported \u2014 DeepSeek's disclosed run was $5.576M; patrons, not token sales, pay for the fleet.",
+      "sublabel": "supported",
       "grade": "A",
       "claim_id": "cd-01",
       "source_title": "DeepSeek-V3 Technical Report (arXiv 2412.19437)",
@@ -2789,7 +2814,7 @@
      {
       "label": "T5 \u00b7 Supply catches up, prices fall to cost",
       "value": 0,
-      "sublabel": "Unresolved \u2014 the claim with the money on it; so far the flagship price rose 4x, it did not fall.",
+      "sublabel": "unresolved",
       "grade": "A",
       "claim_id": "px-04",
       "source_title": "OpenAI API pricing (official)",
@@ -2798,7 +2823,7 @@
      {
       "label": "T6 \u00b7 The token is the wrong unit",
       "value": 1,
-      "sublabel": "Supported \u2014 doubling the rate raised the real cost of a job 64%, not 100%, because the newer model wrote less.",
+      "sublabel": "supported",
       "grade": "B",
       "claim_id": "px-05",
       "source_title": "GPT-5.5 Price Increase: What It Actually Costs - OpenRouter",

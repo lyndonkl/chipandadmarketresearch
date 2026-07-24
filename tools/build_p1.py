@@ -258,16 +258,26 @@ function barChart(v){
   return out+'</svg>';
 }
 function stackChart(v){
-  const s=v.series, total=s.reduce((a,d)=>a+d.value,0), h=170, padL=8, innerW=W-16;
+  const s=v.series, total=s.reduce((a,d)=>a+d.value,0), padL=8, innerW=W-16;
+  const h=96+s.length*19+14;
+  // a share chart is measured against 100, not against whatever the wedges happen to sum to —
+  // otherwise 99 renders as a visually complete whole
+  const isPct=/%|percent|share/i.test(v.unit||''), denom=isPct?100:total;
   const cols=['var(--amber)','var(--cyan)','#9a6612','#1d7288','#b98a3f','#6f7f86','#a8b0b6'];
   let x=padL, out=`<svg viewBox="0 0 ${W} ${h}" role="img">`;
-  out+=`<text class="val" x="${padL}" y="18">${fmt(total)} total</text>`;
-  s.forEach((d,i)=>{const w=innerW*(d.value/(total||1));
+  out+=`<text class="val" x="${padL}" y="18">${fmt(total)}${isPct?' of 100 accounted for':' total'}</text>`;
+  s.forEach((d,i)=>{const w=innerW*(d.value/(denom||1));
     out+=`<rect x="${x}" y="30" width="${Math.max(1,w-2)}" height="42" fill="${cols[i%cols.length]}" opacity=".88" rx="2"/>`;
     if(w>54)out+=`<text class="val" x="${x+7}" y="56" style="fill:#fff">${fmt(d.value)}</text>`;
     x+=w;});
+  if(isPct && total<99.5){   // draw the unaccounted remainder rather than hiding it
+    const gx=padL+innerW*(total/100), gw=innerW*((100-total)/100);
+    out+=`<rect x="${gx}" y="30" width="${Math.max(1,gw)}" height="42" fill="none" stroke="var(--zinc)" stroke-dasharray="3,3" rx="2"/>`;
+    if(gw>=70) out+=`<text class="sub" x="${gx+gw/2}" y="56" text-anchor="middle">${fmt(100-total)} not accounted</text>`;
+    else out+=`<text class="sub" x="${gx+gw+7}" y="56">${fmt(100-total)} not accounted</text>`;
+  }
   // legend
-  let ly=94; s.forEach((d,i)=>{const cx=padL+(i%3)*270, yy=ly+Math.floor(i/3)*20;
+  let ly=94; s.forEach((d,i)=>{const cx=padL, yy=ly+i*19;
     out+=`<rect x="${cx}" y="${yy-8}" width="10" height="10" fill="${cols[i%cols.length]}" rx="2"/>`
       +`<text class="lbl" x="${cx+16}" y="${yy+1}">${esc(d.label)} · ${fmt(d.value)}</text>`;});
   return out+'</svg>';
@@ -370,7 +380,18 @@ function dotChart(v){
   out+=`<text class="val" x="${X(med)}" y="${h-10}" text-anchor="middle" style="fill:var(--redline)">median ${fmt(med)}% — a coin flip</text>`;
   return out+'</svg>';
 }
-const RENDER={bars:barChart,bars_ci:barChart,comparison:barChart,stack:stackChart,
+function scorecardChart(v){
+  const s=v.series, rowH=34, top=10, h=top+s.length*rowH+12;
+  const WORD=d=>(d.sublabel||'').trim()||(d.value>=1?'supported':d.value>0?'partly':'unresolved');
+  const COL=d=>d.value>=1?'var(--good)':d.value>0?'var(--amber)':'var(--redline)';
+  let out=`<svg viewBox="0 0 ${W} ${h}" role="img">`;
+  s.forEach((d,i)=>{const y=top+i*rowH+rowH/2;
+    out+=`<rect x="6" y="${y-11}" width="118" height="22" rx="11" fill="${COL(d)}" opacity=".16"/>`;
+    out+=`<text class="val" x="65" y="${y+4}" text-anchor="middle" style="fill:${COL(d)}">${esc(WORD(d))}</text>`;
+    out+=`<text class="lbl" x="136" y="${y+4}" style="font-weight:700">${esc(d.label)}</text>`;});
+  return out+'</svg>';
+}
+const RENDER={bars:barChart,bars_ci:barChart,comparison:barChart,stack:stackChart,scorecard:scorecardChart,
   diverging:divergingChart,range:rangeChart,slope:slopeChart,line:lineChart,dot_spread:dotChart};
 
 /* ---------- particle scenes ---------- */
@@ -381,7 +402,8 @@ function makeScene(el,kind){
   const AMBER=[224,151,42], CYAN=[58,166,189], GOLD=[224,151,42], GREY=[139,144,153];
   // jitter amplitude comes from SOURCE GRADE: A = filed, dead still; C = our estimate, shimmers
   const AMP={A:0, B:0.9, C:2.2};
-  const N_COST=15, N_PRICE=100, COLS=5, CELL=13, SIZE=8;   // price is ~7x cost, both from the baseline
+  const N_COST=Math.max(1,+(el.dataset.cost||15)), N_PRICE=100, COLS=5, CELL=13, SIZE=8;  // cost share read from the claim, both stacks from the baseline
+  const MULT=Math.round(N_PRICE/N_COST);
   let P=[], w=0,h=0,dpr=1, supply=0, run=0, open=false, first=true;
   function build(){
     P=[];
@@ -440,11 +462,11 @@ function makeScene(el,kind){
     } else {
       const frac = kind==='dial' ? (open?0.08:1-supply/100) : 1;
       const costRows=Math.ceil(N_COST/COLS), premRows=Math.ceil(Math.round(N_PRICE*frac)/COLS);
-      label(costX, base-costRows*CELL-22,'15','#15181D',14,'700');
+      label(costX, base-costRows*CELL-22,String(N_COST),'#15181D',14,'700');
       label(costX, base-costRows*CELL-8,'cost to serve','#838A93',10);
       label(priceX, Math.max(20,base-premRows*CELL-22), frac>0.98?'100':fmt(Math.round(100*frac)),'#15181D',14,'700');
       label(priceX, Math.max(34,base-premRows*CELL-8),'US list price','#838A93',10);
-      if(kind!=='dial')label((costX+priceX)/2,(base-costRows*CELL-22+base-premRows*CELL-22)/2,'≈ 7×','#15181D',13,'700');
+      if(kind!=='dial')label((costX+priceX)/2,(base-costRows*CELL-22+base-premRows*CELL-22)/2,'≈ '+MULT+'×','#15181D',13,'700');
     }
   }
   let raf=null;
@@ -467,7 +489,9 @@ SPECS.forEach(sp=>{
     let body;
     if(v.type==='particles'){
       const kind=SCENE_FOR[sp.chapter]||'gap';
-      body=`<div class="scene" data-scene="${kind}" data-id="${id}"><canvas></canvas></div>`
+      const costSeries=(v.series||[]).find(d=>/cost to serve|serving cost|marginal cost/i.test(d.label||''));
+      const costShare=(costSeries&&costSeries.value>0&&costSeries.value<100)?Math.round(costSeries.value):15;
+      body=`<div class="scene" data-scene="${kind}" data-id="${id}" data-cost="${costShare}"><canvas></canvas></div>`
         + (kind==='dial'
             ? `<div class="dialrow"><label>scarce</label><input type="range" min="0" max="100" value="0" data-dial="${id}"><label>abundant</label>
                <button class="btn on" data-k="${id}" data-open="0">closed weights</button><button class="btn" data-k="${id}" data-open="1">open weights</button></div>
@@ -478,14 +502,15 @@ SPECS.forEach(sp=>{
     } else {
       const fn=RENDER[v.type]||barChart; body=fn(v);
     }
-    const srcs=(v.series||[]).filter(d=>d.claim_id||d.source_url).map(d=>
-      `<li><b>${esc(d.label)}</b> ${fmt(d.value)} ${esc(v.unit||'')}${d.claim_id?' · <b>'+esc(d.claim_id)+'</b>':''}${d.grade?' · grade '+d.grade:''}`
+    const rows=(v.series||[]).filter(d=>d.claim_id||d.source_url||d.source_title);
+    const srcs=rows.map(d=>
+      `<li><b>${esc(d.label)}</b> ${fmt(d.value)} ${esc(v.unit||'')}${d.claim_id?' · <b>'+esc(d.claim_id)+'</b>':''}${d.grade?' · grade '+d.grade:''}${(!d.claim_id&&!d.source_url&&d.source_title)?' · <b>our own estimate</b>':''}`
       +(d.source_url?` · <a href="${esc(d.source_url)}" target="_blank" rel="noopener">${esc(d.source_title||'source')}</a>`:'')+`</li>`).join('');
     return `<figure class="viz">
       <div class="viz-h"><h4>${esc(v.title)}</h4><span class="viz-unit">${esc(v.unit||'')}</span></div>
       <div class="viz-body">${body}</div>
       <p class="viz-note">${esc(v.note||'')}</p>
-      <div class="viz-foot"><details class="src"><summary>sources · ${(v.series||[]).length} figures</summary><ul>${srcs}</ul>
+      <div class="viz-foot"><details class="src"><summary>sources · ${rows.length} figures</summary><ul>${srcs}</ul>
         <p class="rationale">why this chart: ${esc(v.viz_rationale||'')}</p></details></div>
     </figure>`;
   }).join('');

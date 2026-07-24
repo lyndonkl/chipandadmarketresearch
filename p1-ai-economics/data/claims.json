@@ -1276,7 +1276,7 @@
   {
    "id": "px-03",
    "topic": "px",
-   "metric": "Flagship input price decline, GPT-4 launch to GPT-5 launch (nominal, constant flagship tier)",
+   "metric": "Flagship input price decline, GPT-4 launch to GPT-5 launch \u2014 tier-averaged central; the specific $30 to $1.25 input path gives 24x, and the ratio depends on which GPT-4 tier is the anchor",
    "entity": "OpenAI",
    "period": "2023-03 ($30/M) to 2025-08 ($1.25/M)",
    "value": 18,
@@ -2410,7 +2410,7 @@
   {
    "id": "rv-02",
    "topic": "rv",
-   "metric": "OpenAI operating loss, full year 2025 (net loss $38.5B including roughly $30B one-time for-profit-conversion charges)",
+   "metric": "OpenAI operating loss, full year 2025 (leaked accounts; reported alongside a $38.5B net loss)",
    "entity": "OpenAI",
    "period": "FY2025 (leaked June 16, 2026)",
    "value": 20.92,
@@ -3019,7 +3019,7 @@
      "date": "2025-02-01"
     }
    ],
-   "notes": "SemiAnalysis also estimates ~$944M cluster operating cost and hardware investment 'well higher than $500M over company history.' GPUs are shared between the hedge fund and the lab (trading, research, training, inference). Wide CI: this is a third-party reconstruction, not a disclosure. Ratio to the $5.6M headline (~300:1) is the key fact for T1/T4 \u2014 training-run cost understates the fixed-capital base by orders of magnitude.",
+   "notes": "Ratio to DeepSeek-V3's disclosed $5.576M final run is 1400/5.576 = 251x; an earlier note in this record said '~300:1', which the arithmetic does not support. SemiAnalysis also estimates ~$944M cluster operating cost and hardware investment 'well higher than $500M over company history.' GPUs are shared between the hedge fund and the lab (trading, research, training, inference). Wide CI: this is a third-party reconstruction, not a disclosure. Ratio to the $5.6M headline (~300:1) is the key fact for T1/T4 \u2014 training-run cost understates the fixed-capital base by orders of magnitude.",
    "verification": [
     {
      "lens": "primary-source",
@@ -4735,7 +4735,7 @@
   {
    "id": "sd-16",
    "topic": "sd",
-   "metric": "OpenAI planned cumulative compute spend by 2030 (reset from $1.4T of headline commitments)",
+   "metric": "OpenAI planned cumulative compute spend by 2030 \u2014 cut to ~$600B in Feb 2026, then raised to $750B in Jul 2026",
    "entity": "OpenAI",
    "period": "told investors February 2026",
    "value": 750,
@@ -4745,6 +4745,11 @@
    "grade": "B",
    "load_bearing": true,
    "sources": [
+    {
+     "title": "OpenAI lifts planned compute spending to $750 billion through 2030 (WSJ via Yahoo Finance)",
+     "url": "https://finance.yahoo.com/technology/ai/articles/openai-lifts-planned-compute-spending-144917731.html",
+     "date": "2026-07-22"
+    },
     {
      "title": "OpenAI resets spending expectations, tells investors compute target is around $600 billion by 2030 (CNBC)",
      "url": "https://www.cnbc.com/2026/02/20/openai-resets-spend-expectations-targets-around-600-billion-by-2030.html",
@@ -4761,7 +4766,7 @@
      "date": "2026-04-28"
     }
    ],
-   "notes": "The key COUNTER-signal on timing. Feb 2026: target reset to ~$600B by 2030 (vs $1.4T commitments touted in late 2025), with ~$280B 2030 revenue target vs $13.1B 2025 revenue; reported cancellation of the 600MW Abilene Stargate expansion (capping OpenAI's use at ~1.2 GW). WSJ (Apr 28, 2026): OpenAI missed internal early-2026 monthly revenue targets and its 1B-WAU end-2025 goal; CFO Friar privately warned revenue may not cover compute contracts. Sacra estimates ~$25B ARR Feb 2026. Implication for T5: the umbrella may erode partly through demand disappointment and capex discipline, not only supply arrival; CI wide because the target itself is contested (one later report claims re-raise toward $750B).",
+   "notes": "Cut and raised inside one year, which is itself the signal. Feb 2026: target reset to ~$600B by 2030 (from $1.4T of headline commitments touted in late 2025). Jul 2026: lifted to $750B (WSJ via Yahoo). Plotted value is the current $750B figure; the 480-900 band spans the reset-and-raise history. The key COUNTER-signal on timing. Feb 2026: target reset to ~$600B by 2030 (vs $1.4T commitments touted in late 2025), with ~$280B 2030 revenue target vs $13.1B 2025 revenue; reported cancellation of the 600MW Abilene Stargate expansion (capping OpenAI's use at ~1.2 GW). WSJ (Apr 28, 2026): OpenAI missed internal early-2026 monthly revenue targets and its 1B-WAU end-2025 goal; CFO Friar privately warned revenue may not cover compute contracts. Sacra estimates ~$25B ARR Feb 2026. Implication for T5: the umbrella may erode partly through demand disappointment and capex discipline, not only supply a",
    "verification": [
     {
      "lens": "primary-source",
@@ -4788,7 +4793,7 @@
    "ci80_low": 55,
    "ci80_high": 78,
    "grade": "B",
-   "load_bearing": false,
+   "load_bearing": true,
    "sources": [
     {
      "title": "2025: The State of Generative AI in the Enterprise (Menlo Ventures)",
@@ -4801,7 +4806,7 @@
      "date": "2025-07-31"
     }
    ],
-   "notes": "Menlo 2025: Anthropic 40% + OpenAI 27% = 67% of enterprise API spend (Google 21%); Anthropic 54% of coding. Enterprise API spend doubled in 6 months to $8.4B annualized by mid-2025. A 2026 update reportedly shows Anthropic 32% + OpenAI 25% = ~57%, with Google gaining \u2014 i.e., concentration persists but is eroding at the edges. Directly supports Thompson's T2 premise that paid frontier demand concentrates on OpenAI+Anthropic, giving them the pricing power the scarcity umbrella requires.",
+   "notes": "PROMOTED to load-bearing 2026-07-23: chapter 1's T2 now rests its two-supplier premise on this claim. Status remains unverified \u2014 no adversarial lens has been run on it. Treat the 67% (2025) as the cited figure; the ~57% 2026 update in the source notes is not separately sourced and must not be put on the page. Menlo 2025: Anthropic 40% + OpenAI 27% = 67% of enterprise API spend (Google 21%); Anthropic 54% of coding. Enterprise API spend doubled in 6 months to $8.4B annualized by mid-2025. A 2026 update reportedly shows Anthropic 32% + OpenAI 25% = ~57%, with Google gaining \u2014 i.e., concentration persists but is eroding at the edges. Directly supports Thompson's T2 premise that paid frontier demand concentrates on OpenAI+Anthropic, giving them the pricing power the scarcity umbrella requires.",
    "status": "unverified"
   },
   {
