@@ -28,6 +28,8 @@ The live site is at `https://lyndonkl.github.io/chipandadmarketresearch/`. The c
 
 `tools/` holds small scripts shared by every project.
 
+`workflows/` holds the multi-agent scripts we ran to build Project 1. They are saved here so you can read them and run them again.
+
 Each project folder is laid out the same way. `research/` holds the written chapters. `data/` holds the numbers. `design/` holds the design plan, once there is one.
 
 ## Read these first
@@ -61,6 +63,28 @@ The rest are working notes from the review rounds: `content-findings.json`, `jar
 `tools/readability.py` runs the four reading tests on any file. Use it on every piece of writing before it counts as done.
 
 `tools/build_p1.py` builds the Project 1 page from `section-specs.json` and `claims.json`. Run it after any change to those two files.
+
+## The workflows we ran
+
+These are the multi-agent scripts that built Project 1. Each one ran a team of agents at once. They live in `workflows/` and are listed here in the order we ran them. They are the starting point for the same steps on Project 2.
+
+`workflows/p1-ai-economics-research.js` did the main research: it set the thesis, gathered the numbers with sources, had a second agent try to break each one, and ran the forecast panel.
+
+`workflows/p1-payback-reframe.js` reworked the payback question to cover the whole industry, using the cash-flow models and a fresh forecast.
+
+`workflows/p1-design-architects.js` had four design agents each pitch a different look for the page.
+
+`workflows/p1-section-specs.js` turned each chapter into a page plan: the points to make, the numbers to show, and the right chart for each.
+
+`workflows/p1-content-sweep.js` checked every chart against the numbers, and had a second agent confirm each problem it found.
+
+`workflows/p1-jargon-sweep.js` found words a general reader would not know, so we could explain them.
+
+`workflows/p1-remediation-patches.js` turned the checks above into the exact fixes to apply.
+
+Project 2 and Project 3 have no workflows yet. They will get their own once their research starts.
+
+To run one again, open it, read the top of the file for what it needs, and start it with the Workflow tool. Point it at the script by its path.
 
 ## What has been done, in order
 
