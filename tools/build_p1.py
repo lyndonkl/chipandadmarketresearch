@@ -541,7 +541,7 @@ SPECS.forEach(sp=>{
   main.insertAdjacentHTML('beforeend',`<section class="ch" id="ch${sp.chapter}">
     <div class="col"><div class="chead">${esc(sp.eyebrow)}</div><h2>${esc(sp.title)}</h2>
       <p class="standfirst">${esc(sp.standfirst)}</p><div class="points">${pts}</div>
-      <a class="readmore" href="${esc(sp.chapter_link)}">read the full chapter →</a></div>
+      <a class="readmore" href="https://github.com/lyndonkl/chipandadmarketresearch/blob/main/p1-ai-economics/${esc(sp.chapter_link)}" target="_blank" rel="noopener">read the full chapter →</a></div>
     ${viz}</section>`);
 });
 
