@@ -1,0 +1,22 @@
+{
+  "stage": "R2",
+  "name": "Dataset assembly + endpoint forecasts",
+  "requires": [
+    { "path": "p2-ad-market/data/eras/era-1.json", "desc": "Era records exist (R1 passed)" },
+    { "path": "p2-ad-market/planning/contracts/r1-report.json", "desc": "V1 report with overall PASS" }
+  ],
+  "produces": [
+    { "path": "p2-ad-market/data/adspend.json" },
+    { "path": "p2-ad-market/data/forecasts.json" },
+    { "path": "p2-ad-market/research/notes/dataset-notes.md" }
+  ],
+  "invariants": [
+    { "id": "r2-acq-01", "class": "acquisition", "text": "adspend.json contains the five named series (coen_mce, magna, iab_pwc, irs_soi, benchmarks_pre1919), each with a declared coverage window and points tagged with their source series.", "check": "deterministic", "command": "python3 tools/verify_p2.py r2-series" },
+    { "id": "r2-val-01", "class": "validity", "text": "No year+medium point exists in two series without a concordance entry covering that pair; the 1980-2007 bridge is documented with method and reproducible arithmetic; bridged/spliced points are graded C.", "check": "deterministic", "command": "python3 tools/verify_p2.py r2-concordance" },
+    { "id": "r2-val-02", "class": "validity", "text": "The IRS cross-check is computed for every year where irs_soi overlaps the assembled totals; divergence over 15% is flagged; forecast entries in forecasts.json carry per-panelist values and panel variance, with the median as headline.", "check": "deterministic", "command": "python3 tools/verify_p2.py r2-checks" },
+    { "id": "r2-val-03", "class": "validity", "text": "The concordance entries honestly describe the definitional differences (billings vs revenue basis, category scope changes with year and magnitude). Bridge method is defensible over the actual overlap window.", "check": "judgment", "instructions": "Read the concordance object and dataset-notes.md. Each entry must name what differs and by how much in overlap years. A concordance entry that says 'differs' without magnitude, or a bridge estimated outside its overlap window, violates this invariant." },
+    { "id": "r2-rdy-01", "class": "readiness", "text": "Era-record SCALE figures reconcile with adspend.json within stated CIs for the years both cover.", "check": "deterministic", "command": "python3 tools/verify_p2.py r2-reconcile" },
+    { "id": "r2-rdy-02", "class": "readiness", "text": "Points after the era-7 data-freeze date (2026-06-30) appear only in forecasts.json, never as sourced points in adspend.json.", "check": "deterministic", "command": "python3 tools/verify_p2.py r2-freeze" }
+  ],
+  "remediation": { "policy": "bounded-auto-repair", "max_cycles": 2, "on_exhaust": "halt-and-escalate" }
+}

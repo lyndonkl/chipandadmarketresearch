@@ -1,0 +1,1407 @@
+{
+  "probe_date": "2026-07-30",
+  "purpose": "Seven parallel web scouts probed the P2 scope for blind spots before the research program was designed. Every gap below fed the 2026-07-30 grilling session; the locked decisions are in PLAN.md. Era teams should treat gap evidence (with URLs) as seed sources.",
+  "scouts": [
+    {
+      "lens": "Media historian \u2014 comparing the 7-era map and 8-field schema against canonical histories of American advertising (Pope, Marchand, Fox, industry data series)",
+      "gaps": [
+        {
+          "title": "Classified advertising is entirely absent, and it is the money Google actually took first",
+          "claim": "The plan never mentions classified advertising, yet classifieds were roughly 40% of newspaper ad revenue at their 2000 peak ($19.6B) and are the canonical pre-digital form of intent-based advertising; the 'what did Google capture' answer is wrong without them.",
+          "why_it_matters": "The centerpiece question is what Google changed that let it capture so much ad money. Standard media-economics histories answer: search ads are classifieds' descendant \u2014 self-serve, intent-matched, priced per unit, bought by individuals and small businesses, not brands via agencies. Classifieds collapsed 77% between 2000 and 2012 (to $4.6B) as Craigslist, Monster, Cars.com and then Google local/search absorbed the intent money. A history built only on brand display (agencies, spots, CPMs) will misattribute Google's revenue source and miss an entire buyer class (individuals and SMBs) that existed in every era since the 1840s.",
+          "evidence": "AEI Carpe Diem, 'Creative Destruction: Newspaper Ad Revenue' (https://www.aei.org/carpe-diem/creative-destruction-newspaper-ad-revenue-continued-its-precipitous-free-fall-in-2014-and-its-likely-to-continue/) \u2014 classifieds peaked at $19.6B in 2000, ~40% of newspaper ad revenue, $4.6B by 2012. MinnPost, 'How Craigslist killed the newspapers' golden goose' (http://www.minnpost.com/business/2014/02/how-craigslist-killed-newspapers-golden-goose/). Statista, US newspaper classified revenue since 2000 (https://www.statista.com/statistics/196470/classified-advertising-revenue-of-us-newspapers-since-2000/).",
+          "recommendation": "Add to scope: track classified as a distinct category in every era's SCALE split (it existed from the penny press onward), give it its own PRICING entry (per-line rate card, self-serve), and make its collapse an explicit named thread in eras 5-7 feeding the Google-capture argument.",
+          "severity": "blocking",
+          "affected_eras": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "PRICING",
+            "BUYERS",
+            "TARGETING",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "The schema has no brand vs direct-response vs local money distinction",
+          "claim": "The 8-field schema treats 'advertising spend' as one kind of money, but the industry's own data (the Coen series) and all histories split national brand money from local/retail money and from direct-response money \u2014 pools that behave completely differently and migrated to Google at different times.",
+          "why_it_matters": "Google's first decade captured direct-response and local money (classifieds, Yellow Pages, direct mail budgets, SMB spend); TV brand money held out for another decade and partly still does. If every era's SCALE is a single total, the signature chart will show 'internet grows, print dies' without revealing WHICH money moved \u2014 which is the actual answer to the project's central question. This distinction also sets up P3 correctly: ads solved zero-price search because search monetizes intent (DR money), which says something specific about whether ads can fund AI inference.",
+          "evidence": "purple motes, 'U.S. advertising expenditure data' (https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/) \u2014 the Coen/McCann-Erickson series is natively split national vs local and by medium. NBER WP 28161, 'Aggregate Advertising Expenditure in the US Economy' (https://www.nber.org/system/files/working_papers/w28161/w28161.pdf) \u2014 documents category definitions and behavior differences across the series.",
+          "recommendation": "Restructure: add a money-type split (national brand / local retail / classified / direct response) as a required sub-dimension of SCALE and BUYERS in every era, so the century chart can be read by money type as well as by medium.",
+          "severity": "major",
+          "affected_eras": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "BUYERS",
+            "PRICING"
+          ]
+        },
+        {
+          "title": "Yellow Pages / directory advertising is missing \u2014 the direct ancestor of paid search",
+          "claim": "Directory advertising peaked around $14-15B in the US (circa 2005) \u2014 comparable to the entire US internet ad market that year \u2014 and is never mentioned, despite being the closest structural precursor to AdWords: businesses paying for placement against category-level intent.",
+          "why_it_matters": "A media historian would treat Yellow Pages as load-bearing for era 6: Google's local and SMB revenue is substantially ex-directory money, and the Yellow Pages sales force (per-category, tiered placement, annual contracts) is the pricing regime the auction replaced. Its fall from ~$14.7B to ~$1B is one of the cleanest before/after demonstrations of the plan's own thesis, and it is invisible in a brand-display-only history.",
+          "evidence": "Vendasta, 'Yellow Pages evolution' and UENI, 'Yellow pages are dead' (https://www.vendasta.com/blog/yellow-pages-evolution/, https://ueni.com/blog/yellow-pages-are-dead/) \u2014 peak ~$14.7B in 2005, ~$1.1B by 2024. Local Search Association (Wikipedia, https://en.wikipedia.org/wiki/Local_Search_Association) \u2014 industry trade history. Coen dataset includes Yellow Pages as a tracked category (purple motes, https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/).",
+          "recommendation": "Add to scope: Yellow Pages as a tracked medium in the century dataset (Coen carries it), plus a short structural comparison in era 6 (directory placement vs auction placement) \u2014 it strengthens the centerpiece rather than diluting it.",
+          "severity": "major",
+          "affected_eras": [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "SELLERS",
+            "PRICING",
+            "TARGETING"
+          ]
+        },
+        {
+          "title": "Direct mail is mis-slotted in era 4 and underweighted everywhere else",
+          "claim": "The plan treats direct mail as a 1976-1993 'Segmentation' phenomenon, but mail order dates to Montgomery Ward (1872) and Sears (1888), the Coen series tracks direct mail from 1919 with data from the Direct Mail Advertising Association, and it ran at roughly 12-15%+ of all US ad spend for most of the century \u2014 often the #2 or #3 medium, and the largest single category by the mid-2000s.",
+          "why_it_matters": "Direct mail is the century-long home of the accountability tradition \u2014 keyed coupons, tested copy, measured response (Claude Hopkins' 'Scientific Advertising,' 1923) \u2014 which is the intellectual lineage Google's measurable click completed. Placing it in era 4 makes performance marketing look like a 1980s invention and breaks the plan's own signature chart, where direct mail will be a huge visible band from 1919 onward that the prose never explains.",
+          "evidence": "USPS OIG, 'Advertising Mail: Past and Present' RARC-WP-16-006 (https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf) \u2014 direct mail at 12% of a $184B ad market in 1995 and >40% of direct-marketing media. galbithink.org, 'Annual U.S. Advertising Expenditure Since 1919' (https://www.galbithink.org/ad-spending.htm) \u2014 direct mail is a core series category from 1919. History and Technology, ''The solid gold mailbox': direct mail... in the postwar United States' (https://www.tandfonline.com/doi/full/10.1080/2373518X.2015.1012863).",
+          "recommendation": "Restructure: track direct mail as a category from era 1 onward; move the direct-response/testing tradition thread to eras 1-2 (mail order, Hopkins) and let era 4 cover its database-marketing upgrade, not its birth.",
+          "severity": "major",
+          "affected_eras": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "6"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM",
+            "TARGETING",
+            "PRICING",
+            "CREATORS"
+          ]
+        },
+        {
+          "title": "The ad-subsidized zero-price content model predates the plan \u2014 penny press 1833, ten-cent magazine 1893",
+          "claim": "The structural invention the whole project turns on \u2014 content sold below cost, with advertising making up the difference \u2014 happened in 1833 (Benjamin Day's New York Sun, explicitly founded as 'an advantageous medium for advertisements') and was industrialized in 1893 (Frank Munsey cutting Munsey's Magazine to 10 cents, below production cost); the plan's era 1 (starting 1840s, focused on agencies/commissions/patent medicines) never names this model.",
+          "why_it_matters": "Google's zero-price search funded by ads is a rerun of this exact model, and P3's question (why isn't advertising funding AI inference) is a question about when this model works. Standard histories (Pope, 'The Making of Modern Advertising'; the magazine-revolution literature) treat 1893 as the birth of ad-funded national media. Without it, era 1 reads as an industry-plumbing story and the plan's through-line \u2014 attention sold to advertisers subsidizes free content \u2014 appears from nowhere in 1994. The 1840s start date also silently excludes the penny press.",
+          "evidence": "Wikipedia, 'Penny press' (https://en.wikipedia.org/wiki/Penny_press) and American Antiquarian Society, 'The Sun' exhibit (https://collections.americanantiquarian.org/earlyamericannewsmedia/exhibits/show/news-in-antebellum-america/item/71) \u2014 the Sun's founding statement and below-cost, ad-funded model. Encyclopedia.com, 'Mass Market Magazine Revolution' and 'Munsey's Magazine' (https://www.encyclopedia.com/media/encyclopedias-almanacs-transcripts-and-maps/mass-market-magazine-revolution) \u2014 1893 price cut, circulation 250k to 750k, advertising covering below-cost sales.",
+          "recommendation": "Restructure era 1: either extend its start to 1833 or open it with the penny press as prologue, and make 'audience subsidized by advertisers' an explicitly named model whose reappearances (radio, broadcast TV, portals, Google) the reader can count.",
+          "severity": "major",
+          "affected_eras": [
+            "1",
+            "5",
+            "6",
+            "7"
+          ],
+          "affected_fields": [
+            "SELLERS",
+            "SCALE",
+            "PRICING",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "The agency industry's own 180-year structural arc stops at the 15% commission",
+          "claim": "The plan covers agency formation and the 15% commission in era 1 and then drops the agency story; canonical histories treat the later arc as load-bearing \u2014 open contract (Ayer, 1875), agencies producing radio/TV programs, death of the commission (by 2003 only 10% of large advertisers paid commissions vs 74% fees), media-buying unbundling in the 1990s, and holding-company consolidation (Interpublic 1961, Omnicom 1986, WPP/Saatchi 1980s).",
+          "why_it_matters": "The CREATORS field will be wrong or static for eras 2-7 without this. It also directly serves the centerpiece: AdWords was self-serve \u2014 it removed the agency layer for millions of small advertisers, something only legible if the reader knows what the agency layer was charging and how its compensation had already been hollowed out. Media unbundling is also the precondition for programmatic in era 7.",
+          "evidence": "HBS working paper 11-039, 'The Unbundling of Advertising Agency Services' (https://www.hbs.edu/ris/Publication%20Files/11-039.pdf). ANA agency compensation trend studies (https://www.ana.net/miccontent/show/id/rr-2022-11-ana-trends-in-agency-compensation and https://www.ana.net/content/show/id/440) \u2014 commissions at ~10% of large advertisers by 2003, fees dominant since. Marketing Dive on ANA compensation surveys (https://www.marketingdive.com/news/ana-media-commissions-on-upswing-amid-shifting-approach-to-agency-compensa/443314/).",
+          "recommendation": "Add to scope: make agency structure a required thread inside CREATORS for every era (compensation model + industry structure), with the commission's death and holding-company consolidation as EVENTS in eras 3-4 and self-serve disintermediation as an explicit part of era 6's argument.",
+          "severity": "major",
+          "affected_eras": [
+            "2",
+            "3",
+            "4",
+            "6",
+            "7"
+          ],
+          "affected_fields": [
+            "CREATORS",
+            "PRICING",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "Below-the-line money (trade promotion, co-op advertising) is invisible, making retail media look new",
+          "claim": "By 1990 trade promotion had overtaken media advertising in CPG marketing budgets, and manufacturer-funded co-op advertising (~$10B in 1987, tens of billions today) has flowed through retailers for a century \u2014 none of which appears in the plan, even though era 7 presents 'retail media' as an emerging category.",
+          "why_it_matters": "Two risks. First, the century chart will implicitly claim to show 'marketing money' while actually showing only measured media, silently excluding a pool that was often larger; historians treat the 1980s advertising-to-promotion budget shift as a major structural story (it is why 'Segmentation'-era measured-media growth slowed). Second, retail media (era 7) is substantially co-op/trade money moving into auction form \u2014 Walmart Connect is the descendant of co-op funds \u2014 and telling it as a novelty misses the strongest continuity in the whole dataset.",
+          "evidence": "HBR, 'The Costly Bargain of Trade Promotion' (1990) (https://hbr.org/1990/03/the-costly-bargain-of-trade-promotion) \u2014 documents promotion overtaking advertising in manufacturer budgets. ScienceDirect, Journal of Retailing on manufacturer advertising vs retail promotion (https://www.sciencedirect.com/science/article/abs/pii/S0022435902000660) \u2014 advertising's share of promotional budgets declined sharply in the 1980s-90s. Epsilon, 'the $42 billion co-op advertising opportunity' (https://www.epsilon.com/us/insights/blog/the-42-billion-co-op-advertising-opportunity) and Editor & Publisher, 'Co-op advertising: billions hiding in plain sight' (https://www.editorandpublisher.com/stories/revenue-roundup-co-op-advertising,242239).",
+          "recommendation": "Add a scoping decision, stated in the methods note: the dataset covers measured advertising media, with a one-paragraph sidebar per relevant era on below-the-line scale; and rewrite era 7's retail-media beat as co-op money changing pricing mechanism (allowance to auction), not a new category.",
+          "severity": "major",
+          "affected_eras": [
+            "4",
+            "7"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "BUYERS",
+            "PRICING"
+          ]
+        },
+        {
+          "title": "Pre-1919 misses the trust infrastructure: truth-in-advertising and audited circulation",
+          "claim": "Era 1 as scoped (agencies, commission, patent medicines, print) omits the response to patent medicines \u2014 Ladies' Home Journal's ad ban (1892), Adams' 'The Great American Fraud' (1905), the Pure Food and Drug Act (1906), the Printers' Ink model statute (1911), the FTC (1914), and the Audit Bureau of Circulations (1914), the world's first audited advertising 'currency.'",
+          "why_it_matters": "Historians treat this as the second half of the patent-medicine story: fraud nearly delegitimized the industry, and the trust infrastructure built in response (verified circulation, truth-in-advertising law) is what made national advertising investable. It also opens the plan's best cross-era thread \u2014 every era's pricing rests on a trusted measurement currency: audited circulation \u2192 Nielsen ratings \u2192 impressions \u2192 the audited click and quality score. Era 6's auction is the endpoint of a measurement-trust lineage that starts in 1914.",
+          "evidence": "History of Information, 'The Audit Bureau of Circulation... is Founded' (https://historyofinformation.com/detail.php?entryid=682) and Ad Age Encyclopedia, 'Audit Bureau of Circulations' (https://adage.com/article/adage-encyclopedia/audit-bureau-circulations/98511). NAAG, 'Evolution of Health Claim Substantiation' (https://www.naag.org/attorney-general-journal/evolution-of-health-claim-substantiation-2/) \u2014 LHJ 1892 ban, Adams 1905, Printers' Ink 1911 model statute.",
+          "recommendation": "Add to scope: 3-4 of these as era 1 EVENTS, and add 'measurement currency' as a named cross-era thread that pays off in the era 6 centerpiece.",
+          "severity": "major",
+          "affected_eras": [
+            "1",
+            "3",
+            "6"
+          ],
+          "affected_fields": [
+            "EVENTS",
+            "PRICING",
+            "TARGETING"
+          ]
+        },
+        {
+          "title": "Era 2's 'Radio' label contradicts the spend data, and WWII's tax-driven advertising is missing",
+          "claim": "Newspapers remained the largest US ad medium through the entire 1918-1949 era \u2014 radio grew from ~2% of all advertising in 1928 to ~11% in 1932 and never overtook print \u2014 so an era named 'Radio' will be contradicted by its own SCALE field; the era also omits the War Advertising Council (1942) and the excess-profits-tax/IRS ruling that made wartime institutional advertising nearly free.",
+          "why_it_matters": "The plan cuts eras where the pricing/attention mechanism changed, which radio sponsorship genuinely was \u2014 but a reader of the signature chart will see print dominant for the whole era and conclude the chapter title is wrong. The WWII piece is a genuine pricing-mechanism event by the plan's own standard: with a 90% excess-profits tax (Revenue Act of 1942) and the 1942 IRS ruling that goodwill/war-theme ads were deductible, the government effectively subsidized up to ~80% of ad bills, propping up spend when there was nothing to sell and institutionalizing brand advertising.",
+          "evidence": "Encyclopedia.com, 'Radio 1929-1941' (https://www.encyclopedia.com/education/news-and-education-magazines/radio-1929-1941) \u2014 radio at ~2% (1928) to ~11% (1932) of all advertising. galbithink.org Coen series (https://www.galbithink.org/ad-spending.htm) \u2014 per-medium series showing print's continued dominance. Wikipedia, 'Ad Council' and 'Revenue Act of 1942' (https://en.wikipedia.org/wiki/Ad_Council, https://en.wikipedia.org/wiki/Revenue_Act_of_1942); hashtagpaid, 'World War II marketing' (https://hashtagpaid.com/banknotes/marketing-through-the-ages-world-war-2) \u2014 deductibility subsidizing up to ~80% of ad costs.",
+          "recommendation": "Restructure lightly: frame era 2 as 'the broadcast sponsorship model' (mechanism innovation inside a still-print-dominated market) and add the War Advertising Council + 1942 tax ruling to EVENTS/PRICING.",
+          "severity": "major",
+          "affected_eras": [
+            "2"
+          ],
+          "affected_fields": [
+            "MEDIUM",
+            "SCALE",
+            "PRICING",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "The sponsorship-to-spot transition is a mid-era pricing change era 3 must own",
+          "claim": "The mechanism change from sponsor-owned programs to network-controlled programming sold as participating 30-second spots happened inside era 3 (Pat Weaver's magazine concept, early 1950s; cemented by the 1958-59 quiz show scandals), not at an era boundary \u2014 the plan lists 'the 30-second spot' as an era 3 feature without the event that created it.",
+          "why_it_matters": "By the plan's own cutting rule (eras break where pricing mechanisms change), this is the single biggest pricing-mechanism shift between 1918 and 2002: it moved control of inventory from the advertiser to the network, created scarcity pricing, and made the upfront possible. If era 3's PRICING field doesn't narrate sponsorship's death, the 30-second spot and the upfront appear without a cause, and the parallel to era 6 (platform takes control of inventory, sells fractional units) is lost.",
+          "evidence": "Wikipedia, '1950s quiz show scandals' (https://en.wikipedia.org/wiki/1950s_quiz_show_scandals); PBS American Experience, 'The Aftermath of the Quiz Show Scandal' (https://www.pbs.org/wgbh/americanexperience/features/quizshow-aftermath-quiz-show-scandal/) \u2014 networks taking full control of content from sponsors; Encyclopedia.com, 'Quiz Show Scandals' (https://www.encyclopedia.com/media/encyclopedias-almanacs-transcripts-and-maps/quiz-show-scandals).",
+          "recommendation": "Note only (no boundary change needed): require era 3's PRICING and EVENTS fields to carry the sponsorship-to-participation transition explicitly, with the quiz show scandals as the inflection event.",
+          "severity": "minor",
+          "affected_eras": [
+            "3"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "EVENTS",
+            "SELLERS"
+          ]
+        }
+      ],
+      "feasibility_notes": "The plan is achievable from this lens, and its data backbone is better than the authors may realize: the Coen/McCann-Erickson series digitized by Douglas Galbi covers 1919-2007 annually with per-medium detail that ALREADY includes direct mail, business papers, Yellow Pages, and a national/local split (galbithink.org/ad-spending.htm; purplemotes.net/2008/09/14/us-advertising-expenditure-data/), so most of the categories flagged above cost little extra collection effort \u2014 the gaps are scoping choices, not data holes. Three feasibility cautions: (1) Coen ends in 2007 (he retired in 2008); the signature chart requires splicing to IAB/Magna/eMarketer-style series that define media differently (they typically drop direct mail and Yellow Pages and introduce 'digital' as a category that cannibalizes others), so the 1919-2026 chart needs an explicit, documented splice methodology or it will show artifactual breaks around 2007. (2) Pre-1919 there is no annual series; era 1 numbers will be sparse C-grade point estimates (e.g., Printers' Ink-era estimates of a ~$682M market circa 1914), so the plan should state that the chart begins in 1919 while the prose begins in 1833/1840s. (3) The 80% CI + source-grade rigor standard is realistic for 1919-2007 (grade B, single well-documented lineage) but the same number will often have only ONE underlying source (Coen), so CIs there are really judgments about Coen's method \u2014 worth saying honestly in the methods note. Finally, adding the recommended money-type split (brand/DR/local/classified) is the highest-leverage change: it reuses data the Coen series already contains and converts the signature chart from 'media shares over time' into direct evidence for the project's central claim about which money Google captured.",
+      "sources": [
+        "AEI Carpe Diem \u2014 newspaper/classified ad revenue collapse: https://www.aei.org/carpe-diem/creative-destruction-newspaper-ad-revenue-continued-its-precipitous-free-fall-in-2014-and-its-likely-to-continue/",
+        "MinnPost \u2014 How Craigslist killed the newspapers' golden goose: http://www.minnpost.com/business/2014/02/how-craigslist-killed-newspapers-golden-goose/",
+        "Statista \u2014 US newspaper classified revenue since 2000: https://www.statista.com/statistics/196470/classified-advertising-revenue-of-us-newspapers-since-2000/",
+        "Vendasta \u2014 Yellow Pages evolution (peak $14.7B 2005): https://www.vendasta.com/blog/yellow-pages-evolution/",
+        "UENI \u2014 Yellow pages decline figures: https://ueni.com/blog/yellow-pages-are-dead/",
+        "purple motes (Douglas Galbi) \u2014 U.S. advertising expenditure data (Coen series): https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/",
+        "galbithink.org \u2014 Annual U.S. Advertising Spending Since 1919: https://www.galbithink.org/ad-spending.htm",
+        "NBER WP 28161 \u2014 Aggregate Advertising Expenditure in the U.S. Economy: https://www.nber.org/system/files/working_papers/w28161/w28161.pdf",
+        "USPS OIG RARC-WP-16-006 \u2014 Advertising Mail: Past and Present: https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf",
+        "History and Technology \u2014 'The solid gold mailbox' (postwar direct mail): https://www.tandfonline.com/doi/full/10.1080/2373518X.2015.1012863",
+        "Wikipedia \u2014 Penny press: https://en.wikipedia.org/wiki/Penny_press",
+        "American Antiquarian Society \u2014 The Sun (1833) exhibit: https://collections.americanantiquarian.org/earlyamericannewsmedia/exhibits/show/news-in-antebellum-america/item/71",
+        "Encyclopedia.com \u2014 Mass Market Magazine Revolution (Munsey's 1893): https://www.encyclopedia.com/media/encyclopedias-almanacs-transcripts-and-maps/mass-market-magazine-revolution",
+        "HBS WP 11-039 \u2014 The Unbundling of Advertising Agency Services: https://www.hbs.edu/ris/Publication%20Files/11-039.pdf",
+        "ANA \u2014 Trends in Agency Compensation (18th ed.) and compensation surveys: https://www.ana.net/miccontent/show/id/rr-2022-11-ana-trends-in-agency-compensation and https://www.ana.net/content/show/id/440",
+        "Marketing Dive \u2014 ANA media commissions coverage: https://www.marketingdive.com/news/ana-media-commissions-on-upswing-amid-shifting-approach-to-agency-compensa/443314/",
+        "HBR (1990) \u2014 The Costly Bargain of Trade Promotion: https://hbr.org/1990/03/the-costly-bargain-of-trade-promotion",
+        "Journal of Retailing \u2014 manufacturer advertising vs retail promotion: https://www.sciencedirect.com/science/article/abs/pii/S0022435902000660",
+        "Epsilon \u2014 the $42B co-op advertising opportunity: https://www.epsilon.com/us/insights/blog/the-42-billion-co-op-advertising-opportunity",
+        "Editor & Publisher \u2014 Co-op advertising, billions hiding in plain sight: https://www.editorandpublisher.com/stories/revenue-roundup-co-op-advertising,242239",
+        "Encyclopedia.com \u2014 Radio 1929-1941 (radio share of all advertising): https://www.encyclopedia.com/education/news-and-education-magazines/radio-1929-1941",
+        "Library of Congress \u2014 Consumer Advertising During the Great Depression guide: https://guides.loc.gov/consumer-advertising-great-depression",
+        "History of Information \u2014 Audit Bureau of Circulations founded 1914: https://historyofinformation.com/detail.php?entryid=682",
+        "Ad Age Encyclopedia \u2014 Audit Bureau of Circulations: https://adage.com/article/adage-encyclopedia/audit-bureau-circulations/98511",
+        "NAAG \u2014 Evolution of Health Claim Substantiation (LHJ 1892, Adams 1905, Printers' Ink 1911): https://www.naag.org/attorney-general-journal/evolution-of-health-claim-substantiation-2/",
+        "Wikipedia \u2014 Ad Council (War Advertising Council 1942-43): https://en.wikipedia.org/wiki/Ad_Council",
+        "Wikipedia \u2014 Revenue Act of 1942 (90% excess profits tax): https://en.wikipedia.org/wiki/Revenue_Act_of_1942",
+        "hashtagpaid \u2014 WWII marketing and ad-cost deductibility: https://hashtagpaid.com/banknotes/marketing-through-the-ages-world-war-2",
+        "Wikipedia \u2014 1950s quiz show scandals: https://en.wikipedia.org/wiki/1950s_quiz_show_scandals",
+        "PBS American Experience \u2014 Aftermath of the Quiz Show Scandal: https://www.pbs.org/wgbh/americanexperience/features/quizshow-aftermath-quiz-show-scandal/"
+      ]
+    },
+    {
+      "lens": "Data archaeologist \u2014 existence, provenance, coverage, licensing, and stitch points of long-run US ad-spend datasets",
+      "gaps": [
+        {
+          "title": "The 1919-2026 'series' is actually two incompatible series with a hard break at 2007/2008",
+          "claim": "The canonical long-run series (Printers' Ink -> McCann-Erickson, curated by Robert Coen) ends in December 2008 with final full-year data for 2007. Interpublic replaced it with Magna Global's 'MG8' series, which is a fundamentally different object: media-supplier ad REVENUE built top-down from seller data, versus Coen's bottom-up advertiser BILLINGS built from rate-card list prices. Magna recomputed its methodology back only to 1980. Coen's totals include direct mail, yellow pages, business papers, and a large 'miscellaneous' bucket that successor 'measured media' totals exclude or treat differently, so the levels do not match at the join. A naive splice at 2008 will manufacture a phantom collapse on top of the real Great Recession dip \u2014 precisely at the moment the narrative says Google is taking over.",
+          "why_it_matters": "The signature chart is the plan's spine. If the join is done naively, the single most-scrutinized visual in the project encodes a measurement artifact as a historical event, and the era-6/7 story ('what Google captured') inherits a wrong baseline.",
+          "evidence": "Silk & Berndt, 'Aggregate Advertising Expenditure in the U.S. Economy: What's Up? Is It Real?', NBER Working Paper 28161 (Dec 2020), https://www.nber.org/system/files/working_papers/w28161/w28161.pdf \u2014 documents the 2009 discontinuation, the MCE bottom-up billings vs MG8 top-down revenue distinction, MG8 recomputation to 1980 only, and MCE's eleven-media scope incl. direct mail and 'miscellaneous'. Also Douglas Galbi, 'Robert J. Coen, advertising data hero', https://www.purplemotes.net/2009/05/10/robert-j-coen-advertising-data-hero/ (Coen published through Dec 2008).",
+          "recommendation": "Restructure: build the data layer as overlapping named series (MCE 1919-2007, MG8 1980-present, IAB internet 1996-present, IRS SOI long-run) with a documented bridge estimated over the 1980-2007 overlap window, and render the signature chart with the overlap visible (two ribbons) rather than one silently spliced line. Add a 'series concordance' object to claims.json.",
+          "severity": "blocking",
+          "affected_eras": [
+            "4: 1976-1993 Segmentation",
+            "5: 1994-2001 Early Web",
+            "6: 2002-2008 The Auction",
+            "7: 2008-2026 Epilogue"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM"
+          ]
+        },
+        {
+          "title": "By-medium detail does not exist before 1935; 1919-1934 media splits are modern reconstructions",
+          "claim": "The public Coen data supports a clean by-medium and national/local split only from 1935 onward. For 1919-1934, the freely available Coen Structured Advertising Expenditure Dataset's media categories are explicitly a mix of 'some Coen data, some data from other sources, and my own estimates' (Galbi). Worse, the 1920s totals themselves were revised downward about 15% between the 1975 and 2000 vintages of the series. The plan's 'ad-spend-by-medium dataset (1919-2026)' therefore starts 16 years before by-medium data does.",
+          "why_it_matters": "The first sixth of the signature chart's stacked-by-medium ribbons would be grade-C reconstruction presented with the same visual authority as the grade-B core, and the radio-era share-shift story (era 2's whole point) rests partly on estimated splits.",
+          "evidence": "Douglas Galbi, 'U.S. advertising expenditure data', https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/ (national/local possible from 1935; 1919-1934 categories partly Galbi's own estimates; 1920s figures revised down ~15%); CS Ad Dataset at https://www.galbithink.org/ad-spending.htm.",
+          "recommendation": "Restructure the chart: total-only line 1919-1934 with by-medium ribbons beginning 1935, or explicitly grade all 1919-1934 medium splits C with wide CIs in claims.json. Do not present 1919-1934 shares at the same confidence as 1935+.",
+          "severity": "major",
+          "affected_eras": [
+            "1: 1840s-1917 Birth of the Machine",
+            "2: 1918-1949 Radio"
+          ],
+          "affected_fields": [
+            "MEDIUM",
+            "SCALE"
+          ]
+        },
+        {
+          "title": "Pre-1919 there is no series at all \u2014 only sparse retrospective benchmarks, and nothing before 1867",
+          "claim": "The earliest quantitative estimate of total US ad spend is a Printers' Ink retrospective benchmark for 1867 (~$50M), with roughly decennial benchmarks after (1880, 1890, 1900...) \u2014 estimates constructed decades after the fact and carried into Historical Statistics of the United States (Millennial Edition Table De482-515, 'Advertising expenditures, by medium: 1867-1998'). For the 1840s-1866 \u2014 the first ~25 years of Era 1, including the founding of the first agencies \u2014 no credible spend estimate of any kind exists. Additionally, the % of GDP denominator is itself a reconstruction before 1929 (BEA national accounts begin 1929), so pre-1929 ad/GDP ratios are C-grade on both numerator and denominator.",
+          "why_it_matters": "Era 1's SCALE field, as specified (total spend, % of GDP, per-medium split, annual with 80% CI), is unfillable as written. If the plan doesn't pre-commit to a benchmark-year format for Era 1, the schema will force fake precision.",
+          "evidence": "HSUS Millennial Edition table listing 'Advertising expenditures, by medium: 1867-1998' (De482-515), https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe482-515.html; Galbi's series and discussion beginning 1919 at https://www.galbithink.org/ad-spending.htm and https://www.purplemotes.net/2008/09/28/more-on-historical-us-advertising-expenditure/. The pre-1919 record consists of benchmark years, not annual data.",
+          "recommendation": "Restructure Era 1's SCALE to benchmark years only (1867, 1880, 1890, 1900, 1909, 1914) with wide CIs and an explicitly labeled no-data zone for the 1840s-1866; supplement with Census of Manufactures periodical/newspaper ad receipts (decennial, official) as the only A-grade anchor for the era.",
+          "severity": "major",
+          "affected_eras": [
+            "1: 1840s-1917 Birth of the Machine"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM"
+          ]
+        },
+        {
+          "title": "2008-2026 by-medium data \u2014 the stretch the whole project points at \u2014 has no free, consistent source",
+          "claim": "After Coen ends (2007), every consistent US by-medium series is licensed or paywalled: Magna, GroupM TYNY detail, Zenith, eMarketer, WARC, and the HSUS Millennial Edition itself (Cambridge subscription). The freely citable record for 2008-2026 is a patchwork: IAB/PwC internet ad revenue (1996-2025, free PDFs, US, seller-side), Pew Research newspaper fact sheets (which after 2013 are themselves extrapolations \u2014 NAA stopped releasing industry revenue in 2014, and Pew projects the trend from as few as four publicly traded companies' filings), TVB/RAB fragments, and press-release top lines. The plan will be forced into grade-C triangulation for per-medium data in exactly the 18 years it cares most about, or must budget for a license.",
+          "why_it_matters": "The centerpiece narrative (what Google captured, then the duopoly/retail-media baseline handed to P3) needs credible per-medium shares for 2008-2026; the plan currently assumes this data is simply available.",
+          "evidence": "Pew Newspapers Fact Sheet methodology, https://www.pewresearch.org/journalism/fact-sheet/newspapers/ (NAA's last industry figure is 2013; post-2013 estimated from public-company filings); IAB/PwC reports freely archived, e.g. FY2000 report https://www.iab.com/wp-content/uploads/2015/07/IAB_PWC_002_2000.pdf and 30th-anniversary release https://www.iab.com/news/digital-ad-revenue-climbs-to-nearly-300b-as-iab-celebrates-30-year-anniversary/ ($294.6B US internet ad revenue in 2025); HSUS paywall at https://hsus.cambridge.org/; Baruch College research guide inventorying which ad-expenditure sources are subscription-only, https://guides.newman.baruch.cuny.edu/c.php?g=188246&p=1243745.",
+          "recommendation": "Add to scope: an explicit sourcing decision for 2008-2026 (license one series, or commit to a documented triangulation from IAB + Pew + trade-press top lines + company 10-Ks) and pre-mark those per-medium cells grade B/C in claims.json. Silk & Berndt's appendix tables (free) carry four series through 2018 and can serve as the audited backbone to 2018.",
+          "severity": "major",
+          "affected_eras": [
+            "7: 2008-2026 Epilogue",
+            "6: 2002-2008 The Auction"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM",
+            "SELLERS"
+          ]
+        },
+        {
+          "title": "Current-market estimates disagree by tens of billions, driven by definitional scope \u2014 especially retail media",
+          "claim": "For 2025 alone, eMarketer puts total US ad spending at ~$422B while Magna puts US media-owner ad revenue at ~$398B \u2014 a ~$24B gap before you even reach medium splits \u2014 and retail media figures diverge wildly by scope (eMarketer: ~$59B US retail media 2025; Magna: $163B for retail media networks on a broader basis). 'Spend' vs 'media-owner revenue', inclusion of agency fees/adtech take, and where retail-media search sits are unreconciled across compilers. There is no single right 2025-2026 number, and any 2026 endpoint is a forecast, not an actual, subject to mid-year revisions (Magna downgraded its 2025 outlook mid-year).",
+          "why_it_matters": "Era 7 hands P3 its baseline. If the plan doesn't fix its own definition (advertiser spend vs seller revenue; retail media in or out) before collecting numbers, the 80% CIs will be incoherent \u2014 different compilers aren't noisy measurements of one quantity, they measure different quantities.",
+          "evidence": "eMarketer, 'US Ad Spending 2025', https://www.emarketer.com/content/us-ad-spending-2025 (~$422B best case); Marketing Dive on Magna's downgraded forecast, https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/ (US media-owner revenue ~$398B, retail media $163B); eMarketer US retail media nearing $70B by 2026, https://www.emarketer.com/chart/c/354785/us-retail-media-ad-spending-will-near-70-billion-2026-354785.",
+          "recommendation": "Add to scope: a one-page measurement concordance (advertiser spend vs media-owner revenue; retail media treatment; agency/adtech take) adopted project-wide before data collection; report era-7 numbers as ranges spanning named compilers; label 2025-2026 points as forecast/preliminary in the signature chart.",
+          "severity": "major",
+          "affected_eras": [
+            "7: 2008-2026 Epilogue"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "PRICING",
+            "SELLERS"
+          ]
+        },
+        {
+          "title": "The plan's only available A-grade aggregate series \u2014 IRS corporate advertising deductions \u2014 is not in the plan",
+          "claim": "The plan's source-grade A ('official filings') is currently unpopulatable for aggregate ad spend: Coen/MCE is a private agency estimate (B at best), and all successors are commercial estimates. The one long-run official public series \u2014 IRS Statistics of Income corporate advertising expense deductions, used in research since Yang (1962) and Telser (1964), e.g. $274.5B for tax year 2012 \u2014 is absent from the plan. Silk & Berndt show it correlates r=0.998 with the MCE series over 1960-2007, making it the natural independent validator of the spliced spine, with known caveats (excludes unincorporated firms, includes some promotion, tax-year vs calendar-year timing). The Census Bureau's Service Annual Survey (advertising & marketing services receipts, NAICS-based, annual from ~1998-2001) is a second official cross-check.",
+          "why_it_matters": "Without an official anchor, every number in the century dataset traces to one agency economist's estimates and their commercial successors; with IRS SOI, the plan gets an A-grade validation rail and an honest answer to 'how do you know Coen wasn't making it up'.",
+          "evidence": "Silk & Berndt, NBER WP 28161, Section III.2.1 and Figure 3 (IRS series description, $274.504B for 2012, r=0.998 with MCE 1960-2007, SAS8 description), https://www.nber.org/system/files/working_papers/w28161/w28161.pdf; companion IARIW version https://iariw.org/wp-content/uploads/2021/10/ernst_paper.pdf.",
+          "recommendation": "Add to scope + collect data: pull IRS SOI advertising-deduction totals as a parallel validation series in claims.json, and use divergence between IRS and the media series as a feature (it measures below-the-line/promotion drift), not a bug.",
+          "severity": "major",
+          "affected_eras": [
+            "3: 1950-1975 TV Mass Market",
+            "4: 1976-1993 Segmentation",
+            "5: 1994-2001 Early Web",
+            "6: 2002-2008 The Auction",
+            "7: 2008-2026 Epilogue"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "BUYERS"
+          ]
+        },
+        {
+          "title": "The Coen numbers are rate-card billings, not transaction prices \u2014 which collides with the plan's own PRICING story",
+          "claim": "The MCE estimates were built from list ('rate card') prices, not the discounted transaction prices actually paid \u2014 Silk & Berndt state the estimates were 'typically based on information about current list prices... rather than actual transaction prices that reflected volume and other discounts.' A project whose analytical spine is 'who set the price in each era' (commission -> rate card -> upfront -> CPM -> auction) will be quoting SCALE numbers from a dataset that systematically embeds unmeasured, era-varying discounting \u2014 heaviest exactly where negotiation was heaviest (TV scatter, late-era newspapers).",
+          "why_it_matters": "It caps the source grade of the entire 1919-2007 spine at B, and it means medium shares are distorted relative to true money flows in eras where discounting off rate card differed by medium \u2014 a subtle but real bias in the era 3-5 share-shift story.",
+          "evidence": "Silk & Berndt, NBER WP 28161, Section III.2.2, https://www.nber.org/system/files/working_papers/w28161/w28161.pdf.",
+          "recommendation": "Note in methodology and in the PRICING field of each era: the flagship series measures list-price billings; grade MCE-derived numbers B; where the prose makes a pricing-mechanism claim, do not cite the spend dataset as if it recorded realized prices.",
+          "severity": "minor",
+          "affected_eras": [
+            "3: 1950-1975 TV Mass Market",
+            "4: 1976-1993 Segmentation",
+            "2: 1918-1949 Radio"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "SCALE"
+          ]
+        },
+        {
+          "title": "'One global market-size figure per era' is impossible for Era 1 and barely sourced before the 1960s",
+          "claim": "No global advertising market estimate exists for the 1840s-1917 period at all. The earliest recurring global source is the 'Survey of World Advertising Expenditures' lineage (International Advertising Association, founded 1938, later compiled by Starch INRA Hooper), a print publication held in libraries, not online \u2014 one edition (1990) is freely available via UNESCO. Consistent commercial global series (Zenith, Magna, GroupM, WARC) begin in the 1980s and are licensed. So the plan's per-era global figure is: Era 1 nonexistent, Era 2 a single late-era print benchmark at best, Eras 3-4 library archaeology, Eras 5-7 paywalled or press-release top lines.",
+          "why_it_matters": "A schema cell the plan treats as routine is unfillable for the first era and C-grade until roughly the 1960s; better to know now than to discover it mid-writing.",
+          "evidence": "ISSN record for 'Survey of world advertising expenditures' (Starch INRA Hooper/IAA), https://portal.issn.org/resource/ISSN/0894-5004; IAA founding 1938, https://en.wikipedia.org/wiki/International_Advertising_Association; UNESCO-hosted 1990 world survey, https://unesdoc.unesco.org/ark:/48223/pf0000094735.",
+          "recommendation": "Restructure the schema rule: global figure required only from Era 3 onward; Era 1 marked 'no data exists'; Era 2 allowed a single benchmark-year figure. Budget one library/ILL retrieval for the Starch INRA Hooper volumes if global numbers for eras 3-4 must be sourced rather than triangulated.",
+          "severity": "minor",
+          "affected_eras": [
+            "1: 1840s-1917 Birth of the Machine",
+            "2: 1918-1949 Radio",
+            "3: 1950-1975 TV Mass Market",
+            "4: 1976-1993 Segmentation"
+          ],
+          "affected_fields": [
+            "SCALE"
+          ]
+        },
+        {
+          "title": "Front-edge no-data zones inside eras 2 and 5, and a forecast-only endpoint at 2026",
+          "claim": "Era 2 opens in 1918, but radio advertising did not exist until 1922 (WEAF toll broadcasting) and no radio spend data exists before the late 1920s (structured by-medium data only from 1935). Era 5 opens in 1994 (HotWired banner, October 1994), but the IAB/PwC series begins with 1996; 1994-1995 web ad revenue exists only as anecdote and one-off estimates. And the chart's 2026 endpoint can only ever be a forecast at publication time. Each era's opening years \u2014 narratively the most dramatized \u2014 are the least measurable.",
+          "why_it_matters": "The prose will naturally want numbers at each era's dramatic opening ('radio arrives', 'the banner ad debuts'); the data layer cannot supply them, inviting exactly the ungraded improvised figures the rigor rules exist to prevent.",
+          "evidence": "IAB 30th-anniversary release confirming the report series began in 1996, https://www.iab.com/news/digital-ad-revenue-climbs-to-nearly-300b-as-iab-celebrates-30-year-anniversary/; Galbi on by-medium detail from 1935, https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/; supplementary monthly Printers' Ink advertising activity INDEX (not dollars) from 1919 exists on FRED for texture, https://fred.stlouisfed.org/series/M0658BUSM343SNBR.",
+          "recommendation": "Note only: pre-authorize 'no credible data' as a legitimate schema value for 1918-1926 radio, 1994-1995 web, and mark 2026 as forecast in the chart legend and claims.json as-of dates.",
+          "severity": "minor",
+          "affected_eras": [
+            "2: 1918-1949 Radio",
+            "5: 1994-2001 Early Web",
+            "7: 2008-2026 Epilogue"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "EVENTS",
+            "MEDIUM"
+          ]
+        },
+        {
+          "title": "The 'advertising is always ~2% of GDP' folklore is contested \u2014 treat the ad/GDP ratio as a finding, not an assumption",
+          "claim": "The often-repeated claim that US advertising has been a constant share of GDP for a century is disputed in the very literature the plan will rely on: Silk & Berndt open with dueling 2014-2019 claims of constancy versus decline, and estimate that the elasticity of ad spend with respect to GDP broke structurally in the late 1990s (from ~1.4 to ~1.9), coincident with digital's rise. Different series (IRS vs MCE vs MG8) give different ad/GDP levels and trends. If the SCALE field's %-of-GDP row is filled from whichever series is at hand per era, the century chart will imply a constancy or a decline that is an artifact of series-switching.",
+          "why_it_matters": "The %-of-GDP framing is the plan's cross-era comparability device; it is also precisely where the measurement literature says naive use misleads \u2014 and the late-1990s elasticity break is itself a better headline for the Google story than the folklore constancy.",
+          "evidence": "Silk & Berndt, NBER WP 28161, abstract and Section I (Bloomberg 'always about 1 percent' claim vs brokerage 'declining share' claim; elasticity 1.4 -> 1.9 break), https://www.nber.org/system/files/working_papers/w28161/w28161.pdf.",
+          "recommendation": "Note only: compute %-of-GDP from one declared series per stretch, footnote the series switch, and consider promoting the late-1990s elasticity break into the era 5/6 narrative \u2014 it is quantitative evidence that the Google era changed the size of the pie, not just its division.",
+          "severity": "minor",
+          "affected_eras": [
+            "5: 1994-2001 Early Web",
+            "6: 2002-2008 The Auction",
+            "7: 2008-2026 Epilogue"
+          ],
+          "affected_fields": [
+            "SCALE"
+          ]
+        }
+      ],
+      "feasibility_notes": "The signature chart is feasible, but only as a documented patchwork, never as the single continuous series the plan currently implies. The freely citable backbone is: (1) the Coen/McCann-Erickson series 1919-2007, publicly mirrored as Galbi's Coen Structured Advertising Expenditure Dataset (galbithink.org, downloadable xls) with by-medium detail solid only from 1935; (2) IAB/PwC internet ad revenue 1996-2025 (free PDFs); (3) IRS SOI corporate advertising deductions as the only official long-run validator; (4) Silk & Berndt's NBER WP 28161 appendix tables carrying four reconciled series 1960-2018 \u2014 this paper is effectively a prefabricated methodology chapter and should be read before any data collection. Pre-1919 is benchmark-years-only (1867 earliest; nothing before), and 2008-2026 by-medium requires either a commercial license (Magna/eMarketer/WARC) or committed grade-C triangulation from IAB + Pew + press top lines + 10-Ks. Two schema amendments are needed for honesty: benchmark-year format for Era 1 SCALE, and 'no credible data' as a legal cell value. Expect roughly: grade A only for IRS/Census cross-checks and company filings (Google S-1/10-Ks, Overture 10-Ks); grade B for the 1935-2007 Coen core and IAB; grade C for 1919-1934 medium splits, all pre-1919 points, most global figures before the 1980s, and 2008-2026 per-medium unless licensed. Budget one series-concordance/bridge-factor task (1980-2007 MCE-MG8 overlap) before chart-building; it is the single highest-leverage piece of data work in the project.",
+      "sources": [
+        "Silk & Berndt (2020), Aggregate Advertising Expenditure in the U.S. Economy: What's Up? Is It Real?, NBER WP 28161 \u2014 https://www.nber.org/system/files/working_papers/w28161/w28161.pdf",
+        "IARIW version of Silk & Berndt \u2014 https://iariw.org/wp-content/uploads/2021/10/ernst_paper.pdf",
+        "Galbi, Annual U.S. Advertising Expenditure Since 1919 (CS Ad Dataset) \u2014 https://www.galbithink.org/ad-spending.htm",
+        "Galbi, U.S. advertising expenditure data \u2014 https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/",
+        "Galbi, Robert J. Coen, advertising data hero \u2014 https://www.purplemotes.net/2009/05/10/robert-j-coen-advertising-data-hero/",
+        "Galbi, more on historical U.S. advertising expenditure \u2014 https://www.purplemotes.net/2008/09/28/more-on-historical-us-advertising-expenditure/",
+        "HSUS Millennial Edition, Table De482-515 Advertising expenditures by medium 1867-1998 (paywalled) \u2014 https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe482-515.html",
+        "IAB/PwC Internet Advertising Revenue Report FY2000 (free archive example) \u2014 https://www.iab.com/wp-content/uploads/2015/07/IAB_PWC_002_2000.pdf",
+        "IAB 30th-anniversary revenue release ($294.6B, 2025) \u2014 https://www.iab.com/news/digital-ad-revenue-climbs-to-nearly-300b-as-iab-celebrates-30-year-anniversary/",
+        "Pew Research Newspapers Fact Sheet (post-2013 methodology) \u2014 https://www.pewresearch.org/journalism/fact-sheet/newspapers/",
+        "eMarketer, US Ad Spending 2025 \u2014 https://www.emarketer.com/content/us-ad-spending-2025",
+        "Marketing Dive, Magna downgrades global ad forecast \u2014 https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/",
+        "eMarketer, US retail media near $70B by 2026 \u2014 https://www.emarketer.com/chart/c/354785/us-retail-media-ad-spending-will-near-70-billion-2026-354785",
+        "FRED, Index of Total Advertising (Printers' Ink, monthly index from 1919) \u2014 https://fred.stlouisfed.org/series/M0658BUSM343SNBR",
+        "ISSN record, Survey of World Advertising Expenditures (Starch INRA Hooper/IAA) \u2014 https://portal.issn.org/resource/ISSN/0894-5004",
+        "UNESCO-hosted 1990 Survey of World Advertising Expenditures \u2014 https://unesdoc.unesco.org/ark:/48223/pf0000094735",
+        "Baruch College research guide, Ad Expenditures (source licensing inventory) \u2014 https://guides.newman.baruch.cuny.edu/c.php?g=188246&p=1243745",
+        "Campaign, Robert Coen steps down after 61 years \u2014 https://www.campaignlive.co.uk/article/robert-coen-steps-down-interpublic-post-61-years/892808"
+      ]
+    },
+    {
+      "lens": "Google mechanics analyst \u2014 what the auction-centric story of Google's capture misses or gets wrong against the 1998-2008 record",
+      "gaps": [
+        {
+          "title": "Distribution deals, not auction design, were the decisive capture lever \u2014 and a federal court agrees",
+          "claim": "The plan's centerpiece attributes Google's capture to AdRank + AdSense, but the historical record shows distribution/syndication was at least co-equal: Yahoo made Google its default search provider in June 2000 (before AdWords Select existed), the May 2002 AOL deal (a bet-the-company $100M revenue guarantee with 85% rev share) flipped the market against Overture overnight, network/partner sites were still 41% of Google revenue in 2006 with TAC at 32% of ad revenue, and Judge Mehta's August 2024 ruling found Google maintained its search monopoly specifically through exclusive default-distribution payments (e.g., to Apple), not through auction superiority.",
+          "why_it_matters": "Overture HAD the keyword auction first and was the revenue leader through 2002; it lost on distribution and owned-destination traffic. If the chapter's worked-numbers argument says 'the quality-weighted auction is why Google won,' it tells a mechanism story the record flunks \u2014 the auction explains yield per query, distribution explains query volume, and capture required both.",
+          "evidence": "Google press archive, 'Yahoo! Selects Google as its Default Search Engine Provider' (June 2000): http://googlepress.blogspot.com/2000/06/yahoo-selects-google-as-its-default.html; Search Engine Watch, 'Overture & Inktomi Out, Google In At AOL' (2002): https://www.searchenginewatch.com/2002/04/30/overture-inktomi-out-google-in-at-aol/; TheStreet, 'Overture Plunges 37% on Partnership Worries': https://www.thestreet.com/technology/overture-plunges-37-on-partnership-worries-10020364; Google Q2 2006 press release via SEC (network = 41% of revenue, TAC = 32%): https://www.sec.gov/Archives/edgar/data/1288776/000119312506150132/dex991.htm; Fortune on Mehta remedies ruling re exclusive distribution deals: https://fortune.com/2025/09/02/google-antitrust-remedy-ruling-exclusive-search-distribution-deals-chrome/",
+          "recommendation": "Restructure era 6: make the centerpiece a twin-engine story (auction = yield, distribution = volume) with the AOL-deal economics and TAC/network-share as calibrated numbers in SCALE/SELLERS; add the 2024 Mehta ruling to era 7 EVENTS as the retrospective verdict on which lever mattered.",
+          "severity": "blocking",
+          "affected_eras": [
+            "6 (2002-2008 The Auction)",
+            "7 (2008-2026 Epilogue)"
+          ],
+          "affected_fields": [
+            "SELLERS",
+            "SCALE",
+            "PRICING",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "Search's money came from classifieds, Yellow Pages, and direct response \u2014 not TV brand budgets \u2014 and directories are likely missing from the signature chart",
+          "claim": "The first budgets search took were newspaper classifieds (US peak $19.6B in 2000, down to $4.6B by 2012; help-wanted alone fell >90% from $8.7B to $723M), Yellow Pages/directories (peak $14.7B in 2005, $3.2B by 2015), and direct-response/lead-gen categories (mortgage, travel, eBay-style marketplaces) \u2014 TV brand budgets held for another decade. A century-long ad-spend-by-medium dataset that lacks a 'directories/classifieds' line will mismeasure exactly the transfer the project exists to explain.",
+          "why_it_matters": "The project's core question is 'what did Google capture and from whom.' If eras 6-7 imply capture from mass-media brand spend, the BUYERS story is wrong: search monetized bottom-of-funnel intent money that had lived in classifieds, directories, and direct mail \u2014 media the plan's era schema barely names. Yellow Pages was a ~$14B market that appears nowhere in the seven era titles.",
+          "evidence": "Poynter, 'Classified Ad Revenue Down 70 Percent in 10 Years' (NAA data): https://www.poynter.org/reporting-editing/2010/classified-ad-revenue-down-70-percent-in-10-years-with-one-bright-spot/; Congressional Research Service, 'Stop the Presses? Newspapers in the Digital Age' (2022): https://www.congress.gov/crs_external_products/R/PDF/R47018/R47018.2.pdf; The Quota, 'The Rise (and Fall) of Yellow Pages Sales' ($14.7B peak 2005): https://www.thequota.co/articles/the-rise-and-fall-of-yellow-pages-sales; AdMarketplace (eBay's exclusive search ad platform 2003-2006, direct-response archetype): https://en.wikipedia.org/wiki/AdMarketplace",
+          "recommendation": "Add to scope: (1) a 'directories + classifieds' medium line in the 1919-2026 dataset (Coen/McCann historical series carries Yellow Pages as a line item); (2) era 6 BUYERS must name the source-of-funds categories (classifieds, directories, direct mail, lead gen) with the collapse curves as calibrated numbers; (3) era 6-7 must state explicitly that TV brand budgets migrated later, via programmatic/video, not via 2000s search.",
+          "severity": "blocking",
+          "affected_eras": [
+            "4 (Segmentation)",
+            "5 (Early Web)",
+            "6 (The Auction)",
+            "7 (Epilogue)"
+          ],
+          "affected_fields": [
+            "BUYERS",
+            "SCALE",
+            "MEDIUM",
+            "signature chart dataset"
+          ]
+        },
+        {
+          "title": "The schema has TARGETING but no MEASUREMENT \u2014 the attribution loop that moved the money is structurally invisible",
+          "claim": "The fixed 8-field schema cannot express the single biggest thing advertisers gained in the Google era: closed-loop ROI proof. Conversion tracking plus the Urchin acquisition (March 2005, ~$30M) rebranded as free Google Analytics (Nov 2005) \u2014 which ended paid web analytics as a market 'overnight' \u2014 let advertisers justify rising CPCs with per-keyword conversion data. Measurement is also era-defining backwards: ABC circulation audits (1914), Nielsen ratings, direct-mail coupon codes, CPM 'proof' by panel \u2014 every era's pricing power rested on what buyers could verify.",
+          "why_it_matters": "Without a measurement field, era 6 can only say 'auction set the price,' not 'advertisers could finally prove value, which is why they tolerated the price' \u2014 and the era-by-era comparison loses the thread (audit -> ratings -> CTR -> conversion) that explains why each pricing regime was believable enough to move budgets. Google's free-analytics move was a deliberate mechanism to raise willingness-to-pay in its own auction, i.e., part of the capture machinery the plan credits to the auction alone.",
+          "evidence": "Search Engine Watch, 'Google To Acquire Urchin' (2005): https://www.searchenginewatch.com/2005/03/29/google-to-acquire-urchin-web-analytics-firm/; Primo Interactive, 'The history of Google Analytics: from Urchin to GA4' (free launch Nov 14 2005, sign-ups closed within a week, paid analytics market collapse): https://www.primointeractive.com/blog/history-of-google-analytics; Crunchbase blog, 'The Urchin Software Mafia': https://about.crunchbase.com/blog/san-diego-tech-company-urchin",
+          "recommendation": "Restructure: add a ninth schema field, MEASUREMENT (what the buyer could verify: circulation audit -> ratings/demos -> reach/frequency -> CTR -> conversion/attribution), applied to all seven eras; put Urchin/GA and AdWords conversion tracking in era 6 EVENTS.",
+          "severity": "major",
+          "affected_eras": [
+            "all seven"
+          ],
+          "affected_fields": [
+            "schema itself (new MEASUREMENT field)",
+            "EVENTS",
+            "PRICING"
+          ]
+        },
+        {
+          "title": "Self-serve with no minimums and automated review expanded WHO could advertise \u2014 market creation, not just capture",
+          "claim": "Google's removal of friction (self-serve signup from Oct 2000, $0.05 minimum bids from Feb 2002, automated ad approval) versus Overture's model (human editorial review with 3-5 day listing approval, minimum deposits/bids) created millions of long-tail small-business advertisers who had never bought media through an agency at all \u2014 AdWords went from ~350 advertisers at launch to a base where small advertisers collectively out-spent large ones. The plan's framing ('what let Google capture so much of it') misses that a large share of search revenue was net-new demand that no prior medium ever held.",
+          "why_it_matters": "This changes the CREATORS/BUYERS story for era 6 (no agency, no commission, advertiser writes own text ad \u2014 the 15% commission thread from era 1 dies here, a structural bookend the plan should land) and changes the SCALE math: total-market growth vs share transfer must be decomposed or the century chart will overstate 'capture.'",
+          "evidence": "Search Engine Watch, 'How Overture (GoTo) Works' (editorial review, funding minimums): https://www.searchenginewatch.com/2002/03/04/how-overture-goto-works/; PPC Hero, 'A History of Google AdWords' (350 advertisers Oct 2000; $0.05 CPC minimums Feb 2002): https://ppchero.com/a-history-of-google-adwords-and-google-ads-revolutionizing-digital-advertising-marketing-since-2000/; ACT | The App Association, 'The Long Tail of Advertising' (small advertisers at heart of Google's base): https://actonline.org/2011/09/15/the-long-tail-of-advertising-small-business-advertisers-at-the-heart-of-ftcs-google-probe/; VentureBeat, 'Google and the Long Tail': https://venturebeat.com/business/google-and-the-long-tail",
+          "recommendation": "Add to scope: era 6 needs an advertiser-count series (will be grade B/C \u2014 Google disclosed sparingly) and an explicit expansion-vs-capture decomposition; tie the death of the 15% agency commission for this buyer class back to era 1 as a deliberate narrative bookend.",
+          "severity": "major",
+          "affected_eras": [
+            "6 (The Auction)",
+            "1 (bookend)"
+          ],
+          "affected_fields": [
+            "CREATORS",
+            "BUYERS",
+            "SCALE",
+            "PRICING"
+          ]
+        },
+        {
+          "title": "1998-2008 timeline corrections: AdWords launched as CPM, Overture led revenue through 2002, and Google paid ~$300M for the model it 'improved'",
+          "claim": "Three record-level facts the plan's era structure currently blurs: (a) AdWords at launch (Oct 23, 2000) was self-serve CPM, not an auction \u2014 the CPC auction arrived as 'AdWords Select' in Feb 2002, so 'the auction era starts 2002' is right but 'AdWords = auction' is not; (b) Overture, not Google, was the paid-search revenue leader into 2002 ($667.7M FY2002 revenue, 2.2B paid introductions) \u2014 Google's design didn't win in the market until distribution flipped; (c) Google settled Overture's patent suit 10 days before its 2004 IPO for 2.7M shares (~$300M at IPO; Yahoo later sold them for ~$1.5B) \u2014 an explicit price tag on how much of the mechanism was inherited rather than invented.",
+          "why_it_matters": "The centerpiece chapter's credibility rests on getting 'what Google actually added' exactly right: what Google added was CTR-weighting (expected-revenue ranking), next-price billing, no minimum spend, and automation on top of GoTo's 1998 keyword-bid + PPC + advertiser-funded-ranking invention. Misdating AdWords or omitting the patent settlement invites easy debunking of the whole chapter.",
+          "evidence": "PPC Hero AdWords history (Oct 2000 CPM launch, ~350 advertisers; Feb 2002 AdWords Select CPC): https://ppchero.com/a-history-of-google-adwords-and-google-ads-revolutionizing-digital-advertising-marketing-since-2000/; Overture Services FY2002 10-K (SEC, $667.7M revenue): https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm; DWW, 'Google Transfers 2.7 Million Shares to Yahoo in Settlement': https://www.dww.com/articles/google-transfers-27-million-shares-to-yahoo-settlement-of-a-search-patent-dispute; NBC News, 'Google boosts IPO after settling with rival': https://www.nbcnews.com/id/wbna5650780; Slate, 'How Bill Gross' GoTo.com inspired AdWords': https://slate.com/business/2013/10/googles-big-break-how-bill-gross-goto-com-inspired-the-adwords-business-model.html",
+          "recommendation": "Collect data / correct: era 6 EVENTS must carry Oct-2000 (CPM AdWords), Feb-2002 (AdWords Select CPC auction), May-2002 (AOL), Aug-2004 (Overture patent settlement); era 5 should carry Overture's revenue lead as a calibrated number so the crossover is visible.",
+          "severity": "major",
+          "affected_eras": [
+            "5 (Early Web)",
+            "6 (The Auction)"
+          ],
+          "affected_fields": [
+            "EVENTS",
+            "PRICING",
+            "SCALE"
+          ]
+        },
+        {
+          "title": "The GSP auction was not a fixed mechanism \u2014 Google tuned pricing knobs (squashing, format pricing, RGSP) to hit revenue targets",
+          "claim": "DOJ v. Google trial evidence (2023-24) shows the search auction the simulator will canonize was progressively overridden once Google had market power: 'squashing' artificially inflated the runner-up's predicted CTR to raise the winner's price, format pricing and other 'knobs' were used for 'intentional pricing,' auction changes routinely raised prices ~5% per Google ads VP Jerry Dischler's testimony, and RGSP (randomized GSP, 2019) \u2014 which sometimes lets the second-ranked bidder win to push bids upward \u2014 raised revenue ~10%. The elegant bid-times-quality second-price story is accurate for ~2002-2010 and increasingly false afterward.",
+          "why_it_matters": "If the interactive simulator teaches 'quality-weighted GSP beats pure bid' as a timeless design truth, it will present as Google's enduring mechanism something Google itself abandoned in pieces for revenue extraction \u2014 and the P3 handoff ('why isn't advertising solving AI economics') inherits a falsely benign model of auction-funded free services. It also sharpens the framing: bid \u00d7 pCTR ranking is expected-revenue-per-impression maximization, not relevance altruism.",
+          "evidence": "Search Engine Land, 'How Google harms search advertisers in 20 slides' (DOJ exhibits: squashing, pricing knobs, intentional pricing): https://searchengineland.com/doj-google-search-ad-price-manipulation-440207; Search Engine Land, 'What is RGSP? Google's Randomized Generalized Second-Price ad auctions explained': https://searchengineland.com/google-rgsp-randomized-generalized-second-price-ad-auctions-explained-433053; MoreVisibility, 'Google Admits to Tweaking Advertising Auctions for Revenue Goals' (Dischler testimony, ~5%): https://www.morevisibility.com/paid-media/insights/google-admits-to-tweaking-advertising-auctions-for-revenue-goals/",
+          "recommendation": "Add to scope: a 'the auction gets knobs' beat in era 7 (with the DOJ trial as an EVENTS entry) and, ideally, a simulator toggle demonstrating squashing/RGSP so the reader sees how a 'second-price' auction becomes a price-setting instrument under monopoly; frame AdRank in era 6 as expected-revenue ranking from the start.",
+          "severity": "major",
+          "affected_eras": [
+            "6 (The Auction)",
+            "7 (Epilogue)"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "EVENTS",
+            "auction simulator deliverable"
+          ]
+        },
+        {
+          "title": "April 2004 trademark-keyword policy change: a deliberate revenue unlock the EVENTS list should carry",
+          "claim": "In April 2004 Google reversed policy and let third parties bid on trademarked terms as keywords, triggering GEICO v. Google (E.D. Va. 2004, ruling that keyword sale itself was lawful, settled Sept 2005) \u2014 a quiet mechanism change that turned brand names into auctionable inventory and forced brand owners to bid on their own names, a pure price-of-entry revenue stream the auction-design story never mentions.",
+          "why_it_matters": "It is a concrete example of Google unilaterally expanding what counts as sellable inventory \u2014 a recurring pattern (broad match, close variants) that explains revenue growth independent of query growth or auction design, and it sets up the era-7 pattern of quiet inventory/matching expansions.",
+          "evidence": "The Register, 'Judge clarifies Google AdWords ruling' (April 2004 policy change, GEICO suit): https://www.theregister.com/2005/08/15/google_loses_adwords_trademark_case/; GEICO v. Google, 330 F. Supp. 2d 700 (E.D. Va. 2004), Justia: https://law.justia.com/cases/federal/district-courts/FSupp2/330/700/2314271/",
+          "recommendation": "Note only: add to era 6 EVENTS (April 2004 policy change + GEICO ruling) and flag 'inventory-definition expansion' as a named mechanism alongside the auction.",
+          "severity": "minor",
+          "affected_eras": [
+            "6 (The Auction)"
+          ],
+          "affected_fields": [
+            "EVENTS",
+            "PRICING"
+          ]
+        }
+      ],
+      "feasibility_notes": "The era-6 centerpiece is achievable at the plan's rigor bar, but only if it becomes a multi-mechanism chapter: the auction math is well documented, and \u2014 unusually for this project \u2014 the counterweight evidence is grade A (Overture's 10-K revenue on SEC EDGAR, Google's SEC-filed quarterly network/TAC splits, the Overture patent settlement in Google's S-1/A, and DOJ trial exhibits for the auction-knobs story). Two data risks: (1) an AdWords advertiser-count time series was never systematically disclosed, so the market-expansion claim will rest on B/C-grade triangulation (In the Plex, FTC-probe reporting, scattered Google statements); (2) the signature 1919-2026 chart needs a directories/classified line \u2014 the Coen/McCann historical series carries Yellow Pages and newspaper-classified splits only patchily, so budget collection time for splicing NAA classified data (2000-2012) and Yellow Pages association data onto it. The single biggest planning risk is narrative, not data: as scoped, the chapter argues 'better auction won,' while the record shows the auction leader of 2002 (Overture) losing to distribution, self-serve scale, and measurement \u2014 write the centerpiece as 'yield engine (auction) times volume engine (distribution) times belief engine (measurement)' and every finding above slots in rather than contradicts.",
+      "sources": [
+        "http://googlepress.blogspot.com/2000/06/yahoo-selects-google-as-its-default.html",
+        "https://www.searchenginewatch.com/2002/04/30/overture-inktomi-out-google-in-at-aol/",
+        "https://www.searchenginewatch.com/2002/03/04/how-overture-goto-works/",
+        "https://www.thestreet.com/technology/overture-plunges-37-on-partnership-worries-10020364",
+        "https://www.sec.gov/Archives/edgar/data/1288776/000119312506150132/dex991.htm",
+        "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm",
+        "https://fortune.com/2025/09/02/google-antitrust-remedy-ruling-exclusive-search-distribution-deals-chrome/",
+        "https://www.poynter.org/reporting-editing/2010/classified-ad-revenue-down-70-percent-in-10-years-with-one-bright-spot/",
+        "https://www.congress.gov/crs_external_products/R/PDF/R47018/R47018.2.pdf",
+        "https://www.thequota.co/articles/the-rise-and-fall-of-yellow-pages-sales",
+        "https://en.wikipedia.org/wiki/AdMarketplace",
+        "https://www.searchenginewatch.com/2005/03/29/google-to-acquire-urchin-web-analytics-firm/",
+        "https://www.primointeractive.com/blog/history-of-google-analytics",
+        "https://about.crunchbase.com/blog/san-diego-tech-company-urchin",
+        "https://ppchero.com/a-history-of-google-adwords-and-google-ads-revolutionizing-digital-advertising-marketing-since-2000/",
+        "https://actonline.org/2011/09/15/the-long-tail-of-advertising-small-business-advertisers-at-the-heart-of-ftcs-google-probe/",
+        "https://venturebeat.com/business/google-and-the-long-tail",
+        "https://www.dww.com/articles/google-transfers-27-million-shares-to-yahoo-settlement-of-a-search-patent-dispute",
+        "https://www.nbcnews.com/id/wbna5650780",
+        "https://slate.com/business/2013/10/googles-big-break-how-bill-gross-goto-com-inspired-the-adwords-business-model.html",
+        "https://searchengineland.com/doj-google-search-ad-price-manipulation-440207",
+        "https://searchengineland.com/google-rgsp-randomized-generalized-second-price-ad-auctions-explained-433053",
+        "https://www.morevisibility.com/paid-media/insights/google-admits-to-tweaking-advertising-auctions-for-revenue-goals/",
+        "https://www.theregister.com/2005/08/15/google_loses_adwords_trademark_case/",
+        "https://law.justia.com/cases/federal/district-courts/FSupp2/330/700/2314271/"
+      ]
+    },
+    {
+      "lens": "Contrarian fact-checker \u2014 where the \"eras evolved, then Google's superior auction ate the market\" story is contested, mythical, or contradicted by the long-run data",
+      "gaps": [
+        {
+          "title": "The 'capture' premise is contested: measured US ad/GDP peaked in 2000 and FELL during Google's rise",
+          "claim": "US advertising as a share of GDP was not constant at ~2% and did not expand when digital arrived: the McCann-Erickson (MCE) and IRS series both peak in 2000 at 2.3-2.4% of GDP and then drop below 2% through 2007/2014 \u2014 exactly the AdWords years \u2014 while the 1920s sat near 2.8-2.9% and a widely-cited 2014 Bloomberg piece claims the industry 'has always been about 1 percent of GDP'. Which series you pick reverses the story.",
+          "why_it_matters": "The project's core question \u2014 'what did Google capture' \u2014 presupposes a stable pie being redivided. The authoritative NBER study (Silk & Berndt 2020) frames this as an open question: 'a growth problem, a measurement problem, or both?', finding the GDP-elasticity of ad spend structurally broke in the late 1990s (~1.4 to ~1.9) while four canonical series (IRS, MCE, Magna, Census SAS) materially disagree. If the plan asserts one ad/GDP line, the adversarial-verification stage will find a credible source contradicting it. The deeper issue: much of Google's revenue came from money never counted as 'advertising' (Yellow Pages, classifieds, co-op, below-the-line promotion \u2014 IRS 'advertising' expense itself mixes in promotion), so capture vs reallocation vs measurement-boundary-shift must be adjudicated, not assumed.",
+          "evidence": "Silk & Berndt, 'Aggregate Advertising Expenditure in the U.S. Economy: What's Up? Is It Real?', NBER WP 28161 (Dec 2020), https://www.nber.org/system/files/working_papers/w28161/w28161.pdf \u2014 read directly: MCE/IRS shares peak 2000 at 2.3%/2.4% then fall below 2%; elasticity break late 1990s; quotes Bloomberg 2014 'always been about 1 percent of U.S. GDP' vs Telser's stable-share tradition; notes IRS 'advertising' likely includes consumer and trade promotion. Galbi, 'US Annual Advertising Spending Since 1919', https://www.galbithink.org/ad-spending.htm \u2014 ~2.8% of GDP late 1920s, ~1.8% 1970s, ~2.2-2.3% 1990s-2000s.",
+          "recommendation": "Restructure: make 'the ad intensity of the economy' an explicit cross-era analytical thread with its own chapter-level answer. Show the competing series side by side (never merged), take a documented stance on capture-vs-reallocation-vs-boundary-shift, and put the Silk & Berndt four-series comparison in the source base now. Add a boundary statement to the SCALE field definition (measured media advertising vs promotion vs total marketing).",
+          "severity": "blocking",
+          "affected_eras": [
+            "all",
+            "6 The Auction",
+            "7 Epilogue"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "BUYERS"
+          ]
+        },
+        {
+          "title": "The signature 1919-2026 chart cannot be one series \u2014 the splice seams are large and documented",
+          "claim": "No continuous by-medium US ad-spend series 1919-2026 exists. The Coen/McCann series ends in 2007 and was discontinued by IPG in 2009; its replacement (Magna Global) uses a fundamentally different methodology (top-down media-supplier revenue vs Coen's bottom-up billings built on rate-card LIST prices, not transaction prices) and was backcast only to 1980. Category breaks are material: 'Out of Home' replaced 'Billboards' in 2000 at roughly 3x the expenditure; TV split into broadcast/cable in 1990; pre-1940 Coen figures were revised downward ~15% over the years; 'miscellaneous' was ~20% of the 1935 total.",
+          "why_it_matters": "The century chart is the flagship deliverable. If it is drawn as one line per medium, the adversarial-verification stage will show that the 1990s-2000s digital-vs-traditional comparison mixes rate-card billings with supplier net revenue (IAB internet numbers are revenue; Coen print numbers are list-price billings), and that apparent inflections (OOH 2000, TV 1990) are definitional artifacts. The chart's credibility \u2014 and every claims.json entry hanging off it \u2014 dies.",
+          "evidence": "Silk & Berndt NBER WP 28161, pp. 7-9 (MCE based on 'list' rate-card prices not transaction prices; IPG discontinued MCE in 2009; Magna 'fundamental departure', backcast to 1980), https://www.nber.org/system/files/working_papers/w28161/w28161.pdf. Purple Motes, 'U.S. advertising expenditure data', https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/ \u2014 OOH 2000 3x break, 1990 TV split, pre-1940 downward revisions ~15%, miscellaneous ~20% (1935).",
+          "recommendation": "Restructure the deliverable: design the chart as explicitly spliced segments with visible seam annotations and a methodology panel; carry source-series and definition per data point in claims.json; render billings-based and revenue-based segments in distinguishable treatments. Budget data-engineering time for a splice audit (overlap years 1980-2007 where Coen and Magna coexist).",
+          "severity": "blocking",
+          "affected_eras": [
+            "all"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM"
+          ]
+        },
+        {
+          "title": "The centerpiece's causal claim \u2014 'the auction design won' \u2014 is the most contested claim in the plan",
+          "claim": "Google's victory is at least as attributable to distribution economics and scale as to auction design: (a) Overture invented the pay-per-click keyword auction (Patent 6,269,361) and Google settled the infringement suit for 2.7M shares (~$229.5M at IPO price); (b) Google took AOL from Overture in May 2002 with a $100M revenue guarantee and 85% rev-share \u2014 a balance-sheet risk bet, not a mechanism-design win; (c) Google paid Apple ~$20B in 2022 alone (36% of Safari search ad revenue) for default placement, and Judge Mehta's August 2024 ruling found monopoly maintained through exclusive distribution defaults \u2014 not through auction quality; (d) 2023 DOJ trial testimony (Jerry Dischler) revealed Google routinely tuned the auction with undisclosed 'pricing knobs' \u2014 squashing, format pricing, and RGSP (2019) \u2014 raising prices ~5-10% without quality improvement, undermining the 'elegant neutral mechanism' framing.",
+          "why_it_matters": "As scoped, era 6 proves 'why this design beats pure bid' with worked numbers. That proves the mechanism is clever; it does not prove the mechanism caused the win. Overture ran the 'inferior' pure-bid auction profitably and raised its 2002 guidance even after losing AOL \u2014 it died from losing distribution, not from auction inefficiency. If the chapter's thesis is 'better auction \u2192 market capture', the adversarial stage will produce the DOJ record and the Overture history as refutation. There is also a live inversion: the quality-weighted auction Google runs today is demonstrably not the textbook GSP the simulator will teach.",
+          "evidence": "Google 10-K FY2004 (Overture/Yahoo settlement, 2.7M shares, $229.5M), https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm; Slate, 'Google's big break: How Bill Gross' GoTo.com inspired AdWords', https://slate.com/business/2013/10/googles-big-break-how-bill-gross-goto-com-inspired-the-adwords-business-model.html; Search Engine Watch, 'Overture & Inktomi Out, Google In At AOL' (May 2002), https://www.searchenginewatch.com/2002/04/30/overture-inktomi-out-google-in-at-aol/; The Register, 'Google's AOL win upsets Inktomi, Overture', https://www.theregister.com/2002/05/02/googles_aol_win_upsets_inktomi/; CNBC on Mehta remedies and $26B default deals, https://www.cnbc.com/2025/08/27/google-search-antitrust-decision-apple.html; AppleInsider on the ruling ending exclusivity, https://appleinsider.com/articles/25/09/02/google-must-stop-exclusive-contracts-with-companies-like-apple-but-keeps-chrome; Search Engine Land, 'How Google harms search advertisers in 20 slides' (squashing, RGSP, format pricing, +5-10%), https://searchengineland.com/doj-google-search-ad-price-manipulation-440207.",
+          "recommendation": "Restructure era 6's thesis from 'the auction won the market' to 'the auction solved the pricing problem; distribution, guarantees, and scale won the market'. Keep the simulator and worked numbers, but add: (1) a TAC/distribution-economics section with the AOL 2002 and Apple numbers; (2) an Overture post-mortem showing the pure-bid auction was profitable and lost on distribution; (3) a coda on the DOJ pricing-knob evidence showing the deployed auction diverged from the textbook mechanism. Front-load these sources before drafting.",
+          "severity": "blocking",
+          "affected_eras": [
+            "6 The Auction",
+            "7 Epilogue",
+            "5 Early Web"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "SELLERS",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "Traditional media did not collapse when digital arrived \u2014 and what collapsed was not TV",
+          "claim": "The substitution timeline contradicts a 'digital arrived (1994), traditional fell' arc: US newspaper ad revenue PEAKED in 2005 (~$49B, a decade after the banner ad), with classifieds peaking in 2000; TV's share of media receipts ROSE through the entire AdWords era to a ~35% peak in 2014, and TV dollars peaked in 2018 ($72.4B); digital passed TV as the largest medium only in 2016. The media Google's search actually gutted were the direct-response ones: directories/Yellow Pages (~9% share in 1991 to <1% by 2018), newspapers (37% in 1980 to 4% in 2018, classifieds first, driven partly by Craigslist and the 2001 recession before Google's auction mattered), and direct mail (lost a third of its 12% share).",
+          "why_it_matters": "Eras 5-7 will tell a false displacement story if 'Google captured advertising' is illustrated with TV-era brand budgets. Search competed for direct-response and local money (classifieds, directories, direct mail); social later competed for brand money. Without this distinction the era 6-7 chapters misattribute newspaper deaths to the auction and miss that TV was untouched for 20 years \u2014 which is also the single most interesting fact the signature chart will show.",
+          "evidence": "Silk & Berndt NBER WP 28161, Figures 4-5 discussion (TV share 28% in 1996, peak ~35% in 2014; newspapers 37%\u21924% 1980-2018; directories ~9% 1991\u2192<1% 2018; direct mail -1/3 of 12%), https://www.nber.org/system/files/working_papers/w28161/w28161.pdf; MediaPost/eMarketer, 'U.S. TV Ad Spending Has Peaked' (2018 peak $72.4B), https://www.mediapost.com/publications/article/343267/; CJR, 'Craigslist = Straw Man' (classifieds peaked 2000; held through 2006), https://www.cjr.org/short_takes/craigslist_straw_man_1.php; MinnPost, 'How Craigslist killed the newspapers' golden goose', http://www.minnpost.com/business/2014/02/how-craigslist-killed-newspapers-golden-goose/; Benedict Evans, 'News by the ton: 75 years of US advertising', https://www.ben-evans.com/benedictevans/2020/6/14/75-years-of-us-advertising.",
+          "recommendation": "Add to scope: a 'who actually lost, and when' analysis in eras 6-7 keyed to the by-medium data, with directories and classifieds as the primary victims and TV's 2014/2018 peaks stated explicitly. Treat Craigslist/classifieds as an EVENTS entry in era 6 independent of Google.",
+          "severity": "major",
+          "affected_eras": [
+            "5 Early Web",
+            "6 The Auction",
+            "7 Epilogue"
+          ],
+          "affected_fields": [
+            "MEDIUM",
+            "SCALE",
+            "EVENTS",
+            "SELLERS"
+          ]
+        },
+        {
+          "title": "The 8-field schema lacks the axis the whole story turns on: national/brand vs local/direct-response",
+          "claim": "Every serious historical series (Coen classified all eleven media national vs local; Magna classifies Direct/National/Local) splits ad spend by national-brand vs local/direct-response \u2014 and Google's capture maps almost entirely onto the local/direct-response half (classifieds, directories, direct mail, co-op). The plan's schema (BUYERS/SELLERS/MEDIUM/SCALE/PRICING/TARGETING) has no field that carries this split, so the mechanism of substitution is inexpressible in the data layer.",
+          "why_it_matters": "Without this axis, era chapters can state totals but cannot explain flows: why newspapers (60%+ local/classified revenue) died while TV (national brand) didn't; why search CPC budgets came from Yellow Pages and direct mail lines, not TV upfronts; why the P3 handoff question (performance ads funding zero-price services) is really about the direct-response pool. It also protects against the classic apples-to-oranges error of comparing search (pure direct response) to 'advertising' writ large.",
+          "evidence": "Silk & Berndt NBER WP 28161, p.7 (MCE's eleven media each classified national vs local) and Magna's Direct/National/Local typology, https://www.nber.org/system/files/working_papers/w28161/w28161.pdf; Benedict Evans, 'News by the ton' (newspaper revenue composition: classified/local retail vs national), https://www.ben-evans.com/benedictevans/2020/6/14/75-years-of-us-advertising.",
+          "recommendation": "Restructure the schema: add a ninth field or a mandated sub-split of BUYERS/SCALE into brand vs direct-response (national vs local as the historical proxy), with a share estimate + CI per era. This is cheap now and impossible to retrofit after chapters are drafted.",
+          "severity": "major",
+          "affected_eras": [
+            "all"
+          ],
+          "affected_fields": [
+            "BUYERS",
+            "SCALE",
+            "PRICING",
+            "TARGETING"
+          ]
+        },
+        {
+          "title": "Era 1 (1840s-1917) cannot meet the stated rigor bar \u2014 there is no annual data before 1919",
+          "claim": "The Coen dataset begins in 1919; pre-1919 aggregates (e.g., 1865-1867 estimates, Printers' Ink-style figures) are decadal guesses that the dataset's own curators flag as questionable, and even Coen's pre-1940 numbers were revised downward ~15% over time. An 80% CI + source-grade + as-of-date SCALE entry for the 1840s-1910s will be false precision, and the 'signature chart 1919-2026' already concedes this by silently excluding 75 years of era 1.",
+          "why_it_matters": "The fixed schema applied uniformly will force fabricated confidence exactly where the record is thinnest, and the adversarial stage will flag it. The mismatch between era 1's start (1840s) and the chart's start (1919) is currently unexplained in the plan and will read as an error.",
+          "evidence": "Galbi, 'US Annual Advertising Spending Since 1919' (series begins 1919; no pre-1919 data), https://www.galbithink.org/ad-spending.htm; Purple Motes (skepticism about 1865-1867 aggregates; pre-1940 revisions ~15%), https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/.",
+          "recommendation": "Add to scope a declared 'degraded rigor mode' for pre-1919: decadal point estimates only, grade C mandatory, order-of-magnitude CIs, and an explicit note in the chart and prose that the annual record starts in 1919. Do not let the schema force annual numbers before then.",
+          "severity": "major",
+          "affected_eras": [
+            "1 Birth of the Machine",
+            "2 Radio"
+          ],
+          "affected_fields": [
+            "SCALE"
+          ]
+        },
+        {
+          "title": "Era names imply spend dominance the data will contradict: radio was never #1, and newspapers out-earned TV deep into the 'TV era'",
+          "claim": "Radio never became the largest US ad medium \u2014 newspapers remained #1 by total dollars throughout 1918-1949 (the oft-repeated '1938: radio overtook print' claim refers to magazines, not all print); and during the 1950-1975 'TV Mass Market' era newspapers still out-earned TV in total dollars (newspapers were 37% of media receipts as late as 1980, vs TV's 28% as late as 1996) \u2014 TV led national brand advertising, not total advertising. Digital likewise didn't pass TV until 2016, well into 'era 7'.",
+          "why_it_matters": "Each era's SCALE field must report the per-medium split; if the chapter titles say 'Radio' and 'TV Mass Market' while the era's own table shows newspapers as the largest line, readers and reviewers will see a contradiction. The mid-century claims ('by 1954/1955 TV was the leading medium') circulating in secondary sources are about national advertising and are routinely misquoted as totals \u2014 a myth the project should pre-empt rather than repeat.",
+          "evidence": "Silk & Berndt NBER WP 28161 (newspapers 37% of media receipts in 1980; TV 28% in 1996; digital supplanted TV only in 2016), https://www.nber.org/system/files/working_papers/w28161/w28161.pdf; Coen dataset via Galbi, https://www.galbithink.org/ad-spending.htm; conflicting secondary claims, e.g. Wikipedia 'History of advertising' ('1938 radio surpassed print') https://en.wikipedia.org/wiki/History_of_advertising vs Smithsonian/ANA-derived '1954 TV leading medium' claims, https://americanhistory.si.edu/explore/exhibitions/american-enterprise/online/advertising-business/madison-avenue.",
+          "recommendation": "Note in the plan: era names denote the era's pricing/attention innovation, not the largest medium \u2014 and require each era's SCALE field to name the actual #1 medium by total dollars (with the national-vs-local caveat). Verify radio's true peak share (~mid-teens, mid-1940s) against the Coen by-medium file during data collection.",
+          "severity": "major",
+          "affected_eras": [
+            "2 Radio",
+            "3 TV Mass Market",
+            "7 Epilogue"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM"
+          ]
+        },
+        {
+          "title": "Myth inventory to pre-clear: the Wanamaker quote and the 'first banner ad' are both shaky",
+          "claim": "Two near-certain chapter anecdotes are compromised: (1) 'Half the money I spend on advertising is wasted...' has no primary-source citation to John Wanamaker \u2014 Quote Investigator's earliest attribution is a 1919 sermon, and the line is also credited to Lord Leverhulme, Wrigley, George Washington Hill, and Ogilvy; (2) there was no single 'first banner ad' \u2014 HotWired launched Oct 27, 1994 with roughly 6-12 ads live from 14 signed advertisers (AT&T among them), GNN sold a clickable web ad to a law firm in 1993, and Prodigy ran screen-bottom ads years earlier; the famous '44% CTR' attaches to the AT&T unit specifically and is self-reported.",
+          "why_it_matters": "These are the two most-quoted 'facts' in ad history and the highest-probability targets for the adversarial-verification stage. Repeating them unhedged would undercut the project's calibrated-claims brand; both are still usable if graded as 'attributed/apocryphal'.",
+          "evidence": "Quote Investigator, 'One-Half the Money I Spend for Advertising Is Wasted...', https://quoteinvestigator.com/2022/04/11/advertising/; Fast Company, 'The Trailblazing... History of the Online Banner Ad' (GNN 1993, Prodigy, no single first), https://www.fastcompany.com/3037484/the-trailblazing-candy-colored-history-of-the-online-banner-ad; Digiday oral history of the first banner ad (14 advertisers, simultaneous launch, 44% figure), https://digiday.com/media/history-of-the-banner-ad/.",
+          "recommendation": "Add an 'attributed/apocryphal' grade to the claims.json schema (distinct from A/B/C evidence grades) and seed a myth-watchlist now: Wanamaker quote, first-banner-ad, '1938 radio overtook print', '1954 TV #1 medium', and any 'first ad agency' (Palmer 1841) superlatives.",
+          "severity": "minor",
+          "affected_eras": [
+            "1 Birth of the Machine",
+            "5 Early Web"
+          ],
+          "affected_fields": [
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "The dot-com crash's causal role in creating the auction era is underweighted at the era 5/6 boundary",
+          "claim": "2001 was the demand shock that made the auction era: total US ad spend fell ~2.7% (~$7B), internet advertising fell 12% for 2001 (Q4 2001 $1.7B, -7.5% YoY) and broadcast TV fell 11.8-13.8% \u2014 collapsing the CPM banner/portal model and forcing Google off its original CPM-priced AdWords (2000) onto auction CPC (Feb 2002), while pay-for-performance search (Overture) kept growing through the crash. Newspaper classifieds also peaked in 2000, before the auction existed.",
+          "why_it_matters": "The plan cuts eras at 2001/2002 correctly but treats the boundary as a product launch (AdWords Select) rather than a macro selection event. The crash is the evidence for the plan's own deeper thesis \u2014 accountable performance pricing survives downturns, impression pricing doesn't \u2014 and it is also the direct precedent for P3's question about ad-funded economics under stress.",
+          "evidence": "IAB, 'Internet Advertising Revenue Totaled $1.7 Billion for Q4 2001' (FY2001 $7.2B, -12%; broadcast TV -11.8 to -13.8%), https://www.iab.com/news/internet-advertising-revenue-totaled-1-7-billion-q4-2001/; Venky Rao, 'US Advertising Revenue Trends and Their Link to Recessions' (2001: -2.7%), https://venkyrao.medium.com/us-advertising-revenue-trends-and-their-link-to-recessions-2000-2024-c28c1cf638fd; CJR (classifieds peak 2000), https://www.cjr.org/short_takes/craigslist_straw_man_1.php.",
+          "recommendation": "Note in scope: era 5's EVENTS must include the 2001 crash as the mechanism-forcing event, and era 6's opening should frame the auction as the survivor of a pricing-model extinction, not merely a better invention. Also flag 2009 (the only down year for digital) as the stress-test replication.",
+          "severity": "minor",
+          "affected_eras": [
+            "5 Early Web",
+            "6 The Auction"
+          ],
+          "affected_fields": [
+            "EVENTS",
+            "PRICING",
+            "SCALE"
+          ]
+        },
+        {
+          "title": "Era 7's 'duopoly' baseline is already stale \u2014 retail media/Amazon breaks it, and 'one global figure' hides the China fork",
+          "claim": "The duopoly framing is out of date for the P3 handoff: Amazon's ad revenue exceeds $60B in 2025 (worldwide ~$81B forecast for 2026), Amazon holds >75% of US retail media, and Alphabet+Meta+Amazon jointly took 53.6% of global ad spend EX-CHINA in 2024 \u2014 note that headline 'global' figures are published both ex-China and including China and differ enormously, so 'one global market-size figure per era' will silently embed that choice. Era 7 also omits the second antitrust outcome: the April 2025 ruling that Google illegally monopolized ad-tech (the programmatic stack), a different finding from the search-defaults case.",
+          "why_it_matters": "P3 asks why ads aren't solving AI economics; the baseline it inherits must show that the newest fast-growing ad model (retail media) is closed-loop first-party-data commerce advertising \u2014 a structural mutation of the auction story, not a continuation of the duopoly. A stale 2015-era 'duopoly' baseline would start P3 from a wrong premise, and an unlabeled global figure will fail verification against whichever China treatment the checker picks.",
+          "evidence": "eMarketer, 'Amazon's retail media ad revenues will pass $60 billion in 2025' and >75% of US retail media, https://www.emarketer.com/content/amazon-retail-media-ad-revenues-will-pass-60-billion-2025 and https://www.emarketer.com/content/faq-on-amazon-advertising--retail-media-dominance--prime-video-scale--agentic-ad-tools; Advanced Television (GroupM-derived: Alphabet+Amazon+Meta 53.6% of global ad spend excluding China, 2024), https://www.advanced-television.com/2025/05/21/forecast-amazon-2025-retail-media-ad-revenue-to-exceed-60bn/.",
+          "recommendation": "Add to scope: era 7 must cover retail media as a distinct pricing/attention mechanism (closed-loop, first-party data, on-site auction) and the 2025 ad-tech monopolization ruling; require every 'global' figure in claims.json to carry an explicit ex-China/incl-China flag.",
+          "severity": "minor",
+          "affected_eras": [
+            "7 Epilogue"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "SELLERS",
+            "PRICING",
+            "EVENTS"
+          ]
+        }
+      ],
+      "feasibility_notes": "The seven-era structure, the auction simulator, and the readability-gated three-layer deliverable are all feasible as scoped. Three feasibility caveats from this lens. (1) The signature chart as specified (\"a century-long ad-spend-by-medium dataset, 1919-2026\") is not buildable as a single continuous series \u2014 Coen ends 2007, Magna backcasts only to 1980 on a different basis, and modern digital figures are net revenue while Coen figures are rate-card billings; it IS buildable as an explicitly spliced, seam-annotated chart, which is arguably a better artifact for a rigor-branded project. Overlap windows (1980-2007) exist for calibration, so the work is tractable. (2) The rigor bar (central estimate + 80% CI + grade + as-of date) is achievable from 1919 forward but not annually before 1919; a declared degraded mode for era 1 preserves the brand without fabrication. (3) The era-6 centerpiece is feasible and strong as mechanism pedagogy (worked numbers, GSP non-truthfulness), but the causal claim wrapped around it must be softened to survive the project's own adversarial stage \u2014 the DOJ record (defaults, TAC, pricing knobs) and the Overture history are public, well-documented, and directly contradict a pure 'better design won' thesis. That is a framing fix, not a research blocker. One bonus: Silk & Berndt note BLS PPI data for digital ad prices only begins in 2010, so any real-price (inflation-adjusted CPM/CPC) analysis before then is unsupported \u2014 keep the chart nominal or GDP-relative.",
+      "sources": [
+        "Silk & Berndt, Aggregate Advertising Expenditure in the U.S. Economy: What's Up? Is It Real?, NBER WP 28161 \u2014 https://www.nber.org/system/files/working_papers/w28161/w28161.pdf",
+        "Galbi, US Annual Advertising Spending Since 1919 (Coen dataset) \u2014 https://www.galbithink.org/ad-spending.htm",
+        "Purple Motes, U.S. advertising expenditure data \u2014 https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/",
+        "Benedict Evans, News by the ton: 75 years of US advertising \u2014 https://www.ben-evans.com/benedictevans/2020/6/14/75-years-of-us-advertising",
+        "Quote Investigator, One-Half the Money I Spend for Advertising Is Wasted \u2014 https://quoteinvestigator.com/2022/04/11/advertising/",
+        "CJR, Craigslist = Straw Man \u2014 https://www.cjr.org/short_takes/craigslist_straw_man_1.php",
+        "MinnPost, How Craigslist killed the newspapers' golden goose \u2014 http://www.minnpost.com/business/2014/02/how-craigslist-killed-newspapers-golden-goose/",
+        "MediaPost/eMarketer, U.S. TV Ad Spending Has Peaked \u2014 https://www.mediapost.com/publications/article/343267/",
+        "Google Inc. Form 10-K FY2004 (Overture settlement) \u2014 https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm",
+        "Slate, Google's big break: How Bill Gross' GoTo.com inspired AdWords \u2014 https://slate.com/business/2013/10/googles-big-break-how-bill-gross-goto-com-inspired-the-adwords-business-model.html",
+        "Search Engine Watch, Overture & Inktomi Out, Google In At AOL (2002) \u2014 https://www.searchenginewatch.com/2002/04/30/overture-inktomi-out-google-in-at-aol/",
+        "The Register, Google's AOL win upsets Inktomi, Overture (2002) \u2014 https://www.theregister.com/2002/05/02/googles_aol_win_upsets_inktomi/",
+        "CNBC, Google might lose its $26 billion search deals (Mehta remedies) \u2014 https://www.cnbc.com/2025/08/27/google-search-antitrust-decision-apple.html",
+        "AppleInsider, Google must stop exclusive contracts but keeps Chrome \u2014 https://appleinsider.com/articles/25/09/02/google-must-stop-exclusive-contracts-with-companies-like-apple-but-keeps-chrome",
+        "Search Engine Land, How Google harms search advertisers in 20 slides (DOJ pricing-knob evidence) \u2014 https://searchengineland.com/doj-google-search-ad-price-manipulation-440207",
+        "IAB, Internet Advertising Revenue Totaled $1.7 Billion for Q4 2001 \u2014 https://www.iab.com/news/internet-advertising-revenue-totaled-1-7-billion-q4-2001/",
+        "Venky Rao, US Advertising Revenue Trends and Their Link to Recessions 2000-2024 \u2014 https://venkyrao.medium.com/us-advertising-revenue-trends-and-their-link-to-recessions-2000-2024-c28c1cf638fd",
+        "Fast Company, The Trailblazing, Candy-Colored History Of The Online Banner Ad \u2014 https://www.fastcompany.com/3037484/the-trailblazing-candy-colored-history-of-the-online-banner-ad",
+        "Digiday, An oral history of the first banner ad \u2014 https://digiday.com/media/history-of-the-banner-ad/",
+        "eMarketer, Amazon's retail media ad revenues will pass $60 billion in 2025 \u2014 https://www.emarketer.com/content/amazon-retail-media-ad-revenues-will-pass-60-billion-2025",
+        "eMarketer, FAQ on Amazon advertising \u2014 https://www.emarketer.com/content/faq-on-amazon-advertising--retail-media-dominance--prime-video-scale--agentic-ad-tools",
+        "Advanced Television, Amazon 2025 retail media ad revenue to exceed $60bn (GroupM ex-China concentration) \u2014 https://www.advanced-television.com/2025/05/21/forecast-amazon-2025-retail-media-ad-revenue-to-exceed-60bn/",
+        "Wikipedia, History of advertising (1938 radio-vs-print claim, flagged as contested) \u2014 https://en.wikipedia.org/wiki/History_of_advertising",
+        "Smithsonian NMAH, Madison Avenue 1940s-1960s (1950s TV-dominance claims, national-only caveat) \u2014 https://americanhistory.si.edu/explore/exhibitions/american-enterprise/online/advertising-business/madison-avenue"
+      ]
+    },
+    {
+      "lens": "P3 handoff auditor \u2014 working backward from \"ads monetized zero-price search; why isn't advertising solving AI inference economics?\" to what the 2008-2026 epilogue must capture",
+      "gaps": [
+        {
+          "title": "The auction the centerpiece celebrates died inside the epilogue window, and the plan never records its death",
+          "claim": "The quality-weighted second-price design that era 6 proves superior with worked numbers was abandoned or materially modified by Google itself during 2015-2019: Google Ad Manager moved all display/video inventory to a unified FIRST-price auction in 2019 (forced by header bidding), and the search auction was modified into RGSP (Randomized Generalized Second-Price) plus pricing knobs ('squashing', format pricing, launches Google internally described as raising prices ~10%+), as revealed in the DOJ search trial. The locked era-7 list (programmatic, duopoly, mobile, retail media) contains none of this, so the book's central mechanism story ends in 2008 as if GSP still runs the market.",
+          "why_it_matters": "P3 inherits 'the auction design that monetized zero-price search' as its baseline mechanism. If P2 hands over GSP as the living mechanism, P3 reasons from a dead one: the 2026 market runs on first-price RTB on the open web and a revenue-tuned RGSP in search. It also completes the truthfulness nuance the plan already flags \u2014 GSP wasn't truthful, and under monopoly conditions Google tuned it as a pricing knob rather than a welfare mechanism. That is the single most important epilogue fact for P3's question about whether auction design or market power made search ads so profitable per query. The plan's own era-cutting rule ('cut where the pricing mechanism changed') implies 2019 is a mechanism boundary the current 7-era structure silently swallows.",
+          "evidence": "Google's own announcement of the unified first-price move: 'An update on first price auctions for Google Ad Manager' (blog.google, https://blog.google/products/admanager/update-first-price-auctions-google-ad-manager/); AdExchanger on header bidding forcing the shift (https://www.adexchanger.com/the-sell-sider/googles-move-to-first-price-auctions-will-likely-put-a-dent-in-header-bidding/); Search Engine Land, 'What is RGSP? Google's Randomized Generalized Second-Price ad auctions explained' (https://searchengineland.com/google-rgsp-randomized-generalized-second-price-ad-auctions-explained-433053) and 'How Google harms search advertisers in 20 slides' \u2014 DOJ trial exhibits on squashing, format pricing, and RGSP as a 'pricing knob' worth ~10% revenue (https://searchengineland.com/doj-google-search-ad-price-manipulation-440207); Big Tech on Trial, 'A look inside Google's advertising auctions' (https://www.bigtechontrial.com/p/a-look-inside-googles-advertising)",
+          "recommendation": "Add to scope: era 7 PRICING must carry a three-beat sequence \u2014 header bidding (~2014-15) breaks the waterfall, unified first-price (2019) ends second-price on the open web, RGSP + pricing knobs (2017-2019, exposed 2023-24) end it in search. Era 6's centerpiece should end with a signpost ('this design wins \u2014 and watch what happens to it'). Consider one extra panel in the auction simulator: first-price with bid shading vs GSP, since the simulator otherwise teaches a mechanism the market no longer uses.",
+          "severity": "blocking",
+          "affected_eras": [
+            "6 (2002-2008 The Auction)",
+            "7 (2008-2026 Epilogue)"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "EVENTS",
+            "auction simulator deliverable",
+            "claims.json"
+          ]
+        },
+        {
+          "title": "The per-query unit economics P3's whole question rests on is not in the 8-field schema",
+          "claim": "P3's question is a per-unit comparison \u2014 ad revenue per query vs inference cost per query \u2014 but the schema's SCALE field only captures aggregates (total spend, % GDP, per-medium split). No field forces era 7 (or eras 5-6) to compute revenue-per-query, cost-per-serve, or gross margin per attention unit, so the epilogue as scoped hands P3 aggregates it cannot use and P3 must rebuild the unit economics from scratch.",
+          "why_it_matters": "The reason ads 'solved' zero-price search is precisely that a search query cost ~0.2-1.1 cents to serve and returned ~1.6 cents to $0.05+ in ad revenue (estimates vary widely \u2014 which is itself why P2 should do this with its CI discipline). The reason ads may not solve AI inference is that an LLM answer initially cost multiples of that to serve, and SemiAnalysis-style analyses of 'the inference cost of search disruption' are exactly the calculation P3 needs, with 2023-2026 cost-decline curves (Pichai claims dramatic per-query cost declines in ~18 months). If P2's epilogue computes this once, calibrated and dated, P3 has its baseline; if not, P3's opening chapter is a research project P2 was better positioned to do.",
+          "evidence": "SemiAnalysis, 'The Inference Cost of Search Disruption \u2014 Large Language Model Cost Analysis' (https://newsletter.semianalysis.com/p/the-inference-cost-of-search-disruption) \u2014 models LLM cost per query vs Google's ~1.06 cent cost / ~1.61 cent revenue per query; Kevin Kelly, 'How much does one search cost?' (https://kk.org/thetechnium/how-much-does-o/) \u2014 infrastructure-only ~0.3 cents per search; MediaPost, 'Google's Pichai Explains Cost Of Serving AI Search Queries' (https://www.mediapost.com/publications/article/405924/googles-pichai-explains-cost-of-serving-ai-search.html) \u2014 per-query AI cost fell dramatically over ~18 months; revenue-per-search estimates ranging $0.08-0.50 depending on method and mix (Quora/analyst syntheses, e.g. https://www.quora.com/How-much-money-does-Google-Search-make-per-search) \u2014 the spread itself justifies the plan's 80% CI treatment",
+          "recommendation": "Restructure slightly: add a ninth sub-line to SCALE (or a one-row 'UNIT ECONOMICS' extension used for eras 5-7 only): revenue per unit of attention (per query / per impression / per user-hour), cost to serve, and margin, each with CI + source grade + as-of date. For era 7, compute the search-ads trio (revenue/query, cost/query, margin) AND the 2023-2026 LLM inference cost-per-query series. This is the single highest-leverage handoff artifact for P3.",
+          "severity": "blocking",
+          "affected_eras": [
+            "5 (1994-2001)",
+            "6 (2002-2008)",
+            "7 (2008-2026)"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "PRICING",
+            "claims.json"
+          ]
+        },
+        {
+          "title": "P3's premise has already been overtaken by 2025-2026 events the epilogue's locked list would drop entirely",
+          "claim": "The locked era-7 list ends at retail media and contains no AI-x-advertising events, but by mid-2026 the P3 question ('why isn't advertising solving AI inference economics?') is being answered live: OpenAI began testing ads in ChatGPT on Jan 16, 2026 and rolled out broadly Feb 9, 2026 (Free and Go tiers, ad-free paid tiers); Meta began using Meta AI conversations to target ads across its apps on Dec 16, 2025; Perplexity launched ads (Nov 2024) then abandoned them by Feb 2026 for subscriptions after ads produced <0.1% of revenue; Google's AI Overviews (from May 2024) measurably cannibalize the click economics that funded the old model (Pew: 8% vs 15% CTR when an AI summary appears; only 1% of AI Overviews produce a click to a cited source; zero-click searches 56%\u219269% May 2024-May 2025).",
+          "why_it_matters": "Without these events, P2 hands P3 a false premise: 'advertising is not (yet?) solving AI economics' reads as an open question when the record shows three divergent live experiments \u2014 OpenAI adopting the Netflix-style ad-tier hybrid, Meta fusing chatbot data into its existing ad machine, and Perplexity retreating to subscriptions because ad revenue per query could not compete. Perplexity is a natural experiment directly on P3's question and would be invisible in the current scope. The AI Overviews CTR data is equally load-bearing: it shows the incumbent's own AI is eroding the per-query economics P3 will treat as the baseline. P3 will have to restate its question as 'why did it take 3+ years, and does ad revenue per AI query cover inference cost?' \u2014 P2 must supply the dated state-of-play that makes that restatement possible.",
+          "evidence": "OpenAI, 'Testing ads in ChatGPT' (https://openai.com/index/testing-ads-in-chatgpt/); ad-rollout coverage incl. Feb 2026 broad rollout (https://www.monks.com/articles/answer-engine-battles-navigating-chatgpt-ad-rollout, https://adventuremedia.ai/blog/chatgpt-ads-launch-2026-everything-us-businesses-need-to-know); Meta AI conversation-based ad targeting from Dec 16, 2025 (https://proton.me/blog/meta-ai-ads, https://www.dataslayer.ai/blog/meta-will-use-ai-conversations-to-personalize-ads); Perplexity's ad retreat \u2014 paused new advertisers Oct 2025, subscription-only by Feb 2026, ads <0.1% of revenue (https://www.moonsauceagency.com/blog/can-you-advertise-on-perplexity/, https://www.blog.udonis.co/advertising/perplexity-advertising); Pew Research Center, 'Do people click on links in Google AI summaries?' (https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/); Search Engine Land on the Pew study and Google's methodological dispute (https://searchengineland.com/google-ai-overviews-hurting-clicks-study-459434)",
+          "recommendation": "Add to scope: a final 2023-2026 beat in era 7's EVENTS (AI Overviews May 2024; Perplexity ads Nov 2024\u2192retreat Feb 2026; Meta AI ad targeting Dec 2025; ChatGPT ads Jan-Feb 2026) plus an explicit dated 'state of play as of [freeze date]' handoff paragraph. Because this space moves monthly, give era 7 a declared data-freeze date so claims.json entries don't silently go stale before P3 starts.",
+          "severity": "blocking",
+          "affected_eras": [
+            "7 (2008-2026 Epilogue)"
+          ],
+          "affected_fields": [
+            "EVENTS",
+            "SELLERS",
+            "TARGETING",
+            "claims.json"
+          ]
+        },
+        {
+          "title": "Privacy shocks (ATT, GDPR, the cookie saga) are absent from the locked era-7 list",
+          "claim": "The locked epilogue list has no privacy events, yet ATT (April 2021) alone cost Meta a self-reported ~$10B in 2022 revenue (third-party estimates $12.8B; ~75% opt-out rates), GDPR (2018) restructured European ad tech, and Google's third-party-cookie deprecation was announced (2020), delayed repeatedly, and finally cancelled (2024-25) \u2014 collectively the largest exogenous shock to targeting economics since the era began.",
+          "why_it_matters": "For P3, privacy shocks explain WHERE ad money can go in the AI era: they broke third-party identity, which is why spend concentrated into logged-in first-party walled gardens and retail media. Any AI player hoping to fund inference with ads needs an identity/intent asset that survives the post-ATT regime \u2014 this is why Meta can fuse chatbot conversations into targeting and a standalone answer engine struggles. It also changed what TARGETING means (probabilistic modeling, on-platform signals, contextual resurgence \u2014 note OpenAI's ads are contextual, not behavioral). Omitting it leaves P3 unable to explain the 2026 concentration structure it inherits.",
+          "evidence": "CNBC, 'Facebook says Apple iOS privacy change will result in $10 billion revenue hit this year' (https://www.cnbc.com/2022/02/02/facebook-says-apple-ios-privacy-change-will-cost-10-billion-this-year.html); Lotame $12.8B estimate and ~65-75% opt-out rates (https://www.cdpinstitute.org/news/apple-att-will-cost-meta-12-8-billion-in-revenue-in-2022-lotame-study/); Apple's own white paper on ATT and mobile advertising (https://www.apple.com/privacy/docs/Mobile_Advertising_and_the_Impact_of_Apples_App_Tracking_Transparency_Policy_April_2022.pdf)",
+          "recommendation": "Add to scope: a privacy-shock beat in era 7 (GDPR 2018, ATT 2021 with the $10B number, cookie-deprecation cancellation 2024-25) wired into the TARGETING field as the era's precision-REVERSAL \u2014 the only era in the whole arc where targeting precision went backward, which is a story point the schema's 'precision' axis should surface.",
+          "severity": "major",
+          "affected_eras": [
+            "7 (2008-2026 Epilogue)"
+          ],
+          "affected_fields": [
+            "TARGETING",
+            "EVENTS",
+            "BUYERS"
+          ]
+        },
+        {
+          "title": "The antitrust endgame (2024-2026) is missing, and its remedies explicitly govern the AI era P3 studies",
+          "claim": "The plan's epilogue has no antitrust beat, but within the era window Google was ruled an illegal monopolist twice \u2014 general search and search text ads (Judge Mehta, Aug 2024; remedies Sept 2025, final judgment Dec 2025) and open-web ad tech (Judge Brinkema, Apr 17, 2025; remedies pending into 2026, possible ad-server divestiture) \u2014 and Mehta's remedies explicitly extend default-contract prohibitions and data-sharing duties to generative-AI products.",
+          "why_it_matters": "Two reasons P3 cannot skip this. First, the trials are the best A-grade evidence source the project has for era 6-7 mechanics \u2014 RGSP, pricing knobs, and take rates entered the public record through them. Second, the remedies are a boundary condition on P3's answer space: whether AI assistants can replicate the default-distribution playbook that made search ads a monopoly-scale business is now partly a matter of court order, and the search-ads pricing P3 treats as 'what a query is worth' was judicially found to be monopoly-inflated, not a competitive benchmark.",
+          "evidence": "CNBC, 'Judge finalizes remedies in Google antitrust case' (Dec 5, 2025) (https://www.cnbc.com/2025/12/05/judge-finalize-remedies-in-google-antitrust-case.html); TechPolicy.Press on search remedies and their extension to GenAI (https://www.techpolicy.press/search-remedies-in-google-antitrust-case-can-work-even-if-company-stays-on-top/) and on the ad tech remedies phase (https://www.techpolicy.press/doj-vs-google-back-to-court-for-remedies-to-break-digital-ads-monopoly/); CRS summary of the remedies decision (https://www.congress.gov/crs_external_products/LSB/HTML/LSB11362.html); Digiday on the Brinkema ad tech trial closing stages (https://digiday.com/media-buying/everything-you-need-to-know-about-the-closing-stages-of-googles-ad-tech-antitrust-trial/)",
+          "recommendation": "Add to scope: 3-4 EVENTS entries (Aug 2024 liability, Apr 2025 ad tech liability, Sept-Dec 2025 remedies incl. the GenAI extension, Brinkema remedies status at freeze date), and mine the trial record as an A-grade source for era 6-7 PRICING numbers \u2014 it upgrades source grades the plan would otherwise fill with C-grade triangulation.",
+          "severity": "major",
+          "affected_eras": [
+            "6 (2002-2008)",
+            "7 (2008-2026 Epilogue)"
+          ],
+          "affected_fields": [
+            "EVENTS",
+            "PRICING",
+            "SELLERS",
+            "claims.json source grades"
+          ]
+        },
+        {
+          "title": "'Duopoly' is the wrong 2026 endpoint \u2014 the epilogue's own headline concept is stale",
+          "claim": "The locked plan names 'duopoly' as an era-7 pillar, but Google+Meta fell below 50% of US digital ad spend in 2022 and trend toward ~43%; the operative 2025-26 structure is a triopoly (Google+Meta+Amazon \u2248 72% of US digital), with Amazon (~$60B+ retail media revenue in 2025, >half of global retail media) closing on Meta, and TikTok/Microsoft/Walmart/Apple taking the rest; US retail media passed $62B in 2025 (global ~$140-184B depending on definition).",
+          "why_it_matters": "P3's baseline question 'who has the ad demand, identity, and distribution to fund AI' gets a different answer under triopoly-plus-retail-media than under duopoly: the fastest-growing ad pool is commerce-intent inventory owned by retailers \u2014 the closest structural descendant of search's intent-based economics, and the pool AI shopping agents would either feed or bypass. Handing P3 'duopoly' hands it a 2017 map. Concentration numbers are also exactly the kind of headline claim the readability-gated prose will repeat, so getting the frame right matters more than usual.",
+          "evidence": "eMarketer, 'As the duopoly stagnates, Amazon is hot on Meta's tail' (https://www.emarketer.com/content/duopoly-stagnates-amazon-hot-on-meta-s-tail); Marketing Charts, 'The US Digital Ad Market Is Looking More Like A Triopoly Than Duopoly' (https://www.marketingcharts.com/advertising-trends/spending-and-spenders-233301); PPC Land on triopoly share (~72%) (https://ppc.land/digital-advertising-triopoly-gains-overall-market-share-while-facing-competition/); eMarketer, 'Amazon's retail media ad revenues will pass $60 billion in 2025' (https://www.emarketer.com/content/amazon-retail-media-ad-revenues-will-pass-60-billion-2025) and '$10 billion in incremental ad spending will flow into US retail media in 2025' (https://www.emarketer.com/content/10-billion-incremental-ad-spending-will-flow-us-retail-media-2025)",
+          "recommendation": "Restructure the era-7 framing: rename the pillar 'concentration' with a dated arc (duopoly peak ~2017 \u2192 sub-50% 2022 \u2192 triopoly ~72% 2025), and put the SELLERS field's 2026 snapshot in triopoly-plus-retail-media terms with shares + CIs. Note retail media explicitly as the intent-economics successor P3 will need.",
+          "severity": "major",
+          "affected_eras": [
+            "7 (2008-2026 Epilogue)"
+          ],
+          "affected_fields": [
+            "SELLERS",
+            "SCALE",
+            "MEDIUM"
+          ]
+        },
+        {
+          "title": "The buyer side became algorithmic \u2014 by 2026 advertising is already AI-run, which reframes P3's question",
+          "claim": "The epilogue's 'programmatic' pillar as scoped covers the sell-side plumbing but not the 2021-2026 demand-side shift: ~92% of US digital display now transacts programmatically (RTB ~62% of programmatic transactions), and black-box AI buying products (Google Performance Max, Meta Advantage+) absorbed a large share of budgets while independent incrementality testing (Haus) found 58% of brands got higher incremental ROI from manual campaigns and ~12pp over-reporting by the automated products \u2014 i.e., the machines that buy ads also grade their own homework.",
+          "why_it_matters": "For P3 this collapses a false framing: the question is not 'will AI meet advertising' \u2014 advertising already IS an AI-vs-AI market where platform agents buy inventory from platform auctions using platform attribution. What made search ads profitable per query (human-legible intent, transparent-ish pricing) has been replaced by opaque optimization whose measured returns are contested. P3 needs this baseline to evaluate whether ad-funded AI would be an extension of this regime or a break from it, and the CREATORS field changes too (generative creative produced by the platforms themselves).",
+          "evidence": "eMarketer, 'FAQ on AI media buying' (https://www.emarketer.com/content/faq-on-ai-media-buying--platform-tools--agency-strategy--how-win-2026) \u2014 incl. Haus incrementality findings (58% of brands, ~12pp over-reporting); eMarketer, 'FAQ on programmatic advertising' (https://www.emarketer.com/content/faq-on-programmatic-advertising--keeping-up-with-automated-ad-buying) \u2014 programmatic >$180B, ~92% of US digital display; RTB ~62% of programmatic transactions (https://sqmagazine.co.uk/programmatic-advertising-statistics/)",
+          "recommendation": "Add to scope: one beat in era 7 covering demand-side automation (PMax 2021, Advantage+ 2022, share-of-spend estimates, the measurement-conflict problem), touching CREATORS (generative creative), BUYERS (agencies disintermediated by platform AI), and PRICING (bid automation ends human-set bids).",
+          "severity": "major",
+          "affected_eras": [
+            "7 (2008-2026 Epilogue)"
+          ],
+          "affected_fields": [
+            "BUYERS",
+            "CREATORS",
+            "PRICING",
+            "TARGETING"
+          ]
+        },
+        {
+          "title": "The century-long ad/GDP constant broke after 2019, and the $1T-in-2025 headline is definitionally contested \u2014 both hit the signature chart's final segment",
+          "claim": "Two data problems sit at the chart's right edge: (a) US ad spend tracked ~1.4-2% of GDP for a century but has grown faster than GDP every year since 2019 (when digital passed half of spend), breaking the constant the long series implies; (b) the epilogue's headline scale number disagrees across A/B sources \u2014 GroupM put global 2025 ad revenue at ~$1.08-1.1T (crossing $1T in 2025) while Magna put it at $979B (crossing in 2026) \u2014 a ~$100B definitional gap (media-owner revenue vs advertiser spend, what counts as 'advertising' once retail media and commerce fees blur in).",
+          "why_it_matters": "P3's feasibility math depends on headroom: if advertising is a fixed ~2% of GDP, ad-funding AI inference means cannibalizing existing media; if the post-2019 break is real (ads absorbing commerce/trade-promotion budgets), there is new money. The epilogue must state which it is, with the definitional caveat \u2014 otherwise the signature chart's final years will silently mix incompatible series, and the 80% CI discipline will produce false precision. Bonus: the NBER paper and the galbithink 1919-2007 series are also the exact backbone sources the 1919-2026 dataset needs, so this is a two-for-one scoping note.",
+          "evidence": "NBER Working Paper 28161, 'Aggregate Advertising Expenditure in the US Economy' (https://www.nber.org/system/files/working_papers/w28161/w28161.pdf) \u2014 documents the ad/GDP ratio and its late-1990s shift ~1.4\u21921.9; galbithink, 'US Annual Advertising Spending Since 1919' (https://www.galbithink.org/ad-spending.htm) \u2014 the classic Coen-derived long series; eMarketer, 'Digital makes up over three-quarters of total ad spend in the US' (https://www.emarketer.com/content/digital-makes-up-over-three-quarters-total-ad-spend-us); Hollywood Reporter on GroupM's $1.1T 2025 forecast (https://www.hollywoodreporter.com/business/business-news/2024-global-advertising-forecast-groupm-trillion-2025-1235917863/); Marketing Dive on Magna's $979B 2025 / $1T-in-2026 forecast (https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/)",
+          "recommendation": "Collect data: extend the % of GDP series through 2026 and flag the post-2019 break as a named claim; for the era-7 global figure, present GroupM vs Magna as the CI bounds and state the definitional difference in the source-grade note rather than picking one silently.",
+          "severity": "major",
+          "affected_eras": [
+            "7 (2008-2026 Epilogue)",
+            "signature chart (1919-2026)"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "signature chart dataset",
+            "claims.json"
+          ]
+        },
+        {
+          "title": "The subscription-vs-ads hybrid (CTV ad tiers) is the era's business-model template for AI monetization, and it's not in the locked list",
+          "claim": "The locked era-7 list omits CTV and the 2022-2024 streaming ad-tier wave (Netflix Nov 2022, Disney+ Dec 2022, Amazon Prime Video defaulting members into ads Jan 2024), which is the structural template every AI monetizer copied: free/cheap tier with ads, premium tier without \u2014 exactly OpenAI's Free/Go-with-ads vs Plus/Pro ad-free structure, and the model Perplexity tested and rejected.",
+          "why_it_matters": "P3's question implicitly assumes 'ad-funded' and 'subscription' are alternatives; the 2020s record the epilogue should transmit is that the dominant model became the hybrid, and the choice variable is where the ad-free line is priced relative to per-user serving cost. TV's pricing arc (upfronts \u2192 programmatic CTV auctions) also closes a loop the book opens in era 3, which the compressed epilogue should at least gesture at.",
+          "evidence": "eMarketer retail-media/CTV convergence and 2026 budget FAQ coverage (https://www.emarketer.com/content/faq-on-retail-media-networks-how-marketers-should-allocate-budgets-2026); the OpenAI tier structure showing the same hybrid (https://openai.com/index/testing-ads-in-chatgpt/); Perplexity's rejection of the ad side of the hybrid (https://www.moonsauceagency.com/blog/can-you-advertise-on-perplexity/). (CTV ad-tier launch dates are well-documented common record; a scoping-level cite pass should pull Netflix/Amazon launch coverage directly.)",
+          "recommendation": "Note only (plus one EVENTS entry): a two-sentence beat naming the ad-tier wave as the era's model innovation and explicitly tagging it as the template AI firms adopted \u2014 cheap to add, high value to P3.",
+          "severity": "minor",
+          "affected_eras": [
+            "3 (1950-1975 callback)",
+            "7 (2008-2026 Epilogue)"
+          ],
+          "affected_fields": [
+            "MEDIUM",
+            "PRICING",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "The signature chart's medium taxonomy breaks after ~2008 and the plan doesn't say how it will cut digital",
+          "claim": "A 1919-2026 spend-by-medium series needs a post-2008 taxonomy decision the plan doesn't specify: 'digital' as one bucket makes the last 20 years \u2014 the part P3 uses \u2014 unreadable, while sub-splitting (search / social / retail media / CTV / open-web display) requires stitching sources with incompatible definitions (retail media double-counts with 'search' in some series; eMarketer, IAB/PwC, GroupM, and Magna cut the pie differently).",
+          "why_it_matters": "P3 needs the digital sub-splits, not the digital total: its baseline is specifically search's share and retail media's rise. If the dataset ships with one 'digital/internet' column, P3 re-does the last two decades of the chart. Declaring the taxonomy now also protects the CI discipline \u2014 mixed-definition series produce spurious jumps that look like history.",
+          "evidence": "galbithink long series shows the pre-digital taxonomy that must be extended (https://www.galbithink.org/ad-spending.htm); eMarketer's differing retail-media definitions across its own forecasts (https://www.emarketer.com/content/worldwide-retail-media-ad-spending-forecast-2024 vs https://www.emarketer.com/content/retail-media-ad-spending-forecast-trends-h2-2025); GroupM vs Magna scope differences (https://www.aaaa.org/research-report/groupm-global-ad-spend-forecast/, https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/)",
+          "recommendation": "Add to scope: a one-page dataset spec fixing the medium taxonomy (with digital sub-splits from 1994 or 2008 onward), the primary source per segment, and a stated rule for the retail-media/search overlap.",
+          "severity": "minor",
+          "affected_eras": [
+            "signature chart (1919-2026)",
+            "7 (2008-2026 Epilogue)"
+          ],
+          "affected_fields": [
+            "MEDIUM",
+            "SCALE",
+            "signature chart dataset"
+          ]
+        }
+      ],
+      "feasibility_notes": "The handoff is feasible without un-compressing era 7 into multiple chapters, but not with the locked four-pillar list (programmatic, duopoly, mobile, retail media) \u2014 that list is essentially a 2008-2019 story, and everything P3 needs happened 2019-2026 (first-price/RGSP, ATT, antitrust rulings, AI Overviews, ads-in-chatbots). Two cheap structural fixes cover it: (1) a fixed 'P3 handoff table' appendix to era 7 \u2014 a dated state-of-play snapshot with market size, concentration shares, per-query unit economics (search revenue/cost per query vs LLM inference cost per query), current auction regime, privacy/antitrust constraints, and AI-ads status as of a declared freeze date; (2) one added UNIT ECONOMICS line in the schema for eras 5-7. Two risks worth naming: the plan's own era-cutting rule ('cut where the pricing mechanism changed') is violated inside era 7 \u2014 2019 (unified first-price + RGSP) is a genuine mechanism boundary, so either accept the inconsistency explicitly or mark 2019 as a sub-cut; and the 2025-2026 AI-ads material moves monthly, so era 7 needs a declared data-freeze date or its claims.json entries will be stale before P3 begins. Data availability is good throughout: the DOJ trial records upgrade era 6-7 pricing claims to A-grade, and eMarketer/GroupM/Magna/NBER/galbithink cover the quantitative fields. P3's framing itself needs one flag in the handoff: as of Feb 2026 ads ARE in ChatGPT and Meta AI, and Perplexity tried and abandoned them \u2014 so P3's question should be handed over restated as 'under what per-query economics does ad funding work for AI, and for whom,' not 'why isn't it happening.'",
+      "sources": [
+        "https://blog.google/products/admanager/update-first-price-auctions-google-ad-manager/",
+        "https://www.adexchanger.com/the-sell-sider/googles-move-to-first-price-auctions-will-likely-put-a-dent-in-header-bidding/",
+        "https://searchengineland.com/google-rgsp-randomized-generalized-second-price-ad-auctions-explained-433053",
+        "https://searchengineland.com/doj-google-search-ad-price-manipulation-440207",
+        "https://www.bigtechontrial.com/p/a-look-inside-googles-advertising",
+        "https://newsletter.semianalysis.com/p/the-inference-cost-of-search-disruption",
+        "https://kk.org/thetechnium/how-much-does-o/",
+        "https://www.mediapost.com/publications/article/405924/googles-pichai-explains-cost-of-serving-ai-search.html",
+        "https://openai.com/index/testing-ads-in-chatgpt/",
+        "https://www.monks.com/articles/answer-engine-battles-navigating-chatgpt-ad-rollout",
+        "https://adventuremedia.ai/blog/chatgpt-ads-launch-2026-everything-us-businesses-need-to-know",
+        "https://proton.me/blog/meta-ai-ads",
+        "https://www.dataslayer.ai/blog/meta-will-use-ai-conversations-to-personalize-ads",
+        "https://www.moonsauceagency.com/blog/can-you-advertise-on-perplexity/",
+        "https://www.blog.udonis.co/advertising/perplexity-advertising",
+        "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/",
+        "https://searchengineland.com/google-ai-overviews-hurting-clicks-study-459434",
+        "https://www.cnbc.com/2022/02/02/facebook-says-apple-ios-privacy-change-will-cost-10-billion-this-year.html",
+        "https://www.cdpinstitute.org/news/apple-att-will-cost-meta-12-8-billion-in-revenue-in-2022-lotame-study/",
+        "https://www.apple.com/privacy/docs/Mobile_Advertising_and_the_Impact_of_Apples_App_Tracking_Transparency_Policy_April_2022.pdf",
+        "https://www.cnbc.com/2025/12/05/judge-finalize-remedies-in-google-antitrust-case.html",
+        "https://www.techpolicy.press/search-remedies-in-google-antitrust-case-can-work-even-if-company-stays-on-top/",
+        "https://www.techpolicy.press/doj-vs-google-back-to-court-for-remedies-to-break-digital-ads-monopoly/",
+        "https://www.congress.gov/crs_external_products/LSB/HTML/LSB11362.html",
+        "https://digiday.com/media-buying/everything-you-need-to-know-about-the-closing-stages-of-googles-ad-tech-antitrust-trial/",
+        "https://www.emarketer.com/content/duopoly-stagnates-amazon-hot-on-meta-s-tail",
+        "https://www.marketingcharts.com/advertising-trends/spending-and-spenders-233301",
+        "https://ppc.land/digital-advertising-triopoly-gains-overall-market-share-while-facing-competition/",
+        "https://www.emarketer.com/content/amazon-retail-media-ad-revenues-will-pass-60-billion-2025",
+        "https://www.emarketer.com/content/10-billion-incremental-ad-spending-will-flow-us-retail-media-2025",
+        "https://www.emarketer.com/content/faq-on-ai-media-buying--platform-tools--agency-strategy--how-win-2026",
+        "https://www.emarketer.com/content/faq-on-programmatic-advertising--keeping-up-with-automated-ad-buying",
+        "https://sqmagazine.co.uk/programmatic-advertising-statistics/",
+        "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf",
+        "https://www.galbithink.org/ad-spending.htm",
+        "https://www.emarketer.com/content/digital-makes-up-over-three-quarters-total-ad-spend-us",
+        "https://www.hollywoodreporter.com/business/business-news/2024-global-advertising-forecast-groupm-trillion-2025-1235917863/",
+        "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/",
+        "https://www.aaaa.org/research-report/groupm-global-ad-spend-forecast/",
+        "https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/",
+        "https://www.emarketer.com/content/faq-on-retail-media-networks-how-marketers-should-allocate-budgets-2026"
+      ]
+    },
+    {
+      "lens": "Measurement and institutions historian \u2014 the infrastructure of audience counting (auditing, ratings, verification), the research industry and its conflicts, and the regulatory/self-regulatory layer, as determinants of who could set advertising prices in each era",
+      "gaps": [
+        {
+          "title": "MEASUREMENT is missing as a schema field, and it is the causal parent of both TARGETING and PRICING",
+          "claim": "The 8-field schema cannot answer the project's own question \u2014 'who set the price and why' \u2014 because every pricing regime in the plan's seven eras was created by a measurement regime, and the schema has no field for who counted the audience, how, and who paid the counter. Rate cards became enforceable only after the Audit Bureau of Circulations (1914) audited circulation; radio sponsorship was priced off Crossley/CAB then Hooper ratings; the upfront and the 30-second spot are priced off Nielsen; CPM presumes a counted M; the CPC auction presumes Google's own click logs. Targeting is downstream of measurement: PRIZM-style geodemographics (Claritas, mid-1970s) that enable Era 4's database marketing are census data plus ZIP codes, i.e., counting infrastructure.",
+          "why_it_matters": "Without a measurement field the chapters will describe prices without the machinery that made those prices credible, and the Google chapter will misattribute to auction design what is partly a measurement-monopoly story. This is the difference between a story about ad formats and a story about market institutions \u2014 which is what the plan says it wants.",
+          "evidence": "ABC founded 1914 by advertisers/agencies/publishers explicitly to combat false circulation claims that underpinned rate cards (History of Information, https://historyofinformation.com/detail.php?entryid=682; AAM, https://auditedmedia.com/about/who-we-are; JMU Circulating American Magazines, https://sites.lib.jmu.edu/circulating/about-this-project/about-the-abc-data/). Crossley/CAB 1930 advertiser-funded phone recall ratings, displaced by Hooper's coincidental method, then Nielsen's Audimeter (NYU radio ratings guide, https://guides.nyu.edu/radio/ratings; Jim Ramsburg, 'Radio's Rulers: Crossley, Hooper & Nielsen', http://www.jimramsburg.com/radiosrulerscrossleyhooperandnielsen.html; Beville, 'Audience Ratings', https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf). Claritas/PRIZM built from digitized census + ZIP geography ('When the New Magic was New', IEEE Annals, https://ieeexplore.ieee.org/document/9927132/).",
+          "recommendation": "Restructure: add a ninth schema field \u2014 MEASUREMENT (counting technology, counting institution, who paid it, known bias/crisis) \u2014 or rename TARGETING to 'MEASUREMENT & TARGETING' with measurement first. Cheap to fill: this literature is unusually well documented (Beville's book and worldradiohistory.com archives cover 1930-1988 nearly turnkey).",
+          "severity": "blocking",
+          "affected_eras": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "affected_fields": [
+            "TARGETING",
+            "PRICING",
+            "SELLERS",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "The signature 1919-2026 dataset has a hidden source seam at 2007 and no annual data before 1919",
+          "claim": "There is no single continuous ad-spend-by-medium series covering 1919-2026. The only consistent series is Robert Coen's McCann-Erickson compilation, which runs 1919-2007 and stopped when Coen retired; everything after 2007 must be spliced from IAB/PwC, GroupM, Magna, or eMarketer, which define 'advertising' differently (treatment of direct mail, directories/Yellow Pages, classifieds, and now retail media varies). Before 1919 there are only benchmark-year estimates (Census of Manufactures 1865-1914; roughly $200M in 1880 to ~$3B early 1900s), so Era 1's SCALE field cannot be filled at the same annual rigor as later eras. Additionally, Coen's own pre-1940 figures were revised over time (1920s revised down ~15%).",
+          "why_it_matters": "The signature chart is the project's centerpiece deliverable. An undeclared splice at 2007 or a silent definitional shift (e.g., retail media appearing as 'new spend') would corrupt the century-long visual and the claims.json layer \u2014 exactly the kind of error the 80% CI / source-grade rigor system is meant to prevent, but only if the seam is planned for.",
+          "evidence": "Coen Structured Advertising Expenditure Dataset covers 1919-2007, compiled by Coen, digitized/augmented by Douglas Galbi, with explicit caveats on category drift and revisions (purple motes, https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/; Galbi, 'US Annual Advertising Spending Since 1919', https://www.galbithink.org/ad-spending.htm). Coen obituary confirms the series ended with his career (MediaPost, https://www.mediapost.com/publications/article/292382/obit-ad-industry-forecaster-bob-coen-dead-at-93.html). NBER WP 28161 'Aggregate Advertising Expenditure in the US Economy' documents pre-1919 benchmark-only data and reconstruction issues (https://www.nber.org/system/files/working_papers/w28161/w28161.pdf). Baruch College guide lists the fragmented modern sources (https://guides.newman.baruch.cuny.edu/c.php?g=188246&p=1243745).",
+          "recommendation": "Collect data / restructure the deliverable spec: (a) adopt Coen/Galbi 1919-2007 as the spine and NBER WP 28161 as the reconciliation reference; (b) pre-register a splice methodology for 2007-2026 with a declared definitional bridge (and grade spliced years C, not B); (c) mark the seam visibly in the chart; (d) formally downgrade Era 1 SCALE to benchmark-year estimates with wide CIs rather than pretending annual coverage.",
+          "severity": "blocking",
+          "affected_eras": [
+            "1",
+            "7"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM"
+          ]
+        },
+        {
+          "title": "Era 1 is missing its institutional climax: circulation fraud and the 1914 Audit Bureau of Circulations",
+          "claim": "The plan's Era 1 covers agencies, the 15% commission, and patent medicines, but omits that publishers routinely lied about circulation, making rate-card prices unverifiable until advertisers, agencies, and publishers jointly created the ABC in 1914 \u2014 the world's first third-party media audit and the template for every later measurement institution.",
+          "why_it_matters": "The 15% commission story is incomplete without the audit story: agencies could only justify their role as buyers' agents once the thing being bought (circulation) was verifiable. ABC 1914 plus AAAA 1917 (the plan's own era endpoint) form one institutional moment \u2014 the market professionalizing itself \u2014 and ABC is the direct ancestor of the MRC fights that run through the Google era.",
+          "evidence": "ABC founded 1914 in Chicago to combat false and misleading circulation claims; initially resented by publishers, then embraced as a guarantee (History of Information, https://historyofinformation.com/detail.php?entryid=682; Britannica, https://www.britannica.com/topic/Audit-Bureau-of-Circulation; AAM 'Who We Are', https://auditedmedia.com/about/who-we-are; Journalism History article on circulation as key metric, https://www.tandfonline.com/doi/full/10.1080/00947679.2025.2508262).",
+          "recommendation": "Add to scope: make ABC 1914 a named inflection in Era 1's EVENTS and the anchor of the measurement thread; frame Era 1 pricing as 'rate cards on unaudited claims' before 1914 vs 'audited circulation' after.",
+          "severity": "major",
+          "affected_eras": [
+            "1",
+            "2"
+          ],
+          "affected_fields": [
+            "EVENTS",
+            "PRICING",
+            "SELLERS"
+          ]
+        },
+        {
+          "title": "Eras 2-4 have no ratings-institution story, yet each era's pricing crises were measurement crises",
+          "claim": "The plan names 'Nielsen demographics' as an Era 3 feature but skips the institutional sequence that repriced broadcasting three times: (a) Era 2 \u2014 advertiser-funded CAB (1930, Crossley recall surveys) overthrown by Hooper's coincidental method (CAB dissolved 1946), then by Nielsen's Audimeter, with shows cancelled and sponsorships repriced on methodology changes; (b) Era 3 \u2014 the 1963-64 Harris congressional hearings into ratings accuracy, which produced the Broadcast Rating Council (1964, now the Media Rating Council), the industry's standing audit body; (c) Era 4 \u2014 the 1987 People Meter switchover, which erased roughly 10%+ of measured prime-time audience overnight (children's dayparts down 20-50%), triggering make-good disputes and accelerating the cable/segmentation story the era is about.",
+          "why_it_matters": "These are exactly the 'who set the price and why' inflections the schema's EVENTS field exists for. The People Meter episode in particular is the cleanest pre-digital demonstration that changing the counting method changes the market price \u2014 the precise mechanism the Era 6 centerpiece needs readers to already believe.",
+          "evidence": "CAB/Hooper/Nielsen succession (NYU guide, https://guides.nyu.edu/radio/ratings; Ramsburg, http://www.jimramsburg.com/radiosrulerscrossleyhooperandnielsen.html). Harris Committee hearings March 1963-Sept 1964 led to industry-funded Broadcast Rating Council, later MRC (Media Rating Council, https://en.wikipedia.org/wiki/Media_Rating_Council; HathiTrust record of the 1963 House hearings, https://catalog.hathitrust.org/Record/101710965). People Meter 1987: networks lost ~10% prime-time, CBS/ABC down 13%, Saturday-morning children's audience down 20-50% against ~$150M in ad revenue (CSMonitor 1988, https://www.csmonitor.com/1988/0106/fmeter.html; Headcount, https://www.headcountcoffee.com/blogs/media-history/1987-nielsen-people-meter-shifted-ratings-to-minute-data).",
+          "recommendation": "Add to scope: one ratings-institution beat per era in EVENTS (CAB\u2192Hooper in Era 2; Harris hearings/MRC founding in Era 3; People Meter 1987 in Era 4), written as repricing events, not media-history trivia.",
+          "severity": "major",
+          "affected_eras": [
+            "2",
+            "3",
+            "4"
+          ],
+          "affected_fields": [
+            "EVENTS",
+            "PRICING",
+            "SCALE"
+          ]
+        },
+        {
+          "title": "The direct-response measurement lineage is missing, so the plan risks telling a false 'accountability arrived with the web' story",
+          "claim": "Measurable, pay-for-performance advertising is a century older than the web: keyed coupons, mail-order response tracking, and split-run testing were codified by Claude Hopkins in Scientific Advertising (1923), and direct mail \u2014 a fully measured channel \u2014 was one of the largest line items in the Coen series throughout the century. Era 5's CPM-vs-CPC framing and Era 6's auction story are the industrialization of this existing direct-response logic (Overture and AdWords are keyed coupons at machine speed), not the invention of accountability.",
+          "why_it_matters": "This changes the book's spine: the century is a two-track story (unmeasurable brand advertising priced on audience estimates vs measurable direct response priced on response), and Google's real coup was collapsing the two tracks \u2014 brand budgets flowing into a direct-response pricing machine. Era 4's 'database marketing' is currently the only nod to this track, framed as a niche rather than as the older, always-measured half of the market.",
+          "evidence": "Hopkins 1923 is the first written description of split testing and coded-coupon tracking (Wikipedia, https://en.wikipedia.org/wiki/Scientific_Advertising; scientificadvertising.com, https://www.scientificadvertising.com/authors/hopkins/). Direct mail is a distinct, large category in the Coen/Galbi series from 1935 on (purple motes, https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/).",
+          "recommendation": "Restructure: introduce the brand-vs-direct-response distinction in Era 1 (mail order, keyed ads, Hopkins), carry it as a thread through Era 4 (direct mail, database marketing) into Eras 5-6, and state explicitly in Era 6 that Google merged the two tracks rather than inventing measurement.",
+          "severity": "major",
+          "affected_eras": [
+            "1",
+            "4",
+            "5",
+            "6"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "TARGETING",
+            "BUYERS"
+          ]
+        },
+        {
+          "title": "The regulatory and self-regulatory layer is absent, and it repeatedly moved real money between media",
+          "claim": "The plan has no thread for advertising law and category bans, yet these events changed BUYERS and MEDIUM shares in measurable, chartable ways: the muckraking-plus-Pure-Food-and-Drug-Act (1906) collapse of patent medicines removed Era 1's signature buyer category; the Printers' Ink model statute (1911) criminalized false advertising in most states; the FTC (1914) and Wheeler-Lea (1938) created federal deception jurisdiction; and the 1971 broadcast cigarette ban removed TV's largest single product category overnight \u2014 tobacco print spend jumped from $64.2M (1970) to $157.6M (1971) while total tobacco ad spend fell ~$80M, a visible kink in the by-medium dataset.",
+          "why_it_matters": "The schema's BUYERS field ('who paid and why') will be wrong at two points \u2014 patent medicines circa 1906 and tobacco circa 1971 \u2014 if regulation isn't in scope, and the signature chart will show unexplained discontinuities. Self-regulation (NAB codes, NARB 1971) also explains why US advertising governance stayed private and industry-funded, which is the institutional pattern Google later exploits.",
+          "evidence": "Printers' Ink statute 1911, widely adopted, strict liability (Hoofnagle, https://hoofnagle.berkeley.edu/2014/09/24/on-the-printers-ink-model-statute/; NBER WP 11927 on truth-in-advertising political economy, https://www.nber.org/system/files/working_papers/w11927/w11927.pdf). Wheeler-Lea 1938 empowered FTC against consumer deception (EBSCO, https://www.ebsco.com/research-starters/history/wheeler-lea-act-broadens-ftc-control-over-advertising; Wikipedia, https://en.wikipedia.org/wiki/Wheeler%E2%80%93Lea_Act). 1971 ban and spend shift figures (EBSCO, https://www.ebsco.com/research-starters/politics-and-government/cigarette-ads-are-banned-broadcast-media; EH.net 'Advertising Bans in the United States', https://eh.net/encyclopedia/nelson-adbans/; History.com, https://www.history.com/this-day-in-history/april-1/nixon-signs-legislation-banning-cigarette-ads-on-tv-and-radio).",
+          "recommendation": "Add to scope as a light thread, not a field: one regulatory beat per era in EVENTS (1906/1911 in Era 1; 1938 in Era 2; 1971 ban in Era 3; children's-advertising and privacy beats later), each tied to a visible number in the dataset.",
+          "severity": "major",
+          "affected_eras": [
+            "1",
+            "2",
+            "3",
+            "7"
+          ],
+          "affected_fields": [
+            "BUYERS",
+            "MEDIUM",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "The 'what did Google change' answer is missing its institutional half: the seller became the auditor",
+          "claim": "Era 6 explains Google's capture via auction design, but from 1914 (ABC) through 1964 (MRC) the market's rule was that audience counts come from a third party the buyer can audit; Google and the walled gardens reversed this \u2014 the same firm sells the inventory, runs the auction, counts the clicks/views, and attributes the conversions. The consequences are documented: Facebook overstated video view time for two years and paid a $40M settlement (2019); MRC accreditation became a rearguard action buyers demand from platforms; even Nielsen itself was stripped of MRC accreditation in 2021 after undercounting (a dispute worth $468M-$2.8B in national TV revenue by VAB's estimate), with buyers now attempting joint-industry-committee structures for streaming.",
+          "why_it_matters": "This is the measurement lens's direct answer to the project's central question and the cleanest baseline for P3: any 'ads fund AI inference' model must specify who verifies the attention being sold, and the 2008-2026 record shows what happens when the seller self-certifies. Without it, Era 6 reads as 'better mousetrap' when it is equally 'auditor capture', and Era 7's programmatic fraud/viewability fights float without an institutional frame.",
+          "evidence": "Facebook 2016 metrics errors, viewability as low as ~20% per agencies, $40M settlement, P&G/Pritchard pressure for MRC audits (MarTech, https://martech.org/facebook-measurement-update-metrics-viewability-verification/; Digiday, https://digiday.com/marketing/facebook-video-ad-viewability-rates-low-20-percent-agencies-say/; AdExchanger, https://www.adexchanger.com/platforms/advertisers-forgive-facebook-measurement-blunders-mrc-audit-still-top-priority/). MRC viewability standards (Publift explainer, https://www.publift.com/blog/mrc-viewability). Nielsen stripped of national/local TV accreditation 2021, restored 2023; VAB $468M-$2.8B estimate (AdExchanger, https://www.adexchanger.com/tv-2/mrc-strips-nielsen-of-its-national-local-tv-accreditation/; PRWeek, https://www.prweek.com/article/1726281/nielsen-loses-mrc-accreditation-national-local-tv; Forbes, https://www.forbes.com/sites/derekbaine/2023/04/19/nielsen-trying-to-claw-back-ratings-credibility-gets-mrc-accreditation/).",
+          "recommendation": "Restructure Era 6's thesis to twin claims \u2014 auction design (already planned) plus measurement vertical integration \u2014 and give Era 7's EVENTS the Facebook 2016 and Nielsen 2021 crises as the era's measurement beats feeding P3.",
+          "severity": "major",
+          "affected_eras": [
+            "6",
+            "7"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "SELLERS",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "No conceptual spine for what is actually being sold: the audience commodity",
+          "claim": "The plan lacks the one theoretical frame that unifies all seven eras: Dallas Smythe's audience-commodity argument (1977) that media firms' product is not content or ad space but measured audiences sold to advertisers \u2014 which makes measurement the factory that manufactures the commodity, and makes Google a manufacturer of a finer-grained commodity (intent) rather than a new kind of business.",
+          "why_it_matters": "A seven-era history needs one sentence that survives every era transition. 'The product is the counted audience; each era is a new counting machine' is that sentence, and it comes with a citable academic lineage that strengthens the book's authority without adding jargon (compatible with the FK<=10 gate if paraphrased).",
+          "evidence": "Smythe, 'Communications: Blindspot of Western Marxism', Canadian Journal of Political and Social Theory 1977 (CTheory, https://journals.uvic.ca/index.php/ctheory/article/view/13715); Dolber, 'Blindspots and Blurred Lines: Dallas Smythe, the Audience Commodity, and the Transformation of Labor in the Digital Age', Sociology Compass 2016, on its renewed applicability to digital platforms (https://compass.onlinelibrary.wiley.com/doi/10.1111/soc4.12387).",
+          "recommendation": "Note only: adopt as the framing sentence of the introduction and the through-line each era's MEASUREMENT entry echoes; no schema change needed beyond gap #1.",
+          "severity": "minor",
+          "affected_eras": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "affected_fields": [
+            "SELLERS",
+            "TARGETING"
+          ]
+        },
+        {
+          "title": "Who pays the measurer is never asked",
+          "claim": "The funding model of measurement bodies shifted across eras and biased the counts: CAB was advertiser-funded, Hooper and Nielsen were subscription businesses funded largely by the sellers being measured, ABC was tripartite, and the US has historically rejected the UK-style joint industry committee \u2014 until the 2020s JIC push for streaming. Seller-funded measurement structurally favors higher counts; buyer-funded favors lower; this asymmetry is part of why counts inflate until a crisis (1963 hearings, 1987 People Meter, 2016 Facebook, 2021 Nielsen).",
+          "why_it_matters": "It converts the measurement thread from a list of organizations into a mechanism with predictive power \u2014 and it is the exact question P3 will need to ask about any attention-funded AI economics.",
+          "evidence": "CAB advertiser-funded at 1930 founding vs Hooper/Nielsen commercial subscription model (NYU guide, https://guides.nyu.edu/radio/ratings; Ramsburg, http://www.jimramsburg.com/radiosrulerscrossleyhooperandnielsen.html); Harris hearings chose industry self-funding over regulation (MRC history, https://en.wikipedia.org/wiki/Media_Rating_Council); current JIC/accreditation contest (Marketing Brew, https://www.marketingbrew.com/stories/2025/10/07/nielsen-measurement-accreditation-faces-uncertain-future-again).",
+          "recommendation": "Note only: if gap #1's MEASUREMENT field is adopted, include 'who paid the counter' as one of its required sub-answers; no separate research track needed.",
+          "severity": "minor",
+          "affected_eras": [
+            "2",
+            "3",
+            "6",
+            "7"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "SELLERS"
+          ]
+        },
+        {
+          "title": "The 15% commission's death is untracked \u2014 the plan records its birth and then goes silent",
+          "claim": "The commission system the plan introduces in Era 1 eroded through media-buying unbundling and fee-based compensation in the 1980s-90s and ended in scandal with the ANA/K2 media transparency report (2016) documenting pervasive undisclosed rebates to agencies \u2014 but no era in the plan owns this arc, so PRICING will silently switch models between eras without explanation.",
+          "why_it_matters": "Agency compensation is the plan's own chosen entry point for 'who set prices' in Era 1; dropping the thread means the agency side of the market disappears just as Google disintermediates it \u2014 which is part of the Era 6 story (advertisers self-serve, no 15% to anyone).",
+          "evidence": "ANA/K2 2016 findings: undisclosed cash rebates and rebate-like 'service agreements' pervasive in US media buying (ANA press release, https://www.ana.net/content/show/id/pr-2016-rebates-other; Marketing Dive, https://www.marketingdive.com/news/ana-releases-report-on-ad-industry-transparency-rebates/420535/; ANA initiative page, https://www.ana.net/content/show/id/industry-initiative-media-transparency).",
+          "recommendation": "Add to scope cheaply: one PRICING sub-line per era tracking agency compensation (commission \u2192 negotiated commission \u2192 fees/unbundling \u2192 rebate scandal \u2192 self-serve), landing the ANA/K2 beat in Era 7's EVENTS.",
+          "severity": "minor",
+          "affected_eras": [
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "CREATORS",
+            "EVENTS"
+          ]
+        }
+      ],
+      "feasibility_notes": "The plan as scoped is achievable, with two feasibility caveats from this lens. (1) The signature dataset's stated range (1919-2026) is honest only with a declared splice: the Coen/Galbi series ends in 2007, and the pre-1919 portion of Era 1 can never meet the same rigor \u2014 SCALE for 1840s-1918 should be pre-specified as benchmark-year estimates (Census of Manufactures 1865-1914) with grade-C, wide-CI numbers, or the plan will either overclaim or stall. (2) Adding a MEASUREMENT field is low-cost, not scope creep: the ratings literature is unusually well archived (Beville's 'Audience Ratings' 1988 and worldradiohistory.com hold most of Eras 2-4 turnkey; ABC/AAM and MRC histories cover the rest), so I estimate it adds roughly 10-15% research effort, concentrated in Eras 2-4 \u2014 which are currently the thinnest parts of the plan relative to the digital eras. The measurement thread also strengthens, rather than competes with, the Era 6 centerpiece: the People Meter 1987 episode gives readers a pre-digital proof that changing the count changes the price, which is the intuition the auction simulator needs them to arrive with. Finally, the thread lands exactly on P3's doorstep: 'who verifies the attention being sold, and who pays the verifier' is the institutional question an ads-fund-AI-inference model must answer, so the epilogue's measurement beats (Facebook 2016, Nielsen 2021, the JIC push) are the correct handoff baseline.",
+      "sources": [
+        "https://historyofinformation.com/detail.php?entryid=682",
+        "https://auditedmedia.com/about/who-we-are",
+        "https://sites.lib.jmu.edu/circulating/about-this-project/about-the-abc-data/",
+        "https://www.britannica.com/topic/Audit-Bureau-of-Circulation",
+        "https://www.tandfonline.com/doi/full/10.1080/00947679.2025.2508262",
+        "https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/",
+        "https://www.galbithink.org/ad-spending.htm",
+        "https://www.mediapost.com/publications/article/292382/obit-ad-industry-forecaster-bob-coen-dead-at-93.html",
+        "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf",
+        "https://guides.newman.baruch.cuny.edu/c.php?g=188246&p=1243745",
+        "https://guides.nyu.edu/radio/ratings",
+        "http://www.jimramsburg.com/radiosrulerscrossleyhooperandnielsen.html",
+        "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf",
+        "https://en.wikipedia.org/wiki/Media_Rating_Council",
+        "https://catalog.hathitrust.org/Record/101710965",
+        "https://www.csmonitor.com/1988/0106/fmeter.html",
+        "https://www.headcountcoffee.com/blogs/media-history/1987-nielsen-people-meter-shifted-ratings-to-minute-data",
+        "https://en.wikipedia.org/wiki/Scientific_Advertising",
+        "https://www.scientificadvertising.com/authors/hopkins/",
+        "https://hoofnagle.berkeley.edu/2014/09/24/on-the-printers-ink-model-statute/",
+        "https://www.nber.org/system/files/working_papers/w11927/w11927.pdf",
+        "https://www.ebsco.com/research-starters/history/wheeler-lea-act-broadens-ftc-control-over-advertising",
+        "https://en.wikipedia.org/wiki/Wheeler%E2%80%93Lea_Act",
+        "https://www.ebsco.com/research-starters/politics-and-government/cigarette-ads-are-banned-broadcast-media",
+        "https://eh.net/encyclopedia/nelson-adbans/",
+        "https://www.history.com/this-day-in-history/april-1/nixon-signs-legislation-banning-cigarette-ads-on-tv-and-radio",
+        "https://journals.uvic.ca/index.php/ctheory/article/view/13715",
+        "https://compass.onlinelibrary.wiley.com/doi/10.1111/soc4.12387",
+        "https://martech.org/facebook-measurement-update-metrics-viewability-verification/",
+        "https://digiday.com/marketing/facebook-video-ad-viewability-rates-low-20-percent-agencies-say/",
+        "https://www.adexchanger.com/platforms/advertisers-forgive-facebook-measurement-blunders-mrc-audit-still-top-priority/",
+        "https://www.publift.com/blog/mrc-viewability",
+        "https://www.adexchanger.com/tv-2/mrc-strips-nielsen-of-its-national-local-tv-accreditation/",
+        "https://www.prweek.com/article/1726281/nielsen-loses-mrc-accreditation-national-local-tv",
+        "https://www.forbes.com/sites/derekbaine/2023/04/19/nielsen-trying-to-claw-back-ratings-credibility-gets-mrc-accreditation/",
+        "https://www.marketingbrew.com/stories/2025/10/07/nielsen-measurement-accreditation-faces-uncertain-future-again",
+        "https://www.ana.net/content/show/id/pr-2016-rebates-other",
+        "https://www.marketingdive.com/news/ana-releases-report-on-ad-industry-transparency-rebates/420535/",
+        "https://www.ana.net/content/show/id/industry-initiative-media-transparency",
+        "https://ieeexplore.ieee.org/document/9927132/"
+      ]
+    },
+    {
+      "lens": "Presentation scout \u2014 chart-form choice (data-to-viz verification), century-scale scrollytelling precedents, and auction-simulator / explorable-explanation precedents",
+      "gaps": [
+        {
+          "title": "Data-to-viz verified, but it solves only 1 of the 3 core design problems",
+          "claim": "'Data to Wiz' is data-to-viz.com (Yan Holtz and Conor Healy): an interactive decision tree keyed on DATASET SHAPE (numeric / categorical / time series / map / network), a caveat catalog of ~known chart pitfalls, and R/Python/D3/React code per chart type. Because its tree branches on data structure rather than message, interaction, or mechanism, it can route the century share-shift series (to stacked area / streamgraph / area small multiples) but offers nothing for the 8-field era-schema comparison (a qualitative fixed schema, not a dataset) and nothing for auction mechanics (no simulation or explorable content at all).",
+          "why_it_matters": "If the design phase treats data-to-viz as the chart-choosing tool, two of the three hardest visual problems in the project fall outside its coverage and will be designed without guidance. Its highest real value here is the caveat catalog, which directly warns against the default form the signature chart would otherwise take.",
+          "evidence": "Verified by direct fetch of https://www.data-to-viz.com/ \u2014 confirmed decision tree from data type, caveat gallery, and code examples in R/Python/D3/React. Complement exists: the FT Visual Vocabulary is keyed by FUNCTION (change-over-time, part-to-whole, ranking, magnitude...) which matches how this project actually thinks \u2014 https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary \u2014 with an interactive Tableau version by Andy Kriebel (https://datavizblog.com/2023/04/21/chart-literacy-financial-times-visual-vocabulary-andy-kriebel-and-tableau-part-3-of-a-series/).",
+          "recommendation": "Add to scope: use data-to-viz as (a) the caveat gate every chosen chart must pass and (b) the starting shortlist for the time-series visuals; pair it with the FT Visual Vocabulary for message-driven choice. Explicitly note in the design plan that era-schema and auction visuals need precedents from data journalism and explorable explanations instead (gaps below).",
+          "severity": "major",
+          "affected_eras": [
+            "all"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM",
+            "PRICING"
+          ]
+        },
+        {
+          "title": "The signature chart's default form (stacked area / streamgraph) is a documented readability trap",
+          "claim": "A 107-year, 7+ medium share-shift series pushed through any chart chooser lands on stacked area or streamgraph, and both forms have well-documented failure modes for exactly this use: only the baseline series is accurately readable in a stacked area, and streamgraphs' shifting baseline makes mid-stack trends (e.g., radio's rise-and-fall, the exact story being told) hard or misleading to read.",
+          "why_it_matters": "The century ad-spend-by-medium chart is named as the signature deliverable. If readers cannot accurately read when radio peaked or how fast newspapers collapsed from the hero chart, the project's central visual fails at its one job.",
+          "evidence": "Data-to-viz's own caveat catalog covers stacking pitfalls (https://www.data-to-viz.com/caveat/stacking.html); Andy Kirk, 'Making sense of streamgraphs' documents the controversy around the NYT 'Ebb and Flow of Movies' streamgraph (https://visualisingdata.com/2010/08/making-sense-of-streamgraphs/); Streamgraph criticism summarized at https://en.wikipedia.org/wiki/Streamgraph.",
+          "recommendation": "Restructure the deliverable: plan the signature chart as a SYSTEM, not one chart \u2014 a hero stacked/animated view for drama, plus per-medium small-multiple share lines (accurate reading), plus optionally a bump chart of medium RANK by era. Prototype at least two forms and test which supports the era-boundary claims. NYT 'How the Recession Reshaped the Economy, in 255 Charts' (https://www.nytimes.com/interactive/2014/06/05/upshot/how-the-recession-reshaped-the-economy-in-255-charts.html) is the proof that small multiples at scale carry a big economic story.",
+          "severity": "major",
+          "affected_eras": [
+            "all"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM"
+          ]
+        },
+        {
+          "title": "No cross-era comparative visual is planned for the 8-field schema (56 cells)",
+          "claim": "The plan fixes an 8-field schema per era precisely so eras can be compared, but the deliverables list (prose chapters + signature chart + simulator) contains no visual that puts the 7 eras side by side on those 8 fields; 7 sequential chapters make comparison a memory task for the reader.",
+          "why_it_matters": "The analytical payoff of the fixed schema \u2014 'watch PRICING mutate from commission to rate card to upfront to CPM to auction' \u2014 is only visible if some view holds fields constant across eras. Without it, the schema does rigor work in claims.json but no presentation work.",
+          "evidence": "Precedent for repeated-scaffold comparison: NYT's 255-charts piece uses a shared-scale small-multiple grid to make 255 industries comparable (https://www.nytimes.com/interactive/2014/06/05/upshot/how-the-recession-reshaped-the-economy-in-255-charts.html); The Pudding's visual-essay structure analysis shows recurring scaffolds are how they sustain comparison across a long scroll (https://www.storybench.org/pudding-structures-stories-visual-essays/). The Pudding's 'In pursuit of democracy' (https://pudding.cool/2025/11/democracy/) sustains one consistent dot-unit visual across 145 years \u2014 the object-constancy pattern that also matches the user's stated unit-viz preference.",
+          "recommendation": "Add to scope: a repeating 'era dashboard' scaffold (same 8 slots, same positions, every chapter) plus one comparative matrix view (fields as rows, eras as columns) \u2014 likely the piece's second-most-shared visual. Design it in the same pass as the signature chart so the two share scales and color-by-medium encoding.",
+          "severity": "major",
+          "affected_eras": [
+            "all"
+          ],
+          "affected_fields": [
+            "CREATORS",
+            "BUYERS",
+            "SELLERS",
+            "MEDIUM",
+            "SCALE",
+            "PRICING",
+            "TARGETING",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "The auction simulator has no copyable template anywhere \u2014 highest-effort, least-precedented deliverable",
+          "claim": "Searches found no interactive GSP/ad-auction explainer at any major outlet (NYT, Bloomberg, Vox, Wired, The Markup \u2014 nothing); the nearest precedents are Nicky Case-style explorables for OTHER mechanisms and paid classroom econ platforms. The plan specifies what the simulator must prove but not its pedagogical structure, and there is no existing design to adapt.",
+          "why_it_matters": "This is the centerpiece. Explorable-explanation practice shows naive 'here's a sandbox' designs fail; the working pattern (Case's ballot and trust pieces) is guided constrained interactions per concept, sandbox last. Without that structure decided in planning, the simulator is an open-ended engineering risk. The absence of precedent is also the upside: a good GSP explorable would be the first of its kind.",
+          "evidence": "Closest structural precedents: Nicky Case 'To Build a Better Ballot' \u2014 mechanism comparison via drag-the-voters simulation, open source, public domain (https://ncase.me/ballot/); 'The Evolution of Trust' \u2014 payoff-matrix game theory made playable (https://ncase.me/trust/); the Explorable Explanations hub (https://explorabl.es/, Data Stories ep. 103 https://datastori.es/103-explorable-explanations-with-nicky-case/). Classroom precedents proving students learn GSP-adjacent mechanics interactively: MobLab's Display Ad Auction game (https://www.moblab.com/edu/games/display-ad-auction, paid) and Veconlab/EconPort private-value auction experiments (https://en.wikiversity.org/wiki/Economic_Classroom_Experiments/Private_Value_Auctions). Numeric backbone for worked examples: Edelman, Ostrovsky & Schwarz, 'Internet Advertising and the Generalized Second-Price Auction' (https://web.stanford.edu/~ost/papers/gsp-final.pdf) \u2014 its small worked GSP examples, including the non-truthfulness demonstration, are the canonical numbers to animate.",
+          "recommendation": "Add to scope a simulator design spec BEFORE build: (1) guided sequence \u2014 pure bid (GoTo) \u2192 add quality weighting \u2192 add second-pricing \u2192 'try to beat truthful bidding' step that lets the user overbid/underbid and see payoff (this is where GSP-not-truthful lands, borrowing Trust's payoff-reveal pattern); (2) sandbox last; (3) use EOS paper's worked numbers so the interactive and the prose prove the same arithmetic. Budget it as the largest single build item.",
+          "severity": "major",
+          "affected_eras": [
+            "5. Early Web",
+            "6. The Auction"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "TARGETING"
+          ]
+        },
+        {
+          "title": "The rigor layer (80% CIs, source grades) has no on-chart representation plan",
+          "claim": "Every number gets a CI and an A/B/C grade in claims.json, but no deliverable specifies how uncertainty and source quality appear IN the charts \u2014 meaning the signature chart will draw a crisp 1935 radio-spend line indistinguishable from a 2024 SEC-filing number, visually asserting false precision the text layer disclaims.",
+          "why_it_matters": "The project's credibility promise is calibration. A chart that renders grade-C 1930s triangulations at the same visual confidence as grade-A filings quietly undoes that promise for every reader who looks at charts instead of footnotes \u2014 i.e., most of them.",
+          "evidence": "Proven presentation techniques exist: Hypothetical Outcome Plots, used by NYT for jobs-report sampling noise ('How Not to Be Misled by the Jobs Report', Irwin & Quealy, 2014, https://www.nytimes.com/2014/05/02/upshot/how-not-to-be-misled-by-the-jobs-report.html; UW IDL explainer https://medium.com/@uwdata/hypothetical-outcome-plots-hops-help-users-separate-signal-from-noise-870d4e2b75d7). The user already validated a 'measurement jitter' pattern in P1's design \u2014 the same idiom extends here.",
+          "recommendation": "Add to scope: an uncertainty-encoding spec for the chart system \u2014 CI bands or HOP-style jitter driven directly from claims.json CIs, and a visual grade encoding (e.g., line texture/opacity by A/B/C) so data quality is legible on the chart itself. This also gives claims.json a second consumer, which will harden its schema.",
+          "severity": "major",
+          "affected_eras": [
+            "all",
+            "especially 1-3 where grades are B/C"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM"
+          ]
+        },
+        {
+          "title": "The simulator's mechanic is a 2002-2008 vintage \u2014 Google's real auction has since changed, and the piece must say so visually",
+          "claim": "An interactive presented as 'how Google's auction works' would be factually wrong for 2026: DOJ-trial evidence revealed Google runs randomized GSP (RGSP) variants, and Google moved display/AdSense to first-price in 2019-2021 \u2014 so the centerpiece simulates a mechanism that no longer runs as described.",
+          "why_it_matters": "The simulator is the piece most likely to be shared out of context. Ad-tech-literate readers will flag 'Google doesn't do GSP anymore' and the correction will overshadow the (correct) historical point unless the interactive itself is date-stamped.",
+          "evidence": "Search Engine Land, 'What is RGSP? Google's Randomized Generalized Second-Price ad auctions explained' (https://searchengineland.com/google-rgsp-randomized-generalized-second-price-ad-auctions-explained-433053); MonetizeMore on Google's second-to-first-price shift for display (https://www.monetizemore.com/blog/how-navigate-google-second-to-first-price-auctions/).",
+          "recommendation": "Note only, plus one design element: title/frame the simulator as 'the 2002 auction' inside Era 6, and give Era 7 a one-line hand-off ('the auction itself kept mutating: first-price display in 2019, RGSP...') so the epilogue absorbs the correction preemptively.",
+          "severity": "minor",
+          "affected_eras": [
+            "6. The Auction",
+            "7. Epilogue"
+          ],
+          "affected_fields": [
+            "PRICING",
+            "EVENTS"
+          ]
+        },
+        {
+          "title": "No mobile/responsive plan for a scrollytelling piece with a sticky hero chart and a touch-driven simulator",
+          "claim": "The plan commits to scrollytelling + an interactive simulator without addressing mobile, where the sticky-graphic pattern and multi-input auction controls degrade worst; The Pudding's published practice is mobile-FIRST design for exactly this reason, and majority readership will be on phones.",
+          "why_it_matters": "Retrofitting a desktop-designed sticky-chart scroll onto mobile is the classic scrollytelling failure; the simulator's bid sliders/tables must be designed for touch from the start or Era 6's centerpiece is desktop-only.",
+          "evidence": "The Pudding, 'Responsive scrollytelling best practices' (https://pudding.cool/process/responsive-scrollytelling/); 'An Introduction to Scrollama.js' \u2014 IntersectionObserver-based sticky-step pattern, the de facto standard implementation (https://pudding.cool/process/introducing-scrollama/, https://github.com/russellsamora/scrollama); 'How to implement scrollytelling with six different libraries' (https://pudding.cool/process/how-to-implement-scrollytelling/).",
+          "recommendation": "Add to scope: mobile-first design constraint in the design phase; adopt scrollama (or equivalent) rather than hand-rolled scroll events; define a reduced-interaction mobile mode for the simulator (stepped taps instead of free sliders).",
+          "severity": "minor",
+          "affected_eras": [
+            "all"
+          ],
+          "affected_fields": []
+        },
+        {
+          "title": "The visual spine (1919-2026) leaves Era 1 \u2014 77 years of the story \u2014 off the signature chart",
+          "claim": "The signature dataset starts in 1919 (matching the Coen/Galbi annual series), but the narrative starts in the 1840s, so the first chapter and half the timeline scroll along no data spine; the design phase has no stated treatment for the pre-1919 stretch.",
+          "why_it_matters": "In a journey-first scrollytelling piece, the hero chart is the reader's map. If it appears only at chapter 2, Era 1 reads as prologue rather than as part of one continuous machine \u2014 undercutting the 'Birth of the Machine' framing.",
+          "evidence": "Galbi's 'US Annual Advertising Spending Since 1919' confirms the annual series floor is 1919 (https://www.galbithink.org/ad-spending.htm); Galbi/purplemotes also compiles sparse pre-1919 estimates (Printers' Ink-era decennial figures) usable as point estimates (https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/).",
+          "recommendation": "Note for the design phase: render 1840s-1918 on the same timeline as sparse, wide-CI point estimates (visually distinct 'pre-instrument era' treatment \u2014 which also showcases the source-grade encoding from the uncertainty gap), rather than starting the axis at 1919.",
+          "severity": "minor",
+          "affected_eras": [
+            "1. Birth of the Machine"
+          ],
+          "affected_fields": [
+            "SCALE",
+            "MEDIUM"
+          ]
+        }
+      ],
+      "feasibility_notes": "Feasible from the presentation lens, with one skewed-effort warning. (1) Data-to-viz is real and exactly what the author likely remembered (decision tree + caveat catalog + code), but it is dataset-shaped, not message-shaped: it will serve the time-series visuals and act as a pitfall gate, and contributes nothing to the era-schema or auction visuals \u2014 pair it with the FT Visual Vocabulary. (2) Century-scale narrative precedents are abundant and directly reusable: The Pudding's 'In pursuit of democracy' (145 years, consistent dot-unit scaffold) is the single best primary reference and happens to match the user's documented object-constancy/unit-viz preference; NYT's 255-charts piece proves small-multiple grids for economic comparison; Bloomberg's 'What's Really Warming the World?' is the model for sequential candidate-explanation reveals (useful for 'why did Google win' rhetoric); the NYT Ebb-and-Flow streamgraph is the cautionary precedent. Scrollama plus The Pudding's process posts make the build path well-trodden. (3) The auction simulator is the outlier: no major outlet has ever shipped an interactive GSP explainer, so there is no template \u2014 the Nicky Case explorables (ballot, trust; both open source) supply the pedagogical pattern (guided constrained steps, payoff-reveal for the non-truthfulness moment, sandbox last) and the Edelman-Ostrovsky-Schwarz paper supplies canonical worked numbers, but this item should be budgeted as the largest build risk in the project, roughly equal to the entire rest of the web experience. Plan the chart system (hero + small multiples + uncertainty encoding driven from claims.json) as one design pass so encodings stay consistent across all seven eras.",
+      "sources": [
+        "https://www.data-to-viz.com/",
+        "https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary",
+        "https://datavizblog.com/2023/04/21/chart-literacy-financial-times-visual-vocabulary-andy-kriebel-and-tableau-part-3-of-a-series/",
+        "https://pudding.cool/2025/11/democracy/",
+        "https://flowingdata.com/2025/11/14/threats-to-democracy-in-the-congressional-record/",
+        "https://www.storybench.org/pudding-structures-stories-visual-essays/",
+        "https://www.nytimes.com/interactive/2014/06/05/upshot/how-the-recession-reshaped-the-economy-in-255-charts.html",
+        "https://www.bloomberg.com/graphics/2015-whats-warming-the-world/",
+        "https://datastori.es/behind-the-scenes-of-whats-really-warming-the-world-with-the-bloomberg-team-ds59/",
+        "https://visualisingdata.com/2010/08/making-sense-of-streamgraphs/",
+        "https://en.wikipedia.org/wiki/Streamgraph",
+        "https://ncase.me/ballot/",
+        "https://ncase.me/trust/",
+        "https://explorabl.es/",
+        "https://datastori.es/103-explorable-explanations-with-nicky-case/",
+        "https://www.moblab.com/edu/games/display-ad-auction",
+        "https://en.wikiversity.org/wiki/Economic_Classroom_Experiments/Private_Value_Auctions",
+        "https://web.stanford.edu/~ost/papers/gsp-final.pdf",
+        "https://searchengineland.com/google-rgsp-randomized-generalized-second-price-ad-auctions-explained-433053",
+        "https://www.monetizemore.com/blog/how-navigate-google-second-to-first-price-auctions/",
+        "https://pudding.cool/process/introducing-scrollama/",
+        "https://pudding.cool/process/responsive-scrollytelling/",
+        "https://pudding.cool/process/how-to-implement-scrollytelling/",
+        "https://github.com/russellsamora/scrollama",
+        "https://www.nytimes.com/2014/05/02/upshot/how-not-to-be-misled-by-the-jobs-report.html",
+        "https://medium.com/@uwdata/hypothetical-outcome-plots-hops-help-users-separate-signal-from-noise-870d4e2b75d7",
+        "https://www.galbithink.org/ad-spending.htm",
+        "https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/"
+      ]
+    }
+  ]
+}

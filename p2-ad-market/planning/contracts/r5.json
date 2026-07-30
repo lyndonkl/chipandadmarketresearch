@@ -1,0 +1,29 @@
+{
+  "stage": "R5",
+  "name": "Chapter synthesis",
+  "requires": [
+    { "path": "p2-ad-market/planning/contracts/r4-report.json", "desc": "V4 report with overall PASS" },
+    { "path": "p2-ad-market/data/claims.json", "desc": "Aggregated claims file assembled from verified era records + dataset (built at R5 start)" }
+  ],
+  "produces": [
+    { "path": "p2-ad-market/research/01-thesis.md" },
+    { "path": "p2-ad-market/research/02-the-middlemen.md" },
+    { "path": "p2-ad-market/research/03-sponsorship.md" },
+    { "path": "p2-ad-market/research/04-the-spot-market.md" },
+    { "path": "p2-ad-market/research/05-segmentation.md" },
+    { "path": "p2-ad-market/research/06-the-impression.md" },
+    { "path": "p2-ad-market/research/07-the-auction.md" },
+    { "path": "p2-ad-market/research/08-the-machine-market.md" },
+    { "path": "p2-ad-market/research/09-the-capture-question.md" },
+    { "path": "p2-ad-market/research/10-verdict-and-handoff.md" },
+    { "path": "p2-ad-market/planning/thread-candidates.md" }
+  ],
+  "invariants": [
+    { "id": "r5-acq-01", "class": "acquisition", "text": "All 10 chapters plus thread-candidates.md exist per the chapter map.", "check": "deterministic", "command": "python3 tools/verify_p2.py r5-files" },
+    { "id": "r5-val-01", "class": "validity", "text": "All four readability tests pass on every chapter (FK <= 10, Reading Ease >= 50, Fog <= 12, SMOG <= 12), with scores recorded in frontmatter.", "check": "deterministic", "command": "python3 tools/readability.py p2-ad-market/research/*.md" },
+    { "id": "r5-val-02", "class": "validity", "text": "Every chapter's frontmatter lists the claim IDs it uses; every listed ID exists in claims.json; no chapter states a number whose claim was rejected.", "check": "deterministic", "command": "python3 tools/verify_p2.py r5-traceability" },
+    { "id": "r5-val-03", "class": "validity", "text": "Chapters preserve calibration honesty: contested numbers show their contest (competing series side by side for the capture question), CIs and grades surface where the reader needs them, and no chapter asserts what a verified claim only bounds. Jargon is explained at first use.", "check": "judgment", "instructions": "Read each chapter against its claims. An asserted point value for a claim that carries a wide CI, a capture-question chapter that hides one of the competing series, or unexplained jargon a general reader would not know — each violates this invariant." },
+    { "id": "r5-rdy-01", "class": "readiness", "text": "thread-candidates.md presents each candidate thread with the schema fields and claim IDs that support it, sufficient for the human to select first-class threads at Gate B; the data layer is freezable (claims.json complete and internally consistent).", "check": "judgment", "instructions": "Check every candidate thread names its supporting claims and that claims.json passes its own consistency check (run python3 tools/verify_p2.py r5-claimsfile and weigh its output)." }
+  ],
+  "remediation": { "policy": "bounded-auto-repair", "max_cycles": 2, "on_exhaust": "halt-and-escalate" }
+}

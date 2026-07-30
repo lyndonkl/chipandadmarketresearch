@@ -4,13 +4,13 @@ This repo holds three research projects. Each one turns a question into a web pa
 
 Only the first project is built. The other two have not started yet.
 
-Last updated: 2026-07-24.
+Last updated: 2026-07-30.
 
 ## Where things stand
 
 Project 1, the cost of running AI, is done and live. Its research, its numbers, and its web page are all finished and checked.
 
-Project 2, the ad market, has not started. Its folder holds only a brief.
+Project 2, the ad market, is fully planned but not yet researched. The plan was locked on 2026-07-30 through a grilling session and a seven-scout blind-spot probe. Everything a fresh session needs is written down: the plan, the era map, the schema, the agents, the workflows, and the checks. See "Project 2 planning" below.
 
 Project 3, the synthesis, has not started. It waits on the first two.
 
@@ -84,7 +84,21 @@ These are the multi-agent scripts that built Project 1. Each one ran a team of a
 
 `workflows/p1-remediation-patches.js` turned the checks above into the exact fixes to apply.
 
-Project 2 and Project 3 have no workflows yet. They will get their own once their research starts.
+Project 2's workflows are written and ready to run (see "Project 2 planning" below). Project 3 has none yet.
+
+## Project 2 planning (locked 2026-07-30)
+
+The scope grew from the old brief. Every era now gets full depth, not just the Google years. The eras are cut where the pricing mechanism changed, and named for it: The Middlemen, Sponsorship, The Spot Market, Segmentation, The Impression, The Auction, The Machine Market. The last era runs to a data freeze of 2026-06-30.
+
+Seven scout agents probed the plan for blind spots first. They found 65 gaps; 11 were blocking. The big three. First, the money Google took first was classified and directory money, which the old plan never tracked. Second, the century data set is really several clashing series that must be joined honestly, with the seams shown. Third, the auction alone did not win the market — distribution deals were at least co-equal, so era 6 now tells a twin-engine story. The full probe, with sources, sits in `p2-ad-market/planning/unknown-unknowns-probe.json`.
+
+`p2-ad-market/PLAN.md` is the execution contract. Read it first. It holds the decision ledger, the era map, the nine-field schema, the five research stages, the two human gates, and the budget.
+
+Each stage ends with an automated check before any human review. The checks live as contracts in `p2-ad-market/planning/contracts/`. The script `tools/verify_p2.py` runs the mechanical parts. A failed check gets up to two auto-repair rounds, then stops and asks the human. This rule is now in `PROCESS.md` for all projects.
+
+Five new agents were built for this work. They live in the shared agent repo at `~/Documents/Projects/claude/agents/`: market-era-historian, series-archaeologist, mechanism-analyst, claim-verifier, and stage-auditor. They are generic by design — the workflows feed them their P2 inputs. Six critic agents reviewed them and their fixes were applied.
+
+The workflows to run, in order: `p2-r1-era-research.js`, then verify contract r1; `p2-r2-dataset.js`, then verify r2; stop for human Gate A; `p2-r3-claim-verification.js`, then verify r3; `p2-r4-mechanism.js`, then verify r4; `p2-r5-synthesis.js`, then verify r5; stop for human Gate B. The verify step is `p2-verify-stage.js` with the contract path as its argument. Gate A needs an approval note at `p2-ad-market/planning/gate-a-approval.md` before r3 will pass its checks.
 
 To run one again, open it, read the top of the file for what it needs, and start it with the Workflow tool. Point it at the script by its path.
 

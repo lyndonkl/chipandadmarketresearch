@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "P2 era record (schema v2, locked 2026-07-30)",
+  "description": "One record per era at data/eras/era-N.json. Nine required fields; SCALE and BUYERS carry the money-type split; eras 5-7 add unit_economics. Every quantitative claim is a calibration object.",
+  "definitions": {
+    "claim": {
+      "type": "object",
+      "required": ["id", "statement", "central", "unit", "ci80", "grade", "sources", "as_of"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^e[1-7]-[a-z_]+-[0-9]{3}$", "description": "e.g. e3-scale-004; unique across ALL eras" },
+        "statement": { "type": "string" },
+        "central": { "type": "number" },
+        "unit": { "type": "string" },
+        "ci80": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+        "grade": { "type": "string", "enum": ["A", "B", "C"] },
+        "sources": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["name"], "properties": { "name": { "type": "string" }, "url": { "type": "string" } } } },
+        "as_of": { "type": "string", "pattern": "^[0-9]{4}(-[0-9]{2})?(-[0-9]{2})?$" },
+        "method": { "type": "string", "description": "REQUIRED when grade is C: how the triangulation was built" }
+      }
+    },
+    "money_type_split": {
+      "type": "object",
+      "required": ["national_brand", "local_retail", "classified", "direct_response"],
+      "description": "Each key holds a claim, or an absence note where the era genuinely cannot source it.",
+      "additionalProperties": false,
+      "properties": {
+        "national_brand": { "$ref": "#/definitions/claim_or_absence" },
+        "local_retail": { "$ref": "#/definitions/claim_or_absence" },
+        "classified": { "$ref": "#/definitions/claim_or_absence" },
+        "direct_response": { "$ref": "#/definitions/claim_or_absence" }
+      }
+    },
+    "claim_or_absence": {
+      "oneOf": [
+        { "$ref": "#/definitions/claim" },
+        { "type": "object", "required": ["absent", "note"], "properties": { "absent": { "const": true }, "note": { "type": "string", "description": "Why no credible figure exists and what was tried" } } }
+      ]
+    },
+    "field": {
+      "type": "object",
+      "required": ["summary", "claims"],
+      "properties": {
+        "summary": { "type": "string", "minLength": 200, "description": "The field's narrative answer for this era, self-contained" },
+        "claims": { "type": "array", "items": { "$ref": "#/definitions/claim" } }
+      }
+    }
+  },
+  "type": "object",
+  "required": ["era", "name", "years", "fields", "events"],
+  "properties": {
+    "era": { "type": "integer", "minimum": 1, "maximum": 7 },
+    "name": { "type": "string" },
+    "years": { "type": "string" },
+    "fields": {
+      "type": "object",
+      "required": ["CREATORS", "BUYERS", "SELLERS", "MEDIUM", "SCALE", "PRICING", "MEASUREMENT", "TARGETING"],
+      "properties": {
+        "CREATORS": { "$ref": "#/definitions/field" },
+        "BUYERS": { "allOf": [{ "$ref": "#/definitions/field" }, { "required": ["by_money_type"], "properties": { "by_money_type": { "$ref": "#/definitions/money_type_split" } } }] },
+        "SELLERS": { "$ref": "#/definitions/field" },
+        "MEDIUM": { "$ref": "#/definitions/field" },
+        "SCALE": { "allOf": [{ "$ref": "#/definitions/field" }, { "required": ["by_money_type"], "properties": { "by_money_type": { "$ref": "#/definitions/money_type_split" } } }] },
+        "PRICING": { "$ref": "#/definitions/field" },
+        "MEASUREMENT": { "$ref": "#/definitions/field" },
+        "TARGETING": { "$ref": "#/definitions/field" }
+      }
+    },
+    "events": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["date", "title", "desc"],
+        "properties": {
+          "date": { "type": "string", "pattern": "^[0-9]{4}(-[0-9]{2})?(-[0-9]{2})?$" },
+          "title": { "type": "string" },
+          "desc": { "type": "string" },
+          "claim": { "$ref": "#/definitions/claim" }
+        }
+      }
+    },
+    "unit_economics": {
+      "type": "object",
+      "description": "REQUIRED for eras 5, 6, 7. Revenue, cost, margin per unit of attention.",
+      "required": ["unit", "revenue_per_unit", "cost_to_serve", "margin"],
+      "properties": {
+        "unit": { "type": "string", "enum": ["query", "impression", "user_hour"] },
+        "revenue_per_unit": { "$ref": "#/definitions/claim_or_absence" },
+        "cost_to_serve": { "$ref": "#/definitions/claim_or_absence" },
+        "margin": { "$ref": "#/definitions/claim_or_absence" },
+        "comparison_series": { "type": "array", "items": { "$ref": "#/definitions/claim" }, "description": "Era 7 only: the 2023-2026 LLM inference cost-per-query series" }
+      }
+    },
+    "boundary_notes": { "type": "string", "description": "Facts shared with neighboring eras, stated so V1 can cross-check agreement" }
+  }
+}

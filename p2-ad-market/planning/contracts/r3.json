@@ -1,0 +1,18 @@
+{
+  "stage": "R3",
+  "name": "Adversarial claim verification",
+  "requires": [
+    { "path": "p2-ad-market/planning/contracts/r2-report.json", "desc": "V2 report with overall PASS" },
+    { "path": "p2-ad-market/planning/gate-a-approval.md", "desc": "Human Gate A approval note — R3 must not start before Gate A" }
+  ],
+  "produces": [
+    { "path": "p2-ad-market/data/verification/verdicts.json" }
+  ],
+  "invariants": [
+    { "id": "r3-acq-01", "class": "acquisition", "text": "Every claim ID across the 7 era records and adspend.json has exactly one verdict in verdicts.json; verdicts are in {confirmed, adjusted, rejected, unverified}; unverified count is zero.", "check": "deterministic", "command": "python3 tools/verify_p2.py r3-coverage" },
+    { "id": "r3-val-01", "class": "validity", "text": "Every adjusted verdict records old value, new value, and reason, and the new calibration object is complete; every rejected claim is removed from or replaced in its source record; no rejected claim ID survives unchanged.", "check": "deterministic", "command": "python3 tools/verify_p2.py r3-verdicts" },
+    { "id": "r3-val-02", "class": "validity", "text": "Verdicts show independent verification, not citation-echo: confirmations cite the verifier's independently located source, and disagreements between verifier and researcher are recorded, not averaged away.", "check": "judgment", "instructions": "Sample at least 3 confirmed verdicts per era batch. A confirmation whose only evidence is the claim's own cited source violates this invariant. Check adjusted/rejected entries for midpoint-averaging of conflicting sources — that also violates." },
+    { "id": "r3-rdy-01", "class": "readiness", "text": "The disagreement log is preserved and the era records + adspend.json reflect all adjustments (post-remediation state matches verdicts).", "check": "deterministic", "command": "python3 tools/verify_p2.py r3-applied" }
+  ],
+  "remediation": { "policy": "bounded-auto-repair", "max_cycles": 2, "on_exhaust": "halt-and-escalate" }
+}

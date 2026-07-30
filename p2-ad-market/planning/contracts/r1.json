@@ -1,0 +1,34 @@
+{
+  "stage": "R1",
+  "name": "Era fan-out",
+  "requires": [
+    { "path": "p2-ad-market/PLAN.md", "desc": "Execution contract with era map and schema v2" },
+    { "path": "p2-ad-market/planning/schema/era-record.schema.json", "desc": "Era record shape" },
+    { "path": "p2-ad-market/planning/unknown-unknowns-probe.json", "desc": "Scout gaps used as seed material" }
+  ],
+  "produces": [
+    { "path": "p2-ad-market/data/eras/era-1.json" },
+    { "path": "p2-ad-market/data/eras/era-2.json" },
+    { "path": "p2-ad-market/data/eras/era-3.json" },
+    { "path": "p2-ad-market/data/eras/era-4.json" },
+    { "path": "p2-ad-market/data/eras/era-5.json" },
+    { "path": "p2-ad-market/data/eras/era-6.json" },
+    { "path": "p2-ad-market/data/eras/era-7.json" },
+    { "path": "p2-ad-market/research/notes/era-1-notes.md" },
+    { "path": "p2-ad-market/research/notes/era-2-notes.md" },
+    { "path": "p2-ad-market/research/notes/era-3-notes.md" },
+    { "path": "p2-ad-market/research/notes/era-4-notes.md" },
+    { "path": "p2-ad-market/research/notes/era-5-notes.md" },
+    { "path": "p2-ad-market/research/notes/era-6-notes.md" },
+    { "path": "p2-ad-market/research/notes/era-7-notes.md" }
+  ],
+  "invariants": [
+    { "id": "r1-acq-01", "class": "acquisition", "text": "All 7 era records exist and validate against the era-record schema: 9 fields non-empty, money-type splits present in SCALE and BUYERS, 5-10 dated events, unit_economics present for eras 5-7.", "check": "deterministic", "command": "python3 tools/verify_p2.py r1-records" },
+    { "id": "r1-val-01", "class": "validity", "text": "Every quantitative claim carries the full calibration object; grades in {A,B,C}; grade-C claims carry a method; sources non-empty; claim IDs unique across all eras.", "check": "deterministic", "command": "python3 tools/verify_p2.py r1-claims" },
+    { "id": "r1-val-02", "class": "validity", "text": "No claim cites the inspiring podcasts (Acquired, Stratechery) as a source; era-1 SCALE contains benchmark-year estimates only, no fabricated annual series.", "check": "deterministic", "command": "python3 tools/verify_p2.py r1-hygiene" },
+    { "id": "r1-val-03", "class": "validity", "text": "Records respect the pre-cleared timeline corrections in PLAN.md section 2 (AdWords CPM launch date, Overture revenue lead through 2002, patent settlement, radio never #1, OOH category break, Wanamaker/first-banner flagged as legend unless newly proven). Any evidence-backed contradiction is flagged in the record's notes, not silently dropped.", "check": "judgment", "instructions": "Read each era record and its notes against PLAN.md section 2's correction list. A record that asserts a corrected myth without new primary evidence violates this invariant." },
+    { "id": "r1-rdy-01", "class": "readiness", "text": "Neighboring eras agree on boundary-shared facts (each record's boundary_notes reconciles with its neighbors).", "check": "judgment", "instructions": "For each era pair (N, N+1), compare boundary_notes and overlapping claims. Disagreements on the same fact (different values outside each other's CIs, contradictory event dates) violate this invariant." },
+    { "id": "r1-rdy-02", "class": "readiness", "text": "Every scout gap marked blocking or major for an era (planning/unknown-unknowns-probe.json, affected_eras) is either addressed in that era's record or explicitly deferred with a reason in its notes.", "check": "judgment", "instructions": "Filter the probe file's gaps by affected_eras and severity in {blocking, major}. Spot-check each against the era record and notes: addressed, or deferred-with-reason, both pass; ignored fails." }
+  ],
+  "remediation": { "policy": "bounded-auto-repair", "max_cycles": 2, "on_exhaust": "halt-and-escalate" }
+}
