@@ -99,11 +99,36 @@ def iter_claims(era):
 
 # ---------- R1 ----------
 
+def _schema_validate(path, era, inv):
+    """Validate a record against the real JSON Schema when jsonschema is installed.
+
+    The field-by-field checks below are a proxy that predates this; this makes the
+    invariant's wording ("validates against the era-record schema") literally true.
+    A missing jsonschema library is itself a violation — a silently skipped check
+    is how a proxy starts masking things.
+    """
+    schema_path = P2 / "planning" / "schema" / "era-record.schema.json"
+    try:
+        import jsonschema
+    except ImportError:
+        bad(inv, "jsonschema not installed — cannot validate against the era-record schema "
+                 "(pip install jsonschema)", path)
+        return
+    schema = load(schema_path)
+    if schema is None:
+        return
+    validator = jsonschema.Draft7Validator(schema)
+    for err in sorted(validator.iter_errors(era), key=lambda e: list(e.path)):
+        loc = "/".join(str(p) for p in err.path) or "<root>"
+        bad(inv, f"schema violation at {loc}: {err.message[:200]}", path)
+
+
 def r1_records():
     for n, path in enumerate(ERA_FILES, 1):
         era = load(path)
         if era is None:
             continue
+        _schema_validate(path, era, "r1-acq-01")
         fields = era.get("fields", {})
         for fk in FIELD_KEYS:
             fv = fields.get(fk)
