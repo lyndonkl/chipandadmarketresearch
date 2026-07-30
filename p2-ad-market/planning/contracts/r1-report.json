@@ -1,0 +1,151 @@
+{
+  "overall": "PASS",
+  "stage": "R1",
+  "name": "Era fan-out",
+  "audited_at": "2026-07-30",
+  "preconditions": [
+    {
+      "path": "p2-ad-market/PLAN.md",
+      "verdict": "satisfied",
+      "evidence": "Exists, 19226 bytes. Well-formed: section 2 'Era map v2' carries the 7-era table and the 5 pre-cleared timeline corrections (lines 41-47); section 3 'Era schema v2' carries the 9 required fields and the eras 5-7 unit-economics block (lines 49-63); section 5 specifies R1's team, inputs and output paths (lines 99-101)."
+    },
+    {
+      "path": "p2-ad-market/planning/schema/era-record.schema.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 4992 bytes. Parses as JSON Schema Draft-07 with top-level keys ['$schema','title','description','definitions','type','required','properties']. Usable as a validator: all 7 era records validate against it with 0 errors."
+    },
+    {
+      "path": "p2-ad-market/planning/unknown-unknowns-probe.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 188773 bytes. Parses; top-level keys ['probe_date','purpose','scouts'] with 7 scouts carrying 65 gaps total (12 blocking, 36 major, 17 minor). Each gap carries the 'severity' and 'affected_eras' fields that invariant r1-rdy-02 filters on."
+    }
+  ],
+  "produces": [
+    {
+      "path": "p2-ad-market/data/eras/era-1.json",
+      "verdict": "satisfied",
+      "evidence": "exists, 70461 bytes, parses, 0 schema errors"
+    },
+    {
+      "path": "p2-ad-market/data/eras/era-2.json",
+      "verdict": "satisfied",
+      "evidence": "exists, 76684 bytes, parses, 0 schema errors"
+    },
+    {
+      "path": "p2-ad-market/data/eras/era-3.json",
+      "verdict": "satisfied",
+      "evidence": "exists, 78240 bytes, parses, 0 schema errors"
+    },
+    {
+      "path": "p2-ad-market/data/eras/era-4.json",
+      "verdict": "satisfied",
+      "evidence": "exists, 63900 bytes, parses, 0 schema errors"
+    },
+    {
+      "path": "p2-ad-market/data/eras/era-5.json",
+      "verdict": "satisfied",
+      "evidence": "exists, 93274 bytes, parses, 0 schema errors, unit_economics present"
+    },
+    {
+      "path": "p2-ad-market/data/eras/era-6.json",
+      "verdict": "satisfied",
+      "evidence": "exists, 87801 bytes, parses, 0 schema errors, unit_economics present"
+    },
+    {
+      "path": "p2-ad-market/data/eras/era-7.json",
+      "verdict": "satisfied",
+      "evidence": "exists, 95227 bytes, parses, 0 schema errors, unit_economics present"
+    },
+    {
+      "path": "p2-ad-market/research/notes/era-1-notes.md",
+      "verdict": "satisfied",
+      "evidence": "exists, 23990 bytes, carries seed-gap table (section 2) and constraint check (section 8)"
+    },
+    {
+      "path": "p2-ad-market/research/notes/era-2-notes.md",
+      "verdict": "satisfied",
+      "evidence": "exists, 22860 bytes, carries probe-gap disposition (section 7)"
+    },
+    {
+      "path": "p2-ad-market/research/notes/era-3-notes.md",
+      "verdict": "satisfied",
+      "evidence": "exists, 17627 bytes, carries constraint check (section 2) and seed-gap disposition (section 3)"
+    },
+    {
+      "path": "p2-ad-market/research/notes/era-4-notes.md",
+      "verdict": "satisfied",
+      "evidence": "exists, 23164 bytes, carries seed-gap disposition (section 3)"
+    },
+    {
+      "path": "p2-ad-market/research/notes/era-5-notes.md",
+      "verdict": "satisfied",
+      "evidence": "exists, 27093 bytes, carries inherited constraints (section 2) and scout-gap ledger (section 5)"
+    },
+    {
+      "path": "p2-ad-market/research/notes/era-6-notes.md",
+      "verdict": "satisfied",
+      "evidence": "exists, 18872 bytes, carries seed obligations (section 2), constraint check (3.5), gap disposition (3.6), cross-era reconciliation (3.8)"
+    },
+    {
+      "path": "p2-ad-market/research/notes/era-7-notes.md",
+      "verdict": "satisfied",
+      "evidence": "exists, 22532 bytes, carries seed-gap obligations (section 2) and constraint check (section 7)"
+    }
+  ],
+  "invariants": [
+    {
+      "id": "r1-acq-01",
+      "class": "acquisition",
+      "verdict": "satisfied",
+      "evidence": "Contracted deterministic check passed. Non-vacuous: the check traversed all 7 era files, each with 10 dated events (inside the 5-10 band), 8 non-empty schema fields with summaries over 200 chars, all 4 money-type keys present in both SCALE and BUYERS, and unit_economics present in eras 5, 6 and 7 and absent in 1-4 as specified. Corroborating (non-contracted) evidence: all 7 records also validate against p2-ad-market/planning/schema/era-record.schema.json with 0 errors under Draft7Validator.",
+      "command_output": "$ python3 tools/verify_p2.py r1-records\n(no output)\nexit 0"
+    },
+    {
+      "id": "r1-val-01",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Contracted deterministic check passed. Non-vacuous: iter_claims yielded 440 claim objects across the 7 records (era-1 53, era-2 66, era-3 62, era-4 59, era-5 68, era-6 66, era-7 66), each checked for the 8 calibration keys (id, statement, central, unit, ci80, grade, sources, as_of), ID-convention match, cross-era uniqueness, central-within-ci80, grade in {A,B,C}, method present on grade-C claims, non-empty sources and ISO-shaped as_of. 440 unique claim IDs, no duplicates.",
+      "command_output": "$ python3 tools/verify_p2.py r1-claims\n(no output)\nexit 0"
+    },
+    {
+      "id": "r1-val-02",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Contracted deterministic check passed. No source name or URL across the 440 claims matches /acquired|stratechery/i. Era-1 SCALE holds 10 claims, under the 12-claim proxy ceiling that distinguishes benchmark-year estimates from a fabricated annual series; era-1 notes section 3 confirms SCALE is benchmark-year only with an explicit no-data zone for 1840s-1866, and era-1 boundary_notes item (1) states the pre-1919 benchmarks are on a broader total-outlay basis. Independently corroborated by each era's notes: era-6 notes 3.5 records 'zero podcast sources; all 66 claims cite filings, official industry tables, trade press, or academic work'; era-7 notes section 7 records 'Neither appears in any source list.'",
+      "command_output": "$ python3 tools/verify_p2.py r1-hygiene\n(no output)\nexit 0"
+    },
+    {
+      "id": "r1-val-03",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Every one of PLAN.md section 2's pre-cleared corrections is respected, and each era's notes carry an explicit constraint-check table naming all of them (era-1 section 8, era-2 section 4 and 7, era-3 section 2, era-4 section 2, era-5 section 2, era-6 section 3.5, era-7 section 7). Item by item: (1) AdWords CPM launch - era-5 PRICING states 'Google's answer in October 2000 was still a CPM - AdWords launched with fixed $15, $12 and $10 CPM tiers', event 2000-10-23 is titled 'Google launches AdWords as a CPM product', and era-6 event 2002-02-20 'AdWords Select: the quality-weighted second-price auction' places the auction in era 6; no record asserts a 2000 auction. (2) Overture revenue lead through 2002 - era-6 boundary_notes: 'GoTo/Overture, not Google, invented the pay-per-click keyword auction (US Patent 6,269,361) and led paid-search revenue through 2002 ($667.7m vs Google's $439.5m)'; era-5 boundary_notes carries Overture FY2001 $288.133M vs Google FY2001 $86.4M. (3) Patent settlement - era-6 event 2004-08-09 records 2,700,000 Class A shares, a $201.0M non-cash charge and ~$229.5M at the $85 IPO price, matching the contract's ~2.7M shares / ~$230M. (4) Radio never #1 - all 7 notes files confirm explicitly; era-2 MEDIUM states radio 'peaked at 14.9 percent of all US advertising in 1945 and never came close to print' and era-3 boundary_notes states 'radio's all-time peak share is 11.0% in 1949, so radio is never the #1 US medium'. (5) OOH category break - era-5 MEDIUM carries it as a definitional artefact ('$4.78B against $1.73B on the 1999 overlap') with a dedicated claim e5-medium-006 warning that an unannotated splice 'manufactures a 177% jump that did not happen'. (6) Wanamaker and first-banner legends - era-1 notes section 4 and boundary_notes item (8) label Wanamaker attributed legend (earliest attribution a 1919 sermon by Rev. Roy L. Smith); era-2 section 4 reaches the same verdict; era-5 event 1994-10-27 states 'There was no single first banner ad... Treat the superlative as attributed legend and the launch itself as the datable event.' The 'flagged, not silently dropped' requirement is met for both evidence-backed refinements found: era-1 notes section 8 flags that PLAN's '~$3B early 1900s' anchor is actually reached in 1920, recorded in boundary_notes (2) 'as a refinement, not a contradiction' with 'Parent should note the date'; era-6 notes 3.5 flags that the OOH transition year reads 1999 or 2000 depending on which side of the join is named, with the ~3x magnitude confirmed and a note that 'No record field depends on it'.",
+      "command_output": ""
+    },
+    {
+      "id": "r1-rdy-01",
+      "class": "readiness",
+      "verdict": "satisfied",
+      "evidence": "All 7 records carry a non-empty boundary_notes string (1910-3307 chars). Every adjacent pair agrees on its shared handoff facts. 1/2: era-1 boundary_notes gives Coen 1919 = $1,930m alongside HS series T444 $2,282m; era-2 boundary_notes opens the annual series at 'Coen/McCann-Erickson annual series starts in 1919 at $1,930M' and describes the same divergence as 'the 1920s totals were revised down about 15 percent' - same fact, same magnitude. 2/3: era-2 hands over 1949 totals of $5,210M / newspapers $1,911M / direct mail $756M / radio $571M / magazines $458M / television $58M, and era-3's HAND-OFF FROM ERA 2 block reproduces every figure exactly. 3/4: era-3 hands 1976 total $33,300M with newspapers $9,618M and TV $6,721M; era-4 opens at '$33.3B in 1976 (Coen)... newspapers are the #1 medium at 28.9% and television is second at 20.2%', which are those figures as shares. Era-3 asked era-4 to resolve the contested PRIZM launch date (1974 vs 1978); era-4 does so explicitly, using 1978 central with the interval running back to 1974 'rather than picking a winner'. 4/5: era-4 closes 1993 at $141.0B with direct mail $27.27B and Yellow Pages $9.52B; era-5 opens with $140.956B, $27.266B and $9.517B. Both assign the commission's collapse to era 5 (era-4: 13.18% in 1992 to 10.98% by 1997, 'the commission's death belongs to era 5'; era-5 CREATORS: realized rate 'about 11%' in 1997). 5/6: both carry Overture FY2002 $667.7M, AdWords as Oct-2000 CPM, and the Feb-2002 auction; era-5 hands over 2001 totals of $231.287B and internet $7,134m, which era-6 restates identically. 6/7: era-7 boundary_notes requires exact agreement on IAB/PwC $21,206M (2007) and $23,448M (2008); both numbers appear in era-6 verbatim. The DoubleClick split is honoured on both sides - era-6 event 2007-04-13 records the announcement, era-7 event 2008-03-11 records the close, both at $3.1B, exactly as era-7 boundary_notes prescribes. Two apparent disagreements were checked and are reconciled, not contradictory: (a) era-2 boundary_notes cites 2.5% ad/GDP for 2000 while eras 5-7 cite 2.3-2.4%, but era-5's claim e5-scale-004 has central 2.4 with ci80 [2.3, 2.5] and names the three renderings (McCann 2.3%, IRS 2.4%, Galbi's Coen rendering 2.5%), so era-2's figure sits inside era-5's interval on the lineage era-2 uses; (b) era-5 records Overture at $0.23/click for Q4 2001 and era-6 at $0.20 for full-year 2001, different periods, both period-labelled, with era-6 notes 3.8 documenting the reconciliation explicitly. Era-1 notes section 9 and era-6 notes section 3.8 are dedicated sibling-reconciliation passes performed against the records on disk, and era-1's one deliberate discrepancy (1909/1914 ad/GDP benchmarks computing to 3.0-3.5% against era-2's 3.0% series maximum) is annotated in boundary_notes item (10) as a non-comparable numerator/denominator basis rather than left as a bare conflict. No contradictory event dates were found across any boundary.",
+      "command_output": ""
+    },
+    {
+      "id": "r1-rdy-02",
+      "class": "readiness",
+      "verdict": "satisfied",
+      "evidence": "The probe holds 65 gaps, 48 of them blocking or major. Every era's notes carry a dedicated scout-gap ledger keyed to affected_eras: era-1 section 2 (15 rows), era-2 section 7 (rows for gaps 1-19), era-3 section 3 (12 rows), era-4 section 3 (13 rows), era-5 section 5 (17 rows), era-6 section 2 plus disposition in 3.6 (G1-G22), era-7 section 2 (13 rows). Each row is marked addressed with a pointer to the field or claim that carries it, or deferred with a stated reason. Spot-checks confirm the pointers are real, not decorative: 21 claim IDs cited across the ledgers (e1-scale-009, e3-medium-010, e4-scale-009, e4-buyers-006, e4-scale-003, e4-buyers-004, e5-medium-005, e5-medium-003, e5-scale-004, e5-scale-008, e5-targeting-005, e6-scale-003, e6-medium-002, e6-medium-001, e6-sellers-003, e6-pricing-007, e6-measurement-001, e6-buyers-004, e6-medium-006, e6-targeting-002, e7-scale-002) all exist in the records. The blocking gaps are handled substantively: 'classified advertising absent' carries money-type claims in all 7 records; 'MEASUREMENT missing as a schema field' is resolved upstream by schema v2 and the field is filled in every record; 'per-query unit economics' is the unit_economics block in eras 5-7; the '2007/2008 series seam' is carried in both era-6 and era-7 boundary_notes with a concordance instruction for R2. Deferrals carry reasons rather than silence: era-6 defers G15 (IRS SOI annual series) with 'it belongs in R2's adspend.json as a validation rail, per the probe's own recommendation', and defers the era-6 half of the 2008-2026 sourcing gap because 'the sourcing problem is era 7's'; era-1 defers 'the presentation-scout gaps (chart form, mobile)' as 'design-stage, not R1'; era-7 defers design gaps 16-20 to the design grill; era-2 marks gaps 15-19 'Out of scope for R1'. Partial handling is labelled as such rather than overclaimed - era-3 marks the Yellow Pages gap 'PARTIAL' because Coen carries no pre-1980 directory series, and substitutes a grade-C back-cast with documented method. No blocking or major gap assigned to an era was found ignored.",
+      "command_output": ""
+    }
+  ],
+  "remediation": [],
+  "contract_concerns": [
+    "r1-acq-01's text says the records 'validate against the era-record schema', but the contracted command (python3 tools/verify_p2.py r1-records) never loads p2-ad-market/planning/schema/era-record.schema.json - grep for 'era-record.schema' in tools/verify_p2.py returns 0 hits. It re-implements the enumerated conditions as a field-by-field proxy, consistent with the PROXY convention declared in the tool's module docstring. The proxy did not mask anything on this cycle: independent Draft7Validator runs put all 7 records at 0 schema errors, so the deterministic verdict and the schema agree. Flagged only so the divergence between the invariant's wording and the check's implementation is on the record.",
+    "r1-val-02's era-1 clause is enforced by a declared proxy - a ceiling of 12 claims in era-1 SCALE standing in for 'no fabricated annual series'. A short fabricated series (say 8 benchmark-looking annual points) would pass the count test. The judgment reading of era-1's SCALE and notes found genuine benchmark-year estimates with wide CIs and an explicit no-data zone, so the proxy holds here, but it is weaker than the invariant text it implements."
+  ],
+  "echo": {
+    "remediation": {
+      "policy": "bounded-auto-repair",
+      "max_cycles": 2,
+      "on_exhaust": "halt-and-escalate"
+    }
+  }
+}
