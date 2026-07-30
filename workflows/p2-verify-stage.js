@@ -11,10 +11,13 @@ export const meta = {
 //                  args: {contract: 'p2-ad-market/planning/contracts/r1.json'}})
 // Run from the repo root. Implements PROCESS.md "Automated stage verification".
 
-if (!args || !args.contract) {
+// args may arrive as an object or as a JSON-encoded string depending on how
+// the invocation serializes it — accept both.
+const opts = typeof args === 'string' ? JSON.parse(args) : args
+if (!opts || !opts.contract) {
   throw new Error("args.contract is required, e.g. {contract: 'p2-ad-market/planning/contracts/r1.json'}")
 }
-const CONTRACT = args.contract
+const CONTRACT = opts.contract
 const REPORT = CONTRACT.replace(/\.json$/, '-report.json')
 const MAX_REPAIRS = 2
 
