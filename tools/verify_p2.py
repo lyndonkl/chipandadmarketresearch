@@ -266,30 +266,73 @@ def r2_checks():
                 bad("r2-val-02", f"forecast '{f.get('id', '?')}' missing median or variance", "forecasts.json")
 
 
+# Units that mean a claim is NOT a US dollar total, so comparing a dollar
+# figure against it is a category error rather than a finding.
+_NON_TOTAL_UNIT = re.compile(r"percent|%|share|change|revision|ratio|per\s|index", re.I)
+_NON_US = re.compile(r"world|global", re.I)
+_CURRENCY = re.compile(r"usd|dollar|us\$", re.I)
+# "of total" / "% of total" are share constructions, not totals.
+_SHARE_PHRASE = re.compile(r"(of|%\s*of|share of)\s+total", re.I)
+
+
+def _claim_scale_to_musd(unit):
+    """Return the multiplier taking a claim's unit to millions USD, or None if
+    the claim is not a US-dollar total (percent, share, world, unknown scale)."""
+    if not unit:
+        return None
+    if _NON_TOTAL_UNIT.search(unit) or _NON_US.search(unit) or not _CURRENCY.search(unit):
+        return None
+    if re.search(r"billion", unit, re.I):
+        return 1000.0
+    if re.search(r"million", unit, re.I):
+        return 1.0
+    return None
+
+
 def r2_reconcile():
-    # PROXY: compare era SCALE totals to assembled dataset totals where both
-    # exist for the same year; the claim's own ci80 is the tolerance.
+    """Compare era SCALE dollar totals against assembled dataset totals.
+
+    Compares like with like: only US-dollar TOTAL claims, normalised to
+    millions USD. Percent, share, year-on-year-change and world-spend claims
+    are skipped, because a dollar total is not comparable to them. The claim's
+    own ci80 is the tolerance.
+    """
     ds = _adspend()
     if ds is None:
         return
     totals = {}
-    for sk in ("coen_mce", "magna"):
+    for sk in ("benchmarks_pre1919", "coen_mce", "magna"):
         for p in ds.get("series", {}).get(sk, {}).get("points", []):
-            if p.get("medium") in (None, "total", "all"):
+            if str(p.get("medium", "")).lower() in ("total", "all", "none", ""):
                 totals.setdefault(p.get("year"), p.get("value"))
+    compared = 0
     for path in ERA_FILES:
         era = load(path)
         if era is None:
             continue
         for c in (era.get("fields", {}).get("SCALE") or {}).get("claims", []):
-            st = c.get("statement", "").lower()
+            st = c.get("statement", "")
+            scale = _claim_scale_to_musd(c.get("unit"))
+            if scale is None:
+                continue
+            if not re.search(r"\btotal\b", st, re.I) or _SHARE_PHRASE.search(st):
+                continue
             m = re.match(r"^(\d{4})", str(c.get("as_of", "")))
-            if "total" in st and m:
-                year = int(m.group(1))
-                if year in totals and isinstance(c.get("ci80"), list) and len(c["ci80"]) == 2:
-                    lo, hi = c["ci80"]
-                    if not (lo <= totals[year] <= hi):
-                        bad("r2-rdy-01", f"dataset total {totals[year]} for {year} outside claim {c.get('id')} ci80 [{lo}, {hi}]", path)
+            if not m:
+                continue
+            year = int(m.group(1))
+            ci = c.get("ci80")
+            if year not in totals or not (isinstance(ci, list) and len(ci) == 2):
+                continue
+            lo, hi = ci[0] * scale, ci[1] * scale
+            compared += 1
+            if not (lo <= totals[year] <= hi):
+                bad("r2-rdy-01",
+                    f"dataset total {totals[year]} MUSD for {year} outside claim {c.get('id')} "
+                    f"ci80 [{lo}, {hi}] MUSD (claim unit: {c.get('unit')})", path)
+    if compared == 0:
+        bad("r2-rdy-01", "no era SCALE dollar-total claim could be compared to the dataset — "
+                         "the reconciliation check is vacuous", "adspend.json")
 
 
 def r2_freeze():
