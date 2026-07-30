@@ -190,6 +190,26 @@ def _adspend():
     return load(P2 / "data" / "adspend.json")
 
 
+def _assembled_totals(ds):
+    """Year -> assembled US total, in millions USD.
+
+    Only whole-market totals count. A year can carry several rows with
+    medium='total' — one per money type (national_brand, local_retail, ...)
+    plus the true total — and the money-type rows sum TO the total. Selecting
+    on medium alone would silently compare against a subset depending on row
+    order, so money_type must be absent.
+    """
+    totals = {}
+    for sk in ("benchmarks_pre1919", "coen_mce", "magna"):
+        for p in ds.get("series", {}).get(sk, {}).get("points", []):
+            if str(p.get("medium", "")).lower() not in ("total", "all", "none", ""):
+                continue
+            if p.get("money_type") not in (None, "all"):
+                continue
+            totals.setdefault(p.get("year"), p.get("value"))
+    return totals
+
+
 def r2_series():
     ds = _adspend()
     if ds is None:
@@ -250,13 +270,25 @@ def r2_checks():
     ds = _adspend()
     if ds is None:
         return
-    for x in ds.get("cross_checks", []) or [{}]:
-        if not x:
-            bad("r2-val-02", "cross_checks empty", "adspend.json")
-            break
+    cross = ds.get("cross_checks", []) or []
+    if not cross:
+        bad("r2-val-02", "cross_checks empty", "adspend.json")
+    for x in cross:
         d = x.get("divergence_pct")
         if isinstance(d, (int, float)) and abs(d) > 15 and not x.get("flagged"):
             bad("r2-val-02", f"IRS divergence {d}% in {x.get('year')} not flagged", "adspend.json")
+    # COVERAGE: the invariant requires a cross-check for EVERY year where the
+    # cross-check series overlaps an assembled total. Auditing only the entries
+    # that happen to exist lets a missing year hide a tolerance breach.
+    totals = _assembled_totals(ds)
+    covered = {x.get("year") for x in cross}
+    for p in ds.get("series", {}).get("irs_soi", {}).get("points", []):
+        year = p.get("year")
+        if year in totals and year not in covered:
+            div = (p.get("value") - totals[year]) / totals[year] * 100 if totals[year] else float("nan")
+            bad("r2-val-02",
+                f"irs_soi overlaps an assembled total in {year} but no cross_checks entry exists "
+                f"(would be {div:+.1f}%)", "adspend.json")
     fc = load(P2 / "data" / "forecasts.json")
     if fc is not None:
         for f in fc.get("forecasts", []):
@@ -300,11 +332,7 @@ def r2_reconcile():
     ds = _adspend()
     if ds is None:
         return
-    totals = {}
-    for sk in ("benchmarks_pre1919", "coen_mce", "magna"):
-        for p in ds.get("series", {}).get(sk, {}).get("points", []):
-            if str(p.get("medium", "")).lower() in ("total", "all", "none", ""):
-                totals.setdefault(p.get("year"), p.get("value"))
+    totals = _assembled_totals(ds)
     compared = 0
     for path in ERA_FILES:
         era = load(path)

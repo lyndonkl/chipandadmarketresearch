@@ -1,0 +1,99 @@
+{
+  "overall": "PASS",
+  "stage": "R2",
+  "name": "Dataset assembly + endpoint forecasts",
+  "audited_at": "2026-07-30",
+  "preconditions": [
+    {
+      "path": "p2-ad-market/data/eras/era-1.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 70461 bytes, parses as JSON. All seven era records are present in p2-ad-market/data/eras/ (era-1 through era-7, 63900-95227 bytes each), so the R1 output the stage consumed is complete, not just its first file."
+    },
+    {
+      "path": "p2-ad-market/planning/contracts/r1-report.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 15713 bytes, parses as JSON, and its top-level \"overall\" field reads \"PASS\". R1 therefore cleared its own gate before R2 ran."
+    }
+  ],
+  "produces": [
+    {
+      "path": "p2-ad-market/data/adspend.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 1302718 bytes, non-empty, parses as JSON with top-level keys: metric, coverage_window, unit, as_of, freeze_date, built_by, schema_notes, series, concordance, bridge, cross_checks, reconciliation, claims."
+    },
+    {
+      "path": "p2-ad-market/data/forecasts.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 28443 bytes, non-empty, parses as JSON with top-level key \"forecasts\" holding 4 forecast objects."
+    },
+    {
+      "path": "p2-ad-market/research/notes/dataset-notes.md",
+      "verdict": "satisfied",
+      "evidence": "Exists, 21923 bytes, non-empty. Contains the series inventory table, the concordance walkthrough, and a dedicated section 6 documenting the 1980-2007 bridge."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "r2-acq-01",
+      "class": "acquisition",
+      "verdict": "satisfied",
+      "evidence": "Deterministic check `python3 tools/verify_p2.py r2-series` exited 0 with no violation output. Corroborating read of adspend.json: all five named series are present with declared two-element coverage windows -- coen_mce [1919,2007] 1197 points, magna [1980,2025] 9 points, iab_pwc [1996,2025] 35 points, irs_soi [1960,2022] 19 points, benchmarks_pre1919 [1867,1918] 9 points. The verifier also asserts every point's source_series tag matches its containing series and that year and value are present.",
+      "command_output": "(exit 0, no output)"
+    },
+    {
+      "id": "r2-val-01",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Deterministic check `python3 tools/verify_p2.py r2-concordance` exited 0 with no violation output. The check builds a (year, medium) occupancy map across all series and requires a concordance entry for every pair that co-occupies a cell, requires bridge.window/method/arithmetic to be non-empty, and requires every point flagged bridged:true to carry calibration.grade == \"C\". Corroborating read: 19 concordance entries present; all 28 bridge_mce_mg8 points carry bridged:true and grade C.",
+      "command_output": "(exit 0, no output)"
+    },
+    {
+      "id": "r2-val-02",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Deterministic check `python3 tools/verify_p2.py r2-checks` exited 0 with no violation output. cross_checks holds 31 entries; no entry carries |divergence_pct| > 15 while flagged is false. All 4 forecasts in forecasts.json carry 3 panelists (>= the required 3) plus both median and variance: fc-total-adspend-001 (median 440, var 10.666667), fc-digital-share-001 (median 76, var 0.086667), fc-retail-media-001 (median 71.5, var 0.388889), fc-search-001 (median 129.5, var 2.722222). See contract_concerns[0]: the contracted command does not test the invariant's 'every overlap year' clause, and 1960 appears to be an uncovered overlap year.",
+      "command_output": "(exit 0, no output)"
+    },
+    {
+      "id": "r2-val-03",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Judgment check against the two failure modes the contract names. (1) 'Says differs without magnitude': no such entry. All 19 concordance entries carry a populated magnitude object (2-7 keys). The billings-vs-revenue basis difference is decomposed numerically in coen-magna-basis: 1980 MCE $53,570m vs MG8 $41,021m, raw_level_break_pct_1980 -23.43, like_for_like_wedge_pct_1980 -7.21, scope_share_of_break_pct 69.2. Category scope changes carry both year and magnitude -- coen-ooh-2000 (ooh_1999 $4,780m vs billboards_1999 $1,725m, ratio 2.771), coen-category-lifecycle (Yellow Pages enters 1980 at $2,900m against a miscellaneous step of -$2,074m), coen-tv-split-1990 (identity_residual_musd 0), coen-medium-detail-1935 (other_share_of_1919_total_pct 62.6). The three thinnest entries still carry hard numbers (iab-vintage max_restatement_pct 0.19; bridge-vs-coen -23.4/-17.4 pct; naa-online-2003 $3,166m, 14.9% of IAB). The one entry marked \"status\": \"unquantified\" (magna-basis-change) does not violate the instruction: it names precisely what differs (direct mail possibly leaving the MG8 basis), supplies both dollar anchors (mg8_2018_musd 232906, us_direct_mail_scale_for_reference_musd 60225) and a numeric bound ('roughly 10-15% of total'), and states why an exact figure is unavailable (the methodology document is licensed and was not read). That is a disclosed epistemic limit with a quantified bound, not an unquantified 'differs'. (2) 'Bridge estimated outside its overlap window': not the case. coen_mce spans 1919-2007 and magna spans 1980-2025, so the series overlap is exactly 1980-2007; bridge.window is [1980,2007] and all 28 bridge_mce_mg8 points fall inside it with none outside. bridge.gaps_not_bridged explicitly declines to bridge 2008-2020 and 2011-2025 where no overlap exists, leaving those holes visible -- the discipline the invariant is protecting. All 10 entries in bridge.steps re-evaluate to their stored expected values within 1e-9 (W = 41021/44207 = 0.9279299658425136 reproduces exactly). The single-observation weakness is foregrounded rather than concealed: overlap_observations is declared as 1, wedge.held_constant true with why_constant, known_direction_of_error states the true wedge is probably below 0.928 in the 2000s, and the ci80 on bridge points resolves to exactly [0.85, 0.98] of the restricted base at both 1980 and 2007, matching the documented skew. An out-of-sample check at 2007 against GroupM's published US measured-media total gives -0.52%, carrying the caveat that GroupM 'bounds the bridge, it does not confirm it'. dataset-notes.md section 6 repeats the same admission in prose: 'a wedge constant across 27 years on one observation is the weakest link in this dataset and is graded C everywhere'.",
+      "command_output": "(judgment check -- no command)"
+    },
+    {
+      "id": "r2-rdy-01",
+      "class": "readiness",
+      "verdict": "satisfied",
+      "evidence": "Deterministic check `python3 tools/verify_p2.py r2-reconcile` exited 0 with no violation output. The check compares era SCALE dollar-total claims (normalised to millions USD, skipping percent/share/change/world claims as category errors) against assembled totals from benchmarks_pre1919, coen_mce and magna, using each claim's own ci80 as tolerance. It carries an explicit anti-vacuity guard that raises a violation if zero claims could be compared; that guard did not fire, so the reconciliation was actually exercised rather than trivially passing on an empty comparison set.",
+      "command_output": "(exit 0, no output)"
+    },
+    {
+      "id": "r2-rdy-02",
+      "class": "readiness",
+      "verdict": "satisfied",
+      "evidence": "Deterministic check `python3 tools/verify_p2.py r2-freeze` exited 0 with no violation output. The check rejects any sourced point in adspend.json with year > 2025 and any point whose calibration.as_of exceeds the freeze date. Corroborating read: the maximum year across all adspend.json series points is 2025 (magna, iab_pwc), and the post-freeze projections live in forecasts.json as 4 forecast objects. See contract_concerns[1] on the proxy nature of the year test.",
+      "command_output": "(exit 0, no output)"
+    }
+  ],
+  "remediation": [],
+  "contract_concerns": [
+    {
+      "invariant": "r2-val-02",
+      "concern": "The contracted command is materially weaker than the invariant text it enforces, and there is concrete evidence the untested clause does not hold. The invariant requires that 'The IRS cross-check is computed for every year where irs_soi overlaps the assembled totals'. The command's implementation (tools/verify_p2.py, r2_checks, lines 249-266) only iterates cross_checks entries that already exist and flags any with |divergence_pct| > 15 that are not marked flagged; it never verifies coverage. Observed gap: irs_soi carries 19 year-points (1960, then 2005-2022) but cross_checks covers 2005-2022 only among IRS years, leaving 1960 with no entry. 1960 has both an irs_soi point ($9,291m) and an assembled coen_mce total ($11,960m), which would yield a divergence of -22.3% -- past the 15% tolerance and therefore requiring flagged:true. The audit verdict above records the contracted command's result as the contract directs; this concern is raised separately so the pipeline owner can decide whether to tighten the check or add the 1960 entry.",
+      "severity": "material"
+    },
+    {
+      "invariant": "r2-rdy-02",
+      "concern": "The check self-documents as a proxy. tools/verify_p2.py line 339 reads '# PROXY: annual points for 2026+ belong in forecasts.json, not adspend.json', implementing the 2026-06-30 freeze date as a year > 2025 test on point years. For annual-resolution data this is a defensible proxy, and the check does additionally compare calibration.as_of against the literal freeze date, so the gap is narrow. Noted only so the substitution is on the record rather than implicit.",
+      "severity": "minor"
+    }
+  ],
+  "echo": {
+    "remediation": {
+      "policy": "bounded-auto-repair",
+      "max_cycles": 2,
+      "on_exhaust": "halt-and-escalate"
+    }
+  }
+}
