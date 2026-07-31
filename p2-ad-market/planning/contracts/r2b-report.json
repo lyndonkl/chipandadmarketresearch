@@ -1,0 +1,97 @@
+{
+  "overall": "PASS",
+  "stage": "R2b",
+  "name": "Money-type re-research (pre-freeze condition)",
+  "audited_at": "2026-07-30",
+  "audit_cycle": 2,
+  "preconditions": [
+    {
+      "path": "p2-ad-market/planning/gate-b-approval.md",
+      "verdict": "satisfied",
+      "evidence": "Exists, 3835 bytes, non-empty, well-formed markdown. Section 2 'The freeze is conditional' records the conditional freeze verbatim: 'The data layer is not frozen yet', naming the three weak eras and setting the Condition 'run stage R2b against eras 1, 5 and 7 before the freeze' with two ordered objectives (source hunt, then proxy estimation where no source exists) and 'The freeze happens after R2b passes its verifier.' The header line reads 'Decision: Threads selected. Data-layer freeze conditional on stage R2b (money-type re-research) completing first.'"
+    },
+    {
+      "path": "p2-ad-market/planning/contracts/r5-report.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 15702 bytes, parses as JSON. Top-level 'overall' field reads 'PASS'. Keys present: overall, stage, name, audited_at, audit_cycle, preconditions, produces, invariants, remediation, contract_concerns, echo."
+    }
+  ],
+  "produces": [
+    {
+      "path": "p2-ad-market/data/moneytype/reconciled.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 81361 bytes, parses. Carries eras[3] (1, 5, 7), each with observed_total, pools[4], residual, unranked_pairs, confidently_ranked, grade_changes and findings, plus top-level aggregation_rule, claim_id_policy, open_taxonomy_questions and r3_divergences."
+    },
+    {
+      "path": "p2-ad-market/data/moneytype/sources-era-1.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 63537 bytes, parses. 20 entries in sources_found; pools_sourceable carries all four money-type keys."
+    },
+    {
+      "path": "p2-ad-market/data/moneytype/sources-era-5.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 70567 bytes, parses. 11 entries in sources_found; pools_sourceable carries all four money-type keys."
+    },
+    {
+      "path": "p2-ad-market/data/moneytype/sources-era-7.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 81444 bytes, parses. 23 entries in sources_found; pools_sourceable carries all four money-type keys."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "r2b-acq-01",
+      "class": "acquisition",
+      "verdict": "satisfied",
+      "evidence": "All three source-hunt records exist and each pools_sourceable object has exactly the four contracted keys (national_brand, local_retail, classified, direct_response), verified set-equal to the expected key set for eras 1, 5 and 7. All twelve entries are substantive prose (shortest 837 characters, era 1 national_brand; longest 2224, era 5 direct_response); none is blank or vague. Each resolves to either a named source or a documented absence naming what was tried. NAMED SOURCE examples: era 5 classified cites NAA 'Annual Newspaper Ad Expenditures' for all eight years 1994-2001 with the 2000 peak at $19,608M plus Knight Ridder 10-K corroboration; era 7 classified names three independent legs (Census SAS NAICS 511110, $8,087m in 2008 to $1,978m in 2021; Census SAS NAICS 511140, $11,400m in 2008 to $1,781m in 2020; IAB/PwC classifieds, $3.2B in 2008 to $5.3B in 2021) with an overlap test (NAA $5,030m against Census $4,840m for 2011, 3.9 percent apart). DOCUMENTED ABSENCE examples: era 1 classified opens 'NO SOURCE FOUND' and enumerates what was tried (Census of Manufactures printing and publishing bulletins 1879-1919, HSUS T 485-491, Millennial De516-522, Coen via Galbi, ANCAM founded 1920, PIB 1945, SRDS 1919, NAA, the Library of Congress historical-marketing-data inventory, the Printers' Ink 4 May 1911 twelve-channel table, Lee 1937); era 5 national_brand and local_retail both open 'NO SOURCE FOUND' with explicit TRIED AND FAILED lists (Ad Age 100 Leading National Advertisers back file, CMR/TNS, TVB, CAB, OAAA, licensed MAGNA 1994-1999; Kelsey Group, Borrell Associates, YPPA). Era 7 national_brand and local_retail name the licensed instruments that would source them (Guideline/SMI, MAGNA MG8, BIA ADVantage) and record that they were not purchased.",
+      "command_output": "n/a - judgment check"
+    },
+    {
+      "id": "r2b-val-01",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Contracted command run verbatim from the repo root; both sub-commands exited 0 with no violation lines. tools/verify_p2.py is a live harness rather than a silent no-op: main() returns 2 on an unrecognised check name (confirmed by running 'verify_p2.py bogus-check', which printed the usage line and exited 2) and returns 1 after printing one JSON violation object per finding. r1_records walks every era file, schema-validates it, and asserts SCALE.by_money_type and BUYERS.by_money_type carry all four money keys as either a claim or an absence note. Claim IDs are preserved: the twelve pool claims still carry their pre-existing IDs (e1-scale-011 to 014, e5-scale-010 to 013, e7-scale-006 to 009) with their matching BUYERS IDs, and the era records point at the same IDs with the same centrals as reconciled.json.",
+      "command_output": "$ python3 tools/verify_p2.py r1-records && python3 tools/verify_p2.py r1-claims\n(exit 0, no output)"
+    },
+    {
+      "id": "r2b-val-02",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Contracted command run verbatim from the repo root; both sub-commands exited 0 with no violation lines. r5_chapter_stale reads each chapter's claim_ids front matter and, for every claim whose central was adjusted, searches the body for the superseded numeric forms, allowing them only where the new value appears alongside; no chapter tripped it after a rewrite that moved several large centrals (era 7 local_retail $169B to $93.5B, national_brand $95bn to $145.7bn, direct_response $130bn to $151.2bn, classified $15bn to $9.95bn; era 5 direct_response 19.2 to 24.71 percent).",
+      "command_output": "$ python3 tools/verify_p2.py r5-stale-prose && python3 tools/verify_p2.py r5-chapter-stale\n(exit 0, no output)"
+    },
+    {
+      "id": "r2b-val-03",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "All twelve SCALE pool claims and all ten money-type BUYERS claims were read in claims.json. (a) MULTIPLE NAMED ROUTES WITH WEIGHTS in every grade-C pool claim: e1-scale-011 names R1-R5 at weights 0.25/0.20/0.25/0.15/0.15; e1-scale-013 names C1-C5 at 0.30/0.20/0.20/0.20/0.10; e5-scale-013 names E1/E2/E4/E10+E11/E6/E9 at 0.45/0.15/0.20/0.15/0.05/0.0; e7-scale-006 names N-A/N-B/N-C at median weights 0.50/0.30/0.00; e7-scale-007 names L-A/L-B/L-C at 0.40/0.38/0.20; e7-scale-008 names C-A/C-B/C-C at 0.45/0.30/0.25. No pool claim rests on a single route. (b) PROXY-POPULATION-GAP ADJUSTMENT PER ROUTE, with direction and size: e1-scale-011 R1 states the gap (ANPA measures 1915 newspaper SPACE at gross card rate, not 1914 outlay) and two adjustments with direction and magnitude (-5 percent deflation to 1914, +3pp space-to-outlay uplift); e1-scale-013 C1 states two gaps, period and universe, and sizes the universe correction at -3.8pp; e7-scale-007 L-A states the decisive gap (BIA's population is buyers-of-local-inventory including national and regional companies, so the correction is DOWN and large) and quantifies the open regional-tier judgement (0 percent gives 14.3, 45 percent gives 24.1); e7-scale-006 N-C adjusts the WARC/Ebiquity survey global-to-US by -2 to -4pp and large-advertiser-panel-to-whole-market by -5 to -10pp. (c) COMMON-INPUT COLLAPSE DECLARED AND EXECUTED: reconciled.json's aggregation_rule states 'Routes sharing a common input were collapsed to one route before any weighting', and the claims carry it out - e1-scale-011 'NEAR-DUPLICATES COLLAPSED: all three lenses ran this same ANPA pair; counted as ONE route'; e5-scale-013 'The panel presented about fourteen named routes across three lenses; they collapse to eight independent evidence bases, because routes sharing a common input are one route'; e7-scale-007 'the two BIA vintages are ONE compiler, so L-A is one route' and 'NEAR-DUPLICATES DECLARED: the three lenses' parameterisations ... are one route'. (d) INTERVALS TRACEABLE TO DISAGREEMENT, NOT COMFORT BANDS: every interval is min-lower to max-upper across the three lens intervals, and each claim names the specific driver of its width - e1-scale-011 'denominator-treatment disagreement, not measurement disagreement'; e1-scale-013 'two treatment levers ... the rate ratio r (0.55-0.90) and the wedge treatment'; e5-scale-011 '4.50pp of the downside is the directory convention alone'; e5-scale-012 'the narrowest in the era' at 2.2pp because 89.5 percent of the pool is a published series; e7-scale-007 'the regional-tier allocation alone spans it'; e7-scale-008 warns that above about 2.8 percent the interval is FRAME rather than measurement error and publishes a separate in-frame-only interval [1.4, 2.8]. Where route dispersion would be spuriously tight because routes share an input, the file says so and refuses it: e7-scale-006 'It is NOT drawn from route dispersion, which would be false precision given that N-A and N-B share an input; the lower end is where the independent survey rail sits and the upper end is where local retail's lower bound pushes the residual'; e7-scale-009 makes the same refusal of its 4.2pp lens dispersion. (e) SOURCED POOLS ARE GRADED ON THEIR SOURCE, NOT LEFT AT C: era 1 BUYERS national_brand and local_retail stay grade B on the ANPA line, with a third-hand provenance flag now visible in both statements; era 5 classified records its sourced sub-object at grade B inside e5-scale-012 ('newspaper classified was 7.923 percent of the observed US total in 2000 ... numerator and denominator both published, nothing derived') and states precisely why the pool as a whole stays C ('the remaining 10.5 percent is unsourced construction, and it is the construction that makes this a pool rather than a newspaper figure'); era 7 classified carries grade_by_period {2008-2021: A, 2022-2026: C, marketplace_listings_leg_all_years: C} plus the grade-A 2008 anchor of $22.7bn, with the reason the applied claim cannot inherit the upgrade stated in both the method and grade_changes ('every leg stops at reference year 2021 and nothing free covers 2022-2026 or the marketplace leg in any year'); era 7 local_retail was DOWNGRADED B to C, applied, because BIA's $169bn measures inventory geography rather than class of buyer and 'cannot carry a source grade for it'. NOTED RESIDUAL RISK, not a violation: reconciled.json sets 'independent_routes_after_collapse': 3 for era 7 national_brand while that pool's own method states 'NOT FULLY INDEPENDENT OF N-A: both consume the performance-priced share of US digital' and 'only one is independent of the other pools'. The dependence is disclosed in the method and neutralised where it matters (the published central is the plain median of three lens centrals, and the interval explicitly refuses route dispersion), so no false confidence propagates; the structured field name nonetheless overstates what the prose says.",
+      "command_output": "n/a - judgment check"
+    },
+    {
+      "id": "r2b-rdy-01",
+      "class": "readiness",
+      "verdict": "satisfied",
+      "evidence": "CLOSURE, recomputed from reconciled.json for all three eras: era 1, 22.0 + 22.0 + 2.2 + 16.0 = 62.2 with residual 37.8, total exactly 100.0 (matching the file's own closes_exactly field); era 5, 38.34 + 28.32 + 8.85 + 24.71 = 100.22 with residual -0.22, total exactly 100.0; era 7, 36.6 + 38.0 + 23.5 + 2.5 = 100.6 with residual -0.6, total exactly 100.0. Each era's observed_total names its source of record (era 1 adspend.json benchmarks_pre1919 year=1914 $1,200m; era 5 series coen_mce year 2000 $247,472m, recomputed from the 11 partition-member medium lines; era 7 series magna year 2025 $398,000m). RESIDUAL AS ITS OWN FIGURE: each residual carries its own claim ID (e1-scale-017, e5-scale-014, e7-scale-010), all three present in claims.json with central, ci80, grade and method, so none is a silent shortfall. Each carries its own reasoning: era 1 decomposes 37.8pp into a real fifth money type (5-9 points, itemised as business/trade/technical papers, dealer-directed direct mail, house organs, legal and government notices, theatrical billposting, institutional and political) and a denominator artefact (29-33 points, the gap between the $697-725m contemporaneous channel enumeration and the $1,200m retrospective benchmark), with 'Not a money type; must never be drawn as one'; era 5 attributes -0.22 exactly to the median operator (three medians come from the Fermi lens whose own four values sum to 100.00 with classified at 8.63, against a classified median of 8.85 from the reference-class lens, and 8.85 - 8.63 = 0.22) and bounds it by showing the mean of lens centrals reconciles to 100.000; era 7 attributes -0.6 to national_brand and direct_response being constructed complements and gives the rebasing sensitivity that reaches the interval's -1.6pp lower end. UNRANKED PAIRS, recomputed independently for all six pairs in each era from the published ci80s: era 1 overlaps are national_brand/local_retail (+31.0pp), national_brand/direct_response (+19.0pp) and local_retail/direct_response (+15.0pp) - all three listed in unranked_pairs; era 5 overlaps are national_brand/local_retail (+1.5pp), national_brand/direct_response (+4.5pp) and local_retail/direct_response (+12.2pp) - all three listed; era 7 overlaps are national_brand/direct_response (+17.5pp), national_brand/local_retail (+6.0pp) and direct_response/local_retail (+1.5pp) - all three listed. No overlapping pair is missing from unranked_pairs in any era. The only orderings asserted in confidently_ranked are the disjoint ones (classified against every other pool, at confidence 0.97 in eras 1, 5 and 7), and era 1 additionally records the negative: 'the other three pools form one undifferentiated block and the era's narrative must not claim which was largest'. The era 5 national_brand/local_retail pair flagged in audit cycle 1 has been added, with overlap_pp 1.5 recorded and the confidently_ranked entry rewritten to read 'It is NOT an ordering: its overlap with local_retail is 1.5pp of tail ... so the pair sits in unranked_pairs'. Where direction is unanimous across lenses the file records the direction but withholds certification and marks the pair not chart-safe (era 7 national_brand/local_retail 'UNRANKED BY INTERVAL; direction unanimous but not certified'; era 7 direct_response/local_retail 'UNRANKED AT THE TAIL ONLY'), and e7-scale-009's statement carries the tie into reader-facing prose: 'It cannot be ranked against national brand: the two centrals sit 1.4 points apart and the lenses do not agree on the direction.' NOTED, not a violation: e7-scale-007's statement says local_retail is 'third of the four pools', an ordering against two pools whose pairs are recorded as unranked-by-interval; the direction is unanimous across all three lenses (national_brand above local_retail by 20.1/13.1/9.0pp, direct_response above local_retail by 13.0/18.4/16.8pp) rather than manufactured, and reconciled.json records both pairs as unranked as this check requires, but the claim prose carries no not-chart-safe caveat of its own.",
+      "command_output": "n/a - judgment check"
+    },
+    {
+      "id": "r2b-rdy-02",
+      "class": "readiness",
+      "verdict": "satisfied",
+      "evidence": "Contracted command run verbatim from the repo root; both sub-commands exited 0 with no violation lines. r5_claimsfile walks all 501 claims in data/claims.json through check_claim with duplicate-ID detection; r2_reconcile re-runs the dataset reconciliation. Independent spot-check confirms claims.json reflects the updated era records: for all three eras and both holders, every by_money_type entry in data/eras/era-{1,5,7}.json points at a claim ID whose central and grade in claims.json match the era record and reconciled.json (era 1 SCALE 22.0 / 22.0 / 2.2 / 16.0 all C; era 5 SCALE 38.34 / 28.32 / 8.85 / 24.71 all C; era 7 SCALE 145.7 / 93.5 / 9.95 / 151.2 all C, with era 7 local_retail carrying the applied B-to-C downgrade). The three new residual claims are present with no ID collision, and the era 1 ID reservation stated in claim_id_policy holds: e1-scale-017 is taken and 015 and 016 are left free for the six queued unmerged transcriptions.",
+      "command_output": "$ python3 tools/verify_p2.py r5-claimsfile && python3 tools/verify_p2.py r2-reconcile\n(exit 0, no output)"
+    }
+  ],
+  "remediation": [],
+  "contract_concerns": [
+    "r2b-val-03's clause 'names routes sharing a common input (which is one route, not two)' is read here purposively rather than literally. A method that names two routes, explicitly declares that they share an input, and then refuses to let their agreement set the interval is treated as satisfying the invariant, because the harm the clause guards against - an inflated count of independent confirmations narrowing the interval - does not occur. e7-scale-006 (routes N-A and N-B, which both consume the performance-priced share of US digital) is the case in point. A literal reading would fail it for naming them as two routes at all. If the pipeline intends the literal reading, the clause should say so and this invariant should be re-audited.",
+    "r2b-rdy-01's check instruction tests reconciled.json only, so ordering language in reader-facing claim prose (claims.json, chapters) is outside its scope. e7-scale-007's 'third of the four pools' is therefore not counted as a violation even though both of local_retail's pairs sit in unranked_pairs. If the freeze intends unranked pairs to carry their caveat in prose as well, the check needs to name claims.json and the chapters."
+  ],
+  "echo": {
+    "remediation": {
+      "policy": "bounded-auto-repair",
+      "max_cycles": 2,
+      "on_exhaust": "halt-and-escalate"
+    }
+  }
+}
