@@ -1,0 +1,59 @@
+{
+  "stage": "R2b",
+  "name": "Money-type re-research (pre-freeze condition)",
+  "requires": [
+    { "path": "p2-ad-market/planning/gate-b-approval.md", "desc": "Gate B decision recording the conditional freeze" },
+    { "path": "p2-ad-market/planning/contracts/r5-report.json", "desc": "V5 report with overall PASS" }
+  ],
+  "produces": [
+    { "path": "p2-ad-market/data/moneytype/reconciled.json" },
+    { "path": "p2-ad-market/data/moneytype/sources-era-1.json" },
+    { "path": "p2-ad-market/data/moneytype/sources-era-5.json" },
+    { "path": "p2-ad-market/data/moneytype/sources-era-7.json" }
+  ],
+  "invariants": [
+    {
+      "id": "r2b-acq-01",
+      "class": "acquisition",
+      "text": "A source-hunt record exists for each of eras 1, 5 and 7, and each states for all four money-type pools either the source that populates it or an explicit documented absence.",
+      "check": "judgment",
+      "instructions": "Read the three sources-era-N.json files. Every pool must carry either a named source or a 'no source found' verdict naming what was tried. A pool left blank or vague violates this invariant."
+    },
+    {
+      "id": "r2b-val-01",
+      "class": "validity",
+      "text": "Era records still satisfy the schema and calibration rules after the update, with claim IDs preserved.",
+      "check": "deterministic",
+      "command": "python3 tools/verify_p2.py r1-records && python3 tools/verify_p2.py r1-claims"
+    },
+    {
+      "id": "r2b-val-02",
+      "class": "validity",
+      "text": "No claim statement contradicts its own central after the rewrite, and no chapter quotes a superseded money-type value.",
+      "check": "deterministic",
+      "command": "python3 tools/verify_p2.py r5-stale-prose && python3 tools/verify_p2.py r5-chapter-stale"
+    },
+    {
+      "id": "r2b-val-03",
+      "class": "validity",
+      "text": "Every proxy-derived figure is graded C and carries a method naming each independent route, its adjustment for the proxy-population gap, and its weight. Intervals derive from disagreement between routes, not from a comfort band. Sourced pools are graded on their source, not left at C.",
+      "check": "judgment",
+      "instructions": "Read reconciled.json and the updated by_money_type claims. A grade-C money-type claim whose method names only one route, or names routes sharing a common input (which is one route, not two), or whose interval is not traceable to route disagreement, violates this invariant. So does a pool that a source hunt sourced but which is still graded C."
+    },
+    {
+      "id": "r2b-rdy-01",
+      "class": "readiness",
+      "text": "Each era's four pools reconcile against that era's observed total from adspend.json, with any residual reported explicitly as its own figure rather than left as a silent shortfall. Pools the evidence cannot separate are recorded as unranked rather than given a manufactured ordering.",
+      "check": "judgment",
+      "instructions": "For eras 1, 5 and 7 check reconciled.json: the four pools plus the stated residual must account for the era total, and the residual must be stated as a number with its own reasoning. Any pair whose intervals overlap must appear in unranked_pairs rather than being presented as ordered."
+    },
+    {
+      "id": "r2b-rdy-02",
+      "class": "readiness",
+      "text": "The data layer is freezable: claims.json reflects the updated era records and remains internally consistent, and the dataset reconciliation still holds.",
+      "check": "deterministic",
+      "command": "python3 tools/verify_p2.py r5-claimsfile && python3 tools/verify_p2.py r2-reconcile"
+    }
+  ],
+  "remediation": { "policy": "bounded-auto-repair", "max_cycles": 2, "on_exhaust": "halt-and-escalate" }
+}
