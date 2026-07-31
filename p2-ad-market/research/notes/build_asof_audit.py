@@ -9,7 +9,7 @@ The decision it implements: as_of means the provenance date (when the source
 published, filed or was retrieved); a new integer field about_year means the year
 the fact is about. Charts read about_year. See research/notes/asof-audit.md.
 """
-import json, os, re
+import json, os, re, sys
 from collections import Counter
 
 """Core extraction + rule ladder for the as_of audit. Deterministic, re-runnable."""
@@ -792,10 +792,19 @@ def main():
         'claims': rows,
     }
 
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    with open(OUT, 'w') as f:
+    # asof-audit.json is the FROZEN PRE-REPAIR record: 505 claims as they stood
+    # before stage P1 applied about_year. P1 edited eleven claim statements, so a
+    # rebuild no longer reproduces it byte-for-byte and would silently destroy the
+    # evidence for what was wrong. Overwriting now needs --force, and a plain run
+    # writes beside it instead. See data/verification/REPAIR-P1.md.
+    out = OUT
+    if os.path.exists(OUT) and '--force' not in sys.argv:
+        out = OUT.replace('.json', '.rebuild.json')
+        print('NOT overwriting the frozen', OUT, '- pass --force to replace it')
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    with open(out, 'w') as f:
         json.dump(doc, f, indent=2)
-    print('wrote', OUT, len(rows), 'claims')
+    print('wrote', out, len(rows), 'claims')
     print('by class', by_class)
     print('by kind', by_kind)
     print('moved', len(moved), 'not ready', sum(1 for r in rows if not r['proposed']['timeline_ready']))

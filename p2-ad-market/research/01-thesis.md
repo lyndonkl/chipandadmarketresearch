@@ -3,7 +3,7 @@ title: The Thesis
 project: p2-ad-market
 chapter: 1
 claim_ids: [e1-pricing-002, e1-measurement-002, e1-scale-006, e1-scale-009, e2-medium-001, e2-medium-002, e2-sellers-005, e2-measurement-001, e2-measurement-009, e2-scale-004, e3-pricing-008, e3-medium-003, e3-medium-005, e3-medium-006, e3-measurement-002, e3-scale-005, e4-medium-006, e4-sellers-004, e4-targeting-001, e4-targeting-002, e4-targeting-004, e4-measurement-001, e5-events-003, e5-pricing-004, e5-pricing-005, e5-measurement-001, e5-targeting-003, e5-scale-004, e6-buyers-001, e6-buyers-002, e6-buyers-004, e6-buyers-007, e6-creators-002, e6-pricing-005, e6-measurement-004, e6-scale-003, e6-scale-004, e6-scale-007, e6-unit_econ-001, e7-medium-006, e7-scale-002, e7-scale-005, e7-sellers-001, e7-sellers-002, e7-unit_econ-001, e7-unit_econ-004, e7-unit_econ-006, mech-adwords-001, mech-discounter-001, mech-audit-001, mech-overture-002, mech-ovt-002, mech-aol-002, mech-aol-007, mech-tac-004, mech-capture-002, mech-first_price-001, mech-rgsp-001, mech-knobs-001, mech-mehta-001, mech-default-001, ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-money_type-001, ds-money_type-003, ds-provenance-001]
-readability: "PASS fk_grade=5.97 reading_ease=76.65 gunning_fog=8.03 smog=8.47"
+readability: "PASS fk_grade=5.97 reading_ease=76.66 gunning_fog=8.03 smog=8.47"
 status: draft-for-review
 ---
 
@@ -89,7 +89,7 @@ Search went the other way in the same year. It moved to rGSP, which keeps the pa
 
 By the end of the era the market barely looks like an auction between people at all. About 90% of US non-search digital revenue is now traded by machine. The ten largest sellers take 84.1% of it. Google alone booked $294.7 billion of ad revenue worldwide in 2025. About half of all US general searches reach it because it pays phone and browser makers to make Google the search box that comes switched on. Those are the deals the court examined, and Google paid $26.3 billion for them in 2021 alone.
 
-The last thread is the one the next project in this series picks up. A Google search earns roughly four cents of ad money. In 2023 the best AI systems burned about 4.8 cents of computing to write one answer, more than that whole four cents. By 2025 the cheapest capable tier had fallen to about 0.022 cents. Those are grade C numbers with wide ranges, and the gap they describe is the reason the next project exists.
+The last thread is the one the next project in this series picks up. A Google search earns roughly four cents of ad money. In 2023 the best AI systems burned about 4.8 cents of computing to write one answer, more than that whole four cents. By 2025 the cheapest capable tier had fallen to about 0.0165 cents. Those are grade C numbers, and the gap they describe is the reason the next project exists.
 
 ## How to read the numbers
 
@@ -171,7 +171,7 @@ Then two closing chapters. One asks whether digital captured the ad economy, gre
 | e7-sellers-002 | Google ad revenue $294.691bn worldwide, 2025 | A | exact |
 | e7-unit_econ-001 | about 3.7 cents of ad revenue per Google search, 2025 | C | $0.03–$0.05 |
 | e7-unit_econ-004 | about 4.8 cents of compute to write one top-end AI answer, 2023 | C | $0.03–$0.06 |
-| e7-unit_econ-006 | about 0.022 cents per AI answer at the cheapest capable tier, 2025 | C | $0.00015–$0.0043 |
+| e7-unit_econ-006 | about 0.0165 cents per AI answer at the cheapest capable tier, 2025 | C | $0.00008–$0.00033 |
 | mech-adwords-001 | AdWords Select, 20 February 2002, bid times click rate, discounted price | A | exact |
 | mech-discounter-001 | bids of $1.00, $0.60, $0.50 pay $0.61, $0.51 and one cent | A | exact |
 | mech-audit-001 | first industry click-counting standard published 2009 | A | 2009–2009 |

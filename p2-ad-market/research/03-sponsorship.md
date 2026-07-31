@@ -1,7 +1,7 @@
 ---
 title: "Sponsorship (1918-1949)"
 claim_ids: [e2-creators-002, e2-creators-003, e2-creators-004, e2-buyers-001, e2-buyers-002, e2-buyers-003, e2-buyers-004, e2-buyers-005, e2-buyers-006, e2-buyers-007, e2-sellers-001, e2-sellers-002, e2-sellers-003, e2-sellers-004, e2-sellers-005, e2-sellers-006, e2-sellers-007, e2-medium-001, e2-medium-002, e2-medium-003, e2-medium-004, e2-medium-005, e2-medium-006, e2-medium-007, e2-scale-001, e2-scale-002, e2-scale-003, e2-scale-004, e2-scale-005, e2-scale-006, e2-scale-007, e2-scale-008, e2-scale-009, e2-scale-010, e2-scale-011, e2-scale-012, e2-scale-013, e2-pricing-001, e2-pricing-002, e2-pricing-003, e2-pricing-004, e2-pricing-005, e2-pricing-006, e2-pricing-007, e2-pricing-008, e2-measurement-001, e2-measurement-002, e2-measurement-003, e2-measurement-004, e2-measurement-005, e2-measurement-006, e2-measurement-007, e2-measurement-008, e2-measurement-009, e2-targeting-001, e2-targeting-002, e2-targeting-003, e2-targeting-004, e2-targeting-005, e2-events-001, e2-events-002, e2-events-003, e2-events-004, e2-events-005, e2-events-006]
-readability: {fk_grade: 7.05, reading_ease: 70.59, gunning_fog: 9.4, smog: 9.64}
+readability: {fk_grade: 7.04, reading_ease: 70.62, gunning_fog: 9.41, smog: 9.65}
 ---
 
 # Sponsorship, 1918-1949
@@ -68,7 +68,7 @@ A research firm called A. C. Nielsen industrialised the job with a meter wired i
 
 By then a rating was a contract term, not a report. In January 1949 CBS took the comedian Jack Benny from NBC by promising his sponsor $3,000 a week for every rating point his show lost in the move [e2-measurement-008]. One point meant one percent of the homes Hooper counted. Attention now had a published unit price.
 
-One more shift happened quietly. Agencies, not advertisers, became the main buyer of the count. By the CAB's fourth year 27 agencies subscribed against 17 advertisers [e2-buyers-003]. The middleman had become the market's information buyer.
+One more shift happened quietly. Agencies, not advertisers, became the main buyer of the count. By the CAB's fourth year 27 agencies subscribed against 17 advertisers [e2-buyers-003]. Say the other half out loud. Advertiser subscribers fell from 49 in the first year to 21 in the third and 17 in the fourth. That is a drop of 65 percent, while agencies went from none to a majority [e2-measurement-001]. The middleman had become the market's information buyer.
 
 ## The daypart was the target
 

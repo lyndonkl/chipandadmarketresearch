@@ -335,6 +335,14 @@ def r2_reconcile():
     millions USD. Percent, share, year-on-year-change and world-spend claims
     are skipped, because a dollar total is not comparable to them. The claim's
     own ci80 is the tolerance.
+
+    The year comes from `about_year`, the FACT year. It used to come from
+    `as_of`, which is PROVENANCE - the date the source published or was
+    retrieved. Under schema v3 those are different questions and differ by up
+    to 86 years, so parsing as_of here compared a claim against a dataset total
+    for the wrong year, or (more often) matched no year at all and silently
+    compared nothing while still reporting PASS. See asof-audit.md cross-check
+    cc-05; the `compared == 0` guard below is what stops that being silent.
     """
     ds = _adspend()
     if ds is None:
@@ -352,10 +360,9 @@ def r2_reconcile():
                 continue
             if not re.search(r"\btotal\b", st, re.I) or _SHARE_PHRASE.search(st):
                 continue
-            m = re.match(r"^(\d{4})", str(c.get("as_of", "")))
-            if not m:
+            year = c.get("about_year")
+            if not isinstance(year, int) or isinstance(year, bool):
                 continue
-            year = int(m.group(1))
             ci = c.get("ci80")
             if year not in totals or not (isinstance(ci, list) and len(ci) == 2):
                 continue
@@ -605,6 +612,40 @@ def _check_dataset_object_applied(cid, v):
             bad("r3-rdy-01", f"dataset object {cid}: {key}={got!r} does not match adjusted {want!r}", "verdicts.json")
 
 
+def _check_supersession(cid, sup, cur):
+    """A supersession must be documented AND true.
+
+    A superseded_by block ends the mechanical comparison against the R3 delta,
+    so before this it was enough to assert one. That is how a verdict file ends
+    up certifying a value the record does not hold (R3c finding XC-4, five
+    claims). The block's `<stage>_applied` dict is the GOVERNING value, so it is
+    now compared against the live record exactly as an adjustment would be.
+    """
+    if not (sup.get("stage") and sup.get("reason") and sup.get("audit_trail")):
+        bad("r3-rdy-01", f"claim {cid}: superseded_by lacks stage, reason or audit_trail — "
+                         f"supersession must be documented, not asserted", "verdicts.json")
+    applied = next((v for k, v in sup.items()
+                    if k.endswith("_applied") and isinstance(v, dict)), None)
+    if applied is None:
+        bad("r3-rdy-01", f"claim {cid}: superseded_by names no governing value "
+                         f"(expected a '<stage>_applied' object)", "verdicts.json")
+        return
+    if cur is None:
+        return  # dataset object or absent claim: handled elsewhere
+    for key in _COMPARABLE_FIELDS + ("statement", "method", "as_of", "about_year"):
+        if key not in applied:
+            continue
+        want, got = applied[key], cur.get(key)
+        if isinstance(want, (int, float)) and isinstance(got, (int, float)):
+            if abs(float(got) - float(want)) > 1e-9:
+                bad("r3-rdy-01", f"claim {cid}: supersession says the governing {key} is {want} "
+                                 f"but the record holds {got}", "verdicts.json")
+        elif got != want:
+            bad("r3-rdy-01", f"claim {cid}: supersession says the governing {key} is "
+                             f"{str(want)[:80]!r} but the record holds {str(got)[:80]!r}",
+                "verdicts.json")
+
+
 def r3_applied():
     """Every field the verdict changed must actually be changed in the record.
 
@@ -626,10 +667,7 @@ def r3_applied():
         # check goes permanently red, and a permanently red check stops being read.
         if v.get("superseded_by"):
             superseded += 1
-            sup = v["superseded_by"]
-            if not (sup.get("stage") and sup.get("reason") and sup.get("audit_trail")):
-                bad("r3-rdy-01", f"claim {cid}: superseded_by lacks stage, reason or audit_trail — "
-                                 f"supersession must be documented, not asserted", "verdicts.json")
+            _check_supersession(cid, v["superseded_by"], current.get(cid))
             continue
         if cid in dsobjs:
             _check_dataset_object_applied(cid, v)
@@ -952,6 +990,167 @@ def r5_chapter_stale():
                 break
 
 
+# ---------- P1 ----------
+
+YEAR_TOKEN = re.compile(r"(?<!\d)(1[5-9]\d{2}|20[0-4]\d)(?!\d)")
+DECADE_TOKEN = re.compile(r"(?<!\d)(1[5-9]\d0|20[0-4]0)s")
+SEASON_RANGE = re.compile(r"(?<!\d)(1[5-9]\d{2}|20[0-4]\d)\s*[-–/]\s*(\d{2})(?![\d.%])")
+RECORD_FILES = ERA_FILES + [P2 / "data" / "mechanism.json", P2 / "data" / "adspend.json"]
+
+
+def _content_years(text):
+    """The years a claim's own text asserts.
+
+    Two extraction rules, both of which changed answers in the P1 audit:
+    a decade phrase is NOT a year ("the 1970s" must not resolve to 1970), and
+    season/cycle forms expand ("1988-89" and "FY1993" are years a word-boundary
+    scan misses). Range expansion is capped at ten years so that "$2,306 million
+    in 1975 - 43.8%" cannot silently produce a year 1943.
+    """
+    t = DECADE_TOKEN.sub(" ", str(text or ""))
+    years = {int(m.group(1)) for m in YEAR_TOKEN.finditer(t)}
+    for m in SEASON_RANGE.finditer(t):
+        start = int(m.group(1))
+        end = int(m.group(1)[:2] + m.group(2))
+        if end <= start:
+            end += 100
+        if 0 < end - start <= 10:
+            years.add(end)
+    return years
+
+
+def _iter_claim_objects(node, where):
+    """Every claim-shaped object anywhere in a record, at any nesting depth.
+
+    iter_claims() knows the era-record shape only. mechanism.json hangs claims
+    off arbitrary engine nodes, so a shape-aware walk would miss them - and
+    missing claims is precisely how a timeline gate goes quietly vacuous.
+    """
+    if isinstance(node, dict):
+        if isinstance(node.get("id"), str) and CLAIM_ID_RE.match(node["id"]) and "statement" in node:
+            yield node, where
+        for k, v in node.items():
+            yield from _iter_claim_objects(v, where)
+    elif isinstance(node, list):
+        for v in node:
+            yield from _iter_claim_objects(v, where)
+
+
+def p1_timeline():
+    """p1-timeline: every claim resolves to exactly ONE unambiguous year.
+
+    `as_of` is PROVENANCE - when the source published, filed or was retrieved -
+    and never belongs on a time axis. `about_year` is the FACT year and is the
+    only field a chart may read (schema v3). Before the split, 60 of 505 claims
+    would have been plotted at their source's publication date, the worst of
+    them 86 years out. This check enforces the split as data:
+
+      1. every claim carries one integer about_year in range;
+      2. about_span, where present, is a well-formed band containing about_year;
+      3. timeline_ready false withholds permission to draw, and must say why;
+      4. an about_year contradicting every year in the claim's own statement and
+         unit must carry an about_year_note giving the reason - a timeline year
+         may disagree with the claim's text, but never silently;
+      5. the mirrored copies of a claim (era record, mechanism, adspend, and
+         claims.json) must agree on about_year, about_span and timeline_ready.
+
+    Coverage is written to stderr and a vacuity guard fires if either the scan
+    or the content cross-examination reaches nothing.
+    """
+    scanned = 0            # claim objects validated
+    unique = set()         # distinct claim ids reached
+    cross_examined = 0     # claims whose text carried a year to test about_year against
+    contradicting = 0      # of those, the ones about_year disagrees with
+    mirrored = 0           # claims compared between a record file and claims.json
+
+    canon = {}
+    for path in RECORD_FILES:
+        rec = load(path)
+        if rec is None:
+            continue
+        for c, where in _iter_claim_objects(rec, path.name):
+            cid = c.get("id", "?")
+            scanned += 1
+            unique.add(cid)
+            ay = c.get("about_year")
+            if not isinstance(ay, int) or isinstance(ay, bool):
+                bad("p1-rdy-01", f"claim {cid} has no integer about_year — it cannot be placed on "
+                                 f"a timeline, and as_of must not be used instead", where)
+                continue
+            if not (1500 <= ay <= 2100):
+                bad("p1-rdy-01", f"claim {cid}: about_year {ay} is outside 1500-2100", where)
+            span = c.get("about_span")
+            if span is not None:
+                if (not isinstance(span, list) or len(span) != 2
+                        or not all(isinstance(x, int) and not isinstance(x, bool) for x in span)):
+                    bad("p1-rdy-01", f"claim {cid}: about_span {span!r} is not [start, end] "
+                                     f"integers", where)
+                else:
+                    if span[0] > span[1]:
+                        bad("p1-rdy-01", f"claim {cid}: about_span {span} runs backwards", where)
+                    elif not (span[0] <= ay <= span[1]):
+                        bad("p1-rdy-01", f"claim {cid}: about_year {ay} sits outside its own "
+                                         f"about_span {span} — the anchor must be inside the band",
+                            where)
+            ready = c.get("timeline_ready", True)
+            if not isinstance(ready, bool):
+                bad("p1-rdy-01", f"claim {cid}: timeline_ready {ready!r} is not a boolean", where)
+            elif ready is False and not str(c.get("about_year_note") or "").strip():
+                bad("p1-rdy-01", f"claim {cid} is timeline_ready:false with no about_year_note — "
+                                 f"a claim withheld from the timeline must say what has to be read",
+                    where)
+            years = _content_years(c.get("statement")) | _content_years(c.get("unit"))
+            if years:
+                cross_examined += 1
+                if ay not in years:
+                    contradicting += 1
+                    if not str(c.get("about_year_note") or "").strip():
+                        bad("p1-rdy-01",
+                            f"claim {cid}: about_year {ay} contradicts every year in its own text "
+                            f"{sorted(years)} and carries no about_year_note explaining why",
+                            where)
+            prev = canon.get(cid)
+            now = (ay, tuple(span) if isinstance(span, list) else None, ready)
+            if prev is None:
+                canon[cid] = now
+            elif prev != now:
+                bad("p1-rdy-01", f"claim {cid}: two copies in the records disagree on its timeline "
+                                 f"placement, {prev} against {now}", where)
+
+    cl = load(P2 / "data" / "claims.json")
+    for c in (cl or {}).get("claims", []):
+        cid = c.get("id", "?")
+        ay, span = c.get("about_year"), c.get("about_span")
+        ready = c.get("timeline_ready", True)
+        if not isinstance(ay, int) or isinstance(ay, bool):
+            bad("p1-rdy-01", f"claim {cid} in claims.json has no integer about_year", "claims.json")
+            continue
+        want = canon.get(cid)
+        if want is None:
+            bad("p1-rdy-01", f"claim {cid} is in claims.json but in no record file — its "
+                             f"timeline placement cannot be traced to a source record", "claims.json")
+            continue
+        mirrored += 1
+        now = (ay, tuple(span) if isinstance(span, list) else None, ready)
+        if want != now:
+            bad("p1-rdy-01", f"claim {cid}: claims.json places it at {now} but its record file "
+                             f"places it at {want}", "claims.json")
+
+    print(f"p1-timeline: {scanned} claim objects scanned across {len(RECORD_FILES)} record files "
+          f"({len(unique)} distinct ids), {mirrored} mirrored against claims.json, "
+          f"{cross_examined} cross-examined against the years in their own text "
+          f"({contradicting} of those disagree and must carry a documented reason)",
+          file=sys.stderr)
+    if scanned == 0:
+        bad("p1-rdy-01", "no claim objects were reached — the timeline gate is vacuous", "records")
+    if cross_examined == 0:
+        bad("p1-rdy-01", "no claim's about_year could be cross-examined against its own text — "
+                         "the contradiction half of the gate is vacuous", "records")
+    if mirrored == 0:
+        bad("p1-rdy-01", "claims.json was never compared against the record files — "
+                         "the mirror half of the gate is vacuous", "claims.json")
+
+
 def r5_claimsfile():
     claims = load(P2 / "data" / "claims.json")
     if claims is None:
@@ -971,6 +1170,7 @@ COMMANDS = {
     "r5-files": r5_files, "r5-traceability": r5_traceability, "r5-claimsfile": r5_claimsfile,
     "r5-stale-prose": r5_stale_prose,
     "r5-chapter-stale": r5_chapter_stale,
+    "p1-timeline": p1_timeline,
 }
 
 

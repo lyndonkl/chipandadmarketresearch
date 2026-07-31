@@ -3,7 +3,7 @@ title: The Capture Question
 project: p2-ad-market
 chapter: 9
 claim_ids: [ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-provenance-001, ds-money_type-001, ds-money_type-002, ds-money_type-003, e1-scale-001, e1-scale-006, e1-scale-009, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-medium-005, e1-measurement-002, e2-scale-004, e2-scale-005, e2-scale-006, e2-scale-010, e2-scale-011, e2-scale-012, e2-scale-013, e2-medium-001, e2-medium-002, e2-medium-004, e2-measurement-009, e3-scale-004, e3-scale-005, e3-scale-006, e4-scale-003, e4-buyers-003, e4-buyers-004, e4-buyers-006, e4-buyers-007, e4-buyers-008, e4-medium-006, e4-targeting-004, e5-scale-002, e5-scale-004, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-scale-015, e5-scale-016, e5-medium-002, e5-medium-005, e5-medium-006, e5-buyers-001, e5-buyers-002, e6-scale-003, e6-scale-009, e6-scale-010, e6-buyers-001, e6-buyers-002, e6-buyers-005, e6-buyers-008, e6-medium-003, e6-medium-006, e6-events-010, e6-sellers-005, e7-scale-001, e7-scale-002, e7-scale-006, e7-scale-007, e7-scale-008, e7-scale-009, e7-scale-010, e7-buyers-001, e7-buyers-002, e7-buyers-005, e7-buyers-006, e7-buyers-007, e7-buyers-008, e7-medium-001, e7-medium-002, e7-medium-004, e7-medium-006, e7-medium-007, e7-sellers-001, e7-sellers-004, e7-sellers-005, e7-sellers-007]
-readability: "PASS fk_grade=7.73 reading_ease=64.87 gunning_fog=10.61 smog=10.69"
+readability: "PASS fk_grade=7.73 reading_ease=64.88 gunning_fog=10.64 smog=10.71"
 status: draft-for-review
 ---
 
@@ -104,6 +104,8 @@ The strongest case for capture is not the total. It is the specific pools that d
 Newspaper classified advertising, where individuals and small firms paid by the line, peaked in 2000 at $19.6 billion.[^20] In 2008 alone it fell 29.7%, to $10.0 billion.[^21] By 2010 it had fallen 71% from the peak, to $5.6 billion.[^22] Inside that, help-wanted classified fell from $8.7 billion in 2000 to $786.8 million in 2009, a 91% collapse.[^23] Directories, the Yellow Pages business that was the direct ancestor of paid search, fell from a peak near $14.7 billion in 2005 to roughly $1.1 billion in 2024, a 93% decline.[^24] US newspaper advertising as a whole peaked in 2005 at $49.4 billion and fell every year after.[^25]
 
 The sell side then concentrated hard. In the fourth quarter of 2008, the top ten sellers took 72% of US internet ad revenue.[^26] By 2025 the top ten took 84.1%, up from 78.6% in 2021.[^27] Google, Meta and Amazon together took about 71.9% of US digital ad spend in 2025, and their share of *total* US advertising rose to roughly 59% from 47% over five years.[^28] Google alone held 89.2% of US general search queries in 2020.[^29] And digital is now most of the market: we estimate that about 74% of US ad spend was digital in 2025, on a range that runs from 72% to 82%.[^30]
+
+Those last two sentences sit on different rails, and the difference is $23 billion. The 71.9% and the 59% are both EMARKETER's, and they only cohere on EMARKETER's rail, where digital is about 82% of the market. The 74% is on the MAGNA and IAB rail. On that rail the same 71.9% of digital is 53.2% of the whole market, not 59%.
 
 That is a real capture, and it is the honest core of the popular story.
 
@@ -244,7 +246,7 @@ A published money-type split from a compiler, rather than our own construction, 
 [^25]: Newspaper Association of America, print plus online basis.
 [^26]: IAB and PwC, fourth quarter 2008 seller concentration.
 [^27]: IAB and PwC, full-year 2025.
-[^28]: EMARKETER US digital and total ad-spend estimates.
+[^28]: EMARKETER US digital and total ad-spend estimates. Both figures are on EMARKETER's own digital definition; claim e7-sellers-004 records the gap against footnote 30's rail.
 [^29]: US v. Google findings of fact on general search query share.
 [^30]: MAGNA, EMARKETER and IAB, computed on each source's own internally consistent pair.
 [^31]: Newspaper Association of America real-estate classified series.

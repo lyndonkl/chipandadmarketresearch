@@ -4,7 +4,7 @@ project: p2-ad-market
 chapter: 6
 era: 5 (1994-2001)
 claim_ids: [e5-events-001, e5-events-002, e5-events-003, e5-events-006, e5-events-007, e5-events-008, e5-events-010, e5-creators-001, e5-creators-002, e5-creators-003, e5-creators-004, e5-creators-005, e5-buyers-001, e5-buyers-002, e5-buyers-003, e5-buyers-004, e5-buyers-005, e5-buyers-010, e5-buyers-011, e5-buyers-012, e5-buyers-013, e5-buyers-014, e5-buyers-015, e5-sellers-001, e5-sellers-002, e5-sellers-003, e5-sellers-004, e5-sellers-005, e5-sellers-006, e5-medium-001, e5-medium-002, e5-medium-003, e5-medium-004, e5-medium-005, e5-medium-006, e5-scale-001, e5-scale-002, e5-scale-003, e5-scale-004, e5-scale-005, e5-scale-006, e5-scale-007, e5-scale-008, e5-scale-009, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-scale-015, e5-scale-016, e5-pricing-001, e5-pricing-002, e5-pricing-003, e5-pricing-004, e5-pricing-005, e5-pricing-006, e5-pricing-007, e5-pricing-008, e5-measurement-001, e5-measurement-002, e5-measurement-003, e5-measurement-004, e5-measurement-005, e5-measurement-006, e5-targeting-001, e5-targeting-002, e5-targeting-003, e5-targeting-004, e5-targeting-005, e5-unit_econ-001, e5-unit_econ-002, e5-unit_econ-003, mech-aol-003]
-readability: "PASS fk_grade=6.34 reading_ease=68.68 gunning_fog=9.24 smog=9.71"
+readability: "PASS fk_grade=6.35 reading_ease=68.84 gunning_fog=9.23 smog=9.71"
 status: draft-for-review
 ---
 
@@ -99,7 +99,7 @@ Here the era gets specific, and the specifics are unflattering.
 
 The list price for a full banner was about $25 per thousand impressions at the end of 2000. That figure reaches us third-hand, so treat it as $15 to $35.[^33]
 
-Sellers collected nothing like it. We estimate about $7 per thousand delivered impressions in 2000, with a range of $4 to $11.[^34] The gap is space that never sold, discounts for buying in bulk, the site's own ads filling empty slots, and space swapped rather than sold for cash. DoubleClick said as much in its own filing: unsold inventory "diluted the effective price of delivered advertising impressions."
+Sellers collected nothing like it. We estimate about $7 per thousand delivered display impressions in 2000, with a range of $4 to $11.[^34] That $7 counts only money paid by the impression: banner and sponsorship revenue, 76% of the IAB total. Search, classified, email and referral money is left out, because none of it was sold that way. The gap is space that never sold, discounts for buying in bulk, the site's own ads filling empty slots, and space swapped rather than sold for cash. DoubleClick said as much in its own filing: unsold inventory "diluted the effective price of delivered advertising impressions."
 
 Serving an impression was nearly free. Content, bandwidth, equipment and ad delivery came to roughly $0.90 per thousand at portal scale, and the honest range is $0.40 to $2.50.[^35] Gross margin therefore looked wonderful: about 85% market-wide, with Yahoo's audited figure at 86.5%.[^36]
 
@@ -196,7 +196,7 @@ And measurable advertising did not begin with the web. Direct mail and directori
 [^31]: e5-measurement-001. Overture Services, Form 10-K for FY2001, Item 1, citing eMarketer. https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm
 [^32]: e5-measurement-006, e5-pricing-007. IAB/PwC 2001 Full-Year Results, p. 9.
 [^33]: e5-pricing-003, grade C. A single third-hand source; nobody has been able to find the underlying release.
-[^34]: e5-unit_econ-001, grade C. Numerator from IAB/PwC format splits; denominator triangulated three ways, method recorded in the claim.
+[^34]: e5-unit_econ-001, grade C. The numerator is banner (48%) plus sponsorship (28%) revenue from the IAB/PwC format split, not all internet ad revenue. The denominator is triangulated three ways; the method is recorded in the claim.
 [^35]: e5-unit_econ-002, grade C. Built from DoubleClick's ad-serving costs and Yahoo's cost of revenues.
 [^36]: e5-unit_econ-003, grade C, anchored on Yahoo's audited FY2000 accounts.
 [^37]: e5-targeting-001. In re DoubleClick Inc. Privacy Litigation, 154 F. Supp. 2d 497; EPIC complaint to the FTC, 10 February 2000. https://epic.org/wp-content/uploads/privacy/internet/ftc/DCLK_complaint.pdf
@@ -206,7 +206,7 @@ And measurable advertising did not begin with the web. Direct mail and directori
 [^41]: e5-events-003. Overture FY2001 10-K, Selected Financial Data.
 [^42]: e5-buyers-002. Overture FY2001 10-K, Item 1.
 [^43]: e5-targeting-004, e5-pricing-004. Overture FY2001 10-K.
-[^44]: e5-targeting-005. Overture FY2001 10-K, Item 1, citing the Yellow Pages Publishers Association and the Direct Marketing Association.
+[^44]: e5-targeting-005. Overture FY2001 10-K, Item 1, citing the Yellow Pages Publishers Association and the Direct Marketing Association. The mail figure is 1.7 million replies a day on 10.7 million pieces *read*, not pieces mailed. That base is why its 15.9% reply rate does not clash with the 2% rate on pieces mailed in chapter 5.
 [^45]: e5-pricing-006. Overture FY2001 10-K, MD&A.
 [^46]: e5-sellers-005. Overture FY2001 10-K, MD&A.
 [^47]: e5-events-010, e5-scale-006. IAB/PwC 2001 Full-Year Results, pp. 5-6.

@@ -25,9 +25,15 @@ The precedent is already set. R2b superseded eight R3 values, and rather than ed
 
 R3b followed the R2b pattern exactly: the R3 entries still read `"verdict": "confirmed"` with their original evidence intact, and each carries a `superseded_by` naming stage R3b. Read `verification/REPAIR-R3b.md` before trusting any secondary number inside a claim's `statement` — section 4 explains why four gates missed a four-order-of-magnitude error, and section 6 lists twelve items still open for a human.
 
+**P1 — 2026-07-31.** Two things, both following the same pattern.
+
+*The `as_of` definition is now fixed, and it is not the fact year.* `as_of` is **provenance**: when the governing source published, filed or was retrieved. It never appears on an axis and never acts as a time filter. A new required integer field **`about_year`** carries the year the fact is about, and it is the only field a chart may read; `about_span` carries the band where a fact spans years, and `timeline_ready: false` withholds permission to draw. No `as_of` value was changed. 60 of 505 claims would have been plotted at their source's publication date, the worst by 86 years (`ds-gdp-001`, `as_of` 2008-09-14 for a 1922 fact). The gate is `tools/verify_p2.py p1-timeline`; the audit is `verification/asof-audit.json` and `../research/notes/asof-audit.md`.
+
+*Eleven claims adjusted from the R3c re-attack on the fifteen open items* (`verification/repair-p1-open-items.json`). One central moved: `e7-unit_econ-006`, 0.00022 → 0.000165. Three era-7 AI-cost claims had a second, undeclared series (the frontier tier) sitting in their `ci80` field; splitting it out cut their intervals from 19.5x–28x of central to 2x–7x. `e5-events-007`'s R3b `open_defect` is **closed** — the unsupportable share clause is deleted, the source and the value stand. Sixteen supersessions were recorded under stage P1, five of them a records-integrity sweep (R3c finding XC-4) of confirmed verdicts that still certified values R2b had replaced. Nine chapters were updated and all ten still clear the four readability gates. Read `verification/REPAIR-P1.md`.
+
 ## Verification state at freeze
 
-All 20 deterministic checks pass. All ten chapters clear the four readability gates. Every stage contract (r1, r2, r2b, r3, r4, r5) has a PASS report in `../planning/contracts/`.
+All 21 deterministic checks pass, including `p1-timeline`. All ten chapters clear the four readability gates. Every stage contract (r1, r2, r2b, r3, r4, r5) has a PASS report in `../planning/contracts/`.
 
 Claims by grade: **A 133+, B 262+, C 103+** (counts shifted slightly with R2b and the seam). Every grade-C claim carries a method documenting its derivation.
 

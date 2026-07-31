@@ -48,7 +48,9 @@ Timeline corrections the scouts pre-cleared. Era teams inherit these as constrai
 
 ## 3. Era schema v2
 
-Every era produces one record at `data/eras/era-N.json`. All nine fields required. Every quantitative claim carries the calibration object: `{central, ci80: [lo, hi], grade: A|B|C, sources: [...], as_of}`.
+Every era produces one record at `data/eras/era-N.json`. All nine fields required. Every quantitative claim carries the calibration object: `{central, ci80: [lo, hi], grade: A|B|C, sources: [...], as_of, about_year}`.
+
+**Time is two fields, never one** (locked at stage P1, 2026-07-31). `as_of` is **provenance**: when the governing source published, filed or was retrieved. It identifies the vintage of a number, it may carry month and day, and it must never appear on an axis or act as a time filter. `about_year` is the **fact year**: one integer, the calendar year the claim is about, and the only field a chart, a timeline or a time axis may read. `about_span` carries the band where a fact covers more than one year; `timeline_ready: false` withholds permission to draw at all. The two answers differ by up to 86 years in this record. See `data/verification/REPAIR-P1.md`, `research/notes/asof-audit.md` and the check `tools/verify_p2.py p1-timeline`.
 
 1. **CREATORS** — who made the ads (agencies, in-house, platforms, individuals). Include the agency industry's own structural state (commission/fee regime, consolidation).
 2. **BUYERS** — who paid and for what business reason. REQUIRED sub-split: national brand / local retail / classified / direct response. Name the era's marginal new buyer class.

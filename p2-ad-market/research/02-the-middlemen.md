@@ -3,8 +3,8 @@ title: "The Middlemen (1840s-1917)"
 project: p2-ad-market
 chapter: 2
 era: 1
-claim_ids: [e1-creators-001, e1-creators-002, e1-creators-003, e1-creators-004, e1-creators-005, e1-buyers-001, e1-buyers-002, e1-buyers-003, e1-buyers-004, e1-buyers-005, e1-buyers-006, e1-buyers-007, e1-buyers-008, e1-sellers-001, e1-sellers-002, e1-sellers-003, e1-sellers-004, e1-sellers-005, e1-sellers-006, e1-medium-001, e1-medium-002, e1-medium-003, e1-medium-004, e1-medium-005, e1-scale-001, e1-scale-002, e1-scale-003, e1-scale-004, e1-scale-005, e1-scale-006, e1-scale-007, e1-scale-008, e1-scale-009, e1-scale-010, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-pricing-001, e1-pricing-002, e1-pricing-003, e1-pricing-004, e1-measurement-001, e1-measurement-002, e1-measurement-003, e1-measurement-004, e1-targeting-001, e1-targeting-002, e1-targeting-003, e1-events-001, e1-events-002, e1-events-003, e1-events-004, e2-scale-004]
-readability: "PASS fk_grade=7.01 reading_ease=66.27 gunning_fog=9.54 smog=9.94"
+claim_ids: [e1-creators-001, e1-creators-002, e1-creators-003, e1-creators-004, e1-creators-005, e1-buyers-001, e1-buyers-002, e1-buyers-003, e1-buyers-004, e1-buyers-005, e1-buyers-006, e1-buyers-007, e1-buyers-008, e1-sellers-001, e1-sellers-002, e1-sellers-003, e1-sellers-004, e1-sellers-005, e1-sellers-006, e1-medium-001, e1-medium-002, e1-medium-003, e1-medium-004, e1-medium-005, e1-scale-001, e1-scale-002, e1-scale-003, e1-scale-004, e1-scale-005, e1-scale-006, e1-scale-007, e1-scale-008, e1-scale-009, e1-scale-010, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-pricing-001, e1-pricing-002, e1-pricing-003, e1-pricing-004, e1-measurement-001, e1-measurement-002, e1-measurement-003, e1-measurement-004, e1-measurement-005, e1-targeting-001, e1-targeting-002, e1-targeting-003, e1-events-001, e1-events-002, e1-events-003, e1-events-004, e2-scale-004]
+readability: "PASS fk_grade=7.09 reading_ease=65.91 gunning_fog=9.59 smog=9.98"
 status: draft-for-review
 ---
 
@@ -74,7 +74,7 @@ Two postal changes did the heavy lifting. Third-class mail, the cheap class that
 
 **Classified was the fourth pool, and the odd one.** Newspapers sold it by the line over a counter, to individuals and very small firms, with no agent involved. It was probably around 13 percent of newspaper advertising receipts in 1914, but that one is genuinely uncertain. No dollar series for classified exists before 1928, so the estimate is built from later line counts and one in-era witness. The honest range is 8 to 22 percent.[^23]
 
-One pool crossed all the others. Response-driven money was already large. In 1911 the trade paper *Printers' Ink* counted $100 million of direct mail, $75 million of farm and mail-order advertising, and about $31 million more on free samples, handouts and company magazines. We carry that pool to 1914, split it by who was really buying, and get about $192 million.[^24]
+One pool crossed all the others. Response-driven money was already large. In 1911 the trade paper *Printers' Ink* counted $100 million of direct mail, $75 million of farm and mail-order advertising, and about $31 million more on free samples, handouts and company magazines. Those lines sum to $206 million, and that is not our figure. We take only 65% of the mail line as response money, carry the rest to 1914, and blend the result with three other routes. Our figure is about $192 million, set as 16.0% of the $1,200 million benchmark for 1914.[^24]
 
 ## How big was all of it
 
@@ -227,7 +227,7 @@ And one buyer class worth marking. The classified counter and the mail-order cou
 [^21]: Claims `e1-buyers-005` (grade B, range $45m-$70m) and `e1-buyers-006` (grade B, range $185m-$265m). Borden (1942), App. Table 1, p. 888, from ANPA Bureau of Advertising data. Nobody on this project has read the ANPA original, or Borden. Both figures reach us third-hand.
 [^22]: Claim `e1-buyers-005`.
 [^23]: Claim `e1-buyers-007`, grade C, range 8-22 percent. Built from classified's share of newspaper line counts in 52 cities, measured from 1928 onward, and from the Chicago Tribune's own 1916 split of classified against display.
-[^24]: Claim `e1-buyers-008`, grade C, range $96m-$360m. *Printers' Ink*, 4 May 1911, p. 79. The 1926 Britannica estimate of $300 million of direct mail for 1920 is now a check on this figure, not its source.
+[^24]: Claim `e1-buyers-008`, grade C, range $96m-$360m. *Printers' Ink*, 4 May 1911, p. 79, is the largest single input, at weight 0.35 of four routes. The 1926 Britannica estimate of $300 million of direct mail for 1920 is now a check on this figure, not its source.
 [^25]: Claim `e1-scale-006`, grade B, range $990m-$1,450m.
 [^26]: Claim `e1-scale-007`, grade B, range $1,250m-$1,800m.
 [^27]: Claim `e1-scale-008`, grade A. Census of Manufactures 1919, Table 12.
@@ -242,7 +242,7 @@ And one buyer class worth marking. The classified counter and the mail-order cou
 [^36]: Claims `e1-sellers-002` and `e1-measurement-004`, both grade A.
 [^37]: Claim `e1-measurement-001`, grade B, exact listed count.
 [^38]: Era record `data/eras/era-1.json`, event 1911. Upheld in Lewis Publishing Co. v. Morgan (1913).
-[^39]: Claim `e1-measurement-002`, grade B. Alliance for Audited Media, "Who We Are," https://auditedmedia.com/about/who-we-are
+[^39]: Claims `e1-measurement-002` and `e1-measurement-005`, both grade B. Alliance for Audited Media, "Who We Are," https://auditedmedia.com/about/who-we-are The 1914 merger of the publisher-led Advertising Audit Association and the advertiser-led Bureau of Verified Circulations is attested by Britannica, the Ad Age Encyclopedia and HistoryOfInformation.
 [^40]: Claim `e1-measurement-003`, grade B, range 900-950 member newspapers, as of January 1926.
 [^41]: Claim `e1-targeting-001`, grade B, range 3.5-4.3 times.
 [^42]: Claim `e1-targeting-002`, grade B, range 2.5-3.5 million catalogues.

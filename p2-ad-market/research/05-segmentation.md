@@ -3,7 +3,7 @@ title: Segmentation (1976-1993)
 project: p2-ad-market
 chapter: 5
 claim_ids: [e4-scale-001, e4-scale-002, e4-scale-003, e4-scale-004, e4-scale-005, e4-scale-006, e4-scale-007, e4-scale-008, e4-scale-009, e4-scale-010, e4-buyers-001, e4-buyers-002, e4-buyers-003, e4-buyers-004, e4-buyers-006, e4-buyers-007, e4-buyers-008, e4-sellers-001, e4-sellers-002, e4-sellers-003, e4-sellers-004, e4-sellers-005, e4-sellers-006, e4-medium-001, e4-medium-002, e4-medium-003, e4-medium-004, e4-medium-005, e4-medium-006, e4-medium-007, e4-creators-001, e4-creators-002, e4-creators-003, e4-creators-004, e4-creators-005, e4-creators-006, e4-creators-007, e4-creators-008, e4-creators-009, e4-pricing-001, e4-pricing-002, e4-pricing-003, e4-pricing-004, e4-pricing-005, e4-pricing-006, e4-measurement-001, e4-measurement-002, e4-measurement-003, e4-measurement-004, e4-measurement-005, e4-targeting-001, e4-targeting-002, e4-targeting-003, e4-targeting-004, e4-targeting-005, e2-scale-004, e5-scale-004, ds-money_type-001]
-readability: "PASS fk_grade=7.23 reading_ease=70.32 gunning_fog=9.59 smog=9.72"
+readability: "PASS fk_grade=7.2 reading_ease=70.47 gunning_fog=9.56 smog=9.7"
 status: draft-for-review
 ---
 
@@ -109,7 +109,7 @@ In September 1987 Nielsen switched the count that priced national television to 
 
 Measured prime-time viewing fell about 10% at once. CBS and ABC each lost 13%, NBC 4%. The Saturday morning children's audience fell by at least 20% and possibly 50%, against roughly $150 million of children's ad revenue across the three networks. Networks owed make-goods, meaning free replacement airtime, and the replacement time was scarcer and more expensive than what they had sold.
 
-Nothing about the audience changed that September. Only the instrument did. The networks attacked the panel rather than the result, pointing out that 33% of metered homes took pay cable against 26% of the country. That fight is the clearest proof this market ever produced that the counting method sets the price.
+Nothing about the audience changed that September. Only the instrument did. The networks attacked the panel rather than the result. They said 33% of metered homes took pay cable, against 26% of the country. Those two shares do not measure the same thing. One counts homes and the other counts people, and cable homes were larger than average. Nielsen answered in the same article that the panel ran about 31% pay cable against 28% to 30% nationally, which cuts the gap from seven points to one or three. Read the 33 against 26 as a charge the networks made, not as a measured skew. That fight is the clearest proof this market ever produced that the counting method sets the price.
 
 Response advertisers were counting a different way, and had been for decades: keyed coupons, source codes, toll-free numbers. From 1979 a new machine tied the two halves together. IRI's BehaviorScan wired two small towns, put scanners in 15 supermarkets, recruited 2,000 households in each town, and cut test commercials into those same homes' televisions. It is the first electronic link from a specific ad exposure to a specific purchase. The idea that tying an ad to a sale was a digital invention does not survive this record. It was built in two small towns, on cable and supermarket scanners, before the web existed.
 

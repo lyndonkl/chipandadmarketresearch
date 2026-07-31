@@ -1,7 +1,7 @@
 ---
 title: "The Machine Market (2008-2026)"
 claim_ids: [e1-pricing-002, e7-creators-001, e7-creators-002, e7-creators-003, e7-creators-004, e7-buyers-001, e7-buyers-002, e7-buyers-003, e7-buyers-004, e7-sellers-001, e7-sellers-002, e7-sellers-003, e7-sellers-004, e7-sellers-005, e7-sellers-006, e7-sellers-007, e7-medium-001, e7-medium-002, e7-medium-004, e7-medium-005, e7-medium-006, e7-medium-007, e7-scale-001, e7-scale-002, e7-scale-003, e7-scale-004, e7-scale-005, e7-scale-006, e7-scale-007, e7-scale-008, e7-scale-009, e7-scale-010, e7-pricing-001, e7-pricing-002, e7-pricing-003, e7-pricing-004, e7-pricing-005, e7-pricing-006, e7-pricing-007, e7-pricing-008, e7-measurement-001, e7-measurement-002, e7-measurement-003, e7-measurement-004, e7-measurement-005, e7-targeting-001, e7-targeting-002, e7-targeting-003, e7-targeting-004, e7-targeting-005, e7-events-001, e7-events-002, e7-events-009, e7-unit_econ-001, e7-unit_econ-002, e7-unit_econ-003, e7-unit_econ-004, e7-unit_econ-005, e7-unit_econ-006, e7-unit_econ-007, mech-first_price-001, mech-rgsp-001, mech-knobs-001, mech-tuning-001, mech-format_pricing-001, mech-quality_score-001, mech-audit-001, mech-default-002, mech-default-003, mech-default-004, mech-mehta-001, mech-mehta-002, mech-mehta-004, mech-mehta-005]
-readability: {flesch_kincaid: 7.31, reading_ease: 67.0, gunning_fog: 9.84, smog: 10.11}
+readability: {flesch_kincaid: 7.21, reading_ease: 67.64, gunning_fog: 9.75, smog: 10.04}
 ---
 
 # The Machine Market (2008-2026)
@@ -106,7 +106,7 @@ If software buys the ad, software also takes a cut at every hop. Three studies, 
 
 A UK supply-chain study traced advertiser money through to publishers. Only 51% arrived. The researchers could not trace a further 15% to any named party in the chain, and could follow only 12% of impressions end to end [e7-pricing-004].
 
-A US study of the open web traced money through the demand-side platform, the software a buyer uses to bid for ad slots. Only about 36 cents of each dollar put in bought an ad a real person saw. It put roughly $22B of recoverable waste in an $88B pool, and found that made-for-advertising sites, which exist to carry ads rather than readers, absorbed about 15% of spend [e7-pricing-005].
+A second study traced money through the demand-side platform, the software a buyer uses to bid for ad slots. Only about 36 cents of each dollar put in bought an ad a real person saw. Fees took 29 cents and waste took the other 35. The study sized the pool at $88B and named about $22B of that, a quarter, as gains a buyer could win back. Do not read the $22B as the other side of the 36 cents. That side is 64 cents on the dollar, or about $56B. Made-for-advertising sites, which exist to carry ads rather than readers, took about 15% of spend on the first look and 11.4% on the full report. The 21 firms studied are American, but nobody could confirm whether the $88B pool is American or worldwide [e7-pricing-005].
 
 Google published its own figure in June 2020: publishers keep about 69 cents of an advertiser dollar when both ends of the trade sit inside Google. The US Justice Department's number for the same market is different. It says Google keeps at least 35 cents of every open-web display dollar, and that its exchange has charged a 20% take rate since 2009 [e7-pricing-006].
 
@@ -141,6 +141,8 @@ The seller side concentrated, then re-concentrated around a new pole.
 The top ten sellers took 84.1% of US internet ad revenue in 2025, up from 78.6% in 2021 [e7-sellers-001]. In absolute terms, Google's ad revenue was $294,691M in 2025 [e7-sellers-002]. Meta's was $196.18B and Amazon's ad services line was $68.63B [e7-sellers-003].
 
 Now a result that looks backwards until you read it twice. Google, Meta and Amazon together took about 71.9% of US digital ad spend in 2025, down from 73.9% in 2020. Over the same years their share of all US ad spend rose from about 47% to about 59% [e7-sellers-004]. Concentration inside digital eased slightly. Concentration of the whole market rose sharply. Digital was eating everything else faster than anyone was eating Google.
+
+Both of those shares come from EMARKETER, and they only hold together on EMARKETER's rail, where digital is about 82% of all US ad money. This chapter counts digital at 74% elsewhere, on the MAGNA and IAB rail. On that rail the same 71.9% of digital works out at 53.2% of the whole market, not 59%. The two readings are $23B apart on one year, so never plot them on one axis or quote them in one sentence.
 
 Amazon is the structural novelty. US retail media reached $60.32B in 2025, and Amazon took more than three quarters of it [e7-sellers-007]. Retail media turns a shop into a media owner selling its own shelf. But the money is mostly not new. It is trade-promotion and co-op money, the manufacturer money that has flowed through retailers for a century. The pricing changed instead. A negotiated allowance became an auction.
 
@@ -192,17 +194,21 @@ The margin, at the segment level, is not in dispute. Google Services earned a 40
 
 Now the comparison this project was built to make. What does it cost a machine to write one answer?
 
-Fix the answer at a standard size, roughly a page of input and a paragraph of output, then price it at the cheapest capable model of each year. Every point below carries a wide band, because which model serves the answer matters more than which year it is.
+Fix the answer at a standard size, roughly a page of input and a paragraph of output. Then price it twice a year: once at the cheapest capable model on sale, and once at the top model. Those are two lines, not one line with a wide band. Treating them as one band is what hid the next result.
 
-In 2023 it cost about 4.8 cents, on a range of 3 to 6 cents [e7-unit_econ-004]. That is roughly the entire ad revenue of a search query. By July 2024 the same answer cost about 0.033 cents, on a range of 0.025 to 0.95 cents [e7-unit_econ-005]. By 2025 it was about 0.022 cents, on a range of 0.015 to 0.43 cents [e7-unit_econ-006]. At the freeze in mid-2026 it was still about 0.022 cents, on a range of 0.015 to 0.6 cents. The cheap tier had stopped falling [e7-unit_econ-007].
+Take the cheap line first. In 2023 the cheapest model of GPT-4 quality cost about 4.8 cents an answer [e7-unit_econ-004]. That is roughly the entire ad revenue of a search query. By July 2024 the same answer cost 0.033 cents at GPT-4o mini [e7-unit_econ-005]. By 2025 it cost about 0.0165 cents at Gemini 2.0 Flash-Lite [e7-unit_econ-006]. At the freeze in mid-2026 it cost about 0.022 cents [e7-unit_econ-007].
 
-The twelve-month fall from 2023 to 2024 is about 145 times at the middle of each band. That multiple is not measured. Compare the top of each band and the fall is about six times. Compare the bottom of each and it is about 120 times. The fall is real at any pairing. The size of it is a choice about which tier you price.
+Read those last two again. The floor went up. Google shut Gemini 2.0 Flash-Lite down on 1 June 2026, and every cheap model launched since costs more than the floor it replaced. The cheap tier did not merely stop falling. The cheapest price a buyer can reach rose by a third.
 
-All four are grade C, and the caveats are load-bearing. They use published list prices, not what it costs the seller to serve. They hold the answer length fixed. That last assumption is now the weak point, because reasoning models write far more per answer, which pushes real frontier cost back up by a large multiple.
+The 2023 to 2024 fall is exact rather than estimated. It is one printed list price divided by another: 0.048 over 0.00033, or 145.45 times in twelve months. Both ends name a model, so no band belongs around it.
+
+The top line runs the other way. GPT-4o cost 0.95 cents an answer in 2024, GPT-5 cost 0.43 cents in 2025, and at the freeze GPT-5.4 Standard cost 0.7 cents and GPT-5.5 cost 1.4 cents. The newest reasoning models also write far more per answer than a fixed length allows, which pushes their real cost higher still.
+
+All four cheap-line points are grade C, and two caveats are load-bearing. They use published list prices, not what it costs the seller to serve. And they hold the answer length fixed. Their remaining spread is not measurement error, because each is arithmetic on a printed price. It is the choice of which model counts as cheapest and capable.
 
 With that said, the direction is stark. The floor cost of one machine-written answer is now roughly 0.6% of the ad revenue of one search query. In 2023 it was roughly 130% of it [e7-unit_econ-007].
 
-Both ratios use the cheap tier and the 3.7 cents of revenue per query. Price the frontier tier instead, at the top of each cost band, and 0.6% becomes about 16% while 130% becomes about 162%. Read the pair as a direction, not as a measurement.
+Both ratios use the cheap line and the 3.7 cents of revenue per query. Price the top line instead, at GPT-5.4 Standard, and 0.6% becomes about 19%. Read the pair as a direction, not as a measurement.
 
 ## What the era hands on
 

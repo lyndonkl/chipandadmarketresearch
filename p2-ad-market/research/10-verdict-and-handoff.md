@@ -3,7 +3,7 @@ title: The verdict and the handoff
 project: p2-ad-market
 chapter: 10
 claim_ids: [e1-measurement-002, e2-measurement-001, e2-measurement-002, e2-measurement-003, e2-measurement-004, e3-measurement-001, e3-measurement-002, e3-measurement-004, e4-measurement-001, e5-events-001, e5-scale-007, e5-measurement-003, e5-measurement-004, mech-adwords-001, mech-quality_score-001, mech-audit-001, e6-measurement-003, e6-measurement-004, e6-measurement-006, mech-knobs-001, e7-measurement-001, e7-measurement-002, e7-measurement-003, mech-capture-001, e7-creators-001, e7-creators-002, e2-scale-004, e5-scale-004, e6-scale-003, e7-scale-002, ds-money_type-002, e6-medium-001, e2-medium-002, e4-medium-006, e6-sellers-005, e7-sellers-001, e5-unit_econ-001, e5-unit_econ-002, e5-unit_econ-003, e6-unit_econ-001, e6-unit_econ-002, e6-unit_econ-003, e7-unit_econ-001, e7-unit_econ-002, e7-unit_econ-003, e7-unit_econ-004, e7-unit_econ-005, e7-unit_econ-006, e7-unit_econ-007, e7-sellers-006, e7-scale-001, e7-medium-002, e7-medium-004, e7-scale-005, e7-sellers-002, e7-sellers-003, e7-sellers-004, e7-medium-006, e7-scale-009, e7-targeting-004, e7-measurement-004, mech-tac-003, mech-network-003, mech-format_pricing-001, mech-rgsp-001, mech-mehta-001, mech-mehta-004]
-readability: "PASS fk_grade=6.56 reading_ease=71.93 gunning_fog=8.62 smog=9.09"
+readability: "PASS fk_grade=6.68 reading_ease=71.58 gunning_fog=8.77 smog=9.19"
 status: draft-for-review
 ---
 
@@ -75,7 +75,7 @@ That stability is why the era names in this project name a mechanism rather than
 
 | Year and era | Unit | Money per unit | Cost per unit | Margin | Grades |
 |---|---|---|---|---|---|
-| 2000, the impression years | one web ad impression | $0.007 | $0.0009 | 85%, gross | C, C, C |
+| 2000, the impression years | one web display impression | $0.007 | $0.0009 | 85%, gross | C, C, C |
 | 2007, the auction years | one Google search query | $0.022 | $0.0035 | 85%, gross | C, C, C |
 | 2025, the machine market | one Google search query | $0.037 | $0.0065 | 40.7%, operating | C, C, A |
 
@@ -85,22 +85,22 @@ The margins are also not the same ruler. The first two rows give gross margin on
 
 One comparison does travel cleanly. In 2020 Google spent about 0.65 cents running search and search ads for one query. In 2021 it paid about 0.8 cents per query to be the search engine already switched on when a phone or browser leaves the factory. It paid more to be found than it spent answering.
 
-The dot-com years carry the sharpest warning. A web ad impression in 2000 earned about $0.007 and cost about $0.0009 to serve. Gross margin was near 85%. The sellers still lost money, because selling an impression cost far more than serving one. A fat unit margin is not a business.
+The dot-com years carry the sharpest warning. A web display impression in 2000 earned about $0.007 of banner and sponsorship money and cost about $0.0009 to serve. Gross margin was near 85%. The sellers still lost money, because selling an impression cost far more than serving one. A fat unit margin is not a business.
 
 ## The cost series the next project inherits
 
 One standard answer, held to a fixed length, priced at the cheapest capable model on sale:
 
 - 2023: about 4.8 cents.
-- 2024: about 0.033 cents, a fall of roughly 145 times in twelve months.
-- 2025: about 0.022 cents.
-- Mid-2026: still about 0.022 cents.
+- 2024: 0.033 cents, a fall of exactly 145.45 times in twelve months.
+- 2025: about 0.0165 cents.
+- Mid-2026: about 0.022 cents.
 
 Now set that against what a search earns. In 2023 one machine answer cost roughly 130% of the ad revenue of one query. By mid-2026 the floor cost was roughly 0.6% of it.
 
-The bands matter more than the trend here. All four points are graded C and the bands are wide. The 2024 point runs from 0.025 cents up to 0.95 cents. That spread is not noise about one model's price. It is the gap between the cheap tier and the top tier, and which tier answers dominates the whole figure.
+Read this as two lines, not one line with a wide band. Every point above is the cheapest capable model on a public price list, and each is arithmetic on a printed price rather than an estimate. That is why the 2023 to 2024 drop is exact: 0.048 divided by 0.00033. The top tier is the second line, and it runs far higher. It cost 0.95 cents an answer in 2024, 0.43 cents in 2025, and 0.7 to 1.4 cents at the freeze.
 
-The floor has also stopped falling. The cheap tier in mid-2026 costs what it cost in 2025. Meanwhile the newest and most expensive AI models push the cost of an answer back up, because they write far more words per answer than a fixed length allows, and the AI firms charge by the amount of text.
+The floor stopped falling, then ticked back up. Google shut down the model that set the 2025 floor on 1 June 2026, and every cheap model launched since costs more than it did. The newest and most expensive AI models push the cost of an answer higher still, because they write far more words per answer than a fixed length allows, and the AI firms charge by the amount of text.
 
 The blunt cost objection to ad-funded AI is much weaker than it was in 2023. That is a fact about the floor price of a cheap answer. It is not a verdict about the business.
 
@@ -108,7 +108,7 @@ The blunt cost objection to ad-funded AI is much weaker than it was in 2023. Tha
 
 US ad spend was about $405bn in 2025, or about 1.32% of GDP. About 74% of it was digital, on a grade-C range of 72% to 82%. Search alone was $114.2bn of US internet ad revenue. Machines traded about 90% of the non-search digital revenue.
 
-Google's global ad revenue was $294.7bn in 2025. Meta's was $196.2bn and Amazon's ad services were $68.6bn. The three together took about 71.9% of US digital ad spending.
+Google's global ad revenue was $294.7bn in 2025. Meta's was $196.2bn and Amazon's ad services were $68.6bn. The three together took about 71.9% of US digital ad spending, on EMARKETER's definition of digital. On the MAGNA and IAB rail used for the 74% above, the same share is 53.2% of the whole market.
 
 The old intent media are gone as pools, not as demand. US directory ad revenue fell from about $14.7bn in 2005 to about $1.1bn in 2024. National direct-response money was about $151.2bn in 2025, on a grade C estimate.
 

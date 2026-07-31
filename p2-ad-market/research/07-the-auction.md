@@ -3,7 +3,7 @@ title: The Auction (2002-2008)
 project: p2-ad-market
 chapter: 7
 claim_ids: [e2-scale-004, e5-events-003, e5-pricing-004, e5-pricing-005, e5-scale-004, e6-pricing-001, e6-pricing-002, e6-pricing-003, e6-pricing-004, e6-pricing-005, e6-pricing-006, e6-pricing-007, e6-pricing-008, e6-events-001, e6-events-002, e6-events-003, e6-events-004, e6-events-005, e6-events-006, e6-events-007, e6-events-008, e6-events-009, e6-events-010, e6-sellers-001, e6-sellers-002, e6-sellers-003, e6-sellers-004, e6-sellers-005, e6-sellers-006, e6-buyers-001, e6-buyers-002, e6-buyers-003, e6-buyers-004, e6-buyers-005, e6-buyers-006, e6-buyers-007, e6-buyers-008, e6-creators-001, e6-creators-002, e6-creators-003, e6-creators-004, e6-medium-001, e6-medium-002, e6-medium-003, e6-medium-004, e6-medium-005, e6-medium-006, e6-scale-001, e6-scale-002, e6-scale-003, e6-scale-004, e6-scale-005, e6-scale-007, e6-scale-008, e6-scale-009, e6-scale-010, e6-measurement-001, e6-measurement-002, e6-measurement-003, e6-measurement-004, e6-measurement-006, e6-targeting-001, e6-targeting-002, e6-targeting-003, e6-targeting-004, e6-targeting-005, e6-unit_econ-001, e6-unit_econ-002, e6-unit_econ-003, mech-adwords-001, mech-discounter-001, mech-quality_score-001, mech-audit-001, mech-overture-001, mech-overture-002, mech-panama-001, mech-ovt-001, mech-ovt-002, mech-ovt-003, mech-ovt-004, mech-aol-001, mech-aol-002, mech-aol-003, mech-aol-004, mech-aol-005, mech-aol-006, mech-aol-007, mech-tac-001, mech-tac-002, mech-tac-003, mech-tac-004, mech-network-001, mech-network-002, mech-network-003, mech-google_rev-001, mech-classified-001, mech-capture-001, mech-capture-002, mech-capture-003, mech-first_price-001, mech-rgsp-001, mech-default-001, mech-default-004, mech-mehta-002, mech-mehta-004, mech-mehta-005]
-readability: "PASS fk_grade=6.63 reading_ease=71.7 gunning_fog=8.97 smog=9.39"
+readability: "PASS fk_grade=6.63 reading_ease=71.75 gunning_fog=8.97 smog=9.39"
 status: draft-for-review
 ---
 
@@ -114,9 +114,9 @@ Now leave the invented cases and use the filings.
 
 Money earned per search on Google's own sites rose from roughly 0.47 cents in 2002 to roughly 2.2 cents in 2007. Both figures are grade C, because Google never published a query count. We built the denominator from outside search counts; the honest range on the 2007 figure runs from about 1.6 to 2.8 cents.
 
-Serving one search cost roughly 0.33 cents in 2007: data centres, power, bandwidth and depreciation. That is also grade C, with a range of about 0.2 to 0.55 cents.
+Serving one search cost roughly 0.35 cents in 2007: data centres, power, bandwidth and depreciation. That is also grade C, with a range of about 0.2 to 0.55 cents.
 
-Of every dollar a search earned on Google's own page, about 85 cents was left once the cost of serving it came out. Because both inputs are estimates, read that share as somewhere between 78% and 91%. The company's reported gross margin that year was 59.9%, and that one is exact. The gap between those two numbers is the price of distribution, and it is the subject of the next section.
+Of every dollar a search earned on Google's own page, about 85 cents was left once the cost of serving it came out. Because both inputs are estimates, read that share as somewhere between 78% and 91%. The share is not worked out from those two per-query figures, though they agree with it. It comes straight from the filing: $1,715.2m of serving cost against $10,624.705m of revenue on Google's own sites is 83.9%. The company's reported gross margin that year was 59.9%, and that one is exact. The gap between those two numbers is the price of distribution, and it is the subject of the next section.
 
 ## The volume engine: buying the searches
 

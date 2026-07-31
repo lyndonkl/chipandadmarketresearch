@@ -1,11 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "P2 era record (schema v2, locked 2026-07-30)",
-  "description": "One record per era at data/eras/era-N.json. Nine required fields; SCALE and BUYERS carry the money-type split; eras 5-7 add unit_economics. Every quantitative claim is a calibration object.",
+  "title": "P2 era record (schema v3, as_of/about_year split locked 2026-07-31)",
+  "description": "One record per era at data/eras/era-N.json. Nine required fields; SCALE and BUYERS carry the money-type split; eras 5-7 add unit_economics. Every quantitative claim is a calibration object. TIME IS TWO FIELDS, NEVER ONE. `as_of` is PROVENANCE: the date the governing source published, filed or was retrieved. `about_year` is the FACT YEAR: the single calendar year the claim is about. They are different questions and they routinely differ by decades (ds-gdp-001 has as_of 2008-09-14 for a 1922 fact). A chart, a timeline, an axis or any time filter reads `about_year` and only `about_year`; `as_of` may appear in a tooltip or provenance panel and must never be placed on an axis. Decision and full audit of all 505 claims: research/notes/asof-audit.md, data/verification/asof-audit.json, data/verification/REPAIR-P1.md.",
   "definitions": {
     "claim": {
       "type": "object",
-      "required": ["id", "statement", "central", "unit", "ci80", "grade", "sources", "as_of"],
+      "required": ["id", "statement", "central", "unit", "ci80", "grade", "sources", "as_of", "about_year"],
       "properties": {
         "id": { "type": "string", "pattern": "^e[1-7]-[a-z_]+-[0-9]{3}$", "description": "e.g. e3-scale-004; unique across ALL eras" },
         "statement": { "type": "string" },
@@ -14,7 +14,11 @@
         "ci80": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
         "grade": { "type": "string", "enum": ["A", "B", "C"] },
         "sources": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["name"], "properties": { "name": { "type": "string" }, "url": { "type": "string" } } } },
-        "as_of": { "type": "string", "pattern": "^[0-9]{4}(-[0-9]{2})?(-[0-9]{2})?$" },
+        "as_of": { "type": "string", "pattern": "^[0-9]{4}(-[0-9]{2})?(-[0-9]{2})?$", "description": "PROVENANCE ONLY: when the governing source published, filed or was retrieved. It identifies the VINTAGE of the number, which matters because compilers revise (e4-scale-006 is one 1990 total printed differently in a 2001 and a 2009 edition). It is NOT the year the fact is about, it MUST NOT be read as one, and it must never be placed on a time axis or used as a time filter. Month and day precision is legitimate here and is present on 160 values. A bare year in this field is a coarse vintage, not a fact year." },
+        "about_year": { "type": "integer", "minimum": 1500, "maximum": 2100, "description": "THE FACT YEAR: the single calendar year the claim is about, and the ONLY field a chart, timeline or time axis may read. Exactly one integer, always. Where the fact genuinely covers a range, `about_year` is the anchor point and `about_span` carries the range; where the anchor was assumed rather than read from evidence, `timeline_ready` is false and the claim may not be drawn at all. This is claims.json getting what adspend.json already has as its `year` field." },
+        "about_span": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2, "description": "OPTIONAL: [start, end] where the fact covers more than one year - a season, a cycle, a growth interval, an era-typical practice. A chart draws the band and anchors the point at `about_year`, which must lie inside the span. Absent means the fact is a single year. Never used to disguise ignorance: a claim whose year is unknown carries timeline_ready false, not a span the width of an era." },
+        "timeline_ready": { "type": "boolean", "description": "OPTIONAL, defaults to TRUE when absent. False means `about_year` was assumed rather than read from evidence, and the claim MUST NOT be drawn on a timeline until a source is read. Seven claims are false: six need a source read, and ds-provenance-001 is about the dataset itself and never belongs on a history axis." },
+        "about_year_note": { "type": "string", "description": "REQUIRED in two cases, enforced by tools/verify_p2.py p1-timeline: when `timeline_ready` is false, saying what has to be read; and when `about_year` matches no year appearing in the claim's own statement or unit, saying why the timeline year differs from the text. A timeline year may disagree with the claim's prose, but never silently." },
         "method": { "type": "string", "description": "REQUIRED when grade is C: how the triangulation was built" }
       }
     },

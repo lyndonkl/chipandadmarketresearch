@@ -253,7 +253,23 @@
           "expected": 25.83
         }
       ],
-      "disagreement": "If the classified share is widened upward as e1-buyers-007 now requires, local display falls to about $180m and the central drifts to roughly 22. That is inside the stated interval, so no change is forced, but the two claims are coupled."
+      "disagreement": "If the classified share is widened upward as e1-buyers-007 now requires, local display falls to about $180m and the central drifts to roughly 22. That is inside the stated interval, so no change is forced, but the two claims are coupled.",
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "Records-integrity supersession found by R3c cross-cutting finding XC-4 and swept for at P1. This claim's R3 verdict is CONFIRMED and its evidence text certifies a value the record no longer holds, because R2b's money-type re-research (the Gate B condition) re-derived the pool from a three-lens proxy panel after R3 ran. R2b recorded supersessions only on the ADJUSTED verdicts it displaced - the ones tools/verify_p2.py r3-applied inspects - so confirmed verdicts carrying a value in prose were left standing. No value changes at P1; the live R2b-derived value governs and is recorded here so the verdict ledger stops certifying a superseded number.",
+        "p1_applied": {
+          "central": 22.0,
+          "ci80": [
+            15,
+            46
+          ],
+          "grade": "C",
+          "unit": "percent of total US advertising outlay",
+          "governing_stage": "R2b",
+          "value_change": "none at P1 - the R2b value was already in the record; only the supersession record was missing."
+        },
+        "audit_trail": "p2-ad-market/data/moneytype/reconciled.json (the R2b re-derivation that governs); p2-ad-market/data/verification/repair-p1-open-items.json finding XC-4; p2-ad-market/data/verification/REPAIR-P1.md"
+      }
     },
     {
       "claim_id": "e1-scale-013",
@@ -283,7 +299,23 @@
           "expected": 4.658
         }
       ],
-      "disagreement": "The statement says 'about $35 million' while the method computes $33m; a trivial internal mismatch, worth tidying."
+      "disagreement": "The statement says 'about $35 million' while the method computes $33m; a trivial internal mismatch, worth tidying.",
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "Records-integrity supersession found by R3c cross-cutting finding XC-4 and swept for at P1. This claim's R3 verdict is CONFIRMED and its evidence text certifies a value the record no longer holds, because R2b's money-type re-research (the Gate B condition) re-derived the pool from a three-lens proxy panel after R3 ran. R2b recorded supersessions only on the ADJUSTED verdicts it displaced - the ones tools/verify_p2.py r3-applied inspects - so confirmed verdicts carrying a value in prose were left standing. No value changes at P1; the live R2b-derived value governs and is recorded here so the verdict ledger stops certifying a superseded number.",
+        "p1_applied": {
+          "central": 2.2,
+          "ci80": [
+            1.1,
+            5.0
+          ],
+          "grade": "C",
+          "unit": "percent of total US advertising outlay",
+          "governing_stage": "R2b",
+          "value_change": "none at P1 - the R2b value was already in the record; only the supersession record was missing."
+        },
+        "audit_trail": "p2-ad-market/data/moneytype/reconciled.json (the R2b re-derivation that governs); p2-ad-market/data/verification/repair-p1-open-items.json finding XC-4; p2-ad-market/data/verification/REPAIR-P1.md"
+      }
     },
     {
       "claim_id": "e1-scale-014",
@@ -1155,7 +1187,31 @@
           "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"
         }
       ],
-      "disagreement": "Grade B is borderline. The source is a credible encyclopaedia but the figure is an unsourced estimate ('figures obtained in 1920 estimated'), with no collecting body named. The wide interval compensates. The material risk is not this claim but e1-scale-014, which back-casts this single number six years and builds a money-type share on it."
+      "disagreement": "Grade B is borderline. The source is a credible encyclopaedia but the figure is an unsourced estimate ('figures obtained in 1920 estimated'), with no collecting body named. The wide interval compensates. The material risk is not this claim but e1-scale-014, which back-casts this single number six years and builds a money-type share on it.",
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "Two supersessions in one, both of them records-integrity failures rather than data failures. (1) The R3 verdict below certifies central 300 with ci80 [200, 400] against the 1926 Britannica. That object no longer exists: R2b rebuilt the claim on Printers' Ink 1911 as central 192 with ci80 [96, 360] and recorded no supersession, and e1-buyers-008 is not in post_r3_claims, so the verdict file has been certifying a value the record does not hold since R2b ran. The live R2b-derived object governs. (2) R3c found the statement contradicted its own method: it presented five Printers' Ink lines summing to $206m as the anchor for a $192m central in a later year, while route D1 takes only 65% of the direct-mail line ((100 x 0.65) + 75 + 18 + 6 + 7 = $171m, grown x1.131 to 1914 = $193.4m) and carries weight 0.35 of a four-route blend, with the central set as 16.0% of the $1,200m 1914 benchmark. The P1 statement governs; no value changes at P1.",
+        "p1_applied": {
+          "central": 192,
+          "unit": "USD millions (current), 1914 benchmark",
+          "ci80": [
+            96,
+            360
+          ],
+          "grade": "C",
+          "statement": "Direct-response buyers - mail-order houses, patent-medicine makers and every advertiser working a keyed reply - spent about $192 million in 1914, roughly 16 percent of the benchmark total. The largest single input is Printers' Ink of 4 May 1911, which tabulates direct mail at $100 million, farm and mail-order at $75 million, sampling at $18 million, distributing at $6 million and house organs at $7 million, in window and contemporaneously. Those five lines sum to $206 million and are not the central: route D1 takes only 65 percent of the direct-mail line as direct response, giving $171 million, grown x1.131 to 1914 = $193 million, and D1 carries weight 0.35 of a four-route blend. The central of $192 million is set as 16.0 percent of the $1,200 million 1914 benchmark (e1-scale-014), not as a sum of source lines."
+        },
+        "governing_stage_for_the_value": "R2b",
+        "r3_certified_object_that_no_longer_exists": {
+          "central": 300,
+          "ci80": [
+            200,
+            400
+          ]
+        },
+        "why_it_was_missed": "r3-applied only inspects ADJUSTED verdicts, and this verdict is confirmed, so no gate could see the drift.",
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "e1-measurement-001",
@@ -6517,7 +6573,23 @@
           "name": "Christian Science Monitor, Kerry Elizabeth Knobelsdorff, 'For TV networks, `People Meter' is a profit eater', 6 Jan 1988 (full text retrieved)",
           "url": "https://www.csmonitor.com/1988/0106/fmeter.html"
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "R3 confirmed on the reasoning that the interval [31, 35] already absorbed the dispute. It absorbed the undisputed side of it. Two defects. (1) The claim compares a HOUSEHOLD share (33%) against a POPULATION share (26%) and named neither base; cable households ran larger than average, so the mismatch flatters the networks' case in the direction the networks wanted. (2) The same Christian Science Monitor article carries Nielsen's rebuttal - John Dimling at about 31% pay cable in the sample against 28-30% nationally - which cuts the alleged skew from 7 points to 1-3. The claim carried only the accusing party's national figure, and that figure is the one number in the statement with no interval on it. The P1 statement, unit and method govern; central 33, ci80 [31, 35] and grade B are unchanged.",
+        "p1_applied": {
+          "central": 33,
+          "unit": "percent of people-meter households with pay cable, as alleged by the networks",
+          "ci80": [
+            31,
+            35
+          ],
+          "grade": "B",
+          "statement": "The networks challenged the people-meter panel's composition: they put 33% of people-meter households on pay cable against 26% of the US population \u2014 note the base change, since pay-cable penetration is a household statistic and cable households ran larger than average, so the two sides of the networks' comparison are not like quantities. Nielsen disputed both halves in the same article: John Dimling put the sample at about 31% pay cable against 28-30% nationally, which shrinks the alleged skew from 7 points to 1-3. The claim states the accusation, not a settled fact.",
+          "method": "Attribution claim, not a measurement. The central is the figure the networks alleged; the interval spans it down to Nielsen's counter-figure of about 31% for the same sample. The 26% national base is the contested number and carries no interval, because the source gives two irreconcilable versions of it (networks: 26% of population; Nielsen: 28-30%, on a household base). Never present 33-against-26 as a measured skew."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "e4-measurement-004",
@@ -7265,7 +7337,23 @@
           "expr": "112/247.472*100",
           "expected": 45.3
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "Records-integrity supersession found by R3c cross-cutting finding XC-4 and swept for at P1. This claim's R3 verdict is CONFIRMED and its evidence text certifies a value the record no longer holds, because R2b's money-type re-research (the Gate B condition) re-derived the pool from a three-lens proxy panel after R3 ran. R2b recorded supersessions only on the ADJUSTED verdicts it displaced - the ones tools/verify_p2.py r3-applied inspects - so confirmed verdicts carrying a value in prose were left standing. No value changes at P1; the live R2b-derived value governs and is recorded here so the verdict ledger stops certifying a superseded number.",
+        "p1_applied": {
+          "central": 94.881,
+          "ci80": [
+            77.95,
+            106.41
+          ],
+          "grade": "C",
+          "unit": "USD billions (2000 US ad spend)",
+          "governing_stage": "R2b",
+          "value_change": "none at P1 - the R2b value was already in the record; only the supersession record was missing."
+        },
+        "audit_trail": "p2-ad-market/data/moneytype/reconciled.json (the R2b re-derivation that governs); p2-ad-market/data/verification/repair-p1-open-items.json finding XC-4; p2-ad-market/data/verification/REPAIR-P1.md"
+      }
     },
     {
       "claim_id": "e5-buyers-011",
@@ -7280,7 +7368,23 @@
           "name": "NAA 2000 newspaper detail via MediaPost",
           "url": "https://www.mediapost.com/publications/article/11138/ad-spending-in-newspapers-hit-487-billion-in-200.html"
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "Records-integrity supersession found by R3c cross-cutting finding XC-4 and swept for at P1. This claim's R3 verdict is CONFIRMED and its evidence text certifies a value the record no longer holds, because R2b's money-type re-research (the Gate B condition) re-derived the pool from a three-lens proxy panel after R3 ran. R2b recorded supersessions only on the ADJUSTED verdicts it displaced - the ones tools/verify_p2.py r3-applied inspects - so confirmed verdicts carrying a value in prose were left standing. No value changes at P1; the live R2b-derived value governs and is recorded here so the verdict ledger stops certifying a superseded number.",
+        "p1_applied": {
+          "central": 70.084,
+          "ci80": [
+            51.47,
+            81.67
+          ],
+          "grade": "C",
+          "unit": "USD billions (2000 US ad spend)",
+          "governing_stage": "R2b",
+          "value_change": "none at P1 - the R2b value was already in the record; only the supersession record was missing."
+        },
+        "audit_trail": "p2-ad-market/data/moneytype/reconciled.json (the R2b re-derivation that governs); p2-ad-market/data/verification/repair-p1-open-items.json finding XC-4; p2-ad-market/data/verification/REPAIR-P1.md"
+      }
     },
     {
       "claim_id": "e5-buyers-012",
@@ -7947,7 +8051,22 @@
           "name": "Overture Services, Inc., Form 10-K for FY2001, Item 1 Business",
           "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm"
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "R3 confirmed the values, which are exact: R3c pulled the Overture FY2001 10-K from SEC EDGAR and the central, the interval and every paraphrase are verbatim-correct. What the claim lacked was a base note. The filing says 'pieces READ', not pieces mailed or delivered, and that one word is what reconciles the implied 15.9% response rate with e4-targeting-004's 2%. R3b's proposed fix - cut the 10.7 million denominator - would have deleted the word that resolves the contradiction. The P1 statement governs; no value changes.",
+        "p1_applied": {
+          "central": 65,
+          "unit": "million commercial leads per day (company estimate)",
+          "ci80": [
+            60,
+            70
+          ],
+          "grade": "B",
+          "statement": "Commercial leads per day that Overture estimated internet search could generate, on 170-180 million searches per day \u2014 set in its 10-K directly against Yellow Pages (25-30 million calls per day, per the Yellow Pages Publishers Association) and direct mail (1.7 million responses per day on 10.7 million pieces READ per day, per the Direct Marketing Association \u2014 note the base: 'pieces read', not pieces mailed. US Standard Mail ran about 90 billion pieces in FY2000, some 250-300 million a day, so 10.7 million is roughly 4 percent of delivered volume. The implied 15.9 percent is a response rate among pieces actually read and must not be compared with e4-targeting-004's 2 percent, which is a response rate on pieces mailed.). The intent pool search was aiming at was the directory and mail pool, stated by the company itself."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "e5-events-001",
@@ -8062,6 +8181,23 @@
         "resolution_required": "Re-read the two cited sources, or a human decision, before this sentence is quoted anywhere.",
         "audit_trail": "p2-ad-market/data/verification/REPAIR-R3b.md",
         "source_carries_the_error": "The figure is NOT a paraphrase error introduced by this project: the R3 verdict on this claim quotes the cited Wikipedia article as saying the 21 ads 'amounted to nearly 20% of the 61 spots available', and R3 imported that string verbatim. The impossibility therefore sits in the source, so repairing it means deciding whether to correct the source's arithmetic (about a third), read it as a corrupted 'nearly 20 OF the 61 spots', or drop the share entirely. That is a human call on the source, not a data-entry fix."
+      },
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "Closes the R3b open_defect on this claim. R3c re-read the cited Wikipedia article in full: the three itemised tables independently support both 14 and 21, and $44M/21 = $2.10M confirms the 21 grouping, so the source and the calibrated value stand. The share clause does not: every pairing fails (21/61 = 34.4%, 14/61 = 23.0%, 20% of 61 = 12.2 ads) and the most likely corrupted element is the DENOMINATOR, not the share - 14/70 = 20.0% exactly, and ABC's Super Bowl inventory was widely described as about 36 minutes, roughly 72 units. That could not be proved from any reachable source, so the clause is DELETED rather than corrected, in the claim statement and in the parent event's desc. No calibrated value changes.",
+        "p1_applied": {
+          "central": 14,
+          "unit": "dot-com advertisers (in-game spots)",
+          "ci80": [
+            14,
+            21
+          ],
+          "grade": "B",
+          "statement": "Dot-com companies running in-game advertisements in Super Bowl XXXIV, 30 January 2000, at an average of roughly $2.2M per 30-second spot. Counts vary by definition: 14 pure dot-com companies ran in-game spots; including five pre-bubble companies running tech-related ads and two pre-game ads gives 21 dot-com ads in total, for about $44M of advertising (an average of $2.10M each, consistent with the stated ~$2.2M spot price). The share-of-inventory figure carried by the cited source \u2014 'nearly 20% of the 61 spots available' \u2014 is dropped: it is arithmetically impossible against the source's own counts (21/61 = 34.4%, 14/61 = 23.0%, and 20% of 61 = 12.2 ads) and no reachable contemporaneous source establishes the true denominator."
+        },
+        "closes_open_defect": true,
+        "open_defect_status_now": "CLOSED at P1. The R3b open_defect block on this verdict is left exactly as written; the claim object carries a resolved_defect record in its place.",
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
       }
     },
     {
@@ -8174,7 +8310,22 @@
           "expr": "968.274/221.7",
           "expected": 4.37
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "R3 adjusted central, unit, interval and grade. R3c reproduced the whole chain exactly and REJECTED R3b's '$11.75 arithmetic floor' finding, which put total US internet revenue over a display-impression denominator and used AdRelevance's monitored-site count as a census ceiling when the claim's own method calls it a floor; corrected both ways the conflict dissolves at $9.09 CPM, inside the stated interval. The surviving defect is the label: the unit and statement named revenue per delivered ad impression while the numerator is banner-plus-sponsorship revenue only, 76% of the IAB total. The P1 unit and statement govern; central 0.007, ci80 [0.004, 0.011], grade C and the whole method are unchanged.",
+        "p1_applied": {
+          "central": 0.007,
+          "unit": "USD of banner-and-sponsorship revenue per delivered US display impression",
+          "ci80": [
+            0.004,
+            0.011
+          ],
+          "grade": "C",
+          "statement": "Effective revenue per delivered US web display impression in 2000, the era's peak year \u2014 about $7 per thousand. The numerator is impression-priced formats only: banners (48%) plus sponsorships (28%) of IAB/PwC FY2000 revenue. It excludes the remaining 24% \u2014 search, classifieds, email and referrals \u2014 which was never sold per impression. Against rate cards of $25-$35 per thousand for a full banner. The gap is unsold inventory, volume discounting, house ads and barter, exactly as DoubleClick described it: 'increases in the amounts of unsold inventory, which diluted the effective price of delivered advertising impressions.'"
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "e5-unit_econ-002",
@@ -9794,7 +9945,22 @@
           "expected": 59.93
         }
       ],
-      "disagreement": "Researcher propagated per-query uncertainty into the margin. That double-counts an error that appears identically in numerator and denominator; the margin is the one unit-economics figure in this era that does NOT need a query estimate."
+      "disagreement": "Researcher propagated per-query uncertainty into the margin. That double-counts an error that appears identically in numerator and denominator; the margin is the one unit-economics figure in this era that does NOT need a query estimate.",
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "R3 adjusted central, interval, grade and method. R3c confirmed the pair e6-unit_econ-002 / -003 is CONSISTENT (84.1% from the per-query pair, 83.9% from the filings, central 85%, all inside ci80 [78, 91]) and located the defect in the parenthetical, which is the only part of the claim a reader does arithmetic on: it printed 0.33 cents of serving cost, a figure back-derived from this claim's own rounded 85%, for a quantity the record calibrates at 0.35 cents in e6-unit_econ-002, and presented the margin as following from two components the method explicitly says not to use. Chapter 10 shows the two claims in the same table. The P1 statement governs; central 85, ci80 [78, 91] and grade C are unchanged.",
+        "p1_applied": {
+          "central": 85,
+          "unit": "% gross margin per Google-owned-site query, 2007",
+          "ci80": [
+            78,
+            91
+          ],
+          "grade": "C",
+          "statement": "The gross margin on a monetised Google-owned search query was about 85% in 2007 (~2.2 cents of revenue against ~0.35 cents of serving cost, which is where the per-query claims put it \u2014 though the margin is not derived that way: the query denominator cancels, so it is computed straight from the FY2008 10-K as 1 - $1,715.2m / $10,624.705m = 83.9%, and the 0.35-against-2.2 pair independently gives 84.1%) \u2014 far above Google's reported company-wide gross margin of 59.9%, because the company-wide figure is dragged down by the revenue share paid on syndicated inventory."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "e7-scale-001",
@@ -10388,7 +10554,22 @@
           "expr": "10/88*100",
           "expected": 11.36
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "R3 confirmed, and the value is right: the ANA's own decomposition closes exactly (29 + 35 = 64, leaving 36). R3c rejected R3b's arithmetic objection - the claim already said 'recoverable' and the ANA's own release uses the identical construction - but found two real defects R3b did not. The word 'leaving' invited readers to treat $22B as the complement of 36 cents when the complement on the same pool is about $56B, four times larger; and the $88B pool's geography is unconfirmable from any reachable primary, while the December full report puts MFA at 11.4% of the pool beside the June first look's 15%. The P1 statement governs; central 36, ci80 [30, 45] and grade B are unchanged.",
+        "p1_applied": {
+          "central": 36,
+          "unit": "cents of each DSP dollar reaching the consumer",
+          "ci80": [
+            30,
+            45
+          ],
+          "grade": "B",
+          "statement": "The ANA's programmatic transparency study found about 36 cents of every dollar entering a demand-side platform reached a consumer \u2014 transaction costs took 29 cents and media-productivity loss (non-viewable, invalid traffic, unmeasurable and made-for-advertising inventory) took 35 cents. Of the roughly $88B open-web programmatic pool the study sized, the ANA identified about $22B \u2014 a quarter \u2014 as recoverable efficiency gain; that is not the same as the 64 cents on the dollar that fails to reach a consumer, which on the same pool is about $56B. Made-for-advertising sites absorbed about 15% of spend on the June 2023 first look, and $10B of the $88B pool (11.4%) on the December full report. BASIS CAVEAT: the study's participants are 21 US marketers, but the $88B pool is described as the open-web programmatic market excluding $20.3B of CTV, and whether that pool is US-only or global could not be confirmed from a reachable primary source. Do not treat $88B as a US total."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "e7-pricing-006",
@@ -10532,7 +10713,23 @@
           "expected": 60.8
         }
       ],
-      "disagreement": "The researcher read 60.8% as a digital share. On the cited source's own numbers 60.8% can only be a total-ad-spend share; the digital share is 71.9%."
+      "disagreement": "The researcher read 60.8% as a digital share. On the cited source's own numbers 60.8% can only be a total-ad-spend share; the digital share is 71.9%.",
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "R3 adjusted central and interval. R3c found both percentages correct and mutually consistent, but only on EMARKETER's digital definition, which the unit did not name. Unlabelled, the pair implies digital is 82.1% of US total ad spend (59/71.9), against e7-medium-002's central of 74% on the MAGNA/IAB rail; the same 71.9% digital share is 53.2% of total on that rail, a $23.0B difference on one year. This is a chart hazard, not an internal inconsistency: the two claims must never share an axis or a sentence without naming the rail. The P1 unit, statement and method govern; central 71.9 and ci80 [69, 75] are unchanged.",
+        "p1_applied": {
+          "central": 71.9,
+          "unit": "percent of US digital ad spending held by the triopoly, 2025, on EMARKETER's digital definition",
+          "ci80": [
+            69,
+            75
+          ],
+          "grade": "B",
+          "statement": "Google, Meta and Amazon together took about 71.9% of US digital ad spending in 2025, down from 73.9% in 2020 as retail media and CTV entrants grew, even as their share of US total advertising spend rose to roughly 59% from 47% over the same period. BASIS: both figures are EMARKETER's and are internally consistent only on EMARKETER's digital definition, in which digital is about 82% of US total media ad spend (59/71.9 = 82.1%). On the MAGNA/IAB rail used by e7-medium-002 \u2014 $294.593B of digital in a $398B total, digital at 74% \u2014 the same 71.9% digital share is 53.2% of total, not 59%. The two claims are $23.0B apart and must not be plotted on the same axis or quoted in the same sentence without naming the rail.",
+          "method": "Cross-rail reconciliation, not a new estimate. EMARKETER rail: 0.719 x 0.8206 = 59.0% of total, closing to the decimal against the published pair. MAGNA/IAB rail: 0.719 x $294.593B = $211.8B; $211.8B / $398B = 53.2%. Difference against 59% of $398B = $23.0B. No value is averaged across the two rails; both are reported."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "e7-sellers-005",
@@ -10660,7 +10857,22 @@
           "expected": 72.74
         }
       ],
-      "disagreement": "The researcher treated the mixed ratio as the best estimate and the two publishers' totals as the only uncertainty. I treat the numerator-denominator mismatch as the larger error and prefer each publisher's self-consistent pair."
+      "disagreement": "The researcher treated the mixed ratio as the best estimate and the two publishers' totals as the only uncertainty. I treat the numerator-denominator mismatch as the larger error and prefer each publisher's self-consistent pair.",
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "Label-only supersession, the other half of the e7-sellers-004 finding. The value was on the MAGNA/IAB rail and the unit did not say so, which is what let a $23.0B cross-rail gap sit invisible between two correct claims. The P1 unit and the appended rail sentence in the method govern; central 74, ci80 [72, 82] and grade C are unchanged and were reconfirmed.",
+        "p1_applied": {
+          "central": 74,
+          "unit": "percent of US total ad spend that is digital, 2025, on the MAGNA/IAB rail",
+          "ci80": [
+            72,
+            82
+          ],
+          "grade": "C",
+          "method": "Computed on each source's own internally consistent pair rather than by mixing numerators and denominators. MAGNA June 2025: US digital pure-play $294B of a $398B total = 73.9%. EMARKETER: digital surpasses an 80% share of total media ad spend in 2025. IAB/PwC's $294.593B numerator is near-identical to MAGNA's digital figure, so 74% is the well-anchored central; the interval reaches 82% to contain EMARKETER's published share. RAIL: this claim is on the MAGNA/IAB rail. EMARKETER's digital definition runs about 82% (see e7-sellers-004, whose 59%-of-total figure is only consistent on that rail). The two rails are $23.0B apart on the same 2025 market and must never be plotted on one axis without naming which is in use."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "e7-medium-003",
@@ -11399,7 +11611,23 @@
           "expr": "1000/1e6*5 + 300/1e6*15",
           "expected": 0.0095
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "R3 adjusted the statement only. R3c found the defect was in the ci80, not the prose: its upper bound of $0.0095 was a DIFFERENT MODEL (GPT-4o, the frontier tier) and its lower bound of $0.00025 corresponded to no published price at all, so the 28.0x relative width was two quantities in one field rather than uncertainty. The quantity is deterministic arithmetic on a published list price and carries no measurement error; the only real uncertainty is model selection, which prices at [0.00033, 0.00067]. The frontier tier is removed from ci80 and declared as a separate series. The 145-fold fall survives EXACTLY (0.048/0.00033 = 145.45x) but only as an index ratio between two named models, never as an estimate with a band. The P1 unit, ci80, statement and method govern; central 0.00033 and grade C are unchanged.",
+        "p1_applied": {
+          "central": 0.00033,
+          "unit": "USD list-price cost of a fixed 1,000-in / 300-out answer at the cheapest generally available model at or above GPT-4 capability, July 2024",
+          "ci80": [
+            0.00033,
+            0.00067
+          ],
+          "grade": "C",
+          "statement": "By July 2024 the same answer cost 0.033 cents at GPT-4o mini, the cheapest generally available model at or above GPT-4 capability. Set against the 2023 point that is an exact index ratio between two named list prices \u2014 0.048/0.00033 = 145.45x in twelve months \u2014 and not an estimate with a band.",
+          "method": "Same 1,000-in / 300-out standard answer. Deterministic arithmetic on a published list price, not an estimate: GPT-4o mini at $0.15/$0.60 per million gives 1000/1e6*0.15 + 300/1e6*0.60 = $0.00033 exactly. The interval measures MODEL SELECTION, not measurement error: nothing cheaper than GPT-4o mini met the GPT-4 capability bar in July 2024 (hard floor), and the nearest models under a stricter bar were Claude 3 Haiku at $0.000625 and Gemini 1.5 Flash at $0.000665 on its then-current $0.35/$1.05 tariff (ceiling). OpenAI's launch post carries the capability bar this series needs (GPT-4o mini scores 82% on MMLU and outperforms GPT-4 on LMSYS chat preferences). The frontier-tier comparator ($0.0095 at GPT-4o's $5/$15) is REMOVED from ci80 and carried as a separate declared series, because it is a different quantity, not a plausible value of this one. The 145-fold fall from e7-unit_econ-004 is exact by construction (0.048/0.00033 = 145.45x) and must be stated as an index ratio between two named models, never as an estimate with a band."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "e7-unit_econ-006",
@@ -11428,7 +11656,23 @@
           "expr": "1000/1e6*0.075 + 300/1e6*0.30",
           "expected": 0.000165
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "R3 CONFIRMED this claim after recording the disconfirming fact in its own evidence text ('Gemini 2.0 Flash-Lite at $0.075/$0.30 computes to $0.000165 and cheaper nano tiers existed in 2025') and discounting it because the stated interval already covered it. The central was wrong, not just the interval: it priced Gemini 2.0 FLASH while the unit says 'cheapest capable tier', and Gemini 2.0 Flash-Lite was on Google's own public price list from 25 February 2025 at $0.075/$0.30 = $0.000165, with Amazon Nova Micro ($0.000077), Nova Lite ($0.000132) and GPT-5 nano ($0.00017) all cheaper and generally available. An interval is not doing its job when it contains the value the central should have been. The P1 central, ci80, unit, statement and method govern.",
+        "p1_applied": {
+          "central": 0.000165,
+          "unit": "USD list-price cost of a fixed 1,000-in / 300-out answer at the cheapest generally available model at or above GPT-4 capability, 2025",
+          "ci80": [
+            8e-05,
+            0.00033
+          ],
+          "grade": "C",
+          "statement": "By 2025 the same answer cost about 0.0165 cents at the cheapest capable tier on a major vendor's public price list, and Google reported that the cost of serving an AI Overview had fallen sharply over the preceding eighteen months.",
+          "method": "Same 1,000-in / 300-out bundle, priced at Gemini 2.0 Flash-Lite ($0.075/$0.30 per million, generally available from 25 February 2025): $0.000075 + $0.00009 = $0.000165. Google's launch materials clear the capability bar (MMLU-Pro 77.6% against full-size Gemini 1.5 Flash's 67.3%). The interval measures MODEL SELECTION across vendors, not measurement error: floor is Amazon Nova Micro at $0.035/$0.14 = $0.000077 (Bedrock, GA December 2024); ceiling is holding to GPT-4o mini's unchanged $0.15/$0.60 = $0.00033 if the capability bar is set at GPT-4o mini rather than at Gemini 2.0 Flash-Lite. Named intermediate points: Amazon Nova Lite $0.000132, GPT-5 nano $0.00017, Gemini 2.0 Flash $0.00022. The frontier-tier comparator (GPT-5 at $1.25/$10 = $0.00425) is REMOVED from ci80 and carried as a separate declared series. Epoch AI's March 2025 analysis puts the median rate of decline for a fixed capability level at about 50x per year, with a range of 9x to 900x depending on the benchmark, which is consistent with this series."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "e7-unit_econ-007",
@@ -11468,7 +11712,23 @@
           "expr": "0.048/0.04*100",
           "expected": 120.0
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "P1",
+        "reason": "R3 adjusted the method only. R3c found three defects. (1) The ci80 upper bound was the frontier tier, a different quantity, same mis-specification as -005 and -006. (2) The 'stopped falling' finding rested on this central equalling e7-unit_econ-006's, but the two were priced on different rungs of Google's ladder (Flash in 2025, Flash-Lite in 2026); held to one rung the floor ROSE 33%, because Gemini 2.0 Flash-Lite was shut down on 1 June 2026 and every cheap tier launched since is dearer. The finding survives and is stronger than stated, but on price-list evidence rather than on two coincidentally equal centrals. (3) The declared frontier comparator (GPT-5.2 at $1.75/$14) is not on OpenAI's July 2026 price list; the freeze frontier is GPT-5.4 Standard $0.007 and GPT-5.5 $0.014. The P1 ci80, unit, statement and method govern; central 0.00022 and grade C are unchanged.",
+        "p1_applied": {
+          "central": 0.00022,
+          "unit": "USD list-price cost of a fixed 1,000-in / 300-out answer at the cheapest generally available model at or above GPT-4 capability, 2026-06-30 freeze",
+          "ci80": [
+            8e-05,
+            0.00058
+          ],
+          "grade": "C",
+          "statement": "As of mid-2026 the cheap tier had stopped falling and had begun to tick back up: the cheapest model on Google's public price list cost about 0.022 cents for the same answer, up from about 0.0165 cents in 2025, because Gemini 2.0 Flash-Lite was shut down on 1 June 2026 and every cheap tier launched since is priced above the old floor. Frontier reasoning models pushed per-answer cost up much further, because they emit far more tokens per answer than the fixed-length assumption allows.",
+          "method": "Same 1,000-in / 300-out bundle. Cheapest model on Google's live Gemini price list at the 2026-06-30 freeze, verified again on 2026-07-31, is Gemini 2.5 Flash-Lite at $0.10/$0.40 per million: $0.00022. The 'stopped falling' finding is evidenced by the price list, NOT by equality with the 2025 central: Gemini 2.0 Flash-Lite ($0.075/$0.30 = $0.000165) was deprecated and shut down on 1 June 2026, and every cheap tier launched after it is dearer \u2014 Gemini 3.1 Flash-Lite $0.25/$1.50 = $0.0007, GPT-5.4 Nano (17 March 2026) $0.20/$1.25 = $0.000575 against GPT-5 nano's $0.00017. Interval measures model selection across vendors: floor Amazon Nova Micro $0.000077 if still generally available at the freeze, ceiling GPT-5.4 Nano $0.000575. Frontier comparator is carried as a SEPARATE declared series and is restated on the July 2026 OpenAI list \u2014 GPT-5.4 Standard $2.50/$15 = $0.007 and GPT-5.5 $5/$30 = $0.014 \u2014 because the GPT-5.2 figure previously used ($1.75/$14 = $0.00595) is not on OpenAI's current price list and understates the frontier. The material caveat is that reasoning models generate several thousand output tokens per answer rather than 300, so a like-for-like answer at the frontier now costs 10-30x this figure; the fixed-token definition is held constant across the series so the four points remain comparable. Directional conclusion for P3, computed against the corrected 3.7 cents of ad revenue per query (e7-unit_econ-001): the floor cost of one machine-written answer is now roughly 0.6% of the advertising revenue of one search query, against roughly 130% of it in 2023."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-p1-open-items.json (R3c adversarial re-attack: evidence, sources consulted and recomputation for every item); p2-ad-market/data/verification/REPAIR-P1.md (what P1 applied)"
+      }
     },
     {
       "claim_id": "ds-total-001",
@@ -13019,15 +13279,17 @@
     }
   ],
   "post_r3_claims": [
+    "e1-measurement-005",
     "e1-scale-017",
+    "e5-buyers-014",
+    "e5-buyers-015",
     "e5-scale-014",
-    "e7-scale-010",
     "e5-scale-015",
     "e5-scale-016",
-    "e5-buyers-014",
-    "e5-buyers-015"
+    "e7-scale-010"
   ],
-  "supersession_note": "Entries carrying superseded_by were re-derived by a later stage. Their R3 old/new values are unedited and remain the historical verification record. post_r3_claims lists claims minted after R3 ran, which therefore have no R3 verdict by construction. Entries carrying open_defect record a defect a later stage FOUND but did not repair, because no source settled the correct value; the R3 verdict and every value stand until a human resolves them.",
+  "supersession_note": "Entries carrying superseded_by were re-derived by a later stage. Their R3 old/new values are unedited and remain the historical verification record. post_r3_claims lists claims minted after R3 ran, which therefore have no R3 verdict by construction. Entries carrying open_defect record a defect a later stage FOUND but did not repair, because no source settled the correct value; the R3 verdict and every value stand until a human resolves them. A superseded_by block's <stage>_applied dict is the GOVERNING VALUE and is now checked mechanically against the live record by tools/verify_p2.py r3-applied: a supersession that asserts a value the record does not hold is itself a violation.",
   "post_r3_note_taxonomy_seam": "e5-scale-015, e5-scale-016, e5-buyers-014 and e5-buyers-015 were minted at the Gate B taxonomy decision of 2026-07-30, long after R3 ran, so they carry no R3 verdict by construction. They are the cross-era comparable (unified-intent) view of era 5's local-retail and direct-response pools and live in era-5.json under fields.SCALE.by_money_type_alt and fields.BUYERS.by_money_type_alt. They do not replace, re-value or supersede the era-native claims e5-scale-011, e5-scale-013, e5-buyers-011 and e5-buyers-013, whose R3 'confirmed' verdicts stand untouched: the project carries BOTH rules, which is the decision. See taxonomy_seam in p2-ad-market/data/moneytype/reconciled.json.",
-  "post_r3_note_r3b": "R3b (2026-07-31) re-attacked the whole era-2 MEASUREMENT field after a seed defect was found in e2-measurement-005, then swept all 505 claims for the same failure mode. Three claims were overturned - e2-measurement-003, -005 and -007 - all three of which R3 had CONFIRMED. Their R3 entries are untouched and still read 'confirmed'; each now carries a superseded_by naming stage R3b, the reason, the governing value and the audit trail. e2-measurement-005 also widened its interval to [500, 800] over an unresolved published conflict. One further arithmetically impossible statement was found and deliberately NOT repaired - e5-events-007, marked with open_defect. The common mechanism, and why four gates missed it, is written up in p2-ad-market/data/verification/REPAIR-R3b.md. Full re-attack with verbatim source quotations: p2-ad-market/data/verification/repair-era2-measurement.json."
+  "post_r3_note_r3b": "R3b (2026-07-31) re-attacked the whole era-2 MEASUREMENT field after a seed defect was found in e2-measurement-005, then swept all 505 claims for the same failure mode. Three claims were overturned - e2-measurement-003, -005 and -007 - all three of which R3 had CONFIRMED. Their R3 entries are untouched and still read 'confirmed'; each now carries a superseded_by naming stage R3b, the reason, the governing value and the audit trail. e2-measurement-005 also widened its interval to [500, 800] over an unresolved published conflict. One further arithmetically impossible statement was found and deliberately NOT repaired - e5-events-007, marked with open_defect. The common mechanism, and why four gates missed it, is written up in p2-ad-market/data/verification/REPAIR-R3b.md. Full re-attack with verbatim source quotations: p2-ad-market/data/verification/repair-era2-measurement.json.",
+  "post_r3_note_p1": "P1 (2026-07-31) did three things. (1) It applied the as_of decision: as_of is PROVENANCE (when the source published, filed or was retrieved) and never appears on an axis, and a new required integer field about_year carries the year the fact is about. About_span carries a range where the fact covers more than one year (177 claims) and timeline_ready false withholds permission to draw (7 claims). No as_of value was changed; 60 claims would have been plotted at the wrong year, the worst by 86 years. Audit: data/verification/asof-audit.json, research/notes/asof-audit.md. (2) It applied every adjusted verdict from the R3c re-attack on the fifteen open items (data/verification/repair-p1-open-items.json): eleven claims adjusted, one central moved (e7-unit_econ-006, 0.00022 -> 0.000165), zero rejected. Each carries a superseded_by naming stage P1, the reason, the governing value and the audit trail; no original verdict body was edited. (3) It swept post_r3_claims and the confirmed verdicts against the R2b delta, per R3c finding XC-4, and found five claims whose standing verdict certified a value the record no longer held - e1-buyers-008, e1-scale-012, e1-scale-013, e5-buyers-010 and e5-buyers-011, all of them money-type pools R2b re-derived after R3 ran. All five now carry a supersession. e1-measurement-005 (the Audit Bureau of Circulations, 1914) is new at P1: it promotes an unbacked assertion in era-2's MEASUREMENT summary to a claim object attested on three independent sources, and is declared in post_r3_claims. Postmortem: data/verification/REPAIR-P1.md."
 }
