@@ -12,7 +12,7 @@ Internal working document — exempt from the readability gate. All reader-facin
 | 2 | Seven eras, cut at mechanism changes, mechanism names (see §2). Era 7 promoted to a full era. |
 | 3 | Nine-field era schema (MEASUREMENT added) + money-type axis in SCALE/BUYERS + unit-economics block for eras 5–7 (see §3). |
 | 4 | Full money-story restructure: classifieds, directories/Yellow Pages, direct mail tracked from era 1; era 6 told as source-of-funds (intent money first; TV brand money a decade later). |
-| 5 | Centerpiece = twin-engine + death coda: auction as yield engine (simulator + worked numbers, full depth, GSP-not-truthful nuance), distribution as volume engine (AOL 2002 economics, TAC, network share, Mehta 2024), Overture post-mortem, era 7 records the auction's death (header bidding → first-price 2019 → RGSP + pricing knobs). Simulator gains a first-price/bid-shading panel. |
+| 5 | Centerpiece = twin-engine + death coda: auction as yield engine (simulator + worked numbers, full depth, GSP-not-truthful nuance), distribution as volume engine (AOL 2002 economics, TAC, network share, Mehta 2024), Overture post-mortem, era 7 records the auction's death (header bidding → display goes first-price 2019, search goes rGSP → pricing knobs). Simulator gains a first-price/bid-shading panel. |
 | 6 | Splice-honest dataset: named overlapping series, documented 1980–2007 bridge, series-concordance object, visible seams on the chart, era-1 SCALE downgraded to benchmark-year estimates with wide CIs. Ad/GDP (capture vs expansion vs reallocation) is an explicit contested analytical thread. |
 | 7 | First-class threads chosen at Gate B, not now. Schema collects thread-grade numbers regardless (take rates in PRICING, precision in TARGETING, money-type splits in SCALE). |
 | 8 | Readability: the standing four-test gate, unchanged (FK ≤ 10, Ease ≥ 50, Fog ≤ 12, SMOG ≤ 12). |
@@ -36,7 +36,7 @@ Cut at changes in the MECHANISM — who set the price of attention and how — n
 | 4 | 1976–1993 | **Segmentation** | Cable niches; direct mail's database upgrade (PRIZM geodemographics, mid-1970s); the measurable-response tradition scales. |
 | 5 | 1994–2001 | **The Impression** | CPM ported to the web; portals; the banner; GoTo prices the click with a pure-bid auction; dot-com crash resets everything. |
 | 6 | 2002–2008 | **The Auction** | AdWords Select's quality-weighted second price (relevance × bid); AdSense; self-serve with no minimums; syndication wars (AOL 2002). CENTERPIECE. |
-| 7 | 2008–2026 | **The Machine Market** | Programmatic/RTB; mobile; header bidding kills the waterfall; first-price (2019) and RGSP end GSP; privacy shocks (GDPR/ATT); platforms concentrate then fragment (retail media); antitrust endgame; AI starts buying, selling, and answering. Full era, freeze 2026-06-30. |
+| 7 | 2008–2026 | **The Machine Market** | Programmatic/RTB; mobile; header bidding kills the waterfall; in 2019 display goes unified first-price while search goes rGSP (opposite directions — search never went first-price, corrected by R4 finding f10); privacy shocks (GDPR/ATT); platforms concentrate then fragment (retail media); antitrust endgame; AI starts buying, selling, and answering. Full era, freeze 2026-06-30. |
 
 Timeline corrections the scouts pre-cleared. Era teams inherit these as constraints:
 
