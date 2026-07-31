@@ -1,0 +1,77 @@
+{
+  "overall": "PASS",
+  "stage": "R3",
+  "name": "Adversarial claim verification",
+  "audited_at": "2026-07-30",
+  "preconditions": [
+    {
+      "path": "p2-ad-market/planning/contracts/r2-report.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 9935 bytes, parses as JSON. Top-level \"overall\" reads \"PASS\", as the precondition requires. All six R2 invariants (r2-acq-01, r2-val-01, r2-val-02, r2-val-03, r2-rdy-01, r2-rdy-02) carry verdict \"satisfied\", and both R2 preconditions (era-1.json, r1-report.json) are satisfied, so the PASS is not a header asserted over failing parts."
+    },
+    {
+      "path": "p2-ad-market/planning/gate-a-approval.md",
+      "verdict": "satisfied",
+      "evidence": "Exists, 3797 bytes, non-empty. Dated 2026-07-30 with \"**Decision**: Approved. Proceed to R3.\" and an explicit \"1. Proceed to R3. No era needs a re-run. Claim verification may spend against these records.\" File mtime 2026-07-30 16:24 precedes every artifact R3 produced (verdicts-era-*.json 16:46-16:52, verdicts.json 17:23, adspend.json 17:24), so R3 did not start before Gate A. The note also carries a verification priority to R3 -- verify the contested 1922 ad/GDP maximum -- which the verdicts address at ds-total-001 and ds-gdp-001."
+    }
+  ],
+  "produces": [
+    {
+      "path": "p2-ad-market/data/verification/verdicts.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 818589 bytes, non-empty, parses as JSON. Top-level key \"verdicts\" holds 489 entries. Per-batch verdict files are also present alongside it (verdicts-era-1..7.json and verdicts-adspend.json, 80247-117723 bytes each)."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "r3-acq-01",
+      "class": "acquisition",
+      "verdict": "satisfied",
+      "evidence": "Contracted command `python3 tools/verify_p2.py r3-coverage` exited 0 with no violation output. The command is real, not a silent no-op: COMMANDS in tools/verify_p2.py maps \"r3-coverage\" to r3_coverage (line 693), and an unrecognised subcommand exits 2 with a usage line, which I confirmed. Corroborating independent read of the artifacts: 453 claim IDs matching the ID convention exist across the 7 era records and adspend.json; every one of them appears in verdicts.json; 489 verdict entries carry 489 distinct claim_ids, so no claim has two verdicts; the label distribution is confirmed 353 / adjusted 132 / rejected 4 / unverified 0; no entry carries a label outside {confirmed, adjusted, rejected, unverified}. The prior cycle's single unverified entry (concordance:iab-vintage) is now adjusted, with the earlier-vintage leg resolved to the printed FY2016/FY2017 table value of $72,521m. The 36 verdict targets that are not claim IDs are dataset objects the dataset verifier legitimately attacks (concordance:*, stitch:*, benchmarks-pre1919:<year>, bridge:arithmetic) -- coverage beyond the contracted set, not a coverage hole.",
+      "command_output": "(exit 0, no output)"
+    },
+    {
+      "id": "r3-val-01",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Contracted command `python3 tools/verify_p2.py r3-verdicts` exited 0 with no violation output. Corroborating read: all 132 adjusted verdicts carry \"old\", \"new\" and \"reason\", and every \"new\" is a non-empty object (116 of them carry at least one mechanically comparable field among central/ci80/grade/unit). For the 123 claim-level adjusted verdicts the command re-validates the resulting claim as it now stands in the record against the rigor spec (check_claim at verify_p2.py:500), so the post-adjustment calibration objects are complete, not just the deltas. All 4 rejected claims carry a replaced_by, and I confirmed independently that each source record now holds the replacement rather than the rejected text: e2-creators-001 now reads \"By 1933 J. Walter Thompson's clients sponsored nine weekly network radio shows...\" (central 9, ci80 [9,9], grade B, three new sources); e7-medium-003 now reads \"Mobile placements took about 66% of US digital ad spending in 2025...\" (central 66, ci80 [63,70], EMARKETER source replacing the SQ Magazine trace); ds-total-001 now reads \"The Coen/McCann series' highest nominal level is 2006 at $281,653m...\" (central 281653, grade B, method added); ds-gdp-001 now reads \"Advertising's share of US GDP was highest in the 1920s... about 3.0% in 1922...\" (central 3.0, ci80 [2.7,3.2], grade C, method added). No rejected claim ID survives unchanged.",
+      "command_output": "(exit 0, no output)"
+    },
+    {
+      "id": "r3-val-02",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Judgment check. Sampled 31 confirmed verdicts, at least 3 from each of the 8 batches (era 1-7 plus adspend), weighted toward the highest-risk cases: the confirmed verdicts whose sources_consulted adds no URL beyond the claim's own citation (82 of 353) and the shortest evidence strings in the file (min 57 chars, median 426). NO CITATION-ECHO FOUND. Every sampled confirmation records the verifier's own retrieval of the underlying document plus a verbatim quotation or a reproduced computation, not a restatement of the researcher's citation: e1-scale-001 (\"Read HSUS series T 444 directly off the source page (p. 857 ... rendered at 700 dpi)\"); e2-sellers-001 and e2-pricing-003/004 (FCC Report on Chain Broadcasting ch. VI \"retrieved and searched\", with the FCC's own sentences quoted and all five rate-setting factors matched); e2-measurement-001 (\"Located verbatim in the Beville PDF I downloaded and text-extracted\"); e2-targeting-001 (\"Recomputed from the parsed workbook: 1935 Magazines|Women's = 51 ... 39.23%\", plus an independent partition test); e3-creators-001 (\"Went to the DOJ case record rather than the secondary summary\"); e6-buyers-007 and e6-scale-009 (\"Recovered the NAA classified table from the Internet Archive frame and parsed it row by row\"); e7-unit_econ-003 (Alphabet FY2025 10-K segment table read to the dollar). Where the claim's cited source is itself the primary document, retrieving and reading that document is the strongest verification available and is not echo. Several confirmations go further and locate a corroborating source the record did not cite: e4-creators-001 (\"Confirmed twice over\" -- HBS WP 11-039 Table A1 against Statistical Abstract 1995 table 1315), e4-buyers-003 and e5-scale-010 (NBER WP 28161 verified verbatim on MCE's national/local treatment), e5-scale-010 (NAA 2000 newspaper detail via MediaPost, used to stress-test the classified reassignment), ds-total-002 (Coen 2007 total confirmed twice, Galbi landing table and the workbook's Grand Total row). DISAGREEMENTS ARE RECORDED, NOT AVERAGED AWAY. 130 of 489 verdicts carry substantive disagreement text, present in every batch (e1 24, e2 22, e3 14, e4 10, e5 17, e6 18, e7 12, adspend 13). Scanning all 136 adjusted/rejected entries for averaging language surfaces 11 mentions of \"midpoint\", and reading each shows the verifier attacking midpoint-averaging rather than performing it: e4-sellers-001 explicitly refuses it (\"central left at the sourced 61 rather than moved to a midpoint, because averaging two disagreeing tabulations would invent a number neither source reports\"; interval widened asymmetrically to [60,70] to span both cited sources); e5-medium-004 states \"The three are not averaged; the interval spans them\" and downgrades a blended central from B to C with a declared basis; e7-scale-001 catches a stated midpoint that is arithmetically wrong ((398+422)/2 = 410, not 405); ds-provenance-001 and benchmarks-pre1919:1900/1909/1914/1917 regrade pre-existing midpoint constructions from B to C precisely because a midpoint of two conflicting vintages is a construction. The two verdicts that retain a constructed midpoint as a central (e3-pricing-003, e3-pricing-006) disclose it in the method field, drop the grade to C, and keep the interval spanning both sources -- disclosure, not resolution by averaging. Residual disagreements are carried openly rather than smoothed: e5-scale-008 flags that its own central rests on an uncited Jupiter estimate; e3-pricing-006 flags an untraceable $45,500 figure it excluded rather than widening the band on it; ds-provenance-001 records a defensible counter-reading it declined to adopt; ds-gdp-001 records that researcher and verifier read Silk & Berndt's Chow break differently.",
+      "command_output": "(judgment check -- no command)"
+    },
+    {
+      "id": "r3-rdy-01",
+      "class": "readiness",
+      "verdict": "satisfied",
+      "evidence": "Contracted command `python3 tools/verify_p2.py r3-applied` exited 0 with no violation output. Disagreement log preserved: the 8 per-batch verdict files (verdicts-era-1..7.json, verdicts-adspend.json) survive alongside the merged verdicts.json, and 130 of 489 merged entries carry a non-trivial disagreement field. Records reflect the adjustments: for the 123 claim-level adjusted verdicts the command compares every central/ci80/grade/unit/as_of key present in the delta against the live record and finds no mismatch. I independently confirmed the 9 dataset-object adjustments the command skips (verify_p2.py:520-521) are also applied in adspend.json -- benchmarks_pre1919 1900/1909/1914/1917 now read grade C with a method (siblings 1904 and 1918 were already C, so the inconsistency the verdicts flagged is gone); concordance coen-vintage-revision now carries mean_1919_1929_pct -16.17 as adjusted; concordance iab-vintage now carries max_restatement_pct 0.16 with years_affected [2011,2012,2015,2016] plus the rewritten note fragment and known_breaks string; series census_manufactures points now carry grade B with the Borden (1942) Table 1 intermediate transcription added to sources.",
+      "command_output": "(exit 0, no output)"
+    }
+  ],
+  "remediation": [],
+  "contract_concerns": [
+    {
+      "invariant": "r3-acq-01",
+      "concern": "The contracted command enumerates claims through iter_claims (verify_p2.py:78-93), which walks fields[].claims, fields[].by_money_type, events[].claim and unit_economics.{revenue_per_unit,cost_to_serve,margin} only. It does not walk unit_economics.comparison_series, so 4 real claim IDs in era-7 (e7-unit_econ-004 through -007) sit outside the check's coverage even though the invariant text says 'every claim ID across the 7 era records'. Not exploited here: I verified independently that all four carry exactly one verdict in verdicts.json, so the invariant holds in substance. Raised because the check would not catch it if a future run left them unverified."
+    },
+    {
+      "invariant": "r3-val-01",
+      "concern": "The rejected-claim rule (verify_p2.py:501-502) passes whenever the VERDICT carries a replaced_by string; it never checks that the source record actually changed. A rejected claim could survive verbatim in its era record and still pass, which is exactly what the invariant text ('no rejected claim ID survives unchanged') forbids. Not exploited here: I read all four rejected claims in the records and each now holds the replacement text, values and sources. Raised because the command is materially weaker than the clause it enforces."
+    },
+    {
+      "invariant": "r3-rdy-01",
+      "concern": "The command skips every verdict whose target is a dataset object (verify_p2.py:520-521), so the 9 adjusted concordance / series / pre-1919 benchmark-point verdicts are never compared against adspend.json, despite the invariant text saying 'the era records + adspend.json reflect all adjustments'. Not exploited here: I checked all 9 by hand and all are applied (detail in the r3-rdy-01 evidence). The inline comment defers these to 'their own series/concordance checks', but those are R2 checks that ran before these adjustments existed, so nothing in the pipeline actually re-verifies them."
+    }
+  ],
+  "echo": {
+    "remediation": {
+      "policy": "bounded-auto-repair",
+      "max_cycles": 2,
+      "on_exhaust": "halt-and-escalate"
+    }
+  }
+}

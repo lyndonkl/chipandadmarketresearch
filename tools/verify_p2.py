@@ -498,8 +498,98 @@ def r3_verdicts():
                 bad("r3-val-01", f"adjusted claim {cid} is absent from the records", "verdicts.json")
                 continue
             check_claim(resulting, "r3-val-01", f"post-adjustment:{cid}")
-        if v.get("verdict") == "rejected" and cid in live and not v.get("replaced_by"):
-            bad("r3-val-01", f"rejected claim {cid} still present in records with no replacement", "verdicts.json")
+        if v.get("verdict") == "rejected" and cid in live:
+            if not v.get("replaced_by"):
+                bad("r3-val-01", f"rejected claim {cid} still present in records with no replacement", "verdicts.json")
+                continue
+            # A replaced_by string is not evidence the record changed. The
+            # invariant forbids a rejected claim SURVIVING UNCHANGED, so compare
+            # the record against what the verdict rejected.
+            old, now = v.get("old"), cur.get(cid)
+            if isinstance(old, dict) and isinstance(now, dict):
+                same = all(now.get(k) == old.get(k) for k in ("statement", "central")
+                           if k in old)
+                if same and any(k in old for k in ("statement", "central")):
+                    bad("r3-val-01", f"rejected claim {cid} survives unchanged in the records "
+                                     f"despite a replaced_by entry", "verdicts.json")
+
+
+def _resolve_dataset_object(cid):
+    """Resolve a 'kind:key' verdict target to the live object in adspend.json."""
+    ds = _adspend()
+    if ds is None or ":" not in cid:
+        return None
+    kind, _, key = cid.partition(":")
+    if kind == "concordance":
+        for c in ds.get("concordance", []):
+            if c.get("id") == key:
+                return c
+        return None
+    if kind in ("stitch", "series"):
+        return ds.get("series", {}).get(key)
+    series = ds.get("series", {}).get(kind) or ds.get("series", {}).get(kind.replace("-", "_"))
+    if series and key.isdigit():
+        for p in series.get("points", []):
+            if p.get("year") == int(key):
+                return p
+    return None
+
+
+def _dig(obj, dotted):
+    for part in dotted.split("."):
+        if not isinstance(obj, dict) or part not in obj:
+            return None, False
+        obj = obj[part]
+    return obj, True
+
+
+def _check_dataset_object_applied(cid, v):
+    """Adjusted concordance entries, series metadata and points are part of
+    'the records reflect all adjustments' too — they were previously skipped."""
+    obj = _resolve_dataset_object(cid)
+    if obj is None:
+        bad("r3-rdy-01", f"adjusted dataset object {cid} does not resolve in adspend.json", "verdicts.json")
+        return
+    for key, want in (v.get("new") or {}).items():
+        if key.endswith(("_note", "_fragment", "_action")) or key in (
+            "sources", "sources_note", "statement", "method", "note"
+        ):
+            continue  # prose or provenance: not mechanically comparable, same
+            # rule the claim path applies via _COMPARABLE_FIELDS
+        if "." in key:
+            got, found = _dig(obj, key)
+        else:
+            # Values live top-level on some objects and nested on others: a
+            # series point keeps its calibration under "calibration", a
+            # concordance entry keeps its numbers under "magnitude".
+            got, found = obj.get(key), key in obj
+            if not found:
+                for container in ("calibration", "magnitude"):
+                    sub = obj.get(container)
+                    if isinstance(sub, dict) and key in sub:
+                        got, found = sub[key], True
+                        break
+        if not found:
+            # dotted paths may target a sibling object (e.g. series.X.known_breaks)
+            if "." in key:
+                continue
+            # A series-level adjustment (e.g. regrading a whole series) lands on
+            # its points, not on the series metadata object.
+            pts = obj.get("points") if isinstance(obj, dict) else None
+            if isinstance(pts, list) and pts:
+                vals = {(p.get("calibration") or {}).get(key, p.get(key)) for p in pts}
+                if vals == {want}:
+                    continue
+                bad("r3-rdy-01", f"dataset object {cid}: series-level {key}={sorted(map(str, vals))} "
+                                 f"does not match adjusted {want!r} across its points", "verdicts.json")
+                continue
+            bad("r3-rdy-01", f"dataset object {cid}: adjusted key '{key}' absent from the object", "verdicts.json")
+            continue
+        if isinstance(want, (int, float)) and isinstance(got, (int, float)):
+            if abs(float(got) - float(want)) > 1e-9:
+                bad("r3-rdy-01", f"dataset object {cid}: {key}={got} does not match adjusted {want}", "verdicts.json")
+        elif got != want:
+            bad("r3-rdy-01", f"dataset object {cid}: {key}={got!r} does not match adjusted {want!r}", "verdicts.json")
 
 
 def r3_applied():
@@ -518,7 +608,8 @@ def r3_applied():
             continue
         cid = v.get("claim_id")
         if cid in dsobjs:
-            continue  # dataset object, verified in its own series/concordance checks
+            _check_dataset_object_applied(cid, v)
+            continue
         cur = current.get(cid)
         if cur is None:
             bad("r3-rdy-01", f"adjusted claim {cid} not found in records", "verdicts.json")

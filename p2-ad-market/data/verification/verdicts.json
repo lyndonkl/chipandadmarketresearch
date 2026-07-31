@@ -739,7 +739,7 @@
             "url": "https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/8/1090/files/2023/02/the_rise_of-15_emergence_and_persistence_of_commissions_in_advertising.pdf"
           }
         ],
-        "as_of": "1841-1842"
+        "as_of": "1841"
       },
       "reason": "Cited URL is dead at the DNS level and must be replaced with the live Penn State page. The flat 'the first US advertising agent' superlative is hedged in the record's own event note but asserted here, and the founding year is a three-way not two-way conflict once the 1926 Britannica's 1840 is counted.",
       "sources_consulted": [
@@ -3292,7 +3292,7 @@
             "url": "https://www.galbithink.org/ad-spending.htm"
           }
         ],
-        "as_of": "1956-1960"
+        "as_of": "1956"
       },
       "reason": "Peak year misattributed. Recomputing the full 1950-1975 ad/GDP series on one GDP vintage shows 1956 edging 1960, with a plateau across 1955-1960. Central level and interval stand.",
       "recomputation": [
@@ -12127,21 +12127,81 @@
     },
     {
       "claim_id": "concordance:iab-vintage",
-      "verdict": "unverified",
-      "evidence": "The FY2025-vintage half is confirmed exactly: the report's historical table prints Total 2015 $59,551 and Total 2016 $72,640, matching the dataset. I could not verify the earlier-vintage figures ($59.6bn and $72.5bn) because the superseded IAB reports were not retrievable in this run, so max_restatement_pct 0.19 rests on one unchecked leg. Nothing contradicts it - 72,640/72,500 - 1 = 0.193% is internally consistent with the stated pair - but the restatement magnitude is not independently established here.",
+      "verdict": "adjusted",
+      "evidence": "Both legs now read directly off primary PDFs I retrieved and text-extracted myself. Superseded vintages: the FY2015 edition (April 2016, p. 9 'Historical data findings') prints Total 2015 $59,550; the FY2016 edition (April 2017, p. 7, recovered from the Internet Archive capture of 21 June 2017 because iab.com now gates it behind a login) prints Total 2015 $59,550 and Total 2016 $72,521; the FY2017 edition (May 2018, p. 24) reprints the same $59,550 and $72,521. Three superseded vintages agree with each other. Current vintage: the FY2025 edition (April 2026) prints Total 2015 $59,551 and Total 2016 $72,640, matching the dataset. So the note's rounded prose is literally true at billions ($59,550m rounds to $59.6bn, $72,521m rounds to $72.5bn) but the magnitude object is wrong, because max_restatement_pct 0.19 was computed off the ROUNDED $72,500 rather than the printed table value $72,521. The real 2016 restatement is 72,640/72,521 - 1 = +0.164%, not +0.193%. Reading the full table across the concordance window also refutes years_affected: 2013 ($42,781) and 2014 ($49,451) are byte-identical in all four vintages and do not move at all, while 2012 ($36,570 to $36,572, +0.005%) does move and was omitted. 2011 moves $31,735 to $31,736 (+0.003%) and 2015 moves $59,550 to $59,551 (+0.002%). Immediately outside the window 2017 moves $88,008 to $88,266 (+0.293%), which is larger than anything inside it, so 0.16 must be labelled a window maximum rather than a series maximum. Cross-check on the FY2016 vintage: IAB's own FY2016 launch materials report 2016 growth of 22%, and 72,521/59,550 - 1 = 21.78% reproduces that; the rounded $72,500 would not have been the survey's own figure.",
       "sources_consulted": [
         {
           "name": "IAB/PwC Internet Advertising Revenue Report, Full Year 2025 (April 2026), 'Historical data findings' table",
           "url": "https://iabhongkong.com/sites/default/files/2026-04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        },
+        {
+          "name": "IAB/PwC internet advertising revenue report, 2016 full year results (April 2017), p. 7 'Historical data findings' - superseded vintage, retrieved from the Internet Archive capture 20170621195743 and text-extracted",
+          "url": "https://web.archive.org/web/20170621195743if_/https://www.iab.com/wp-content/uploads/2016/04/IAB_Internet_Advertising_Revenue_Report_FY_2016.pdf"
+        },
+        {
+          "name": "IAB/PwC internet advertising revenue report, 2017 full year results (May 2018), p. 24 'Historical data findings' - superseded vintage, downloaded and text-extracted",
+          "url": "https://www.iab.com/wp-content/uploads/2018/05/IAB-2017-Full-Year-Internet-Advertising-Revenue-Report.REV_.pdf"
+        },
+        {
+          "name": "IAB/PwC internet advertising revenue report, 2015 full year results (April 2016), p. 9 'Historical data findings' - superseded vintage, downloaded and text-extracted",
+          "url": "https://www.iab.com/wp-content/uploads/2016/04/IAB-Internet-Advertising-Revenue-Report-FY-2015.pdf"
+        },
+        {
+          "name": "IAB/PwC full year 2016 revenue report webinar deck (April 2017): 'Full Year 2016 Digital Ad Revenue Up 22% to $72.5 Billion'",
+          "url": "https://www.iab.com/wp-content/uploads/2016/04/FY-2016-IAB-Internet-Advertising-Revenue-webinar-POSTED.pdf"
         }
       ],
       "recomputation": [
         {
-          "expr": "72640/72500*100-100",
-          "expected": 0.1931
+          "expr": "72640/72521*100-100",
+          "expected": 0.1641
+        },
+        {
+          "expr": "59551/59550*100-100",
+          "expected": 0.0017
+        },
+        {
+          "expr": "31736/31735*100-100",
+          "expected": 0.0032
+        },
+        {
+          "expr": "36572/36570*100-100",
+          "expected": 0.0055
+        },
+        {
+          "expr": "88266/88008*100-100",
+          "expected": 0.2932
+        },
+        {
+          "expr": "72521/59550*100-100",
+          "expected": 21.7817
         }
       ],
-      "reason": "Blocked: prior-vintage IAB internet advertising revenue reports (FY2016 and FY2017 editions) were not retrieved. Resolve by pulling the FY2016 report PDF and reading its full-year table."
+      "old": {
+        "note_fragment": "Earlier vintages print 2015 as $59.6bn and 2016 as $72.5bn; the FY2025 vintage prints $59.551bn and $72.640bn.",
+        "magnitude.max_restatement_pct": 0.19,
+        "magnitude.years_affected": [
+          2011,
+          2013,
+          2014,
+          2015,
+          2016
+        ],
+        "series.iab_pwc.known_breaks": "annual figures are restated across vintages (2015, 2016 and 2014 each move by 0.1-0.2%)"
+      },
+      "new": {
+        "note_fragment": "Earlier vintages print 2015 as $59,550m and 2016 as $72,521m (FY2015 edition of April 2016, FY2016 edition of April 2017 and FY2017 edition of May 2018 all agree); the FY2025 vintage prints $59,551m and $72,640m. The largest restatement inside this window is 2016 at +0.164%. The rest are negligible -- 2011 +0.003%, 2012 +0.005%, 2015 +0.002% -- and 2013 and 2014 do not move at all. Just outside the window 2017 moves $88,008m to $88,266m, +0.293%, so 0.16 is a window maximum and not a series maximum.",
+        "magnitude.max_restatement_pct": 0.16,
+        "magnitude.years_affected": [
+          2011,
+          2012,
+          2015,
+          2016
+        ],
+        "series.iab_pwc.known_breaks": "annual figures are restated across vintages; within 2011-2016 the largest move is 2016, +0.16% ($72,521m in the FY2016/FY2017 vintages to $72,640m in FY2025), and 2017 moves further at +0.29%"
+      },
+      "reason": "max_restatement_pct 0.19 was derived from the note's own rounded prose ($72,640 against $72,500) rather than from the superseded report's printed table value of $72,521, which overstates the restatement by about 17%. The correct in-window figure is +0.164%. years_affected is separately wrong in both directions: 2013 and 2014 are identical across all four vintages read and do not belong in the list, while 2012 does move and was missing. The same faulty characterisation is repeated in series.iab_pwc.known_breaks, which claims 2014 and 2015 each move 0.1-0.2% when 2014 does not move and 2015 moves 0.002%; it must be fixed in both places. This matters because max_restatement_pct is the figure the dataset offers as its bound on vintage risk in the modern digital series.",
+      "disagreement": "The corrected number is smaller than the researcher's, but the honest reading is that the window itself understates vintage risk: 2017 restates by +0.293%, roughly 1.8x the in-window maximum, and I did not check 2018-2024, so no claim is made that 0.29% bounds the whole series. The note now says so explicitly rather than letting a window maximum read as a series maximum. Second residual: the concordance's 'years' field remains [2011, 2016] as scoped in R2, so the 2017 movement is disclosed in prose but is not carried in the magnitude object."
     },
     {
       "claim_id": "concordance:benchmarks-vintage",
