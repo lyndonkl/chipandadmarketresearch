@@ -4,7 +4,7 @@ project: p2-ad-market
 chapter: 2
 era: 1
 claim_ids: [e1-creators-001, e1-creators-002, e1-creators-003, e1-creators-004, e1-creators-005, e1-buyers-001, e1-buyers-002, e1-buyers-003, e1-buyers-004, e1-buyers-005, e1-buyers-006, e1-buyers-007, e1-buyers-008, e1-sellers-001, e1-sellers-002, e1-sellers-003, e1-sellers-004, e1-sellers-005, e1-sellers-006, e1-medium-001, e1-medium-002, e1-medium-003, e1-medium-004, e1-medium-005, e1-scale-001, e1-scale-002, e1-scale-003, e1-scale-004, e1-scale-005, e1-scale-006, e1-scale-007, e1-scale-008, e1-scale-009, e1-scale-010, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-pricing-001, e1-pricing-002, e1-pricing-003, e1-pricing-004, e1-measurement-001, e1-measurement-002, e1-measurement-003, e1-measurement-004, e1-measurement-005, e1-targeting-001, e1-targeting-002, e1-targeting-003, e1-events-001, e1-events-002, e1-events-003, e1-events-004, e2-scale-004]
-readability: "PASS fk_grade=7.09 reading_ease=65.91 gunning_fog=9.59 smog=9.98"
+readability: "PASS fk_grade=7.11 reading_ease=65.92 gunning_fog=9.55 smog=9.94"
 status: draft-for-review
 ---
 
@@ -120,7 +120,11 @@ Read the shape, not the digits. National brand and local retail tie at the top, 
 
 Classified was small in dollars, at roughly 2.2 percent of the total, or about $26 million.[^32] Its importance is not its size. It is the only channel here bought self-serve, over a counter, by people who never met an agent and never paid the 15 percent. It stayed small partly because of how it was priced. Classified paid no agency cut and needed no plates or art, so a dollar of classified space cost a dollar, while a dollar of brand space came with about half a dollar of preparation behind it.
 
-The four shares reach only 62 percent of the whole, and we do not force them higher. About 5 to 9 points of the rest is a real fifth pool with a real name: trade and technical papers, legal and financial notices, institutional and political money. The remaining 29 to 33 points is not a money type at all. It is the gap between the only in-era count of advertising by channel, about $700 million, and the retrospective benchmark of $1,200 million. Nobody has ever explained that gap, so we show it rather than spread it.
+The four shares reach only 62 percent of the whole, and we do not force them higher. About 5 to 9 points of the rest is a real fifth pool with a real name: trade and technical papers, legal and financial notices, institutional and political money. The remaining 29 to 33 points is not a money type at all. It is the gap between two counts of the same year, and the second count needs introducing here.
+
+*Printers' Ink* tabulated twelve advertising channels in 1911, and its twelve lines add to $616 million. We grew that forward to 1914 using the census growth in newspaper receipts, then added window display and directory listings, which brings it to about $700 million. A 1914 textbook by Daniel Starch put yearly spending on printed advertising at nearly the same figure.[^51] That is the only count of advertising by channel made inside the era.
+
+The $700 million and the census $255.6 million do not compete. The census counts what newspapers and periodicals received. The channel count is wider: it carries print space as well as direct mail, mail order, outdoor, house organs, samples and novelties. Neither one is the benchmark. The retrospective benchmark, worked out decades later, is $1,200 million, and nobody has ever explained the $500 million between it and the channel count. We show that gap rather than spread it.
 
 The types also overlap. Patent-medicine and mail-order money was national and response-driven at once, and this record counts it as direct response, because that is how the buyer judged it.
 
@@ -186,7 +190,7 @@ The era ends with the middleman's price fixed, the audience audited, and the mon
 
 Being honest about what we do not know is part of the story, so here is where the evidence killed a good line.
 
-**The Wanamaker quote.** Every history of advertising quotes the department-store owner saying that half his advertising was wasted, and that he did not know which half. No primary source for it exists. The earliest source crediting Wanamaker is a 1919 sermon, preached after this era closes. An unattributed partial version ran in a trade paper in 1890. It is a legend, and this project treats it as one.[^49]
+**The Wanamaker quote.** Every history of advertising has the department-store owner saying that half his advertising was wasted and he did not know which half. No primary source for it exists, and the earliest credit to him is a 1919 sermon, preached two years after this era closes. Chapter 3 follows the chain.[^49]
 
 **The first advertising agency.** Palmer is dated 1840, 1841 or 1842 depending on the source, and later firms have competing claims. The record says first or among the first, and stops there.[^1]
 
@@ -254,3 +258,4 @@ And one buyer class worth marking. The classified counter and the mail-order cou
 [^48]: Claim `e1-creators-004`, grade C, range 0.9-1.7 percent.
 [^49]: Era record `data/eras/era-1.json`, boundary note 8; research notes `research/notes/era-1-notes.md`, section 4. Quote Investigator, https://quoteinvestigator.com/2022/04/11/advertising/
 [^50]: Era record `data/eras/era-1.json`, event 1914.
+[^51]: Claim `e1-scale-017`, grade C, range 5-55 percent. *Printers' Ink*, 4 May 1911, p. 79, twelve channels summing to $616m, grown to 1914 by the census newspaper-receipts ratio of 1.131. Corroborated by Daniel Starch, "Advertising: Its Principles, Practice, and Technique" (1914), p. 7, which reports nearly $700,000,000 spent yearly on printed advertising.

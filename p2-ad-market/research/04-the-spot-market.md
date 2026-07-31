@@ -5,7 +5,7 @@ chapter: 4
 era: 3
 years: 1950-1975
 claim_ids: [e3-creators-001, e3-creators-002, e3-creators-003, e3-creators-004, e3-creators-005, e3-buyers-001, e3-buyers-002, e3-buyers-003, e3-buyers-004, e3-buyers-005, e3-buyers-006, e3-buyers-007, e3-buyers-008, e3-buyers-009, e3-sellers-001, e3-sellers-002, e3-sellers-003, e3-sellers-004, e3-sellers-005, e3-medium-001, e3-medium-002, e3-medium-003, e3-medium-004, e3-medium-005, e3-medium-006, e3-medium-007, e3-medium-008, e3-medium-009, e3-medium-010, e3-medium-011, e3-scale-001, e3-scale-002, e3-scale-003, e3-scale-004, e3-scale-005, e3-scale-006, e3-scale-007, e3-scale-008, e3-scale-009, e3-scale-010, e3-scale-011, e3-pricing-001, e3-pricing-002, e3-pricing-003, e3-pricing-004, e3-pricing-005, e3-pricing-006, e3-pricing-007, e3-pricing-008, e3-measurement-001, e3-measurement-002, e3-measurement-003, e3-measurement-004, e3-measurement-005, e3-targeting-001, e3-targeting-002, e3-targeting-003, e3-targeting-004, e3-targeting-005, e3-events-001, e3-events-002, e3-events-003]
-readability: "PASS fk_grade=6.21 reading_ease=72.94 gunning_fog=8.69 smog=9.26"
+readability: "PASS fk_grade=6.23 reading_ease=72.84 gunning_fog=8.73 smog=9.29"
 status: draft-for-review
 ---
 
@@ -113,9 +113,9 @@ The clean statement is this. TV won national brand money in 1954 and never won l
 
 Even the national win needs a caveat. Direct mail was the single largest national medium in 1975, at $4,124 million against TV's national total of $3,929 million.
 
-Two more legends die here. Radio was never the country's biggest medium, in this era or before it. It survived by turning into something else: network radio fell from $196 million in 1950 to $43 million in 1960, while local spot radio grew from $273 million to $428 million. Radio became a local retail medium and lived.
+Radio, never the country's biggest medium in this era or before it, survived by turning into something else. Network radio fell from $196 million in 1950 to $43 million in 1960, while local spot radio grew from $273 million to $428 million. Radio became a local retail medium and lived.
 
-And the TV totals themselves are contested. The Television Factbook's narrower revenue measure gives $4,722 million for 1975 where the Coen series gives $5,263 million. The two count different things, so we show both and average neither.
+One more legend dies here. The TV totals themselves are contested. The Television Factbook's narrower revenue measure gives $4,722 million for 1975 where the Coen series gives $5,263 million. The two count different things, so we show both and average neither.
 
 ## The money that barely moved
 
@@ -129,7 +129,7 @@ Classified was 6.6% and then 7.7%, or $377 million rising to $2,159 million. Tha
 
 Direct response, which we proxy with direct mail, was 14.1% and then 14.8%, or $803 million rising to $4,124 million.
 
-Read those four pairs again. Over twenty-five years the mix hardly moved. National money slipped from 57.2% of the market to 54.5%, and that is the largest shift on the page.
+Read those four pairs again. Over twenty-five years the mix hardly moved. The largest shift on the page needs two of those pairs added together, because the series counts every dollar of direct mail as national money. National money is therefore national brand plus direct response: 43.1% and 14.1% in 1950, 39.7% and 14.8% in 1975. It slipped from 57.2% of the market to 54.5%.
 
 Meanwhile TV went from 3.0% of spend to 18.9%. Both things are true, so TV's rise just moved money around inside national brand money. It came out of radio, magazines and national newspaper space. It did not create a new kind of money.
 

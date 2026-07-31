@@ -8,6 +8,7 @@ non-zero if any violation was found. No output + exit 0 = invariant holds.
 Some checks are deterministic PROXIES for a richer invariant; each proxy is
 marked with a PROXY comment and backed by a judgment check in the contract.
 """
+import ast
 import json
 import re
 import sys
@@ -990,6 +991,382 @@ def r5_chapter_stale():
                 break
 
 
+# ---------- R5 worked examples ----------
+
+# A figure as a chapter prints it: an optional $, digits, and an optional unit
+# word. The trailing alternatives carry their own \b because a bare one after an
+# optional group fails on '%' (a non-word character) and silently drops every
+# percentage — which is how the first draft of this check missed 1.99%.
+FIGURE = re.compile(
+    r"(?<![\w.$])(\$)?(\d[\d,]*(?:\.\d+)?)\s*"
+    r"(%|percent\b|cents?\b|billion\b|bn\b|million\b|m\b)?")
+NUM_IN_TEXT = re.compile(r"(?<![\w.])(\d[\d,]*(?:\.\d+)?)")
+ANY_CLAIM_ID = re.compile(r"\b(?:e[1-7]|ds|mech)-[a-z_]+-\d{3}\b")
+# The chapter declaring, in its own words, that what follows is a worked case.
+ILLUSTRATIVE = re.compile(r"\b(invented|made-up|made up|illustrative|hypothetical|"
+                          r"round numbers)\b", re.I)
+# ...and pointing FORWARD at it. Without this, "Now leave the invented cases and
+# use the filings" opens a block over the real filing figures.
+INTRODUCES = re.compile(r"\b(below|here is|here are|take|say|suppose|consider|imagine|"
+                        r"the following)\b", re.I)
+CAP_RUN = re.compile(r"\b([A-Z][a-z]{2,}(?: [A-Z][a-z]{2,})+)\b")
+
+
+def _subexpr_values(expr):
+    """Every value of every sub-expression of a stored step.
+
+    mechanism.json stores "0.04/0.05+0.01" as one step with one expected value.
+    A chapter that shows its working prints the intermediate too - "0.040
+    divided by 0.05 is $0.80, ... Cedar pays a cent more, $0.81" - and $0.80 is
+    a value no stored `expected` holds. Walking the AST recovers it, so prose
+    that spells out a rule step by step is checkable instead of exempt.
+    """
+    out = set()
+    if not isinstance(expr, str) or not SAFE_EXPR.match(expr):
+        return out
+    try:
+        tree = ast.parse(expr, mode="eval")
+    except SyntaxError:
+        return out
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.BinOp, ast.UnaryOp, ast.Constant)):
+            continue
+        try:
+            v = eval(compile(ast.Expression(node), "<expr>", "eval"),  # arithmetic only
+                     {"__builtins__": {}}, {})
+        except Exception:
+            continue
+        if isinstance(v, (int, float)) and not isinstance(v, bool):
+            out.add(float(v))
+    return out
+
+
+def _numbers_under(node, out):
+    """Every number reachable in a JSON subtree, including inside its prose."""
+    if isinstance(node, dict):
+        for v in node.values():
+            _numbers_under(v, out)
+    elif isinstance(node, list):
+        for v in node:
+            _numbers_under(v, out)
+    elif isinstance(node, bool):
+        pass
+    elif isinstance(node, (int, float)):
+        out.add(float(node))
+    elif isinstance(node, str):
+        for m in NUM_IN_TEXT.finditer(node):
+            try:
+                out.add(float(m.group(1).replace(",", "")))
+            except ValueError:
+                pass
+
+
+def _step_nodes(node):
+    if isinstance(node, dict):
+        if isinstance(node.get("steps"), list):
+            for s in node["steps"]:
+                yield s
+        for v in node.values():
+            yield from _step_nodes(v)
+    elif isinstance(node, list):
+        for v in node:
+            yield from _step_nodes(v)
+
+
+def _chapter_figures(text):
+    """(token, value, candidates) for each figure a chapter prints.
+
+    Each candidate is (value, tolerance) where the tolerance is the precision
+    the chapter ITSELF printed at: "$0.91" claims two decimals, so any stored
+    value within 0.005 re-computes it, and "$52.60" does not. Unit words rescale
+    the value and the tolerance together, so "2.2 cents" tests 0.022 at 0.00005.
+    """
+    figs = []
+    for m in FIGURE.finditer(ANY_CLAIM_ID.sub(" ", text)):
+        dollar, raw, suffix = m.group(1), m.group(2), (m.group(3) or "").lower()
+        try:
+            base = float(raw.replace(",", ""))
+        except ValueError:
+            continue
+        dec = len(raw.split(".")[1]) if "." in raw else 0
+        if not dollar and not suffix and dec == 0 and 1500 <= base <= 2100:
+            continue  # a year, not a quantity
+        scales = [1.0]
+        if suffix in ("%", "percent", "cent", "cents"):
+            scales.append(0.01)
+        elif suffix in ("billion", "bn"):
+            scales += [1e9, 1e3]
+        elif suffix in ("million", "m"):
+            scales += [1e6, 1e-3]
+        half = 0.5 * (10.0 ** -dec)
+        figs.append((m.group(0).strip(), base,
+                     tuple((base * s, max(half * s, 1e-9)) for s in scales)))
+    return figs
+
+
+def _reaches(cands, world):
+    return any(abs(v - c) <= tol for c, tol in cands for v in world)
+
+
+def _blocks_units(section):
+    """A section's paragraphs and tables, in order. A table is one unit."""
+    units, buf, in_table = [], [], False
+    for line in section.splitlines():
+        is_table = line.lstrip().startswith("|")
+        if not line.strip():
+            if buf:
+                units.append((in_table, "\n".join(buf)))
+                buf, in_table = [], False
+            continue
+        if buf and is_table != in_table:
+            units.append((in_table, "\n".join(buf)))
+            buf = []
+        in_table = is_table
+        buf.append(line)
+    if buf:
+        units.append((in_table, "\n".join(buf)))
+    return units
+
+
+def _mechanism_examples(m, corpus):
+    """Each worked example with the three things this check needs from it.
+
+    `world`  - what a reader can re-compute: every sub-expression of every step,
+               plus the setup's own numbers.
+    `setup`  - the givens, used only to pick which example backs a block. Setup
+               survives a corrupted RESULT, so binding cannot be broken by the
+               very error the check exists to catch.
+    `cast`   - the example's invented advertiser names. A name that appears in a
+               mechanism setup and nowhere in the real-claim corpus is by
+               construction an illustration, so a chapter paragraph naming one is
+               a worked-example paragraph. This is the strongest binder: no
+               number is involved in deciding what gets checked.
+    """
+    out = []
+    for engine, e in (m.get("engines") or {}).items():
+        for ex in e.get("examples") or []:
+            if not isinstance(ex, dict) or not ex.get("id"):
+                continue
+            world = set()
+            for s in ex.get("steps") or []:
+                world |= _subexpr_values(s.get("expr"))
+            setup = set()
+            _numbers_under(ex.get("setup"), setup)
+            names = set()
+
+            def dig(n):
+                if isinstance(n, dict):
+                    if isinstance(n.get("name"), str):
+                        names.add(n["name"])
+                    for v in n.values():
+                        dig(v)
+                elif isinstance(n, list):
+                    for v in n:
+                        dig(v)
+                elif isinstance(n, str):
+                    for mm in CAP_RUN.finditer(n):
+                        names.add(mm.group(1))
+            dig(ex.get("setup"))
+            cast = {n.split()[0] for n in names
+                    if not re.search(rf"\b{re.escape(n.split()[0])}\b", corpus)}
+            out.append({"id": ex["id"], "engine": engine, "world": world | setup,
+                        "setup": setup, "cast": cast})
+    return out
+
+
+def r5_worked_examples():
+    """r5-worked-examples: a chapter's worked figures must re-compute from mechanism.json.
+
+    THE GAP THIS CLOSES. r4-arithmetic proves every one of the 209 stored steps
+    re-executes. r5-traceability proves a chapter cites real claim ids.
+    r5-chapter-stale proves a chapter does not quote a superseded central.
+    Nothing read the numbers a chapter prints in a worked example against the
+    mechanism they are supposed to come from. Chapter 07 stated the auction's
+    pricing rule wrongly beside a correct table: a reader following the stated
+    rule got $100.50 where the table said $52.58, and every gate passed.
+
+    WHAT IT DOES. For each chapter citing a mech-* claim it finds worked-example
+    blocks and re-derives every figure in them from mechanism.json:
+
+      1. SCOPE never depends on a number matching. A block is seeded only by an
+         invented cast name (Aster, Cedar, Vale, Fern...) or by the chapter's own
+         forward-pointing declaration that the case is invented. Corrupting a
+         figure therefore cannot make its block disappear.
+      2. BINDING picks the backing example by cast name, or failing that by
+         overlap with the example's SETUP - the givens, which a wrong result does
+         not change. A declared worked example that binds to nothing is a
+         violation: this is what stops a new, unbacked worked example from
+         entering unchecked.
+      3. RE-DERIVATION evaluates the example's stored expressions here, including
+         every sub-expression, rather than trusting the stored `expected`. EVERY
+         figure in the block - table cell or sentence - must re-compute from the
+         bound example, at the precision the chapter printed it. A figure that
+         merely appears somewhere else in mechanism.json is still a violation,
+         reported separately: 0.85 is a real number in this file (the AOL revenue
+         share) and must not launder a wrong price in an auction example.
+
+    WHAT IT CANNOT DO. It does not read prose. A sentence that states the wrong
+    rule in words and prints no numbers is invisible to it - which is precisely
+    the shape of the original error. What it changes is the cost of that error:
+    a rule stated with its working now has every intermediate checked, and any
+    attempt to make the table agree with a wrong rule fails immediately. Prose
+    meaning stays a judgment check; the numbers no longer do.
+    """
+    m = load(P2 / "data" / "mechanism.json")
+    if m is None:
+        return
+    corpus = " ".join(p.read_text() for p in
+                      [P2 / "data" / "claims.json", P2 / "data" / "adspend.json"] + ERA_FILES
+                      if p.exists())
+    examples = _mechanism_examples(m, corpus)
+    if not examples:
+        bad("r5-val-06", "mechanism.json carries no worked examples — the check is vacuous",
+            "mechanism.json")
+        return
+    # Everything mechanism.json contains, at any depth and inside its prose,
+    # plus every sub-expression of every step anywhere in the file.
+    traceable = set()
+    _numbers_under(m, traceable)
+    for s in _step_nodes(m):
+        traceable |= _subexpr_values(s.get("expr"))
+
+    mech_chapters = blocks = figures = table_figures = tier1 = tier2 = 0
+    used = set()
+    per_chapter = []
+
+    for fname in CHAPTERS:
+        path = P2 / "research" / fname
+        if not path.exists():
+            continue
+        fm = _frontmatter(path)
+        if not fm or "mech-" not in (fm.get("claim_ids") or ""):
+            continue
+        mech_chapters += 1
+        text = path.read_text()
+        body = text[text.find("\n---", 3) + 4:] if text.startswith("---") else text
+        parts = re.split(r"^(##+ .*)$", body, flags=re.M)
+        sections = [("(opening)", parts[0])]
+        sections += [(parts[i].strip(), parts[i + 1]) for i in range(1, len(parts), 2)]
+        ch_blocks = ch_figs = 0
+
+        for title, section in sections:
+            units = _blocks_units(section)
+            seeds = []
+            for i, (_, unit) in enumerate(units):
+                declared = bool(ILLUSTRATIVE.search(unit) and INTRODUCES.search(unit))
+                named = [e for e in examples if e["cast"]
+                         and any(re.search(rf"\b{re.escape(n)}\b", unit) for n in e["cast"])]
+                if declared or named:
+                    seeds.append((i, declared, named))
+            if not seeds:
+                continue
+
+            named_ids = {e["id"] for _, _, ns in seeds for e in ns}
+            if named_ids:
+                bound = [e for e in examples if e["id"] in named_ids]
+            else:
+                seed_figs = [f for i, _, _ in seeds for f in _chapter_figures(units[i][1])]
+                best, score = [], 0
+                for e in examples:
+                    hit = {b for _, b, c in seed_figs if _reaches(c, e["world"])}
+                    if len(hit) > score:
+                        best, score = [e], len(hit)
+                    elif len(hit) == score and score:
+                        best.append(e)
+                bound = best if score >= 2 else []
+            if not bound:
+                bad("r5-val-06", f"{fname}: the section '{title}' declares a worked example "
+                                 f"('{units[seeds[0][0]][1][:60].strip()}...') but no example in "
+                                 f"mechanism.json backs it — its figures cannot be re-derived",
+                    path)
+                continue
+
+            world = set().union(*[e["world"] for e in bound])
+            cast = set().union(*[e["cast"] for e in bound])
+
+            def qualifies(idx):
+                """Is this unit still part of the worked example?
+
+                A cast name settles it. Otherwise the unit must be arithmetically
+                of a piece with the example: every figure it prints re-computes,
+                or at least two do. One incidental match is how a block runs on
+                into the real filing figures that follow it.
+                """
+                _, unit = units[idx]
+                if cast and any(re.search(rf"\b{re.escape(n)}\b", unit) for n in cast):
+                    return True
+                figs = _chapter_figures(unit)
+                if not figs:
+                    return False
+                hit = {b for _, b, c in figs if _reaches(c, world)}
+                return len(hit) >= 2 or len(hit) == len({b for _, b, c in figs})
+
+            lo, hi = min(i for i, _, _ in seeds), max(i for i, _, _ in seeds)
+            j = hi + 1
+            while j < len(units):
+                if qualifies(j) or (units[j][0] and j - 1 >= lo):
+                    hi, j = j, j + 1
+                elif (not _chapter_figures(units[j][1]) and j + 1 < len(units)
+                      and qualifies(j + 1)):
+                    hi, j = j + 1, j + 2   # bridge a single figure-free paragraph
+                else:
+                    break
+            # Growing backwards stops at the chapter's own declaration. The
+            # sentence "the advertisers below are invented" is the boundary the
+            # writer drew between real figures and the illustration, and the
+            # paragraph before it (Google's filed $0.61/$0.51 example) is real.
+            floor = min([i for i, declared, _ in seeds if declared], default=0)
+            j = lo - 1
+            while j >= floor:
+                if qualifies(j):
+                    lo, j = j, j - 1
+                elif not _chapter_figures(units[j][1]) and j - 1 >= floor and qualifies(j - 1):
+                    lo, j = j - 1, j - 2
+                else:
+                    break
+
+            blocks += 1
+            ch_blocks += 1
+            used |= {e["id"] for e in bound}
+            ids = ", ".join(e["id"] for e in bound)
+            for i in range(lo, hi + 1):
+                is_table, unit = units[i]
+                where = "table" if is_table else "worked example"
+                for token, _, cands in _chapter_figures(unit):
+                    figures += 1
+                    ch_figs += 1
+                    if is_table:
+                        table_figures += 1
+                    if _reaches(cands, world):
+                        tier1 += 1
+                    elif _reaches(cands, traceable):
+                        # Somewhere in mechanism.json, but not something this
+                        # example computes. A worked figure that happens to
+                        # collide with an unrelated number is still wrong here.
+                        tier2 += 1
+                        bad("r5-val-06", f"{fname}: the {where} under '{title}' prints {token}, "
+                                         f"which no expression in {ids} computes — it appears "
+                                         f"elsewhere in mechanism.json but not in the mechanism "
+                                         f"this passage works through", path)
+                    else:
+                        bad("r5-val-06", f"{fname}: the {where} under '{title}' prints {token}, "
+                                         f"which {ids} does not compute and which appears nowhere "
+                                         f"in mechanism.json", path)
+        per_chapter.append(f"{fname}:{ch_blocks}blk/{ch_figs}fig")
+
+    print(f"r5-worked-examples: {mech_chapters} chapters cite a mech-* claim; {blocks} worked-example "
+          f"blocks bound to {len(used)} of {len(examples)} mechanism examples ({', '.join(sorted(used))}); "
+          f"{figures} figures examined, of which {table_figures} printed in tables; "
+          f"{tier1} re-computed from the bound example, {tier2} traced elsewhere in mechanism.json. "
+          f"Per chapter: {'; '.join(per_chapter)}", file=sys.stderr)
+    if blocks == 0:
+        bad("r5-val-06", "no worked-example block was found in any chapter that cites a mech-* "
+                         "claim — the check examined nothing and would pass anything", "chapters")
+    if table_figures == 0:
+        bad("r5-val-06", "no chapter table figure was re-derived — the half of the gate that "
+                         "reads tables is vacuous", "chapters")
+
+
 # ---------- P1 ----------
 
 YEAR_TOKEN = re.compile(r"(?<!\d)(1[5-9]\d{2}|20[0-4]\d)(?!\d)")
@@ -1170,6 +1547,7 @@ COMMANDS = {
     "r5-files": r5_files, "r5-traceability": r5_traceability, "r5-claimsfile": r5_claimsfile,
     "r5-stale-prose": r5_stale_prose,
     "r5-chapter-stale": r5_chapter_stale,
+    "r5-worked-examples": r5_worked_examples,
     "p1-timeline": p1_timeline,
 }
 

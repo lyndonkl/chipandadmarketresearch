@@ -3,7 +3,7 @@ title: The verdict and the handoff
 project: p2-ad-market
 chapter: 10
 claim_ids: [e1-measurement-002, e2-measurement-001, e2-measurement-002, e2-measurement-003, e2-measurement-004, e3-measurement-001, e3-measurement-002, e3-measurement-004, e4-measurement-001, e5-events-001, e5-scale-007, e5-measurement-003, e5-measurement-004, mech-adwords-001, mech-quality_score-001, mech-audit-001, e6-measurement-003, e6-measurement-004, e6-measurement-006, mech-knobs-001, e7-measurement-001, e7-measurement-002, e7-measurement-003, mech-capture-001, e7-creators-001, e7-creators-002, e2-scale-004, e5-scale-004, e6-scale-003, e7-scale-002, ds-money_type-002, e6-medium-001, e2-medium-002, e4-medium-006, e6-sellers-005, e7-sellers-001, e5-unit_econ-001, e5-unit_econ-002, e5-unit_econ-003, e6-unit_econ-001, e6-unit_econ-002, e6-unit_econ-003, e7-unit_econ-001, e7-unit_econ-002, e7-unit_econ-003, e7-unit_econ-004, e7-unit_econ-005, e7-unit_econ-006, e7-unit_econ-007, e7-sellers-006, e7-scale-001, e7-medium-002, e7-medium-004, e7-scale-005, e7-sellers-002, e7-sellers-003, e7-sellers-004, e7-medium-006, e7-scale-009, e7-targeting-004, e7-measurement-004, mech-tac-003, mech-network-003, mech-format_pricing-001, mech-rgsp-001, mech-mehta-001, mech-mehta-004]
-readability: "PASS fk_grade=6.68 reading_ease=71.58 gunning_fog=8.77 smog=9.19"
+readability: "PASS fk_grade=6.74 reading_ease=71.48 gunning_fog=8.81 smog=9.21"
 status: draft-for-review
 ---
 
@@ -35,7 +35,7 @@ The sting came ten years later, from the other side. By 1944 both services were 
 
 **1964. The Broadcast Rating Council.** Congress held hearings on how the ratings firms made their numbers, running from March 1963 to September 1964. Rather than regulate, the committee pushed the trade to audit itself, and the industry funded the Broadcast Rating Council, later the Media Rating Council. It set no prices. It decided whether the number that set them could be trusted. A private auditor the industry pays for is a weak thing, but a buyer who doubted a rating had somewhere to take the doubt. The web arrived with nothing of the kind.
 
-**1987. The people meter.** In September 1987 Nielsen swapped paper diaries and set-top counters for a box each viewer pressed a button on. Measured prime-time viewing fell about 10 percent overnight. CBS and ABC each lost 13 percent, NBC 4 percent. Nothing about the audience changed that September. Only the instrument did, and the networks owed free replacement airtime that was scarcer than the time they had already sold. The count moved the money without a single viewer moving.
+**1987. The people meter.** In September 1987 Nielsen swapped paper diaries and set-top counters for a box each viewer pressed a button on. Measured prime-time viewing fell about 10 percent overnight, and the networks owed free replacement airtime scarcer than the time they had already sold. Chapter 5 records what the change cost each of them. The count moved the money without a single viewer moving.
 
 **1994. The ad-server log.** The first banner ads went live on the website HotWired on 27 October 1994, twelve brands at launch. No auditor came with them. The counting machine was the ad server, the software that picks and delivers each ad, and the seller owned it. Its log was the invoice.
 
@@ -55,7 +55,7 @@ Counting did not get worse after 1994. It got far more precise and far cheaper. 
 
 For eighty-two years a buyer who doubted the number could go to somebody else: an auditor, a rival service, a council the trade paid for. After 1994 the buyer could only ask the seller.
 
-The failures since are the ones that arrangement predicts. Facebook overstated how long people watched its videos for about two years, and paid $40 million in 2019 to settle the advertisers' case; the buyers said the method had overstated average watch time by as much as 900%. The old counters took damage too. The Media Rating Council pulled Nielsen's seal of approval in September 2021 over pandemic undercounts of 2 to 6 percent, which one trade body priced at $468 million or more of lost network ad revenue. And the thing being counted grew harder to count. By 2025 more than half of global web traffic was bots, and the security firm that counted them called nearly 40 percent of those malicious.
+The failures since are the ones that arrangement predicts, and chapter 8 sets out three of them. Facebook overstated how long people watched its videos and paid $40 million to settle the advertisers' case. The Media Rating Council pulled Nielsen's seal of approval in 2021 over pandemic undercounts that one trade body priced at $468 million or more. And the thing being counted grew harder to count, with bots now more than half of global web traffic.
 
 One question the ledger does not settle is which of Google's two engines did the work: the auction that set the price of a search, or the deals that bought the searches. The auction chapter weighs them and finds them close to even, with partner sites supplying 31.9 percent of the era's revenue growth and Google's own sites 68.1 percent.
 
@@ -67,7 +67,7 @@ One question the ledger does not settle is which of Google's two engines did the
 
 **The money pools moved far less than the media did.** Local money was 48.3% of the US total in 1935 and 33.7% in 2007. Direct mail was the largest single line in the long US series through 2007, at $60.2bn.
 
-That stability is why the era names in this project name a mechanism rather than a medium. A medium can be famous and small. Radio never led US ad spend. Its share peaked at 14.9% in 1945, under half the newspaper share that year. It still held only 6.7% in 1993.
+That stability is why the era names in this project name a mechanism rather than a medium. A medium can be famous and small: radio never led US ad spend, peaking at 14.9% in 1945 and holding 6.7% in 1993.
 
 **The sell side was already tight.** The top ten sellers took 72% of US internet ad revenue in the last quarter of 2008. By 2025 the top ten took 84.1%. Google made the market tighter. It did not make it concentrated.
 
@@ -108,7 +108,7 @@ The blunt cost objection to ad-funded AI is much weaker than it was in 2023. Tha
 
 US ad spend was about $405bn in 2025, or about 1.32% of GDP. About 74% of it was digital, on a grade-C range of 72% to 82%. Search alone was $114.2bn of US internet ad revenue. Machines traded about 90% of the non-search digital revenue.
 
-Google's global ad revenue was $294.7bn in 2025. Meta's was $196.2bn and Amazon's ad services were $68.6bn. The three together took about 71.9% of US digital ad spending, on EMARKETER's definition of digital. On the MAGNA and IAB rail used for the 74% above, the same share is 53.2% of the whole market.
+Google's global ad revenue was $294.7bn in 2025. Meta's was $196.2bn and Amazon's ad services were $68.6bn. The three together took about 71.9% of US digital ad spending on EMARKETER's definition of digital, or 53.2% of the whole market on the MAGNA and IAB rail behind that 74%.
 
 The old intent media are gone as pools, not as demand. US directory ad revenue fell from about $14.7bn in 2005 to about $1.1bn in 2024. National direct-response money was about $151.2bn in 2025, on a grade C estimate.
 

@@ -1,7 +1,7 @@
 ---
 title: "The Machine Market (2008-2026)"
 claim_ids: [e1-pricing-002, e7-creators-001, e7-creators-002, e7-creators-003, e7-creators-004, e7-buyers-001, e7-buyers-002, e7-buyers-003, e7-buyers-004, e7-sellers-001, e7-sellers-002, e7-sellers-003, e7-sellers-004, e7-sellers-005, e7-sellers-006, e7-sellers-007, e7-medium-001, e7-medium-002, e7-medium-004, e7-medium-005, e7-medium-006, e7-medium-007, e7-scale-001, e7-scale-002, e7-scale-003, e7-scale-004, e7-scale-005, e7-scale-006, e7-scale-007, e7-scale-008, e7-scale-009, e7-scale-010, e7-pricing-001, e7-pricing-002, e7-pricing-003, e7-pricing-004, e7-pricing-005, e7-pricing-006, e7-pricing-007, e7-pricing-008, e7-measurement-001, e7-measurement-002, e7-measurement-003, e7-measurement-004, e7-measurement-005, e7-targeting-001, e7-targeting-002, e7-targeting-003, e7-targeting-004, e7-targeting-005, e7-events-001, e7-events-002, e7-events-009, e7-unit_econ-001, e7-unit_econ-002, e7-unit_econ-003, e7-unit_econ-004, e7-unit_econ-005, e7-unit_econ-006, e7-unit_econ-007, mech-first_price-001, mech-rgsp-001, mech-knobs-001, mech-tuning-001, mech-format_pricing-001, mech-quality_score-001, mech-audit-001, mech-default-002, mech-default-003, mech-default-004, mech-mehta-001, mech-mehta-002, mech-mehta-004, mech-mehta-005]
-readability: {flesch_kincaid: 7.21, reading_ease: 67.64, gunning_fog: 9.75, smog: 10.04}
+readability: {flesch_kincaid: 7.29, reading_ease: 67.17, gunning_fog: 9.84, smog: 10.11}
 ---
 
 # The Machine Market (2008-2026)
@@ -32,11 +32,11 @@ US internet ad revenue was $23,448M in 2008 [e7-scale-004]. In 2025 it was $294,
 
 The 2025 split, by format: search $114.2B, display $81.6B, digital video $78.0B, digital audio $8.4B, and $12.5B in an "other" bucket that holds classifieds, directories and lead generation [e7-medium-004].
 
-How much of all US ad money is now digital? We estimate 74%, but the honest range is wide: somewhere between 72% and 82%, depending on whose universe you count [e7-medium-002]. The total itself is contested the same way. About $405B in 2025, though the two research firms that estimate it disagree, MAGNA reading $398B and EMARKETER $422B for what is supposed to be the same country and year [e7-scale-001]. Globally the gap is wider still: roughly $1.05T, with MAGNA at $979B and WPP Media at $1.14T [e7-scale-003].
+How much of all US ad money is now digital? We estimate 74%, but the honest range is wide: somewhere between 72% and 82%, depending on whose universe you count [e7-medium-002]. The total itself is contested the same way. About $405B in 2025, though the two firms that estimate it disagree, MAGNA reading $398B and EMARKETER $422B for what is supposed to be the same country and year [e7-scale-001]. MAGNA forecasts the market from inside Interpublic, one of the big agency groups, which buys media for advertisers. EMARKETER is a private research firm that sells its estimates by subscription to anyone in the trade. Globally the gap is wider still: roughly $1.05T, with MAGNA at $979B and WPP Media at $1.14T [e7-scale-003]. WPP Media buys media for advertisers too, inside WPP, the group that took over J. Walter Thompson in 1987. Both global readings come from the buyers' side of the market.
 
 Set that against the size of the economy and something odd appears. Measured US ad spend was about 1.32% of GDP in 2025 [e7-scale-002]. In 2007 the older Coen series read 2.0%. The measured ad market shrank as a share of the economy while the platforms grew. That is a real puzzle, and this chapter does not settle it. Two warnings belong with the number. It is a grade C estimate. And the two years come from different series that do not count the same things, so part of the fall is a change in what "advertising" means.
 
-One legend can be retired here. The high point for US ad spend as a share of GDP was not the year 2000. On the long series it falls in the early 1920s, and 2000 ranks well down the list. The dot-com peak is a story people tell, not a fact the data holds.
+Do not read that 1.32% as the fall from a dot-com peak. Chapter 3 already put the high point in 1922, and 2000 ranks well down the list.
 
 Older channels kept shrinking on schedule. Directory advertising, the Yellow Pages business, fell from a peak near $14.7B in 2005 to roughly $1.1B in 2024, though no audited series survives to pin it down; the honest range is $0.7B to $2.0B [e7-medium-006]. Direct mail was still worth about $37.3B in 2024, but USPS Marketing Mail volume fell from 99 billion pieces in 2008 to 56.8 billion in 2025 [e7-buyers-004]. The same money now buys far fewer, far better aimed pieces.
 
@@ -46,7 +46,7 @@ Whose money is it? No modern source publishes the split by money type, so this r
 
 The top two cannot be ranked. Their centres sit 1.4 points apart and their ranges nearly coincide, and the three methods behind them do not even agree on which is bigger. The record does say that response money and brand money are now the two big pools, that local money is a clear third, and that classified is a distant fourth.
 
-An earlier version of this chapter said brand money had become the smallest of the four. That was wrong. We made a bookkeeping error, not a judgement call. The local figure it subtracted was BIA's $169B, which counts everyone who buys local audiences, national chains included. BIA's own split puts $116B of that with national and regional advertisers and only $59B with small businesses.
+An earlier version of this chapter said brand money had become the smallest of the four. That was wrong. We made a bookkeeping error, not a judgement call. The local figure it subtracted was $169B from BIA Advisory Services, a research firm that measures local advertising and sells the detail by subscription. That total counts everyone who buys local audiences, national chains included. BIA's own split puts $116B of that with national and regional advertisers and only $59B with small businesses.
 
 ## Death one: header bidding
 
@@ -128,7 +128,7 @@ Facebook overstated average video view time for about two years by excluding vie
 
 The counting institutions took damage from the other side too. The Media Rating Council suspended Nielsen's national and local TV accreditation in September 2021, after finding pandemic-era undercounts of 2% to 6% among adults under 50. A broadcaster trade body put the cost to networks at $468M or more. National accreditation came back in April 2023, nineteen months later [e7-measurement-002].
 
-Programmatic added a counting crisis of its own. By 2026 the IAB reported that bots make up over half of global web traffic, with nearly 40% of it malicious [e7-measurement-003]. The same body estimates that better measurement could recover more than $26B of US media money now going to the wrong places [e7-measurement-005]. That is a direct price tag on the failure.
+Programmatic added a counting crisis of its own, and the count of it comes from the sellers themselves. The IAB, their trade body, has measured the internet's ad money since 1996. By 2026 it reported that bots make up over half of global web traffic, with nearly 40% of it malicious [e7-measurement-003]. The same body estimates that better measurement could recover more than $26B of US media money now going to the wrong places [e7-measurement-005]. That is a direct price tag on the failure.
 
 Then privacy law removed the tracking records that let a buyer tie a sale back to the ad that caused it, and buyers retreated to older, coarser tools. Media mix models infer what worked from spending and sales history rather than from tracking one person. Holdout tests keep the ads from part of the audience and compare. The market changed how it knows what worked, not just which software it ran.
 
@@ -138,7 +138,9 @@ Who pays the counter now? Increasingly the seller, or nobody.
 
 The seller side concentrated, then re-concentrated around a new pole.
 
-The top ten sellers took 84.1% of US internet ad revenue in 2025, up from 78.6% in 2021 [e7-sellers-001]. In absolute terms, Google's ad revenue was $294,691M in 2025 [e7-sellers-002]. Meta's was $196.18B and Amazon's ad services line was $68.63B [e7-sellers-003].
+The top ten sellers took 84.1% of US internet ad revenue in 2025, up from 78.6% in 2021 [e7-sellers-001]. In absolute terms, Google's worldwide ad revenue was $294,691M in 2025 [e7-sellers-002]. Meta's was $196.18B and Amazon's ad services line was $68.63B [e7-sellers-003].
+
+Stop on that Google figure, because it collides with an earlier one. It sits $98M from the US internet ad revenue given at the top of this chapter, $294,593M. The near-match is a coincidence and nothing more. Google's figure counts every ad dollar the company earned anywhere on earth, YouTube and partner sites included. The US figure counts every internet ad dollar earned inside one country by every seller in it. Neither number is a misprint, and neither one contains the other.
 
 Now a result that looks backwards until you read it twice. Google, Meta and Amazon together took about 71.9% of US digital ad spend in 2025, down from 73.9% in 2020. Over the same years their share of all US ad spend rose from about 47% to about 59% [e7-sellers-004]. Concentration inside digital eased slightly. Concentration of the whole market rose sharply. Digital was eating everything else faster than anyone was eating Google.
 
@@ -176,7 +178,7 @@ The era closes with targeting moving inside the conversation. Meta began using M
 
 The people who make ads split three ways in this era.
 
-The holding companies kept merging and kept losing the media-buying job. Omnicom closed its purchase of Interpublic in November 2025, forming a group with combined revenue above $25B [e7-creators-001]. Meanwhile the work left. By 2023, 82% of ANA member marketers had an in-house agency, up from 78% in 2018 [e7-creators-002]. The 15% commission that the first agencies settled on in the 1890s finished dying here [e1-pricing-002]. Its successor is principal media: the agency buys inventory in bulk and resells it to the client at a markup it does not disclose.
+The holding companies kept merging and kept losing the media-buying job. Omnicom closed its purchase of Interpublic in November 2025, forming a group with combined revenue above $25B [e7-creators-001]. Meanwhile the work left. The Association of National Advertisers, or ANA, is the trade body of the buyers, the firms that pay for the ads. By 2023, 82% of its member marketers had an in-house agency of their own, up from 78% in 2018 [e7-creators-002]. The 15% commission that the first agencies settled on in the 1890s finished dying here [e1-pricing-002]. Its successor is principal media: the agency buys inventory in bulk and resells it to the client at a markup it does not disclose.
 
 The platforms became creators, as the last section showed. And individual creators became a channel of their own. US creator advertising was worth about $37B in 2025, with about $44B projected for 2026, growing at roughly twice the rate of the market [e7-creators-003].
 

@@ -4,7 +4,7 @@ This repo holds three research projects. Each one turns a question into a web pa
 
 The first project is built and live. The second is researched and its numbers are frozen; its design and page are still to come. The third has not started.
 
-Last updated: 2026-07-31.
+Last updated: 2026-07-31 (design locked, build not started).
 
 ## Where things stand
 
@@ -101,6 +101,24 @@ What the checking bought: a third of the first-draft numbers were wrong in some 
 Four cross-era stories were picked to become their own chapters and charts: who counted the audience and who paid them; the middleman's cut; who was allowed to buy; and the rent on the front door. Two of those four were not in the plan. The evidence turned them up.
 
 What is left: the design session, then the build.
+
+## Project 2 design and prep (done 2026-07-31)
+
+The design is picked and the writing is fixed. The build has not started.
+
+**The design is called The Bench.** Each era is drawn as a machine that sets a price. Eight parts, same eight places on screen, drawn seven times. You turn a crank in the first one and turn cranks in all the rest. Five design teams pitched, four sample pages were built against the real numbers, and the human picked from those. The pages are in `p2-ad-market/design/samples/`. The build brief is `p2-ad-market/design/DESIGN.md`.
+
+**The story now has a shape.** For 82 years somebody other than the seller counted the audience. Around 1996 that stopped: the seller began counting its own inventory, running the auction, checking the click and billing its own log. A reader who had never seen the text read all ten chapters and stated that back without being asked. That was the test.
+
+**Three design problems nobody had solved are now decided.** How to show Google paying to be the default search box. How to show the middleman's fee when every era measured it differently. How to let a reader compare one topic across all seven eras. The options and the reasons are in `p2-ad-market/design/OPEN-PROBLEMS.md`.
+
+**The writing was audited twice.** The first pass found 280 problems, including 124 sentences a first-time reader could not follow. The second pass fixed nine more that were worse: sentences a reader followed and then found were wrong. Chapter 10 was rebuilt as a list of who held the tape measure, 1914 to 2019.
+
+**Three wrong numbers were found and fixed**, all of which had passed every earlier check. One said 800 homes were a quarter of US households. One had two different meanings of "date" mixed across 505 claims. One described the auction's pricing rule in a way that did not match its own table.
+
+Each fix added a new check, so the same kind of mistake gets caught next time. There are 22 checks now, and each one has been proven to catch something.
+
+**What to run next:** `p2-ad-market/BUILD-PLAN.md`. It sets out eight build teams. The two teams that had to finish first are both done.
 
 ## Project 2 planning (locked 2026-07-30)
 

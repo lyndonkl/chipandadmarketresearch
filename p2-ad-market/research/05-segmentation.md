@@ -3,7 +3,7 @@ title: Segmentation (1976-1993)
 project: p2-ad-market
 chapter: 5
 claim_ids: [e4-scale-001, e4-scale-002, e4-scale-003, e4-scale-004, e4-scale-005, e4-scale-006, e4-scale-007, e4-scale-008, e4-scale-009, e4-scale-010, e4-buyers-001, e4-buyers-002, e4-buyers-003, e4-buyers-004, e4-buyers-006, e4-buyers-007, e4-buyers-008, e4-sellers-001, e4-sellers-002, e4-sellers-003, e4-sellers-004, e4-sellers-005, e4-sellers-006, e4-medium-001, e4-medium-002, e4-medium-003, e4-medium-004, e4-medium-005, e4-medium-006, e4-medium-007, e4-creators-001, e4-creators-002, e4-creators-003, e4-creators-004, e4-creators-005, e4-creators-006, e4-creators-007, e4-creators-008, e4-creators-009, e4-pricing-001, e4-pricing-002, e4-pricing-003, e4-pricing-004, e4-pricing-005, e4-pricing-006, e4-measurement-001, e4-measurement-002, e4-measurement-003, e4-measurement-004, e4-measurement-005, e4-targeting-001, e4-targeting-002, e4-targeting-003, e4-targeting-004, e4-targeting-005, e2-scale-004, e5-scale-004, ds-money_type-001]
-readability: "PASS fk_grade=7.2 reading_ease=70.47 gunning_fog=9.56 smog=9.7"
+readability: "PASS fk_grade=7.18 reading_ease=70.59 gunning_fog=9.57 smog=9.71"
 status: draft-for-review
 ---
 
@@ -21,7 +21,7 @@ Measured US ad spend was $33.3 billion in 1976. By 1993 it was $141.0 billion. T
 
 "Measured" is carrying weight in that sentence. The totals count paid space and time. They do not count coupons, or the money a brand pays a supermarket for shelf space and features. We come back to that gap at the end, because it is large.
 
-Against the size of the economy, ads rose from about 1.8% of GDP in 1976 to a flat 2.3% in the years 1986 to 1989, then eased to about 2.1% by 1993. This era is the climb, not the peak. Different versions of these figures put the top after 1960 in 2000, between 2.3% and 2.5%. That gap is real and we leave it open rather than pick a winner. The whole-series high is older and higher: about 3.0% of GDP in 1922.
+Against the size of the economy, ads rose from about 1.8% of GDP in 1976 to a flat 2.3% in the years 1986 to 1989, then eased to about 2.1% by 1993. This era is the climb, not the peak. Advertising's high point since 1960 falls in 2000. Three published versions of that year disagree on how high it went: 2.3% and 2.4% from two rebuilds by outside economists, and 2.5% from the main US series this chapter uses. That gap is real and we leave it open rather than pick a winner. The whole-series high is older and higher: about 3.0% of GDP in 1922.
 
 One year in this era breaks the trend. Spend fell 1.24% in 1991, the first drop in plain dollar terms since 1961. Mail, directories and cable all kept growing straight through it, which is this era's story told in a single bad year.
 
@@ -33,7 +33,7 @@ One more caution before any chart. The main series here was built by one man, Ro
 
 Newspapers fell from 28.9% of measured spend in 1976 to 22.7% in 1993, and still tripled in dollars. They were still the largest single medium in 1993, at $32.0 billion against broadcast television's $28.0 billion. Television only passed them in 1992, and only when you add cable to broadcast: $31.1 billion against $30.7 billion.
 
-Radio held 6.7% of spend in 1993, against 7.0% in 1976. It drifted, and it was never near the top of the table. The story that radio once led American media money does not survive contact with the spend data, in this era or any other.
+Radio held 6.7% of spend in 1993, against 7.0% in 1976. It drifted, and it never came near the top of the table.
 
 Cable is the headline of the era and the smallest number in this list. Cable ad money grew from $72 million in 1980 to $4.45 billion in 1993. That is 62 times more in thirteen years, and still only 3.2% of the market.
 
@@ -139,5 +139,5 @@ It also had a large pile of money already being spent against response rather th
 | Forbes (citing NCTA), Encyclopedia.com | Network share decline, cable network counts | B |
 | IEEE Annals of the History of Computing (Griffith) | PRIZM's design and date | B |
 | Encyclopedia of American Industries, DMA fact book | List rental rates, production costs, reply rates | B |
-| ANA compensation tracking studies (via HBS working paper 11-039) | Commission versus fee mix | B |
+| Association of National Advertisers (ANA) compensation tracking studies (via HBS working paper 11-039) | Commission versus fee mix | B |
 | Donnelley Marketing survey, Harvard Business Review 1990 | Trade promotion share of budgets | B |

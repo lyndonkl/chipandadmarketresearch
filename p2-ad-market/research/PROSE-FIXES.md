@@ -167,7 +167,13 @@ Every term below is load-bearing and currently bare at its first appearance. Glo
 | calibration | `08 L75`, `10 L130` | delete the word; say "the bands" or "how sure we are" |
 | GDPR | `08 L117` | the European Union's privacy law |
 | Meta | `08 L119` | the company behind Facebook and Instagram |
-| MAGNA / EMARKETER | `08 L35` | the two research firms that estimate US ad spending |
+| IAB | `06 L25` | a trade body of the sellers, whose members are the sites and networks selling the space (APPLIED 2026-07-31; ch08 `L131` links back to it) |
+| MAGNA | `08 L35`, `09 L34` | forecasts the market from inside Interpublic, an agency group that buys media for advertisers (APPLIED 2026-07-31) |
+| EMARKETER | `08 L35` | a private research firm that sells its estimates by subscription (APPLIED 2026-07-31) |
+| WPP Media | `08 L35` | buys media for advertisers inside WPP, the group that took over J. Walter Thompson in 1987 (APPLIED 2026-07-31) |
+| BIA | `08 L49` | BIA Advisory Services, a research firm that measures local advertising and sells the detail by subscription (APPLIED 2026-07-31) |
+| ANA | `08 L179` | the Association of National Advertisers, the trade body of the buyers (APPLIED 2026-07-31; the ch05 source table now spells it out too) |
+| PwC | `09 L36` | PricewaterhouseCoopers, the accounting firm the IAB hires to run the survey and check the returns, which is what makes the series audited (APPLIED 2026-07-31) |
 | Chrome | `08 L155` | the web browser Google owns |
 | IRS | `09 L36` | the US tax office |
 | out of sample | `09 L86` | against data the bridge was not built from |
@@ -1085,6 +1091,7 @@ Densest chapter in the piece. Its spine ("The auction died three times") is the 
 **8.9** `L35` — "About $405B in 2025, with MAGNA at $398B and EMARKETER at $422B for what is supposed to be the same country and year"
 - *Problem:* Two bare names. The reader does not know they are research firms that estimate ad spending, so cannot see why their disagreement is the point. Ch09 finally explains MAGNA, a chapter too late.
 - *Fix:* "About $405B in 2025 — though the two research firms that estimate it disagree, MAGNA reading $398B and EMARKETER $422B for what is supposed to be the same country and year."
+- *RESOLVED and extended by the acronym pass, 2026-07-31.* The chapter now names what each counter is and who pays it: MAGNA inside Interpublic, EMARKETER by subscription, WPP Media inside WPP. See the glossary rows above. **Do not re-apply this item.**
 
 **8.10** `L133` — "Then privacy law removed the signals attribution ran on, and buyers retreated to older, coarser tools."
 - *Problem:* "Signals" and "attribution" are both undefined trade terms, and the sentence is the hinge into the two tools that follow. Ch09 also uses "attribution" to mean who a quote is credited to.

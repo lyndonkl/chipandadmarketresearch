@@ -4,7 +4,7 @@ project: p2-ad-market
 chapter: 6
 era: 5 (1994-2001)
 claim_ids: [e5-events-001, e5-events-002, e5-events-003, e5-events-006, e5-events-007, e5-events-008, e5-events-010, e5-creators-001, e5-creators-002, e5-creators-003, e5-creators-004, e5-creators-005, e5-buyers-001, e5-buyers-002, e5-buyers-003, e5-buyers-004, e5-buyers-005, e5-buyers-010, e5-buyers-011, e5-buyers-012, e5-buyers-013, e5-buyers-014, e5-buyers-015, e5-sellers-001, e5-sellers-002, e5-sellers-003, e5-sellers-004, e5-sellers-005, e5-sellers-006, e5-medium-001, e5-medium-002, e5-medium-003, e5-medium-004, e5-medium-005, e5-medium-006, e5-scale-001, e5-scale-002, e5-scale-003, e5-scale-004, e5-scale-005, e5-scale-006, e5-scale-007, e5-scale-008, e5-scale-009, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-scale-015, e5-scale-016, e5-pricing-001, e5-pricing-002, e5-pricing-003, e5-pricing-004, e5-pricing-005, e5-pricing-006, e5-pricing-007, e5-pricing-008, e5-measurement-001, e5-measurement-002, e5-measurement-003, e5-measurement-004, e5-measurement-005, e5-measurement-006, e5-targeting-001, e5-targeting-002, e5-targeting-003, e5-targeting-004, e5-targeting-005, e5-unit_econ-001, e5-unit_econ-002, e5-unit_econ-003, mech-aol-003]
-readability: "PASS fk_grade=6.35 reading_ease=68.84 gunning_fog=9.23 smog=9.71"
+readability: "PASS fk_grade=6.33 reading_ease=69.17 gunning_fog=9.24 smog=9.72"
 status: draft-for-review
 ---
 
@@ -22,7 +22,7 @@ The web could have sold almost anything. It could have sold a click, a lead, a s
 
 ## A unit has to be standard before anyone can trade it
 
-A buyer cannot compare two sites until the thing being bought is the same shape on both. Print solved this in 1914 with audited circulation. The web solved it on 10 December 1996, when the Internet Advertising Bureau and a second trade body published eight voluntary banner sizes.[^2] The wide strip called the full banner became the shape every ad had to fit.
+A buyer cannot compare two sites until the thing being bought is the same shape on both. Print solved this in 1914 with audited circulation. The web solved it on 10 December 1996, when the Internet Advertising Bureau and a second trade body published eight voluntary banner sizes.[^2] The bureau, the IAB from here on, is a trade body of the sellers: its members are the sites and networks that sell the space. The sellers set the shape of the unit they sold. The IAB also counts how much web ad money changes hands each year, and this chapter and the ones after it lean on that count. The wide strip called the full banner became the shape every ad had to fit.
 
 Agreeing those sizes was a small act with large effects. Once the unit is standard, the impression becomes a commodity. Once it is a commodity, it has a spot price. Almost everything else in this era follows from that.
 
@@ -53,11 +53,7 @@ Sort the 2000 market by the job the money was doing, not by the medium carrying 
 
 This split is ours, not a published series.[^14] We ran three methods at it and took the middle answer, so it no longer sums to exactly 100%. It runs 0.2 points over, and we show that rather than shave it. Grade it C, except the newspaper classified inside the fourth row, which is a real published series and grades B.
 
-You cannot rank two of these rows against each other. Local retail and direct response sit 3.6 points apart, their ranges overlap almost completely, and the order flips on one bookkeeping choice: where the Yellow Pages money goes.
-
-That choice is a real seam, and we carry both sides of it rather than pick one.[^61] The table above uses this era's own rule, which splits the $13.2B directory line by who bought it: the $11.1B local part counts as local money, the $2.1B national part as response money. The other rule puts all of it in the response pool. That is what the later chapters and our own data layer do, so it is the rule to use whenever you compare 2000 against another year. On that rule local retail is $58.9B, or 23.8%, and direct response is $72.3B, or 29.2%.
-
-The order depends on the rule and on nothing else. Under this era's rule local retail leads direct response, 28.3% to 24.7%. Under the comparable rule direct response leads local retail, 29.2% to 23.8%. The $11.1B block is the whole cause. Nothing in the 1994-2001 record says which reading is right, and no further digging can settle it: no source of that time asked a Yellow Pages buyer what it thought it was buying. Under either rule the two ranges still overlap, so a chart must not sort these two bars. National brand and classified do not move at all.
+You cannot rank two of these rows against each other. Local retail and direct response sit 3.6 points apart, their ranges overlap almost completely, and the order flips on one bookkeeping choice: where the $13.2B of Yellow Pages money goes.[^61] The table above uses this era's own rule, which splits that line by who bought it and leaves the $11.1B local part in local money, so local retail leads at 28.3% against 24.7%. The other rule sends the whole line to the response pool, which is what the later chapters and our own data layer do. On it the order reverses: direct response is $72.3B, or 29.2%, and local retail is $58.9B, or 23.8%. That one block is the entire difference. No source of the time asked a Yellow Pages buyer what it thought it was buying, so nothing can settle which rule is right, and we carry both. Use the comparable rule whenever you set 2000 against another year, never sort those two bars on a chart, and note that national brand and classified do not move at all.
 
 Now set the web against it. The whole internet ad market in 2000 was about $8.1B. Classified alone was more than twice that. Direct mail alone was more than five times it. Almost none of the local or classified money had moved: under 3% of the classified pool was online at the top of the boom.[^15]
 
@@ -69,7 +65,7 @@ Web ad space concentrated faster than any earlier medium. The ten largest seller
 
 The biggest of them ran a magazine business with a server attached. Yahoo booked $1,110.2M of net revenue in 2000, of which $968.3M was banners and sponsorships.[^18]
 
-Between the portal and the advertiser sat a middle layer that took a real cut. DoubleClick took $505.6M in 2000, doing three jobs. It sold space on other people's sites and paid them a share of what it collected. It ran the software that picked and delivered each ad. And it sold data.[^19] Its network arm kept 25.3 cents of every dollar it sold, or 32.6 once we strip out a one-off charge. That share is the gross margin. Because its costs were mostly payments to publishers, the margin is also the take rate: publishers kept roughly 60% to 79% of network-sold money.[^20]
+Between the portal and the advertiser sat a middle layer that took a real cut. DoubleClick took $505.6M in 2000, doing three jobs. It sold space on other people's sites and paid them a share of what it collected. It ran the software that picked and delivered each ad. And it sold data.[^19] Its network arm kept 25.3 cents of every dollar it sold in 2000, or 32.6 cents once we strip out a one-off write-off. That share is the gross margin. Because its costs were mostly payments to publishers, the margin is also the take rate. It swung hard from year to year: DoubleClick kept 21.2 cents in 1998 and 39.8 cents in 1999. Read across those three years and publishers kept roughly 60% to 79% of network-sold money.[^20]
 
 At the top of the market the deal looked older than that. Portals sold "anchor tenancy" — a fixed fee for guaranteed placement, priced like a cover position in a magazine. Excite, a search site, paid the browser maker Netscape about $5.0M a year to sit on one of Netscape's pages. The company reports we can read bundle several payments together, so read that as $4.0M to $8.25M.[^21] The radio sponsors of the 1930s would have recognised the contract on sight.
 
@@ -159,7 +155,7 @@ Three stories usually attach themselves to this era. The record does not support
 
 No one banner came first, and nobody audited the click rate quoted from HotWired's launch.
 
-The newest medium was not the biggest one. Newspapers led until 2000 and direct mail led after. Earlier chapters make the same correction about radio.
+The newest medium was not the biggest one. Newspapers led until 2000 and direct mail led after. Chapter 3 makes the same correction about radio.
 
 And measurable advertising did not begin with the web. Direct mail and directories had been sold on response for decades, and in 2000 they were worth many times the entire internet ad market.
 

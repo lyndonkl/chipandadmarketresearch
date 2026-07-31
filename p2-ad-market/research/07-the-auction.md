@@ -3,7 +3,7 @@ title: The Auction (2002-2008)
 project: p2-ad-market
 chapter: 7
 claim_ids: [e2-scale-004, e5-events-003, e5-pricing-004, e5-pricing-005, e5-scale-004, e6-pricing-001, e6-pricing-002, e6-pricing-003, e6-pricing-004, e6-pricing-005, e6-pricing-006, e6-pricing-007, e6-pricing-008, e6-events-001, e6-events-002, e6-events-003, e6-events-004, e6-events-005, e6-events-006, e6-events-007, e6-events-008, e6-events-009, e6-events-010, e6-sellers-001, e6-sellers-002, e6-sellers-003, e6-sellers-004, e6-sellers-005, e6-sellers-006, e6-buyers-001, e6-buyers-002, e6-buyers-003, e6-buyers-004, e6-buyers-005, e6-buyers-006, e6-buyers-007, e6-buyers-008, e6-creators-001, e6-creators-002, e6-creators-003, e6-creators-004, e6-medium-001, e6-medium-002, e6-medium-003, e6-medium-004, e6-medium-005, e6-medium-006, e6-scale-001, e6-scale-002, e6-scale-003, e6-scale-004, e6-scale-005, e6-scale-007, e6-scale-008, e6-scale-009, e6-scale-010, e6-measurement-001, e6-measurement-002, e6-measurement-003, e6-measurement-004, e6-measurement-006, e6-targeting-001, e6-targeting-002, e6-targeting-003, e6-targeting-004, e6-targeting-005, e6-unit_econ-001, e6-unit_econ-002, e6-unit_econ-003, mech-adwords-001, mech-discounter-001, mech-quality_score-001, mech-audit-001, mech-overture-001, mech-overture-002, mech-panama-001, mech-ovt-001, mech-ovt-002, mech-ovt-003, mech-ovt-004, mech-aol-001, mech-aol-002, mech-aol-003, mech-aol-004, mech-aol-005, mech-aol-006, mech-aol-007, mech-tac-001, mech-tac-002, mech-tac-003, mech-tac-004, mech-network-001, mech-network-002, mech-network-003, mech-google_rev-001, mech-classified-001, mech-capture-001, mech-capture-002, mech-capture-003, mech-first_price-001, mech-rgsp-001, mech-default-001, mech-default-004, mech-mehta-002, mech-mehta-004, mech-mehta-005]
-readability: "PASS fk_grade=6.63 reading_ease=71.75 gunning_fog=8.97 smog=9.39"
+readability: "PASS fk_grade=6.61 reading_ease=72.14 gunning_fog=8.93 smog=9.33"
 status: draft-for-review
 ---
 
@@ -47,7 +47,15 @@ One keyword. One thousand showings. Two ad slots. The top slot gets all its clic
 
 Rank by bid alone and Aster goes on top. Rank by bid times click rate and the order reverses exactly: Cedar, then Brindle, then Aster. Aster bids three times what Cedar bids. Cedar is clicked five times as often. When the click gap beats the bid gap, bid-only ranking puts the lower-earning ad on top.
 
-Here is what each rule collects per thousand showings. Both rules charge the same generous way, one cent above the next ad, so only the ranking changes.
+Here is what each rule collects per thousand showings. Both rules charge the winner the smallest amount it could have bid and still kept its place, plus one cent. What that amount is depends on the ranking rule, so the two rules charge different prices.
+
+Under bid-only ranking, keeping your place means out-bidding the ad below you. Aster on top pays Brindle's $2.00 plus a cent, or $2.01. Brindle pays Cedar's $1.00 plus a cent, or $1.01. That is the rule Google's filed example shows, and it holds whenever the ads are clicked equally often.
+
+Under bid-times-click-rate ranking, keeping your place means out-scoring the ad below you. A bid buys more score when the ad is clicked more, so the winner needs a smaller bid to hold the same place. Take Cedar's price in two steps. Brindle scores its $2.00 bid times its 2% click rate, which is 0.040. Cedar is clicked 5% of the time, and 0.040 divided by 0.05 is $0.80, the bid that would just have matched Brindle's score. Cedar pays a cent more, $0.81. Brindle's own price comes the same way: Aster scores $3.00 times 1%, or 0.030, and 0.030 divided by Brindle's 2% is $1.50, so Brindle pays $1.51.
+
+The click counts come straight from the setup. On top, Aster earns 1,000 times 1%, or 10 clicks, and Cedar earns 1,000 times 5%, or 50. In the second slot Brindle earns 40% of 1,000 times 2%, or 8 clicks, under either rule.
+
+Bid-only ranking therefore collects 10 times $2.01 plus 8 times $1.01, which is $28.18 on 18 clicks. Bid-times-click-rate ranking collects 50 times $0.81 plus 8 times $1.51, which is $52.58 on 58 clicks.
 
 | | Rank by bid alone | Rank by bid times click rate |
 |---|---|---|

@@ -3,7 +3,7 @@ title: The Thesis
 project: p2-ad-market
 chapter: 1
 claim_ids: [e1-pricing-002, e1-measurement-002, e1-scale-006, e1-scale-009, e2-medium-001, e2-medium-002, e2-sellers-005, e2-measurement-001, e2-measurement-009, e2-scale-004, e3-pricing-008, e3-medium-003, e3-medium-005, e3-medium-006, e3-measurement-002, e3-scale-005, e4-medium-006, e4-sellers-004, e4-targeting-001, e4-targeting-002, e4-targeting-004, e4-measurement-001, e5-events-003, e5-pricing-004, e5-pricing-005, e5-measurement-001, e5-targeting-003, e5-scale-004, e6-buyers-001, e6-buyers-002, e6-buyers-004, e6-buyers-007, e6-creators-002, e6-pricing-005, e6-measurement-004, e6-scale-003, e6-scale-004, e6-scale-007, e6-unit_econ-001, e7-medium-006, e7-scale-002, e7-scale-005, e7-sellers-001, e7-sellers-002, e7-unit_econ-001, e7-unit_econ-004, e7-unit_econ-006, mech-adwords-001, mech-discounter-001, mech-audit-001, mech-overture-002, mech-ovt-002, mech-aol-002, mech-aol-007, mech-tac-004, mech-capture-002, mech-first_price-001, mech-rgsp-001, mech-knobs-001, mech-mehta-001, mech-default-001, ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-money_type-001, ds-money_type-003, ds-provenance-001]
-readability: "PASS fk_grade=5.97 reading_ease=76.66 gunning_fog=8.03 smog=8.47"
+readability: "PASS fk_grade=6.1 reading_ease=76.08 gunning_fog=8.18 smog=8.58"
 status: draft-for-review
 ---
 
@@ -17,7 +17,7 @@ The question is narrow. In each era, who set the price of attention, and by what
 
 Most histories of ads run through media. Print, then radio, then TV, then the web. The spending record does not back that up.
 
-Radio was never the top US medium by spend. Its best year was 1945, when it took 14.9% of all US ad money. Newspapers took more than twice as much in that same year. By 1993 radio was down to 6.7% of US ad spend. It was a big business. It was never the main one.
+Radio was never the top US medium by spend. Its best year was 1945, at 14.9% of all US ad money, under half the newspaper share. It was down to 6.7% by 1993. Chapter 3 owns that correction and gives it in full.
 
 Newspapers led for more than a century. They were still the largest medium in 1975, at 29.5% of the total, while TV had climbed to 18.9%. Direct mail (catalogues, letters, flyers) was the biggest medium selling nationwide that year, ahead of TV. In 1993 the Yellow Pages out-earned both radio and magazines.
 
@@ -37,7 +37,7 @@ A chapter called "The Age of Radio" would be false on the money. We cut instead 
 
 Each rule rests on a way of counting. You cannot sell space by the rate card until someone audits the print run, which is what the Audit Bureau of Circulations began in 1914. You cannot sell an hour of radio until someone counts listeners, which a ratings firm began doing in 1930 on $33,045 of first-year fees. Network TV in the 1970s was priced off a metered panel of about 1,200 homes. Change the counting and you change the price. That is the through-line under all seven eras.
 
-The counting has never been neutral. In 1987 Nielsen, the private firm that counted America's TV audience, swapped its old set-top counters for a box each viewer pressed a button on. The measured prime-time network audience dropped about 10% overnight. Nothing about the viewing changed. Nor was any era's targeting as sharp as it sounds. Advertising mail was the best-aimed medium of the 1980s, and the firms sending it counted a 2% reply rate as a win, which means it missed 98 people in every 100.
+The counting has never been neutral. When Nielsen changed its TV meters in 1987, the measured prime-time network audience dropped about 10% overnight, and chapter 5 shows what that cost the networks. Nor was any era's targeting as sharp as it sounds. Advertising mail was the best-aimed medium of the 1980s, and the firms sending it counted a 2% reply rate as a win, which means it missed 98 people in every 100.
 
 ## Which money moved, and when
 
@@ -99,7 +99,7 @@ Three habits will carry you through the rest of the series.
 
 **Ranges.** Every number also carries a range with about an eight-in-ten chance of holding the true value. Where that range is wide, we write it out. US ad spend in 1914 was about $1.2 billion, and the honest range is $990 million to $1.45 billion. Ads were about 3.3% of the economy that year, and might have been 2.6% or 4.0%. Both are grade C. A single number there would be a lie of precision.
 
-**Seams.** No single US ad-spend series runs from 1919 to today. Five compilers each measured a different thing, and three have stopped. The longest one ends with 2007 at $279.6 billion, and its owner shut it down in 2009. A rival counts money media owners actually received, not list prices billed. On that basis the same year comes to about $231 billion. That 17% gap is measurement, not history. Roughly 69% of the older gap between the two series is not price basis at all; it is three categories one of them never carried.
+**Seams.** No single US ad-spend series runs from 1919 to today. Five compilers each measured a different thing, and three have stopped. The longest one ends with 2007 at $279.6 billion, and its owner shut it down in 2009. A rival counts money media owners actually received, not list prices billed. On that basis the same year comes to about $231 billion. That 17% gap is measurement, not history. The two series overlap in only one year anyone can read for free, 1980, and there they are 23.4% apart. Roughly 69% of that 1980 gap is not price basis at all. It is three categories the media-owner series never carried: miscellaneous, business papers and farm publications.
 
 Two seams sit right on the chart. In 2000 one compiler renamed its "Billboards" category "Out of Home", and the same 1999 data came out 2.77 times bigger. Splice those two lines and you draw a boom that did not happen. And two series both use the word "internet": one reads 49.7% of the other for 2007. Same word, different object.
 
@@ -109,11 +109,9 @@ One more warning for the late years. By 2022 the advertising costs firms deducte
 
 ## Dead myths stay dead
 
-Radio's rank is one. Here is the other.
+Radio's rank is one. The second is the line about half of all ad money being wasted, which most writers credit to John Wanamaker, a department-store owner. The earliest printing is 1890, with no name on it, and nothing from Wanamaker himself has ever been found. Chapter 3 traces how his name got attached.
 
-Most writers credit that line about half of all ad money being wasted to John Wanamaker, who ran a big department store. The earliest printing we could find is 1890, with no name on it. In 1919 a speaker at a bible conference credited the line to Wanamaker, and that is the earliest link we found. Nothing from Wanamaker himself has ever been found. We do not quote it as his, and neither should anyone else.
-
-A third, closer to home. AdWords did not launch as an auction. On 23 October 2000 it sold fixed slots by the thousand views — $15 for the top position. The auction arrives sixteen months later.
+A third sits closer to home. AdWords did not launch as an auction. On 23 October 2000 it sold fixed slots by the thousand views — $15 for the top position. The auction arrives sixteen months later.
 
 ## What follows
 

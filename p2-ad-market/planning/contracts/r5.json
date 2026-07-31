@@ -95,6 +95,13 @@
       "text": "No chapter's prose quotes a value that R3 superseded for a claim it cites. r5-traceability proves the cited ids exist but never reads the numbers in the prose.",
       "check": "deterministic",
       "command": "python3 tools/verify_p2.py r5-chapter-stale"
+    },
+    {
+      "id": "r5-val-06",
+      "class": "validity",
+      "text": "Every figure a chapter prints inside a worked example re-computes from the mechanism it works through. r4-arithmetic proves the 209 stored steps execute and r5-chapter-stale proves no superseded central is quoted, but nothing compared a chapter's own worked figures against mechanism.json - which is how chapter 07 came to state the auction's pricing rule wrongly beside a correct table.",
+      "check": "deterministic",
+      "command": "python3 tools/verify_p2.py r5-worked-examples"
     }
   ],
   "remediation": {
