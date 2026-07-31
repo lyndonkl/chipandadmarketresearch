@@ -2,20 +2,73 @@
   "stage": "R4",
   "name": "Mechanism deep-dive (twin engine)",
   "requires": [
-    { "path": "p2-ad-market/planning/contracts/r3-report.json", "desc": "V3 report with overall PASS" },
-    { "path": "p2-ad-market/data/eras/era-6.json", "desc": "Era 6 record (verified) as evidence basis" }
+    {
+      "path": "p2-ad-market/planning/contracts/r3-report.json",
+      "desc": "V3 report with overall PASS"
+    },
+    {
+      "path": "p2-ad-market/data/eras/era-6.json",
+      "desc": "Era 6 record (verified) as evidence basis"
+    }
   ],
   "produces": [
-    { "path": "p2-ad-market/data/mechanism.json" },
-    { "path": "p2-ad-market/data/simulator-params.json" },
-    { "path": "p2-ad-market/research/notes/mechanism-notes.md" }
+    {
+      "path": "p2-ad-market/data/mechanism.json"
+    },
+    {
+      "path": "p2-ad-market/data/simulator-params.json"
+    },
+    {
+      "path": "p2-ad-market/research/notes/mechanism-notes.md"
+    }
   ],
   "invariants": [
-    { "id": "r4-acq-01", "class": "acquisition", "text": "mechanism.json covers both engines: auction (pure-bid vs quality-weighted GSP vs first-price with bid shading, including the GSP-not-truthful demonstration and the RGSP/pricing-knob coda) and distribution (AOL 2002 economics, TAC series, network share, default-payment economics, Mehta findings).", "check": "deterministic", "command": "python3 tools/verify_p2.py r4-coverage" },
-    { "id": "r4-val-01", "class": "validity", "text": "Every worked example's arithmetic re-computes exactly from its stored steps.", "check": "deterministic", "command": "python3 tools/verify_p2.py r4-arithmetic" },
-    { "id": "r4-val-02", "class": "validity", "text": "Empirical numbers (deal terms, TAC, shares) carry full calibration objects; invented example numbers are marked as illustrative, never calibrated.", "check": "deterministic", "command": "python3 tools/verify_p2.py r4-claims" },
-    { "id": "r4-val-03", "class": "validity", "text": "The capture-attribution analysis states its verdict on auction-vs-distribution with explicit evidence weights, and the twin engines are reconciled into one account (no contradiction between the two analysts' outputs).", "check": "judgment", "instructions": "Read mechanism.json and mechanism-notes.md. The merged analysis must take a documented stance with evidence, and nothing in the auction section may contradict the distribution section on the same fact." },
-    { "id": "r4-rdy-01", "class": "readiness", "text": "simulator-params.json is buildable: every scenario ties to a claim or break it demonstrates, every variable has range and default, expected outputs are stated per scenario, and every mechanism claim the chapters will make has a covering scenario (including the first-price/bid-shading panel).", "check": "judgment", "instructions": "Cross-reference simulator-params.json scenarios against mechanism.json claims. A mechanism claim with no covering scenario, or a scenario with undefined variables or missing expected output, violates this invariant." }
+    {
+      "id": "r4-acq-01",
+      "class": "acquisition",
+      "text": "mechanism.json covers both engines: auction (pure-bid vs quality-weighted GSP vs first-price with bid shading, including the GSP-not-truthful demonstration and the RGSP/pricing-knob coda) and distribution (AOL 2002 economics, TAC series, network share, default-payment economics, Mehta findings).",
+      "check": "deterministic",
+      "command": "python3 tools/verify_p2.py r4-coverage"
+    },
+    {
+      "id": "r4-val-01",
+      "class": "validity",
+      "text": "Every worked example's arithmetic re-computes exactly from its stored steps.",
+      "check": "deterministic",
+      "command": "python3 tools/verify_p2.py r4-arithmetic"
+    },
+    {
+      "id": "r4-val-02",
+      "class": "validity",
+      "text": "Empirical numbers (deal terms, TAC, shares) carry full calibration objects; invented example numbers are marked as illustrative, never calibrated.",
+      "check": "deterministic",
+      "command": "python3 tools/verify_p2.py r4-claims"
+    },
+    {
+      "id": "r4-val-03",
+      "class": "validity",
+      "text": "The capture-attribution analysis states its verdict on auction-vs-distribution with explicit evidence weights, and the twin engines are reconciled into one account (no contradiction between the two analysts' outputs).",
+      "check": "judgment",
+      "instructions": "Read mechanism.json and mechanism-notes.md. The merged analysis must take a documented stance with evidence, and nothing in the auction section may contradict the distribution section on the same fact."
+    },
+    {
+      "id": "r4-rdy-01",
+      "class": "readiness",
+      "text": "simulator-params.json is buildable: every scenario ties to a claim or break it demonstrates, every variable has range and default, expected outputs are stated per scenario, and every mechanism claim the chapters will make has a covering scenario (including the first-price/bid-shading panel).",
+      "check": "judgment",
+      "instructions": "Cross-reference simulator-params.json scenarios against mechanism.json claims. A mechanism claim with no covering scenario, or a scenario with undefined variables or missing expected output, violates this invariant."
+    },
+    {
+      "id": "r4-rdy-02",
+      "class": "readiness",
+      "text": "Simulator expected_output values cross-validate: every example_ref resolves in mechanism.json, total_clicks sums its clicks array, and avg_price_per_click equals sum(price*clicks)/total_clicks. These are the simulator's acceptance criteria and r4-arithmetic never reaches them.",
+      "check": "deterministic",
+      "command": "python3 tools/verify_p2.py r4-simparams"
+    }
   ],
-  "remediation": { "policy": "bounded-auto-repair", "max_cycles": 2, "on_exhaust": "halt-and-escalate" }
+  "remediation": {
+    "policy": "bounded-auto-repair",
+    "max_cycles": 2,
+    "on_exhaust": "halt-and-escalate"
+  }
 }

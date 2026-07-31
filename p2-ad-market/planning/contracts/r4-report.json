@@ -1,0 +1,99 @@
+{
+  "overall": "PASS",
+  "stage": "R4",
+  "name": "Mechanism deep-dive (twin engine)",
+  "audited_at": "2026-07-30",
+  "audit_cycle": "re-audit after the bounded-auto-repair cycle that followed the FAIL report at this same path",
+  "preconditions": [
+    {
+      "path": "p2-ad-market/planning/contracts/r3-report.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 12009 bytes, non-empty, parses as JSON. \"overall\" reads \"PASS\" and all four V3 invariants carry verdict \"satisfied\": r3-acq-01, r3-val-01, r3-val-02, r3-rdy-01. Its own preconditions (r2-report.json, gate-a-approval.md) are both recorded satisfied, so the PASS is not standing on a failed precondition."
+    },
+    {
+      "path": "p2-ad-market/data/eras/era-6.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 93087 bytes, non-empty, parses as JSON. Carries the seven top-level keys era / name / years / fields / events / unit_economics / boundary_notes, and validates cleanly against p2-ad-market/planning/schema/era-record.schema.json under the installed jsonschema library (no validation error raised). Verified status is corroborated by r3-report.json's r3-acq-01 evidence: 453 claim IDs across the 7 era records and adspend.json each carry a verdict in verdicts.json, with zero unverified. mechanism.json engines.auction cites this record as its evidence basis and mechanism-notes.md section 1 names it as such."
+    }
+  ],
+  "produces": [
+    {
+      "path": "p2-ad-market/data/mechanism.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 249535 bytes, non-empty, parses as JSON. Top level is engines + reconciliation. engines.auction carries as_of / scope / rigor / mechanism / baselines / designs / demonstrations / examples(10) / comparisons(3) / breaks(7) / findings(15). engines.distribution carries mechanism / baseline / aol_2002 / tac_series / network_share / default_payments / mehta_findings / capture_attribution / examples(10, X1-X10) / comparisons(6) / breaks(9, B1-B9) / findings(10) / provenance. reconciliation carries produced_by / as_of / evidence_freeze / inputs / twin_engine / capture_attribution / consistency_check / contradictions / open_tensions / handoff."
+    },
+    {
+      "path": "p2-ad-market/data/simulator-params.json",
+      "verdict": "satisfied",
+      "evidence": "Exists, 60834 bytes, non-empty, parses as JSON. Carries target, analysis_ref, as_of, 11 build_notes, 40 variables, 21 scenarios (sc-01..sc-10 auction, D1..D11 distribution), claim_coverage (37 keys) and break_coverage (16 keys). It was 24885 bytes / 21 variables / 10 scenarios at the previous audit; the auction half is unchanged in scope and the distribution half is new."
+    },
+    {
+      "path": "p2-ad-market/research/notes/mechanism-notes.md",
+      "verdict": "satisfied",
+      "evidence": "Exists, 23259 bytes, 334 lines, non-empty. Present this cycle; it was MISSING at the previous audit. Nine sections: an inputs table naming mechanism-auction.json / mechanism-distribution.json and the two per-analyst notes files as inputs (neither deleted, both referenced); what was formalized; 16 assumptions across both engines; the reconciliation method and result including the nine-row shared-facts table and the empty contradictions list; the capture-attribution stance with the full W1-W5 weight table; the three open tensions; the two carry-forwards the previous cycle required (the era-6 $410,946k vs filed $410,915k discrepancy at section 6(a), break B7 as the hard constraint on the era-7 chapter at section 6(b)); simulator state; handoff to chapters 07, 08 and 09."
+    }
+  ],
+  "invariants": [
+    {
+      "id": "r4-acq-01",
+      "class": "acquisition",
+      "verdict": "satisfied",
+      "evidence": "Contracted command exited 0 with no violation output. The command is real, not a silent no-op: COMMANDS maps \"r4-coverage\" to r4_coverage (tools/verify_p2.py line 785), main() prints every accumulated violation and returns 1 when any exist (lines 795-797), and an unrecognised subcommand exits 2 with a usage line (lines 790-793). The check asserts auction designs pure_bid / gsp / first_price_shading, auction demonstrations gsp_not_truthful / rgsp_coda, and non-empty distribution components aol_2002 / tac_series / network_share / default_payments / mehta_findings (lines 639-654). Corroborating independent read: engines.auction.designs holds pure_bid, gsp, first_price_shading and vcg_benchmark; engines.auction.demonstrations holds gsp_not_truthful and rgsp_coda; engines.distribution holds all five named components non-empty plus capture_attribution. The contract's named GSP-not-truthful demonstration resolves to example ex-2-gsp-not-truthful ($400 truthful against $640 shaded, finding f6) and the rGSP/pricing-knob coda to ex-5-squashing, ex-6-format-pricing and ex-7-rgsp-inside-the-band (findings f10-f13). The Mehta findings resolve to mech-mehta-001..005.",
+      "command_output": "python3 tools/verify_p2.py r4-coverage -> exit 0, stdout+stderr empty"
+    },
+    {
+      "id": "r4-val-01",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Contracted command exited 0 with no violation output. The check recursively walks every dict in mechanism.json and, for each \"steps\" list, re-evaluates the stored expr under a regex-gated arithmetic-only eval, failing on missing expr/expected, non-arithmetic expr, evaluation error, or mismatch beyond max(1e-6, |expected|*1e-6) (lines 660-690). Corroborating independent read: the walk covers 209 stored steps (mechanism-notes.md section 9 accounts for them as 123 auction + 81 distribution + 5 reconciliation), so the pass is not vacuous. I re-derived ten simulator expected_output values against mechanism.json's stored steps and every one matched to full precision: 0.0797412906 and 4710.60933 (distribution examples[6] steps 9 and 7), 20717.599 (examples[8] step 0, also reconciliation.consistency_check.arithmetic step 2), 117.6470588235 and 2.55404294 (examples[1] steps 0 and 4), 0.5628745421 / 0.4800665094 / 34.6106398504 (examples[8] steps 5, 8, 4), 1.1570592183 (examples[0] step 0). The one D1 value with no stored step, exposure 43.96273, carries an adjacent exposure_derivation field, max(0, 100 - 0.85*65.9262), which I re-computed as exactly 43.96273.",
+      "command_output": "python3 tools/verify_p2.py r4-arithmetic -> exit 0, stdout+stderr empty"
+    },
+    {
+      "id": "r4-val-02",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Contracted command exited 0 with no violation output. The check walks every dict carrying a \"calibration\" key, fails any node marked illustrative:true that also carries a calibration, and otherwise runs the shared check_claim validator (id / statement / central / unit / ci80 / grade / sources / as_of present, ID convention, central inside ci80, grade in A/B/C, grade-C requires method, sources non-empty, ISO-shaped as_of) at lines 693-711 and 48-75. Corroborating independent read: 67 calibration attachments resolve to 45 distinct IDs (14 auction, 31 distribution); 13 nodes are marked illustrative and none carries a calibration; every one of the 45 IDs is byte-identical at each occurrence (mech-discounter-001 appears 5 times, mech-overture-002 3 times), so no ID carries two values. Empirical deal terms, TAC and shares sit on the calibrated side (mech-aol-001..007, mech-tac-001..004, mech-network-001..003); the invented cast (Aster/Brindle/Cedar, the $10/$6 RPMs, the non-AOL member share, the 15% AOL take) sits on the illustrative side, and simulator-params.json build_notes repeats the same split for D5, D6, D10 and D11.",
+      "command_output": "python3 tools/verify_p2.py r4-claims -> exit 0, stdout+stderr empty"
+    },
+    {
+      "id": "r4-val-03",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Both halves hold, checked against the artifacts rather than against the artifact's self-report. (1) Stance with explicit evidence weights: engines.distribution.capture_attribution poses the question (auction yield vs distribution volume, 2002-2008) and answers \"BOUNDED, and against both simple stories\", quantified as syndication supplying 31.9% of gross growth against 9.4% of 2008 revenue net of TAC, with owned-site growth splitting 52-56% volume / 44-48% yield. Five evidence weights W1-W5 carry weights 0.25 / 0.25 / 0.20 / 0.15 / 0.15 (sum exactly 1.0), each with a grade (A/A/C/A/A), a direction (distribution / auction-yield / split / auction-yield / distribution) and a discount stated against itself. All six supporting_claim_ids resolve to real calibration objects. weakest_link names mech-capture-002 as grade C and forbids the flat 54%. reconciliation.capture_attribution carries the verdict verbatim with status \"the reconcile pass did not re-derive, re-weight or soften it\", and mechanism-notes.md section 4 reproduces the same verdict and the same W1-W5 table. (2) One account, no contradiction: reconciliation.contradictions is [], and I tested that emptiness rather than accepting it. All nine shared facts agree at the numbers - Overture FY2002 $667.7m in both engines; Google FY2002 revenue $439.5m vs $439.508m; FY2008 advertising revenue $21,128.5m vs $21,128.514m; FY2008 network revenue $6,714.7m vs $6,714.688m; Panama 5 February 2007 vs February 2007; Overture average price per introduction $0.31 in both, differing only in ci80 width with an instruction to quote the wider mech-ovt-004 band. The 48.7% network peak, the $410.915m 2002 anchor and the 1.727x GSP band each appear in exactly one engine, so no second value can conflict. The two 5% findings (mech-tuning-001 grade B, mech-mehta-004 grade A) are explicitly held apart rather than merged. The attribution is not contested from the auction side: finding f14 declines outright to claim the design caused the capture, cites Overture's 2002 revenue lead and Yahoo's five-year lag, and directs the reader to the distribution engine - the word \"capture\" appears exactly once in the whole auction engine, in that finding. The three open_tensions are labelled as tensions, and T1 argues explicitly why continuity-vs-discontinuity is not a contradiction (different objects: the instrument vs the causal attribution of the gains), with an instruction to chapters to carry both.",
+      "command_output": "judgment check - no contracted command"
+    },
+    {
+      "id": "r4-rdy-01",
+      "class": "readiness",
+      "verdict": "satisfied",
+      "evidence": "All four buildability conditions hold, and the previous cycle's violation (a simulator spec covering the auction engine only) is repaired. (a) Every scenario ties to a claim or break: all 21 scenarios carry a non-empty demonstrates string naming a claim or break (C1-C6, Claims 1-3, X-numbers, B-numbers) plus an example_ref, and every one of the distinct refs resolves to a real container in mechanism.json - auction ex-1..ex-7, break-1, break-2, cmp-2019-two-changes, and distribution X1-X10. Zero unresolved refs. (b) Every variable has range and default: all 40 variables carry name, type, range, default, description and unit, none with a null or empty range or default, and all 40 are used by at least one scenario's settings. (c) Expected outputs per scenario: all 21 carry a non-trivial expected_output; the distribution ones carry filed-dollar values traceable to stored steps (spot-checked to full precision under r4-val-01), and D-scenarios that re-derive a non-stored quantity carry an adjacent *_derivation string. No scenario references an undeclared variable: the only non-variable settings keys across all 21 are the four structural directives inherits (3 scenarios), overlay (1), interaction (16) and panels (1). (d) Coverage: claim_coverage maps all 6 auction claims C1-C6 to at least one scenario and all 31 distribution claim IDs - 24 to scenarios and 7 with an explicit NOT SIMULATED reason (mech-ovt-002, mech-ovt-004, mech-aol-007, mech-network-002, mech-mehta-003, mech-mehta-004, mech-mehta-005). break_coverage maps all 7 auction breaks and all 9 distribution breaks, 3 of them NOT SIMULATED with reasons (brk-collusion-surface, B6, B8). The contract's specifically named panel is present as sc-06-first-price-bid-shading-panel, carrying the n = 2/3/5/10 revenue-equivalence table, the shading sensitivity at n=3, the frozen-bid trap (1.858x apparent windfall) and a caption stating this was display and that search never moved to first price. Chapter 09's spine now has D7-capture-attribution, carrying W1-W4 and routing W5 to D8. One granularity observation that I judge does not violate the invariant: the auction half indexes coverage at the level of its propositions C1-C6 while the distribution half indexes at the level of its calibration IDs, so the auction's 14 mech-* empirical anchors have no claim_coverage entry of their own. Tracing each anchor through the examples and breaks the scenarios reference, 12 of the 14 are transitively demonstrated by a scenario (mech-discounter-001 via sc-03; mech-first_price-001 via sc-06; mech-quality_score-001 via sc-08; mech-knobs-001, mech-rgsp-001, mech-format_pricing-001, mech-tuning-001 and mech-google_rev-001 via sc-09 and sc-10; mech-overture-001/002, mech-audit-001 and mech-classified-001 via referenced examples and breaks). The two that no scenario touches, mech-adwords-001 (AdWords Select launched 20 February 2002) and mech-panama-001 (Yahoo adopts quality weighting 5 February 2007), are calendar facts with no arithmetic to panel: they block no build and orphan no demonstrable chapter claim. See contract_concerns for the wording ambiguity behind this call.",
+      "command_output": "judgment check - no contracted command"
+    }
+  ],
+  "remediation": [],
+  "contract_concerns": [
+    {
+      "invariant": "r4-acq-01, r4-val-01, r4-val-02",
+      "concern": "Carried forward from the previous cycle and re-confirmed by reading. All three deterministic checks open mechanism.json through load() and return early when it is None (tools/verify_p2.py lines 640-642, 661-663, 694-696). main() then finds no violations and exits 0. If mechanism.json were missing or unparseable, all three contracted commands would exit 0 and the stage would appear to clear its entire acquisition-and-validity gate on an absent artifact. The file is present at 249535 bytes and parses this cycle, so the checks did real work here (209 arithmetic steps, 67 calibration attachments), but the gate carries no existence assertion of its own and relies on the auditor's existence pass."
+    },
+    {
+      "invariant": "r4-val-01",
+      "concern": "Carried forward and still true. r4-arithmetic walks mechanism.json only. simulator-params.json's expected_output values are not re-derived by any deterministic check, even though they are the numbers the built simulator will be asserted against, and the file more than doubled in size this cycle. I hand-checked ten distribution values and the four sc-06 revenue-equivalence figures against mechanism.json's stored steps and all agreed exactly, but the remaining expected outputs stay ungated. Extending the walk to simulator-params.json would close this."
+    },
+    {
+      "invariant": "r4-rdy-01",
+      "concern": "The invariant says \"every mechanism claim the chapters will make has a covering scenario\" without fixing the granularity of \"claim\", and the two engines use different taxonomies: the auction engine's claims are the propositions C1-C6 with mech-* objects attached as calibrations, while the distribution engine treats each mech-* ID as the claim and indexes coverage that way. mechanism-notes.md section 3 calls all 45 IDs \"claim IDs\", which supports the stricter reading; the contract's own r4-val-02 calls them \"calibration objects\", which supports the looser one. Under the strict reading, mech-adwords-001 and mech-panama-001 would be violations for having neither a scenario nor a NOT SIMULATED note. I audited against the invariant's stated purpose - buildability, and no chapter claim left without a panel - and judged two calendar dates immaterial to both. A future contract should name the granularity, or the stage should apply the distribution engine's NOT SIMULATED convention to the auction's anchors so the coverage map is uniform."
+    },
+    {
+      "invariant": "informational, no invariant",
+      "concern": "reconciliation.inputs.simulator_params states that scenarios D1-D11 were added \"from mechanism-distribution-notes.md section 6\". That notes section specifies D1-D9 only; D10 and D11 are new in this cycle. mechanism-notes.md section 7 states the provenance correctly (\"the variables and the D1-D9 scenarios\"). The mechanism.json line overstates its source by two scenarios. No contracted invariant covers provenance strings and no number or verdict depends on it."
+    }
+  ],
+  "echo": {
+    "remediation": {
+      "policy": "bounded-auto-repair",
+      "max_cycles": 2,
+      "on_exhaust": "halt-and-escalate"
+    }
+  }
+}

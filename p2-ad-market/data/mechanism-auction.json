@@ -1,0 +1,2073 @@
+{
+  "auction": {
+    "as_of": "2026-07-30",
+    "scope": "Google's quality-weighted second-price search auction as deployed 2002-2008 (AdWords Select), compared against pure-bid ranking (GoTo/Overture) and first-price with equilibrium bid shading, with a coda on the DOJ-disclosed pricing knobs that overrode the mechanism from 2019.",
+    "rigor": {
+      "calibration_ids": "mech-{topic}-{NNN}",
+      "empirical_vs_illustrative": "Every real-world number carries a calibration object under an 'evidence' entry. Every invented number sits inside an object marked illustrative:true and carries no calibration.",
+      "arithmetic": "Every number quoted in a conclusion comes from a stored {expr, expected} step; tools/verify_p2.py r4-arithmetic re-evaluates all of them."
+    },
+    "mechanism": {
+      "name": "AdWords Select: quality-weighted generalized second-price, self-serve, no minimums",
+      "years": "2002-02-20 to 2008 (era 6)",
+      "one_line": "Rank by bid x predicted click-through rate; charge the minimum needed to hold position, quality-adjusted; let anyone in for five dollars.",
+      "formal": {
+        "name": "Quality-weighted generalized second-price (AdWords Select, deployed 2002-2008)",
+        "players": "Advertisers bidding a maximum CPC; Google, which also estimates the quality weight, validates the click and bills the log; searchers.",
+        "strategies": "Choose a max CPC per keyword. Bids and quality scores are private. From 2004 a bid-management industry (iProspect, Did-It, Performics, Efficient Frontier) sold strategy as a service.",
+        "allocation_rule": "AdRank = bid x predicted click-through rate. Sort by AdRank, descending. This is a ranking by expected revenue per impression, not by willingness to pay.",
+        "payment_rule": "Winner in slot j pays the minimum needed to hold position, quality-adjusted: p_j = (b_(j+1) * q_(j+1)) / q_j + $0.01, charged per click, capped at its own max CPC. The last slot pays the reserve.",
+        "information": "Bids private; the quality weight is computed by the seller and not disclosed as a number; the click count is produced and validated by the seller. No independent click-measurement standard existed until 2009.",
+        "entry": "One-time $5 activation fee, no minimum monthly spend, automated approval, most ads live immediately. (The era-6 record flags the widely-repeated 5-cent minimum bid as unsupported by its cited sources; Google's own 10-K example shows a $0.01 minimum.)",
+        "objective_maximised": "Expected revenue per impression, subject to the second-price discount.",
+        "deployed_divergences_from_textbook_gsp": [
+          "The one-cent increment: prices are next-AdRank plus a fixed increment, not exactly next-AdRank.",
+          "From August 2005, a per-keyword dynamic minimum bid derived from Quality Score. This is a second, independent quality channel that acts as a PRICE, not a ranking weight, and it is the seller's number. See break-2.",
+          "Smart pricing (2004) discounted syndicated network clicks by expected value, so the same bid bought differently-priced clicks depending on where the ad ran.",
+          "Landing-page quality was folded into Quality Score in 2005, which is an admission that click-through rate alone rewards the wrong ad."
+        ],
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-adwords-001",
+              "statement": "AdWords Select, launched 20 February 2002, ranked ads by 'a combination of ad performance (click-thru rate) and how much an advertiser agrees to pay per click' and applied a discounter so advertisers 'pay the lowest amount possible' - quality-weighted second-price pricing from launch.",
+              "central": 2002.14,
+              "unit": "year (2002-02-20), launch of the quality-weighted CPC auction",
+              "ci80": [
+                2002.14,
+                2002.14
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Google press release, 'Google Introduces New Pricing For Popular Self-Service Online Advertising Program' (Feb 20, 2002)",
+                  "url": "http://googlepress.blogspot.com/2002/02/google-introduces-new-pricing-for.html"
+                }
+              ],
+              "as_of": "2002-02-20"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-discounter-001",
+              "statement": "Google's own AdWords Discounter example: maximum bids of $1.00, $0.60 and $0.50 per click produce prices of $0.61, $0.51 and $0.01 (the minimum bid) - the winner pays one cent above the next bid, not its own bid, and the last slot pays the seller's reserve.",
+              "central": 0.61,
+              "unit": "USD paid per click by the top advertiser bidding $1.00 against a $0.60 next bid",
+              "ci80": [
+                0.61,
+                0.61
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                }
+              ],
+              "as_of": "2008"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-quality_score-001",
+              "statement": "From August 2005 each AdWords keyword carried a dynamic minimum bid set by its Quality Score (click-through rate, ad-text relevance, historical keyword performance, landing-page quality), so measured relevance became a seller-set price floor as well as a ranking weight.",
+              "central": 2005.62,
+              "unit": "year (2005-08), introduction of quality-based minimum bids",
+              "ci80": [
+                2005.5,
+                2005.7
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                },
+                {
+                  "name": "Google Inside AdWords blog, 'A new addition to the Quality Score' (Dec 2005)",
+                  "url": "https://adwords.googleblog.com/2005/12/new-addition-to-quality-score.html"
+                }
+              ],
+              "as_of": "2005-08"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-audit-001",
+              "statement": "No independent audit standard for search click counting existed during the deployed-auction era: the IAB Click Measurement Working Group convened in late 2005 and the Click Measurement Guidelines - the first industry definition of a valid click - were not published until 2009, and there was no Media Rating Council accreditation of search click counting in period. The seller estimated the quality weight, ran the auction, validated the click and billed against its own log.",
+              "central": 2009,
+              "unit": "year the first industry click-measurement standard was published (era ran 2002-2008)",
+              "ci80": [
+                2009,
+                2009
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "IAB, Click Measurement Guidelines (2009)",
+                  "url": "https://www.iab.com/wp-content/uploads/2015/06/click-measurement-guidelines2009.pdf"
+                }
+              ],
+              "as_of": "2009"
+            }
+          }
+        ]
+      },
+      "what_is_allocated": "Ranked ad slots against a query, per impression. Payment is per click, so the seller bears the click risk and the estimate of click probability is the seller's.",
+      "the_reframe": "AdRank is not a relevance filter with a revenue side effect. It is a ranking by expected revenue per impression, which happens to reward relevance because clicks are the shared currency of both parties. Every result in this analysis follows from that one substitution: the auction sells impressions and prices clicks."
+    },
+    "baselines": {
+      "rivals": [
+        "pure_bid",
+        "first_price_shading"
+      ],
+      "truthful_yardstick": "vcg_benchmark",
+      "counterfactual_note": "Where a claim needs a no-mechanism baseline rather than a rival, the baseline used is Overture's deployed pure-bid auction as it actually ran in 2002 (10-cent floor, $20 monthly minimum, human editorial review, $0.31 realised average CPC), not an idealised pure-bid design."
+    },
+    "designs": {
+      "pure_bid": {
+        "name": "Pure-bid ranking, pay-per-click (GoTo/Overture, 1998-2007)",
+        "players": "Advertisers bidding a maximum cost-per-click on a keyword; a search engine allocating ranked listing slots; searchers.",
+        "strategies": "Choose a max CPC per keyword. Bids were publicly visible in Overture's bid tool, which made bid wars observable and gap strategies routine.",
+        "allocation_rule": "Sort by bid alone, descending. Highest bid takes the top slot.",
+        "payment_rule": "Winner in slot j pays the bid of the advertiser in slot j+1, plus one cent. Charged per click.",
+        "information": "Bids public. Human editorial review of every listing.",
+        "entry": "10-cent minimum bid per listing, $20 minimum monthly spend, human editorial approval.",
+        "objective_maximised": "Willingness to pay per CLICK. The seller's revenue per IMPRESSION is whatever falls out.",
+        "deployed_notes": "Overture's realised average price per click was $0.31 in 2002. It was the paid-search revenue leader that year ($667.7m against Google's $439.5m of total revenue), so the design was commercially viable, not broken. Yahoo replaced it with quality weighting (Panama) only on 5 February 2007.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-overture-001",
+              "statement": "Overture's pure-bid auction ranked listings by bid alone and gated entry: all new US advertisers had to commit to a minimum bid of 10 cents per listing and a $20 minimum monthly spend, with human editorial review of every listing. Its realised average price per paid click was $0.31 in 2002, up from $0.20 in 2001.",
+              "central": 0.31,
+              "unit": "USD average realised price per paid introduction (click), Overture FY2002",
+              "ci80": [
+                0.31,
+                0.31
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Overture Services, Inc., Form 10-K FY2002",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+                }
+              ],
+              "as_of": "2002"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-overture-002",
+              "statement": "The pure-bid auction was not failing commercially when the quality-weighted auction arrived: Overture booked $667.7m of revenue in 2002 against Google's $439.5m of total revenue, and was the paid-search revenue leader entering the era.",
+              "central": 667.7,
+              "unit": "USD millions, Overture revenue FY2002",
+              "ci80": [
+                667.7,
+                667.7
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Overture Services, Inc., Form 10-K FY2002",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+                },
+                {
+                  "name": "Google Inc., Form 10-K FY2004 (2002 revenue table)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+                }
+              ],
+              "as_of": "2002"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-panama-001",
+              "statement": "Yahoo replaced Overture's pure bid-to-position ranking with Panama, a bid-times-quality ranking, on 5 February 2007 - five years after Google shipped the same idea and more than three years after Yahoo had bought Overture.",
+              "central": 2007.1,
+              "unit": "year (2007-02-05), Yahoo Panama launch",
+              "ci80": [
+                2007.1,
+                2007.1
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Search Engine Land, 'New Panama Ranking System For Yahoo Ads Launches Today'",
+                  "url": "https://searchengineland.com/new-panama-ranking-system-for-yahoo-ads-launches-today-10434"
+                }
+              ],
+              "as_of": "2007-02-05"
+            }
+          }
+        ]
+      },
+      "gsp": {
+        "name": "Quality-weighted generalized second-price (AdWords Select, deployed 2002-2008)",
+        "players": "Advertisers bidding a maximum CPC; Google, which also estimates the quality weight, validates the click and bills the log; searchers.",
+        "strategies": "Choose a max CPC per keyword. Bids and quality scores are private. From 2004 a bid-management industry (iProspect, Did-It, Performics, Efficient Frontier) sold strategy as a service.",
+        "allocation_rule": "AdRank = bid x predicted click-through rate. Sort by AdRank, descending. This is a ranking by expected revenue per impression, not by willingness to pay.",
+        "payment_rule": "Winner in slot j pays the minimum needed to hold position, quality-adjusted: p_j = (b_(j+1) * q_(j+1)) / q_j + $0.01, charged per click, capped at its own max CPC. The last slot pays the reserve.",
+        "information": "Bids private; the quality weight is computed by the seller and not disclosed as a number; the click count is produced and validated by the seller. No independent click-measurement standard existed until 2009.",
+        "entry": "One-time $5 activation fee, no minimum monthly spend, automated approval, most ads live immediately. (The era-6 record flags the widely-repeated 5-cent minimum bid as unsupported by its cited sources; Google's own 10-K example shows a $0.01 minimum.)",
+        "objective_maximised": "Expected revenue per impression, subject to the second-price discount.",
+        "deployed_divergences_from_textbook_gsp": [
+          "The one-cent increment: prices are next-AdRank plus a fixed increment, not exactly next-AdRank.",
+          "From August 2005, a per-keyword dynamic minimum bid derived from Quality Score. This is a second, independent quality channel that acts as a PRICE, not a ranking weight, and it is the seller's number. See break-2.",
+          "Smart pricing (2004) discounted syndicated network clicks by expected value, so the same bid bought differently-priced clicks depending on where the ad ran.",
+          "Landing-page quality was folded into Quality Score in 2005, which is an admission that click-through rate alone rewards the wrong ad."
+        ],
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-adwords-001",
+              "statement": "AdWords Select, launched 20 February 2002, ranked ads by 'a combination of ad performance (click-thru rate) and how much an advertiser agrees to pay per click' and applied a discounter so advertisers 'pay the lowest amount possible' - quality-weighted second-price pricing from launch.",
+              "central": 2002.14,
+              "unit": "year (2002-02-20), launch of the quality-weighted CPC auction",
+              "ci80": [
+                2002.14,
+                2002.14
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Google press release, 'Google Introduces New Pricing For Popular Self-Service Online Advertising Program' (Feb 20, 2002)",
+                  "url": "http://googlepress.blogspot.com/2002/02/google-introduces-new-pricing-for.html"
+                }
+              ],
+              "as_of": "2002-02-20"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-discounter-001",
+              "statement": "Google's own AdWords Discounter example: maximum bids of $1.00, $0.60 and $0.50 per click produce prices of $0.61, $0.51 and $0.01 (the minimum bid) - the winner pays one cent above the next bid, not its own bid, and the last slot pays the seller's reserve.",
+              "central": 0.61,
+              "unit": "USD paid per click by the top advertiser bidding $1.00 against a $0.60 next bid",
+              "ci80": [
+                0.61,
+                0.61
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                }
+              ],
+              "as_of": "2008"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-quality_score-001",
+              "statement": "From August 2005 each AdWords keyword carried a dynamic minimum bid set by its Quality Score (click-through rate, ad-text relevance, historical keyword performance, landing-page quality), so measured relevance became a seller-set price floor as well as a ranking weight.",
+              "central": 2005.62,
+              "unit": "year (2005-08), introduction of quality-based minimum bids",
+              "ci80": [
+                2005.5,
+                2005.7
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                },
+                {
+                  "name": "Google Inside AdWords blog, 'A new addition to the Quality Score' (Dec 2005)",
+                  "url": "https://adwords.googleblog.com/2005/12/new-addition-to-quality-score.html"
+                }
+              ],
+              "as_of": "2005-08"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-audit-001",
+              "statement": "No independent audit standard for search click counting existed during the deployed-auction era: the IAB Click Measurement Working Group convened in late 2005 and the Click Measurement Guidelines - the first industry definition of a valid click - were not published until 2009, and there was no Media Rating Council accreditation of search click counting in period. The seller estimated the quality weight, ran the auction, validated the click and billed against its own log.",
+              "central": 2009,
+              "unit": "year the first industry click-measurement standard was published (era ran 2002-2008)",
+              "ci80": [
+                2009,
+                2009
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "IAB, Click Measurement Guidelines (2009)",
+                  "url": "https://www.iab.com/wp-content/uploads/2015/06/click-measurement-guidelines2009.pdf"
+                }
+              ],
+              "as_of": "2009"
+            }
+          }
+        ]
+      },
+      "first_price_shading": {
+        "name": "Unified first-price auction with equilibrium bid shading (Google Ad Manager display exchange, from 2019-09-05)",
+        "players": "Demand-side platforms and exchanges bidding on behalf of advertisers; publishers setting unified pricing rules; Google operating both the exchange and the publisher ad server.",
+        "strategies": "Bid a shaded value: b(v) = v * (n-1)/n in the symmetric benchmark, or in practice the output of a proprietary bid-shading model estimating the clearing price.",
+        "allocation_rule": "Highest bid wins (quality-weighted equivalents apply where a quality term exists).",
+        "payment_rule": "Winner pays its own bid.",
+        "information": "The clearing price is set by the buyer's own model rather than by the runner-up's bid. Google committed to bid data files for publishers and post-auction feedback for buyers as part of the change.",
+        "objective_maximised": "Nothing new. Under symmetry, IPV and risk neutrality this is revenue-equivalent to second price for every n - see ex-4.",
+        "why_it_happened": "Header bidding (2014-15, standardised by Prebid.js) made publishers compare a first-price header bid against a second-price exchange result run by their own ad server. First price plus unified pricing rules made the comparison apples-to-apples. Google's own stated finding was that first-price auctions have a 'neutral to positive impact on a publisher's total revenue' - a transparency and competitive-pressure change, not a yield change.",
+        "scope_warning": "THIS WAS DISPLAY, NOT SEARCH. Google Search never moved to first price. The 2019 search-side change was rGSP, which the DOJ record shows was an explicit revenue play. Conflating the two is the standard error in retellings of the 2019 transition.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-first_price-001",
+              "statement": "Google Ad Manager - the open-web DISPLAY exchange, not search - completed its move to a unified first-price auction from 5 September 2019, folding publisher floors into unified pricing rules. Google's stated rationale was a fair and transparent marketplace under header-bidding competition, and it reported that testing showed first-price auctions have a 'neutral to positive impact on a publisher's total revenue'.",
+              "central": 2019.68,
+              "unit": "year (2019-09-05), Google Ad Manager unified first-price rollout",
+              "ci80": [
+                2019.68,
+                2019.68
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Google Ad Manager blog, 'Rolling out first price auctions to Google Ad Manager partners' (Sep 5, 2019)",
+                  "url": "https://blog.google/products/admanager/rolling-out-first-price-auctions-google-ad-manager-partners/"
+                },
+                {
+                  "name": "Google Ad Manager blog, 'Simplifying programmatic: first price auctions for Google Ad Manager' (Mar 2019)",
+                  "url": "https://blog.google/products/admanager/simplifying-programmatic-first-price-auctions-google-ad-manager/"
+                }
+              ],
+              "as_of": "2019-09-05"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-rgsp-001",
+              "statement": "Google's rGSP (randomized generalized second-price) auction, launched on SEARCH in 2019, raised top-slot cost-per-click on non-navigational queries by 5.91% on PCs and tablets and 4.85% on mobile in pre-launch experiments, with a 40-50% long-term stickage factor; a 5.74% revenue gain persisted two months after launch. Advertisers cannot opt out.",
+              "central": 5.91,
+              "unit": "percent increase in top-slot CPC on PC/tablet from rGSP",
+              "ci80": [
+                5.5,
+                6.3
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024), FOF paras 245-255",
+                  "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+                }
+              ],
+              "as_of": "2024-08-05"
+            }
+          }
+        ]
+      },
+      "vcg_benchmark": {
+        "name": "Vickrey-Clarke-Groves position auction (truthful benchmark, never deployed on search)",
+        "allocation_rule": "Same efficient allocation as quality-weighted GSP: sort by bid x quality.",
+        "payment_rule": "Each winner pays the externality it imposes on the others: the sum over lower positions of (click difference) x (displaced bidder's value).",
+        "property": "Truthful bidding is a dominant strategy, so the mechanism's revenue is a determinate number rather than a band.",
+        "why_it_matters_here": "VCG is the yardstick that turns 'GSP is not truthful' from an adjective into arithmetic. In ex-2/ex-3 VCG revenue is $440, exactly the lowest locally-envy-free GSP equilibrium; naive truthful play under GSP yields $760. The difference between those two numbers is the value of advertiser sophistication, and it is 73% of the floor.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-overture-002",
+              "statement": "The pure-bid auction was not failing commercially when the quality-weighted auction arrived: Overture booked $667.7m of revenue in 2002 against Google's $439.5m of total revenue, and was the paid-search revenue leader entering the era.",
+              "central": 667.7,
+              "unit": "USD millions, Overture revenue FY2002",
+              "ci80": [
+                667.7,
+                667.7
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Overture Services, Inc., Form 10-K FY2002",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+                },
+                {
+                  "name": "Google Inc., Form 10-K FY2004 (2002 revenue table)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+                }
+              ],
+              "as_of": "2002"
+            }
+          }
+        ]
+      }
+    },
+    "demonstrations": {
+      "gsp_not_truthful": {
+        "verdict": "PROVEN",
+        "summary": "With slot click volumes of 100 and 80 and values of $10, $6 and $2, the top bidder earns $400 by bidding its value and $640 by bidding $5. The deviation survives the one-cent increment ($399 vs $639.20) and survives quality weighting, because a common quality divisor rescales both sides of the comparison equally. GSP's payment rule ties your price to the bid below you, so buying a worse slot buys a cheaper price - the exact trade VCG closes and GSP leaves open.",
+        "consequence_for_the_other_claims": "GSP revenue is a band, not a number: [$440 lowest locally-envy-free equilibrium = VCG revenue, $760 naive truthful play], a 1.727x spread. Claims C2 and C3 are proven at equal bids; the equilibrium correction runs in the advertisers' favour, and any simulator that shows truthful bidding overstates GSP revenue by up to 73%.",
+        "examples": [
+          "ex-2-gsp-not-truthful",
+          "ex-3-gsp-equilibrium-band"
+        ],
+        "theory_sources": [
+          {
+            "name": "Edelman, Ostrovsky & Schwarz, 'Internet Advertising and the Generalized Second-Price Auction', American Economic Review 97(1):242-259 (2007)",
+            "url": "https://www.benedelman.org/publications/gsp-060801.pdf"
+          },
+          {
+            "name": "Hal R. Varian, 'Position Auctions', International Journal of Industrial Organization 25(6):1163-1178 (2007)",
+            "url": "https://people.ischool.berkeley.edu/~hal/papers/2006/position.pdf"
+          }
+        ]
+      },
+      "rgsp_coda": {
+        "verdict": "DEMONSTRATED for all three knobs; squashing's exponent is assumed because it has never been disclosed.",
+        "thesis": "By 2019 the mechanism was no longer doing the pricing. Three named knobs were, and each one moves price with quality, allocation and creative held fixed.",
+        "knobs": [
+          {
+            "knob": "squashing",
+            "internal_name": "Butternut Squash",
+            "what_it_does": "Ranks and prices on b * q^gamma with gamma < 1, compressing the quality dimension so the winner's price rises toward the runner-up's raw bid.",
+            "worked_result": "Markup = (q_next/q_own)^(gamma-1). At gamma = 0.95026 on a 0.03/0.08 quality gap the markup is exactly +5%, matching Dischler's disclosed average. At gamma = 0.5 on the ex-1 cast it restores the PURE-BID ranking - 18 clicks per 1000 impressions instead of 58 - while collecting 45.3% more total revenue than pure-bid ever did for that same worse allocation.",
+            "example": "ex-5-squashing",
+            "parameter_status": "assumed - not in the public record"
+          },
+          {
+            "knob": "format_pricing",
+            "what_it_does": "Applies a separate price multiplier to ad formats. No ranking change.",
+            "worked_result": "A 20% share of observed RPM implies a 25% uplift on the counterfactual base; at the disclosed +15% per launch with about half retained, three launches compound to +24.2%, so the disclosed share is roughly three launches deep. At 2008 revenue levels a 20% RPM knob is worth $4,226m - 42% of the entire US newspaper classified market that year.",
+            "example": "ex-6-format-pricing",
+            "parameter_status": "disclosed in the Mehta findings of fact"
+          },
+          {
+            "knob": "rgsp",
+            "what_it_does": "Randomises the ordering of similarly-scored ads so a lower-Ad-Rank ad can appear above a higher one, breaking the reliability of the bid-down-a-slot trade that makes shading profitable under plain GSP. Advertisers cannot opt out.",
+            "worked_result": "Disclosed +5.91% top-slot CPC on PC/tablet and +4.85% on mobile in pre-launch tests, 40-50% stickage, +5.74% revenue persisting two months post-launch. Placed against the ex-3 equilibrium band, +5.74% traverses only 7.9% of the distance from the lowest equilibrium to naive truthful play. The knob did not have to be big, because GSP's own band is 73% wide and the seller sits on it.",
+            "example": "ex-7-rgsp-inside-the-band",
+            "parameter_status": "magnitudes disclosed; the pricing rule itself is not public"
+          }
+        ],
+        "continuity_finding": "The knobs are not a break with the 2002-2008 mechanism. The reserve-price channel was already a direct seller-set price from August 2005 (quality-based minimum bids), and on a one-bidder query the reserve IS the price - see break-2, where moving the minimum bid from $0.01 to $1.00 changes revenue 100x with one advertiser, one ad and one user experience. What 2019 added was scale and a trial transcript.",
+        "open_tension": "The record says rGSP replaced format pricing because rGSP made more money, yet format pricing was ~20% of text-ads RPM while rGSP's disclosed persistent revenue effect was +5.74%. Either the 20% was not all incremental, or the two knobs were substitutes extracting the same surplus. The record as summarised does not resolve this and this analysis does not assert a resolution.",
+        "examples": [
+          "ex-5-squashing",
+          "ex-6-format-pricing",
+          "ex-7-rgsp-inside-the-band",
+          "break-2-reserve-is-a-posted-price"
+        ]
+      }
+    },
+    "examples": [
+      {
+        "id": "ex-1-quality-vs-pure-bid",
+        "claim": "C1 + C2 + C3: pure-bid ranking places lower-revenue ads above higher-revenue ads once clickthrough differs enough; quality-weighting raises TOTAL revenue and relevance together; and under GSP every winner pays less than its bid while total revenue still exceeds the pure-bid outcome.",
+        "illustrative": true,
+        "setup": {
+          "query": "one keyword, 1000 impressions, 2 ad slots",
+          "position_click_multipliers": {
+            "slot_1": 1.0,
+            "slot_2": 0.4
+          },
+          "bid_increment_usd": 0.01,
+          "reserve_usd": 0.01,
+          "advertisers": [
+            {
+              "name": "Aster Auto Cover",
+              "max_cpc_usd": 3.0,
+              "predicted_ctr": 0.01
+            },
+            {
+              "name": "Brindle Brokers",
+              "max_cpc_usd": 2.0,
+              "predicted_ctr": 0.02
+            },
+            {
+              "name": "Cedar Cover",
+              "max_cpc_usd": 1.0,
+              "predicted_ctr": 0.05
+            }
+          ],
+          "assumptions": [
+            "Predicted CTR equals true CTR (relaxed in break-1).",
+            "Position multipliers are separable from advertiser quality: expected clicks = impressions x position_multiplier x advertiser_ctr. This is the standard separable position-auction assumption and is what Google's own ranking arithmetic implies.",
+            "Bids are held fixed across designs so the ranking and pricing rules are the only thing that changes. Equilibrium bid response is handled separately in ex-2 and ex-3."
+          ]
+        },
+        "steps": [
+          {
+            "expr": "3.00*0.01",
+            "expected": 0.03,
+            "note": "AdRank Aster = bid x pCTR = expected revenue per impression"
+          },
+          {
+            "expr": "2.00*0.02",
+            "expected": 0.04,
+            "note": "AdRank Brindle"
+          },
+          {
+            "expr": "1.00*0.05",
+            "expected": 0.05,
+            "note": "AdRank Cedar"
+          },
+          {
+            "expr": "3.00/1.00",
+            "expected": 3.0,
+            "note": "bid ratio Aster:Cedar"
+          },
+          {
+            "expr": "0.05/0.01",
+            "expected": 5.0,
+            "note": "CTR ratio Cedar:Aster - misordering condition 1 < 3 < 5 holds"
+          },
+          {
+            "expr": "2.00+0.01",
+            "expected": 2.01,
+            "note": "PURE BID: Aster in slot 1 pays next bid + increment"
+          },
+          {
+            "expr": "1.00+0.01",
+            "expected": 1.01,
+            "note": "PURE BID: Brindle in slot 2 pays next bid + increment"
+          },
+          {
+            "expr": "1000*1.0*0.01",
+            "expected": 10.0,
+            "note": "PURE BID: Aster clicks"
+          },
+          {
+            "expr": "1000*0.4*0.02",
+            "expected": 8.0,
+            "note": "PURE BID: Brindle clicks"
+          },
+          {
+            "expr": "10*2.01",
+            "expected": 20.099999999999998,
+            "note": "PURE BID: Aster revenue"
+          },
+          {
+            "expr": "8*1.01",
+            "expected": 8.08,
+            "note": "PURE BID: Brindle revenue"
+          },
+          {
+            "expr": "10*2.01+8*1.01",
+            "expected": 28.18,
+            "note": "PURE BID: total revenue per 1000 impressions"
+          },
+          {
+            "expr": "10+8",
+            "expected": 18,
+            "note": "PURE BID: total clicks delivered - the relevance metric"
+          },
+          {
+            "expr": "0.04/0.05+0.01",
+            "expected": 0.8099999999999999,
+            "note": "GSP: Cedar in slot 1 pays next AdRank / own quality + increment"
+          },
+          {
+            "expr": "0.03/0.02+0.01",
+            "expected": 1.51,
+            "note": "GSP: Brindle in slot 2 pays next AdRank / own quality + increment"
+          },
+          {
+            "expr": "1000*1.0*0.05",
+            "expected": 50.0,
+            "note": "GSP: Cedar clicks"
+          },
+          {
+            "expr": "1000*0.4*0.02",
+            "expected": 8.0,
+            "note": "GSP: Brindle clicks"
+          },
+          {
+            "expr": "50*0.81",
+            "expected": 40.5,
+            "note": "GSP: Cedar revenue"
+          },
+          {
+            "expr": "8*1.51",
+            "expected": 12.08,
+            "note": "GSP: Brindle revenue"
+          },
+          {
+            "expr": "50*0.81+8*1.51",
+            "expected": 52.58,
+            "note": "GSP: total revenue per 1000 impressions"
+          },
+          {
+            "expr": "50+8",
+            "expected": 58,
+            "note": "GSP: total clicks delivered"
+          },
+          {
+            "expr": "(50*0.81+8*1.51)/(10*2.01+8*1.01)",
+            "expected": 1.865862313697658,
+            "note": "revenue ratio GSP:pure-bid = 1.866x"
+          },
+          {
+            "expr": "(50+8)/(10+8)",
+            "expected": 3.2222222222222223,
+            "note": "click ratio GSP:pure-bid = 3.222x"
+          },
+          {
+            "expr": "(50*0.81+8*1.51)/(50+8)",
+            "expected": 0.9065517241379311,
+            "note": "GSP average price per click"
+          },
+          {
+            "expr": "(10*2.01+8*1.01)/(10+8)",
+            "expected": 1.5655555555555556,
+            "note": "pure-bid average price per click"
+          },
+          {
+            "expr": "((50*0.81+8*1.51)/(50+8))/((10*2.01+8*1.01)/(10+8))",
+            "expected": 0.5790607180441008,
+            "note": "GSP charges 42% LESS per click than pure-bid"
+          },
+          {
+            "expr": "1.00-0.81",
+            "expected": 0.18999999999999995,
+            "note": "C3: Cedar's per-click discount below its own bid"
+          },
+          {
+            "expr": "2.00-1.51",
+            "expected": 0.49,
+            "note": "C3: Brindle's per-click discount below its own bid"
+          },
+          {
+            "expr": "50*1.00+8*2.00",
+            "expected": 66.0,
+            "note": "C3: what the same winners would pay at first price on the same bids"
+          },
+          {
+            "expr": "(50*0.81+8*1.51)/(50*1.00+8*2.00)",
+            "expected": 0.7966666666666666,
+            "note": "GSP collects 79.7% of the pay-your-bid amount and still beats pure-bid by 87%"
+          }
+        ],
+        "conclusion": "C1 PROVEN, with an exact condition. Pure-bid ranks Aster > Brindle > Cedar; expected-revenue ranking is the exact reverse, Cedar > Brindle > Aster. The general condition is that pure-bid mis-orders i above j if and only if 1 < b_i/b_j < q_j/q_i - here 1 < 3 < 5. C2 PROVEN on both metrics simultaneously: revenue per 1000 impressions rises from $28.18 to $52.58 (+86.6%) and clicks delivered rise from 18 to 58 (+222%). C3 PROVEN: Cedar pays $0.81 against a $1.00 bid and Brindle $1.51 against a $2.00 bid, yet total revenue is 1.87x the pure-bid total. The mechanism of the gain is volume, not price: average price per click FALLS 42%, from $1.57 to $0.91.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-discounter-001",
+              "statement": "Google's own AdWords Discounter example: maximum bids of $1.00, $0.60 and $0.50 per click produce prices of $0.61, $0.51 and $0.01 (the minimum bid) - the winner pays one cent above the next bid, not its own bid, and the last slot pays the seller's reserve.",
+              "central": 0.61,
+              "unit": "USD paid per click by the top advertiser bidding $1.00 against a $0.60 next bid",
+              "ci80": [
+                0.61,
+                0.61
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                }
+              ],
+              "as_of": "2008"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-overture-001",
+              "statement": "Overture's pure-bid auction ranked listings by bid alone and gated entry: all new US advertisers had to commit to a minimum bid of 10 cents per listing and a $20 minimum monthly spend, with human editorial review of every listing. Its realised average price per paid click was $0.31 in 2002, up from $0.20 in 2001.",
+              "central": 0.31,
+              "unit": "USD average realised price per paid introduction (click), Overture FY2002",
+              "ci80": [
+                0.31,
+                0.31
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Overture Services, Inc., Form 10-K FY2002",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+                }
+              ],
+              "as_of": "2002"
+            }
+          }
+        ]
+      },
+      {
+        "id": "break-1-ctr-misestimation",
+        "claim": "BREAK on C2: the revenue and relevance gains from quality-weighting are entirely a function of the accuracy of a click-through estimate that only the seller computes and no third party audited during the era.",
+        "illustrative": true,
+        "setup": {
+          "change_from_ex_1": "Cedar Cover's PREDICTED CTR stays at 5% (so the ranking and the prices are unchanged) but its TRUE CTR is 1%. Everything else is identical to ex-1.",
+          "assumptions": [
+            "Ranking and pricing use predicted CTR; realised revenue uses true CTR. Pure-bid revenue is unaffected because Aster's and Brindle's CTRs are unchanged."
+          ]
+        },
+        "steps": [
+          {
+            "expr": "1000*1.0*0.01",
+            "expected": 10.0,
+            "note": "Cedar's actual clicks in slot 1 at a true 1% CTR"
+          },
+          {
+            "expr": "10*0.81",
+            "expected": 8.100000000000001,
+            "note": "Cedar's actual revenue"
+          },
+          {
+            "expr": "10*0.81+8*1.51",
+            "expected": 20.18,
+            "note": "quality-weighted total revenue with the bad estimate"
+          },
+          {
+            "expr": "(10*0.81+8*1.51)/(10*2.01+8*1.01)",
+            "expected": 0.71611071682044,
+            "note": "now only 72% of the pure-bid outcome"
+          },
+          {
+            "expr": "((10*2.01+8*1.01)-8*1.51)/(1000*1.0*0.81)",
+            "expected": 0.019876543209876547,
+            "note": "break-even true CTR for Cedar: 1.99%"
+          },
+          {
+            "expr": "0.05/0.019876543209876543",
+            "expected": 2.515527950310559,
+            "note": "the estimate may overstate true CTR by no more than 2.52x before quality-weighting loses to pure-bid"
+          }
+        ],
+        "conclusion": "BOUNDED. Quality-weighting beats pure-bid in this example only while Cedar's true CTR exceeds 1.99% - i.e. while the predicted 5% overstates the truth by less than 2.52x. Below that the 'better' mechanism earns less than the crude one. Because the seller alone produced the estimate, ran the auction, validated the click and billed the log, and because no independent click-measurement standard existed until 2009, this parameter was never externally checkable in period. Quality-weighting is not a free lunch; it is a bet on the seller's own forecast.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-audit-001",
+              "statement": "No independent audit standard for search click counting existed during the deployed-auction era: the IAB Click Measurement Working Group convened in late 2005 and the Click Measurement Guidelines - the first industry definition of a valid click - were not published until 2009, and there was no Media Rating Council accreditation of search click counting in period. The seller estimated the quality weight, ran the auction, validated the click and billed against its own log.",
+              "central": 2009,
+              "unit": "year the first industry click-measurement standard was published (era ran 2002-2008)",
+              "ci80": [
+                2009,
+                2009
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "IAB, Click Measurement Guidelines (2009)",
+                  "url": "https://www.iab.com/wp-content/uploads/2015/06/click-measurement-guidelines2009.pdf"
+                }
+              ],
+              "as_of": "2009"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-quality_score-001",
+              "statement": "From August 2005 each AdWords keyword carried a dynamic minimum bid set by its Quality Score (click-through rate, ad-text relevance, historical keyword performance, landing-page quality), so measured relevance became a seller-set price floor as well as a ranking weight.",
+              "central": 2005.62,
+              "unit": "year (2005-08), introduction of quality-based minimum bids",
+              "ci80": [
+                2005.5,
+                2005.7
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                },
+                {
+                  "name": "Google Inside AdWords blog, 'A new addition to the Quality Score' (Dec 2005)",
+                  "url": "https://adwords.googleblog.com/2005/12/new-addition-to-quality-score.html"
+                }
+              ],
+              "as_of": "2005-08"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ex-2-gsp-not-truthful",
+        "claim": "C4: GSP is NOT truthful. Bidding below value strictly beats bidding value.",
+        "illustrative": true,
+        "setup": {
+          "structure": "2 slots, 3 bidders, equal quality (q = 1 for all, so quality-weighting is neutral and only the payment rule is under test).",
+          "slot_clicks": {
+            "slot_1": 100,
+            "slot_2": 80
+          },
+          "bidders": [
+            {
+              "name": "Vale",
+              "value_per_click_usd": 10
+            },
+            {
+              "name": "Wren",
+              "value_per_click_usd": 6
+            },
+            {
+              "name": "Yarrow",
+              "value_per_click_usd": 2
+            }
+          ],
+          "assumptions": [
+            "Complete information, as in the standard textbook treatment (Edelman-Ostrovsky-Schwarz 2007; Varian 2007).",
+            "Increment set to zero in the headline arithmetic; the one-cent version is computed to show it changes nothing.",
+            "Setting q = 1 is deliberate: quality-weighting does not restore truthfulness, because dividing every bid and price by a fixed quality term leaves the deviation's sign unchanged."
+          ]
+        },
+        "steps": [
+          {
+            "expr": "100*(10-6)",
+            "expected": 400,
+            "note": "Vale bids its value 10, wins slot 1, pays Wren's bid 6"
+          },
+          {
+            "expr": "80*(10-2)",
+            "expected": 640,
+            "note": "Vale instead bids 5, drops to slot 2, pays Yarrow's bid 2"
+          },
+          {
+            "expr": "80*(10-2)-100*(10-6)",
+            "expected": 240,
+            "note": "the shading deviation is worth +$240 to Vale, a 60% payoff gain"
+          },
+          {
+            "expr": "100*(10-6.01)",
+            "expected": 399.0,
+            "note": "same test with Google's one-cent increment: truthful payoff"
+          },
+          {
+            "expr": "80*(10-2.01)",
+            "expected": 639.2,
+            "note": "same test with the increment: deviation payoff - still strictly better"
+          },
+          {
+            "expr": "100*6+80*2",
+            "expected": 760,
+            "note": "SELLER: revenue if everyone bids truthfully"
+          },
+          {
+            "expr": "100*5+80*2",
+            "expected": 660,
+            "note": "SELLER: revenue after Vale's profitable deviation"
+          },
+          {
+            "expr": "(100*6+80*2)-(100*5+80*2)",
+            "expected": 100,
+            "note": "the seller loses $100 to one bidder playing correctly"
+          },
+          {
+            "expr": "((100*6+80*2)-(100*5+80*2))/(100*6+80*2)",
+            "expected": 0.13157894736842105,
+            "note": "13.2% of revenue"
+          },
+          {
+            "expr": "(100-80)*6+80*2",
+            "expected": 280,
+            "note": "VCG payment by Vale = the externality it imposes on Wren and Yarrow"
+          },
+          {
+            "expr": "((100-80)*6+80*2)/100",
+            "expected": 2.8,
+            "note": "VCG price per click for slot 1"
+          },
+          {
+            "expr": "80*2",
+            "expected": 160,
+            "note": "VCG payment by Wren"
+          },
+          {
+            "expr": "(100-80)*6+80*2+80*2",
+            "expected": 440,
+            "note": "VCG total revenue - and under VCG truthful bidding is dominant"
+          },
+          {
+            "expr": "100*10-((100-80)*6+80*2)",
+            "expected": 720,
+            "note": "Vale's VCG payoff of $720 exceeds even its best GSP deviation of $640"
+          }
+        ],
+        "conclusion": "C4 PROVEN. Truthful bidding earns Vale $400; bidding $5 - well below its $10 value - earns $640. The deviation survives the one-cent increment ($399 vs $639.20) and survives quality-weighting, because a common quality divisor rescales both sides equally. GSP is a second-price auction only in its arithmetic, not in its incentives: the price a winner pays is set by the bid below it, so buying a lower slot buys a lower price, and that is exactly the trade GSP leaves open and VCG closes.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-discounter-001",
+              "statement": "Google's own AdWords Discounter example: maximum bids of $1.00, $0.60 and $0.50 per click produce prices of $0.61, $0.51 and $0.01 (the minimum bid) - the winner pays one cent above the next bid, not its own bid, and the last slot pays the seller's reserve.",
+              "central": 0.61,
+              "unit": "USD paid per click by the top advertiser bidding $1.00 against a $0.60 next bid",
+              "ci80": [
+                0.61,
+                0.61
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                }
+              ],
+              "as_of": "2008"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ex-3-gsp-equilibrium-band",
+        "claim": "C4 corollary: because GSP is not truthful, its revenue is not a number but a band. The naive-truthful figure a simulator would display is the ceiling, not the equilibrium.",
+        "illustrative": true,
+        "setup": {
+          "structure": "Same cast and slots as ex-2. We compute the LOWEST symmetric / locally-envy-free equilibrium of GSP using the standard recursion alpha_j * p_j = alpha_(j+1) * p_(j+1) + (alpha_j - alpha_(j+1)) * v_(j+1).",
+          "assumptions": [
+            "Varian (2007) symmetric Nash equilibrium / Edelman-Ostrovsky-Schwarz (2007) locally envy-free equilibrium. The equilibria form a lattice; the lowest one is revenue-equivalent to VCG, and any locally envy-free equilibrium yields at least VCG revenue."
+          ]
+        },
+        "steps": [
+          {
+            "expr": "(80*2)/80",
+            "expected": 2.0,
+            "note": "lowest-equilibrium price per click in slot 2"
+          },
+          {
+            "expr": "(80*2.0+(100-80)*6)/100",
+            "expected": 2.8,
+            "note": "lowest-equilibrium price per click in slot 1"
+          },
+          {
+            "expr": "100*2.8+80*2.0",
+            "expected": 440.0,
+            "note": "lowest-equilibrium GSP revenue"
+          },
+          {
+            "expr": "(100-80)*6+80*2+80*2",
+            "expected": 440,
+            "note": "VCG revenue - identical, as the theory predicts"
+          },
+          {
+            "expr": "80*(6-2.0)",
+            "expected": 320.0,
+            "note": "equilibrium check: Wren's payoff in slot 2"
+          },
+          {
+            "expr": "100*(6-2.8)",
+            "expected": 320.0,
+            "note": "equilibrium check: Wren's payoff if it took slot 1 at that price - exactly equal, so no envy"
+          },
+          {
+            "expr": "100*(10-2.8)",
+            "expected": 720.0,
+            "note": "equilibrium check: Vale's payoff in slot 1"
+          },
+          {
+            "expr": "80*(10-2.0)",
+            "expected": 640.0,
+            "note": "equilibrium check: Vale's payoff if it dropped to slot 2 - lower, so Vale stays"
+          },
+          {
+            "expr": "(100*6+80*2)/(100*2.8+80*2.0)",
+            "expected": 1.7272727272727273,
+            "note": "the GSP revenue band is 1.727x wide: $440 at the bottom equilibrium, $760 at naive truthful play"
+          }
+        ],
+        "conclusion": "BOUNDED, and this is the single most important caveat on C2 and C3. GSP revenue in this example is anywhere in [$440, $760] depending on how well bidders play - a 73% band. Naive advertisers who bid their value hand the seller the top of the band; sophisticated ones (or the bid-management shops that grew up in this era) push toward the bottom. Any comparison of GSP against pure-bid that holds bids fixed - including ex-1 - therefore measures the mechanism at a point the bidders choose, not at a point the mechanism determines. The honest statement of C2/C3 is 'at equal bids', and the equilibrium correction runs in the advertisers' favour.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-overture-002",
+              "statement": "The pure-bid auction was not failing commercially when the quality-weighted auction arrived: Overture booked $667.7m of revenue in 2002 against Google's $439.5m of total revenue, and was the paid-search revenue leader entering the era.",
+              "central": 667.7,
+              "unit": "USD millions, Overture revenue FY2002",
+              "ci80": [
+                667.7,
+                667.7
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Overture Services, Inc., Form 10-K FY2002",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+                },
+                {
+                  "name": "Google Inc., Form 10-K FY2004 (2002 revenue table)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+                }
+              ],
+              "as_of": "2002"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ex-4-first-price-shading-panel",
+        "claim": "C5: first-price with rational bid shading converges to the same expected revenue as second-price - exactly, for every number of bidders, in the symmetric benchmark.",
+        "illustrative": true,
+        "setup": {
+          "structure": "One slot. n bidders, values drawn independently and uniformly on [$0, $10]. Second-price/GSP: truthful bidding is dominant, revenue = the second-highest value. First-price: the symmetric equilibrium bid is b(v) = v*(n-1)/n, revenue = the winning bid.",
+          "order_statistics": "For n iid uniform draws on [0, V], E[k-th highest] = V*(n+1-k)/(n+1). So E[max] = V*n/(n+1) and E[2nd] = V*(n-1)/(n+1).",
+          "assumptions": [
+            "Independent private values, symmetric bidders, risk neutrality, no reserve. These are exactly the conditions of the revenue-equivalence theorem, and each one is a place the result can break - see break-3.",
+            "One slot rather than two, so the arithmetic is closed-form. The position-auction version has the same qualitative answer via the equilibrium band in ex-3."
+          ]
+        },
+        "steps": [
+          {
+            "expr": "10*(2-1)/(2+1)",
+            "expected": 3.3333333333333335,
+            "note": "n=2: second-price expected revenue"
+          },
+          {
+            "expr": "(10*2/(2+1))*((2-1)/2)",
+            "expected": 3.3333333333333335,
+            "note": "n=2: first-price expected revenue at the equilibrium shading factor 1/2"
+          },
+          {
+            "expr": "10*(3-1)/(3+1)",
+            "expected": 5.0,
+            "note": "n=3: second-price expected revenue"
+          },
+          {
+            "expr": "(10*3/(3+1))*((3-1)/3)",
+            "expected": 5.0,
+            "note": "n=3: first-price expected revenue at shading factor 2/3"
+          },
+          {
+            "expr": "10*(5-1)/(5+1)",
+            "expected": 6.666666666666667,
+            "note": "n=5: second-price expected revenue"
+          },
+          {
+            "expr": "(10*5/(5+1))*((5-1)/5)",
+            "expected": 6.666666666666668,
+            "note": "n=5: first-price expected revenue at shading factor 4/5"
+          },
+          {
+            "expr": "10*(10-1)/(10+1)",
+            "expected": 8.181818181818182,
+            "note": "n=10: second-price expected revenue"
+          },
+          {
+            "expr": "(10*10/(10+1))*((10-1)/10)",
+            "expected": 8.181818181818183,
+            "note": "n=10: first-price expected revenue at shading factor 9/10"
+          },
+          {
+            "expr": "(10*3/(3+1))*((3-1)/3)-10*(3-1)/(3+1)",
+            "expected": 0.0,
+            "note": "the difference is exactly zero"
+          },
+          {
+            "expr": "7.5*0.60",
+            "expected": 4.5,
+            "note": "SENSITIVITY: if the market over-shades to 0.60 instead of 0.6667 (n=3)"
+          },
+          {
+            "expr": "(7.5*0.60)/5.0",
+            "expected": 0.9,
+            "note": "the seller loses 10% - revenue is linear in the shading factor"
+          },
+          {
+            "expr": "7.5*0.7333333333333333",
+            "expected": 5.5,
+            "note": "if the market under-shades to 0.7333"
+          },
+          {
+            "expr": "(7.5*0.7333333333333333)/5.0",
+            "expected": 1.1,
+            "note": "the seller gains 10%"
+          },
+          {
+            "expr": "0.61+0.51+0.01",
+            "expected": 1.1300000000000001,
+            "note": "THE NAIVE ERROR: Google's own 10-K example, total collected under the discounter"
+          },
+          {
+            "expr": "1.00+0.60+0.50",
+            "expected": 2.1,
+            "note": "the same bids under pay-your-bid, if nobody re-bid"
+          },
+          {
+            "expr": "(1.00+0.60+0.50)/(0.61+0.51+0.01)",
+            "expected": 1.8584070796460175,
+            "note": "which looks like an 86% revenue windfall for first price"
+          },
+          {
+            "expr": "(0.61+0.51+0.01)/(1.00+0.60+0.50)",
+            "expected": 0.5380952380952382,
+            "note": "and is entirely an artefact of holding bids fixed: shading each bidder down to what it paid under the discounter returns the seller to $1.13"
+          }
+        ],
+        "conclusion": "C5 PROVEN in the benchmark and BOUNDED outside it. First-price revenue with equilibrium shading equals second-price revenue exactly, for n = 2, 3, 5 and 10 - the algebra collapses to V*(n-1)/(n+1) in both cases. The switch is therefore not a yield mechanism. What the switch does move is who computes the price: under second-price the seller's runner-up sets it, under first-price the buyer's shading model sets it, which is why the 2019 change was fought over on transparency grounds. The seller's exposure is linear in the market's average shading factor: a market shading 10% too hard pays the seller 10% less.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-first_price-001",
+              "statement": "Google Ad Manager - the open-web DISPLAY exchange, not search - completed its move to a unified first-price auction from 5 September 2019, folding publisher floors into unified pricing rules. Google's stated rationale was a fair and transparent marketplace under header-bidding competition, and it reported that testing showed first-price auctions have a 'neutral to positive impact on a publisher's total revenue'.",
+              "central": 2019.68,
+              "unit": "year (2019-09-05), Google Ad Manager unified first-price rollout",
+              "ci80": [
+                2019.68,
+                2019.68
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Google Ad Manager blog, 'Rolling out first price auctions to Google Ad Manager partners' (Sep 5, 2019)",
+                  "url": "https://blog.google/products/admanager/rolling-out-first-price-auctions-google-ad-manager-partners/"
+                },
+                {
+                  "name": "Google Ad Manager blog, 'Simplifying programmatic: first price auctions for Google Ad Manager' (Mar 2019)",
+                  "url": "https://blog.google/products/admanager/simplifying-programmatic-first-price-auctions-google-ad-manager/"
+                }
+              ],
+              "as_of": "2019-09-05"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-discounter-001",
+              "statement": "Google's own AdWords Discounter example: maximum bids of $1.00, $0.60 and $0.50 per click produce prices of $0.61, $0.51 and $0.01 (the minimum bid) - the winner pays one cent above the next bid, not its own bid, and the last slot pays the seller's reserve.",
+              "central": 0.61,
+              "unit": "USD paid per click by the top advertiser bidding $1.00 against a $0.60 next bid",
+              "ci80": [
+                0.61,
+                0.61
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                }
+              ],
+              "as_of": "2008"
+            }
+          }
+        ]
+      },
+      {
+        "id": "break-3-revenue-equivalence-fails",
+        "claim": "BREAK on C5: revenue equivalence is a theorem about a benchmark, and the deployed display market violated three of its conditions.",
+        "illustrative": true,
+        "setup": {
+          "conditions_and_violations": [
+            "SYMMETRY. Buyers had asymmetric data and asymmetric shading models. Under first price the better shader wins more often at a lower price; under second price the price is set by the runner-up regardless of who shades better. Asymmetry breaks revenue equivalence in both directions and its sign is an empirical question, not a theorem.",
+            "AN HONEST SECOND PRICE. Header bidding (2014-15) put the exchange's second-price result in direct comparison with first-price header bids, and the exchange operator was also the publisher's ad server. If the party computing the second price also intermediates the auction, 'second price' is not observable to the publisher; a first price is.",
+            "A FIXED RESERVE. Unified pricing rules changed floors at the same time as the pricing rule, so the 2019 change was two changes at once and the pricing-rule effect cannot be isolated from the floor effect in publisher revenue data."
+          ],
+          "assumptions": [
+            "Illustrative sensitivity only; no calibrated estimate of the 2019 revenue effect is asserted here beyond Google's own reported 'neutral to positive' finding."
+          ]
+        },
+        "steps": [
+          {
+            "expr": "(7.5*0.6666666666666666)/5.0",
+            "expected": 1.0,
+            "note": "at equilibrium shading the ratio is exactly 1.00"
+          },
+          {
+            "expr": "(7.5*0.55)/5.0",
+            "expected": 0.825,
+            "note": "a market shading at 0.55 hands the seller 17.5% less than second price"
+          },
+          {
+            "expr": "(7.5*0.80)/5.0",
+            "expected": 1.2,
+            "note": "a market shading at 0.80 hands the seller 20% more"
+          },
+          {
+            "expr": "(0.80-0.55)/0.6666666666666666",
+            "expected": 0.375,
+            "note": "so the whole revenue question sits inside a 37.5-point spread in one behavioural parameter the seller does not control"
+          }
+        ],
+        "conclusion": "BOUNDED. C5's 'converges toward similar expected revenue' holds exactly under symmetry, IPV, risk neutrality and a common reserve, and is otherwise a claim about where the market's shading models happen to sit. The defensible version of C5 is the negative one, and it is strong: nothing in the first-price rule mechanically raises yield, so a yield-magic explanation of 2019 has no mechanism behind it, while the transparency and header-bidding explanations have both a documented motive and Google's own 'neutral to positive' revenue finding.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-first_price-001",
+              "statement": "Google Ad Manager - the open-web DISPLAY exchange, not search - completed its move to a unified first-price auction from 5 September 2019, folding publisher floors into unified pricing rules. Google's stated rationale was a fair and transparent marketplace under header-bidding competition, and it reported that testing showed first-price auctions have a 'neutral to positive impact on a publisher's total revenue'.",
+              "central": 2019.68,
+              "unit": "year (2019-09-05), Google Ad Manager unified first-price rollout",
+              "ci80": [
+                2019.68,
+                2019.68
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Google Ad Manager blog, 'Rolling out first price auctions to Google Ad Manager partners' (Sep 5, 2019)",
+                  "url": "https://blog.google/products/admanager/rolling-out-first-price-auctions-google-ad-manager-partners/"
+                },
+                {
+                  "name": "Google Ad Manager blog, 'Simplifying programmatic: first price auctions for Google Ad Manager' (Mar 2019)",
+                  "url": "https://blog.google/products/admanager/simplifying-programmatic-first-price-auctions-google-ad-manager/"
+                }
+              ],
+              "as_of": "2019-09-05"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ex-5-squashing",
+        "claim": "C6a: squashing raises the price with the allocation, the ad copy and the user experience held constant - and at a heavy setting it also destroys the relevance gain that justified quality-weighting in the first place.",
+        "illustrative": true,
+        "setup": {
+          "rule": "Rank by b * q^gamma instead of b * q, and price the winner at the runner-up's squashed score divided by the winner's own squashed quality: p = b_next * (q_next/q_own)^gamma. gamma = 1 is textbook AdRank. gamma < 1 compresses the quality dimension, which raises the winner's price toward the runner-up's raw bid whenever the winner is the higher-quality ad.",
+          "part_a_cast": [
+            {
+              "name": "Delta Direct",
+              "max_cpc_usd": 2.0,
+              "predicted_ctr": 0.08
+            },
+            {
+              "name": "Ember Group",
+              "max_cpc_usd": 2.5,
+              "predicted_ctr": 0.03
+            }
+          ],
+          "part_b_cast": "the same three advertisers as ex-1",
+          "assumptions": [
+            "gamma is an ASSUMED parameter. Squashing is named in the DOJ findings of fact; its exponent has never been disclosed. gamma = 0.5 is used to make the mechanism legible, and a gamma calibrated to the disclosed ~5% price effect is computed alongside it.",
+            "Prices are capped at the advertiser's own max CPC, as in the deployed product. No cap binds in either part."
+          ]
+        },
+        "steps": [
+          {
+            "expr": "2.00*0.08",
+            "expected": 0.16,
+            "note": "PART A, gamma=1: Delta's AdRank"
+          },
+          {
+            "expr": "2.50*0.03",
+            "expected": 0.075,
+            "note": "PART A, gamma=1: Ember's AdRank - Delta wins"
+          },
+          {
+            "expr": "(2.50*0.03)/0.08",
+            "expected": 0.9375,
+            "note": "PART A, gamma=1: Delta's price per click"
+          },
+          {
+            "expr": "2.00*(0.08**0.5)",
+            "expected": 0.565685424949238,
+            "note": "PART A, gamma=0.5: Delta's squashed score"
+          },
+          {
+            "expr": "2.50*(0.03**0.5)",
+            "expected": 0.4330127018922193,
+            "note": "PART A, gamma=0.5: Ember's squashed score - Delta still wins, allocation unchanged"
+          },
+          {
+            "expr": "2.50*(0.03**0.5)/(0.08**0.5)",
+            "expected": 1.5309310892394863,
+            "note": "PART A, gamma=0.5: Delta's price per click"
+          },
+          {
+            "expr": "(2.50*(0.03**0.5)/(0.08**0.5))/((2.50*0.03)/0.08)",
+            "expected": 1.632993161855452,
+            "note": "the same ad, in the same slot, for the same user, costs 63.3% more"
+          },
+          {
+            "expr": "(0.03/0.08)**(0.5-1)",
+            "expected": 1.632993161855452,
+            "note": "closed form: the markup is exactly (q_next/q_own)^(gamma-1)"
+          },
+          {
+            "expr": "0.08*((2.50*0.03)/0.08)*1000",
+            "expected": 75.0,
+            "note": "revenue per 1000 impressions at gamma=1"
+          },
+          {
+            "expr": "0.08*(2.50*(0.03**0.5)/(0.08**0.5))*1000",
+            "expected": 122.4744871391589,
+            "note": "revenue per 1000 impressions at gamma=0.5"
+          },
+          {
+            "expr": "0.08*(2.50*(0.03**0.5)/(0.08**0.5))*1000-0.08*((2.50*0.03)/0.08)*1000",
+            "expected": 47.474487139158896,
+            "note": "+$47.47 per 1000 impressions from a parameter change alone"
+          },
+          {
+            "expr": "(0.03/0.08)**(0.9502562102225057-1)",
+            "expected": 1.05,
+            "note": "CALIBRATED SETTING: gamma = 0.95026 delivers exactly the +5% Dischler described, on this quality gap"
+          },
+          {
+            "expr": "3.00*(0.01**0.5)",
+            "expected": 0.30000000000000004,
+            "note": "PART B, gamma=0.5 on the ex-1 cast: Aster's squashed score"
+          },
+          {
+            "expr": "2.00*(0.02**0.5)",
+            "expected": 0.282842712474619,
+            "note": "PART B: Brindle's squashed score"
+          },
+          {
+            "expr": "1.00*(0.05**0.5)",
+            "expected": 0.22360679774997896,
+            "note": "PART B: Cedar's squashed score - the ranking has flipped back to the PURE-BID order"
+          },
+          {
+            "expr": "2.00*(0.02**0.5)/(0.01**0.5)",
+            "expected": 2.82842712474619,
+            "note": "PART B: Aster's price in slot 1 (below its $3.00 bid, so no cap binds)"
+          },
+          {
+            "expr": "1.00*(0.05**0.5)/(0.02**0.5)",
+            "expected": 1.5811388300841895,
+            "note": "PART B: Brindle's price in slot 2"
+          },
+          {
+            "expr": "10*(2.00*(0.02**0.5)/(0.01**0.5))+8*(1.00*(0.05**0.5)/(0.02**0.5))",
+            "expected": 40.933381888135415,
+            "note": "PART B: total revenue per 1000 impressions"
+          },
+          {
+            "expr": "(10*(2.00*(0.02**0.5)/(0.01**0.5))+8*(1.00*(0.05**0.5)/(0.02**0.5)))/(10*2.01+8*1.01)",
+            "expected": 1.4525685552922432,
+            "note": "45.3% more revenue than pure-bid"
+          },
+          {
+            "expr": "(10*(2.00*(0.02**0.5)/(0.01**0.5))+8*(1.00*(0.05**0.5)/(0.02**0.5)))/(50*0.81+8*1.51)",
+            "expected": 0.7784971831140246,
+            "note": "but only 78% of what full quality-weighting earned"
+          },
+          {
+            "expr": "10+8",
+            "expected": 18,
+            "note": "PART B: clicks delivered - back to the pure-bid 18, down from 58"
+          }
+        ],
+        "conclusion": "C6a DEMONSTRATED, with the parameter flagged as assumed. Squashing is a continuous dial between the two designs this analysis compares. At gamma = 0.95026 it raises the winner's price by exactly the ~5% Google's ads VP described, on an unchanged allocation. At gamma = 0.5 it does something sharper: on the ex-1 cast it restores the PURE-BID ranking - 18 clicks instead of 58 - while collecting 45.3% more revenue than pure-bid ever did for that same worse allocation. That is the cleanest available statement of the coda's thesis: the knob raises price and lowers relevance, moving opposite to the 2002 design on both metrics at once.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-knobs-001",
+              "statement": "Three pricing knobs are named in the Mehta opinion's findings of fact - squashing (launched internally as 'Butternut Squash'), format pricing, and rGSP - all operating on the search text-ads auction and all described internally as 'intentional pricing'. The numeric parameter of squashing (the exponent applied to predicted click-through rate) has never been publicly disclosed, so its price effect cannot be reproduced from the record.",
+              "central": 3,
+              "unit": "pricing knobs named in the DOJ search-trial findings of fact",
+              "ci80": [
+                3,
+                3
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024), FOF paras 245-255",
+                  "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+                },
+                {
+                  "name": "Search Engine Land, 'How Google harms search advertisers in 20 slides' (DOJ trial exhibits on squashing, format pricing, intentional pricing)",
+                  "url": "https://searchengineland.com/doj-google-search-ad-price-manipulation-440207"
+                }
+              ],
+              "as_of": "2024-08-05"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-tuning-001",
+              "statement": "Google adjusted search ad auction and reserve prices to meet quarterly revenue targets without disclosing the changes to advertisers; its VP of ads, Jerry Dischler, testified that the 'tunings' raised prices by as much as about 5% on average and allowed that a 10% increase was possible in some instances.",
+              "central": 5,
+              "unit": "percent average price change from Google auction 'tunings'",
+              "ci80": [
+                2,
+                10
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Search Engine Land, 'Google quietly increases ad prices to meet targets, claims exec' (Dischler testimony, 2023-09-18)",
+                  "url": "https://searchengineland.com/google-quietly-increases-ad-prices-targets-432155"
+                },
+                {
+                  "name": "Bloomberg, 'Google Tweaks Ad Auctions to Hit Revenue Targets, Executive Says' (2023-09-18)",
+                  "url": "https://www.bloomberg.com/news/articles/2023-09-18/google-tweaks-ad-auctions-to-hit-revenue-targets-executive-says"
+                }
+              ],
+              "as_of": "2023-09-18"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ex-6-format-pricing",
+        "claim": "C6b: format pricing compounds small undisclosed uplifts into a fifth of search text-ads yield, with no change to the ranking rule.",
+        "illustrative": false,
+        "setup": {
+          "disclosed": "Format pricing had grown to about 20% of general search text-ads revenue per thousand queries before rGSP replaced it; format-price experiments launched at about +15% and retained roughly half the gain long term (Mehta opinion, FOF 245, 251-254).",
+          "derivation": "If format pricing accounts for 20% of observed RPM, the counterfactual RPM without it is 80% of observed, so the uplift ON THE BASE is 20/80 = 25%. If each launch adds 15% and half sticks, each launch durably multiplies RPM by 1.075.",
+          "assumptions": [
+            "Uplifts compound multiplicatively and independently across launches. If launches cannibalise each other the required count rises; this is a floor on the number of launches, not a point estimate.",
+            "'About half' of the 15% is taken as exactly 50%, matching the 40-50% stickage band disclosed for rGSP."
+          ]
+        },
+        "steps": [
+          {
+            "expr": "100*(1-0.20)",
+            "expected": 80.0,
+            "note": "counterfactual RPM index without format pricing, observed RPM indexed to 100"
+          },
+          {
+            "expr": "(100-100*(1-0.20))/(100*(1-0.20))",
+            "expected": 0.25,
+            "note": "uplift on the base = 25%"
+          },
+          {
+            "expr": "0.15*0.5",
+            "expected": 0.075,
+            "note": "durable uplift retained per format-price launch"
+          },
+          {
+            "expr": "1.075**3",
+            "expected": 1.2422968749999999,
+            "note": "three launches compound to +24.2%"
+          },
+          {
+            "expr": "1.075**4",
+            "expected": 1.3354691406249999,
+            "note": "four launches compound to +33.5%"
+          },
+          {
+            "expr": "(1.075**3)/(1+((100-100*(1-0.20))/(100*(1-0.20))))",
+            "expected": 0.9938374999999999,
+            "note": "three launches reach 99.4% of the disclosed 25% - so the disclosed share is roughly three launches deep"
+          },
+          {
+            "expr": "21128.5*0.20",
+            "expected": 4225.7,
+            "note": "scale check: 20% of Google's 2008 advertising revenue, if the same share had applied then"
+          },
+          {
+            "expr": "21128.5*0.20/9975.0",
+            "expected": 0.42362907268170424,
+            "note": "which is 42% of the entire US newspaper classified market in 2008"
+          }
+        ],
+        "conclusion": "C6b DEMONSTRATED. The disclosed 20%-of-RPM share is reached by roughly three compounding launches of the disclosed size (1.075^3 = 1.242 against a required 1.25). Nothing in this touches ranking, ad copy or relevance: it is a multiplier applied to the price of a format the advertiser did not choose to be charged for separately. The scale anchor is the point - a knob worth 20% of text-ads yield is, at 2008 revenue levels, worth 42% of the entire US newspaper classified market that search was busy taking.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-format_pricing-001",
+              "statement": "Format pricing had grown to about 20% of Google's general search text-ads revenue per thousand queries before rGSP replaced it; individual format-price experiments launched at about +15% and retained roughly half the gain long term.",
+              "central": 20,
+              "unit": "percent of Google search text-ads RPM attributable to format pricing",
+              "ci80": [
+                15,
+                25
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024), FOF paras 245-255",
+                  "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+                }
+              ],
+              "as_of": "2024-08-05"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-google_rev-001",
+              "statement": "Google's advertising revenue was $21,128.5 million in 2008, the closing year of the deployed-auction era, of which Google Network sites produced $6,714.7 million.",
+              "central": 21128.5,
+              "unit": "USD millions, Google advertising revenue FY2008",
+              "ci80": [
+                21128.5,
+                21128.5
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                }
+              ],
+              "as_of": "2008"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-classified-001",
+              "statement": "US newspaper classified advertising - the intent-money pool the search auction competed for - was $9,975.0 million in 2008.",
+              "central": 9975.0,
+              "unit": "USD millions, US newspaper classified advertising 2008",
+              "ci80": [
+                9975.0,
+                9975.0
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Newspaper Association of America, Annual Newspaper Classified Ad Expenditures (Research Dept., NAA), via Internet Archive",
+                  "url": "http://web.archive.org/web/20110511154447/http://www.naa.org/docs/Research/Annual-Newspaper-Classified-Ad-Expenditures.htm"
+                }
+              ],
+              "as_of": "2008"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ex-7-rgsp-inside-the-band",
+        "claim": "C6c: rGSP does not need to break the auction to move the price. GSP's own equilibrium band is 73% wide, and the disclosed rGSP effect is a small move inside a band the seller controls the shape of.",
+        "illustrative": false,
+        "setup": {
+          "disclosed": "rGSP launched on search in 2019; pre-launch experiments raised top-slot CPC by 5.91% on PC/tablet and 4.85% on mobile, with a 40-50% long-term stickage factor, and a 5.74% revenue gain persisted two months after launch. Advertisers cannot opt out.",
+          "mechanism_note": "rGSP randomises the ordering of similarly-scored ads, so a lower-Ad-Rank ad can appear above a higher one. The rationale in the record is revenue. Its effect on incentives is to break the reliability of the bid-down-a-slot trade that ex-2 shows is profitable under plain GSP, which pushes equilibrium play up off the ex-3 floor. The exact pricing rule is NOT public; this analysis therefore locates the disclosed magnitudes inside the ex-3 band rather than re-deriving them.",
+          "assumptions": [
+            "The ex-3 band ($440 lowest equilibrium, $760 naive truthful) is an illustrative example, not a measurement of Google's book. The mapping is a scale illustration of how little the knob has to move.",
+            "Top-slot CPC and total revenue are different metrics measured over different windows; they are reported separately here rather than reconciled."
+          ]
+        },
+        "steps": [
+          {
+            "expr": "760/440",
+            "expected": 1.7272727272727273,
+            "note": "the GSP equilibrium band from ex-3: revenue can vary 1.727x with the mechanism unchanged"
+          },
+          {
+            "expr": "440*1.0574",
+            "expected": 465.256,
+            "note": "the disclosed +5.74% rGSP revenue effect applied to the bottom of the band"
+          },
+          {
+            "expr": "(440*1.0574-440)/(760-440)",
+            "expected": 0.07892499999999991,
+            "note": "which traverses just 7.9% of the band"
+          },
+          {
+            "expr": "2.80*1.0591",
+            "expected": 2.9654799999999994,
+            "note": "the disclosed +5.91% top-slot CPC applied to the ex-3 equilibrium slot-1 price"
+          },
+          {
+            "expr": "0.0591*0.45",
+            "expected": 0.026595,
+            "note": "durable effect after a 45% stickage factor"
+          },
+          {
+            "expr": "2.80*(1+0.0591*0.45)",
+            "expected": 2.8744659999999995,
+            "note": "the durable slot-1 price"
+          },
+          {
+            "expr": "21128.5*0.05",
+            "expected": 1056.425,
+            "note": "SCALE: Dischler's ~5% tuning on Google's 2008 advertising revenue"
+          },
+          {
+            "expr": "21128.5*0.10",
+            "expected": 2112.85,
+            "note": "and at the 10% he allowed for some queries"
+          },
+          {
+            "expr": "21128.5*0.05/9975.0",
+            "expected": 0.10590726817042606,
+            "note": "the 5% tuning alone is 10.6% of the entire 2008 US newspaper classified market"
+          },
+          {
+            "expr": "(1+0.0591*0.45)*(1+0.15*0.5)",
+            "expected": 1.103589625,
+            "note": "two knobs stacked - durable rGSP plus one format-price launch - compound to +10.36%"
+          }
+        ],
+        "conclusion": "C6c DEMONSTRATED, and it reframes the whole coda. The knobs are not large relative to the slack the mechanism already contains. GSP under-determines revenue by a factor of 1.73 in a three-bidder example, because the payment depends on how sophisticated the bidders are; the seller sits on that band and can shift the market inside it with parameter changes worth 5-6% each. The mechanism did not have to be replaced to become a price-setting instrument. It only had to be tuned, and the tuning was undisclosed.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-rgsp-001",
+              "statement": "Google's rGSP (randomized generalized second-price) auction, launched on SEARCH in 2019, raised top-slot cost-per-click on non-navigational queries by 5.91% on PCs and tablets and 4.85% on mobile in pre-launch experiments, with a 40-50% long-term stickage factor; a 5.74% revenue gain persisted two months after launch. Advertisers cannot opt out.",
+              "central": 5.91,
+              "unit": "percent increase in top-slot CPC on PC/tablet from rGSP",
+              "ci80": [
+                5.5,
+                6.3
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024), FOF paras 245-255",
+                  "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+                }
+              ],
+              "as_of": "2024-08-05"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-tuning-001",
+              "statement": "Google adjusted search ad auction and reserve prices to meet quarterly revenue targets without disclosing the changes to advertisers; its VP of ads, Jerry Dischler, testified that the 'tunings' raised prices by as much as about 5% on average and allowed that a 10% increase was possible in some instances.",
+              "central": 5,
+              "unit": "percent average price change from Google auction 'tunings'",
+              "ci80": [
+                2,
+                10
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Search Engine Land, 'Google quietly increases ad prices to meet targets, claims exec' (Dischler testimony, 2023-09-18)",
+                  "url": "https://searchengineland.com/google-quietly-increases-ad-prices-targets-432155"
+                },
+                {
+                  "name": "Bloomberg, 'Google Tweaks Ad Auctions to Hit Revenue Targets, Executive Says' (2023-09-18)",
+                  "url": "https://www.bloomberg.com/news/articles/2023-09-18/google-tweaks-ad-auctions-to-hit-revenue-targets-executive-says"
+                }
+              ],
+              "as_of": "2023-09-18"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-google_rev-001",
+              "statement": "Google's advertising revenue was $21,128.5 million in 2008, the closing year of the deployed-auction era, of which Google Network sites produced $6,714.7 million.",
+              "central": 21128.5,
+              "unit": "USD millions, Google advertising revenue FY2008",
+              "ci80": [
+                21128.5,
+                21128.5
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                }
+              ],
+              "as_of": "2008"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-classified-001",
+              "statement": "US newspaper classified advertising - the intent-money pool the search auction competed for - was $9,975.0 million in 2008.",
+              "central": 9975.0,
+              "unit": "USD millions, US newspaper classified advertising 2008",
+              "ci80": [
+                9975.0,
+                9975.0
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Newspaper Association of America, Annual Newspaper Classified Ad Expenditures (Research Dept., NAA), via Internet Archive",
+                  "url": "http://web.archive.org/web/20110511154447/http://www.naa.org/docs/Research/Annual-Newspaper-Classified-Ad-Expenditures.htm"
+                }
+              ],
+              "as_of": "2008"
+            }
+          }
+        ]
+      },
+      {
+        "id": "break-2-reserve-is-a-posted-price",
+        "claim": "BREAK on the whole second-price framing: on a thin query the 'second price' is the seller's own reserve, so from August 2005 Google set the price directly on a large share of its inventory - three years before the era closed and fourteen years before rGSP.",
+        "illustrative": true,
+        "setup": {
+          "structure": "One slot, ONE bidder. Fern Financial bids $2.00 with a predicted CTR of 4%. There is no runner-up, so the price is whatever the reserve says it is.",
+          "deployed_rule": "Google's own 10-K example shows the last-ranked advertiser paying $0.01, 'the minimum bid'. From August 2005 that minimum bid became a per-keyword figure derived from Quality Score - set by the seller, per advertiser, and never disclosed as a price.",
+          "assumptions": [
+            "The two reserve levels are illustrative; the point is the ratio, not the level. The long tail of queries with one eligible advertiser is where this binds, and that is the majority of distinct queries."
+          ]
+        },
+        "steps": [
+          {
+            "expr": "0.04*0.01*1000",
+            "expected": 0.4,
+            "note": "revenue per 1000 impressions at the $0.01 reserve of Google's own example"
+          },
+          {
+            "expr": "0.04*1.00*1000",
+            "expected": 40.0,
+            "note": "revenue per 1000 impressions if the quality-based minimum bid is $1.00"
+          },
+          {
+            "expr": "(0.04*1.00*1000)/(0.04*0.01*1000)",
+            "expected": 100.0,
+            "note": "a 100x price change with one advertiser, one ad, one user experience"
+          },
+          {
+            "expr": "1.00-0.01",
+            "expected": 0.99,
+            "note": "and the entire difference is a number the seller chose"
+          }
+        ],
+        "conclusion": "PROVEN, and it is the finding that most changes the era-6 story. The competitive discipline of a second-price auction requires a second bidder. Where there is none - the long tail, which is most distinct queries - the price is the reserve, and from August 2005 the reserve was a per-keyword, per-advertiser, Quality-Score-derived number the seller computed and did not publish. The DOJ-era pricing knobs are not a break with the 2002-2008 mechanism. They are the same lever, on a bigger base, with a trial transcript attached.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-quality_score-001",
+              "statement": "From August 2005 each AdWords keyword carried a dynamic minimum bid set by its Quality Score (click-through rate, ad-text relevance, historical keyword performance, landing-page quality), so measured relevance became a seller-set price floor as well as a ranking weight.",
+              "central": 2005.62,
+              "unit": "year (2005-08), introduction of quality-based minimum bids",
+              "ci80": [
+                2005.5,
+                2005.7
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                },
+                {
+                  "name": "Google Inside AdWords blog, 'A new addition to the Quality Score' (Dec 2005)",
+                  "url": "https://adwords.googleblog.com/2005/12/new-addition-to-quality-score.html"
+                }
+              ],
+              "as_of": "2005-08"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-discounter-001",
+              "statement": "Google's own AdWords Discounter example: maximum bids of $1.00, $0.60 and $0.50 per click produce prices of $0.61, $0.51 and $0.01 (the minimum bid) - the winner pays one cent above the next bid, not its own bid, and the last slot pays the seller's reserve.",
+              "central": 0.61,
+              "unit": "USD paid per click by the top advertiser bidding $1.00 against a $0.60 next bid",
+              "ci80": [
+                0.61,
+                0.61
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                }
+              ],
+              "as_of": "2008"
+            }
+          }
+        ]
+      }
+    ],
+    "comparisons": [
+      {
+        "id": "cmp-revenue-and-relevance",
+        "question": "Same three advertisers, same bids, same 1000 impressions - what does each design earn and deliver?",
+        "illustrative": true,
+        "rows": [
+          {
+            "design": "pure_bid",
+            "revenue_per_1000_impressions_usd": 28.18,
+            "clicks_delivered": 18,
+            "avg_price_per_click_usd": 1.5655555555555556,
+            "top_slot": "Aster Auto Cover (1% CTR)"
+          },
+          {
+            "design": "gsp",
+            "revenue_per_1000_impressions_usd": 52.58,
+            "clicks_delivered": 58,
+            "avg_price_per_click_usd": 0.9065517241379311,
+            "top_slot": "Cedar Cover (5% CTR)"
+          },
+          {
+            "design": "gsp_squashed_gamma_0_5",
+            "revenue_per_1000_impressions_usd": 40.933381888135415,
+            "clicks_delivered": 18,
+            "avg_price_per_click_usd": 2.2740767715630787,
+            "top_slot": "Aster Auto Cover (1% CTR)"
+          },
+          {
+            "design": "first_price_same_bids_no_shading",
+            "revenue_per_1000_impressions_usd": 66.0,
+            "clicks_delivered": 58,
+            "avg_price_per_click_usd": 1.1379310344827587,
+            "top_slot": "Cedar Cover (5% CTR)",
+            "note": "counterfactual only - bids would not survive contact with this rule; see ex-4"
+          }
+        ],
+        "reading": "Quality-weighting wins on both metrics at once. Squashing at gamma=0.5 lands in the worst quadrant for the searcher and a good one for the seller: pure-bid's allocation at 45% more revenue. The first-price row is the trap - it looks like free money only because the bids are frozen."
+      },
+      {
+        "id": "cmp-truthfulness-and-band",
+        "question": "What does each design pay the seller when bidders play well rather than naively?",
+        "illustrative": true,
+        "rows": [
+          {
+            "design": "vcg_benchmark",
+            "revenue_usd": 440,
+            "bidder_behaviour": "truthful, dominant strategy",
+            "seller_certainty": "determinate"
+          },
+          {
+            "design": "gsp",
+            "revenue_usd": 440,
+            "bidder_behaviour": "lowest locally-envy-free equilibrium",
+            "seller_certainty": "band floor"
+          },
+          {
+            "design": "gsp",
+            "revenue_usd": 760,
+            "bidder_behaviour": "naive truthful",
+            "seller_certainty": "band ceiling"
+          },
+          {
+            "design": "gsp",
+            "revenue_usd": 660,
+            "bidder_behaviour": "one bidder shades, others naive",
+            "seller_certainty": "one sophisticated advertiser costs the seller 13.2%"
+          }
+        ],
+        "reading": "GSP's advantage over VCG exists only to the extent bidders fail to play the equilibrium. The seller's real product in this market is the 73% band, and the 2019 knobs are instruments for moving the market inside it."
+      },
+      {
+        "id": "cmp-2019-two-changes",
+        "question": "What actually changed in 2019, and on which side of the business?",
+        "rows": [
+          {
+            "business": "open-web display (Google Ad Manager / AdX)",
+            "change": "unified first-price auction, completed 2019-09-05",
+            "stated_motive": "fair and transparent marketplace under header-bidding competition",
+            "disclosed_yield_effect": "Google reported testing showed a 'neutral to positive impact on a publisher's total revenue'",
+            "mechanism_for_a_yield_gain": "none - revenue-equivalent under symmetry for every n (ex-4)"
+          },
+          {
+            "business": "search text ads",
+            "change": "rGSP, launched 2019",
+            "stated_motive": "revenue (Mehta findings of fact)",
+            "disclosed_yield_effect": "+5.91% top-slot CPC PC/tablet, +4.85% mobile in tests; +5.74% revenue two months post-launch",
+            "mechanism_for_a_yield_gain": "randomisation degrades the bid-down-a-slot trade, pushing equilibrium play off the floor"
+          }
+        ],
+        "reading": "Two changes, same year, opposite directions, opposite sides of the business. Search never went first-price. Any claim that 'the market moved to first price in 2019' is a display claim; on search the 2019 move was toward more seller control, not less.",
+        "evidence": [
+          {
+            "calibration": {
+              "id": "mech-first_price-001",
+              "statement": "Google Ad Manager - the open-web DISPLAY exchange, not search - completed its move to a unified first-price auction from 5 September 2019, folding publisher floors into unified pricing rules. Google's stated rationale was a fair and transparent marketplace under header-bidding competition, and it reported that testing showed first-price auctions have a 'neutral to positive impact on a publisher's total revenue'.",
+              "central": 2019.68,
+              "unit": "year (2019-09-05), Google Ad Manager unified first-price rollout",
+              "ci80": [
+                2019.68,
+                2019.68
+              ],
+              "grade": "B",
+              "sources": [
+                {
+                  "name": "Google Ad Manager blog, 'Rolling out first price auctions to Google Ad Manager partners' (Sep 5, 2019)",
+                  "url": "https://blog.google/products/admanager/rolling-out-first-price-auctions-google-ad-manager-partners/"
+                },
+                {
+                  "name": "Google Ad Manager blog, 'Simplifying programmatic: first price auctions for Google Ad Manager' (Mar 2019)",
+                  "url": "https://blog.google/products/admanager/simplifying-programmatic-first-price-auctions-google-ad-manager/"
+                }
+              ],
+              "as_of": "2019-09-05"
+            }
+          },
+          {
+            "calibration": {
+              "id": "mech-rgsp-001",
+              "statement": "Google's rGSP (randomized generalized second-price) auction, launched on SEARCH in 2019, raised top-slot cost-per-click on non-navigational queries by 5.91% on PCs and tablets and 4.85% on mobile in pre-launch experiments, with a 40-50% long-term stickage factor; a 5.74% revenue gain persisted two months after launch. Advertisers cannot opt out.",
+              "central": 5.91,
+              "unit": "percent increase in top-slot CPC on PC/tablet from rGSP",
+              "ci80": [
+                5.5,
+                6.3
+              ],
+              "grade": "A",
+              "sources": [
+                {
+                  "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024), FOF paras 245-255",
+                  "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+                }
+              ],
+              "as_of": "2024-08-05"
+            }
+          }
+        ]
+      }
+    ],
+    "breaks": [
+      {
+        "id": "brk-quality-estimate",
+        "design": "gsp",
+        "type": "parameter sensitivity + unaudited input",
+        "statement": "The revenue and relevance case for quality-weighting is a bet on a click-through estimate produced by the party that collects the money, with no third-party audit standard until 2009.",
+        "worked": "break-1-ctr-misestimation: if Cedar's true CTR is below 1.99% against a predicted 5%, quality-weighting earns LESS than pure-bid. Break-even overstatement is 2.52x.",
+        "who_it_favours": "the seller, because the seller both sets and verifies the parameter"
+      },
+      {
+        "id": "brk-non-truthful",
+        "design": "gsp",
+        "type": "incentive failure",
+        "statement": "Bidding below value strictly dominates truthful bidding for the top bidder. Revenue is a 1.727x band, not a number.",
+        "worked": "ex-2-gsp-not-truthful, ex-3-gsp-equilibrium-band",
+        "who_it_favours": "sophisticated advertisers - which is why the 2002-2008 era grew a bid-management industry rather than a copywriting one"
+      },
+      {
+        "id": "brk-ctr-proxies-relevance",
+        "design": "gsp",
+        "type": "objective mismatch",
+        "statement": "b x q maximises expected revenue per impression. Relevance improves only insofar as clicks proxy relevance, and click-through rate alone rewards whatever gets clicked, including ads that mislead. Google's own remedy - folding landing-page quality into Quality Score in 2005 - is the admission.",
+        "worked": "ex-1 shows the co-movement; the 2005 Quality Score change shows the seller did not trust CTR alone.",
+        "who_it_favours": "high-CTR advertisers regardless of post-click value; corrected only by adding more seller-computed, undisclosed quality terms"
+      },
+      {
+        "id": "brk-thin-query-reserve",
+        "design": "gsp",
+        "type": "the competitive premise fails",
+        "statement": "A second-price auction needs a second bidder. On a one-bidder query the price is the reserve, and from August 2005 the reserve was a per-keyword, per-advertiser, Quality-Score-derived number the seller computed and never published.",
+        "worked": "break-2-reserve-is-a-posted-price: $0.01 vs $1.00 minimum bid is a 100x revenue change with one advertiser and no change to anything the user sees.",
+        "who_it_favours": "the seller, unconditionally, on the majority of distinct queries"
+      },
+      {
+        "id": "brk-collusion-surface",
+        "design": "pure_bid",
+        "type": "collusion / gaming surface",
+        "statement": "Overture published bids in its bid tool. Visible bids make tacit collusion and gap-jumping easy: an advertiser can park one cent above a rival and watch for retaliation, and rivals can settle into a stable rotation without communicating. Google's move to private bids and a private quality term removed that surface - and replaced it with a different one, in which no bidder can audit the price it is charged.",
+        "worked": "not separately computed; the design-level point is that both designs carry an information asymmetry, pointing in opposite directions.",
+        "who_it_favours": "pure-bid: incumbent bidders who can watch each other. GSP: the seller."
+      },
+      {
+        "id": "brk-revenue-equivalence",
+        "design": "first_price_shading",
+        "type": "assumption violation",
+        "statement": "Revenue equivalence needs symmetry, IPV, risk neutrality and a common reserve. The 2019 display market violated symmetry (asymmetric shading models), had an interested party computing the second price (the exchange operator was also the ad server), and changed floors at the same time (unified pricing rules).",
+        "worked": "break-3-revenue-equivalence-fails: seller revenue is linear in the market's shading factor, spanning -17.5% to +20% across a plausible 0.55-0.80 range.",
+        "who_it_favours": "whichever side has the better clearing-price model - which under first price is the buyer, and that is the actual behavioural change of 2019"
+      },
+      {
+        "id": "brk-knobs",
+        "design": "gsp",
+        "type": "deployed variant diverges from the textbook rule",
+        "statement": "The textbook GSP was overridden in production by squashing, format pricing and rGSP, none disclosed to advertisers, none opt-outable, all raising price without raising quality.",
+        "worked": "ex-5-squashing, ex-6-format-pricing, ex-7-rgsp-inside-the-band",
+        "who_it_favours": "the seller; and the continuity with the 2005 reserve channel means this is a difference of degree, not of kind"
+      }
+    ],
+    "findings": [
+      {
+        "id": "f1",
+        "claim_refs": [
+          "C1"
+        ],
+        "verdict": "proven",
+        "text": "Pure-bid ranking mis-orders by expected revenue exactly when 1 < b_i/b_j < q_j/q_i. In the worked case the bid ratio is 3 and the CTR ratio is 5, so the pure-bid order (Aster, Brindle, Cedar) is the precise reverse of the expected-revenue order.",
+        "decided_by": "ex-1-quality-vs-pure-bid"
+      },
+      {
+        "id": "f2",
+        "claim_refs": [
+          "C2"
+        ],
+        "verdict": "proven",
+        "text": "Same example, both metrics: revenue per 1000 impressions rises from $28.18 to $52.58 (+86.6%) and clicks delivered rise from 18 to 58 (+222%). The two metrics move together because clicks are the currency of both sides.",
+        "decided_by": "ex-1-quality-vs-pure-bid"
+      },
+      {
+        "id": "f3",
+        "claim_refs": [
+          "C2"
+        ],
+        "verdict": "reframe",
+        "text": "The revenue gain is a VOLUME effect, not a price effect. Average price per click FALLS 42%, from $1.57 to $0.91. Pure-bid maximises willingness to pay per click; AdRank maximises revenue per impression, and impressions are the scarce good. Every retelling that describes quality-weighting as letting Google charge more has the sign backwards.",
+        "decided_by": "ex-1-quality-vs-pure-bid"
+      },
+      {
+        "id": "f4",
+        "claim_refs": [
+          "C2"
+        ],
+        "verdict": "bounded",
+        "text": "The gain survives only while the seller's click-through estimate is roughly right. At a predicted 5% against a true CTR under 1.99%, quality-weighting earns less than the crude design it replaced. No independent standard for counting a click existed until 2009 and no MRC accreditation of search click counting existed in period, so this parameter was unauditable throughout the era.",
+        "decided_by": "break-1-ctr-misestimation"
+      },
+      {
+        "id": "f5",
+        "claim_refs": [
+          "C3"
+        ],
+        "verdict": "proven",
+        "text": "Both GSP winners pay below their bids ($0.81 against $1.00; $1.51 against $2.00) and the total is still 1.87x the pure-bid total. GSP collects 79.7% of what pay-your-bid would collect on the same bids and still beats pure-bid by 87%, because it is charging a smaller margin on a much larger click base.",
+        "decided_by": "ex-1-quality-vs-pure-bid"
+      },
+      {
+        "id": "f6",
+        "claim_refs": [
+          "C4"
+        ],
+        "verdict": "proven",
+        "text": "GSP is not truthful: $400 truthful against $640 shaded, in a three-bidder two-slot example, robust to the one-cent increment and to quality weighting. Under VCG the same bidder earns $720 by telling the truth.",
+        "decided_by": "ex-2-gsp-not-truthful"
+      },
+      {
+        "id": "f7",
+        "claim_refs": [
+          "C4",
+          "C2",
+          "C3"
+        ],
+        "verdict": "bounded",
+        "text": "The consequence is that GSP revenue is a band of [$440, $760] - a factor of 1.727 - whose position depends on advertiser sophistication rather than on the mechanism. The lowest equilibrium is exactly VCG-revenue-equivalent. Any comparison holding bids fixed, including this analysis's own C1-C3 example, measures a point the bidders choose. A simulator that displays truthful bidding overstates GSP revenue by up to 73%.",
+        "decided_by": "ex-3-gsp-equilibrium-band"
+      },
+      {
+        "id": "f8",
+        "claim_refs": [
+          "C5"
+        ],
+        "verdict": "proven",
+        "text": "First-price with equilibrium shading and second-price yield identical expected revenue for n = 2, 3, 5 and 10 - both collapse to V*(n-1)/(n+1). There is no yield mechanism in the first-price rule. The apparent 86% windfall from Google's own 10-K bid example ($2.10 versus $1.13) is entirely an artefact of freezing bids.",
+        "decided_by": "ex-4-first-price-shading-panel"
+      },
+      {
+        "id": "f9",
+        "claim_refs": [
+          "C5"
+        ],
+        "verdict": "bounded",
+        "text": "Equivalence needs symmetry, IPV, risk neutrality and a common reserve. Seller revenue is linear in the market's average shading factor, spanning -17.5% to +20% over a 0.55-0.80 range against an equilibrium 0.667. The 2019 change's real effect is that the clearing price moved from being computed by the seller's runner-up to being computed by the buyer's model - which is exactly the transparency argument, since the previous second-price computation was performed by a party that also intermediated the auction.",
+        "decided_by": "break-3-revenue-equivalence-fails"
+      },
+      {
+        "id": "f10",
+        "claim_refs": [
+          "C5",
+          "C6"
+        ],
+        "verdict": "correction",
+        "text": "The two 2019 changes ran in opposite directions on opposite sides of the business: display went to unified first price on 2019-09-05 with a transparency rationale and a self-reported neutral-to-positive revenue effect, while search got rGSP with an explicit revenue rationale and a disclosed +5.74% persistent gain. Search never went first-price. This is the most common factual error in retellings of 2019 and the analysis must state it explicitly.",
+        "decided_by": "cmp-2019-two-changes"
+      },
+      {
+        "id": "f11",
+        "claim_refs": [
+          "C6"
+        ],
+        "verdict": "demonstrated",
+        "text": "Each knob moves price with quality, allocation and creative held constant. Squashing at gamma = 0.95026 delivers exactly the +5% Dischler described on a 0.03/0.08 quality gap; at gamma = 0.5 on the era-6 cast it restores the pure-bid ranking (18 clicks instead of 58) while collecting 45.3% more than pure-bid. Format pricing's disclosed 20% RPM share is roughly three compounding launches of the disclosed size. rGSP's disclosed +5.74% traverses 7.9% of GSP's own equilibrium band.",
+        "decided_by": "ex-5-squashing, ex-6-format-pricing, ex-7-rgsp-inside-the-band"
+      },
+      {
+        "id": "f12",
+        "claim_refs": [
+          "C6"
+        ],
+        "verdict": "reframe",
+        "text": "The knobs did not have to be large, and they did not have to replace the auction. GSP already under-determined revenue by 73% because the payment depends on how well bidders play; the seller sits on that band and the knobs are instruments for moving the market inside it. The mechanism became a price-setting instrument by being tuned, not by being abandoned.",
+        "decided_by": "ex-7-rgsp-inside-the-band"
+      },
+      {
+        "id": "f13",
+        "claim_refs": [
+          "C6"
+        ],
+        "verdict": "continuity finding",
+        "text": "The pricing-knob story starts in era 6, not in 2019. From August 2005 Quality Score set per-keyword minimum bids, and on a one-bidder query the minimum bid IS the price - moving it from $0.01 to $1.00 is a 100x revenue change with one advertiser, one ad and no change to the user's experience. The seller has been setting prices directly on the long tail since three years before the era closed.",
+        "decided_by": "break-2-reserve-is-a-posted-price"
+      },
+      {
+        "id": "f14",
+        "claim_refs": [
+          "C1",
+          "C2"
+        ],
+        "verdict": "attribution caveat",
+        "text": "This analysis proves the design is better on the metric it optimises. It does not prove the design caused the capture. Overture ran the pure-bid auction and led paid-search revenue through 2002 ($667.7m against Google's $439.5m of total revenue); Yahoo adopted quality weighting only on 5 February 2007, five years late and long after the distribution war was settled. The auction explains yield per query; it does not explain query volume. Read this section against the distribution engine, not instead of it.",
+        "decided_by": "ex-1 plus the era-6 record (mech-overture-002, mech-panama-001)"
+      },
+      {
+        "id": "f15",
+        "claim_refs": [
+          "C2",
+          "C6"
+        ],
+        "verdict": "structural",
+        "text": "Every parameter that decides who wins and what they pay - predicted click-through rate, the quality-based reserve, the squashing exponent, the format multiplier, the click validity test - was computed by the seller, undisclosed as a number, and unaudited by any third party. That is the same institutional fact in 2005 and in 2019. The mechanism-design case for the auction is sound; the governance case never existed.",
+        "decided_by": "break-2-reserve-is-a-posted-price plus mech-audit-001 and mech-knobs-001"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1387 @@
+{
+  "target": "the era-6 twin-engine simulator (P2 centerpiece): the auction engine (yield, scenarios sc-01..sc-10) and the distribution engine (volume, scenarios D1..D11)",
+  "analysis_ref": "p2-ad-market/data/mechanism.json - engines.auction (claims C1-C6, examples ex-1..ex-7, breaks brk-*) and engines.distribution (claims mech-*, examples X1-X10, breaks B1-B9). Per-analyst source files: data/mechanism-auction.json and data/mechanism-distribution.json.",
+  "as_of": "2026-07-30",
+  "build_notes": [
+    "Ranking and pricing always use predicted_ctrs; revenue and clicks always use true_ctrs. Keeping the two arrays separate is what makes sc-07 possible and is the single most important structural decision in the model.",
+    "Every revenue figure the simulator displays must carry the current bidder_mode as a label. A GSP revenue number without a bidder_mode is not a number; it is a point inside a 1.727x band (sc-05).",
+    "Prices are capped at the advertiser's own max CPC everywhere, as in the deployed product.",
+    "Any panel showing pay-your-bid revenue at frozen bids must label it a counterfactual. Frozen-bid first-price revenue is the most common way to make a first-price auction look like free money (sc-06).",
+    "gamma has no disclosed value. Wherever the squashing slider appears, the assumption label appears with it.",
+    "The default cast (Aster / Brindle / Cedar and Vale / Wren / Yarrow) is invented. No cast number is an empirical claim and none carries a calibration.",
+    "The distribution scenarios (D1-D11) are not a parameterised cast. Every expected_output value in them is a filed dollar or a ratio of filed dollars, copied from a stored step in mechanism.json engines.distribution.examples X1-X10, which tools/verify_p2.py r4-arithmetic re-evaluates. Where a D-scenario re-derives a quantity that is not itself a stored step, the derivation is written out in the adjacent *_derivation field.",
+    "take_rate_syndicated is an AUCTION OUTCOME, not a design parameter (break B4: the ratchet reverses - 9% in 2002 to 24.7% in 2006, then back to 21.5% and 21.3%). Wherever the take-rate slider appears it must be labelled as a competitive outcome. A simulator that lets the reader 'set' the take rate as a lever gets the era's economics backwards.",
+    "D5, D6, D10 and D11 carry invented inputs (the $10/$6 RPMs and $1.00 serving cost, the non-AOL member share, and the 15% take on AOL revenue). Each is flagged illustrative:true on the scenario, exactly as examples X3, X5 and X8 are flagged in mechanism.json. The empirical anchors beside them - the 91% vs 58% payout gap, the disclosed TAC ratios - are grade A.",
+    "Never place the auction engine's per-1000-impression revenue figures (invented cast) on the same axis as the distribution engine's filed dollars. They are different objects; see mechanism.json reconciliation.consistency_check.denominator_conventions. Network share must carry its basis every time it is drawn: 31.8% of 2008 advertising revenue, 30.8% of total revenue, 9.4% of advertising revenue net of TAC.",
+    "The distribution arithmetic uses the FILED 2002 advertising-revenue figure of $410.915m (web $306.978m + network $103.937m, FY2004 10-K). data/eras/era-6.json derives $410.946m, a $31k discrepancy that propagates into any per-query figure taken from the era record. The era record is the one that is wrong; do not reconcile the simulator to it."
+  ],
+  "variables": [
+    {
+      "name": "impressions",
+      "type": "int",
+      "range": [
+        100,
+        100000
+      ],
+      "default": 1000,
+      "description": "Query impressions the auction runs over. Scales every revenue figure linearly; exists so the reader can see revenue in dollars rather than fractions of a cent.",
+      "unit": "impressions"
+    },
+    {
+      "name": "slots",
+      "type": "int",
+      "range": [
+        1,
+        4
+      ],
+      "default": 2,
+      "description": "Number of ad slots. Must be strictly less than the number of bidders for a second-price auction to have a price-setting runner-up in every slot; at slots >= bidders the last slot falls to the reserve, which is scenario sc-08.",
+      "unit": "slots"
+    },
+    {
+      "name": "position_multipliers",
+      "type": "list[float]",
+      "range": [
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "default": [
+        1.0,
+        0.4,
+        0.15,
+        0.06
+      ],
+      "description": "Click multiplier by position, applied as expected_clicks = impressions * position_multiplier[j] * advertiser_ctr. Separable position model.",
+      "unit": "multiplier"
+    },
+    {
+      "name": "bids",
+      "type": "list[float]",
+      "range": [
+        0.01,
+        50.0
+      ],
+      "default": [
+        3.0,
+        2.0,
+        1.0
+      ],
+      "description": "Max CPC per advertiser, in the fixed cast order Aster / Brindle / Cedar.",
+      "unit": "USD per click"
+    },
+    {
+      "name": "predicted_ctrs",
+      "type": "list[float]",
+      "range": [
+        0.001,
+        0.3
+      ],
+      "default": [
+        0.01,
+        0.02,
+        0.05
+      ],
+      "description": "Seller-estimated click-through rate per advertiser. Drives both AdRank and the click count in the base case.",
+      "unit": "probability"
+    },
+    {
+      "name": "true_ctrs",
+      "type": "list[float]",
+      "range": [
+        0.001,
+        0.3
+      ],
+      "default": [
+        0.01,
+        0.02,
+        0.05
+      ],
+      "description": "Realised click-through rate per advertiser. Equal to predicted_ctrs unless the estimate-error scenario is on. Ranking and pricing always use predicted_ctrs; revenue and clicks always use true_ctrs.",
+      "unit": "probability"
+    },
+    {
+      "name": "bid_increment",
+      "type": "float",
+      "range": [
+        0.0,
+        0.1
+      ],
+      "default": 0.01,
+      "description": "The AdWords Discounter's fixed increment added to the price needed to hold position.",
+      "unit": "USD"
+    },
+    {
+      "name": "reserve",
+      "type": "float",
+      "range": [
+        0.01,
+        5.0
+      ],
+      "default": 0.01,
+      "description": "Minimum bid / price paid by the last slot when no advertiser sits below it. From Aug 2005 this was a per-keyword Quality-Score-derived number in the deployed product.",
+      "unit": "USD per click"
+    },
+    {
+      "name": "ranking_rule",
+      "type": "enum",
+      "range": [
+        "pure_bid",
+        "quality_weighted",
+        "squashed",
+        "randomized"
+      ],
+      "default": "quality_weighted",
+      "description": "pure_bid = sort by bid (Overture). quality_weighted = sort by bid * ctr (AdWords Select). squashed = sort by bid * ctr^gamma. randomized = rGSP, quality_weighted with the top rgsp_band candidates shuffled.",
+      "unit": "categorical"
+    },
+    {
+      "name": "pricing_rule",
+      "type": "enum",
+      "range": [
+        "second_price",
+        "first_price"
+      ],
+      "default": "second_price",
+      "description": "second_price = pay the minimum needed to hold position, quality-adjusted, plus the increment. first_price = pay your own bid.",
+      "unit": "categorical"
+    },
+    {
+      "name": "gamma",
+      "type": "float",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "default": 1.0,
+      "description": "Squashing exponent on predicted CTR. 1.0 is textbook AdRank; 0.0 collapses to pure-bid ranking. NOT A DISCLOSED PARAMETER - the simulator must label it as an assumption wherever it is exposed.",
+      "unit": "exponent"
+    },
+    {
+      "name": "format_multiplier",
+      "type": "float",
+      "range": [
+        1.0,
+        1.5
+      ],
+      "default": 1.0,
+      "description": "Multiplicative price adjustment standing in for format pricing. 1.075 is one disclosed-size launch after 50% stickage; 1.25 is the cumulative level implied by format pricing being 20% of RPM.",
+      "unit": "multiplier"
+    },
+    {
+      "name": "rgsp_band",
+      "type": "int",
+      "range": [
+        1,
+        3
+      ],
+      "default": 1,
+      "description": "How many top-ranked candidates rGSP shuffles. 1 = no randomisation. 2 = the top two may swap.",
+      "unit": "candidates"
+    },
+    {
+      "name": "rgsp_uplift",
+      "type": "float",
+      "range": [
+        0.0,
+        0.1
+      ],
+      "default": 0.0574,
+      "description": "Disclosed persistent revenue effect of rGSP, applied as a headline annotation rather than re-derived. 0.0591 / 0.0485 are the disclosed top-slot CPC effects on PC-tablet and mobile.",
+      "unit": "fraction"
+    },
+    {
+      "name": "stickage",
+      "type": "float",
+      "range": [
+        0.4,
+        0.5
+      ],
+      "default": 0.45,
+      "description": "Disclosed fraction of an experimental price gain that persists long term. Applies to both rGSP and format-price launches.",
+      "unit": "fraction"
+    },
+    {
+      "name": "bidder_mode",
+      "type": "enum",
+      "range": [
+        "naive_truthful",
+        "lowest_envy_free",
+        "one_shader",
+        "custom"
+      ],
+      "default": "naive_truthful",
+      "description": "How bidders play. naive_truthful = bid your value. lowest_envy_free = the Varian/EOS recursion, revenue-equivalent to VCG. one_shader = the top bidder shades, the rest are naive. This control is what turns GSP revenue from a number into a band and MUST be visible in any panel that quotes a revenue figure.",
+      "unit": "categorical"
+    },
+    {
+      "name": "values",
+      "type": "list[float]",
+      "range": [
+        0.01,
+        50.0
+      ],
+      "default": [
+        10.0,
+        6.0,
+        2.0
+      ],
+      "description": "True per-click values for the truthfulness and equilibrium scenarios (cast Vale / Wren / Yarrow). Distinct from bids: bids are a strategy, values are the primitive.",
+      "unit": "USD per click"
+    },
+    {
+      "name": "slot_clicks",
+      "type": "list[int]",
+      "range": [
+        0,
+        1000
+      ],
+      "default": [
+        100,
+        80
+      ],
+      "description": "Absolute click volumes by slot used by the truthfulness scenarios, so the payoff arithmetic reads in whole dollars.",
+      "unit": "clicks"
+    },
+    {
+      "name": "n_bidders",
+      "type": "int",
+      "range": [
+        2,
+        20
+      ],
+      "default": 3,
+      "description": "Bidder count for the first-price / bid-shading panel. Sets both the equilibrium shading factor (n-1)/n and the expected order statistics.",
+      "unit": "bidders"
+    },
+    {
+      "name": "value_ceiling",
+      "type": "float",
+      "range": [
+        1.0,
+        100.0
+      ],
+      "default": 10.0,
+      "description": "Upper bound V of the uniform value distribution [0, V] in the first-price panel.",
+      "unit": "USD per click"
+    },
+    {
+      "name": "shading_factor",
+      "type": "float",
+      "range": [
+        0.3,
+        1.0
+      ],
+      "default": 0.6666666666666666,
+      "description": "The multiplier buyers apply to value under first price. The equilibrium value is (n-1)/n; the slider exists to show that seller revenue is linear in it and that the equilibrium point is where the two designs coincide.",
+      "unit": "multiplier"
+    },
+    {
+      "name": "revenue_share_s",
+      "type": "float",
+      "range": [
+        0.5,
+        0.95
+      ],
+      "default": 0.85,
+      "description": "Share of the surface's advertising revenue paid to the access-point owner. 0.85 is the reported (never-filed, grade B) AOL 2002 share; 0.91 is the ratio Google actually recognised on Google Network advertising revenue in 2002; 0.58 is Overture's blended FY2002 payout.",
+      "unit": "fraction of surface revenue"
+    },
+    {
+      "name": "guarantee_musd",
+      "type": "float",
+      "range": [
+        0,
+        300
+      ],
+      "default": 100,
+      "description": "Non-cancelable guaranteed minimum revenue share over the term. The ~$100m default is grade B - the May 2002 contract was never filed - and D10 reconstructs its footprint from the disclosed TAC ratio instead of trusting it (break B2).",
+      "unit": "USD millions"
+    },
+    {
+      "name": "term_years",
+      "type": "int",
+      "range": [
+        1,
+        5
+      ],
+      "default": 3,
+      "description": "Term over which the guarantee is amortised straight-line whenever it exceeds the contractual revenue share.",
+      "unit": "years"
+    },
+    {
+      "name": "rpm_buyer",
+      "type": "float",
+      "range": [
+        2.0,
+        20.0
+      ],
+      "default": 10.0,
+      "description": "Advertising revenue per 1,000 queries for the winning bidder. ILLUSTRATIVE: Google never disclosed network impressions or network clicks in this era, so no per-query RPM can be filed-sourced. The empirical anchor is the payout gap, not the level.",
+      "unit": "USD per 1,000 queries"
+    },
+    {
+      "name": "rpm_rival",
+      "type": "float",
+      "range": [
+        1.0,
+        20.0
+      ],
+      "default": 6.0,
+      "description": "Advertising revenue per 1,000 queries for the losing bidder. ILLUSTRATIVE, same reason as rpm_buyer. The conclusion of D5 is scale-free: whoever has the higher RPM can outbid.",
+      "unit": "USD per 1,000 queries"
+    },
+    {
+      "name": "serving_cost_per_1k",
+      "type": "float",
+      "range": [
+        0.1,
+        3.0
+      ],
+      "default": 1.0,
+      "description": "Incremental cost of serving 1,000 syndicated queries. ILLUSTRATIVE. It is what turns the maximum feasible bid from 'all of the revenue' into 'the yield net of serving cost', which is the whole point of D5.",
+      "unit": "USD per 1,000 queries"
+    },
+    {
+      "name": "owned_share_of_ad_revenue",
+      "type": "float",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "default": 0.747,
+      "description": "Share of the buyer's advertising revenue earned on inventory it does not pay a revenue share on. This is the cross-subsidy base that lets a loss-leading network be rational. Google's disclosed 2002 value is 306.978/410.915 = 74.7%.",
+      "unit": "fraction of advertising revenue"
+    },
+    {
+      "name": "equity_pct_of_company",
+      "type": "float",
+      "range": [
+        0.0,
+        0.1
+      ],
+      "default": 0.0271,
+      "description": "Dilution handed to the access-point owner. Google's May 2002 warrant was 7,437,452 shares against 274,522,040 outstanding at 2004 year-end, i.e. 2.71%.",
+      "unit": "fraction of shares outstanding"
+    },
+    {
+      "name": "terminal_valuation_multiple",
+      "type": "float",
+      "range": [
+        1,
+        100
+      ],
+      "default": 45,
+      "description": "Growth in the buyer's per-share equity value between signature and the partner's exit. The realised AOL path was 52.4x ($2.91 warrant strike to a $152.56 blended realisation per share); measured only to the $85 IPO price it was 29.2x. The default of 45 sits between the two and is the slider that makes B3's point: the equity leg costs most in exactly the states of the world where the buyer wins.",
+      "unit": "multiple"
+    },
+    {
+      "name": "take_rate_syndicated",
+      "type": "float",
+      "range": [
+        0.05,
+        0.35
+      ],
+      "default": 0.213,
+      "description": "Share of syndicated advertising revenue the buyer retains. 2008 = 21.3%. AN AUCTION OUTCOME, NOT A DESIGN PARAMETER (break B4): the disclosed series runs 9% (2002) to 24.7% (2006) and then back down to 21.5% (2007) and 21.3% (2008), tracking competition for members. Any panel exposing this slider must carry that label.",
+      "unit": "fraction of syndicated revenue retained"
+    },
+    {
+      "name": "take_rate_owned",
+      "type": "float",
+      "range": [
+        0.85,
+        1.0
+      ],
+      "default": 0.955,
+      "description": "Share of owned-site advertising revenue the buyer retains, i.e. 1 minus distribution TAC over owned-site revenue. 2008 = 95.5%; 2002 was effectively 100%.",
+      "unit": "fraction of owned-site revenue retained"
+    },
+    {
+      "name": "nontac_cost_allocation",
+      "type": "float",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "default": 1.0,
+      "description": "How non-TAC cost of revenues is allocated to syndicated impressions. 1.0 = pro-rata to revenue; 0.5 = half pro-rata, with the freed cost falling on owned inventory. Both bounds are computed in D4 because the claim 'the take rate is not a margin' has to hold under either.",
+      "unit": "fraction of pro-rata"
+    },
+    {
+      "name": "partner_delivers",
+      "type": "bool",
+      "range": [
+        false,
+        true
+      ],
+      "default": true,
+      "description": "Whether the access-point owner delivers the contracted queries. False triggers the FY2004 10-K delivery contingency, which voids the guaranteed minimum entirely. This is the switch that turns the guarantee from an unconditional bet into a floor price per delivered query (break B1).",
+      "unit": "boolean"
+    },
+    {
+      "name": "cumulative_partner_revenue_musd",
+      "type": "float",
+      "range": [
+        0,
+        2500
+      ],
+      "default": 300.47564,
+      "description": "Cumulative buyer revenue generated by the partner's surface, the x-axis of the exposure curve. Default is the filed 2002+2003 figure: 15% of $439.508m plus 16% of $1,465.934m. Through 2006 the same disclosed series sums to $1,977.997m.",
+      "unit": "USD millions"
+    },
+    {
+      "name": "non_aol_member_share",
+      "type": "float",
+      "range": [
+        0.5,
+        0.75
+      ],
+      "default": 0.65,
+      "description": "Revenue share taken by network members other than the guaranteed partner in 2002. Never disclosed; three values (0.60 / 0.65 / 0.70) are carried and every D10 output is marked illustrative because of it.",
+      "unit": "fraction of surface revenue"
+    },
+    {
+      "name": "take_rate_partner",
+      "type": "float",
+      "range": [
+        0.05,
+        0.3
+      ],
+      "default": 0.15,
+      "description": "Share of the partner's generated revenue the buyer retains, used only in D11. ILLUSTRATIVE: the complement of the reported 85% share. At the network-average take rates instead the retained figure rises to roughly $370m, which does not change D11's conclusion.",
+      "unit": "fraction of partner-generated revenue retained"
+    },
+    {
+      "name": "query_denominator_path",
+      "type": "enum",
+      "range": [
+        "high",
+        "low"
+      ],
+      "default": "high",
+      "description": "Which of the era-6 record's two grade-C query estimates drives the volume/yield decomposition: high = 483bn owned-site queries in 2007, low = 415bn. Both are grade C, which is why D7's split is a band and never a point.",
+      "unit": "categorical"
+    },
+    {
+      "name": "advertiser_pool_elasticity",
+      "type": "float",
+      "range": [
+        0.0,
+        0.5
+      ],
+      "default": 0.0,
+      "description": "How much syndicated inventory deepens the advertiser pool and so raises owned-site prices. UNMEASURED - Google never disclosed advertiser counts, per-keyword auction depth or owned-site CPCs, and the era-6 advertiser-count claim is grade C over 550k to 2.6m. Exposed as a labelled toggle in D9 and never as a finding (break B5).",
+      "unit": "elasticity"
+    },
+    {
+      "name": "year",
+      "type": "int",
+      "range": [
+        2002,
+        2022
+      ],
+      "default": 2008,
+      "description": "Which filed year the distribution panels read. The composition panel (D8) compares 2008 against 2021 and the headline TAC rate in 2002 against 2022.",
+      "unit": "calendar year"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "sc-01-pure-bid-misorders",
+      "demonstrates": "C1 - pure-bid ranking places lower-revenue ads above higher-revenue ads once clickthrough differs enough.",
+      "example_ref": "ex-1-quality-vs-pure-bid",
+      "settings": {
+        "impressions": 1000,
+        "slots": 2,
+        "position_multipliers": [
+          1.0,
+          0.4
+        ],
+        "bids": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "predicted_ctrs": [
+          0.01,
+          0.02,
+          0.05
+        ],
+        "true_ctrs": [
+          0.01,
+          0.02,
+          0.05
+        ],
+        "bid_increment": 0.01,
+        "reserve": 0.01,
+        "ranking_rule": "pure_bid",
+        "pricing_rule": "second_price",
+        "gamma": 1.0,
+        "format_multiplier": 1.0,
+        "bidder_mode": "custom"
+      },
+      "expected_output": {
+        "order": [
+          "Aster Auto Cover",
+          "Brindle Brokers",
+          "Cedar Cover"
+        ],
+        "adranks_usd_per_impression": [
+          0.03,
+          0.04,
+          0.05
+        ],
+        "prices_usd": [
+          2.01,
+          1.01,
+          null
+        ],
+        "clicks": [
+          10,
+          8,
+          0
+        ],
+        "revenue_per_1000_impressions_usd": 28.18,
+        "total_clicks": 18,
+        "avg_price_per_click_usd": 1.5655555555555556,
+        "headline": "The bid order is the exact reverse of the expected-revenue order. Condition: 1 < bid ratio 3 < CTR ratio 5."
+      }
+    },
+    {
+      "id": "sc-02-quality-weighting-both-metrics",
+      "demonstrates": "C2 - quality weighting raises TOTAL revenue and relevance in the same example, and C3's volume-not-price mechanism.",
+      "example_ref": "ex-1-quality-vs-pure-bid",
+      "settings": {
+        "impressions": 1000,
+        "slots": 2,
+        "position_multipliers": [
+          1.0,
+          0.4
+        ],
+        "bids": [
+          3.0,
+          2.0,
+          1.0
+        ],
+        "predicted_ctrs": [
+          0.01,
+          0.02,
+          0.05
+        ],
+        "true_ctrs": [
+          0.01,
+          0.02,
+          0.05
+        ],
+        "bid_increment": 0.01,
+        "reserve": 0.01,
+        "ranking_rule": "quality_weighted",
+        "pricing_rule": "second_price",
+        "gamma": 1.0,
+        "format_multiplier": 1.0,
+        "bidder_mode": "custom"
+      },
+      "expected_output": {
+        "order": [
+          "Cedar Cover",
+          "Brindle Brokers",
+          "Aster Auto Cover"
+        ],
+        "prices_usd": [
+          0.81,
+          1.51,
+          null
+        ],
+        "clicks": [
+          50,
+          8,
+          0
+        ],
+        "revenue_per_1000_impressions_usd": 52.58,
+        "total_clicks": 58,
+        "avg_price_per_click_usd": 0.9065517241379311,
+        "deltas_vs_sc_01": {
+          "revenue_ratio": 1.865862313697658,
+          "click_ratio": 3.2222222222222223,
+          "avg_price_per_click_ratio": 0.5790607180441008
+        },
+        "headline": "Revenue +86.6%, clicks +222%, price per click MINUS 42%. The gain is volume, not price."
+      }
+    },
+    {
+      "id": "sc-03-winners-pay-less-than-bid",
+      "demonstrates": "C3 - each winner pays below its bid, and total revenue still beats pure-bid.",
+      "example_ref": "ex-1-quality-vs-pure-bid",
+      "settings": {
+        "inherits": "sc-02-quality-weighting-both-metrics",
+        "overlay": "annotate bid-vs-price gap per winner and add a pay-your-bid comparison row at the SAME bids"
+      },
+      "expected_output": {
+        "bid_minus_price_usd": {
+          "Cedar Cover": 0.19,
+          "Brindle Brokers": 0.49
+        },
+        "pay_your_bid_at_same_bids_usd": 66.0,
+        "gsp_share_of_pay_your_bid": 0.7966666666666666,
+        "gsp_vs_pure_bid_ratio": 1.865862313697658,
+        "headline": "Every winner discounted, total up 87%. GSP collects 79.7% of the pay-your-bid take - which is why the pay-your-bid row must be labelled a frozen-bid counterfactual, not a revenue forecast."
+      }
+    },
+    {
+      "id": "sc-04-gsp-not-truthful",
+      "demonstrates": "C4 - bidding below value strictly beats truthful bidding.",
+      "example_ref": "ex-2-gsp-not-truthful",
+      "settings": {
+        "slot_clicks": [
+          100,
+          80
+        ],
+        "values": [
+          10.0,
+          6.0,
+          2.0
+        ],
+        "slots": 2,
+        "predicted_ctrs": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "bid_increment": 0.0,
+        "ranking_rule": "quality_weighted",
+        "pricing_rule": "second_price",
+        "bidder_mode": "custom",
+        "interaction": "the reader drags Vale's bid from 10 down through 5 and watches its own payoff, not the seller's"
+      },
+      "expected_output": {
+        "payoff_truthful_usd": 400,
+        "payoff_at_bid_5_usd": 640,
+        "gain_usd": 240,
+        "with_one_cent_increment": {
+          "truthful": 399.0,
+          "deviation": 639.2
+        },
+        "seller_revenue_truthful_usd": 760,
+        "seller_revenue_after_deviation_usd": 660,
+        "seller_loss_fraction": 0.13157894736842105,
+        "vcg_payoff_usd": 720,
+        "vcg_revenue_usd": 440,
+        "headline": "Truthful $400, shaded $640. One advertiser playing correctly costs the seller 13.2%."
+      }
+    },
+    {
+      "id": "sc-05-equilibrium-band",
+      "demonstrates": "C4 corollary / break brk-non-truthful - GSP revenue is a 1.727x band set by bidder sophistication, not by the mechanism.",
+      "example_ref": "ex-3-gsp-equilibrium-band",
+      "settings": {
+        "slot_clicks": [
+          100,
+          80
+        ],
+        "values": [
+          10.0,
+          6.0,
+          2.0
+        ],
+        "slots": 2,
+        "bidder_mode": [
+          "naive_truthful",
+          "one_shader",
+          "lowest_envy_free"
+        ],
+        "interaction": "a three-position toggle, not a slider; every revenue figure elsewhere in the simulator carries the current toggle position as a label"
+      },
+      "expected_output": {
+        "naive_truthful_revenue_usd": 760,
+        "one_shader_revenue_usd": 660,
+        "lowest_envy_free_revenue_usd": 440.0,
+        "vcg_revenue_usd": 440,
+        "lowest_envy_free_prices_usd": [
+          2.8,
+          2.0
+        ],
+        "band_ratio": 1.7272727272727273,
+        "envy_check": {
+          "wren_in_slot_2": 320.0,
+          "wren_if_slot_1": 320.0
+        },
+        "headline": "Same mechanism, same bidders, $440 to $760 depending only on how well they play."
+      }
+    },
+    {
+      "id": "sc-06-first-price-bid-shading-panel",
+      "demonstrates": "C5 - first price with equilibrium shading is revenue-equivalent to second price. REQUIRED PANEL.",
+      "example_ref": "ex-4-first-price-shading-panel",
+      "settings": {
+        "n_bidders": [
+          2,
+          3,
+          5,
+          10
+        ],
+        "value_ceiling": 10.0,
+        "slots": 1,
+        "pricing_rule": [
+          "second_price",
+          "first_price"
+        ],
+        "shading_factor": {
+          "default": "(n-1)/n",
+          "slider_range": [
+            0.3,
+            1.0
+          ]
+        },
+        "interaction": "two bars side by side; the shading slider starts AT the equilibrium value so the reader first sees the bars level, then breaks it"
+      },
+      "expected_output": {
+        "table": [
+          {
+            "n": 2,
+            "second_price_usd": 3.3333333333333335,
+            "first_price_usd": 3.3333333333333335
+          },
+          {
+            "n": 3,
+            "second_price_usd": 5.0,
+            "first_price_usd": 5.0
+          },
+          {
+            "n": 5,
+            "second_price_usd": 6.666666666666667,
+            "first_price_usd": 6.666666666666667
+          },
+          {
+            "n": 10,
+            "second_price_usd": 8.181818181818182,
+            "first_price_usd": 8.181818181818182
+          }
+        ],
+        "sensitivity_at_n_3": {
+          "shading_0_60_usd": 4.5,
+          "shading_0_667_usd": 5.0,
+          "shading_0_7333_usd": 5.5
+        },
+        "frozen_bid_trap": {
+          "tenk_second_price_usd": 1.13,
+          "tenk_pay_your_bid_usd": 2.1,
+          "apparent_windfall": 1.8584070796460175
+        },
+        "headline": "Identical for every n. The 86% 'windfall' from Google's own 10-K bid example exists only if nobody re-bids.",
+        "required_caption": "This was DISPLAY. Google Search never moved to first price - the 2019 search change was rGSP (sc-09)."
+      }
+    },
+    {
+      "id": "sc-07-ctr-misestimation",
+      "demonstrates": "Break brk-quality-estimate - the whole quality-weighting case rests on a seller-computed estimate no third party audited before 2009.",
+      "example_ref": "break-1-ctr-misestimation",
+      "settings": {
+        "inherits": "sc-02-quality-weighting-both-metrics",
+        "true_ctrs": [
+          0.01,
+          0.02,
+          0.01
+        ],
+        "interaction": "one slider on Cedar's TRUE ctr, with the predicted value pinned at 5% and visibly separate"
+      },
+      "expected_output": {
+        "revenue_per_1000_impressions_usd": 20.18,
+        "vs_pure_bid_ratio": 0.71611071682044,
+        "breakeven_true_ctr": 0.019876543209876543,
+        "max_overstatement_ratio": 2.515527950310559,
+        "headline": "Below a true 1.99% CTR the 'better' mechanism earns less than the crude one - and nobody outside Google could check the number."
+      }
+    },
+    {
+      "id": "sc-08-reserve-is-a-posted-price",
+      "demonstrates": "Break brk-thin-query-reserve / finding f13 - on a one-bidder query the second price IS the seller's reserve, from August 2005.",
+      "example_ref": "break-2-reserve-is-a-posted-price",
+      "settings": {
+        "impressions": 1000,
+        "slots": 1,
+        "position_multipliers": [
+          1.0
+        ],
+        "bids": [
+          2.0
+        ],
+        "predicted_ctrs": [
+          0.04
+        ],
+        "true_ctrs": [
+          0.04
+        ],
+        "reserve": {
+          "compare": [
+            0.01,
+            1.0
+          ]
+        },
+        "ranking_rule": "quality_weighted",
+        "pricing_rule": "second_price"
+      },
+      "expected_output": {
+        "revenue_at_reserve_0_01_usd": 0.4,
+        "revenue_at_reserve_1_00_usd": 40.0,
+        "ratio": 100.0,
+        "headline": "One advertiser, one ad, one user experience, 100x the revenue. The competitive discipline of a second-price auction needs a second bidder."
+      }
+    },
+    {
+      "id": "sc-09-pricing-knobs-coda",
+      "demonstrates": "C6 - squashing, format pricing and rGSP each move price with quality, allocation and creative held fixed.",
+      "example_ref": "ex-5-squashing, ex-6-format-pricing, ex-7-rgsp-inside-the-band",
+      "settings": {
+        "inherits": "sc-02-quality-weighting-both-metrics",
+        "ranking_rule": "squashed",
+        "gamma": {
+          "slider_range": [
+            0.0,
+            1.0
+          ],
+          "default": 1.0,
+          "marked_stops": [
+            1.0,
+            0.9502562102225057,
+            0.5,
+            0.0
+          ]
+        },
+        "format_multiplier": {
+          "slider_range": [
+            1.0,
+            1.25
+          ],
+          "marked_stops": [
+            1.0,
+            1.075,
+            1.2422968749999999
+          ]
+        },
+        "rgsp_band": [
+          1,
+          2
+        ],
+        "rgsp_uplift": 0.0574,
+        "stickage": 0.45,
+        "interaction": "three independent knobs on the ex-1 cast; the ad copy, the cast and the query never change while they move"
+      },
+      "expected_output": {
+        "gamma_1_0": {
+          "order": [
+            "Cedar Cover",
+            "Brindle Brokers",
+            "Aster Auto Cover"
+          ],
+          "revenue_per_1000_impressions_usd": 52.58,
+          "total_clicks": 58
+        },
+        "gamma_0_5": {
+          "order": [
+            "Aster Auto Cover",
+            "Brindle Brokers",
+            "Cedar Cover"
+          ],
+          "prices_usd": [
+            2.82842712474619,
+            1.5811388300841895
+          ],
+          "revenue_per_1000_impressions_usd": 40.933381888135415,
+          "total_clicks": 18,
+          "vs_pure_bid_ratio": 1.4525685552922432
+        },
+        "gamma_calibrated_to_disclosed_5pct": {
+          "gamma": 0.9502562102225057,
+          "markup": 1.0499549031589814,
+          "quality_gap_used": "0.03 / 0.08"
+        },
+        "format_pricing": {
+          "per_launch_durable": 0.075,
+          "three_launches": 1.2422968749999999,
+          "implied_uplift_on_base_from_20pct_of_rpm": 0.25
+        },
+        "rgsp": {
+          "disclosed_topslot_cpc_uplift": 0.0591,
+          "durable_after_stickage": 0.026595,
+          "share_of_equilibrium_band_traversed": 0.07892499999999991
+        },
+        "stacked_two_knobs": 1.103589625,
+        "headline": "Squashing at gamma=0.5 restores the PURE-BID allocation (18 clicks, not 58) while collecting 45% more than pure-bid ever did. Price up, relevance down, mechanism unchanged.",
+        "required_caption": "gamma is an ASSUMED parameter. Squashing is named in the DOJ findings of fact; its exponent has never been disclosed. Format-pricing and rGSP magnitudes ARE disclosed and are labelled with their court citation."
+      }
+    },
+    {
+      "id": "sc-10-era-6-vs-era-7-side-by-side",
+      "demonstrates": "Finding f10 and f12 - the two 2019 changes ran in opposite directions, and the knobs are small next to the band the mechanism already leaves open.",
+      "example_ref": "cmp-2019-two-changes, ex-7-rgsp-inside-the-band",
+      "settings": {
+        "panels": [
+          "display_2019_first_price",
+          "search_2019_rgsp"
+        ],
+        "shading_factor": 0.6666666666666666,
+        "bidder_mode": "lowest_envy_free",
+        "rgsp_uplift": 0.0574
+      },
+      "expected_output": {
+        "display_panel": {
+          "revenue_change_from_rule_change": 0.0,
+          "stated_motive": "transparency under header-bidding competition",
+          "google_reported_effect": "neutral to positive on publisher revenue"
+        },
+        "search_panel": {
+          "revenue_change_from_rule_change": 0.0574,
+          "stated_motive": "revenue",
+          "band_position_before": 440.0,
+          "band_position_after": 465.256,
+          "band_ceiling": 760
+        },
+        "headline": "Same year, opposite directions. And +5.74% moves the market only 7.9% of the way across a band the mechanism itself leaves 73% wide."
+      }
+    },
+    {
+      "id": "D1-guarantee-headline-vs-exposure",
+      "demonstrates": "Claim 1 / X1 and X2 - the guarantee is bet-the-company as a headline number and structurally bounded as an exposure. Exposure is max(0, G - s*R), not G.",
+      "example_ref": "X1, X2",
+      "settings": {
+        "guarantee_musd": 100,
+        "revenue_share_s": 0.85,
+        "term_years": 3,
+        "cumulative_partner_revenue_musd": 300.47564,
+        "partner_delivers": true,
+        "interaction": "one slider on cumulative partner-generated revenue, with the exposure curve max(0, G - s*R) drawn against it and the filed 2002 and 2003 points marked on the axis"
+      },
+      "expected_output": {
+        "guarantee_as_multiple_of_prior_year_revenue": 1.1570592183,
+        "guarantee_as_multiple_of_cash_and_st_investments": 2.9771651434,
+        "guarantee_as_multiple_of_book_equity": 1.9939384272,
+        "guarantee_as_multiple_of_total_assets": 1.1840344791,
+        "guarantee_as_multiple_of_2002_net_income": 1.0034518744,
+        "break_even_cumulative_partner_revenue_musd": 117.6470588235,
+        "partner_generated_revenue_2002_musd": 65.9262,
+        "partner_generated_revenue_2003_musd": 234.54944,
+        "share_of_break_even_reached_in_2002": 0.5603727,
+        "cumulative_through_2003_as_multiple_of_break_even": 2.55404294,
+        "exposure_musd": {
+          "at_signature": 100.0,
+          "end_2002": 43.96273,
+          "end_2003": 0.0
+        },
+        "exposure_derivation": "max(0, 100 - 0.85*65.9262) = 43.96273 at end-2002; max(0, 100 - 0.85*300.47564) = 0 at end-2003.",
+        "headline": "1.16x the whole prior year's revenue and 2.98x the cash - and out of the money inside eighteen months. The headline claim survives; the exposure claim does not.",
+        "required_caption": "The ~$100m and ~85% terms are grade B. The contract was never filed. D10 reconstructs both from the accounts."
+      }
+    },
+    {
+      "id": "D2-delivery-contingency",
+      "demonstrates": "Break B1 - a revenue guarantee is not a bet on your own monetisation. The FY2004 10-K voids the guaranteed minimum entirely if the partner cannot deliver queries.",
+      "example_ref": "X2",
+      "settings": {
+        "partner_delivers": false,
+        "guarantee_musd": 100,
+        "revenue_share_s": 0.85,
+        "interaction": "a single toggle on partner_delivers, run at any guarantee size, so the reader sees the exposure collapse to zero rather than scale"
+      },
+      "expected_output": {
+        "exposure_musd": 0.0,
+        "exposure_musd_at_guarantee_300": 0.0,
+        "invariance": "exposure is 0 for every value of guarantee_musd in [0, 300] once partner_delivers is false",
+        "contract_language": "FY2004 10-K: 'if a Google Network member were unable to perform under the contract, such as being unable to provide search queries... then the Company would not be obligated to make any non-cancelable guaranteed minimum revenue share payments to that member.'",
+        "headline": "The instrument is a floor price per DELIVERED query. It is a bet on the partner's traffic, not on the buyer's monetisation."
+      }
+    },
+    {
+      "id": "D3-the-equity-leg",
+      "demonstrates": "Claim 1 / X4 and break B3 - equity was the expensive leg and nobody counts it. The cost rises monotonically in the buyer's own success.",
+      "example_ref": "X4",
+      "settings": {
+        "equity_pct_of_company": 0.0271,
+        "terminal_valuation_multiple": 45,
+        "guarantee_musd": 100,
+        "interaction": "one slider on terminal_valuation_multiple, with the cash guarantee drawn as a flat line beside the rising equity bar"
+      },
+      "expected_output": {
+        "warrant_shares": 7437452,
+        "aggregate_exercise_price_usd": 21642985,
+        "strike_per_share_usd": 2.909999957,
+        "dilution_share_of_company": 0.0270923675,
+        "value_realised_by_partner_musd": 1134.643,
+        "value_realised_as_multiple_of_cash_guarantee": 11.34643,
+        "value_of_warrant_shares_at_ipo_price_musd": 632.18342,
+        "realised_price_per_share_usd": 152.5580266,
+        "realised_growth_multiple": 52.4254395,
+        "growth_multiple_measured_to_ipo_price": 29.2096224,
+        "at_default_multiple_45x": 9.73935,
+        "monotonicity_derivation": "equity cost / cash guarantee = 21.643 * terminal_valuation_multiple / 100: 9.74x at the default 45x, 11.35x at the realised 52.4x, 6.32x at the 29.2x IPO-price path.",
+        "headline": "A warrant carried at $13.871m transferred about $1.135bn - 11.3x the cash guarantee everyone quotes - for 2.71% of the company."
+      }
+    },
+    {
+      "id": "D4-owned-vs-syndicated-retention",
+      "demonstrates": "Claim 2 / X6 - at ~85% revenue share the syndicated dollar is a different business from the owned dollar, on retention and again on fully allocated margin. Carries break B4.",
+      "example_ref": "X6",
+      "settings": {
+        "take_rate_syndicated": 0.213,
+        "take_rate_owned": 0.955,
+        "nontac_cost_allocation": [
+          1.0,
+          0.5
+        ],
+        "year": 2008,
+        "interaction": "two stacked bars, revenue then margin, with the non-TAC allocation as a two-position toggle rather than a free slider"
+      },
+      "expected_output": {
+        "owned_retention_2008": 0.9545783333,
+        "syndicated_retention_2008": 0.2130237473,
+        "retention_gap_2008": 4.4810888234,
+        "retention_gap_2002": 11.1111111111,
+        "nontac_cost_of_revenues_2008_musd": 2682.5,
+        "network_prorata_share_of_nontac_cost_musd": 826.4141331602,
+        "network_margin_prorata": 0.0899481654,
+        "owned_margin_prorata": 0.8315027514,
+        "margin_gap_prorata": 9.2442435894,
+        "network_margin_half_allocation": 0.1514859564,
+        "owned_margin_half_allocation": 0.7971397092,
+        "margin_gap_half_allocation": 5.2621360311,
+        "half_allocation_derivation": "owned margin at half allocation = (14413.826 - 654.7 - (2682.5 - 826.4141331602/2)) / 14413.826 = 0.7971397092; the gap is that over the stored 0.1514859564.",
+        "headline": "4.48x apart on retention, 9.24x apart on fully allocated margin. The take rate is not a margin: the 21.3 cents still had to pay for the data centre.",
+        "required_caption": "take_rate_syndicated is an AUCTION OUTCOME (break B4). The disclosed series is 9% (2002), 24.7% (2006), 21.5% (2007), 21.3% (2008) - it went up and then came back down with competition for members. Do not present it as a lever the seller set."
+      }
+    },
+    {
+      "id": "D5-yield-sets-the-distribution-budget",
+      "demonstrates": "Claims 2 and 3 / X8 - the maximum feasible bid for a default IS the yield net of serving cost, so the higher-RPM bidder wins the distribution auction. This is the coupling between the two engines.",
+      "example_ref": "X8",
+      "illustrative": true,
+      "settings": {
+        "rpm_buyer": 10.0,
+        "rpm_rival": 6.0,
+        "serving_cost_per_1k": 1.0,
+        "revenue_share_s": 0.85,
+        "interaction": "two budget bars against one contract line; dragging rpm_rival up to rpm_buyer closes the gap and the winner flips"
+      },
+      "expected_output": {
+        "rival_max_sustainable_share": 0.8333333333,
+        "rival_max_payment_per_1k_usd": 5.0,
+        "buyer_payment_at_85pct_per_1k_usd": 8.5,
+        "partner_uplift_from_switching": 1.7,
+        "buyer_net_per_1k_usd": 0.5,
+        "share_of_own_revenue_rival_would_need_to_bid": 1.4166666667,
+        "empirical_anchor": {
+          "buyer_network_payout_2002": 0.91,
+          "rival_blended_payout_2002": 0.5760071889,
+          "disclosed_payout_gap": 0.3339928111,
+          "note": "Google's TAC was 91% of Google Network advertising revenue in 2002; Overture's blended payout was $384.6m on $667.7m of revenue. Both grade A; the gap, not the RPM level, is the empirical content."
+        },
+        "headline": "The auction sets the size of the cheque. A firm with lower revenue per query cannot outbid for the default, whatever contract form it offers.",
+        "required_caption": "The $10.00 and $6.00 RPMs and the $1.00 serving cost are INVENTED. Network impressions and network clicks were never disclosed in this era. The conclusion is scale-free."
+      }
+    },
+    {
+      "id": "D6-the-loss-leading-network",
+      "demonstrates": "X8 tail - at the 91% ratio Google actually recognised in 2002 the network ran at a loss per 1,000 queries, funded by the owned-site revenue that carries no revenue share.",
+      "example_ref": "X8",
+      "illustrative": true,
+      "settings": {
+        "revenue_share_s": 0.91,
+        "rpm_buyer": 10.0,
+        "serving_cost_per_1k": 1.0,
+        "owned_share_of_ad_revenue": 0.747,
+        "interaction": "the same budget bar as D5 with the revenue-share slider dragged from 0.85 to the recognised 0.91, so the net bar crosses zero on screen"
+      },
+      "expected_output": {
+        "buyer_net_per_1k_usd": -0.1,
+        "buyer_net_at_85pct_per_1k_usd": 0.5,
+        "owned_share_of_2002_advertising_revenue": 0.7470596109,
+        "cross_subsidy_derivation": "306.978 / 410.915 = 0.7470596109 - the share of 2002 advertising revenue earned on inventory Google did not have to pay for.",
+        "headline": "Viable only with an owned destination behind it. A firm without one cannot run this play at all.",
+        "required_caption": "Same invented RPMs as D5. The 91% payout ratio and the 74.7% owned share are both filed, grade A."
+      }
+    },
+    {
+      "id": "D7-capture-attribution",
+      "demonstrates": "Claim 3 / X9 - the capture-attribution decomposition, and the quantitative spine of chapter 09. Carries evidence weights W1-W4 and break B9.",
+      "example_ref": "X9",
+      "settings": {
+        "query_denominator_path": [
+          "high",
+          "low"
+        ],
+        "year": 2008,
+        "interaction": "a two-position toggle on the query denominator, never a slider - both paths are grade C and the output is a band by construction"
+      },
+      "expected_output": {
+        "advertising_revenue_growth_2002_2008_musd": 20717.599,
+        "owned_share_of_growth_gross": 0.6809113353,
+        "network_share_of_growth_gross": 0.3190886647,
+        "network_share_of_2008_advertising_revenue_net_of_tac": 0.0941694382,
+        "network_share_of_2008_advertising_revenue_gross": 0.317802189,
+        "network_share_of_2008_total_revenue": 0.3080760981,
+        "network_peak_share_of_total_revenue_2004": 0.487,
+        "owned_site_revenue_multiple_2002_2007": 34.6106398504,
+        "volume_share_high_query_path": 0.5628745421,
+        "yield_share_high_query_path": 0.4373060366,
+        "volume_share_low_query_path": 0.5200610243,
+        "yield_share_low_query_path": 0.4800665094,
+        "distribution_tac_share_of_owned_revenue_2007": 0.0367916097,
+        "distribution_tac_share_of_owned_revenue_2008": 0.0454216667,
+        "cumulative_network_contribution_share_2002_2008": 0.0797412906,
+        "evidence_weights_covered": {
+          "W1": "network at 48.7% of total revenue in 2004 and 30.8% in 2008 (direction: distribution, weight 0.25, grade A)",
+          "W2": "9.4% of 2008 advertising revenue net of TAC and 8.0% cumulative (direction: auction/yield, weight 0.25, grade A)",
+          "W3": "the 52-56% volume against 44-48% yield split (direction: split, weight 0.20, grade C)",
+          "W4": "distribution TAC at 3.7% and 4.5% of owned-site revenue in 2007-2008 (direction: auction/yield, weight 0.15, grade A)",
+          "W5": "covered by D8 - era-7 evidence, weight 0.15, and it must not be used to attribute era-6 growth"
+        },
+        "headline": "BOUNDED, and against both simple stories. Syndication supplied 31.9% of gross growth but only 9.4% of 2008 revenue net of TAC, and the owned-site growth it did not buy splits 52-56% volume against 44-48% yield.",
+        "required_caption": "mech-capture-002 is grade C and inherits two grade-C query denominators. Quote the split as 52-56% against 44-48%, NEVER as a flat 54%. And name the basis every time network share is drawn: gross advertising revenue, total revenue, and net of TAC are three different numbers (break B9 - the S-1 presented 2002 network revenue net of TAC at $12.278m against the FY2004 10-K's gross $103.937m)."
+      }
+    },
+    {
+      "id": "D8-composition-inversion",
+      "demonstrates": "Claim 4 / X10 and break B7 - the headline TAC rate barely moved while its composition inverted, and under monopoly the default payment stops being a price and becomes a barrier. Carries evidence weight W5.",
+      "example_ref": "X10",
+      "settings": {
+        "year": [
+          2002,
+          2008,
+          2021,
+          2022
+        ],
+        "interaction": "two stacked TAC bars (revenue share against defaults) at 2008 and 2021, with the headline TAC rate drawn as a flat line across both"
+      },
+      "expected_output": {
+        "distribution_share_of_tac_2008": 0.1102374137,
+        "distribution_share_of_tac_2021": 0.577184743,
+        "share_ratio_2021_over_2008": 5.2358334943,
+        "absolute_distribution_spend_growth_2008_2021": 40.1710707194,
+        "headline_tac_rate_2002": 0.2299745689,
+        "headline_tac_rate_2022": 0.2180885897,
+        "default_payments_2021_usdbn": 26.3,
+        "default_payments_against_2020_search_opex": 1.3487179487,
+        "apple_payment_2022_usdbn": 20,
+        "implied_safari_originated_search_ad_revenue_2022_usdbn": 55.5555555556,
+        "share_of_google_search_and_other_2022": 0.3419855682,
+        "retained_from_safari_2022_usdbn": 35.5555555556,
+        "us_query_share_foreclosed_by_the_contracts": 0.497,
+        "including_user_downloaded_chrome": 0.697,
+        "headline": "The 2002 AOL deal is the small, early, cheap version of the instrument the court held illegal in 2024. Same rate, inverted composition, 40x the money.",
+        "required_caption": "BREAK B7 - the binding caveat on the whole twin-engine frame. Once the defaults foreclose roughly half the market, later yield gains cannot be attributed to auction design; the court attributed them to power. Era-7 evidence must not be used to attribute era-6 growth, which is the same discount the analysis applies to weight W5. Break B8: the September 2025 remedy barred exclusivity and capped terms at one year, leaving the payments in place."
+      }
+    },
+    {
+      "id": "D9-liquidity-externality-toggle",
+      "demonstrates": "Claim 2 / X7 and break B5 - the volume engine's arithmetic justification, and the fact that its STRONGEST justification is unmeasurable.",
+      "example_ref": "X7",
+      "settings": {
+        "advertiser_pool_elasticity": [
+          0.0,
+          0.5
+        ],
+        "take_rate_syndicated": 0.09,
+        "interaction": "a two-position toggle carrying a permanent UNMEASURED label; it must never render as a continuous slider, which would imply a measured quantity"
+      },
+      "expected_output": {
+        "network_contribution_2002_musd": 9.35433,
+        "cumulative_network_contribution_2002_2008_musd": 4710.60933,
+        "cumulative_advertising_revenue_2002_2008_musd": 59073.653,
+        "contribution_share_of_cumulative_advertising_revenue": 0.0797412906,
+        "at_elasticity_0": "the 9% take rate of 2002 is irrational on its own arithmetic unless the foreclosure value is counted: $9.35m of contribution against a $100m headline guarantee.",
+        "at_elasticity_0_5": "the deepened advertiser pool raises owned-site prices enough that the syndication pays for itself through the owned line rather than the network line.",
+        "measured": false,
+        "headline": "About $4.71bn of cumulative contribution on $59.07bn of advertising revenue - 8.0% of the era's top line for near-zero incremental fixed cost. That part is arithmetic. The part that would make it obviously right is not measurable.",
+        "required_caption": "BREAK B5 - Google never disclosed advertiser counts, per-keyword auction depth or owned-site CPCs. No public data selects between the two toggle positions. State it as an open question with a simulator hook, never as a finding. It is also the honest limit of the capture-attribution verdict (open tension T2)."
+      }
+    },
+    {
+      "id": "D10-guarantee-overhang-reconstruction",
+      "demonstrates": "Claim 1 / X3 and break B2 - the never-filed deal terms leave a footprint in the accounts, and the footprint prices the guarantee at roughly one seventh of its headline.",
+      "example_ref": "X3",
+      "illustrative": true,
+      "settings": {
+        "year": 2002,
+        "revenue_share_s": 0.85,
+        "non_aol_member_share": [
+          0.6,
+          0.65,
+          0.7
+        ],
+        "interaction": "three bars, one per assumed non-partner share, so the reader sees the reconstruction as a range and not a point"
+      },
+      "expected_output": {
+        "partner_share_of_2002_network_revenue": 0.6342900026,
+        "implied_network_tac_at_91pct_musd": 94.58267,
+        "disclosed_total_tac_2002_musd": 94.5,
+        "contractual_revenue_share_on_partner_revenue_musd": 56.03727,
+        "non_partner_network_revenue_musd": 38.0108,
+        "guarantee_overhang_musd": {
+          "at_0_60": 15.65625,
+          "at_0_65": 13.75571,
+          "at_0_70": 11.85517
+        },
+        "dating_the_expiry": "the disclosed network-TAC ratio falls to 84% in 2003, BELOW the reported 85% partner share, which dates the moment the guarantee stopped binding without needing the contract.",
+        "headline": "$11.9m to $15.7m, not $100m. That is what the guarantee cost in its first year, and the accounts alone bracket the never-filed terms.",
+        "required_caption": "The non-partner revenue share is INVENTED - three values carried, every output illustrative. Break B2: the entire quantitative literature on this deal rests on two numbers nobody can check, and this panel is the check."
+      }
+    },
+    {
+      "id": "D11-what-the-deal-moved-and-returned",
+      "demonstrates": "Claim 1 / X5 - the distribution purchase worked and the investment lost money, which are the same set of facts read two ways. Carries the trace behind break B6.",
+      "example_ref": "X5",
+      "illustrative": true,
+      "settings": {
+        "take_rate_partner": 0.15,
+        "cumulative_partner_revenue_musd": 1977.99699,
+        "interaction": "one bar of gross revenue moved, one of margin retained, one of equity and impairment given up, on the same axis"
+      },
+      "expected_output": {
+        "cumulative_partner_generated_revenue_2002_2006_musd": 1977.99699,
+        "retained_margin_at_15pct_take_musd": 296.6995485,
+        "retained_margin_as_fraction_of_warrant_value": 0.2614915427,
+        "realised_loss_on_the_2006_equity_stake_musd": 717.0,
+        "network_revenue_2003_as_fraction_of_rivals_entire_2002_revenue": 0.9414407668,
+        "sensitivity": "at the network-average take rates (9/16/21/21/25%) rather than a flat 15%, retained margin rises to roughly $370m - still short of the $1,134.6m of equity value transferred.",
+        "headline": "About $1.98bn of gross revenue through the books, about $297m kept, against $1,134.6m of equity given up and $717m later lost on the sequel. As an investment it lost money; as a distribution purchase it worked.",
+        "required_caption": "The 15% take is INVENTED (the complement of the reported 85% share). Break B6: the partner learns the economics of the business it is renting out - Yahoo bought Overture in July 2003, and Google later paid $1.0bn for 5% of AOL and lost $717m on it."
+      }
+    }
+  ],
+  "claim_coverage": {
+    "C1": [
+      "sc-01-pure-bid-misorders",
+      "sc-02-quality-weighting-both-metrics"
+    ],
+    "C2": [
+      "sc-02-quality-weighting-both-metrics",
+      "sc-07-ctr-misestimation"
+    ],
+    "C3": [
+      "sc-03-winners-pay-less-than-bid"
+    ],
+    "C4": [
+      "sc-04-gsp-not-truthful",
+      "sc-05-equilibrium-band"
+    ],
+    "C5": [
+      "sc-06-first-price-bid-shading-panel",
+      "sc-10-era-6-vs-era-7-side-by-side"
+    ],
+    "C6": [
+      "sc-09-pricing-knobs-coda",
+      "sc-08-reserve-is-a-posted-price",
+      "sc-10-era-6-vs-era-7-side-by-side"
+    ],
+    "mech-ovt-001": [
+      "D5-yield-sets-the-distribution-budget",
+      "D6-the-loss-leading-network"
+    ],
+    "mech-ovt-002": "NOT SIMULATED - the 60% of Overture revenue from Microsoft- and Yahoo-supplied traffic is the evidence for break B6 (syndication manufactures your future competitor), which is a sequence of corporate events rather than a parameterised model. Carry as chapter prose beside D11.",
+    "mech-ovt-003": [
+      "D5-yield-sets-the-distribution-budget"
+    ],
+    "mech-ovt-004": "NOT SIMULATED - Overture's $0.31 average price per paid introduction is a per-CLICK yield; the distribution panels run on revenue per 1,000 QUERIES, and the click-through denominator that would bridge them was never disclosed. The per-query comparison was built and discarded for exactly this reason. Carry as prose; the auction engine's baselines.overture carries the same number.",
+    "mech-aol-001": [
+      "D1-guarantee-headline-vs-exposure",
+      "D2-delivery-contingency",
+      "D3-the-equity-leg",
+      "D10-guarantee-overhang-reconstruction"
+    ],
+    "mech-aol-002": [
+      "D1-guarantee-headline-vs-exposure",
+      "D2-delivery-contingency",
+      "D3-the-equity-leg",
+      "D7-capture-attribution",
+      "D10-guarantee-overhang-reconstruction",
+      "D11-what-the-deal-moved-and-returned"
+    ],
+    "mech-aol-003": [
+      "D1-guarantee-headline-vs-exposure"
+    ],
+    "mech-aol-004": [
+      "D3-the-equity-leg"
+    ],
+    "mech-aol-005": [
+      "D3-the-equity-leg",
+      "D11-what-the-deal-moved-and-returned"
+    ],
+    "mech-aol-006": [
+      "D11-what-the-deal-moved-and-returned"
+    ],
+    "mech-aol-007": "NOT SIMULATED - Overture's 36% one-day share-price fall on the AOL announcement is the market's contemporaneous verdict on the D5 auction, not an input to it. No panel arithmetic consumes a share price. Carry as prose in chapter 07 beside D5.",
+    "mech-tac-001": [
+      "D4-owned-vs-syndicated-retention",
+      "D8-composition-inversion"
+    ],
+    "mech-tac-002": [
+      "D8-composition-inversion"
+    ],
+    "mech-tac-003": [
+      "D4-owned-vs-syndicated-retention"
+    ],
+    "mech-tac-004": [
+      "D4-owned-vs-syndicated-retention",
+      "D8-composition-inversion"
+    ],
+    "mech-network-001": [
+      "D7-capture-attribution"
+    ],
+    "mech-network-002": "NOT SIMULATED - the Q2 2006 41% network share is an interim corroboration of the 2004 peak and the 2006 turn; no panel takes a quarterly point as an input. Carry as prose beside D7.",
+    "mech-network-003": [
+      "D7-capture-attribution",
+      "D4-owned-vs-syndicated-retention"
+    ],
+    "mech-default-001": [
+      "D8-composition-inversion"
+    ],
+    "mech-default-002": [
+      "D8-composition-inversion"
+    ],
+    "mech-default-003": [
+      "D8-composition-inversion"
+    ],
+    "mech-default-004": [
+      "D8-composition-inversion"
+    ],
+    "mech-default-005": [
+      "D8-composition-inversion"
+    ],
+    "mech-mehta-001": [
+      "D8-composition-inversion"
+    ],
+    "mech-mehta-002": [
+      "D8-composition-inversion"
+    ],
+    "mech-mehta-003": "NOT SIMULATED - the projected 60-80% iOS query loss is a counterfactual from Google's internal analysis. Simulating it needs a query-substitution model the record does not supply, and inventing one would be a claim about the counterfactual rather than a demonstration of the mechanism. Carry as prose in chapter 08 with D8's caption.",
+    "mech-mehta-004": "NOT SIMULATED - DELIBERATELY. The court's finding that Google could raise text-ad prices 5% or more and keep its advertisers is a monopoly-power finding, and break B7 forbids folding it into the era-6 auction-design story. The auction engine's sc-09 simulates the DISCLOSED knob magnitudes, which are a different finding in the same opinion (see mechanism.json reconciliation.consistency_check.shared_facts). The two must not be merged in prose or in a panel.",
+    "mech-mehta-005": "NOT SIMULATED - the September 2025 remedies opinion is a legal outcome with no arithmetic. It is break B8 and it is the reason the chapter cannot end the distribution engine in 2024. Carry as prose beside D8, which already carries it as a required caption.",
+    "mech-capture-001": [
+      "D7-capture-attribution"
+    ],
+    "mech-capture-002": [
+      "D7-capture-attribution"
+    ],
+    "mech-capture-003": [
+      "D7-capture-attribution"
+    ]
+  },
+  "break_coverage": {
+    "brk-quality-estimate": "sc-07-ctr-misestimation",
+    "brk-non-truthful": "sc-04-gsp-not-truthful, sc-05-equilibrium-band",
+    "brk-thin-query-reserve": "sc-08-reserve-is-a-posted-price",
+    "brk-revenue-equivalence": "sc-06-first-price-bid-shading-panel",
+    "brk-knobs": "sc-09-pricing-knobs-coda",
+    "brk-ctr-proxies-relevance": "sc-02-quality-weighting-both-metrics (caption only - the landing-page-quality point is prose, not arithmetic)",
+    "brk-collusion-surface": "NOT SIMULATED - pure-bid's public bid tool is a design-level point with no worked arithmetic in the analysis. Carry it as chapter prose.",
+    "B1": "D2-delivery-contingency",
+    "B2": "D10-guarantee-overhang-reconstruction, D1-guarantee-headline-vs-exposure (required caption)",
+    "B3": "D3-the-equity-leg",
+    "B4": "D4-owned-vs-syndicated-retention (required caption: the take rate is an auction outcome, not a design parameter - the ratchet reverses in 2007-2008)",
+    "B5": "D9-liquidity-externality-toggle (labelled UNMEASURED; a toggle, never a slider)",
+    "B6": "NOT SIMULATED - backward integration by the distribution partner (Yahoo buys Overture in July 2003; Microsoft builds adCenter; Google pays $1.0bn for 5% of AOL) is a sequence of corporate events, not a parameterised model. D11 carries its arithmetic trace, the $717m realised loss. Carry the rest as chapter prose.",
+    "B7": "D8-composition-inversion (required caption - the binding caveat on the whole twin-engine frame)",
+    "B8": "NOT SIMULATED - the September 2025 remedy is a legal outcome with no arithmetic. It appears as D8's required caption and as chapter prose; a reader who takes the 2024 ruling as the end of the distribution engine will misread everything after it.",
+    "B9": "D7-capture-attribution (the gross-versus-net contrast is the panel's central output; the S-1's $12.278m net presentation of 2002 network revenue is the panel caption)"
+  }
+}

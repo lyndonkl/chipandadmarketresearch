@@ -713,6 +713,63 @@ def r4_claims():
 
 # ---------- R5 ----------
 
+def r4_simparams():
+    """Cross-validate simulator expected_output values.
+
+    These are the numbers the built simulator will be asserted against, so an
+    error here silently becomes a "correct" simulator hitting wrong targets.
+    r4-arithmetic walks mechanism.json only and never reaches them.
+    """
+    sp = load(P2 / "data" / "simulator-params.json")
+    m = load(P2 / "data" / "mechanism.json")
+    if sp is None or m is None:
+        return
+    # Collect example ids present in mechanism.json.
+    ex_ids = set()
+
+    def collect(node):
+        if isinstance(node, dict):
+            if node.get("id"):
+                ex_ids.add(str(node["id"]))
+            for v in node.values():
+                collect(v)
+        elif isinstance(node, list):
+            for v in node:
+                collect(v)
+
+    collect(m)
+    scenarios = sp.get("scenarios", [])
+    if not scenarios:
+        bad("r4-rdy-01", "simulator-params.json carries no scenarios", "simulator-params.json")
+        return
+    for s in scenarios:
+        sid = s.get("id", "?")
+        # example_ref may name several examples, comma-separated.
+        for ref in (r.strip() for r in str(s.get("example_ref") or "").split(",") if r.strip()):
+            if ref not in ex_ids:
+                bad("r4-rdy-01", f"scenario {sid}: example_ref '{ref}' does not resolve in mechanism.json",
+                    "simulator-params.json")
+        eo = s.get("expected_output")
+        if not isinstance(eo, dict):
+            bad("r4-rdy-01", f"scenario {sid}: expected_output is not an object", "simulator-params.json")
+            continue
+        clicks, prices = eo.get("clicks"), eo.get("prices_usd")
+        total, avg = eo.get("total_clicks"), eo.get("avg_price_per_click_usd")
+        if isinstance(clicks, list) and isinstance(total, (int, float)):
+            got = sum(c for c in clicks if isinstance(c, (int, float)))
+            if abs(got - total) > 1e-6:
+                bad("r4-rdy-01", f"scenario {sid}: total_clicks={total} but clicks sum to {got}",
+                    "simulator-params.json")
+        if (isinstance(clicks, list) and isinstance(prices, list)
+                and isinstance(avg, (int, float)) and isinstance(total, (int, float)) and total):
+            paid = sum(p * c for p, c in zip(prices, clicks)
+                       if isinstance(p, (int, float)) and isinstance(c, (int, float)))
+            if abs(paid / total - avg) > 1e-4:
+                bad("r4-rdy-01", f"scenario {sid}: avg_price_per_click={avg} but "
+                                 f"sum(price*clicks)/total_clicks={paid / total:.6f}",
+                    "simulator-params.json")
+
+
 CHAPTERS = [
     "01-thesis.md", "02-the-middlemen.md", "03-sponsorship.md", "04-the-spot-market.md",
     "05-segmentation.md", "06-the-impression.md", "07-the-auction.md",
@@ -783,6 +840,7 @@ COMMANDS = {
     "r2-reconcile": r2_reconcile, "r2-freeze": r2_freeze,
     "r3-coverage": r3_coverage, "r3-verdicts": r3_verdicts, "r3-applied": r3_applied,
     "r4-coverage": r4_coverage, "r4-arithmetic": r4_arithmetic, "r4-claims": r4_claims,
+    "r4-simparams": r4_simparams,
     "r5-files": r5_files, "r5-traceability": r5_traceability, "r5-claimsfile": r5_claimsfile,
 }
 

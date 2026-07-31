@@ -1,0 +1,1552 @@
+{
+  "distribution": {
+    "mechanism": {
+      "name": "Search-advertising distribution: revenue-share syndication, minimum-revenue guarantees, and exclusive default placement (1998-2008, with a 2024 coda)",
+      "one_line": "A search engine buys query volume from whoever owns the user's starting point, paying a share of the advertising revenue those queries generate, sometimes floored by a guarantee and sometimes bought with equity, in exchange for default or exclusive placement.",
+      "actors": {
+        "access_point_owner": "AOL, Apple, Mozilla, Android OEMs, carriers, or any web publisher: owns the surface where a query begins. Sells placement, not inventory-quality.",
+        "search_engine": "Google or Overture: runs the auction that converts a query into revenue. Buys placement with a share of that revenue.",
+        "advertiser": "Bids in the search engine's auction. Never a party to the distribution contract, and in the syndicated case usually cannot see which surface the click came from.",
+        "rival_search_engine": "The bidder who loses the placement, and with it the queries."
+      },
+      "allocation_rule": "The access-point owner allocates the default (and in the exclusive case, the only) slot to one search engine, typically by private negotiation shaped like a first-price sealed-bid auction over revenue-share terms. Allocation is all-or-nothing per surface and per term.",
+      "payment_rule": "TAC = max(s * R, G_amortised), where s is the contractual revenue share, R is the advertising revenue generated on that surface, and G is any non-cancelable guaranteed minimum. Google's own accounting policy states it exactly: 'To the extent we expect revenues generated under an arrangement to exceed the guaranteed minimum revenue share payments, we recognize traffic acquisition costs on a contractual revenue share basis... Otherwise, we recognize the guaranteed revenue share payments as traffic acquisition costs on a straight-line basis over the term.' Payment may also include equity (a warrant, or a direct stake).",
+      "information_structure": "Radically asymmetric. The search engine knows R per query, its own serving cost, and its rival's approximate yield; the access-point owner knows only what each bidder offers. Advertisers see none of it. The terms are private: the 2002 Google-AOL contract was never filed, and FOF para 298 of the 2024 opinion redacts the Apple revenue-share rate.",
+      "risk_allocation": "The guarantee is contingent on delivery, not on monetisation. Google's FY2004 10-K: 'if a Google Network member were unable to perform under the contract, such as being unable to provide search queries, as defined under the terms of that agreement, then the Company would not be obligated to make any non-cancelable guaranteed minimum revenue share payments to that member.' So a revenue guarantee is a floor on the partner's price per delivered query, not a bet on the buyer's own monetisation.",
+      "assumptions_added": [
+        "Deal terms reported but never filed (the ~$100m guarantee and ~85% share) are treated as grade-B inputs and every conclusion that depends on them is tested for sensitivity.",
+        "AOL's share of Google's network revenue is inferred by dividing the disclosed AOL-share-of-total-revenue by disclosed network revenue; this assumes essentially all AOL-generated revenue was booked as network revenue, which the 10-K's wording ('primarily through our AdSense program') supports but does not guarantee.",
+        "Google's take rate on AOL specifically was never disclosed. Where an AOL-specific take rate is needed it is set at 15% (the complement of the reported 85% share) and marked illustrative, with the network-average take rate shown as an alternative.",
+        "Serving cost per syndicated impression is assumed to be at most proportional to revenue; a half-proportional allocation is carried as the alternative bound."
+      ]
+    },
+    "baseline": {
+      "name": "Counterfactual baseline: Overture's syndication network holds",
+      "why_this_baseline": "No rival auction design is at issue here; the rival is a rival BALANCE SHEET running the same instruments. Overture's own FY2002 10-K describes the identical toolkit - 'fixed payments, based on a guaranteed minimum amount of traffic delivered, which often carry reciprocal performance guarantees from the affiliates', percentage-of-revenue payments, per-click, per-impression and per-search payments. The guarantee was not Google's invention. The counterfactual is therefore not 'what if nobody used guarantees' but 'what if the incumbent had been able to outbid'.",
+      "baseline_rules": {
+        "allocation": "Same: private negotiation for default placement on portals, browsers and metasearch sites.",
+        "payment": "Same instrument set. Overture's blended payout was 58% of revenue in 2002 (56% in 2001), guided to 63-64% by Q1 2003 and rising 0.25-0.50 points per quarter thereafter.",
+        "structural_difference": "Overture had almost no owned destination to cross-subsidise a bid. Google took 74.7% of its 2002 advertising revenue from inventory it did not have to pay for. That asymmetry, not the contract form, is what decided the AOL auction."
+      },
+      "claims": [
+        {
+          "calibration": {
+            "id": "mech-ovt-001",
+            "statement": "Overture Services booked $667.7m of revenue in 2002 (up from $288.1m in 2001) and paid $384.6m of traffic acquisition costs, 58% of revenue, up from 56% in 2001; it guided TAC to 63-64% of revenue for Q1 2003 and to rise a further 0.25-0.50 points per quarter thereafter. Net income was $73.1m, an 11.0% net margin.",
+            "central": 58.0,
+            "unit": "% of Overture revenue paid out as traffic acquisition cost, FY2002",
+            "ci80": [
+              56.0,
+              64.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Overture Services, Inc., Form 10-K FY2002 (revenue $667.7m vs $288.1m in 2001; traffic acquisition costs $384.6m = 58% of revenue vs $162.1m = 56%; guidance of 63-64% for Q1 2003; 2.2bn paid introductions; average price per paid introduction $0.31; ~80,000 advertisers; ~60% of revenue from Microsoft- and Yahoo-supplied traffic; loss of 'our U.S. search distribution relationship with America Online (including CompuServe)'; affiliate structures include 'fixed payments, based on a guaranteed minimum amount of traffic delivered, which often carry reciprocal performance guarantees')",
+                "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+              }
+            ],
+            "as_of": "2002"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-ovt-002",
+            "statement": "Overture earned approximately 60% of its 2002 revenue from advertisers whose paid introductions came through traffic supplied by Microsoft (primarily msn.com and the MSN pane in Internet Explorer) and Yahoo - a concentration four times Google's 15% exposure to AOL, and in both cases the counterparty later became a competitor or an acquirer.",
+            "central": 60.0,
+            "unit": "% of Overture 2002 revenue from Microsoft- and Yahoo-supplied traffic",
+            "ci80": [
+              58.0,
+              62.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Overture Services, Inc., Form 10-K FY2002 (revenue $667.7m vs $288.1m in 2001; traffic acquisition costs $384.6m = 58% of revenue vs $162.1m = 56%; guidance of 63-64% for Q1 2003; 2.2bn paid introductions; average price per paid introduction $0.31; ~80,000 advertisers; ~60% of revenue from Microsoft- and Yahoo-supplied traffic; loss of 'our U.S. search distribution relationship with America Online (including CompuServe)'; affiliate structures include 'fixed payments, based on a guaranteed minimum amount of traffic delivered, which often carry reciprocal performance guarantees')",
+                "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+              }
+            ],
+            "as_of": "2002"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-ovt-003",
+            "statement": "Overture's FY2002 10-K lost 'our U.S. search distribution relationship with America Online (including CompuServe)' in the year, alongside Ask Jeeves and Earthlink - the flip recorded in the incumbent's own filing.",
+            "central": 2002.33,
+            "unit": "year (2002) in which Overture recorded the loss of its US AOL distribution relationship",
+            "ci80": [
+              2002.0,
+              2002.99
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Overture Services, Inc., Form 10-K FY2002 (revenue $667.7m vs $288.1m in 2001; traffic acquisition costs $384.6m = 58% of revenue vs $162.1m = 56%; guidance of 63-64% for Q1 2003; 2.2bn paid introductions; average price per paid introduction $0.31; ~80,000 advertisers; ~60% of revenue from Microsoft- and Yahoo-supplied traffic; loss of 'our U.S. search distribution relationship with America Online (including CompuServe)'; affiliate structures include 'fixed payments, based on a guaranteed minimum amount of traffic delivered, which often carry reciprocal performance guarantees')",
+                "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+              }
+            ],
+            "as_of": "2002"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-ovt-004",
+            "statement": "Overture's average realised price per paid introduction was $0.31 in 2002 on more than 2.2 billion paid introductions; $667.7m over 2.2bn implies $0.3035, consistent with the disclosed average once sub-1% non-click revenue is removed.",
+            "central": 0.31,
+            "unit": "USD average price per paid introduction, Overture FY2002",
+            "ci80": [
+              0.3,
+              0.32
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Overture Services, Inc., Form 10-K FY2002 (revenue $667.7m vs $288.1m in 2001; traffic acquisition costs $384.6m = 58% of revenue vs $162.1m = 56%; guidance of 63-64% for Q1 2003; 2.2bn paid introductions; average price per paid introduction $0.31; ~80,000 advertisers; ~60% of revenue from Microsoft- and Yahoo-supplied traffic; loss of 'our U.S. search distribution relationship with America Online (including CompuServe)'; affiliate structures include 'fixed payments, based on a guaranteed minimum amount of traffic delivered, which often carry reciprocal performance guarantees')",
+                "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+              }
+            ],
+            "as_of": "2002"
+          }
+        }
+      ]
+    },
+    "aol_2002": {
+      "summary": "The May 2002 agreement moved AOL's US search and paid listings from Inktomi and Overture to Google on terms never filed with the SEC: a reported ~$100m revenue guarantee and a ~85% revenue share. The filings that DO exist corroborate the share, date the guarantee's expiry, and reveal a second, larger instrument the popular account omits - a warrant on Google's own equity that ultimately transferred about $1.13bn of value to AOL's parent.",
+      "deal_terms": {
+        "calibration": {
+          "id": "mech-aol-001",
+          "statement": "The May 2002 Google-AOL agreement is reported to have carried an approximately $100 million revenue guarantee and an approximately 85% revenue share. The contract was never filed with the SEC; the figures originate in secondary accounts. Google's disclosed network economics are consistent with them: traffic acquisition costs equalled 91% of Google Network advertising revenue in 2002, and AOL supplied about 63% of that network revenue.",
+          "central": 100.0,
+          "unit": "USD millions, reported revenue guarantee in the May 2002 Google-AOL agreement",
+          "ci80": [
+            75.0,
+            150.0
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "John Battelle, 'The Search' (Portfolio, 2005) - origin of the ~$100m revenue guarantee and ~85% revenue share reported for the May 2002 Google-AOL agreement; page reference not captured. The terms were never filed with the SEC."
+            },
+            {
+              "name": "Seattle Times / Associated Press, 'Google to pay dearly for AOL' (December 2005), reporting the ~$100m guarantee and ~85% share of the 2002 agreement alongside the December 2005 renegotiation",
+              "url": "https://www.seattletimes.com/business/google-to-pay-dearly-for-aol/"
+            },
+            {
+              "name": "Google Inc., Form 10-K FY2004 (revenues by source; traffic acquisition costs $94.5m/$526.5m/$1,228.7m at 91%/84%/79% of Google Network advertising revenue and 23%/37%/39% of advertising revenue; AOL 15%/16%/12% of revenues 2002/2003/2004)",
+              "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312505065298/d10k.htm"
+            }
+          ],
+          "as_of": "2002-05"
+        }
+      },
+      "concentration": {
+        "calibration": {
+          "id": "mech-aol-002",
+          "statement": "One distribution partner, America Online, generated approximately 15%, 16%, 12%, 9% and 7% of Google's TOTAL revenues in 2002, 2003, 2004, 2005 and 2006 respectively, primarily through the AdSense program. The 2002 figure covers roughly eight months of the agreement.",
+          "central": 15.0,
+          "unit": "% of Google total revenue attributable to AOL, 2002",
+          "ci80": [
+            15.0,
+            15.0
+          ],
+          "grade": "A",
+          "sources": [
+            {
+              "name": "Google Inc., Form 10-K FY2004 (revenues by source; traffic acquisition costs $94.5m/$526.5m/$1,228.7m at 91%/84%/79% of Google Network advertising revenue and 23%/37%/39% of advertising revenue; AOL 15%/16%/12% of revenues 2002/2003/2004)",
+              "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312505065298/d10k.htm"
+            },
+            {
+              "name": "Google Inc., Form 10-K FY2006 (revenues by source 2004-2006; TAC $1,228.7m/$2,114.9m/$3,308.8m at 39.1%/34.9%/31.5% of advertising revenue; AOL 12%/9%/7% of revenues 2004/2005/2006; $1.0bn equity investment in America Online, Inc.)",
+              "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312507044494/d10k.htm"
+            }
+          ],
+          "as_of": "2002"
+        }
+      },
+      "balance_sheet_at_signing": {
+        "calibration": {
+          "id": "mech-aol-003",
+          "statement": "At the last balance-sheet date before the deal (2001 year-end) Google held $33.589m of cash, cash equivalents and short-term investments, $84.457m of total assets and $50.152m of stockholders' equity, on $86.426m of full-year 2001 net revenues. Cash and short-term investments reached $146.331m by 2002 year-end.",
+          "central": 33.589,
+          "unit": "USD millions, Google cash and short-term investments at 2001 year-end",
+          "ci80": [
+            33.589,
+            33.589
+          ],
+          "grade": "A",
+          "sources": [
+            {
+              "name": "Google Inc., Form S-1 (2004-04-29): selected balance-sheet data (cash, cash equivalents and short-term investments $33,589k at 2001 year-end, $146,331k at 2002 year-end; total assets $84,457k; stockholders' equity $50,152k; net revenues $86,426k in 2001) and Item 15 recent sales of unregistered securities ('In May 2002, we issued to an accredited investor a warrant to purchase 7,437,452 shares of Series D preferred stock for an aggregate exercise price of $21,642,985')",
+              "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312504073639/ds1.htm"
+            }
+          ],
+          "as_of": "2001-12"
+        }
+      },
+      "the_warrant": {
+        "calibration": {
+          "id": "mech-aol-004",
+          "statement": "The deal's second instrument: in May 2002 Google issued a warrant to purchase 7,437,452 shares of Series D preferred stock for an aggregate exercise price of $21,642,985, carried on the balance sheet at $13.871m through 2003. America Online exercised it in May 2004 for approximately $22 million and received approximately 7.4 million shares, which converted to common stock at the August 2004 IPO.",
+          "central": 7437452.0,
+          "unit": "Google shares underlying the May 2002 warrant issued in connection with the AOL agreement",
+          "ci80": [
+            7437452.0,
+            7437452.0
+          ],
+          "grade": "A",
+          "sources": [
+            {
+              "name": "Google Inc., Form S-1 (2004-04-29): selected balance-sheet data (cash, cash equivalents and short-term investments $33,589k at 2001 year-end, $146,331k at 2002 year-end; total assets $84,457k; stockholders' equity $50,152k; net revenues $86,426k in 2001) and Item 15 recent sales of unregistered securities ('In May 2002, we issued to an accredited investor a warrant to purchase 7,437,452 shares of Series D preferred stock for an aggregate exercise price of $21,642,985')",
+              "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312504073639/ds1.htm"
+            },
+            {
+              "name": "Time Warner Inc., Form 10-Q for Q2 2004 ('In May 2004, America Online exercised this warrant and, after taking into account adjustments for stock splits, received approximately 7.4 million shares of Series D Preferred Stock of Google for approximately $22 million')",
+              "url": "https://www.sec.gov/Archives/edgar/data/1105705/000095014404004986/g88623e10vq.htm"
+            }
+          ],
+          "as_of": "2002-05"
+        }
+      },
+      "warrant_realised_value": {
+        "calibration": {
+          "id": "mech-aol-005",
+          "statement": "Time Warner realised approximately $1.135bn from the warrant: 2,355,559 Class A shares sold in Google's IPO for $195m net (a booked gain of $188m in Q3 2004) and the remaining ~5.08m shares sold during 2005 for a booked gain of $925m. Total booked gains of $1,113m on a $21.6m exercise price.",
+          "central": 1134.6,
+          "unit": "USD millions of value realised by AOL/Time Warner from the May 2002 Google warrant",
+          "ci80": [
+            1100.0,
+            1160.0
+          ],
+          "grade": "A",
+          "sources": [
+            {
+              "name": "Time Warner Inc., Form 10-Q for Q3 2004 (2,355,559 Google Class A shares sold in the IPO for $195 million net of underwriting discounts; gain of approximately $188 million)",
+              "url": "https://www.sec.gov/Archives/edgar/data/1105705/000095014404010346/g91243e10vq.htm"
+            },
+            {
+              "name": "Time Warner Inc., Form 10-K FY2006 ($188 million gain on the sale of a portion of the Google interest in 2004; $925 million gain on the sale of the remaining Google investment in 2005; 5% minority interest in AOL issued to Google in Q2 2006)",
+              "url": "https://www.sec.gov/Archives/edgar/data/1105705/000095014407001550/g05042e10vk.htm"
+            }
+          ],
+          "as_of": "2005-12"
+        }
+      },
+      "the_2006_sequel": {
+        "calibration": {
+          "id": "mech-aol-006",
+          "statement": "The relationship's second act destroyed capital: Google paid $1.0bn in cash in the first half of 2006 for a five percent indirect equity interest in AOL, wrote $726m of it off as an other-than-temporary impairment in Q4 2008, and sold the stake back to Time Warner for $283m in July 2009 - a realised loss of about $717m, roughly seven times the 2002 cash guarantee.",
+          "central": 717.0,
+          "unit": "USD millions of realised loss on Google's 2006 $1.0bn AOL equity investment",
+          "ci80": [
+            700.0,
+            730.0
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "Google Inc., Form 10-K FY2006 (revenues by source 2004-2006; TAC $1,228.7m/$2,114.9m/$3,308.8m at 39.1%/34.9%/31.5% of advertising revenue; AOL 12%/9%/7% of revenues 2004/2005/2006; $1.0bn equity investment in America Online, Inc.)",
+              "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312507044494/d10k.htm"
+            },
+            {
+              "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+              "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+            },
+            {
+              "name": "TechCrunch, 'Google Sells Back Its Stake In AOL. There Goes $700 Million' (2009-07-27) - Time Warner repurchased Google's 5% AOL stake for $283 million",
+              "url": "https://techcrunch.com/2009/07/27/google-sells-back-its-stake-in-aol-there-goes-700-million/"
+            }
+          ],
+          "as_of": "2009-07",
+          "method": "Grade B because the $283m repurchase price is from trade reporting rather than a Google filing; the $1.0bn cost and the $726m impairment are both grade A from Google's 10-Ks. Loss = 1000 - 283 = 717."
+        }
+      },
+      "market_reaction": {
+        "calibration": {
+          "id": "mech-aol-007",
+          "statement": "Overture's shares fell roughly 36% and Inktomi's roughly 24% on the announcement - the market priced the loss of a single distribution contract as a third of the incumbent's equity value.",
+          "central": 36.0,
+          "unit": "% one-day fall in Overture Services' share price on the AOL announcement",
+          "ci80": [
+            30.0,
+            40.0
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "The Register, 'Google's AOL win upsets Inktomi, Overture' (2002-05-02) - Overture down ~36%, Inktomi down ~24% on the announcement",
+              "url": "https://www.theregister.com/2002/05/02/googles_aol_win_upsets_inktomi/"
+            }
+          ],
+          "as_of": "2002-05"
+        }
+      }
+    },
+    "tac_series": {
+      "summary": "Traffic acquisition cost is the price of the volume engine. Two distinct lines hide inside one label: the revenue share paid to Google Network members for THEIR inventory (AdSense TAC), and the payments made to distribution partners for traffic sent to GOOGLE'S OWN inventory (distribution TAC). In 2002-2008 the first was 89-95% of the total. By 2021 the second - the payment for defaults - was 58% of it.",
+      "table_usd_millions": [
+        {
+          "year": 2002,
+          "network_revenue": 103.937,
+          "owned_revenue": 306.978,
+          "advertising_revenue": 410.915,
+          "total_tac": 94.5,
+          "adsense_tac": null,
+          "distribution_tac": null,
+          "tac_pct_network_revenue": 91.0,
+          "tac_pct_advertising_revenue": 23.0
+        },
+        {
+          "year": 2003,
+          "network_revenue": 628.6,
+          "owned_revenue": 792.063,
+          "advertising_revenue": 1420.663,
+          "total_tac": 526.5,
+          "adsense_tac": null,
+          "distribution_tac": null,
+          "tac_pct_network_revenue": 84.0,
+          "tac_pct_advertising_revenue": 37.0
+        },
+        {
+          "year": 2004,
+          "network_revenue": 1554.256,
+          "owned_revenue": 1589.032,
+          "advertising_revenue": 3143.288,
+          "total_tac": 1228.7,
+          "adsense_tac": null,
+          "distribution_tac": null,
+          "tac_pct_network_revenue": 79.0,
+          "tac_pct_advertising_revenue": 39.1
+        },
+        {
+          "year": 2005,
+          "network_revenue": 2687.942,
+          "owned_revenue": 3377.06,
+          "advertising_revenue": 6065.002,
+          "total_tac": 2114.9,
+          "adsense_tac": null,
+          "distribution_tac": null,
+          "tac_pct_network_revenue": null,
+          "tac_pct_advertising_revenue": 34.9
+        },
+        {
+          "year": 2006,
+          "network_revenue": 4159.831,
+          "owned_revenue": 6332.797,
+          "advertising_revenue": 10492.628,
+          "total_tac": 3308.8,
+          "adsense_tac": 3134.6,
+          "distribution_tac": 174.2,
+          "tac_pct_network_revenue": 75.4,
+          "tac_pct_advertising_revenue": 31.5
+        },
+        {
+          "year": 2007,
+          "network_revenue": 5787.938,
+          "owned_revenue": 10624.705,
+          "advertising_revenue": 16412.643,
+          "total_tac": 4933.9,
+          "adsense_tac": 4543.0,
+          "distribution_tac": 390.9,
+          "tac_pct_network_revenue": 78.5,
+          "tac_pct_advertising_revenue": 30.1
+        },
+        {
+          "year": 2008,
+          "network_revenue": 6714.688,
+          "owned_revenue": 14413.826,
+          "advertising_revenue": 21128.514,
+          "total_tac": 5939.0,
+          "adsense_tac": 5284.3,
+          "distribution_tac": 654.7,
+          "tac_pct_network_revenue": 78.7,
+          "tac_pct_advertising_revenue": 28.1
+        }
+      ],
+      "claims": [
+        {
+          "calibration": {
+            "id": "mech-tac-001",
+            "statement": "Google's traffic acquisition costs were $94.5m (2002), $526.5m (2003), $1,228.7m (2004), $2,114.9m (2005), $3,308.8m (2006), $4,933.9m (2007) and $5,939.0m (2008) - 23.0%, 37%, 39.1%, 34.9%, 31.5%, 30.1% and 28.1% of advertising revenue. As a share of Google Network advertising revenue specifically, TAC was 91% (2002), 84% (2003) and 79% (2004).",
+            "central": 28.1,
+            "unit": "% of Google advertising revenue paid out as traffic acquisition cost, 2008",
+            "ci80": [
+              28.1,
+              28.1
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Google Inc., Form 10-K FY2004 (revenues by source; traffic acquisition costs $94.5m/$526.5m/$1,228.7m at 91%/84%/79% of Google Network advertising revenue and 23%/37%/39% of advertising revenue; AOL 15%/16%/12% of revenues 2002/2003/2004)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312505065298/d10k.htm"
+              },
+              {
+                "name": "Google Inc., Form 10-K FY2006 (revenues by source 2004-2006; TAC $1,228.7m/$2,114.9m/$3,308.8m at 39.1%/34.9%/31.5% of advertising revenue; AOL 12%/9%/7% of revenues 2004/2005/2006; $1.0bn equity investment in America Online, Inc.)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312507044494/d10k.htm"
+              },
+              {
+                "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+              }
+            ],
+            "as_of": "2008"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-tac-002",
+            "statement": "From 2006 Google split the line: traffic acquisition costs related to AdSense arrangements were $3,134.6m (2006), $4,543.0m (2007) and $5,284.3m (2008), while payments to distribution partners who direct queries to Google's own site were $174.2m, $390.9m and $654.7m. Distribution TAC was 5.3%, 7.9% and 11.0% of total TAC in those years.",
+            "central": 11.0,
+            "unit": "% of total traffic acquisition cost paid to distribution partners rather than network members, 2008",
+            "ci80": [
+              11.0,
+              11.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+              }
+            ],
+            "as_of": "2008"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-tac-003",
+            "statement": "Google's take rate on syndicated inventory rose from about 9% in 2002 to a peak of 24.7% in 2006, then FELL to 21.5% (2007) and 21.3% (2008): the ratchet reverses when competition for partners intensifies. The FY2008 10-K warns that the rate 'may increase in the future if we are unable to continue to improve the monetization... particularly with those members to whom we have guaranteed minimum revenue share payments'.",
+            "central": 24.7,
+            "unit": "% of Google Network advertising revenue retained by Google, peak year 2006",
+            "ci80": [
+              21.0,
+              25.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+              },
+              {
+                "name": "Google Inc., Form 10-K FY2004 (revenues by source; traffic acquisition costs $94.5m/$526.5m/$1,228.7m at 91%/84%/79% of Google Network advertising revenue and 23%/37%/39% of advertising revenue; AOL 15%/16%/12% of revenues 2002/2003/2004)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312505065298/d10k.htm"
+              }
+            ],
+            "as_of": "2008",
+            "method": "Arithmetic on two filed series: 1 - AdSense TAC / Google Network advertising revenue. 2006: 1 - 3134.6/4159.831 = 24.65%. 2007: 1 - 4543.0/5787.938 = 21.51%. 2008: 1 - 5284.3/6714.688 = 21.30%. For 2002-2005 only total TAC is disclosed, so the take rate is bounded: 2002 = 9% exactly (the 91% ratio is itself disclosed), 2005 = 21.3% if all TAC were AdSense TAC and up to 25.5% if distribution TAC ran at its 2006 share of 5.3%."
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-tac-004",
+            "statement": "The syndicated ad dollar and the owned ad dollar are not the same business. In 2008 Google retained 95.5 cents of every advertising dollar earned on its own sites (after $654.7m of distribution TAC) and 21.3 cents of every dollar earned on Google Network sites - a 4.5x gap in retention. In 2002 the gap was 11x.",
+            "central": 4.48,
+            "unit": "ratio of owned-site to syndicated revenue retention, 2008",
+            "ci80": [
+              4.4,
+              4.6
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+              }
+            ],
+            "as_of": "2008",
+            "method": "(14413.826 - 654.7)/14413.826 = 0.95458; (6714.688 - 5284.3)/6714.688 = 0.21302; ratio 4.4811. 2002: owned retention approx 1.00 (the disclosed 91% network TAC ratio accounts for 94.58 of the 94.5 total, leaving no material distribution TAC) against a 9% network take, ratio 11.1."
+          }
+        }
+      ]
+    },
+    "network_share": {
+      "summary": "Google Network revenue peaked at 48.7% of total revenue in 2004 and fell to 30.8% by 2008. On a net-of-TAC basis it never got near that: at its 2006 peak the network contributed 14.3% of Google's advertising revenue after revenue share, and 9.4% by 2008. The syndication engine bought scale, market position and a fast route past Overture. It did not buy profit.",
+      "table": [
+        {
+          "year": 2002,
+          "network_pct_total_revenue": 23.65,
+          "network_pct_ad_revenue": 25.3,
+          "network_net_of_tac_usd_m": 9.35
+        },
+        {
+          "year": 2003,
+          "network_pct_total_revenue": 42.88,
+          "network_pct_ad_revenue": 44.3,
+          "network_net_of_tac_usd_m": 102.1
+        },
+        {
+          "year": 2004,
+          "network_pct_total_revenue": 48.73,
+          "network_pct_ad_revenue": 49.5,
+          "network_net_of_tac_usd_m": 325.56
+        },
+        {
+          "year": 2005,
+          "network_pct_total_revenue": 43.79,
+          "network_pct_ad_revenue": 44.3,
+          "network_net_of_tac_usd_m": 573.04
+        },
+        {
+          "year": 2006,
+          "network_pct_total_revenue": 39.23,
+          "network_pct_ad_revenue": 39.6,
+          "network_net_of_tac_usd_m": 1025.23
+        },
+        {
+          "year": 2007,
+          "network_pct_total_revenue": 34.88,
+          "network_pct_ad_revenue": 35.3,
+          "network_net_of_tac_usd_m": 1244.94
+        },
+        {
+          "year": 2008,
+          "network_pct_total_revenue": 30.81,
+          "network_pct_ad_revenue": 31.8,
+          "network_net_of_tac_usd_m": 1430.39
+        }
+      ],
+      "note_on_table": "The 2003-2005 net-of-TAC figures subtract TOTAL TAC from network revenue because the AdSense/distribution split was not disclosed before 2006; they are therefore lower bounds on the network's contribution. 2002 uses the disclosed 91% ratio.",
+      "claims": [
+        {
+          "calibration": {
+            "id": "mech-network-001",
+            "statement": "Google Network sites produced 23.7% of Google's total revenue in 2002, 42.9% in 2003, a peak of 48.7% in 2004, then 43.8%, 39.2%, 34.9% and 30.8% through 2008.",
+            "central": 48.7,
+            "unit": "% of Google total revenue from Google Network sites, peak year 2004",
+            "ci80": [
+              48.7,
+              48.7
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Google Inc., Form 10-K FY2004 (revenues by source; traffic acquisition costs $94.5m/$526.5m/$1,228.7m at 91%/84%/79% of Google Network advertising revenue and 23%/37%/39% of advertising revenue; AOL 15%/16%/12% of revenues 2002/2003/2004)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312505065298/d10k.htm"
+              },
+              {
+                "name": "Google Inc., Form 10-K FY2006 (revenues by source 2004-2006; TAC $1,228.7m/$2,114.9m/$3,308.8m at 39.1%/34.9%/31.5% of advertising revenue; AOL 12%/9%/7% of revenues 2004/2005/2006; $1.0bn equity investment in America Online, Inc.)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312507044494/d10k.htm"
+              },
+              {
+                "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+              }
+            ],
+            "as_of": "2004"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-network-002",
+            "statement": "At the mid-era snapshot the scout flagged, Q2 2006: total revenues $2,455,991k, Google web sites $1,432,461k (58%), Google Network $996,567k (41%), and TAC of $785m equal to 32% of advertising revenues.",
+            "central": 41.0,
+            "unit": "% of Google revenue from Google Network sites, Q2 2006",
+            "ci80": [
+              40.6,
+              41.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Google Inc., Q2 2006 earnings release, Form 8-K exhibit 99.1 (revenues $2,455,991k; Google web sites $1,432,461k = 58%; Google Network $996,567k = 41%; TAC $785m = 32% of advertising revenues)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312506150132/dex991.htm"
+              }
+            ],
+            "as_of": "2006-06"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-network-003",
+            "statement": "Net of revenue share, the Google Network contributed $9.4m (2002) rising to $1,430.4m (2008) - and only 9.4% of Google's 2008 advertising revenue after TAC. Cumulative 2002-2008 network contribution after revenue share was approximately $4.71bn against $59.07bn of cumulative advertising revenue, or 8.0%.",
+            "central": 9.42,
+            "unit": "% of Google 2008 advertising revenue, net of TAC, contributed by the Google Network",
+            "ci80": [
+              9.0,
+              10.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Google Inc., Form 10-K FY2004 (revenues by source; traffic acquisition costs $94.5m/$526.5m/$1,228.7m at 91%/84%/79% of Google Network advertising revenue and 23%/37%/39% of advertising revenue; AOL 15%/16%/12% of revenues 2002/2003/2004)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312505065298/d10k.htm"
+              },
+              {
+                "name": "Google Inc., Form 10-K FY2006 (revenues by source 2004-2006; TAC $1,228.7m/$2,114.9m/$3,308.8m at 39.1%/34.9%/31.5% of advertising revenue; AOL 12%/9%/7% of revenues 2004/2005/2006; $1.0bn equity investment in America Online, Inc.)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312507044494/d10k.htm"
+              },
+              {
+                "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+              }
+            ],
+            "as_of": "2008",
+            "method": "(6714.688 - 5284.3) / (21128.514 - 5939.0) = 0.09417. The cumulative figure sums network revenue less AdSense TAC where disclosed (2006-2008) and less TOTAL TAC where not (2003-2005), so the cumulative total is a lower bound."
+          }
+        }
+      ]
+    },
+    "default_payments": {
+      "summary": "The same instrument, twenty years later and pointed the other way. In era 6 nearly all TAC bought other people's inventory. By 2021, $26.3bn of $45.6bn of TAC - 58% - bought placement in front of Google's OWN inventory. The 2008 line item that became the 2021 monster was distribution TAC: $654.7m, growing 40-fold.",
+      "claims": [
+        {
+          "calibration": {
+            "id": "mech-default-001",
+            "statement": "In 2021 Google paid $26.3 billion in revenue share under its search distribution contracts with Apple, Mozilla, Android OEMs and US carriers - an expense it reports as traffic acquisition cost. The court found that TAC was Google's greatest expense in 2021, almost four times more than all other search-related costs combined.",
+            "central": 26.3,
+            "unit": "USD billions of Google search default revenue share, 2021",
+            "ci80": [
+              26.3,
+              26.3
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024)",
+                "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+              }
+            ],
+            "as_of": "2024-08"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-default-002",
+            "statement": "In 2022 Google's revenue share payment to Apple was an estimated $20 billion on worldwide queries - nearly double the 2020 payment, which was itself equivalent to 17.5% of Apple's operating profit. The 2022 payment under the Apple agreement exceeded all of Google's other revenue-share payments combined, and was approximately double their combined value.",
+            "central": 20.0,
+            "unit": "USD billions paid by Google to Apple under the Information Services Agreement, 2022",
+            "ci80": [
+              20.0,
+              20.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024)",
+                "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+              }
+            ],
+            "as_of": "2024-08"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-default-003",
+            "statement": "The rate: Google pays Apple 36% of the search advertising revenue it earns through Safari. The figure was disclosed inadvertently in open court by Google's own economic expert and later confirmed by Alphabet's CEO; the corresponding paragraph of the public opinion (FOF para 298) is redacted.",
+            "central": 36.0,
+            "unit": "% of Safari-generated search advertising revenue paid by Google to Apple",
+            "ci80": [
+              34.0,
+              38.0
+            ],
+            "grade": "B",
+            "sources": [
+              {
+                "name": "CNBC, 'Apple gets 36% of Google search revenue from Safari, Alphabet witness says' (2023-11-14), reporting Prof. Kevin Murphy's trial testimony; the corresponding finding at FOF para 298 is redacted in the public opinion",
+                "url": "https://www.cnbc.com/2023/11/14/apple-gets-36percent-of-google-search-revenue-from-safari-alphabet-witness.html"
+              },
+              {
+                "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024)",
+                "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+              }
+            ],
+            "as_of": "2023-11"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-default-004",
+            "statement": "Alphabet's overall TAC rate barely moved across twenty years - 23.0% of advertising revenue in 2002, 28.1% in 2008, 22% in 2021 and 2022 - but its composition inverted. In 2008, 11.0% of TAC bought traffic for Google's own properties; in 2021, 57.7% did.",
+            "central": 57.7,
+            "unit": "% of Google traffic acquisition cost spent on search defaults rather than network revenue share, 2021",
+            "ci80": [
+              55.0,
+              60.0
+            ],
+            "grade": "C",
+            "sources": [
+              {
+                "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024)",
+                "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+              },
+              {
+                "name": "Alphabet Inc., Form 10-K FY2022 (Google Search & other $148,951m (2021) and $162,450m (2022); Google advertising $209,497m and $224,473m; TAC $45,566m and $48,955m; TAC rate 22% in both years)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/goog-20221231.htm"
+              },
+              {
+                "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+              }
+            ],
+            "as_of": "2021",
+            "method": "Numerator is the court's finding of $26.3bn of search default revenue share in 2021 (grade A). Denominator is Alphabet's disclosed 2021 TAC of $45,566m (grade A). 26.3/45.566 = 57.72%. Graded C because the two figures come from different accounting perimeters - the court's number is a litigation-defined category and may not map exactly onto the 10-K's distribution-partner line - so the ratio is directionally solid but not a filed figure."
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-default-005",
+            "statement": "Alphabet's reference quantities for the coda: Google Search & other revenue was $148,951m (2021) and $162,450m (2022); Google advertising revenue $209,497m and $224,473m; TAC $45,566m and $48,955m, a 22% rate in both years.",
+            "central": 162450.0,
+            "unit": "USD millions, Google Search & other revenue FY2022",
+            "ci80": [
+              162450.0,
+              162450.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Alphabet Inc., Form 10-K FY2022 (Google Search & other $148,951m (2021) and $162,450m (2022); Google advertising $209,497m and $224,473m; TAC $45,566m and $48,955m; TAC rate 22% in both years)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/goog-20221231.htm"
+              }
+            ],
+            "as_of": "2022"
+          }
+        }
+      ]
+    },
+    "mehta_findings": {
+      "summary": "The August 2024 opinion is the first adversarially tested valuation of the distribution engine. Its findings say the defaults were worth roughly half of all US search queries, more than half of Google's search revenue, and Google's single largest expense - while separately finding that Google could raise text-ad prices at will. Both engines are in the ruling; the volume engine is the one the court held illegal, and the one the remedy left standing.",
+      "claims": [
+        {
+          "calibration": {
+            "id": "mech-mehta-001",
+            "statement": "Roughly 50% of all US general search queries flow through access points covered by the challenged distribution contracts - 28% through the Apple Information Services Agreement, 19.4% through Android OEM and carrier agreements, and 2.3% through third-party browser agreements. A further 20% flow through user-downloaded Chrome, which defaults to Google.",
+            "central": 50.0,
+            "unit": "% of US general search queries covered by the challenged distribution contracts",
+            "ci80": [
+              49.7,
+              50.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024)",
+                "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+              }
+            ],
+            "as_of": "2024-08"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-mehta-002",
+            "statement": "In 2017 over 60% of all queries entered on Google flowed through defaults (60% of iOS queries via the Safari default, 80% of Android queries via distribution-deal defaults), and Google itself estimated that default placements drove 54% of its overall search revenue - a share that had grown since 2014.",
+            "central": 54.0,
+            "unit": "% of Google's overall search revenue driven by default placements, on Google's own 2017 estimate",
+            "ci80": [
+              54.0,
+              54.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024)",
+                "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+              }
+            ],
+            "as_of": "2024-08"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-mehta-003",
+            "statement": "Google's internal 2016 and 2020 analyses projected that losing the Safari default would cost it 60-80% of iOS queries, recovering only about 30% on iOS against 70% on MacOS - the court's evidence that the default, not the product, held the volume.",
+            "central": 70.0,
+            "unit": "% of iOS query volume Google projected it would lose without the Safari default",
+            "ci80": [
+              60.0,
+              80.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024)",
+                "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+              }
+            ],
+            "as_of": "2024-08"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-mehta-004",
+            "statement": "The court separately found that Google exercised monopoly power by charging supracompetitive prices for general search text ads, and that Google had repeatedly tested whether it could raise text-ad prices by 5% or more without losing substantial advertisers - 'and the results have been largely consistent - it can'.",
+            "central": 5.0,
+            "unit": "% text-ad price increase Google tested and sustained without losing substantial advertisers",
+            "ci80": [
+              5.0,
+              10.0
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024)",
+                "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+              }
+            ],
+            "as_of": "2024-08"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-mehta-005",
+            "statement": "The September 2025 remedies opinion barred exclusive distribution contracts for Google Search, Chrome, Google Assistant and the Gemini app, capped agreement terms at one year, and ordered search-data sharing - but declined to prohibit the payments themselves or to order a Chrome divestiture, reasoning that ending the payments would cripple downstream partners. The instrument survived its own conviction; only its exclusivity did not.",
+            "central": 2025.67,
+            "unit": "year (2025-09-02) of the remedies opinion permitting default payments while barring exclusivity",
+            "ci80": [
+              2025.67,
+              2025.67
+            ],
+            "grade": "B",
+            "sources": [
+              {
+                "name": "TechCrunch, 'Google avoids breakup, but has to give up exclusive search deals in antitrust trial' (2025-09-02), reporting Judge Mehta's remedies opinion: no Chrome divestiture, exclusive distribution contracts barred, default payments permitted, agreement terms capped at one year, data sharing ordered",
+                "url": "https://techcrunch.com/2025/09/02/google-avoids-breakup-but-has-to-give-up-exclusive-search-deals-in-antitrust-trial/"
+              }
+            ],
+            "as_of": "2025-09"
+          }
+        }
+      ]
+    },
+    "capture_attribution": {
+      "question": "Between 2002 and 2008, how much of Google's revenue growth is attributable to auction yield (revenue per query) versus distribution volume (queries bought)?",
+      "verdict": "BOUNDED, and against both simple stories. Distribution was decisive for the 2002-2004 beachhead and again after 2008; inside 2002-2008 the two engines were close to co-equal, with a documented tilt that depends on which ledger you read. On GROSS revenue growth, syndication supplied 31.9% and owned sites 68.1%. On NET-OF-TAC revenue, syndication supplied 9.4% of the 2008 total - the syndicated dollar bought position, not profit. Inside owned-site growth, a log decomposition splits 52-56% to query volume and 44-48% to yield per query, and that volume was overwhelmingly NOT bought: distribution TAC was 3.7% of owned-site revenue in 2007 and 4.5% in 2008. The defensible synthesis is causal rather than accounting: the auction set the budget for the distribution bid (only the higher-RPM bidder can afford an 85% share) and the distribution secured the query base the auction then monetised. Neither engine is sufficient; the yield engine is the binding constraint on the volume engine, which is why 'the better auction won' and 'the bigger cheque won' are the same sentence read from different ends.",
+      "evidence_weights": [
+        {
+          "id": "W1",
+          "weight": 0.25,
+          "grade": "A",
+          "direction": "distribution",
+          "finding": "Google Network revenue reached 48.7% of total revenue in 2004 and was still 30.8% in 2008; one partner, AOL, was 15-16% of ALL company revenue in 2002-2003. A third to a half of the top line came from inventory Google did not own.",
+          "discount": "Share of revenue overstates share of value because the revenue is recognised gross and 79-91% of it was paid straight out."
+        },
+        {
+          "id": "W2",
+          "weight": 0.25,
+          "grade": "A",
+          "direction": "auction/yield",
+          "finding": "Net of revenue share the network contributed 9.4% of 2008 advertising revenue and about 8.0% of cumulative 2002-2008 advertising revenue. Ninety percent of the money Google kept came from its own properties.",
+          "discount": "Ignores the possibility that syndicated inventory raised owned-site CPCs by deepening the advertiser pool - an externality nobody has measured."
+        },
+        {
+          "id": "W3",
+          "weight": 0.2,
+          "grade": "C",
+          "direction": "split",
+          "finding": "Owned-site revenue rose 34.6x from 2002 to 2007. On the era record's own query estimates the log decomposition is 52-56% volume, 44-48% yield.",
+          "discount": "Both query denominators are grade C. The 2002 denominator (roughly 180m queries/day) and the 2007 denominator (415-483bn/yr) each carry 30%+ uncertainty, which propagates directly into the split."
+        },
+        {
+          "id": "W4",
+          "weight": 0.15,
+          "grade": "A",
+          "direction": "auction/yield",
+          "finding": "Distribution TAC - the money Google paid to have queries sent to its OWN site - was $174.2m, $390.9m and $654.7m in 2006-2008, i.e. 2.8%, 3.7% and 4.5% of owned-site revenue. In this era, owned query growth was almost entirely unbought.",
+          "discount": "Understates the 2002-2004 AOL effect, which ran through network revenue rather than distribution TAC, and ignores brand spillover from the AOL and Yahoo placements."
+        },
+        {
+          "id": "W5",
+          "weight": 0.15,
+          "grade": "A",
+          "direction": "distribution",
+          "finding": "Retrospectively the court found that by 2017 defaults drove 54% of Google's search revenue and by 2021 default payments were its single largest expense at $26.3bn. The volume engine did eventually dominate the P&L.",
+          "discount": "This is era-7 evidence. Using it to attribute era-6 growth is anachronistic: the mobile default economy did not exist in 2002-2008, and distribution TAC was 11% of TAC in 2008 against 58% in 2021."
+        }
+      ],
+      "claims": [
+        {
+          "calibration": {
+            "id": "mech-capture-001",
+            "statement": "Decomposition of Google's advertising revenue growth 2002-2008 ($410.9m to $21,128.5m, a $20,717.6m increase): Google web sites supplied 68.1% of the increase and Google Network sites 31.9%. Net of traffic acquisition costs, the network's share of 2008 advertising revenue was 9.4%.",
+            "central": 31.9,
+            "unit": "% of Google 2002-2008 advertising revenue growth supplied by Google Network sites (gross basis)",
+            "ci80": [
+              31.9,
+              31.9
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Google Inc., Form 10-K FY2004 (revenues by source; traffic acquisition costs $94.5m/$526.5m/$1,228.7m at 91%/84%/79% of Google Network advertising revenue and 23%/37%/39% of advertising revenue; AOL 15%/16%/12% of revenues 2002/2003/2004)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312505065298/d10k.htm"
+              },
+              {
+                "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+              }
+            ],
+            "as_of": "2008"
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-capture-002",
+            "statement": "Within owned-site growth 2002-2007 (34.6x), a log decomposition attributes 52-56% to query volume and 44-48% to revenue per query. The two paths differ only in the query denominator: 65.7bn to 483bn queries with yield rising from $0.0047 to $0.022 gives 56.3% volume, and 65.7bn to 415bn with yield rising to $0.0256 gives 52.0%.",
+            "central": 54.1,
+            "unit": "% of Google owned-site revenue growth 2002-2007 attributable to query volume rather than yield (log decomposition)",
+            "ci80": [
+              50.0,
+              58.0
+            ],
+            "grade": "C",
+            "sources": [
+              {
+                "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+              },
+              {
+                "name": "Google Inc., Form 10-K FY2004 (revenues by source; traffic acquisition costs $94.5m/$526.5m/$1,228.7m at 91%/84%/79% of Google Network advertising revenue and 23%/37%/39% of advertising revenue; AOL 15%/16%/12% of revenues 2002/2003/2004)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312505065298/d10k.htm"
+              }
+            ],
+            "as_of": "2007",
+            "method": "Owned-site revenue multiple 10624.705/306.978 = 34.611, ln = 3.5442. Query and yield estimates are taken from the era-6 record's own grade-C claims e6-pricing-008 and e6-unit_econ-001, which were built from Google's disclosed query statements and comScore's 2007 measurement. Volume share = ln(volume multiple)/ln(revenue multiple). High-volume path: ln(7.3516)/3.5442 = 0.5629. Low-volume path: ln(6.3166)/3.5442 = 0.5201. Central is the midpoint. The whole decomposition inherits the grade-C denominators; the interval reflects denominator uncertainty only, not the possibility that Google's query mix changed."
+          }
+        },
+        {
+          "calibration": {
+            "id": "mech-capture-003",
+            "statement": "Money Google paid to have queries directed to its own web site was 2.8% (2006), 3.7% (2007) and 4.5% (2008) of owned-site advertising revenue - the measure of how much of era-6 owned-query volume was bought rather than won.",
+            "central": 3.7,
+            "unit": "% of Google owned-site advertising revenue paid out as distribution TAC, 2007",
+            "ci80": [
+              2.8,
+              4.6
+            ],
+            "grade": "A",
+            "sources": [
+              {
+                "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+              }
+            ],
+            "as_of": "2007",
+            "method": "390.9/10624.705 = 3.68% for 2007; 174.2/6332.797 = 2.75% for 2006; 654.7/14413.826 = 4.54% for 2008."
+          }
+        }
+      ]
+    },
+    "examples": [
+      {
+        "id": "X1",
+        "claim": "Claim 1 - the AOL 2002 deal was a bet-the-company guarantee (the balance-sheet test)",
+        "setup": "Google signs the AOL agreement in May 2002. The most recent audited year is 2001: net revenues $86.426m, cash and short-term investments $33.589m, total assets $84.457m, stockholders' equity $50.152m (Form S-1 selected financial data, grade A). The reported guarantee is ~$100m (grade B). Full-year 2002 net income, not yet known at signing, would be $99.656m.",
+        "steps": [
+          {
+            "expr": "100 / 86.426",
+            "expected": 1.1570592183,
+            "note": "guarantee as a multiple of the last full year's revenue"
+          },
+          {
+            "expr": "100 / 33.589",
+            "expected": 2.9771651434,
+            "note": "guarantee as a multiple of cash and short-term investments at the last balance-sheet date"
+          },
+          {
+            "expr": "100 / 50.152",
+            "expected": 1.9939384272,
+            "note": "guarantee as a multiple of book equity"
+          },
+          {
+            "expr": "100 / 84.457",
+            "expected": 1.1840344791,
+            "note": "guarantee as a multiple of total assets"
+          },
+          {
+            "expr": "100 / 99.656",
+            "expected": 1.0034518744,
+            "note": "guarantee as a multiple of the entire net income Google would earn in 2002"
+          }
+        ],
+        "conclusion": "On the balance sheet the headline is exactly as advertised: the guarantee was 1.16x the company's entire prior-year revenue, 2.98x its cash, 1.99x its book equity and 1.18x its total assets. Any board approving it was approving a number larger than the company. This is the strongest form of the claim and it survives - but only as a statement about the headline number, not about the exposure. X2 and X3 test the exposure."
+      },
+      {
+        "id": "X2",
+        "claim": "Claim 1 - what the guarantee actually risked (the structural bound)",
+        "setup": "The instrument is TAC = max(s*R, G_amortised) with s = 0.85 and G = $100m over the term, and Google's FY2004 10-K states the guarantee lapses entirely if the partner cannot deliver queries. Google's exposure is therefore max(0, G - s*R), which is zero once cumulative AOL-generated revenue R passes G/s. Disclosed: AOL was 15% of Google's $439.508m of 2002 revenue and 16% of its $1,465.934m of 2003 revenue (grade A).",
+        "steps": [
+          {
+            "expr": "100 / 0.85",
+            "expected": 117.6470588235,
+            "note": "break-even cumulative AOL revenue at which the guarantee stops binding, USD m"
+          },
+          {
+            "expr": "0.15 * 439.508",
+            "expected": 65.9262,
+            "note": "AOL-generated Google revenue in 2002, USD m (roughly eight months of the agreement)"
+          },
+          {
+            "expr": "0.16 * 1465.934",
+            "expected": 234.54944,
+            "note": "AOL-generated Google revenue in 2003, USD m"
+          },
+          {
+            "expr": "(0.15 * 439.508) / (100 / 0.85)",
+            "expected": 0.5603727,
+            "note": "share of the break-even reached in the first partial year"
+          },
+          {
+            "expr": "(0.15 * 439.508 + 0.16 * 1465.934) / (100 / 0.85)",
+            "expected": 2.55404294,
+            "note": "cumulative AOL revenue through 2003 as a multiple of break-even"
+          }
+        ],
+        "conclusion": "The guarantee needed $117.6m of cumulative AOL-generated revenue to become costless. Eight months of 2002 delivered 56% of that, and by the end of 2003 cumulative AOL revenue was 2.55x the break-even. The instrument was a bet on AOL delivering queries, not on Google monetising them - and the 10-K's own escape clause voids the guarantee if AOL cannot deliver. Claim 1 is therefore BOUNDED: bet-the-company on the headline, out of the money inside eighteen months, and structurally capped throughout."
+      },
+      {
+        "id": "X3",
+        "claim": "Claim 1 - the guarantee's realised cost in year one, reconstructed from the TAC ratio",
+        "setup": "The contract was never filed, but its footprint is in the accounts. In 2002 Google's Google Network advertising revenue was $103.937m and TAC was 91% of it ($94.58m implied against $94.5m disclosed). AOL was 15% of Google's $439.508m of total revenue. Google's accounting policy recognises the guarantee straight-line whenever it exceeds the contractual share, so any excess of actual TAC over the contractual shares IS the guarantee overhang. The non-AOL revenue share is unknown; three values are tested. All three are illustrative.",
+        "illustrative": true,
+        "steps": [
+          {
+            "expr": "(0.15 * 439.508) / 103.937",
+            "expected": 0.6342900026,
+            "note": "AOL's share of Google's 2002 Google Network revenue"
+          },
+          {
+            "expr": "0.91 * 103.937",
+            "expected": 94.58267,
+            "note": "implied network TAC at the disclosed 91% ratio, USD m (disclosed total TAC was 94.5)"
+          },
+          {
+            "expr": "0.85 * (0.15 * 439.508)",
+            "expected": 56.03727,
+            "note": "contractual revenue share on AOL revenue at the reported 85%, USD m"
+          },
+          {
+            "expr": "103.937 - 0.15 * 439.508",
+            "expected": 38.0108,
+            "note": "non-AOL network revenue, USD m"
+          },
+          {
+            "expr": "94.5 - 0.85 * (0.15 * 439.508) - 0.60 * (103.937 - 0.15 * 439.508)",
+            "expected": 15.65625,
+            "note": "guarantee overhang if other members took 60%, USD m"
+          },
+          {
+            "expr": "94.5 - 0.85 * (0.15 * 439.508) - 0.65 * (103.937 - 0.15 * 439.508)",
+            "expected": 13.75571,
+            "note": "guarantee overhang if other members took 65%, USD m"
+          },
+          {
+            "expr": "94.5 - 0.85 * (0.15 * 439.508) - 0.70 * (103.937 - 0.15 * 439.508)",
+            "expected": 11.85517,
+            "note": "guarantee overhang if other members took 70%, USD m"
+          }
+        ],
+        "conclusion": "AOL was 63.4% of Google's 2002 network revenue, which is why a single deal can move the blended TAC ratio to 91% - three to six points above the reported 85% share. The residual is $11.9m to $15.7m: that, not $100m, is what the guarantee cost Google in its first year. And the disclosed ratio falling to 84% in 2003 - BELOW the reported AOL share - dates the moment the guarantee stopped binding. The filings corroborate the never-filed terms and price the risk at roughly one seventh of the headline."
+      },
+      {
+        "id": "X4",
+        "claim": "Claim 1 - the instrument that actually cost the money was equity, not cash",
+        "setup": "In May 2002 Google also issued a warrant for 7,437,452 Series D preferred shares at an aggregate exercise price of $21,642,985, carried at $13.871m (Form S-1, grade A). AOL exercised in May 2004 for ~$22m; 2,355,559 shares were sold in the August 2004 IPO for $195m net (Time Warner gain $188m) and the remaining ~5.08m shares during 2005 (gain $925m). Google's shares outstanding at 2004 year-end were 95,542,010 Class A plus 178,980,030 Class B.",
+        "steps": [
+          {
+            "expr": "21642985 / 7437452",
+            "expected": 2.909999957,
+            "note": "warrant exercise price per share, USD"
+          },
+          {
+            "expr": "7437452 - 2355559",
+            "expected": 5081893.0,
+            "note": "shares still held after the IPO sale"
+          },
+          {
+            "expr": "195 / 2.355559",
+            "expected": 82.7828978175,
+            "note": "net proceeds per share realised in the IPO, USD (against an $85 offer price)"
+          },
+          {
+            "expr": "188 + 925",
+            "expected": 1113.0,
+            "note": "Time Warner's total booked gain on the Google warrant, USD m"
+          },
+          {
+            "expr": "(188 + 925 + 21.643) / 100",
+            "expected": 11.34643,
+            "note": "total value realised as a multiple of the reported $100m cash guarantee"
+          },
+          {
+            "expr": "7437452 / (95542010 + 178980030)",
+            "expected": 0.0270923675,
+            "note": "dilution as a share of Google's shares outstanding at 2004 year-end"
+          },
+          {
+            "expr": "7437452 * 85 / 1000000",
+            "expected": 632.18342,
+            "note": "value of the warrant shares at the $85 IPO price, USD m"
+          }
+        ],
+        "conclusion": "The warrant transferred about $1.135bn of value - 11.3x the cash guarantee everyone quotes - for 2.71% of the company. It inverts the bet-the-company framing rather than confirming it: Google paid for AOL in a currency it did not have to fund from a $33.6m cash balance, and the price only became expensive in the world where Google won. That is the actual mechanism-design insight of the 2002 deal, and it is missing from every retelling that stops at $100m."
+      },
+      {
+        "id": "X5",
+        "claim": "Claim 1 - what the deal moved, and what it returned",
+        "setup": "Disclosed AOL share of Google total revenue: 15% of $439.508m (2002), 16% of $1,465.934m (2003), 12% of $3,189.223m (2004), 9% of $6,138.560m (2005), 7% of $10,604.917m (2006), all grade A. Google's retained share of AOL revenue was never disclosed; the complement of the reported 85% share (15%) is used and is ILLUSTRATIVE. Against it stand the realised warrant value of ~$1,134.6m and, later, the $1.0bn AOL equity investment of 2006 that was written down $726m in 2008 and sold for $283m in 2009.",
+        "illustrative": true,
+        "steps": [
+          {
+            "expr": "0.15 * 439.508 + 0.16 * 1465.934 + 0.12 * 3189.223 + 0.09 * 6138.560 + 0.07 * 10604.917",
+            "expected": 1977.99699,
+            "note": "cumulative AOL-generated Google revenue 2002-2006, USD m"
+          },
+          {
+            "expr": "0.15 * (0.15 * 439.508 + 0.16 * 1465.934 + 0.12 * 3189.223 + 0.09 * 6138.560 + 0.07 * 10604.917)",
+            "expected": 296.6995485,
+            "note": "Google's retained gross margin on that revenue at a 15% take, USD m"
+          },
+          {
+            "expr": "0.15 * (0.15 * 439.508 + 0.16 * 1465.934 + 0.12 * 3189.223 + 0.09 * 6138.560 + 0.07 * 10604.917) / 1134.643",
+            "expected": 0.2614915427,
+            "note": "retained margin as a fraction of the warrant value transferred"
+          },
+          {
+            "expr": "1000 - 283",
+            "expected": 717.0,
+            "note": "realised loss on the separate 2006 AOL equity investment, USD m"
+          },
+          {
+            "expr": "628.600 / 667.700",
+            "expected": 0.9414407668,
+            "note": "Google's 2003 Google Network revenue as a fraction of Overture's entire 2002 revenue"
+          }
+        ],
+        "conclusion": "The AOL relationship put roughly $1.98bn of gross revenue through Google's books in five years and left roughly $297m of it behind at a 15% take - about 26% of the equity value the warrant transferred, before counting the $717m lost on the 2006 stake. Judged as an investment the AOL relationship lost money. Judged as a distribution purchase it worked: it took the largest US access point away from Overture and, within eighteen months, Google's syndication line alone was 94% the size of Overture's entire company. The deal bought a market position and paid for it with equity and margin."
+      },
+      {
+        "id": "X6",
+        "claim": "Claim 2 - at ~85% revenue share the syndicated query earns far less than the owned query",
+        "setup": "All figures from Google's FY2008 10-K (grade A): owned-site advertising revenue $14,413.826m against $654.7m of distribution TAC; Google Network revenue $6,714.688m against $5,284.3m of AdSense TAC; total cost of revenues $8,621.5m of which $5,939.0m was TAC. For 2002, the disclosed 91% network-TAC ratio accounts for essentially all of the $94.5m of total TAC, so owned-site retention that year was effectively 100%.",
+        "steps": [
+          {
+            "expr": "(14413.826 - 654.7) / 14413.826",
+            "expected": 0.9545783333,
+            "note": "owned-site retention rate, 2008"
+          },
+          {
+            "expr": "(6714.688 - 5284.3) / 6714.688",
+            "expected": 0.2130237473,
+            "note": "syndicated retention rate, 2008"
+          },
+          {
+            "expr": "((14413.826 - 654.7) / 14413.826) / ((6714.688 - 5284.3) / 6714.688)",
+            "expected": 4.4810888234,
+            "note": "retention gap, 2008"
+          },
+          {
+            "expr": "1 / (1 - 0.91)",
+            "expected": 11.1111111111,
+            "note": "retention gap in 2002, when the network take was 9%"
+          },
+          {
+            "expr": "8621.5 - 5939.0",
+            "expected": 2682.5,
+            "note": "non-TAC cost of revenues 2008, USD m"
+          },
+          {
+            "expr": "(8621.5 - 5939.0) * 6714.688 / 21795.550",
+            "expected": 826.4141331602,
+            "note": "network's pro-rata share of non-TAC cost of revenues, USD m"
+          },
+          {
+            "expr": "(6714.688 - 5284.3 - (8621.5 - 5939.0) * 6714.688 / 21795.550) / 6714.688",
+            "expected": 0.0899481654,
+            "note": "fully allocated network gross margin"
+          },
+          {
+            "expr": "(14413.826 - 654.7 - (8621.5 - 5939.0) * 14413.826 / 21795.550) / 14413.826",
+            "expected": 0.8315027514,
+            "note": "fully allocated owned-site gross margin"
+          },
+          {
+            "expr": "((14413.826 - 654.7 - (8621.5 - 5939.0) * 14413.826 / 21795.550) / 14413.826) / ((6714.688 - 5284.3 - (8621.5 - 5939.0) * 6714.688 / 21795.550) / 6714.688)",
+            "expected": 9.2442435894,
+            "note": "fully allocated margin gap"
+          },
+          {
+            "expr": "(6714.688 - 5284.3 - (8621.5 - 5939.0) * 6714.688 / 21795.550 / 2) / 6714.688",
+            "expected": 0.1514859564,
+            "note": "network margin if syndicated serving costs are half pro-rata"
+          }
+        ],
+        "conclusion": "PROVEN, and worse than the headline. On revenue retention the gap is 4.48x in 2008 and 11.1x in 2002. Once serving cost is allocated the gap widens to 9.24x on a pro-rata basis (9.0% network margin against 83.2% owned), or 5.26x if syndicated impressions are assumed half as expensive to serve. The take rate is not a margin: the 21.3 cents Google kept on a syndicated dollar still had to pay for the data centre."
+      },
+      {
+        "id": "X7",
+        "claim": "Claim 2 - why the volume was nonetheless rational",
+        "setup": "Three independent reasons, two of which are computable from the filings. Network revenue less AdSense TAC where disclosed (2006-2008) and less TOTAL TAC where not (2003-2005, a lower bound); 2002 uses the disclosed 91% ratio. Cumulative advertising revenue 2002-2008 sums the seven disclosed annual figures.",
+        "steps": [
+          {
+            "expr": "103.937 - 0.91 * 103.937",
+            "expected": 9.35433,
+            "note": "network contribution net of revenue share, 2002, USD m"
+          },
+          {
+            "expr": "628.600 - 526.5",
+            "expected": 102.1,
+            "note": "2003, USD m (lower bound: total TAC subtracted)"
+          },
+          {
+            "expr": "1554.256 - 1228.7",
+            "expected": 325.556,
+            "note": "2004, USD m (lower bound)"
+          },
+          {
+            "expr": "2687.942 - 2114.9",
+            "expected": 573.042,
+            "note": "2005, USD m (lower bound)"
+          },
+          {
+            "expr": "4159.831 - 3134.6",
+            "expected": 1025.231,
+            "note": "2006, USD m"
+          },
+          {
+            "expr": "5787.938 - 4543.0",
+            "expected": 1244.938,
+            "note": "2007, USD m"
+          },
+          {
+            "expr": "6714.688 - 5284.3",
+            "expected": 1430.388,
+            "note": "2008, USD m"
+          },
+          {
+            "expr": "(103.937 - 0.91 * 103.937) + (628.600 - 526.5) + (1554.256 - 1228.7) + (2687.942 - 2114.9) + (4159.831 - 3134.6) + (5787.938 - 4543.0) + (6714.688 - 5284.3)",
+            "expected": 4710.60933,
+            "note": "cumulative network contribution 2002-2008, USD m"
+          },
+          {
+            "expr": "410.915 + 1420.663 + 3143.288 + 6065.002 + 10492.628 + 16412.643 + 21128.514",
+            "expected": 59073.653,
+            "note": "cumulative Google advertising revenue 2002-2008, USD m"
+          },
+          {
+            "expr": "((103.937 - 0.91 * 103.937) + (628.600 - 526.5) + (1554.256 - 1228.7) + (2687.942 - 2114.9) + (4159.831 - 3134.6) + (5787.938 - 4543.0) + (6714.688 - 5284.3)) / (410.915 + 1420.663 + 3143.288 + 6065.002 + 10492.628 + 16412.643 + 21128.514)",
+            "expected": 0.0797412906,
+            "note": "cumulative network contribution as a share of cumulative advertising revenue"
+          }
+        ],
+        "conclusion": "Reason one is arithmetic and holds: a 9-25% take rate on someone else's inventory still produced about $4.71bn of cumulative contribution on $59.07bn of advertising revenue - 8.0% of the era's top line for near-zero incremental fixed cost. Reason two is foreclosure, and is also computable: every AOL query Google served was a query Overture did not, and Overture's own 10-K records losing the relationship. Reason three - that syndicated inventory deepened the advertiser pool and so raised the price of OWNED clicks - is the strongest economic justification for accepting a 9% take rate and is NOT verifiable from any public source. It is recorded as break B5, not as a finding."
+      },
+      {
+        "id": "X8",
+        "claim": "Claims 2 and 3 - the yield engine is the budget constraint on the volume engine (why the two are complements, not rivals for credit)",
+        "setup": "Three participants and one slot. AOL sells the exclusive US search default; Google and Overture bid a share of the advertising revenue those queries will generate. Per 1,000 queries, Google's revenue is $10.00 and Overture's is $6.00; each incurs $1.00 of serving cost per 1,000 queries. All six numbers are ILLUSTRATIVE. The empirical anchor is the disclosed spread in what each firm was actually paying: Google's TAC was 91% of Google Network advertising revenue in 2002 while Overture's blended payout was 58% of revenue, guided to 63-64%.",
+        "illustrative": true,
+        "steps": [
+          {
+            "expr": "(6.00 - 1.00) / 6.00",
+            "expected": 0.8333333333,
+            "note": "Overture's maximum sustainable revenue share"
+          },
+          {
+            "expr": "6.00 - 1.00",
+            "expected": 5.0,
+            "note": "Overture's maximum payment to AOL per 1000 queries, USD"
+          },
+          {
+            "expr": "0.85 * 10.00",
+            "expected": 8.5,
+            "note": "Google's payment at an 85% share, USD per 1000 queries"
+          },
+          {
+            "expr": "(0.85 * 10.00) / (6.00 - 1.00)",
+            "expected": 1.7,
+            "note": "AOL's uplift from switching"
+          },
+          {
+            "expr": "10.00 - 0.85 * 10.00 - 1.00",
+            "expected": 0.5,
+            "note": "Google's net per 1000 queries at an 85% share, USD"
+          },
+          {
+            "expr": "(0.85 * 10.00) / 6.00",
+            "expected": 1.4166666667,
+            "note": "share of its own revenue Overture would have to bid to match Google's payment"
+          },
+          {
+            "expr": "10.00 - 0.91 * 10.00 - 1.00",
+            "expected": -0.1,
+            "note": "Google's net per 1000 queries at the 91% ratio it actually recognised in 2002, USD"
+          },
+          {
+            "expr": "306.978 / 410.915",
+            "expected": 0.7470596109,
+            "note": "share of Google's 2002 advertising revenue earned on inventory it did not have to pay for"
+          },
+          {
+            "expr": "0.91 - 384.6 / 667.7",
+            "expected": 0.3339928111,
+            "note": "disclosed payout-rate gap between Google's network and Overture's network in 2002"
+          }
+        ],
+        "conclusion": "The distribution auction is won by the bidder with the highest revenue per query, because the maximum feasible bid IS the yield net of serving cost. At $6.00 RPM Overture could pay at most $5.00 per 1,000 queries; Google at $10.00 RPM could pay $8.50 and keep $0.50 after serving cost, and to match it Overture would have had to bid 141.7% of its own revenue. The disclosed 33.4-point payout gap between the two firms in 2002 is the real-world signature of that asymmetry. Note the third result: at the 91% ratio Google actually recognised in 2002 the network ran at a LOSS per 1,000 queries in this parameterisation, funded by the 74.7% of advertising revenue that came from its own site. That is the mechanism in one line - the auction pays for the distribution, and a firm without an owned destination cannot run this play."
+      },
+      {
+        "id": "X9",
+        "claim": "Claim 3 - the capture-attribution decomposition",
+        "setup": "Google advertising revenue by source, 2002 and 2008 (grade A). The owned-site volume/yield split uses the era-6 record's own grade-C query estimates: about 65.7bn owned-site queries in 2002 at $0.00467 of revenue each, rising to 415-483bn in 2007 at $0.022-$0.0256 each. Natural logarithms used in the decomposition, stated here so the steps stay arithmetic: ln(34.611) = 3.544161, ln(7.3516) = 1.994918, ln(6.3166) = 1.843180, ln(4.7109) = 1.549883, ln(5.4818) = 1.701433.",
+        "steps": [
+          {
+            "expr": "21128.514 - 410.915",
+            "expected": 20717.599,
+            "note": "growth in Google advertising revenue 2002-2008, USD m"
+          },
+          {
+            "expr": "(14413.826 - 306.978) / (21128.514 - 410.915)",
+            "expected": 0.6809113353,
+            "note": "owned sites' share of that growth"
+          },
+          {
+            "expr": "(6714.688 - 103.937) / (21128.514 - 410.915)",
+            "expected": 0.3190886647,
+            "note": "Google Network's share of that growth"
+          },
+          {
+            "expr": "(6714.688 - 5284.3) / (21128.514 - 5939.0)",
+            "expected": 0.0941694382,
+            "note": "Google Network's share of 2008 advertising revenue NET of TAC"
+          },
+          {
+            "expr": "10624.705 / 306.978",
+            "expected": 34.6106398504,
+            "note": "owned-site revenue multiple 2002-2007"
+          },
+          {
+            "expr": "1.994918 / 3.544161",
+            "expected": 0.5628745421,
+            "note": "volume's share of owned-site growth, high-query path"
+          },
+          {
+            "expr": "1.549883 / 3.544161",
+            "expected": 0.4373060366,
+            "note": "yield's share of owned-site growth, high-query path"
+          },
+          {
+            "expr": "1.843180 / 3.544161",
+            "expected": 0.5200610243,
+            "note": "volume's share, low-query path"
+          },
+          {
+            "expr": "1.701433 / 3.544161",
+            "expected": 0.4800665094,
+            "note": "yield's share, low-query path"
+          },
+          {
+            "expr": "390.9 / 10624.705",
+            "expected": 0.0367916097,
+            "note": "distribution TAC as a share of owned-site revenue, 2007"
+          },
+          {
+            "expr": "654.7 / 14413.826",
+            "expected": 0.0454216667,
+            "note": "distribution TAC as a share of owned-site revenue, 2008"
+          },
+          {
+            "expr": "26.3 / 45.566",
+            "expected": 0.577184743,
+            "note": "search default revenue share as a fraction of Alphabet's total TAC, 2021"
+          }
+        ],
+        "conclusion": "BOUNDED. Syndication supplied 31.9% of gross advertising-revenue growth but only 9.4% of 2008 revenue after revenue share. Owned-site growth splits 52.0-56.3% to volume and 43.7-48.0% to yield, and that volume was overwhelmingly unbought - Google paid only 3.7-4.5% of owned-site revenue for directed traffic in 2007-2008. The verdict therefore refuses both simple stories: distribution bought the beachhead (AOL at 15-16% of all revenue in 2002-2003) and the auction converted it, with the two roughly co-equal inside the era. The pure-distribution thesis becomes correct only later, and the last step dates it: by 2021, 57.7% of all TAC was payment for defaults rather than revenue share on inventory."
+      },
+      {
+        "id": "X10",
+        "claim": "Claim 4 - the Mehta coda and what it implies retrospectively",
+        "setup": "Court findings (grade A unless noted): 2021 default revenue share $26.3bn; 2022 Apple payment ~$20bn worldwide; Apple's rate 36% of Safari-generated search advertising revenue (grade B, from trial testimony; FOF para 298 is redacted); foreclosure of 28% of US queries via the Apple agreement, 19.4% via Android OEM and carrier agreements and 2.3% via third-party browsers, plus 20% via user-downloaded Chrome. Alphabet FY2022 10-K: Google Search & other revenue $162,450m (2022), TAC $45,566m (2021) and $48,955m (2022), TAC rate 22%.",
+        "steps": [
+          {
+            "expr": "20 / 0.36",
+            "expected": 55.5555555556,
+            "note": "implied Safari-generated search advertising revenue, 2022, USD bn"
+          },
+          {
+            "expr": "(20 / 0.36) / 162.450",
+            "expected": 0.3419855682,
+            "note": "that revenue as a share of Google Search & other revenue, 2022"
+          },
+          {
+            "expr": "(20 / 0.36) * 0.64",
+            "expected": 35.5555555556,
+            "note": "revenue Google retained from Safari-originated search, 2022, USD bn"
+          },
+          {
+            "expr": "0.28 + 0.194 + 0.023",
+            "expected": 0.497,
+            "note": "share of US general search queries foreclosed by the challenged contracts"
+          },
+          {
+            "expr": "0.28 + 0.194 + 0.023 + 0.20",
+            "expected": 0.697,
+            "note": "including user-downloaded Chrome"
+          },
+          {
+            "expr": "48955 / 224473",
+            "expected": 0.2180885897,
+            "note": "Alphabet's 2022 TAC rate on advertising revenue"
+          },
+          {
+            "expr": "94.5 / 410.915",
+            "expected": 0.2299745689,
+            "note": "Google's 2002 TAC rate on advertising revenue"
+          },
+          {
+            "expr": "654.7 / 5939.0",
+            "expected": 0.1102374137,
+            "note": "share of TAC spent on distribution rather than network revenue share, 2008"
+          },
+          {
+            "expr": "(26.3 / 45.566) / (654.7 / 5939.0)",
+            "expected": 5.2358334943,
+            "note": "how much larger that share was in 2021 than in 2008"
+          },
+          {
+            "expr": "26300 / 654.7",
+            "expected": 40.1710707194,
+            "note": "growth in absolute distribution spend from 2008 to 2021"
+          },
+          {
+            "expr": "26.3 / 19.5",
+            "expected": 1.3487179487,
+            "note": "2021 default payments against the $19.5bn Google spent in 2020 operating search and search ads"
+          }
+        ],
+        "conclusion": "The court's findings value the distribution engine at roughly half of all US search queries, more than half of Google's search revenue on its own 2017 estimate, and $26.3bn a year - more than the $19.5bn it cost to run search and search ads. Applying the disclosed 36% rate to the $20bn Apple payment implies about $55.6bn of Safari-originated search advertising revenue in 2022, 34% of Google Search & other revenue, of which Google kept about $35.6bn. Retrospectively the twin engines did not stay balanced: the headline TAC rate barely moved (23.0% in 2002, 21.8% in 2022) but its composition inverted, with the defaults line growing 40-fold and rising from 11% to 58% of all traffic acquisition cost. The 2002 AOL deal is the small, early, cheap version of the instrument the court held illegal in 2024 - and the September 2025 remedy banned the exclusivity while leaving the payments in place."
+      }
+    ],
+    "comparisons": [
+      {
+        "dimension": "Payout rate on syndicated inventory, 2002",
+        "google": "91% of Google Network advertising revenue (disclosed), falling to 84% in 2003 and 79% in 2004",
+        "overture_baseline": "58% of total revenue (disclosed), rising from 56% in 2001, guided to 63-64% for Q1 2003 and +0.25-0.50 points per quarter after that",
+        "reading": "A 33.4-point gap in what the two firms were willing to pay for traffic in the same year. This is the single strongest public measure of the bidding asymmetry, and it is grade A on both sides."
+      },
+      {
+        "dimension": "Owned destination as a cross-subsidy",
+        "google": "74.7% of 2002 advertising revenue came from google.com, inventory carrying no revenue share",
+        "overture_baseline": "Traffic came 'primarily through our affiliates'; roughly 60% of revenue arrived via Microsoft- and Yahoo-supplied traffic alone",
+        "reading": "The decisive structural difference. Google could run its network at or below cost because three quarters of its advertising revenue was unencumbered; Overture could not, and had to fund every incremental query out of a payout that was already 58% and rising."
+      },
+      {
+        "dimension": "Instrument set",
+        "google": "Revenue share plus non-cancelable guaranteed minimums (voided if the partner cannot deliver queries), plus an equity warrant",
+        "overture_baseline": "'Fixed payments, based on a guaranteed minimum amount of traffic delivered, which often carry reciprocal performance guarantees', percentage-of-revenue, per-click, per-impression, per-search, and combinations",
+        "reading": "The instruments were identical and Overture described them first. Only the equity leg was distinctive - and it was available to Google because Google was private, growing and cash-poor, which is a capital-structure advantage rather than a contracting one."
+      },
+      {
+        "dimension": "Counterparty concentration",
+        "google": "AOL at 15-16% of TOTAL revenue in 2002-2003, falling to 7% by 2006",
+        "overture_baseline": "Microsoft plus Yahoo at ~60% of revenue in 2002 - a 4x higher concentration, in counterparties who became an acquirer (Yahoo, July 2003) and a competitor (Microsoft adCenter)",
+        "reading": "The syndication model manufactures the customer who can become the rival. Overture's version of the risk materialised in both directions within eighteen months."
+      },
+      {
+        "dimension": "Profitability of the whole firm, 2002",
+        "google": "Net income $99.656m on $439.508m of revenue, a 22.7% net margin",
+        "overture_baseline": "Net income $73.147m on $667.7m of revenue, an 11.0% net margin",
+        "reading": "The revenue leader was half as profitable as the challenger. The counterfactual 'Overture's network holds' requires Overture to outbid at 85%+ while already earning half Google's margin on a rising payout curve. It is not a close call."
+      },
+      {
+        "dimension": "What the same instrument bought, twenty years apart",
+        "google": "2008: $654.7m of distribution TAC, 11% of all TAC, buying traffic to google.com. 2021: $26.3bn, 58% of all TAC, buying defaults - and held illegal.",
+        "overture_baseline": "No 2021 counterfactual exists; Overture was absorbed into Yahoo in July 2003 and its auction was replaced by Panama in February 2007.",
+        "reading": "The instrument did not change. Its scale and its legal status did, once the buyer had 89.2% of US general search queries and the payments foreclosed roughly half the market."
+      }
+    ],
+    "breaks": [
+      {
+        "id": "B1",
+        "name": "A revenue guarantee is not a bet on your own monetisation",
+        "applies_to": "the mechanism as deployed",
+        "demonstration": "X2 and the FY2004 10-K clause: 'if a Google Network member were unable to perform under the contract, such as being unable to provide search queries... then the Company would not be obligated to make any non-cancelable guaranteed minimum revenue share payments to that member.'",
+        "why_it_matters": "Every popular retelling treats the ~$100m as money Google could have lost outright. It is closer to a floor price per delivered query, contingent on delivery, amortised over the term, and extinguished once cumulative revenue passes G/s. The bet-the-company framing survives only as a statement about the headline number."
+      },
+      {
+        "id": "B2",
+        "name": "The deal terms are unfalsifiable and the popular figures are grade B at best",
+        "applies_to": "aol_2002",
+        "demonstration": "The May 2002 contract was never filed with the SEC. The ~$100m and ~85% figures trace to secondary accounts; the era-6 record already flags that the page reference in Battelle has not been captured and that the Search Engine Watch page previously cited contains no financial terms. FOF para 298 of the 2024 opinion redacts the analogous rate for Apple.",
+        "why_it_matters": "The entire quantitative literature on this deal rests on two numbers nobody can check. X3 shows the accounts can bound them - the 91%/84% TAC ratios bracket the share and date the guarantee's expiry - but an analysis that quotes $100m without that reconstruction is quoting a rumour."
+      },
+      {
+        "id": "B3",
+        "name": "Equity is the expensive leg and nobody counts it",
+        "applies_to": "aol_2002",
+        "demonstration": "X4: a warrant carried at $13.871m realised approximately $1,134.6m, 11.3x the cash guarantee, for 2.71% of the company.",
+        "why_it_matters": "Distribution deals priced in equity look cheap at signature and cost most in exactly the states of the world where the buyer succeeds. This is a systematic mispricing, not a one-off: the payoff to the access-point owner is long the buyer's own success."
+      },
+      {
+        "id": "B4",
+        "name": "The take-rate ratchet reverses",
+        "applies_to": "tac_series",
+        "demonstration": "Google's network take rate rose 9% (2002) to 24.7% (2006), then FELL to 21.5% (2007) and 21.3% (2008). The FY2008 10-K attributes future increases in TAC to competition for members and to guaranteed-minimum members specifically.",
+        "why_it_matters": "The margin on syndication is a function of competitive intensity for partners, not of mechanism design. Any simulator that treats the take rate as a designed parameter rather than an auction outcome will get the era's economics backwards."
+      },
+      {
+        "id": "B5",
+        "name": "The best justification for a 9% take rate is unmeasurable",
+        "applies_to": "capture_attribution",
+        "demonstration": "Syndication is usually defended on the ground that more inventory attracts more advertisers, which deepens the auction and raises CPCs on OWNED inventory. Google never disclosed advertiser counts, per-keyword auction depth, or owned-site CPCs, and the era-6 record's own advertiser-count claim is grade C with an interval spanning 550k to 2.6m.",
+        "why_it_matters": "The load-bearing economic argument for the volume engine is an externality with no public measurement. It is stated here as a hypothesis with a simulator hook, never as a finding."
+      },
+      {
+        "id": "B6",
+        "name": "Syndication manufactures your future competitor",
+        "applies_to": "the mechanism as deployed",
+        "demonstration": "Overture took ~60% of revenue from Microsoft- and Yahoo-supplied traffic; Yahoo bought Overture in July 2003 and Microsoft built adCenter. Google took 15-16% from AOL and later paid $1.0bn for 5% of it, losing $717m.",
+        "why_it_matters": "The distribution partner learns the economics of the business it is renting out. The mechanism's stability depends on the partner not being able to integrate backwards - which is exactly what the access-point owners did next."
+      },
+      {
+        "id": "B7",
+        "name": "Under monopoly the default payment stops being a price and becomes a barrier",
+        "applies_to": "default_payments, mehta_findings",
+        "demonstration": "The court found the challenged contracts covered roughly 50% of US general search queries, that Google's internal 2020 analysis projected a 60-80% iOS query loss without the Safari default, and separately that Google could raise text-ad prices 5% or more without losing substantial advertisers.",
+        "why_it_matters": "This is the single most important caveat for the twin-engine story. Once distribution forecloses half the market, the yield engine's later gains cannot be attributed to auction design - the court found them attributable to power. The 2002-2008 yield story and the 2019-2024 yield story are different phenomena wearing the same name."
+      },
+      {
+        "id": "B8",
+        "name": "The remedy left the mechanism intact",
+        "applies_to": "mehta_findings",
+        "demonstration": "The September 2025 remedies opinion barred exclusive contracts and capped terms at one year, but declined to prohibit the payments or to order divestiture, reasoning that ending the payments would cripple downstream partners.",
+        "why_it_matters": "A reader who takes the 2024 liability ruling as the end of the distribution engine will misread everything after it. What was outlawed was exclusivity, not the revenue share; the instrument that began with AOL in 2002 is still running."
+      },
+      {
+        "id": "B9",
+        "name": "Gross revenue recognition flatters the volume engine by construction",
+        "applies_to": "network_share",
+        "demonstration": "Google's S-1 originally presented network revenue NET of TAC ($12.278m for 2002); the FY2004 10-K restates it gross ($103.937m). The same business is 24% of revenue on one basis and about 3% on the other.",
+        "why_it_matters": "The famous '48.7% of revenue came from the network' statistic is an accounting-presentation artefact as much as an economic fact. Any capture-attribution argument that uses gross revenue shares without the net-of-TAC counterpart is measuring the presentation."
+      }
+    ],
+    "findings": [
+      "The 2002 AOL guarantee was bet-the-company as a headline (1.16x prior-year revenue, 2.98x cash) and structurally bounded as an exposure (break-even at $117.6m of cumulative AOL revenue, cleared 2.55x by end-2003, void entirely if AOL failed to deliver queries). Claim 1 holds only in its headline form.",
+      "The filings corroborate the never-filed contract and date its expiry. AOL was 63.4% of Google's 2002 network revenue; the blended 91% TAC ratio sits three to six points above the reported 85% share, and the residual of $11.9-15.7m is the guarantee's realised first-year cost. The ratio's fall to 84% in 2003 is the guarantee going out of the money.",
+      "The instrument that actually cost Google money was equity. A warrant carried at $13.871m realised about $1,134.6m for AOL's parent - 11.3x the cash guarantee - for 2.71% of the company. Add the 2006 sequel ($1.0bn in, $283m out) and the AOL relationship is, on a pure investment basis, a loss.",
+      "Syndicated and owned advertising dollars are different businesses by roughly an order of magnitude: 4.5x apart on revenue retention in 2008 (95.5 cents against 21.3), 11x apart in 2002, and 5.3-9.2x apart on fully allocated gross margin. The take rate is not a margin.",
+      "The volume was still rational for three reasons, of which only two are provable: about $4.71bn of cumulative contribution on $59.07bn of era advertising revenue, and the foreclosure of the largest US access point from the incumbent. The third - that syndication deepened the auction and raised owned-site CPCs - has no public measurement and is recorded as a break.",
+      "The two engines are not rivals for causal credit. The maximum feasible distribution bid IS the yield net of serving cost, so the higher-RPM bidder wins the default by construction. The disclosed 33.4-point payout gap between Google's network (91%) and Overture's (58%) in 2002 is the observable signature.",
+      "Capture attribution, 2002-2008: syndication supplied 31.9% of gross advertising-revenue growth but 9.4% of 2008 revenue after revenue share; owned-site growth splits 52-56% volume against 44-48% yield; and only 3.7-4.5% of owned-site revenue was spent buying directed traffic. Distribution bought the beachhead, the auction bought the rest, and the pure-distribution thesis becomes correct only after the era ends.",
+      "The Mehta ruling prices the mature instrument at roughly half of all US search queries, 54% of search revenue on Google's own 2017 estimate, and $26.3bn a year - more than the $19.5bn cost of operating search and search ads. Applying the disclosed 36% Apple rate to the $20bn 2022 payment implies about $55.6bn of Safari-originated search advertising revenue, 34% of Google Search & other revenue.",
+      "The twin engines did not stay balanced. Alphabet's headline TAC rate is almost unchanged across twenty years (23.0% in 2002, 21.8% in 2022) but its composition inverted: distribution's share of TAC went from 11% (2008) to 58% (2021), a 40-fold rise in absolute spend. The volume engine ate the P&L after the auction era, not during it.",
+      "The court outlawed the exclusivity, not the payment. The September 2025 remedy left the revenue share running under one-year terms, which means the instrument first deployed against Overture in May 2002 is still the operating mechanism of search distribution in 2026."
+    ],
+    "provenance": {
+      "produced_by": "R4 mechanism deep-dive, distribution half",
+      "as_of": "2026-07-30",
+      "evidence_freeze": "2026-06-30",
+      "primary_sources_downloaded_and_parsed": [
+        "Google Inc. Form 10-K FY2004, FY2006, FY2008 (SEC EDGAR)",
+        "Google Inc. Form S-1, 2004-04-29 (SEC EDGAR)",
+        "Google Inc. Q2 2006 Form 8-K exhibit 99.1 (SEC EDGAR)",
+        "Alphabet Inc. Form 10-K FY2022 (SEC EDGAR)",
+        "Overture Services Inc. Form 10-K FY2002 (SEC EDGAR)",
+        "Time Warner Inc. Form 10-Q Q2 2004, Q3 2004 and Form 10-K FY2006 (SEC EDGAR)",
+        "United States v. Google LLC, Mem. Op., Doc. 1033 (D.D.C. Aug. 5, 2024), full text"
+      ],
+      "note": "Every 10-K/10-Q figure in this file was extracted from the filing text, not from secondary reporting. Three figures are secondary by necessity: the 2002 AOL deal terms (never filed), the Apple 36% rate (redacted in the public opinion), and the $283m 2009 AOL stake repurchase."
+    }
+  }
+}
