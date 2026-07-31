@@ -4,7 +4,7 @@ This repo holds three research projects. Each one turns a question into a web pa
 
 Only the first project is built. The other two have not started yet.
 
-Last updated: 2026-07-30.
+Last updated: 2026-07-31.
 
 ## Where things stand
 
@@ -85,6 +85,22 @@ These are the multi-agent scripts that built Project 1. Each one ran a team of a
 `workflows/p1-remediation-patches.js` turned the checks above into the exact fixes to apply.
 
 Project 2's workflows are written and ready to run (see "Project 2 planning" below). Project 3 has none yet.
+
+## Project 2 research (done 2026-07-31)
+
+All the research is done. The numbers are frozen. Only the design and the web page are left.
+
+Seven era chapters plus three more, ten in all. Every one passes the four reading tests with room to spare. The numbers behind them sit in `p2-ad-market/data/`, and `data/FREEZE.md` says what is frozen and what a builder must not get wrong.
+
+The work ran in six stages, each checked by a script and an auditor before the next began. Two stages stopped for human review, as planned.
+
+What the checking bought: a third of the first-draft numbers were wrong in some way and got fixed. Four claims were thrown out. Two of those had said the ad market peaked in 2000. It did not. It peaked in 1922.
+
+`p2-ad-market/planning/gate-a-approval.md` and `gate-b-approval.md` hold the two human decisions and why they were made. `data/moneytype/reconciled.json` holds the audit trail for the last round of number work.
+
+Four cross-era stories were picked to become their own chapters and charts: who counted the audience and who paid them; the middleman's cut; who was allowed to buy; and the rent on the front door. Two of those four were not in the plan. The evidence turned them up.
+
+What is left: the design session, then the build.
 
 ## Project 2 planning (locked 2026-07-30)
 
