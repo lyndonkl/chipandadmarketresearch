@@ -3,7 +3,7 @@ title: The Capture Question
 project: p2-ad-market
 chapter: 9
 claim_ids: [ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-provenance-001, ds-money_type-001, ds-money_type-002, ds-money_type-003, e1-scale-001, e1-scale-006, e1-scale-009, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-medium-005, e1-measurement-002, e2-scale-004, e2-scale-005, e2-scale-006, e2-scale-010, e2-scale-011, e2-scale-012, e2-scale-013, e2-medium-001, e2-medium-002, e2-medium-004, e2-measurement-009, e3-scale-004, e3-scale-005, e3-scale-006, e4-scale-003, e4-buyers-003, e4-buyers-004, e4-buyers-006, e4-buyers-007, e4-buyers-008, e4-medium-006, e4-targeting-004, e5-scale-002, e5-scale-004, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-scale-015, e5-scale-016, e5-medium-002, e5-medium-005, e5-medium-006, e5-buyers-001, e5-buyers-002, e6-scale-003, e6-scale-009, e6-scale-010, e6-buyers-001, e6-buyers-002, e6-buyers-005, e6-buyers-008, e6-medium-003, e6-medium-006, e6-events-010, e6-sellers-005, e7-scale-001, e7-scale-002, e7-scale-006, e7-scale-007, e7-scale-008, e7-scale-009, e7-scale-010, e7-buyers-001, e7-buyers-002, e7-buyers-005, e7-buyers-006, e7-buyers-007, e7-buyers-008, e7-medium-001, e7-medium-002, e7-medium-004, e7-medium-006, e7-medium-007, e7-sellers-001, e7-sellers-004, e7-sellers-005, e7-sellers-007]
-readability: "PASS fk_grade=7.79 reading_ease=64.60 gunning_fog=10.71 smog=10.76"
+readability: "PASS fk_grade=7.73 reading_ease=64.87 gunning_fog=10.61 smog=10.69"
 status: draft-for-review
 ---
 
@@ -35,7 +35,7 @@ A reader expects a chart: one line, 1919 to 2025, advertising as a share of the 
 
 **IAB/PwC** counts US internet ad revenue as reported by the sellers themselves, from 1996 on.
 
-**The IRS** publishes the advertising deduction claimed on corporate tax returns. That is a tax line, not a media market. It includes promotion and agency work that never reaches a media owner.
+**The IRS**, the US tax office, publishes the advertising deduction companies claim on their tax returns. That is a tax line, not a media market. It includes promotion and agency work that never reaches a media owner.
 
 Before 1919 no annual series exists at all. Only benchmark years survive, estimated decades later: $50 million in 1867,[^4] and somewhere between $1,100 million and $1,302 million in 1914.[^5]
 
@@ -43,15 +43,15 @@ Before 1919 no annual series exists at all. Only benchmark years survive, estima
 
 Joining these series is not a formality. The joins are large, they are measurable, and we measured them.
 
-Coen and MAGNA overlap in exactly one year that is free to read. In 1980, Coen says $53,570 million and MAGNA says $41,021 million. That is a 23.4% gap in the same year for the same country. The usual explanation is the price basis, billings against revenue. That is mostly wrong. About 69% of the gap is *category scope*: three categories Coen counts and MAGNA does not.[^6] Our best estimate of that split is 69%, and it rests on one overlap year, so we grade it low and put the range at 60% to 78%.
+Coen and MAGNA overlap in exactly one year that is free to read. In 1980, Coen says $53,570 million and MAGNA says $41,021 million. That is a 23.4% gap in the same year for the same country. Most people blame the price basis, billings against revenue. That is mostly wrong. About 69% of the gap is *category scope*: three categories Coen counts and MAGNA does not.[^6] That 69% rests on one overlap year, so we grade it low and set the range at 60% to 78%.
 
 The word "internet" means two things. Coen has an internet line and so does IAB. In 2007 Coen's line is 49.7% of IAB's — a gap of $10.7 billion in one year.[^7] Coen's own curator calls his internet figure a serious undercount from 2004 onward.[^8]
 
-Coen changes his own categories mid-series. In 2000 "Billboards" was replaced by "Out of Home", which is 2.77 times as large on identical 1999 data.[^9] Splice those two lines without a note and you invent a 177% jump that never happened.
+Coen changes his own categories mid-series. In 2000 he replaced "Billboards" with "Out of Home", which is 2.77 times as large on identical 1999 data.[^9] Splice those two lines without a note and you invent a 177% jump that never happened.
 
 Then the hole. Coen ends with 2007. MAGNA's early years are licensed. No free annual US total covers 2008 to 2020, and no free by-medium US series covers 2011 to 2025. Those fifteen years, the ones this project cares most about, carry the thinnest evidence in the whole window.[^10]
 
-The rule for the rest of this chapter: two ribbons, never one line. Where series disagree, both are shown. Our dataset holds 1,573 points, and every one names its compiler, its source and its date.[^11]
+The rule for the rest of this chapter: two ribbons, never one line. Where series disagree, we show both. Our dataset holds 1,573 points, and every one names its compiler, its source and its date.[^11]
 
 ## Advertising as a share of the economy
 
@@ -73,27 +73,27 @@ Here is the series that the capture question turns on. Each row names its own so
 | 2007 | 2.0% | Coen billings |
 | 2025 | ~1.32% | media-owner revenue |
 
-The first thing this kills is a piece of folklore. You will often read that advertising is a stable share of the economy, always around 2%. It is not. The 1914 benchmark puts it near 3.3%, up from about 0.6% in 1867.[^12] It hit 3.0% in 1922 and 1.2% in 1944, when the economy more than doubled during the war and ad spend did not.[^13] The "always 2%" line is what you get by looking only at the years after 1960.
+The table kills a piece of folklore. You will often read that advertising is a stable share of the economy, always around 2%. It is not. The 1914 benchmark puts it near 3.3%, up from about 0.6% in 1867.[^12] It hit 3.0% in 1922 and 1.2% in 1944, when the economy more than doubled during the war and ad spend did not.[^13] The "always 2%" line is what you get by looking only at the years after 1960.
 
 The 1914 reading is our weakest number here. It is graded C, and the range runs from 2.6% to 4.0%, because both the ad estimate and the GDP estimate for that year are reconstructions built long afterwards.
 
-The second thing the table shows is that inside the post-1960 window, advertising's share of the economy peaked in 2000, then fell through the whole digital period. The all-time high on the continuous Coen series is older and higher: 3.0% in 1922, a level the market never got back to. In 2000 the three available renderings of the same underlying series give 2.3%, 2.4% and 2.5%.[^14] By 2007 it was 2.0%.[^15] By 2025, on the media-owner basis, our best estimate is 1.32%, with a range of 1.24% to 1.48%.[^16]
+The table also shows that after 1960 advertising's share peaked in 2000, then fell through the whole digital period. The all-time high on the continuous Coen series is older and higher: 3.0% in 1922, a level the market never got back to. In 2000 the three available renderings of the same underlying series give 2.3%, 2.4% and 2.5%.[^14] By 2007 it was 2.0%.[^15] By 2025, on the media-owner basis, we estimate 1.32%, with a range of 1.24% to 1.48%.[^16]
 
 That looks decisive against expansion. Before accepting it, look at what changed under the numbers.
 
 ### Part of the fall is the ruler, not the market
 
-The 2007 figure is Coen billings. The 2025 figure is media-owner revenue. We built a bridge to measure the difference. Restated onto the media-owner basis, US advertising in 2007 was about $230.9 billion rather than the $279.6 billion Coen published: a 17.4% level difference that is measurement, not history.[^17]
+The 2007 figure is Coen billings. The 2025 figure is media-owner revenue. We built a bridge to measure the difference. Restate 2007 onto the media-owner basis and US advertising comes to about $230.9 billion, not the $279.6 billion Coen published: a 17.4% gap that is measurement, not history.[^17]
 
-That bridge is our shakiest construction, and we say so. It rests on a single measured overlap year, 1980, held constant all the way to 2007. It is graded C throughout, and the 2007 restatement could sit anywhere between about $211 billion and $244 billion. The one honest test we could run was out of sample, against a third compiler's separately published 2007 US total. The bridge passed it.
+That bridge is our shakiest construction, and we say so. It rests on a single measured overlap year, 1980, held constant all the way to 2007. It is graded C throughout, and the 2007 restatement could sit anywhere between about $211 billion and $244 billion. We could test it only against data the bridge was not built from: a third compiler's separately published 2007 US total. The bridge passed.
 
 The direction matters more than the size. The basis change pushes the 2025 number *down* relative to 2007. Part of the fall from 2.0% to 1.32% is real, and part is a change in what the word "advertising" counts.
 
 ### The tax line goes the other way
 
-A second rail disagrees. The IRS advertising deduction and the Coen total are often said to have agreed almost exactly in 2007. They did — but that agreement compares advertiser billings against a tax deduction, and those are different objects. On a consistent media-owner basis, the tax line already ran about 17% above measured media revenue in 2007. By 2022 the gap was about 31%.[^18]
+A second rail disagrees. Writers often say the IRS advertising deduction and the Coen total agreed almost exactly in 2007. They did, but that agreement compares advertiser billings against a tax deduction, and those are different objects. On a consistent media-owner basis, the tax line already ran about 17% above measured media revenue in 2007. By 2022 the gap was about 31%.[^18]
 
-That gap is a finding, not an error. The tax line keeps absorbing promotion, agency fees and marketing technology that never reaches a media owner. This is graded C and the range runs 28% to 34%, because the media-side number is a licensed estimate we could only read from press releases.
+That gap is a finding, not an error. The tax line keeps absorbing promotion, agency fees and marketing technology that never reaches a media owner. That 31% gap is graded C, on a range of 28% to 34%, because the media-side number is a licensed estimate we could only read from press releases.
 
 The drift is old. By 1992, trade promotion took 44.9% of packaged-goods marketing budgets — money that never appeared in the measured advertising total at all.[^19] The measured series has been shedding coverage of marketing spend since at least the early 1990s. Any story that reads a falling ad/GDP ratio as proof that firms stopped marketing is reading a shrinking definition.
 
@@ -101,9 +101,9 @@ The drift is old. By 1992, trade promotion took 44.9% of packaged-goods marketin
 
 The strongest case for capture is not the total. It is the specific pools that died.
 
-Newspaper classified advertising — individuals and small firms paying by the line — peaked in 2000 at $19.6 billion.[^20] In 2008 alone it fell 29.7%, to $10.0 billion.[^21] By 2010 it had fallen 71% from the peak, to $5.6 billion.[^22] Inside that, help-wanted classified fell from $8.7 billion in 2000 to $786.8 million in 2009, a 91% collapse.[^23] Directories, the Yellow Pages business that was the direct ancestor of paid search, fell from a peak near $14.7 billion in 2005 to roughly $1.1 billion in 2024, a 93% decline.[^24] US newspaper advertising as a whole peaked in 2005 at $49.4 billion and fell every year after.[^25]
+Newspaper classified advertising, where individuals and small firms paid by the line, peaked in 2000 at $19.6 billion.[^20] In 2008 alone it fell 29.7%, to $10.0 billion.[^21] By 2010 it had fallen 71% from the peak, to $5.6 billion.[^22] Inside that, help-wanted classified fell from $8.7 billion in 2000 to $786.8 million in 2009, a 91% collapse.[^23] Directories, the Yellow Pages business that was the direct ancestor of paid search, fell from a peak near $14.7 billion in 2005 to roughly $1.1 billion in 2024, a 93% decline.[^24] US newspaper advertising as a whole peaked in 2005 at $49.4 billion and fell every year after.[^25]
 
-The sell side then concentrated hard. In the fourth quarter of 2008, the top ten sellers took 72% of US internet ad revenue.[^26] By 2025 the top ten took 84.1%, up from 78.6% in 2021.[^27] Google, Meta and Amazon together took about 71.9% of US digital ad spend in 2025, and their share of *total* US advertising rose to roughly 59% from 47% over five years.[^28] Google alone held 89.2% of US general search queries in 2020.[^29] And digital is now most of the market: our best estimate is that about 74% of US ad spend was digital in 2025, on a range that runs from 72% to 82%.[^30]
+The sell side then concentrated hard. In the fourth quarter of 2008, the top ten sellers took 72% of US internet ad revenue.[^26] By 2025 the top ten took 84.1%, up from 78.6% in 2021.[^27] Google, Meta and Amazon together took about 71.9% of US digital ad spend in 2025, and their share of *total* US advertising rose to roughly 59% from 47% over five years.[^28] Google alone held 89.2% of US general search queries in 2020.[^29] And digital is now most of the market: we estimate that about 74% of US ad spend was digital in 2025, on a range that runs from 72% to 82%.[^30]
 
 That is a real capture, and it is the honest core of the popular story.
 
@@ -121,11 +121,11 @@ Capture is true of classified and directories. It is not true of the market.
 
 The strongest case for expansion is the count of buyers, not the count of dollars.
 
-In 1998, Yahoo — the largest seller on the web — had about 3,800 advertising customers in total.[^34] Overture, which invented the keyword auction, had about 53,000 paying advertisers in December 2001 and about 80,000 a year later.[^35] Google never disclosed its own figure. Our best estimate for the end of 2008 is around a million advertisers worldwide, and the honest range is very wide: somewhere between about 550,000 and 2.6 million.[^36] Meta has publicly cited more than 10 million active advertisers, with more than 2 million US businesses advertising monthly.[^37]
+In 1998 Yahoo, the largest seller on the web, had about 3,800 advertising customers in total.[^34] Overture, which invented the keyword auction, had about 53,000 paying advertisers in December 2001 and about 80,000 a year later.[^35] Google never disclosed its own figure. We put the end of 2008 at around a million advertisers worldwide, and the honest range is very wide: somewhere between about 550,000 and 2.6 million.[^36] Meta has publicly cited more than 10 million active advertisers, with more than 2 million US businesses advertising monthly.[^37]
 
 That is a move from a few thousand buyers to millions of them. It is not a transfer. Corner shops, single-person sellers and app developers were never customers of network television.
 
-Whole categories are also new. US retail media — ads sold by retailers against their own shopper data — reached $60.3 billion in 2025 and did not meaningfully exist in 2008.[^38] US podcast advertising grew from $105.7 million in 2015 to $2.9 billion in 2025.[^39] Political advertising set a record at $11.1 billion across the 2023–24 cycle.[^40] US internet ad revenue itself went from $23.4 billion in 2008 to $294.6 billion in 2025, a 12.6-fold rise.[^41]
+Whole categories are also new. US retail media, where retailers sell ads against their own shopper data, reached $60.3 billion in 2025 and did not exist in 2008.[^38] US podcast advertising grew from $105.7 million in 2015 to $2.9 billion in 2025.[^39] Political advertising set a record at $11.1 billion across the 2023–24 cycle.[^40] US internet ad revenue itself went from $23.4 billion in 2008 to $294.6 billion in 2025, a 12.6-fold rise.[^41]
 
 And the tax rail, as we saw, keeps growing faster than the media rail. If "advertising" means what firms spend to sell things, that number expanded.
 
@@ -143,13 +143,13 @@ Four kinds of money. **National brand**: a manufacturer buying reach for a brand
 
 No compiler publishes that split. Coen publishes two buckets, national and local, and he books all direct mail as national. In 1993 direct mail alone was 33.3% of everything Coen called national spending, more than all national television put together.[^42] A rising "national" share in his series can therefore mean brand money growing or mail growing, and the reader cannot tell which. The four-way split below is our own construction, built to separate those. It is graded C wherever we built it.
 
-Two bookkeeping choices sit behind every money-type figure in this section, and both need names before the table can be read.
+Two bookkeeping choices sit behind every money-type figure in this section. Name both before reading the table.
 
-The first choice is the **rule**: where directory money goes. Yellow Pages money can count as local money, because a plumber buys it for his own town. It can equally count as response money, because he buys it to be found by someone already looking. The **comparable rule** puts all of it in the response pool, which is what era 6, era 7 and our own data layer do.[^63] Era 5 keeps a second rule of its own, which splits the 2000 directory line by who bought it and leaves the $11.1B local part in local money. The two middle pools swap places between the rules, that one block is the whole cause, and nothing written at the time settles which rule is right. Every comparison across years in this chapter uses the comparable rule, because the later eras are already built on it.
+The first choice is the **rule**: where directory money goes. Yellow Pages money can count as local money, because a plumber buys it for his own town. It can equally count as response money, because he buys it to be found by someone already looking. The **comparable rule** puts all of it in the response pool, which is what the two later eras and our own data layer do.[^63] Era 5, the years from 1994 to 2001, keeps a second rule of its own: it splits the 2000 directory line by who bought it, and leaves the $11.1B local part in local money. The two middle pools swap places between the rules, that one block is the whole cause, and nothing written at the time settles which rule is right. Every comparison across years in this chapter uses the comparable rule, because the later eras are already built on it.
 
 The second choice is the **rail**: the price direct mail is counted at. Coen counts mail at what the advertiser spent on the whole mailing, $44.6B in 2000, while every other line in his table counts only the space the advertiser bought. Count mail instead at the $18.3B the carrier was paid, and the 2000 market prices at $221.1B rather than $247.5B.[^64] Call that second footing the **media-space rail**. The 2025 figures sit on it too, except that they drop mail altogether.
 
-The main table below sets each year on its own source basis, named in the last column. Its 2000 and 2025 rows therefore cannot be subtracted from each other. The restated 2000 row that can be subtracted comes after the table.
+The main table below sets each year on its own source basis, named in the last column. You therefore cannot subtract its 2000 row from its 2025 row. The 2000 row you can subtract comes after the table.
 
 | Year | National brand | Local retail | Classified | Direct response | Not assigned | Basis |
 |---|---|---|---|---|---|---|
@@ -158,13 +158,13 @@ The main table below sets each year on its own source basis, named in the last c
 | 2000 | 38.3% | 23.8% | 8.9% | 29.2% | — | Coen billings, mail at full cost, comparable rule |
 | 2025 | 36.6% | 23.5% | 2.5% | 38.0% | — | media-owner revenue, mail excluded, comparable rule |
 
-Read the 1914 row with care. Those four shares are our own bottom-up estimates, each graded C, and they reach only 62% rather than 100%. The pre-1919 total is a broad measure of all advertising outlay, of which print was only about 21%.[^43] We now publish the unassigned 38% as its own figure rather than leaving it as a silent gap. About a fifth of it is a real fifth pool with a name — trade papers, legal and financial notices, institutional money. The rest is the distance between the only in-era count of advertising by channel and a much larger figure worked out decades later. The 1914 shares are best read as rough sizes, not a partition: national brand 11% to 46%, local retail 15% to 46%, classified 1.1% to 5%, direct response 8% to 30%.[^44] Only one ordering in that row is safe. Classified was the smallest.
+Read the 1914 row with care. Those four shares are our own bottom-up estimates, each graded C, and they reach only 62% rather than 100%. The pre-1919 total is a broad measure of all advertising outlay, of which print was only about 21%.[^43] We now publish the unassigned 38% as its own figure rather than leaving it as a silent gap. About a fifth of it is a real fifth pool with a name — trade papers, legal and financial notices, institutional money. The rest is the distance between the only in-era count of advertising by channel and a much larger figure worked out decades later. Read the 1914 shares as rough sizes, not a full carve-up: national brand 11% to 46%, local retail 15% to 46%, classified 1.1% to 5%, direct response 8% to 30%.[^44] Only one ordering in that row is safe. Classified was the smallest.
 
 The 2025 row carries its own warning. Those four shares are also grade C, and their ranges are wide and overlapping: national brand 25% to 47%, local and retail 15% to 31%, classified 1.4% to 6.8%, national direct response 29.5% to 47%.[^45] Brand money and response money sit 1.4 points apart and cannot be ranked against each other at all.
 
 ### Four readings of the year 2000
 
-Two choices, two answers each, give four readings of the same money. All four sit in our data and all four are legitimate. Mixing them is what makes the year look as though it is arguing with itself.
+Two choices, two answers each, give four readings of the same money. All four sit in our data and all four are legitimate. Mix them and the year looks as though it is arguing with itself.
 
 | 2000, four readings | National brand | Local retail | Classified | Direct response |
 |---|---|---|---|---|
@@ -173,29 +173,29 @@ Two choices, two answers each, give four readings of the same money. All four si
 | Media-space rail, comparable rule | 43.6% | 28.1% | 9.9% | 18.4% |
 | Media-space rail, era 5's own rule | 43.6% | 33.1% | 9.9% | 13.4% |
 
-The 2025 figures use the comparable rule, and they price mail as a media owner would, by leaving it out. Only the third line above is built both ways, so the third line is the one every 2000-against-2025 sentence in this chapter uses: 43.6% brand, 28.1% local, 9.9% classified, 18.4% response.[^64] The fourth line is printed to show what the directory rule is worth on its own, which on this rail is 5.04 points of the market. Neither of the first two lines can be set against 2025 at all, because both price direct mail the way 2025 does not.
+The 2025 figures use the comparable rule, and they price mail as a media owner would, by leaving it out. Only the third line above is built both ways, so the third line is the one every 2000-against-2025 sentence in this chapter uses: 43.6% brand, 28.1% local, 9.9% classified, 18.4% response.[^64] We print the fourth line to show what the directory rule is worth on its own, which on this rail is 5.04 points of the market. Neither of the first two lines can be set against 2025 at all, because both price direct mail the way 2025 does not.
 
 With those caveats, the shape is still clear and it is not subtle. **Response money grew, classified nearly vanished, brand money kept most of its share, and local money fell hard before 2000 and then only drifted.** Local money is the line the directory rule moves most. On the matched footing it went from 28.1% in 2000 to 23.5% in 2025, a fall of under five points. Swap in era 5's own rule for 2000 and the same comparison starts at 33.1%, which makes the fall look more than twice as big. The rule does that, not the market.
 
-The 1949 and 2000 rows are firmer, and they set up the change. In 1949, direct mail was 14.5% of all US spend and the second-largest medium in most years of that era.[^46] In 1975, national money was 54.5% of the total.[^47] By 1993, classified alone was 7.9% of all measured US advertising, and direct-response buyers spent about $31 billion, roughly 22% of the market.[^48] Local money was heavily concentrated in exactly the media digital would later take: local buyers supplied 88.7% of newspaper ad revenue in 1993.[^49]
+The 1949 and 2000 rows are firmer, and they set up the change. In 1949, direct mail was 14.5% of all US spend and the second-largest medium in most years of that era.[^46] In 1975, national money was 54.5% of the total.[^47] By 1993, classified alone was 7.9% of all measured US advertising, and we put direct-response buyers at about $31 billion on that same billings rail, roughly 22% of the market.[^48] Local money was heavily concentrated in exactly the media digital would later take: local buyers supplied 88.7% of newspaper ad revenue in 1993.[^49]
 
 Then in 2000, on Coen's billings and the comparable rule, the market split four ways: $94.9 billion of national brand money, $58.9 billion local, $21.9 billion classified and $72.3 billion direct response.[^50] The pool the search auction actually chased, newspaper classified plus directories plus direct mail, was $77.4 billion that year, 31.3% of all US advertising. The entire internet was $6.5 billion on the same series.[^51] The auction was not aimed at television. It was aimed at the phone book.
 
-By 2007, on that same billings rail, the response-priced and intent-matched pool was roughly $99 billion, about 34% of all US advertising.[^52] The pricing followed: 57% of US internet ad revenue was already bought on a performance basis by 2008, against 39% bought by the thousand impressions.[^53] By 2025, search alone is $114.2 billion of US internet revenue, while classifieds, directories and lead generation together are $12.5 billion — 4.2% of it.[^54] Response money is now the largest pool, or tied for it, and classified has fallen to a fortieth of the market.[^55]
+By 2007, on that same billings rail, the response-priced and intent-matched pool was roughly $99 billion, about 34% of all US advertising.[^52] The pricing followed: by 2008 advertisers bought 57% of US internet ad revenue on results, against 39% by the thousand impressions.[^53] By 2025, search alone is $114.2 billion of US internet revenue, while classifieds, directories and lead generation together are $12.5 billion — 4.2% of it.[^54] Response money is now the largest pool, or tied for it, and classified has fallen to a fortieth of the market.[^55]
 
 That is the trade. The auction did not mainly take television's money. It took the money that was already paying for a measured response, made that response cheaper to measure, and then pulled more of the market onto the same footing.
 
 ## Two legends the record does not support
 
-Both of these are used as evidence in this argument. Neither survives checking, and saying so is part of the answer.
+People use both as evidence in this argument. Neither survives checking, and saying so is part of the answer.
 
-**"Half my advertising is wasted; I just don't know which half."** This is normally credited to the merchant John Wanamaker, and used to show that advertising was unmeasurable until digital arrived. The line first appears in print in *Printers' Ink* in 1890, with no attribution. The earliest attribution to Wanamaker we can find is 1919, made by a third party at a religious conference. No written or spoken instance from Wanamaker himself has been found.[^56] The attribution is legend.
+**"Half my advertising is wasted; I just don't know which half."** Writers normally credit the line to the merchant John Wanamaker, and use it to show advertising was unmeasurable until digital arrived. The line first appears in print in *Printers' Ink* in 1890, credited to nobody. The earliest credit to Wanamaker we can find is 1919, given by a third party at a religious conference. Nobody has found a written or spoken instance from Wanamaker himself.[^56] The credit is legend.
 
-Measurement did not start with the click, either. The Audit Bureau of Circulations was founded in 1914 to audit what publishers claimed about their own circulation, and it was the first such body in the world.[^57] What digital changed was the precision and the price of counting, not the existence of counting. And the precision of the old response media was genuinely poor: in the direct-mail era, a 2% response rate on a rented list was the working definition of a *successful* campaign.[^58]
+Measurement did not start with the click, either. Advertisers, agencies and publishers together founded the Audit Bureau of Circulations in 1914 to check what publishers claimed about their own circulation, and it was the first such body in the world.[^57] Digital changed the precision and the price of counting, not the existence of counting. And the precision of the old response media was genuinely poor: in the direct-mail era, a 2% response rate on a rented list was the working definition of a *successful* campaign.[^58]
 
 **"Radio took over the ad market, then television did."** Radio never led. Its share of US advertising peaked at 14.9% in 1945, less than half the newspaper share in the same year.[^59] In 1993 it held 6.7%, against 7.0% in 1976.[^60] Newspapers outranked every named medium in every year from 1919 to 1949, at 36.7% in 1949.[^61] And the largest single measured US medium in 2001 was not television or the web. It was direct mail, which passed newspapers that year.[^62]
 
-This matters for the capture question because the standard story treats each new medium as a conqueror. The record shows something duller and more useful: new media enter at small shares and take decades, while unglamorous channels — mail, directories, classified — quietly hold a third of the market.
+This matters for the capture question because the standard story treats each new medium as a conqueror. The record shows something duller and more useful: new media enter at small shares and take decades, while mail, directories and classified quietly hold a third of the market.
 
 ## Where we come down
 
@@ -215,7 +215,7 @@ A free, consistent by-medium US series for 2011 to 2025 would test all of this d
 
 A second overlap year between the Coen and MAGNA bases would replace our single-observation bridge with a measured trend. If the true gap between the two bases moved a lot between 1980 and 2007, the size of the ad/GDP fall changes, though its direction almost certainly does not.
 
-A published money-type split from a compiler, rather than our own construction, would settle the 2025 row. Ours is built from three sources with different rules about direct mail, and its ranges are wide enough that the top two pools cannot be ranked with confidence. That is the number in this chapter most likely to be wrong. Two purchases would fix it: agency billing data with a national cut, and MAGNA's own three-way split. Both are licensed and neither was bought.
+A published money-type split from a compiler, rather than our own construction, would settle the 2025 row. Ours is built from three sources with different rules about direct mail, and its ranges are wide enough that the top two pools cannot be ranked with confidence. That is the number in this chapter most likely to be wrong. Two purchases would fix it: agency billing data with a national cut, and MAGNA's own three-way split. Both are licensed, and we bought neither.
 
 [^1]: Coen Structured Advertising Expenditure Dataset, from Robert J. Coen / McCann-Erickson, digitised by Douglas Galbi.
 [^2]: MAGNA and EMARKETER US totals for 2025, media-owner revenue basis.

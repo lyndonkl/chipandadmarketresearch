@@ -4,27 +4,27 @@ project: p2-ad-market
 chapter: 2
 era: 1
 claim_ids: [e1-creators-001, e1-creators-002, e1-creators-003, e1-creators-004, e1-creators-005, e1-buyers-001, e1-buyers-002, e1-buyers-003, e1-buyers-004, e1-buyers-005, e1-buyers-006, e1-buyers-007, e1-buyers-008, e1-sellers-001, e1-sellers-002, e1-sellers-003, e1-sellers-004, e1-sellers-005, e1-sellers-006, e1-medium-001, e1-medium-002, e1-medium-003, e1-medium-004, e1-medium-005, e1-scale-001, e1-scale-002, e1-scale-003, e1-scale-004, e1-scale-005, e1-scale-006, e1-scale-007, e1-scale-008, e1-scale-009, e1-scale-010, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-pricing-001, e1-pricing-002, e1-pricing-003, e1-pricing-004, e1-measurement-001, e1-measurement-002, e1-measurement-003, e1-measurement-004, e1-targeting-001, e1-targeting-002, e1-targeting-003, e1-events-001, e1-events-002, e1-events-003, e1-events-004, e2-scale-004]
-readability: "PASS fk_grade=7.02 reading_ease=66.27 gunning_fog=9.53 smog=9.94"
+readability: "PASS fk_grade=7.01 reading_ease=66.27 gunning_fog=9.54 smog=9.94"
 status: draft-for-review
 ---
 
 # The Middlemen (1840s-1917)
 
-In 1840 there was no advertising industry. There was a gap.
+In 1840 no advertising industry existed. A gap did.
 
 A soap maker in Ohio could not learn which papers a farmer in Iowa read. He could not learn what space in them cost. If a publisher quoted him a price, he had no way to test it. Closing that gap was worth money.
 
-The people who closed it were not writers or artists. They were brokers. This chapter follows what they built, and who paid them to build it.
+The people who closed it were not writers or artists. They were brokers. What they built, and who paid them to build it, is the story.
 
 ## The middleman worked for the seller
 
 Volney B. Palmer set up in Philadelphia in the early 1840s. Sources put the year at 1840, 1841 or 1842, so the record does not crown him the first agency. It calls him the first, or among the first.[^1]
 
-The year matters less than the money. Palmer was paid by publishers, at a commission widely reported as about 25 percent of the space price he sold.[^1] A commission here just means a cut of the sale.
+The year matters less than the money. Publishers paid Palmer a commission most sources put at about 25 percent of the space price he sold.[^1] A commission here just means a cut of the sale.
 
 Hold on to that. The middleman worked for the seller. He earned more when the buyer paid more.
 
-Palmer sold his reach hard. By 1849 his agency claimed to be the sole representative of 1,300 of the roughly 2,000 papers then published in America.[^2] That is the agency advertising itself, so treat it as a sales pitch. The record allows for real puffery below the reported figure. Our range runs from 700 to 1,400 papers.
+Palmer sold his reach hard. By 1849 his agency claimed to be the sole representative of 1,300 of the roughly 2,000 papers then published in America.[^2] That is the agency advertising itself, so treat it as a sales pitch. The true count may sit well below the claim. Our range runs from 700 to 1,400 papers.
 
 The price of the middleman was not fixed either. Before any standard existed, the commission an agent took ran anywhere between about 10 and 50 percent of the space price.[^3] Publishers did not hold to their printed rates. Agents undercut each other. Nobody could check anybody.
 
@@ -36,7 +36,7 @@ The seller side made the deeper invention, and made it early.
 
 On 3 September 1833, Benjamin Day launched the New York Sun at one cent. That was below what it cost him to print. He said so on his own front page, promising cheap news to readers and a good medium to advertisers. Within about two years he was selling roughly 15,000 copies a day.[^4] Our range on that count is wide, from 8,000 to 20,000.
 
-This is the trade every ad-funded thing since has re-run. Give the audience the product under cost. Sell the audience.
+Every ad-funded business since has re-run that bargain. Give the audience the product under cost. Sell the audience.
 
 Magazines ran the same trade again at the end of the century. Frank Munsey cut Munsey's Magazine from 25 cents to 10 cents in 1893, again below the cost of making it. His advertising then brought in roughly $25,000 to $35,000 an issue.[^5] Munsey himself said the ten-cent magazine grew the magazine-buying public from about 250,000 people to about 750,000 between 1893 and 1899.[^6]
 
@@ -50,15 +50,15 @@ In 1875, N. W. Ayer & Son offered advertisers a different deal, called the open 
 
 That single change flipped the middleman to the buyer's side of the table.
 
-It also broke the agency's old product. Once an agent could no longer make money by hiding the price, he had to sell something else. So agencies invented the rest of the job: market research first, then copy and art. By the 1900s the writing was the product.
+It also broke the agency's old product. Once an agent could no longer make money by hiding the price, he had to sell something else. Agencies invented the rest of the job instead: market research first, then copy and art. By the 1900s the writing was the product.
 
 The cut itself drifted, then settled. It stabilised at 15 percent of the gross rate by the early 1890s, and the open contract carrying that 15 percent became standard practice through that decade.[^10] Gross rate means the full list price of the space, before the agent's cut comes out.
 
-Then came enforcement. From 1893, publishers agreed to pay commission only to agents they recognised, and never to advertisers who bought direct.[^11] A customary rate became a defended one. An advertiser could not save the 15 percent by cutting out the agent, because the discount was simply not available to him.
+Then publishers enforced it. From 1893, publishers agreed to pay commission only to agents they recognised, and never to advertisers who bought direct.[^11] A customary rate became a defended one. An advertiser could not save the 15 percent by cutting out the agent, because the discount was simply not available to him.
 
-So the take rate at the end of this era is clean: the agency took 15 percent of gross billings, and the publisher kept the other 85 percent.[^11] Billings are the full amount the advertiser was charged. Two honest caveats travel with that number. The industry-wide standard set at 15 percent by the agency trade body is a 1918 act, just outside this era. And the agency was the main cut in the chain, but not provably the only one, since publishers also paid sales representatives at rates this record does not establish.
+The middleman's cut at the end of this era is clean: the agency took 15 percent of gross billings, and the publisher kept the other 85 percent.[^11] Billings are the full amount the advertiser was charged. That cut is what this series calls a take rate. Two honest caveats travel with the number. The agency trade body only wrote 15 percent into an industry-wide standard in 1918, just outside this era. And the agency was the main cut in the chain, but not provably the only one, since publishers also paid sales representatives at rates this record does not establish.
 
-Prices themselves were quoted by the line. Ladies' Home Journal raised its rate to $2.00 per agate line in 1887, which worked out to $28 a column inch, and was earning about $500,000 a year from advertising by 1897.[^12] An agate line is one line of very small type, one column wide. Space was sold the way cloth is sold, by the running unit.
+Publishers quoted their prices by the line. Ladies' Home Journal raised its rate to $2.00 per agate line in 1887, which worked out to $28 a column inch, and was earning about $500,000 a year from advertising by 1897.[^12] An agate line is one line of very small type, one column wide. Space was sold the way cloth is sold, by the running unit.
 
 ## Who was actually paying
 
@@ -72,17 +72,17 @@ Two postal changes did the heavy lifting. Third-class mail, the cheap class that
 
 **Local retail was the biggest buyer of newspaper space, by a lot.** In 1915, national advertisers bought $55 million of newspaper space. Local advertisers, counting classified, bought $220 million.[^21] Local money was four times national money, and national money was only about a fifth of newspaper advertising.[^22] The national brand was the new buyer in this era, not the big one.
 
-**Classified was the fourth pool, and the odd one.** It was sold by the line over a counter, to individuals and very small firms, with no agent involved. It was probably around 13 percent of newspaper advertising receipts in 1914, but that one is genuinely uncertain. No dollar series for classified exists before 1928, so the estimate is built from later line counts and one in-era witness. The honest range is 8 to 22 percent.[^23]
+**Classified was the fourth pool, and the odd one.** Newspapers sold it by the line over a counter, to individuals and very small firms, with no agent involved. It was probably around 13 percent of newspaper advertising receipts in 1914, but that one is genuinely uncertain. No dollar series for classified exists before 1928, so the estimate is built from later line counts and one in-era witness. The honest range is 8 to 22 percent.[^23]
 
-One pool crossed all the others. Response-driven money was already large. In 1911 *Printers' Ink* counted $100 million of direct mail, $75 million of farm and mail-order advertising, and about $31 million more in sampling, distributing and house organs. Carried to 1914 and split by who was really buying, that pool comes to about $192 million.[^24]
+One pool crossed all the others. Response-driven money was already large. In 1911 the trade paper *Printers' Ink* counted $100 million of direct mail, $75 million of farm and mail-order advertising, and about $31 million more on free samples, handouts and company magazines. We carry that pool to 1914, split it by who was really buying, and get about $192 million.[^24]
 
 ## How big was all of it
 
 Here the record has to slow down, because the numbers get soft.
 
-There is no annual series for this era, and one cannot honestly be built. Nothing at all exists before 1867. What exists after that is a set of benchmark years, estimated long after the fact.
+No annual series exists for this era, and nobody can honestly build one. Nothing at all exists before 1867. After that the record holds only a set of benchmark years, each one estimated long after the fact.
 
-Worse, two credible sets of estimates disagree with each other. The older set was compiled for Printers' Ink and carried into the Census Bureau's historical statistics. Robert Coen, who prepared it, later revised his own numbers down by roughly 13 to 19 percent for the same years. We carry both lineages and widen the range, rather than quietly splitting the difference.
+Worse, two credible sets of estimates disagree with each other. Robert Coen compiled the older set for Printers' Ink, and the Census Bureau carried it into its historical statistics. Coen later revised his own numbers down by roughly 13 to 19 percent for the same years. We carry both lineages and widen the range, rather than quietly splitting the difference.
 
 | Benchmark year | Best estimate | 80% range | Grade | Claim |
 |---|---|---|---|---|
@@ -98,11 +98,11 @@ The 80 percent range is the band we would give roughly an eight-in-ten chance of
 
 One number in this era is solid. The Census of Manufactures counted what publishers actually received: $255.6 million of advertising receipts in 1914 across all newspapers and periodicals.[^27] Newspapers took about $184 million of that, and everything else in print shared the rest, so newspapers held 72 percent of print.[^28]
 
-Now compare the two. Census receipts run several times below the benchmark totals for the same year. That is not a contradiction, and it is the single most important thing to understand about this era's numbers.
+Now compare the two. The benchmark totals run several times higher than census receipts for the same year. That is not a contradiction, and it is the single most important thing to understand about this era's numbers.
 
 The census counts money publishers received. The benchmark counts money advertisers spent. The gap between them is agency commission, the cost of making the ads, and every kind of promotion that never touches a publisher. Coen's own newspaper line runs about 1.52 times census newspaper receipts, and that factor is documented rather than guessed.[^29] Even after scaling, all of print reaches only about 21 percent of the broad benchmark total for 1914, and possibly as little as 17 percent.[^30]
 
-So the pre-1919 totals are not a media measure. They are a promotional-spending measure, on a wider basis than any modern series. Any chart that runs this era into the next has to say so at the seam.
+The pre-1919 totals are therefore not a media measure. They are a promotional-spending measure, on a wider basis than any modern series. Any chart that runs this era into the next has to say so at the seam.
 
 ### Where the money sat, by type
 
@@ -116,9 +116,9 @@ Splitting that total by money type is a modelling job, not a measurement. All fo
 | Classified | 2.2% | 1.1-5% | e1-scale-013 |
 | Not assigned to any of the four | 37.8% | 5-55% | e1-scale-017 |
 
-Read the shape, not the digits. National brand and local retail tie at the top, and no route we have can tell them apart.[^31] Every route that lifts one lowers the other, because the two share the same newspaper total. An earlier draft called direct response the largest money type in the era. It is not, and neither is any other pool: the only ranking this evidence supports is that classified was the smallest.
+Read the shape, not the digits. National brand and local retail tie at the top, and no estimating method we tried can tell them apart.[^31] Every method that lifts one lowers the other, because the two share the same newspaper total. An earlier draft called direct response the largest money type in the era. It is not, and neither is any other pool: the only ranking this evidence supports is that classified was the smallest.
 
-Classified was small in dollars, at roughly 2.2 percent of the total, or about $26 million.[^32] Its importance is not its size. It is the only channel here bought self-serve, over a counter, by people who never met an agent and never paid the 15 percent. Its smallness is partly a pricing fact. Classified paid no agency cut and needed no plates or art, so a dollar of classified space cost a dollar, while a dollar of brand space came with about half a dollar of preparation behind it.
+Classified was small in dollars, at roughly 2.2 percent of the total, or about $26 million.[^32] Its importance is not its size. It is the only channel here bought self-serve, over a counter, by people who never met an agent and never paid the 15 percent. It stayed small partly because of how it was priced. Classified paid no agency cut and needed no plates or art, so a dollar of classified space cost a dollar, while a dollar of brand space came with about half a dollar of preparation behind it.
 
 The four shares reach only 62 percent of the whole, and we do not force them higher. About 5 to 9 points of the rest is a real fifth pool with a real name: trade and technical papers, legal and financial notices, institutional and political money. The remaining 29 to 33 points is not a money type at all. It is the gap between the only in-era count of advertising by channel, about $700 million, and the retrospective benchmark of $1,200 million. Nobody has ever explained that gap, so we show it rather than spread it.
 
@@ -126,17 +126,17 @@ The types also overlap. Patent-medicine and mail-order money was national and re
 
 ### The share-of-GDP trap
 
-Advertising outlay was roughly 3.3 percent of nominal GDP in 1914, up from about 1.9 percent in 1880 and about 0.6 percent in 1867.[^33] Our range on the 1914 figure runs from 2.6 to 4.0 percent.
+Advertising took roughly 3.3 percent of everything the US economy produced in 1914, up from about 1.9 percent in 1880 and about 0.6 percent in 1867.[^33] Economists call that total GDP, and the later chapters use the word. Our range on the 1914 figure runs from 2.6 to 4.0 percent.
 
-That looks like a clean story of advertising eating a growing share of the economy. Resist it. Both halves of that fraction are reconstructions. The top is the broad outlay concept described above. The bottom is a modern rebuild of pre-1929 GDP, because official national accounts do not start until 1929.
+That looks like a clean story of advertising eating a growing share of the economy. Resist it. Somebody had to rebuild both numbers in that fraction. The top is the broad outlay concept described above. The bottom is a modern rebuild of pre-1929 GDP, because official national accounts do not start until 1929.
 
-This matters at once, because the next era records about 3.0 percent of GDP in 1922 as the peak of the entire measured series that follows.[^34] Both statements are true inside their own windows. They are not points on one line, and nobody should draw one through them.
+That matters straight away. The next era records about 3.0 percent in 1922 as the peak of the whole later series.[^34] Both statements are true inside their own windows. They are not points on one line, and nobody should draw one through them.
 
 ## Nobody was counting the audience
 
 The thing being bought was circulation, meaning the number of copies a publication sold. For most of this era, publishers simply stated their own circulation and advertisers had no way to check.
 
-That is why the rate card was only an asking price. You cannot enforce a price for something nobody has counted.
+Every publisher printed a price list for its space, called a rate card. That is why the rate card was only an asking price. You cannot enforce a price for something nobody has counted.
 
 The market was also enormously fragmented, which made checking harder. The United States had 22,754 newspapers and periodicals in 1914.[^35] Their combined circulation ran to 205.6 million copies per issue, up 25 percent on the 1909 count.[^36] No seller had power over a national audience. That fragmentation is exactly why brokers could exist at all.
 
@@ -150,7 +150,7 @@ Counting arrived in three waves.
 
 Look at who paid for it. Advertisers, agencies and publishers funded the audit together. Every measurement currency since has copied that three-sided design, ratings and impressions included.
 
-This is the era's real climax. From 1914, a rate card rests on a number somebody else checked. That is the moment the price becomes a contract term instead of an opening bid.
+That audit is the era's real climax. From 1914, a rate card rests on a number somebody else checked. That is the moment the price becomes a contract term instead of an opening bid.
 
 Running alongside it was a second, private way of counting. Mail-order firms keyed their coupons, printing a code on each one so a reply could be traced back to the paper and the headline that produced it. That counts replies rather than readers. It is the direct ancestor of the click, and it never went away.
 
@@ -158,7 +158,7 @@ Running alongside it was a second, private way of counting. Mail-order firms key
 
 Nobody in this era targeted a person. They targeted a title and a place.
 
-A farm weekly reached farmers. A religious paper reached churchgoers. A city daily reached one city. The buyer's menu of choices grew about fourfold, from 5,778 listed papers in 1869 to 22,754 enumerated publications in 1914.[^41] Directories became a channel of their own once telephone listings were sorted by trade.
+A farm weekly reached farmers. A religious paper reached churchgoers. A city daily reached one city. The buyer's menu of choices grew about fourfold, from 5,778 listed papers in 1869 to 22,754 counted publications in 1914.[^41] Directories became a channel of their own once phone companies sorted their listings by trade.
 
 Two sharper forms existed. The catalogue was addressed to a named household, which made it the only individually addressable medium of the era, and Ward alone was mailing about 3 million a year by 1904.[^42] And classified let readers sort themselves. Someone who wanted a job or a room went to the column where those offers sat. That is intent matching, done by hand, decades before a search box.
 
@@ -170,9 +170,9 @@ The era's biggest advertiser category was also its biggest liability.
 
 Ladies' Home Journal stopped taking patent-medicine advertising in 1892, giving up real revenue on trust grounds. In October 1905, Samuel Hopkins Adams began a series in Collier's showing that the leading cure-alls were alcohol, opiates and poisons, and naming the papers that carried them. The Pure Food and Drug Act followed in 1906.[^44]
 
-The trade then wrote rules on itself. Printers' Ink commissioned a model law against false advertising in 1911. By November 1921 it had been adopted in 22 states in substantially its original form, and in 15 more in modified form.[^45] The Federal Trade Commission Act was signed in 1914, and the first deceptive-advertising case followed in 1916.[^50]
+The trade then wrote rules on itself. Printers' Ink commissioned a model law against false advertising in 1911. By November 1921, 22 states had adopted that model law almost unchanged, and 15 more had adopted a modified version.[^45] The Federal Trade Commission Act was signed in 1914, and the first deceptive-advertising case followed in 1916.[^50]
 
-Advertising did not become respectable by growing up. It became respectable because its largest customer got legislated out of its old form.
+Advertising did not become respectable by growing up. It became respectable because Congress forced its biggest customer to change.
 
 ## The era closes on a fixed price
 
@@ -180,17 +180,17 @@ The agency trade body arrived last. The American Association of Advertising Agen
 
 The layer it represented was still small and scattered. N. W. Ayer, one of the largest agencies in the country, billed $18.58 million in 1917, up from $10.41 million in 1913.[^47] Set against the national total, that is roughly 1.2 percent of everything spent on advertising in America, and plausibly anywhere from 0.9 to 1.7 percent.[^48] Even a leading agency handled only a sliver of the whole.
 
-So the era ends with the price of the middleman fixed, the audience audited, and the money flowing through a screened, self-regulating layer of small firms.
+The era ends with the middleman's price fixed, the audience audited, and the money running through small firms that publishers approved and that policed themselves.
 
 ## Three things the record refused to say
 
-Calibration is content, so here is where the evidence killed a good line.
+Being honest about what we do not know is part of the story, so here is where the evidence killed a good line.
 
-**The Wanamaker quote.** Every history of advertising quotes the department-store owner saying that half his advertising was wasted, and that he did not know which half. No primary source for it exists. The earliest full attribution to Wanamaker traces to a 1919 sermon, after this era closes. An unattributed partial version ran in a trade paper in 1890. It is a legend, and this project treats it as one.[^49]
+**The Wanamaker quote.** Every history of advertising quotes the department-store owner saying that half his advertising was wasted, and that he did not know which half. No primary source for it exists. The earliest source crediting Wanamaker is a 1919 sermon, preached after this era closes. An unattributed partial version ran in a trade paper in 1890. It is a legend, and this project treats it as one.[^49]
 
 **The first advertising agency.** Palmer is dated 1840, 1841 or 1842 depending on the source, and later firms have competing claims. The record says first or among the first, and stops there.[^1]
 
-**Collier's market share.** An early draft said his firm controlled over three quarters of the streetcar-card market. That figure could not be sourced anywhere, so it was cut. The streetcar count survived the check; the share did not.[^43]
+**Barron Collier's market share.** An early draft said the streetcar-card firm controlled over three quarters of that market. That figure could not be sourced anywhere, so it was cut. The streetcar count survived the check; the share did not.[^43]
 
 ## What this era hands to the next
 
@@ -205,11 +205,11 @@ Four money types, all already present: national brand, local retail, classified 
 And one buyer class worth marking. The classified counter and the mail-order coupon were self-serve, agency-free and judged on measured replies. Small buyers used them without ever paying a commission. That buyer never had a national medium to spend on. Much later, a search auction handed him one.
 
 [^1]: Claim `e1-creators-001`, grade B, range 20-30 percent. Pennsylvania Center for the Book, "Business Revolution: The Ad Agency," https://pabook.libraries.psu.edu/literary-cultural-heritage-map-pa/feature-articles/business-revolution-ad-agency; Horsky & Zeithammer, "The Rise of 15%," p. 5, https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/8/1090/files/2023/02/the_rise_of-15_emergence_and_persistence_of_commissions_in_advertising.pdf
-[^2]: Claim `e1-creators-002`, grade C, range 700-1,400 papers. Self-reported agency claim; interval widened downward for puffery.
+[^2]: Claim `e1-creators-002`, grade C, range 700-1,400 papers. Self-reported agency claim; interval widened downward for exaggeration.
 [^3]: Claim `e1-pricing-001`, grade B, range 10-50 percent. Horsky & Zeithammer, p. 6. Verification note: the 1926 Britannica supports the 50 percent ceiling for early US agents, but its 10 percent figure is a 1920s British minimum, not a US floor.
 [^4]: Claim `e1-events-001`, grade B, range 8,000-20,000 copies a day. Era record `data/eras/era-1.json`, event 1833-09-03.
 [^5]: Claim `e1-sellers-005`, grade B, range $25,000-$35,000 per issue.
-[^6]: Claim `e1-events-003`, grade C, range 450,000-950,000. Munsey's own estimate; no independent enumeration exists.
+[^6]: Claim `e1-events-003`, grade C, range 450,000-950,000. Munsey's own estimate; no independent count exists.
 [^7]: Claim `e1-sellers-004`, grade B, range 40-48 percent. Pope, "The Making of Modern Advertising" (1983), via Horsky & Zeithammer n.3.
 [^8]: Claim `e1-sellers-003`, grade A. US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12.
 [^9]: Era record `data/eras/era-1.json`, event 1875. First client: the rose grower Dingee & Conard.
@@ -238,7 +238,7 @@ And one buyer class worth marking. The classified counter and the mail-order cou
 [^32]: Claim `e1-scale-013`, grade C, range 1.1-5 percent.
 [^33]: Claim `e1-scale-009`, grade C, range 2.6-4.0 percent. GDP denominator from MeasuringWorth (Johnston & Williamson reconstruction).
 [^34]: Claim `e2-scale-004`, grade B, range 2.6-3.2 percent, on the Coen/BEA basis for 1919-2007. Not comparable to the era-1 ratios; see `data/eras/era-1.json`, boundary note 10.
-[^35]: Claim `e1-sellers-001`, grade A, exact enumeration.
+[^35]: Claim `e1-sellers-001`, grade A, exact count.
 [^36]: Claims `e1-sellers-002` and `e1-measurement-004`, both grade A.
 [^37]: Claim `e1-measurement-001`, grade B, exact listed count.
 [^38]: Era record `data/eras/era-1.json`, event 1911. Upheld in Lewis Publishing Co. v. Morgan (1913).

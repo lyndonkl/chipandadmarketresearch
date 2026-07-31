@@ -3,7 +3,7 @@ title: The Thesis
 project: p2-ad-market
 chapter: 1
 claim_ids: [e1-pricing-002, e1-measurement-002, e1-scale-006, e1-scale-009, e2-medium-001, e2-medium-002, e2-sellers-005, e2-measurement-001, e2-measurement-009, e2-scale-004, e3-pricing-008, e3-medium-003, e3-medium-005, e3-medium-006, e3-measurement-002, e3-scale-005, e4-medium-006, e4-sellers-004, e4-targeting-001, e4-targeting-002, e4-targeting-004, e4-measurement-001, e5-events-003, e5-pricing-004, e5-pricing-005, e5-measurement-001, e5-targeting-003, e5-scale-004, e6-buyers-001, e6-buyers-002, e6-buyers-004, e6-buyers-007, e6-creators-002, e6-pricing-005, e6-measurement-004, e6-scale-003, e6-scale-004, e6-scale-007, e6-unit_econ-001, e7-medium-006, e7-scale-002, e7-scale-005, e7-sellers-001, e7-sellers-002, e7-unit_econ-001, e7-unit_econ-004, e7-unit_econ-006, mech-adwords-001, mech-discounter-001, mech-audit-001, mech-overture-002, mech-ovt-002, mech-aol-002, mech-aol-007, mech-tac-004, mech-capture-002, mech-first_price-001, mech-rgsp-001, mech-knobs-001, mech-mehta-001, mech-default-001, ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-money_type-001, ds-money_type-003, ds-provenance-001]
-readability: "PASS fk_grade=5.91 reading_ease=77.20 gunning_fog=8.03 smog=8.45"
+readability: "PASS fk_grade=5.97 reading_ease=76.65 gunning_fog=8.03 smog=8.47"
 status: draft-for-review
 ---
 
@@ -17,35 +17,35 @@ The question is narrow. In each era, who set the price of attention, and by what
 
 Most histories of ads run through media. Print, then radio, then TV, then the web. The spending record does not back that up.
 
-Radio was never the top US medium by spend. Its best year was 1945, when it took 14.9% of all US ad money. Newspapers took more than twice as much in that same year. By 1993 radio was down to 6.7% of measured US spend. It was a big business. It was never the main one.
+Radio was never the top US medium by spend. Its best year was 1945, when it took 14.9% of all US ad money. Newspapers took more than twice as much in that same year. By 1993 radio was down to 6.7% of US ad spend. It was a big business. It was never the main one.
 
-Newspapers led for more than a century. They were still the largest medium in 1975, at 29.5% of the total, while TV had climbed to 18.9%. Direct mail — catalogues, letters, flyers — was the largest national medium that year, ahead of TV. In 1993 the Yellow Pages out-earned both radio and magazines.
+Newspapers led for more than a century. They were still the largest medium in 1975, at 29.5% of the total, while TV had climbed to 18.9%. Direct mail (catalogues, letters, flyers) was the biggest medium selling nationwide that year, ahead of TV. In 1993 the Yellow Pages out-earned both radio and magazines.
 
-So a chapter called "The Age of Radio" would be false on the money. We cut instead at the point where the pricing rule changed, and we name each era for its rule. New media arrive inside eras, often for decades, before they change how anything is priced.
+A chapter called "The Age of Radio" would be false on the money. We cut instead at the point where the pricing rule changed, and we name each era for its rule. New media arrive inside eras, often for decades, before they change how anything is priced.
 
 ## The seven eras
 
 | # | Years | Name | Who set the price, and how | The date that fixes it |
 |---|---|---|---|---|
-| 1 | 1840s–1917 | **The Middlemen** | Agents broker space between advertiser and publisher; the publisher pays the agent a cut of the rate card | The cut settles at 15% of the space rate by the early 1890s |
+| 1 | 1840s–1917 | **The Middlemen** | Agents broker space between advertiser and publisher; the publisher pays the agent a cut of the rate card, the printed asking price for the space | The cut settles at 15% of the space rate by the early 1890s |
 | 2 | 1918–1949 | **Sponsorship** | Advertisers own the shows; networks sell hours of time, not audiences | Of every $100 of network radio billing in 1938, the network kept about $62 |
-| 3 | 1950–1975 | **The Spot Market** | Networks sell short slots inside shows they own; ratings set the price per thousand homes | The upfront market forms in 1962 |
-| 4 | 1976–1993 | **Segmentation** | Niches are priced apart: cable channels, rented name lists, ZIP-code types | PRIZM sorts about 36,000 ZIP codes into 40 types, from 1974 |
-| 5 | 1994–2001 | **The Impression** | Price per thousand views, ported straight from print to the banner | Banner click rates hit about 0.3% by mid-2000 |
+| 3 | 1950–1975 | **The Spot Market** | Networks sell short slots inside shows they own; ratings set the price per thousand homes | From 1962 the networks start selling the whole coming season in one spring week, before it airs |
+| 4 | 1976–1993 | **Segmentation** | Niches are priced apart: cable channels, rented name lists, postal-code types | From 1974 a data firm sorts about 36,000 postal codes into 40 kinds of neighbourhood, so mailers can pick blocks rather than cities |
+| 5 | 1994–2001 | **The Impression** | Price per thousand views, copied straight from print to the web banner | Banner click rates hit about 0.3% by mid-2000 |
 | 6 | 2002–2008 | **The Auction** | Rank by bid times measured relevance; the winner pays just above the next bid | AdWords Select, 20 February 2002 |
-| 7 | 2008–2026 | **The Machine Market** | Machines bid for machines in real time, and the seller tunes the auction | In 2019 display goes first-price while search goes rGSP |
+| 7 | 2008–2026 | **The Machine Market** | Machines bid for machines in real time, and the seller tunes the auction | In 2019 the market splits in two: ads on ordinary web pages start charging the winner its own bid, while search ads keep the older rule and have a twist added to it |
 
 Each rule rests on a way of counting. You cannot sell space by the rate card until someone audits the print run, which is what the Audit Bureau of Circulations began in 1914. You cannot sell an hour of radio until someone counts listeners, which a ratings firm began doing in 1930 on $33,045 of first-year fees. Network TV in the 1970s was priced off a metered panel of about 1,200 homes. Change the counting and you change the price. That is the through-line under all seven eras.
 
-The counting has never been neutral. When Nielsen switched to people meters in 1987, the measured prime-time network audience dropped about 10% overnight. Nothing about the viewing changed. Nor was any era's targeting as sharp as it sounds. The best-aimed medium of the 1980s counted a 2% reply rate as a win, which means it missed 98 people in every 100.
+The counting has never been neutral. In 1987 Nielsen, the private firm that counted America's TV audience, swapped its old set-top counters for a box each viewer pressed a button on. The measured prime-time network audience dropped about 10% overnight. Nothing about the viewing changed. Nor was any era's targeting as sharp as it sounds. Advertising mail was the best-aimed medium of the 1980s, and the firms sending it counted a 2% reply rate as a win, which means it missed 98 people in every 100.
 
 ## Which money moved, and when
 
 Here is where the Google story usually goes wrong. Search did not take brand money first. Brand money is the money behind TV commercials, and it stayed where it was for years.
 
-Search took intent money first: the ads people go looking for. In 2000 three intent channels — newspaper classified, phone directories and direct mail — came to $77.4 billion, about 31% of all US ad spend. The whole internet was $6.5 billion on the same series. That is our own grouping, not a published one, so we grade it C and show the arithmetic.
+Search took intent money first: the ads people go looking for. In 2000 three intent channels (newspaper classified, phone directories and direct mail) came to $77.4 billion, about 31% of all US ad spend. The whole internet was $6.5 billion on the same series. That is our own grouping, not a published one, so we grade it C and show the arithmetic. (Grade C is our lowest; the three grades are explained at the end of this chapter.)
 
-Keyword ads were 1% of US internet ad money in 2000. The format that would eat those three channels was a rounding error at the top of the boom.
+Ads sold against search words were 1% of US internet ad money in 2000. The format that would eat those three channels was a rounding error at the top of the boom.
 
 Then the intent channels fell. Newspaper classified peaked in 2000 at $19.6 billion and was down 71% by 2010. Directory ads peaked near $14.7 billion in 2005 and were roughly $1.1 billion by 2024, a 93% fall. That last figure is a weak one: our range runs from $0.7 billion to $2.0 billion.
 
@@ -57,27 +57,27 @@ Era 6 is the middle of this series, and it gets the most room. Google's rise the
 
 **Engine one is the auction.** It is the yield engine: it sets how much one search earns. From 20 February 2002, AdWords Select ranked ads by bid times measured click rate, then charged the winner a little over the next bid rather than its own bid. Google's own worked example: bids of $1.00, $0.60 and $0.50 pay $0.61, $0.51 and one cent. Revenue per search on Google's own sites went from about half a cent in 2002 to about 2.2 cents in 2007. That last number is built from a query count nobody published, so we grade it C and carry a wide range.
 
-**Engine two is distribution.** It is the volume engine: it buys the searches. In 2002 Google struck a deal to serve ads on AOL. AOL alone drove about 15% of Google's total revenue that year and 16% the next. Shares in Overture, the firm that led paid search at the time, fell about 36% on the day the deal was announced.
+**Engine two is distribution.** It is the volume engine: it buys the searches. In 2002 Google struck a deal to serve ads on AOL. AOL alone drove about 15% of Google's total revenue that year and 16% the next. Shares in Overture, the firm that led paid search at the time, fell about 36% the day Google and AOL announced the deal.
 
 Overture is the test case that keeps the two engines apart. Its auction was pure bid: highest bidder on top, pay what you bid. It was not failing. It booked $667.7 million of revenue in 2002 against Google's $439.5 million of total revenue. What it lacked was traffic of its own. About 60% of its 2002 revenue came through searches supplied by Microsoft and Yahoo, who could take that supply back.
 
-The engines are coupled, which is why neither story works alone. The better auction earned more per search, and earning more per search is what let Google write bigger cheques for searches. Our best split of Google's own-site growth from 2002 to 2007 puts somewhere between 52% and 56% down to more searches and the rest down to more money per search. That one is grade C and it turns on a query count we had to estimate.
+The engines are coupled, which is why neither story works alone. The better auction earned more per search, and earning more per search is what let Google write bigger cheques for searches. Splitting Google's own-site growth from 2002 to 2007, we credit 52% to 56% to more searches and the rest to more money per search. That one is grade C and it turns on a query count we had to estimate.
 
 The two kinds of dollar were never the same business. In 2008 Google kept 95.5 cents of every ad dollar earned on its own sites, and 21.3 cents of every dollar earned on partner sites.
 
 ## What Google changed, and what it did not
 
-It did not invent the keyword auction. GoTo.com ran one from its launch year of 1998, and Overture, as GoTo became, was still charging an average of 23 cents a click at the end of 2001.
+Google did not invent the keyword auction. GoTo.com ran one from its launch year of 1998, and Overture, as GoTo became, was still charging an average of 23 cents a click at the end of 2001.
 
 It did not invent self-serve ads bought by intent. Classified had worked that way since the 1840s, and the Yellow Pages since long before the web.
 
-It did not kill the 15% agency commission. That was already going. The share of US advertisers paying their agency by commission fell from 61% in 1994 to about 10% by 2003, and the fall tracks the unbundling of media buying, not the arrival of search.
+It did not kill the 15% agency commission. That was already going. The share of US advertisers paying their agency by commission fell from 61% in 1994 to about 10% by 2003. The fall came from advertisers hiring separate firms to buy media, not from search.
 
 It did not take brand money in era 6. TV grew right through it.
 
 What it did change is narrower and larger. It made measured relevance a term in the price, so a cheap ad that people clicked could outrank a dear one they ignored. It cut the cost of entry to nothing: Overture wanted a 10-cent minimum bid and $20 a month, while AdWords wanted a $5 one-off fee and no monthly floor. Overture had about 80,000 advertisers at the end of 2002. Google never published its own count, and our estimate for 2008 is anywhere from 550,000 to 2.6 million.
 
-And it changed who does the counting. There was no independent standard for counting a paid click until 2009, a year after this era closed. Google gave the buyers their measuring tool for free in 2005, and 100,000 accounts opened in the first week. The seller had become the auditor.
+And it changed who does the counting. Nobody set an independent standard for counting a paid click until 2009, a year after this era closed. Google gave the buyers their measuring tool for free in 2005, and 100,000 accounts opened in the first week. The seller had become the auditor.
 
 ## The auction dies in the era after
 
@@ -85,11 +85,11 @@ Era 7 records the end of the mechanism era 6 made famous.
 
 Web publishers stopped offering their space to one buyer at a time and started letting many buyers bid at once. Prices went up, and the old ranking broke. On 5 September 2019 Google's display exchange moved to a first-price auction, where the winner simply pays its own bid.
 
-Search went the other way in the same year. It moved to rGSP, a second-price design with a random element, which raised the top-slot click price by about 5.9% on PCs and tablets in tests. Search never went first-price. Three separate pricing levers on the search auction are named in the 2024 US court findings, all of them worked by the seller.
+Search went the other way in the same year. It moved to rGSP, which keeps the pay-just-above-the-next-bid rule and adds a random element. In tests that lifted the top-slot click price about 5.9% on PCs and tablets. Search never went first-price. In 2024 a US court ruled on whether Google held an illegal monopoly in search. Its findings name three separate ways Google could move the price of a search ad, all of them worked by the seller.
 
-By the end of the era the market barely looks like an auction between people at all. About 90% of US non-search digital revenue is now traded by machine. The ten largest sellers take 84.1% of it. Google alone booked $294.7 billion of ad revenue worldwide in 2025, and about half of all US general searches reach it through the deals the court examined, on which it paid $26.3 billion in 2021 alone.
+By the end of the era the market barely looks like an auction between people at all. About 90% of US non-search digital revenue is now traded by machine. The ten largest sellers take 84.1% of it. Google alone booked $294.7 billion of ad revenue worldwide in 2025. About half of all US general searches reach it because it pays phone and browser makers to make Google the search box that comes switched on. Those are the deals the court examined, and Google paid $26.3 billion for them in 2021 alone.
 
-The last thread is the one P3 picks up. A Google search earns roughly four cents of ad money. In 2023 a written answer from a top-end model cost about 4.8 cents to produce, which is the whole of that. By 2025 the cheapest capable tier had fallen to about 0.022 cents. Those are grade C numbers with wide ranges, and the gap they describe is the reason the next project exists.
+The last thread is the one the next project in this series picks up. A Google search earns roughly four cents of ad money. In 2023 the best AI systems burned about 4.8 cents of computing to write one answer, more than that whole four cents. By 2025 the cheapest capable tier had fallen to about 0.022 cents. Those are grade C numbers with wide ranges, and the gap they describe is the reason the next project exists.
 
 ## How to read the numbers
 
@@ -97,21 +97,21 @@ Three habits will carry you through the rest of the series.
 
 **Grades.** Every number is A, B or C. A means an official filing or an audited count. B means credible reporting we can name. C means we built it, and the method is written down. Plenty of the numbers in this series are C. The prose says so each time, in words, not in a footnote.
 
-**Ranges.** Every number also carries an 80% range. Where that range is wide, we write it out. US ad spend in 1914 was about $1.2 billion, and the honest range is $990 million to $1.45 billion. Ads were about 3.3% of the economy that year, and might have been 2.6% or 4.0%. Both are grade C. A single number there would be a lie of precision.
+**Ranges.** Every number also carries a range with about an eight-in-ten chance of holding the true value. Where that range is wide, we write it out. US ad spend in 1914 was about $1.2 billion, and the honest range is $990 million to $1.45 billion. Ads were about 3.3% of the economy that year, and might have been 2.6% or 4.0%. Both are grade C. A single number there would be a lie of precision.
 
-**Seams.** There is no one US ad-spend series running from 1919 to today. There are five compilers who each measured a different thing, three of whom have stopped. The longest one ends with 2007 at $279.6 billion, and its owner shut it down in 2009. Put that same year on the basis a rival uses — money that media owners actually received, rather than list prices billed — and it comes to about $231 billion. That 17% gap is measurement, not history. Roughly 69% of the older gap between the two series is not price basis at all; it is three categories one of them never carried.
+**Seams.** No single US ad-spend series runs from 1919 to today. Five compilers each measured a different thing, and three have stopped. The longest one ends with 2007 at $279.6 billion, and its owner shut it down in 2009. A rival counts money media owners actually received, not list prices billed. On that basis the same year comes to about $231 billion. That 17% gap is measurement, not history. Roughly 69% of the older gap between the two series is not price basis at all; it is three categories one of them never carried.
 
-Two seams sit right on the chart. "Out of Home" replaced "Billboards" as a category in 2000, at 2.77 times the level, on identical 1999 data. Splice those two lines and you draw a boom that did not happen. And two series both use the word "internet": one reads 49.7% of the other for 2007. Same word, different object.
+Two seams sit right on the chart. In 2000 one compiler renamed its "Billboards" category "Out of Home", and the same 1999 data came out 2.77 times bigger. Splice those two lines and you draw a boom that did not happen. And two series both use the word "internet": one reads 49.7% of the other for 2007. Same word, different object.
 
-There are holes too, and we draw them as holes. No free by-medium US series exists for 2011 to 2025 — the fifteen years this project cares most about. Every point we do carry names its compiler, its link and its date.
+Holes exist too, and we draw them as holes. No free by-medium US series exists for 2011 to 2025 — the fifteen years this project cares most about. Every point we do carry names its compiler, its link and its date.
 
-One more warning for the late years. The tax deduction firms claim for advertising ran about 31% above measured media revenue by 2022, because it soaks up promotion, agency and software costs that never reach a media owner. In the recent decade, "US ad spend" is not one number, and any chapter using it has to say which one it means.
+One more warning for the late years. By 2022 the advertising costs firms deducted from their taxes ran about 31% above what media owners actually earned, because the deduction also covers promotion, agency and software costs. In the recent decade, "US ad spend" is not one number, and any chapter using it has to say which one it means.
 
 ## Dead myths stay dead
 
 Radio's rank is one. Here is the other.
 
-The line about half of all ad money being wasted is usually put in John Wanamaker's mouth. The earliest printing we could find is 1890, with no name on it. The earliest link to Wanamaker is 1919, said by another man at a bible conference. Nothing from Wanamaker himself has ever been found. We do not quote it as his, and neither should anyone else.
+Most writers credit that line about half of all ad money being wasted to John Wanamaker, who ran a big department store. The earliest printing we could find is 1890, with no name on it. In 1919 a speaker at a bible conference credited the line to Wanamaker, and that is the earliest link we found. Nothing from Wanamaker himself has ever been found. We do not quote it as his, and neither should anyone else.
 
 A third, closer to home. AdWords did not launch as an auction. On 23 October 2000 it sold fixed slots by the thousand views — $15 for the top position. The auction arrives sixteen months later.
 

@@ -3,7 +3,7 @@ title: The Auction (2002-2008)
 project: p2-ad-market
 chapter: 7
 claim_ids: [e2-scale-004, e5-events-003, e5-pricing-004, e5-pricing-005, e5-scale-004, e6-pricing-001, e6-pricing-002, e6-pricing-003, e6-pricing-004, e6-pricing-005, e6-pricing-006, e6-pricing-007, e6-pricing-008, e6-events-001, e6-events-002, e6-events-003, e6-events-004, e6-events-005, e6-events-006, e6-events-007, e6-events-008, e6-events-009, e6-events-010, e6-sellers-001, e6-sellers-002, e6-sellers-003, e6-sellers-004, e6-sellers-005, e6-sellers-006, e6-buyers-001, e6-buyers-002, e6-buyers-003, e6-buyers-004, e6-buyers-005, e6-buyers-006, e6-buyers-007, e6-buyers-008, e6-creators-001, e6-creators-002, e6-creators-003, e6-creators-004, e6-medium-001, e6-medium-002, e6-medium-003, e6-medium-004, e6-medium-005, e6-medium-006, e6-scale-001, e6-scale-002, e6-scale-003, e6-scale-004, e6-scale-005, e6-scale-007, e6-scale-008, e6-scale-009, e6-scale-010, e6-measurement-001, e6-measurement-002, e6-measurement-003, e6-measurement-004, e6-measurement-006, e6-targeting-001, e6-targeting-002, e6-targeting-003, e6-targeting-004, e6-targeting-005, e6-unit_econ-001, e6-unit_econ-002, e6-unit_econ-003, mech-adwords-001, mech-discounter-001, mech-quality_score-001, mech-audit-001, mech-overture-001, mech-overture-002, mech-panama-001, mech-ovt-001, mech-ovt-002, mech-ovt-003, mech-ovt-004, mech-aol-001, mech-aol-002, mech-aol-003, mech-aol-004, mech-aol-005, mech-aol-006, mech-aol-007, mech-tac-001, mech-tac-002, mech-tac-003, mech-tac-004, mech-network-001, mech-network-002, mech-network-003, mech-google_rev-001, mech-classified-001, mech-capture-001, mech-capture-002, mech-capture-003, mech-first_price-001, mech-rgsp-001, mech-default-001, mech-default-004, mech-mehta-002, mech-mehta-004, mech-mehta-005]
-readability: "PASS fk_grade=6.64 reading_ease=71.62 gunning_fog=9.03 smog=9.44"
+readability: "PASS fk_grade=6.63 reading_ease=71.7 gunning_fog=8.97 smog=9.39"
 status: draft-for-review
 ---
 
@@ -23,11 +23,11 @@ This chapter runs them in that order, because the first paid for the second.
 
 ## First, kill a legend
 
-AdWords did not start as an auction. It launched in October 2000 as a fixed-price product sold by the impression. An impression is one showing of an ad. The top slot cost $15 per thousand impressions, the middle $12, the bottom $10. There was no bidding at all.
+AdWords did not start as an auction. It launched in October 2000 as a fixed-price product sold by the impression. An impression is one showing of an ad. The top slot cost $15 per thousand impressions, the middle $12, the bottom $10. Nobody bid on anything.
 
 The bidding idea was not Google's either. GoTo, later renamed Overture, had been running a keyword auction since 1998. Its rule was simple: rank by bid, highest first. In its own words, "the search results appear on the page ranked in descending order of bid price."
 
-So 2002 is not the invention of the search auction. It is the moment one firm added a second term to the ranking rule.
+2002 did not invent the search auction. It is the moment one firm added a second term to the ranking rule.
 
 ## The yield engine: what the new rule did
 
@@ -62,7 +62,7 @@ Read the last row again. The seller earned 87% more money and charged 42% less p
 
 That is the whole result. Weighting by click rate did not let Google charge more. It let Google sell far more clicks at a lower price each. The scarce thing in search is not the click. It is the slot on the page, and each slot is shown once whether anyone clicks or not.
 
-So the rule is best read as ranking by expected money per showing. Relevance rises with it, because a click is the one event both sides want. That is a happy accident of the design, not its goal.
+Read the rule as ranking by expected money per showing. Relevance rises with it, because a click is the one event both sides want. That is a happy accident of the design, not its goal.
 
 Every retelling that says quality weighting let Google raise prices has the sign the wrong way round.
 
@@ -70,13 +70,13 @@ Every retelling that says quality weighting let Google raise prices has the sign
 
 The whole gain rests on one number: how often an ad will be clicked. Google made that forecast itself.
 
-Keep the case above, but suppose Cedar's true click rate is 1%, not the 5% the seller predicted. The ranking and the prices do not change, because they are set from the forecast. The money does. The seller now collects $20.18 per thousand showings, which is 72% of what plain bid ranking would have earned.
+Keep the case above, but suppose Cedar's true click rate is 1%, not the 5% the seller predicted. Ranking and prices do not change, because the seller sets both from its forecast. The money does. The seller now collects $20.18 per thousand showings, which is 72% of what plain bid ranking would have earned.
 
 The break-even point is a true click rate of 1.99%. The forecast can overstate the truth by up to about 2.5 times before the clever rule earns less than the crude one.
 
-Nobody outside could check that forecast. There was no agreed industry standard for counting a search click during the whole era. The advertising industry's click measurement group only formed in late 2005, and its guidelines were not published until 2009. No accredited outside body certified search click counting in period.
+Nobody outside could check that forecast. The industry never agreed a standard for counting a search click during the whole era. Its click measurement group only formed in late 2005 and did not publish guidelines until 2009. No accredited outside body certified search click counting in period.
 
-So the seller predicted the click, ran the auction, decided which clicks were real, and billed against its own log.
+The seller predicted the click, ran the auction, decided which clicks were real, and billed against its own log.
 
 The dispute that followed was about fake clicks. Lane's Gifts sued; in March 2006 Google settled for up to $90 million, mostly in advertising credits. The settlement produced an expert report on Google's invalid-click systems, commissioned through the settlement rather than by an industry auditor. Outside estimators put the share of clicks that were fraudulent in the mid-teens: Click Forensics reported roughly 14% to 17% in 2007 and 2008. Google said its own figure was far lower. That claim is grade C and the honest range is wide, from 3% to 20%. Nobody could settle it, because nobody had standing to count.
 
@@ -84,15 +84,15 @@ Google then supplied the buyer's own instrument. It bought Urchin in April 2005 
 
 ## The auction is not honest, and its revenue is a band
 
-Second-price auctions have a famous property: telling the truth is your best move. The search auction does not have it, because several slots are sold at once.
+Second-price auctions have a famous property: telling the truth is your best move. The search auction does not have it, because the seller sells several slots together.
 
 Take a second made-up case, again invented for illustration. Two slots, worth 100 clicks and 80 clicks. Three bidders value a click at $10, $6 and $2.
 
-The $10 bidder bids honestly, wins the top slot, and pays the $6 bid. It earns $400. Now it bids $5 instead. It drops to the second slot and pays the $2 bid. It earns $640. Shading its bid down is worth $240. Google's one-cent step does not change that: the two payoffs are $399 and $639.20.
+The $10 bidder bids honestly, wins the top slot, and pays the $6 bid. It earns $400. Now it bids $5 instead. It drops to the second slot and pays the $2 bid. It earns $640. Bidding low earns it $240 more. Google's one-cent step does not change that: the two payoffs are $399 and $639.20.
 
-This matters for the seller, not just the bidder. If everyone bids honestly the seller collects $760. One bidder playing well costs the seller $100, or 13.2%. At the lowest stable equilibrium the seller collects $440.
+This matters for the seller, not just the bidder. If everyone bids honestly the seller collects $760. One bidder playing well costs the seller $100, or 13.2%. If every bidder plays that well, the seller collects $440.
 
-So the revenue of this design is not a number. It is a band, and in this case the top is 1.73 times the bottom. Where you land inside it depends on how well the advertisers play, not on the rule.
+The design does not have one revenue figure. It has a band, and here the top is 1.73 times the bottom. Where you land inside it depends on how well the advertisers play, not on the rule.
 
 That is why the era grew a bid-management industry rather than a copywriting one. Firms such as iProspect, Did-It, Performics and Efficient Frontier sold bidding as a service. They were selling movement inside the band.
 
@@ -102,11 +102,11 @@ A second-price auction needs a second bidder. Most distinct searches do not have
 
 With one bidder, the price is whatever floor the seller sets. Take one more invented case: a single advertiser, an ad clicked 4% of the time, a bid of $2.00. At the one-cent floor from Google's own example, the seller earns $0.40 per thousand showings. At a $1.00 floor it earns $40. That is a hundredfold change in price with one advertiser, one ad, and nothing at all changed for the user.
 
-From August 2005 that floor stopped being one number. Each keyword got its own minimum bid, set from a Quality Score built out of click rate, ad wording, past performance and landing-page quality. The floor was computed by the seller, per keyword, per advertiser, and never published as a price.
+From August 2005 that floor stopped being one number. Google gave each keyword its own minimum bid, computed from click rate, ad wording, past results and the page the ad led to. It called that combined measure a Quality Score. The seller computed the floor, per keyword, per advertiser, and never published it as a price.
 
 Hold that fact. The chapter ends on it.
 
-The widely repeated five-cent AdWords minimum bid, incidentally, is not supported by the sources behind this record. Google's own filed example shows a one-cent floor.
+No source behind this record supports the widely repeated five-cent AdWords minimum bid. Google's own filed example shows a one-cent floor.
 
 ## What the yield was actually worth
 
@@ -116,13 +116,13 @@ Money earned per search on Google's own sites rose from roughly 0.47 cents in 20
 
 Serving one search cost roughly 0.33 cents in 2007: data centres, power, bandwidth and depreciation. That is also grade C, with a range of about 0.2 to 0.55 cents.
 
-That leaves a gross margin near 85% on a search Google served on its own page. Because both inputs are estimates, read that as somewhere between 78% and 91%. The company's reported gross margin that year was 59.9%, and that one is exact. The gap between those two numbers is the price of distribution, and it is the subject of the next section.
+Of every dollar a search earned on Google's own page, about 85 cents was left once the cost of serving it came out. Because both inputs are estimates, read that share as somewhere between 78% and 91%. The company's reported gross margin that year was 59.9%, and that one is exact. The gap between those two numbers is the price of distribution, and it is the subject of the next section.
 
 ## The volume engine: buying the searches
 
 In May 2002 Google took AOL's US search business from Overture and Inktomi. The reported terms were a revenue guarantee of about $100 million and a revenue share of about 85%.
 
-Those terms are grade B and always will be. The contract was never filed. The figures come from secondary accounts, and the honest range on the guarantee runs from $75 million to $150 million. What the filings do show is consistent with them. Google paid out 91% of its network advertising revenue in 2002, and AOL supplied about 63% of that network revenue.
+Those terms are grade B and always will be. The contract was never filed. The figures come from secondary accounts, and the honest range on the guarantee runs from $75 million to $150 million. The filings do show figures consistent with them. Google also sold ads on other firms' pages and handed most of that money straight back to them: in 2002 it paid out 91% of what those ads earned. AOL, then the biggest way Americans got onto the internet, supplied about 63% of it.
 
 Set the guarantee against the balance sheet. At the end of 2001 Google held $33.589 million in cash and short-term investments, on full-year revenue of $86.426 million. The reported guarantee was larger than either.
 
@@ -144,7 +144,7 @@ Google also put its ads on other people's pages. That is syndication, sold as Ad
 
 The money paid to partners is called traffic acquisition cost. It is the single largest number in this business, and it moved like this. In 2002 Google paid out 91% of its network advertising revenue, then 84% in 2003, 79% in 2004 and 78.7% in 2008. Read the other way, Google's take rate on other people's pages began near 9% and reached only about 21%.
 
-The take rate did not simply climb. It peaked at 24.7% in 2006 and then fell back to 21.5% and 21.3%. That is worth pausing on. The take rate is not a dial the seller sets. It is the outcome of competing for partners, and competition pushed it back down.
+The take rate did not simply climb. It peaked at 24.7% in 2006 and then fell back to 21.5% and 21.3%. The take rate is not a dial the seller sets. It is the outcome of competing for partners, and competition pushed it back down.
 
 As a share of all Google advertising revenue, traffic acquisition cost peaked at 39% in 2004 and fell to 28.1% in 2008, when it was $5,939.0 million.
 
@@ -158,7 +158,7 @@ The last one is the honest one for judging profit. Across the whole era the netw
 
 The two dollars are not the same business. In 2008 Google kept 95.5 cents of every advertising dollar earned on its own sites, and 21.3 cents of every dollar earned on partner sites. That is a gap of about 4.5 times. In 2002 the gap was 11 times.
 
-So syndication bought position, not profit. It also bought something the accounts cannot price: every AOL search Google served was a search Overture did not.
+Syndication bought position, not profit. It also bought something the accounts cannot price: every AOL search Google served was a search Overture did not.
 
 ## Overture: what actually lost
 
@@ -174,9 +174,9 @@ Three things did fail.
 
 **The budget line.** Here is why Google could pay more, in an invented example with round numbers. Say Google earns $10.00 per thousand searches and Overture earns $6.00, and each spends $1.00 to serve them. Overture can pay at most $5.00 per thousand searches before it loses money. Google can pay $8.50 at an 85% share and still keep $0.50. To match that cheque Overture would have to bid about 142% of its own revenue.
 
-The maximum bid for distribution is your yield minus your serving cost. So the firm with the higher revenue per search wins the auction for searches, by construction. That is the coupling between the two engines, and it runs one way: the auction sets the size of the cheque.
+The maximum bid for distribution is your revenue per search minus your serving cost. The firm with the higher revenue per search therefore wins the auction for searches, every time. That is the coupling between the two engines, and it runs one way: the auction sets the size of the cheque.
 
-Overture's own filing records the loss of its US AOL relationship in 2002, alongside Ask Jeeves and Earthlink. Its patent claim did get paid: in 2004 Google issued Yahoo 2,700,000 shares to settle, booking a $201.0 million charge, worth about $229.5 million at the $85.00 offering price. Yahoo did not replace the bid-only ranking until Panama launched on 5 February 2007. That is five years after Google shipped the idea, and more than three years after Yahoo had owned it. By then the distribution war was over.
+Overture's own filing records the loss of its US AOL relationship in 2002, alongside Ask Jeeves and Earthlink. Overture had also sued, saying its patent covered the keyword auction, and that claim did get paid. In 2004 Google settled by issuing 2,700,000 shares to Yahoo, by then Overture's owner. Google booked a $201.0 million charge, and the shares were worth about $229.5 million at the $85.00 price Google set when it first sold shares to the public that year. Yahoo did not replace the bid-only ranking until Panama launched on 5 February 2007. That is five years after Google shipped the idea, and more than three years after Yahoo had owned it. By then the distribution war was over.
 
 ## Whose money search actually ate
 
@@ -184,7 +184,11 @@ Two facts about the era's totals sit badly with a simple capture story.
 
 The first is the size of search. US internet advertising grew from $6,010 million in 2002 to $23,448 million in 2008. Search reached 45% of that in 2008, about $10.5 billion. But internet advertising was still only about 7.3% of all US advertising in 2007, and Google's entire US revenue was about 3.0% of US advertising spending that year.
 
-The second is the size of the whole pie. US advertising spending was $236.9 billion in 2002 and $279.6 billion in 2007 on the long-running Coen series. That series undercounts internet money badly by the end: it puts 2007 internet advertising at $10,529 million against the industry's own $21,206 million. Correcting only that gap lifts the 2007 total to about $290 billion. The Coen series also stops with 2007, which makes 2008 a seam in every long-run chart of US advertising. Against the economy, though, advertising shrank. Its share of GDP hit its post-1960 peak in 2000, at 2.3%, 2.4% or 2.5% depending on which build of the series you read. That is the peak of the recent window only. The all-time high is older and higher: 3.0% of GDP in 1922, a level the market never got back to. From the 2000 mark the share fell right through the AdWords years, from 2.3% in 2002 to 2.0% in 2007. The pie did not grow while search scaled. Money moved between pools.
+The second is the size of the whole pie. US advertising spending was $236.9 billion in 2002 and $279.6 billion in 2007 on the long-running Coen series. That series undercounts internet money badly by the end: it puts 2007 internet advertising at $10,529 million against the industry's own $21,206 million. Correcting only that gap lifts the 2007 total to about $290 billion.
+
+The Coen series also stops with 2007, which makes 2008 a seam in every long-run chart of US advertising.
+
+Against the economy, though, advertising shrank. Its share of GDP hit its post-1960 peak in 2000, at 2.3%, 2.4% or 2.5% depending on which version you read. That is the peak of the recent window only. The all-time high is older and higher: 3.0% of GDP in 1922, a level the market never got back to. From the 2000 mark the share fell right through the AdWords years, from 2.3% in 2002 to 2.0% in 2007. The pie did not grow while search scaled. Money moved between pools.
 
 Which pools? Not the big brand ones.
 
@@ -195,11 +199,11 @@ Which pools? Not the big brand ones.
 
 One pool did break, and it is the one search was built for. US newspaper classified advertising fell from $15,898 million in 2002 to $14,186 million in 2007 to $9,975 million in 2008. The 2008 fall alone was 29.7%. Help-wanted classified went from $4,388 million in 2002 to $2,186 million in 2008, and from its 2000 peak of $8,713 million to $787 million by 2009: a 91% collapse.
 
-Even here, calibration matters. Real-estate classified peaked in the middle of the era, in 2006, at $5,155 million, then fell with the housing market rather than with search.
+Even here, the timing matters. Real-estate classified peaked in the middle of the era, in 2006, at $5,155 million, then fell with the housing market rather than with search.
 
 Newspapers as a whole make the same point. On the print-plus-online basis they peaked inside the era, at $49,435 million in 2005, before falling to $45,375 million in 2007 and $37,848 million in 2008. Print alone had already peaked in 2000. The "search killed newspapers" line has both the timing and the mechanism loose.
 
-The pool that search was really competing in was response money: direct mail, directories, newspaper classified and the performance-priced part of internet advertising. Our best estimate puts that at roughly $99 billion in 2007, about 34% of all US advertising. That is grade C, built by adding four series together, and the honest range runs from $88 billion to $112 billion.
+The pool that search was really competing in was response money: direct mail, directories, newspaper classified and the performance-priced part of internet advertising. We put that at roughly $99 billion in 2007, about 34% of all US advertising. That is grade C, built by adding four series together, and the honest range runs from $88 billion to $112 billion.
 
 The buyers confirm the shape. In 2008, 57% of US internet advertising revenue was bought on a performance basis, up from 51% in 2007, against 39% bought by the impression. Retail was the largest buyer category at 22% of internet revenue, then financial services at 13%, automotive at 12%, computing at 12% and telecom at 9%.
 
@@ -213,13 +217,13 @@ Overture's market assumed a screened professional. It required a 10-cent minimum
 
 AdWords removed each gate. A one-time $5 activation fee. No monthly minimum. Automated approval, with most ads live at once.
 
-Making the ad cost nothing either. A standard text ad was about 95 characters of advertiser-written copy: a 25-character headline, two 35-character lines and a display address. The advertiser typed it into a web form.
+Writing the ad cost nothing either. A standard text ad was about 95 characters of advertiser-written copy: a 25-character headline, two 35-character lines and a display address. The advertiser typed it into a web form.
 
-How many buyers did that produce? Google never disclosed the figure. Our best estimate for the end of 2008 is around a million advertisers worldwide, and the honest range is very wide: 550,000 to 2.6 million. It is grade C. What is solid is the direction. The buyer base went from a directory of firms to a long tail of small ones.
+How many buyers did that produce? Google never disclosed the figure. We estimate around a million advertisers worldwide at the end of 2008, and the honest range is very wide: 550,000 to 2.6 million. It is grade C. The direction is solid. The buyer base went from a directory of firms to a long tail of small ones.
 
-Note what this did not do. It did not kill the agency commission. That was already gone. The share of US advertisers paying their agency a percentage of billings had fallen to about 10% by 2003, from 61% in 1994. It fell because media buying was split off from creative work in the early 1990s, years before search. The holding companies were not shrinking either. Omnicom's worldwide revenue was $12,694.0 million in 2007.
+Note what this did not do. It did not kill the agency commission. That was already gone. The share of US advertisers paying their agency a percentage of billings had fallen to about 10% by 2003, from 61% in 1994. It fell because agencies split media buying off from creative work in the early 1990s, years before search. The holding companies were not shrinking either. Omnicom's worldwide revenue was $12,694.0 million in 2007.
 
-What changed is that a whole class of buyer now had no agency at all. And the seller, not the agency, built the service layer for the big accounts. Google went from field sales in 14 countries at the end of 2004 to more than 65 offices in over 30 countries by the end of 2008.
+A whole class of buyer now had no agency at all. And the seller, not the agency, built the service layer for the big accounts. Google went from field sales in 14 countries at the end of 2004 to more than 65 offices in over 30 countries by the end of 2008.
 
 The auction also decided what could be sold. In April 2004 Google reversed its US policy and let advertisers bid on other companies' trademarks. GEICO sued. In December 2004 the court held that selling a trademark as a keyword did not by itself break trademark law, and the case settled in 2005. Brand names became inventory, and brand owners had to bid for their own.
 
@@ -235,19 +239,19 @@ The honest answer is bounded, and it goes against both simple stories.
 
 On gross revenue growth from 2002 to 2008, partner sites supplied 31.9% and Google's own sites 68.1%. On revenue kept after paying partners, the network was 9.4% of the 2008 total. The syndicated dollar bought position, not profit.
 
-Inside the growth of Google's own sites, the split between more searches and more money per search is close to even. Our decomposition puts 52% to 56% on search volume and 44% to 48% on yield per search. That is grade C and it must be read as a band, because both query counts behind it are estimates.
+Inside the growth of Google's own sites, the split between more searches and more money per search is close to even. We put 52% to 56% on more searches and 44% to 48% on more money per search. That is grade C and it must be read as a band, because both query counts behind it are estimates.
 
 And that search volume was mostly not bought. Money Google paid to have searches sent to its own site was 2.8% of its own-site advertising revenue in 2006, 3.7% in 2007 and 4.5% in 2008.
 
-So: distribution bought the beachhead, and the auction earned the rest. Inside this era the two engines are close to co-equal.
+Distribution bought the first foothold, and the auction earned the rest. Inside this era the two engines are close to co-equal.
 
-There is one honest hole in that verdict. The best economic case for accepting a 9% take rate is that syndication pulled in more advertisers, which deepened every auction and raised prices on Google's own pages too. Nobody has ever measured it. Google never published advertiser counts, auction depth, or its own average prices. We record it as an open question, not a finding.
+That verdict has one honest hole. The best economic case for accepting a 9% take rate is that syndication pulled in more advertisers, which deepened every auction and raised prices on Google's own pages too. Nobody has ever measured it. Google never published advertiser counts, auction depth, or its own average prices. We record it as an open question, not a finding.
 
 The purely distribution-driven story does become correct later. It is just not correct yet in 2008.
 
 ## The signpost
 
-This design won. It is worth being precise about what "won" means, because the next chapter is about what happened to it.
+This design won. Be precise about what "won" means, because the next chapter is about what happened to it.
 
 Three things were already true when the era closed.
 
@@ -259,8 +263,8 @@ And the seller had already been setting some prices outright since August 2005, 
 
 None of that needed the auction to be replaced. It only needed the auction to be tuned.
 
-Watch, then, for what era 7 does with these levers. Two changes in 2019 ran in opposite directions on opposite sides of the business, and they are constantly confused. Open-web display advertising moved to a first-price auction on 5 September 2019, where the winner pays its own bid; the stated reason was transparency, and Google reported the revenue effect as neutral to positive. Search did the reverse. It got a randomised variant of the same second-price rule, which raised top-slot prices by 5.91% on PCs and tablets in pre-launch tests, with no opt-out. Search never went to first price.
+Watch, then, what the next era does with these levers. Two changes in 2019 ran in opposite directions on opposite sides of the business, and they are constantly confused. Picture ads on ordinary web pages, which the trade calls display ads, moved to a first-price auction on 5 September 2019, where the winner simply pays its own bid. The stated reason was transparency, and Google reported the revenue effect as neutral to positive. Search did the reverse. It got a randomised variant of the same second-price rule, which raised top-slot prices by 5.91% on PCs and tablets in pre-launch tests, with no opt-out. Search never went to first price.
 
-Watch the volume engine too. In 2008 the money Google paid to have searches sent to its own site was $654.7 million, or 11.0% of all its traffic acquisition cost. The rest went to partners for their pages. That small line is the one that grew. The instrument first pointed at AOL in 2002 became $26.3 billion of default payments in 2021, by then 57.7% of all traffic acquisition cost. Google's own 2017 estimate was that defaults drove 54% of its search revenue. A US court found in 2024 that Google had repeatedly tested whether it could raise search text-ad prices by 5% or more without losing many advertisers, and that "the results have been largely consistent - it can." The remedy that followed in September 2025 barred exclusive default deals and capped their length. It did not stop the payments.
+Watch the volume engine too. In 2008 the money Google paid to have searches sent to its own site was $654.7 million, or 11.0% of all its traffic acquisition cost. The rest went to partners for their pages. That small line is the one that grew. The instrument first pointed at AOL in 2002 became $26.3 billion in 2021 of payments to phone and browser makers to make Google the search engine already switched on when you open the device. The trade calls that being the default, and by then it was 57.7% of all the money Google paid out for traffic. Google's own 2017 estimate was that defaults drove 54% of its search revenue. A US court found in 2024 that Google had repeatedly tested whether it could raise search text-ad prices by 5% or more without losing many advertisers, and that "the results have been largely consistent - it can." The remedy that followed in September 2025 barred exclusive default deals and capped their length. It did not stop the payments.
 
 The design that won in 2002 is still running. Watch what its owner does with it once the buyers have nowhere else to go.
