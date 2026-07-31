@@ -184,100 +184,154 @@
       "by_money_type": {
         "national_brand": {
           "id": "e7-buyers-005",
-          "statement": "National brand buyers - the advertisers who still buy reach rather than response - account for roughly 23% of US measured advertising spend in 2025, about $95B, concentrated in national linear TV, national CTV/video, magazines, national OOH and upper-funnel digital.",
-          "central": 23,
-          "unit": "percent of US measured ad spend attributable to national brand buyers, 2025",
+          "statement": "National brand buyers - the advertisers who still buy reach rather than response - account for about 36.6 percent of US advertising spend in 2025, roughly $145.7B, concentrated in national linear TV, national CTV and video, magazines, national out-of-home and upper-funnel digital. This is the largest or joint-largest pool, and it replaces the record's earlier reading that brand money had become the smallest of the four.",
+          "central": 36.6,
+          "unit": "percent of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
           "ci80": [
-            17,
-            38
+            25.0,
+            47.0
           ],
           "grade": "C",
-          "method": "Residual method against a US total of $405B. NOTE (verifier): the denominator excludes direct mail while the subtracted local and direct-response pools both include it, which mechanically depresses the residual; on a direct-mail-consistent basis the residual is roughly 31%. The bottom-up cross-check's 'national linear TV ~$55B' line is implausible against MAGNA's $104B total for all US traditional media, so the two paths are not independent.",
+          "method": "SOURCED BY: NO SOURCE. No compiler publishes a US national-brand advertising figure for any year after 2007. Partial free evidence exists only for 2008-2010 (Census SAS national/regional air time, grade A) and for newspapers to 2012 (NAA). The two instruments that would source the pool - Guideline/SMI agency billing data and MAGNA's National domain inside MG8 - are licensed and were not purchased. The pool is a construction and must stay one. RAIL: MAGNA media-owner advertising revenue, $398B for 2025 (digital pure players $294B + traditional media owners $104B, which sums exactly, so DIRECT MAIL IS OUT of this rail). All four pools are defined ex-direct-mail to match, which is the fix for the mechanical residual depression the era-7 verifier flagged: the superseded residual was computed with direct mail excluded from the denominator but present in two subtracted pools. RAIL SENSITIVITY EXCEEDS EVERY INTERVAL IN THIS SPLIT: IRS SOI corporate advertising deductions read $473,153m for 2022 against MAGNA's $325,000m, a $148B wedge that is overwhelmingly direct-response and retail money. Any chart of this split must name its rail in the axis label, not the footnote. || AGGREGATION: median of three lens centrals (structural-proxy 39.7, reference-class 36.6, decomposition 32.9). No extremizing, because the lenses share an evidence base. Three routes survive de-duplication and only one is independent of the other pools - the weakest methodological position of the four pools, which is why this pool carries the widest interval. || ROUTE N-A, residual against the observed total, MEDIAN WEIGHT 0.50 (0.50 / 0.45 / 0.55). $398B less local retail less classified less direct response, with direct mail excluded on BOTH sides of the subtraction. PROXY-POPULATION-GAP ADJUSTMENT: the pool subtracted as local retail is a buyer-class pool, not BIA's inventory-geography pool, which moves the residual UP by roughly 11pp; consistent direct-mail treatment moves it UP by roughly a further 6pp. Inherits every upstream error by construction. || ROUTE N-B, bottom-up impression-priced build from IAB's mutually exclusive FY2025 format partition plus MAGNA traditional media-owner revenue, less the local-bought leg, MEDIAN WEIGHT 0.30 (0.50 / 0.30 / 0.30). PROXY-POPULATION-GAP ADJUSTMENT: pricing basis is not buyer intent (IAB's own caveat) - a brand advertiser transacting on CPC lands in 'performance' and a direct-response advertiser buying guaranteed CPM lands in 'CPM'; the two errors partly offset and the net on this pool is estimated DOWN 2 to 4pp, carried in the interval rather than the central. NOT FULLY INDEPENDENT OF N-A: both consume the performance-priced share of US digital, and all three lenses said so, so their 1.0-1.4pp agreement understates uncertainty and does not set the interval. || ROUTE N-C, advertiser-stated brand-building share (WARC/Ebiquity), WEIGHT 0.00 in every lens, bound only. PROXY-POPULATION-GAP ADJUSTMENTS: global panel to US population, -2 to -4pp; large-advertiser panel to whole market, missing millions of self-serve advertisers who are almost entirely performance, -5 to -10pp; the 9pp one-year swing is read as sample composition, so the two-year mean is used. Adjusted it reads national brand near 22 percent, about 15 points below the construction, and it is the ONLY genuinely independent instrument bearing on this pool. || NEAR-DUPLICATE DECLARED: the monitored-spend band from AdAge Leading National Advertisers produces no free value and is a bound, not a route. || INTERVAL: min lower to max upper across the lenses. It is NOT drawn from route dispersion, which would be false precision given that N-A and N-B share an input; the lower end is where the independent survey rail sits and the upper end is where local retail's lower bound pushes the residual.",
           "sources": [
             {
-              "name": "MAGNA Advertising Forecast (June 2025): US media-owner ad revenue $398B in 2025",
+              "name": "MAGNA Advertising Forecast, June 2025: US media-owner advertising revenue $398B in 2025 (digital pure players $294B + traditional media owners $104B), a rail that excludes direct mail",
               "url": "https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/"
             },
             {
-              "name": "BIA Advisory Services, 2025 US Local Advertising Forecast update ($169B)",
-              "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026): US internet ad revenue $294.593B, mutually exclusive format partition, and the $12.5B 'Other' bucket defined as classifieds, directories and lead generation",
+              "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
             },
             {
-              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025",
-              "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+              "name": "IAB / PwC Internet Advertising Revenue Report, 'Revenues by pricing model' exhibit (performance-priced share of US digital: 57 percent for 2008, 62-66 percent across 2010-2019, 62.1 percent at HY2019; exhibit discontinued after HY2019)",
+              "url": "https://www.iab.com/wp-content/uploads/2019/10/IAB-HY19-Internet-Advertising-Revenue-Report.pdf"
+            },
+            {
+              "name": "US Census Bureau, Service Annual Survey, broadcast air time split 'National/regional air time' versus 'Local air time', 2008-2010 (TV 2008: national $17,779m against local $10,899m)",
+              "url": "https://www2.census.gov/services/sas/data/51/2010_NAICS51.xls"
+            },
+            {
+              "name": "WARC / Ebiquity advertiser budget surveys, brand-building versus performance share (40.1 percent brand in 2023, 31.2 percent in 2024) - the only genuinely independent instrument bearing on the brand/response split, and it reads about 15 points below the construction",
+              "url": "https://www.warc.com/content/feed/performance-budgets-rise-at-expense-of-brand/en-GB/10128"
+            },
+            {
+              "name": "IRS Statistics of Income, corporate advertising deductions: $473,153m for 2022 against MAGNA's $325,000m for the same year - a $148B rail wedge, 45.6 percent of the MAGNA base"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 7, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "2026-04"
         },
         "local_retail": {
           "id": "e7-buyers-006",
-          "statement": "Local and retail buyers account for roughly 41% of US ad spend in 2025 (about $169B by BIA's count), and for the first time more than half of that local money - 53.7%, about $90.4B - went to digital channels rather than local TV, radio, newspapers or OOH.",
-          "central": 41,
-          "unit": "percent of US measured ad spend bought by local/retail advertisers, 2025",
+          "statement": "Local and retail buyers account for about 23.5 percent of US advertising spend in 2025, roughly $93.5B. The pool has been nominally flat for a quarter of a century across three compilers that share no inputs - Coen $95.8B in 2000, Coen $94.3B in 2007, BIA/Kelsey's SMB plus local brands $90.2B in 2015 - which inside a market that grew 60 percent is a mechanically declining share.",
+          "central": 23.5,
+          "unit": "percent of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
           "ci80": [
-            33,
-            46
+            15.0,
+            31.0
           ],
           "grade": "C",
-          "method": "BIA's $169B US local total for 2025 divided by the $405B US all-media total. NOTE (verifier): the mismatch is one-directional, not symmetric - BIA's numerator includes direct mail and local political, which the MAGNA/EMARKETER denominator excludes. Net of local direct mail the local share falls toward the mid-30s, so the interval is extended downward rather than around the central.",
+          "method": "SOURCED BY: NOT SOURCED AS A MONEY TYPE, which is why the grade falls from B to C. The source that carried the B grade - BIA's $169B US local advertising total - measures a different object: BIA's own published definition is all media selling access to LOCAL AUDIENCES to ALL advertiser types INCLUDING national and regional companies. That is geography of inventory, not class of buyer. What IS available, and is the hunt's largest free evidence upgrade, is BIA's own advertiser-type ratio, published in summary form at $116.4B regional-and-national marketers against $59.2B SMBs (SMB = 33.7 percent), corroborated by the independent BIA/Kelsey 2015 vintage at SMB $50.4B of a $140.7B local total (35.9 percent). That ratio grades B, but the derived 2025 pool needs a regional-tier allocation and a rail conversion on top of it, so the pool is C. RAIL: MAGNA media-owner advertising revenue, $398B for 2025 (digital pure players $294B + traditional media owners $104B, which sums exactly, so DIRECT MAIL IS OUT of this rail). All four pools are defined ex-direct-mail to match, which is the fix for the mechanical residual depression the era-7 verifier flagged: the superseded residual was computed with direct mail excluded from the denominator but present in two subtracted pools. RAIL SENSITIVITY EXCEEDS EVERY INTERVAL IN THIS SPLIT: IRS SOI corporate advertising deductions read $473,153m for 2022 against MAGNA's $325,000m, a $148B wedge that is overwhelmingly direct-response and retail money. Any chart of this split must name its rail in the axis label, not the footnote. || AGGREGATION: median of three lens centrals (structural-proxy 19.6, reference-class 23.5, decomposition 23.9). No extremizing. This is the best-supported of the four pools methodologically - three genuinely independent routes, each run by all three lenses. || ROUTE L-A, BIA's own advertiser-type cut, MEDIAN WEIGHT 0.40 (0.42 / 0.40 / 0.35). PROXY-POPULATION-GAP ADJUSTMENT, and it is the decisive one: BIA's population is buyers-of-local-inventory, which includes national and regional companies, so the correction on the record is DOWN and large. SMB-share drift is measured rather than assumed, 35.9 percent (2015) to 33.7 percent (current), a 2.2pp decline over a decade. Local direct mail (about $3-3.8B on BIA's own stated 90/10 national/local rule) is removed to match the ex-direct-mail denominator, and the classified and vertical money BIA admits sits inside its PC/Laptop digital definition (about $2-3.5B) is reassigned to classified so the two pools are disjoint. THE OPEN JUDGEMENT: BIA lumps 'regional' with 'national', and the regional tier is local-retail money in the Coen/NAA sense; the lenses allocate 30, 40 and about 44 percent of that lump to local retail. At 0 percent the pool reads 14.3 percent, at 45 percent it reads 24.1 percent. This one parameter is the widest unverified step in era 7. NOTE: the two BIA vintages are ONE compiler, so L-A is one route across all three lenses. || ROUTE L-B, medium-by-medium buyer-side build from government and trade rails plus platform filings, MEDIAN WEIGHT 0.38 (0.38 / 0.00 bound-only / 0.40). PROXY-POPULATION-GAP ADJUSTMENTS: TIME GAP - the Census SAS national/local split stops at reference year 2010 and RAB thins after 2021, so both are carried forward 4 to 15 years; radio's local share is stable across two independent readings five years apart (72.2 percent Census 2010, 74.1 percent RAB 2015), which bounds the drift small for that medium, while TV's assumed-flat 36-40 percent is the weakest link. SELLER-SIDE VERSUS BUYER-SIDE - the Census classifies who bought the time, not what the money was for, which correctly leaves national direct-response TV out of local. The platform local-bought shares (Meta about 32 percent of US, Google about 20 percent) are calibrated judgements, not measurements, and swing the route by about $15B. || ROUTE L-C, establishment count times category advertising intensity, MEDIAN WEIGHT 0.20 (0.20 / 0.20 / 0.25). PROXY-POPULATION-GAP ADJUSTMENTS: SMB survey average revenue per advertiser captures websites, SEO, promotions and marketing services that sit OUTSIDE the media rail, direction down about 20 percent; the count-based approach misses local advertisers who buy only traditional media and never touch a self-serve platform, direction up about 10 percent; and SMB is not the same as local - a $2m-revenue direct-to-consumer brand buying nationally on Meta is national direct response. NEAR-DUPLICATES DECLARED: the three lenses' parameterisations differ (3.5m x $22k; 4.5m x $14k; 4.0m x about $24k) but are one route, and they converge on $62B, $63B and $63B for the SMB leg. || INTERVAL: min lower to max upper across the lenses. Its width is definitional, not statistical: the regional-tier allocation alone spans it.",
           "sources": [
             {
-              "name": "BIA Advisory Services, '2025 Forecast Update: $169B In U.S. Local Advertising'",
+              "name": "BIA Advisory Services, '2025 Forecast Update: $169B in U.S. Local Advertising' (August 2025). BIA's own definition: all media selling access to LOCAL AUDIENCES to ALL advertiser types INCLUDING national and regional companies - inventory geography, not class of buyer.",
               "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
             },
             {
-              "name": "MAGNA Advertising Forecast (June 2025)",
+              "name": "BIA Advisory Services, U.S. Local Advertising Forecast advertiser-type cut, public summary: $116.4B regional and national marketers against $59.2B SMBs (SMB = 33.7 percent); corroborated by the BIA/Kelsey 2015 vintage at SMB $50.4B of a $140.7B local total (35.9 percent). The public post is undated and its $175.6B block does not match BIA's published 2018 local total of $151.2B, so only the RATIO is usable.",
+              "url": "https://shop.biakelsey.com/product/uslocaladvertisingforecast"
+            },
+            {
+              "name": "US Census Bureau, Service Annual Survey, broadcast air time split 'National/regional air time' versus 'Local air time', 2008-2010 (TV 2008: national $17,779m against local $10,899m)",
+              "url": "https://www2.census.gov/services/sas/data/51/2010_NAICS51.xls"
+            },
+            {
+              "name": "Radio Advertising Bureau / Miller Kaplan Arase, US radio revenue split local spot / national spot / network (local share 74.1 percent in 2015 against the Census SAS reading of 72.2 percent in 2010)"
+            },
+            {
+              "name": "MAGNA Advertising Forecast, June 2025: US media-owner advertising revenue $398B in 2025 (digital pure players $294B + traditional media owners $104B), a rail that excludes direct mail",
               "url": "https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 7, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "2025-08"
         },
         "classified": {
           "id": "e7-buyers-007",
-          "statement": "Classified buyers - individuals and businesses paying to list a job, a car, a home or an item - account for roughly 4% of US measured ad spend in 2025 (about $15B), essentially all of it now placed with digital marketplaces and job boards rather than newspapers.",
-          "central": 4,
-          "unit": "percent of US measured ad spend from classified/listing buyers, 2025",
+          "statement": "Classified buyers - individuals and businesses paying to list a job, a car, a home or an item - account for about 2.5 percent of US advertising spend in 2025, roughly $9.95B, essentially all of it placed with digital marketplaces and job boards. On a listings-inclusive reading the money type is nearer $21B, of which $12-16B sits outside every published advertising series.",
+          "central": 2.5,
+          "unit": "percent of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
           "ci80": [
-            2,
-            8
+            1.4,
+            6.8
           ],
           "grade": "C",
-          "method": "IAB/PwC's 'Other' format bucket, defined as classifieds, directories and lead generation, was $12.5B in 2025 (4.2% of US internet ad revenue). Add residual print classified (~$1B) and print directory/Yellow Pages (~$1.1B in 2024) to reach ~$15B against a $405B total = 3.7%. The upper bound reflects listing revenue that measured-media series do not count as advertising at all (job boards, real-estate and auto marketplaces), which would push the true 'classified money' pool considerably higher.",
+          "method": "SOURCED BY: SOURCED FOR 2008-2021 AT GRADE A ON THREE INDEPENDENT LEGS - the hunt's main finding, which overturns the note that no modern source publishes this. (1) US Census Bureau Service Annual Survey, NAICS 511110, 'Breakdown of Revenue by Advertising Type: classified advertising', free, 2005-2021 with 2012 and 2022 suppressed: $8,087m (2008) falling to $1,978m (2021), a government probability survey independent of NAA, Coen, IAB, MAGNA and BIA. (2) The same survey's NAICS 511140 directory advertising space line, free, 2005-2020: $11,400m (2008) to $1,781m (2020), replacing the two trade blogs the record previously cited. (3) IAB/PwC's classifieds format line, free, with its own share to about 2016 and a stated dollar figure inside 'Other' to 2021, $3.2B (2008) to $5.3B (2021). Overlap test passes: NAA $5,030m against Census $4,840m for newspaper classified in 2011, a 3.9 percent gap. The 2008 anchor is fully grade A at $22.7B. NOT SOURCED: reference years 2022-2026 on any leg, and the marketplace and listings leg in every year. THE 2025 ANCHOR THEREFORE STAYS GRADE C: every sourced leg stops at reference year 2021 and nothing free reaches the anchor year. RAIL: MAGNA media-owner advertising revenue, $398B for 2025 (digital pure players $294B + traditional media owners $104B, which sums exactly, so DIRECT MAIL IS OUT of this rail). All four pools are defined ex-direct-mail to match, which is the fix for the mechanical residual depression the era-7 verifier flagged: the superseded residual was computed with direct mail excluded from the denominator but present in two subtracted pools. RAIL SENSITIVITY EXCEEDS EVERY INTERVAL IN THIS SPLIT: IRS SOI corporate advertising deductions read $473,153m for 2022 against MAGNA's $325,000m, a $148B wedge that is overwhelmingly direct-response and retail money. Any chart of this split must name its rail in the axis label, not the footnote. || AGGREGATION: median of three lens centrals (structural-proxy 1.9, reference-class 3.4, decomposition 2.5). No extremizing. Three routes, each run by all three lenses. || ROUTE C-A, decomposition of IAB's 'Other' bucket ($12.5B in FY2025) using its own last-published internal composition, MEDIAN WEIGHT 0.45. PROXY-POPULATION-GAP ADJUSTMENTS: BUCKET COMPOSITION BREAK - digital audio left 'Other' after FY2021 and directories were named into it from FY2022, so the FY2021 shares cannot be applied to the FY2025 total directly and the raw series must never be read across that join. TIME DRIFT - lead generation grew with the performance market while classified listing revenue migrated to transaction fees, so classifieds' share of the classified-plus-lead-generation pair falls; the lenses set it at 45, 55 and about 64 percent, and that single parameter is where the lens spread lives. || ROUTE C-B, Census SAS print legs extrapolated past their discontinuation, MEDIAN WEIGHT 0.30. PROXY-POPULATION-GAP ADJUSTMENT: extrapolation across four to five unpublished reference years at each leg's own observed compound rate (newspaper classified -10 to -11 percent a year, directories -13.6 to -15 percent a year), with the print-only portion of the directory line separated from the digital portion already counted in C-A. The route's INPUTS are grade A to 2021; only the carry-forward is C. || ROUTE C-C, marketplace and listings leg rebuilt bottom-up from EDGAR and company disclosure, MEDIAN WEIGHT 0.25. PROXY-POPULATION-GAP ADJUSTMENTS: LISTED-COMPANY BIAS - EDGAR filers over-represent consolidated national portals and miss private and regional portals, direction up 8 to 15 percent; DEFINITIONAL BIAS the other way - Zillow Premier Agent, Angi and LinkedIn Recruiter seats are arguably lead generation or service fees rather than listing advertisements, direction down 10 to 15 percent; the two roughly cancel, so the central is not shifted and the interval is widened instead. De-duplicated against C-A, because roughly $3.5-7B of the listings revenue is already inside IAB's 'Other'. || INTERVAL: min lower to max upper across the lenses. WARNING, and it is a scope statement rather than an uncertainty band: above about 2.8 percent of the market (about $11.1B) the interval is FRAME, not measurement error, because two lenses set their upper bound on a widened denominator that counts the listings successors ($410-421B rather than $398B). The in-frame-only interval is 1.4 to 2.8 percent, i.e. $5.6B to $11.1B. The two readings are both correct on their own frames and must never be blended in a chart. || SCOPE ALTERNATIVE, recorded because it is the era's boundary-shift argument in one number: on a listings-inclusive reading the classified money type is about $21B (range $15-29B), of which roughly $12-16B sits outside every published US advertising total. Indeed's US revenue alone ($5.31B) approaches the whole of IAB's $12.5B 'Other' bucket. || DEFINITIONAL FORK 1: lead generation is roughly $4.5-6B of IAB's 'Other'. Two lenses move it to direct response on the ground that money paid per acquired lead is action-priced; one keeps a portion at weight 0.35 on the ground that a firm paying per lead for a roofer is buying what the classified page sold. That call produces almost the whole 1.9-to-3.4 spread. DEFINITIONAL FORK 2: directory money is carried in classified here, following the record, the hunt and IAB's own bucket; the alternative moves this pool from 2.5 to about 2.2 percent in 2025 but from 9.3 to about 5.2 percent in 2008.",
           "sources": [
             {
-              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025, p.21 and endnote 39",
+              "name": "US Census Bureau, Service Annual Survey, NAICS 511110 Newspaper Publishers, 'Breakdown of Revenue by Advertising Type: classified advertising', free, 2005-2021 ($8,087m in 2008 falling to $1,978m in 2021; 2012 and 2022 suppressed)",
+              "url": "https://www2.census.gov/programs-surveys/sas/tables/time-series/sas-latest/Table8.xlsx"
+            },
+            {
+              "name": "US Census Bureau, Service Annual Survey, NAICS 511140 Directory and Mailing List Publishers, advertising space revenue, free, 2005-2020 ($11,400m in 2008 to $1,781m in 2020)",
+              "url": "https://www2.census.gov/programs-surveys/sas/tables/time-series/sas-latest/Table4.xlsx"
+            },
+            {
+              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026): US internet ad revenue $294.593B, mutually exclusive format partition, and the $12.5B 'Other' bucket defined as classifieds, directories and lead generation",
               "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
             },
             {
-              "name": "Vendasta / UENI trade summaries of US directory advertising revenue (peak $14.7B in 2005 to ~$1.1B in 2024)",
-              "url": "https://www.vendasta.com/blog/yellow-pages-evolution/"
+              "name": "SEC EDGAR FY2025 filings and company disclosure for the marketplace and listings leg: Recruit Holdings (Indeed US revenue $5.31B), LinkedIn, ZipRecruiter, Zillow, CoStar, Move, Cars.com, CarGurus, Cox/Autotrader, Angi",
+              "url": "https://www.sec.gov/edgar/searchedgar/companysearch"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 7, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "2026-04"
         },
         "direct_response": {
           "id": "e7-buyers-008",
-          "statement": "National direct-response buyers - advertisers paying for a measurable action rather than for reach - account for roughly 32% of US ad spend in 2025, about $130B, dominated by national search, commerce/retail media, performance social and direct mail.",
-          "central": 32,
-          "unit": "percent of US measured ad spend from national direct-response buyers, 2025",
+          "statement": "National direct-response buyers - advertisers paying for a measurable action rather than for reach - account for about 38.0 percent of US advertising spend in 2025, roughly $151.2B, dominated by national search, commerce and retail media and performance social. Direct mail sits outside this rail on both sides of the ledger.",
+          "central": 38.0,
+          "unit": "percent of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
           "ci80": [
-            23,
-            41
+            29.5,
+            47.0
           ],
           "grade": "C",
-          "method": "Two paths, both computed WITHOUT direct mail, because the $405B denominator excludes it and BIA's local pool already carries the local-bought portion. (a) two-thirds of $294.6B digital = $196.4B performance-priced, less local digital $90.4B = $106B national. (b) search $114.2B + commerce media $63.4B + ~70% of social $117.7B, less local-bought (~$90B) and brand-bought social/video (~$75B) = ~$102B. Adding the media-comparable (non-postage) part of national direct mail would add ~$15B. The interval spans both treatments.",
+          "method": "SOURCED BY: POOL NOT SOURCED; ONE INPUT SOURCED AT GRADE A. IAB/PwC's 'Revenues by pricing model' exhibit publishes the performance-priced share of US digital annually 2004-2019 - 57 percent for 2008, 62-66 percent across 2010-2019, 62.1 percent at HY2019 - which converts 'two-thirds of digital is performance-priced' from an assumption into a published number for twelve of the nineteen era years. The exhibit was discontinued after HY2019, so 2020-2026 is EXTRAPOLATION. The only source that ever sized the whole pool, DMA/IHS Global Insight ($153.3B in 2010, 54.2 percent of US ad expenditure), died inside the era. Pool grade C. RAIL: MAGNA media-owner advertising revenue, $398B for 2025 (digital pure players $294B + traditional media owners $104B, which sums exactly, so DIRECT MAIL IS OUT of this rail). All four pools are defined ex-direct-mail to match, which is the fix for the mechanical residual depression the era-7 verifier flagged: the superseded residual was computed with direct mail excluded from the denominator but present in two subtracted pools. RAIL SENSITIVITY EXCEEDS EVERY INTERVAL IN THIS SPLIT: IRS SOI corporate advertising deductions read $473,153m for 2022 against MAGNA's $325,000m, a $148B wedge that is overwhelmingly direct-response and retail money. Any chart of this split must name its rail in the axis label, not the footnote. || AGGREGATION: median of three lens centrals (structural-proxy 38.0, reference-class 36.5, decomposition 40.7). No extremizing. THE APPARENT AGREEMENT IS AN ARTEFACT: all three centrals are three parameterisations of ONE unobserved quantity, the performance-priced share of US digital in 2025, which the lenses set at 60.0, 62.6 and 67.7 percent. Their 4.2pp dispersion measures disagreement about one parameter, not independent convergence, which is why the interval is taken from the combined lens bounds and not from the dispersion. || ROUTE D-A, performance-priced share applied to IAB's mutually exclusive FY2025 format partition, then strip local-bought digital and add national traditional direct response, MEDIAN WEIGHT 0.50. All three lenses run this route, and one lens's two variants (mix-shift decomposition of the 2019-2025 increment versus direct format weighting) are near-duplicates of each other because both consume the same IAB partition and the same HY2019 anchor - that is one route, not two. PROXY-POPULATION-GAP ADJUSTMENTS: pricing basis is not buyer intent, with offsetting errors in both directions netting small; local-bought digital is removed so the pools stay disjoint; and the load-bearing step is extrapolating IAB's published 62.1 percent across the five unmeasured years that contain Performance Max, Advantage+ and the rise of retail media. || ROUTE D-B, the DMA/IHS direct-marketing pool decayed forward and rail-converted, WEIGHT 0.45 in the lens that ran it. PROXY-POPULATION-GAP ADJUSTMENTS: DMA's denominator sits on a billings and deductions rail rather than a media-owner rail, and is converted at IRS SOI / MAGNA 2022 = 1.456; DMA's pool includes local direct marketing and lead generation, so the national portion is taken at 65 percent; the 2010 share of 54.2 percent is carried UP to about 62 percent for search, retail media and performance social growth. This route shares no input with D-A - different compiler, different decade, different rail - and lands at 37.6 percent against D-A's 38.5 percent. THE ONE GENUINELY INDEPENDENT CONVERGENCE IN THE ERA. || ROUTE D-C, advertiser-stated performance share (WARC/Ebiquity), WEIGHT 0.00 to 0.20, bound only. PROXY-POPULATION-GAP ADJUSTMENTS: global to US, +2 to +4pp; large-advertiser panel to whole market, +5 to +10pp; the survey conflates 'performance' as short-term activation intent with 'direct response' as measurable-action pricing. Adjusted it reads 44 to 57 percent and sets the top of the interval. || NEAR-DUPLICATE DECLARED AND DISCOUNTED: the seller-filings route (Alphabet, Meta and Amazon 10-Ks) is not independent of D-A, because Amazon's sponsored-product revenue sits inside IAB's search line, so it re-counts what D-A counts once. || RETIRED: the superseded path (b) - search plus commerce media plus 70 percent of social - is not a route. It sums $260B of a $294.6B market before any subtraction, because IAB's format partition already exhausts the total and commerce media and social are cross-cuts on top of it. All three lenses retired it independently. || INTERVAL: min lower to max upper across the lenses. It is deliberately NOT drawn from the 4.2pp lens dispersion, which is spuriously tight.",
           "sources": [
             {
-              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025",
+              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026): US internet ad revenue $294.593B, mutually exclusive format partition, and the $12.5B 'Other' bucket defined as classifieds, directories and lead generation",
               "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
             },
             {
-              "name": "BIA Advisory Services 2025 US Local Advertising Forecast update",
-              "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+              "name": "IAB / PwC Internet Advertising Revenue Report, 'Revenues by pricing model' exhibit (performance-priced share of US digital: 57 percent for 2008, 62-66 percent across 2010-2019, 62.1 percent at HY2019; exhibit discontinued after HY2019)",
+              "url": "https://www.iab.com/wp-content/uploads/2019/10/IAB-HY19-Internet-Advertising-Revenue-Report.pdf"
             },
             {
-              "name": "Winterberry Group / WhatTheyThink, US direct mail spend 2024",
+              "name": "Direct Marketing Association / IHS Global Insight, 'The Power of Direct Marketing': US direct-marketing expenditure $153.3B in 2010, 54.2 percent of US ad expenditure - the last time anyone sized the whole pool; the series died inside the era",
+              "url": "https://www.piworld.com/article/dma-releases-new-the-power-direct-marketing-industry-forecast-direct-mail/all/"
+            },
+            {
+              "name": "WARC / Ebiquity advertiser budget surveys, brand-building versus performance share (40.1 percent brand in 2023, 31.2 percent in 2024) - the only genuinely independent instrument bearing on the brand/response split, and it reads about 15 points below the construction",
+              "url": "https://www.warc.com/content/feed/performance-budgets-rise-at-expense-of-brand/en-GB/10128"
+            },
+            {
+              "name": "MAGNA Advertising Forecast, June 2025: US media-owner advertising revenue $398B in 2025 (digital pure players $294B + traditional media owners $104B), a rail that excludes direct mail",
+              "url": "https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/"
+            },
+            {
+              "name": "Winterberry Group / WhatTheyThink, US direct mail spend 2024 ($37.3B) - carried outside the $398B rail on both sides of the ledger",
               "url": "https://whattheythink.com/articles/123330-direct-mails-373b-resurgence-selling-value-over-volume-2025/"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 7, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "2026-04"
@@ -577,7 +631,7 @@
       ]
     },
     "SCALE": {
-      "summary": "US advertising spend ran from roughly $270-280B at the era's start to roughly $400-420B in 2025, depending on whose definition you take: MAGNA puts 2025 US media-owner ad revenue at $398B, eMarketer at $422B, and the two are not measuring the same universe. Against a nominal US GDP of $30.76T that is about 1.3% of GDP - materially below the 2.0% that the Coen/McCann series recorded for 2007 and far below the 2.3-2.4% that the same series and IRS data recorded at the 2000 peak. This is the era's most important and most contested number: measured US advertising intensity fell while the platforms that supposedly captured advertising grew, which is why Silk and Berndt (NBER WP 28161) frame the question as 'a growth problem, a measurement problem, or both'. Part of the answer is a boundary problem: much of what Google, Meta and Amazon sell was money that older series never counted as advertising at all - Yellow Pages listings, classified lineage, co-op and trade allowances, catalogue and lead-generation spend. Globally, 2025 estimates diverge just as sharply: MAGNA says $979B, WPP Media says $1.14T. Within the US total, the money-type split is not published by any modern source and has been rebuilt here: roughly 41% local/retail, 32% national direct response, 23% national brand and 4% classified. The digital half of the total is spine-quality data: IAB/PwC's continuous US series runs 1996 to 2025 and reports $23.448B for 2008 and $294.593B for 2025.",
+      "summary": "US advertising spend ran from roughly $270-280B at the era's start to roughly $400-420B in 2025, depending on whose definition you take: MAGNA puts 2025 US media-owner ad revenue at $398B, eMarketer at $422B, and the two are not measuring the same universe. Against a nominal US GDP of $30.76T that is about 1.3% of GDP - materially below the 2.0% that the Coen/McCann series recorded for 2007 and far below the 2.3-2.4% that the same series and IRS data recorded at the 2000 peak. This is the era's most important and most contested number: measured US advertising intensity fell while the platforms that supposedly captured advertising grew, which is why Silk and Berndt (NBER WP 28161) frame the question as 'a growth problem, a measurement problem, or both'. Part of the answer is a boundary problem: much of what Google, Meta and Amazon sell was money that older series never counted as advertising at all - Yellow Pages listings, classified lineage, co-op and trade allowances, catalogue and lead-generation spend. Globally, 2025 estimates diverge just as sharply: MAGNA says $979B, WPP Media says $1.14T. Within the US total, the money-type split is not published by any modern source and has been rebuilt here on the R2b three-lens reconciliation, against the $398B MAGNA rail with direct mail excluded from every pool: roughly 38% national direct response, 37% national brand, 23% local/retail and 2.5% classified. National brand and direct response cannot be ranked against each other; classified is unambiguously the smallest. The digital half of the total is spine-quality data: IAB/PwC's continuous US series runs 1996 to 2025 and reports $23.448B for 2008 and $294.593B for 2025.",
       "claims": [
         {
           "id": "e7-scale-001",
@@ -693,108 +747,204 @@
             }
           ],
           "as_of": "2026-04"
+        },
+        {
+          "id": "e7-scale-010",
+          "statement": "The four reconciled money-type pools sum to 100.6 percent of the $398B observed US total for 2025, over-allocating it by about $2.4 billion. The residual is negative and it is an artefact of the aggregation rather than the evidence: national brand and direct response are constructed complements, so taking each pool's median independently breaks the closure every individual lens enforced.",
+          "central": -0.6,
+          "unit": "percentage points of the $398B observed 2025 US total; negative means the four pools over-allocate",
+          "ci80": [
+            -1.6,
+            0.0
+          ],
+          "grade": "C",
+          "method": "The four medians sum to 100.6 percent of the $398B observed total, or $400.4B, so the residual is NEGATIVE: the pools over-allocate by $2.4B, they do not fall short. THE CAUSE IS THE AGGREGATION, NOT THE EVIDENCE. National brand and direct response are constructed complements - in every lens one is computed as, or against, the residual left by the other. Taking the median of each pool independently picks national brand from the reference-class lens (36.6) and direct response from the structural-proxy lens (38.0), a combination no lens produced and one that breaks the complementarity each lens enforced internally. Each lens's own partition closes at 99.2, 100.0 and 100.0 percent; only the median-of-medians overshoots. It is reported rather than absorbed, because forcing closure by shaving national brand would hide the one place where the lenses genuinely conflict. || SENSITIVITY, stated so the number is attackable: the reference-class lens built its shares on a $405B rail (the MAGNA/EMARKETER blend the era record carries at e7-scale-001), which sits inside the observation's own interval. Rebasing its dollar figures onto the observed $398B and re-taking the medians gives 101.56 percent, a residual of -1.6pp or -$6.2B; that is the interval's lower end. The upper end is 0.0pp, reached if classified is taken at the structural-proxy lens's in-frame 1.9 percent and national brand at the decomposition lens's 32.9 percent. || SEPARATELY, AND NOT PART OF THIS RESIDUAL, two quantities sit outside the frame on both sides of the ledger and are excluded from numerator and denominator alike: roughly $38B of US direct mail (Winterberry $37.3B for 2024) and roughly $12-16B of classified-successor listing revenue. A SECOND RECONCILIATION HOLDS INDEPENDENTLY: inside the digital sub-total the pools sum to $291.7B against IAB's grade-A $294.593B, a 1.0 percent gap.",
+          "sources": [
+            {
+              "name": "MAGNA Advertising Forecast, June 2025: US media-owner advertising revenue $398B in 2025 (digital pure players $294B + traditional media owners $104B), a rail that excludes direct mail",
+              "url": "https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/"
+            },
+            {
+              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026): US internet ad revenue $294.593B, mutually exclusive format partition, and the $12.5B 'Other' bucket defined as classifieds, directories and lead generation",
+              "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+            },
+            {
+              "name": "Winterberry Group / WhatTheyThink, US direct mail spend 2024 ($37.3B) - carried outside the $398B rail on both sides of the ledger",
+              "url": "https://whattheythink.com/articles/123330-direct-mails-373b-resurgence-selling-value-over-volume-2025/"
+            },
+            {
+              "name": "R2b money-type source hunt, era 7 (p2-ad-market/data/moneytype/sources-era-7.json)"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 7, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
+            }
+          ],
+          "as_of": "2026-04"
         }
       ],
       "by_money_type": {
         "national_brand": {
           "id": "e7-scale-006",
-          "statement": "National brand money was roughly $95B of US ad spend in 2025 (about 23% of the total), the smallest of the four pools for the first time in the series' history.",
-          "central": 95,
-          "unit": "USD billions of US national brand ad spend, 2025",
+          "statement": "National brand money was about $145.7B of US advertising in 2025, 36.6 percent of the $398B MAGNA media-owner total, on a basis that excludes direct mail from the total and from every pool. It is the largest or joint-largest pool, not the smallest: the superseded reading subtracted a local pool measured by inventory geography and treated direct mail inconsistently on the two sides of the subtraction.",
+          "central": 145.7,
+          "unit": "USD billions of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
           "ci80": [
-            70,
-            150
+            99.5,
+            187.1
           ],
           "grade": "C",
-          "method": "Residual of the $405B US media-owner total after subtracting local/retail, national direct response and classified. NOTE (verifier): the denominator excludes direct mail while BIA's local total includes it and the direct-response pool adds ~$30B of it, so the residual is mechanically depressed; removing direct mail consistently raises the residual to roughly $125B. The four pools as published sum to $409B, not $405B. The bottom-up cross-check is not independent: its 'national linear TV ~$55B' line is implausible against MAGNA's $104B for all US traditional media.",
+          "method": "SOURCED BY: NO SOURCE. No compiler publishes a US national-brand advertising figure for any year after 2007. Partial free evidence exists only for 2008-2010 (Census SAS national/regional air time, grade A) and for newspapers to 2012 (NAA). The two instruments that would source the pool - Guideline/SMI agency billing data and MAGNA's National domain inside MG8 - are licensed and were not purchased. The pool is a construction and must stay one. RAIL: MAGNA media-owner advertising revenue, $398B for 2025 (digital pure players $294B + traditional media owners $104B, which sums exactly, so DIRECT MAIL IS OUT of this rail). All four pools are defined ex-direct-mail to match, which is the fix for the mechanical residual depression the era-7 verifier flagged: the superseded residual was computed with direct mail excluded from the denominator but present in two subtracted pools. RAIL SENSITIVITY EXCEEDS EVERY INTERVAL IN THIS SPLIT: IRS SOI corporate advertising deductions read $473,153m for 2022 against MAGNA's $325,000m, a $148B wedge that is overwhelmingly direct-response and retail money. Any chart of this split must name its rail in the axis label, not the footnote. || AGGREGATION: median of three lens centrals (structural-proxy 39.7, reference-class 36.6, decomposition 32.9). No extremizing, because the lenses share an evidence base. Three routes survive de-duplication and only one is independent of the other pools - the weakest methodological position of the four pools, which is why this pool carries the widest interval. || ROUTE N-A, residual against the observed total, MEDIAN WEIGHT 0.50 (0.50 / 0.45 / 0.55). $398B less local retail less classified less direct response, with direct mail excluded on BOTH sides of the subtraction. PROXY-POPULATION-GAP ADJUSTMENT: the pool subtracted as local retail is a buyer-class pool, not BIA's inventory-geography pool, which moves the residual UP by roughly 11pp; consistent direct-mail treatment moves it UP by roughly a further 6pp. Inherits every upstream error by construction. || ROUTE N-B, bottom-up impression-priced build from IAB's mutually exclusive FY2025 format partition plus MAGNA traditional media-owner revenue, less the local-bought leg, MEDIAN WEIGHT 0.30 (0.50 / 0.30 / 0.30). PROXY-POPULATION-GAP ADJUSTMENT: pricing basis is not buyer intent (IAB's own caveat) - a brand advertiser transacting on CPC lands in 'performance' and a direct-response advertiser buying guaranteed CPM lands in 'CPM'; the two errors partly offset and the net on this pool is estimated DOWN 2 to 4pp, carried in the interval rather than the central. NOT FULLY INDEPENDENT OF N-A: both consume the performance-priced share of US digital, and all three lenses said so, so their 1.0-1.4pp agreement understates uncertainty and does not set the interval. || ROUTE N-C, advertiser-stated brand-building share (WARC/Ebiquity), WEIGHT 0.00 in every lens, bound only. PROXY-POPULATION-GAP ADJUSTMENTS: global panel to US population, -2 to -4pp; large-advertiser panel to whole market, missing millions of self-serve advertisers who are almost entirely performance, -5 to -10pp; the 9pp one-year swing is read as sample composition, so the two-year mean is used. Adjusted it reads national brand near 22 percent, about 15 points below the construction, and it is the ONLY genuinely independent instrument bearing on this pool. || NEAR-DUPLICATE DECLARED: the monitored-spend band from AdAge Leading National Advertisers produces no free value and is a bound, not a route. || INTERVAL: min lower to max upper across the lenses. It is NOT drawn from route dispersion, which would be false precision given that N-A and N-B share an input; the lower end is where the independent survey rail sits and the upper end is where local retail's lower bound pushes the residual.",
           "sources": [
             {
-              "name": "MAGNA Advertising Forecast June 2025 (US total)",
+              "name": "MAGNA Advertising Forecast, June 2025: US media-owner advertising revenue $398B in 2025 (digital pure players $294B + traditional media owners $104B), a rail that excludes direct mail",
               "url": "https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/"
             },
             {
-              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (format splits; PwC E&M Outlook media growth rates, p.28)",
+              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026): US internet ad revenue $294.593B, mutually exclusive format partition, and the $12.5B 'Other' bucket defined as classifieds, directories and lead generation",
               "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
             },
             {
-              "name": "BIA Advisory Services 2025 US Local Advertising Forecast update",
-              "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+              "name": "IAB / PwC Internet Advertising Revenue Report, 'Revenues by pricing model' exhibit (performance-priced share of US digital: 57 percent for 2008, 62-66 percent across 2010-2019, 62.1 percent at HY2019; exhibit discontinued after HY2019)",
+              "url": "https://www.iab.com/wp-content/uploads/2019/10/IAB-HY19-Internet-Advertising-Revenue-Report.pdf"
+            },
+            {
+              "name": "US Census Bureau, Service Annual Survey, broadcast air time split 'National/regional air time' versus 'Local air time', 2008-2010 (TV 2008: national $17,779m against local $10,899m)",
+              "url": "https://www2.census.gov/services/sas/data/51/2010_NAICS51.xls"
+            },
+            {
+              "name": "WARC / Ebiquity advertiser budget surveys, brand-building versus performance share (40.1 percent brand in 2023, 31.2 percent in 2024) - the only genuinely independent instrument bearing on the brand/response split, and it reads about 15 points below the construction",
+              "url": "https://www.warc.com/content/feed/performance-budgets-rise-at-expense-of-brand/en-GB/10128"
+            },
+            {
+              "name": "IRS Statistics of Income, corporate advertising deductions: $473,153m for 2022 against MAGNA's $325,000m for the same year - a $148B rail wedge, 45.6 percent of the MAGNA base"
+            },
+            {
+              "name": "R2b money-type source hunt, era 7 (p2-ad-market/data/moneytype/sources-era-7.json)"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 7, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "2026-04"
         },
         "local_retail": {
           "id": "e7-scale-007",
-          "statement": "Local and retail money was about $169B of US ad spend in 2025 (roughly 41% of the total), of which 53.7% ($90.4B) went to digital channels - the first year digital exceeded traditional media in local budgets.",
-          "central": 169,
-          "unit": "USD billions of US local advertising spend, 2025",
+          "statement": "Local and retail money bought by local buyers was about $93.5B of US advertising in 2025, 23.5 percent of the $398B total - third of the four pools, not the largest. BIA's headline $169B is a measure of local-AUDIENCE INVENTORY sold to all advertiser types, and BIA's own advertiser-type cut prices the national and regional leg of it at $116.4B against $59.2B for SMBs.",
+          "central": 93.5,
+          "unit": "USD billions of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
           "ci80": [
-            155,
-            185
+            59.7,
+            123.4
           ],
-          "grade": "B",
+          "grade": "C",
+          "method": "SOURCED BY: NOT SOURCED AS A MONEY TYPE, which is why the grade falls from B to C. The source that carried the B grade - BIA's $169B US local advertising total - measures a different object: BIA's own published definition is all media selling access to LOCAL AUDIENCES to ALL advertiser types INCLUDING national and regional companies. That is geography of inventory, not class of buyer. What IS available, and is the hunt's largest free evidence upgrade, is BIA's own advertiser-type ratio, published in summary form at $116.4B regional-and-national marketers against $59.2B SMBs (SMB = 33.7 percent), corroborated by the independent BIA/Kelsey 2015 vintage at SMB $50.4B of a $140.7B local total (35.9 percent). That ratio grades B, but the derived 2025 pool needs a regional-tier allocation and a rail conversion on top of it, so the pool is C. RAIL: MAGNA media-owner advertising revenue, $398B for 2025 (digital pure players $294B + traditional media owners $104B, which sums exactly, so DIRECT MAIL IS OUT of this rail). All four pools are defined ex-direct-mail to match, which is the fix for the mechanical residual depression the era-7 verifier flagged: the superseded residual was computed with direct mail excluded from the denominator but present in two subtracted pools. RAIL SENSITIVITY EXCEEDS EVERY INTERVAL IN THIS SPLIT: IRS SOI corporate advertising deductions read $473,153m for 2022 against MAGNA's $325,000m, a $148B wedge that is overwhelmingly direct-response and retail money. Any chart of this split must name its rail in the axis label, not the footnote. || AGGREGATION: median of three lens centrals (structural-proxy 19.6, reference-class 23.5, decomposition 23.9). No extremizing. This is the best-supported of the four pools methodologically - three genuinely independent routes, each run by all three lenses. || ROUTE L-A, BIA's own advertiser-type cut, MEDIAN WEIGHT 0.40 (0.42 / 0.40 / 0.35). PROXY-POPULATION-GAP ADJUSTMENT, and it is the decisive one: BIA's population is buyers-of-local-inventory, which includes national and regional companies, so the correction on the record is DOWN and large. SMB-share drift is measured rather than assumed, 35.9 percent (2015) to 33.7 percent (current), a 2.2pp decline over a decade. Local direct mail (about $3-3.8B on BIA's own stated 90/10 national/local rule) is removed to match the ex-direct-mail denominator, and the classified and vertical money BIA admits sits inside its PC/Laptop digital definition (about $2-3.5B) is reassigned to classified so the two pools are disjoint. THE OPEN JUDGEMENT: BIA lumps 'regional' with 'national', and the regional tier is local-retail money in the Coen/NAA sense; the lenses allocate 30, 40 and about 44 percent of that lump to local retail. At 0 percent the pool reads 14.3 percent, at 45 percent it reads 24.1 percent. This one parameter is the widest unverified step in era 7. NOTE: the two BIA vintages are ONE compiler, so L-A is one route across all three lenses. || ROUTE L-B, medium-by-medium buyer-side build from government and trade rails plus platform filings, MEDIAN WEIGHT 0.38 (0.38 / 0.00 bound-only / 0.40). PROXY-POPULATION-GAP ADJUSTMENTS: TIME GAP - the Census SAS national/local split stops at reference year 2010 and RAB thins after 2021, so both are carried forward 4 to 15 years; radio's local share is stable across two independent readings five years apart (72.2 percent Census 2010, 74.1 percent RAB 2015), which bounds the drift small for that medium, while TV's assumed-flat 36-40 percent is the weakest link. SELLER-SIDE VERSUS BUYER-SIDE - the Census classifies who bought the time, not what the money was for, which correctly leaves national direct-response TV out of local. The platform local-bought shares (Meta about 32 percent of US, Google about 20 percent) are calibrated judgements, not measurements, and swing the route by about $15B. || ROUTE L-C, establishment count times category advertising intensity, MEDIAN WEIGHT 0.20 (0.20 / 0.20 / 0.25). PROXY-POPULATION-GAP ADJUSTMENTS: SMB survey average revenue per advertiser captures websites, SEO, promotions and marketing services that sit OUTSIDE the media rail, direction down about 20 percent; the count-based approach misses local advertisers who buy only traditional media and never touch a self-serve platform, direction up about 10 percent; and SMB is not the same as local - a $2m-revenue direct-to-consumer brand buying nationally on Meta is national direct response. NEAR-DUPLICATES DECLARED: the three lenses' parameterisations differ (3.5m x $22k; 4.5m x $14k; 4.0m x about $24k) but are one route, and they converge on $62B, $63B and $63B for the SMB leg. || INTERVAL: min lower to max upper across the lenses. Its width is definitional, not statistical: the regional-tier allocation alone spans it.",
           "sources": [
             {
-              "name": "BIA Advisory Services, '2025 Forecast Update: $169B In U.S. Local Advertising and 2.4% Year-Over-Year Decline' (August 2025)",
+              "name": "BIA Advisory Services, '2025 Forecast Update: $169B in U.S. Local Advertising' (August 2025). BIA's own definition: all media selling access to LOCAL AUDIENCES to ALL advertiser types INCLUDING national and regional companies - inventory geography, not class of buyer.",
               "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
             },
             {
-              "name": "BIA Advisory Services, 'Forecasts U.S. Local Ad Spend in 2025 to Reach $171 Billion' (August 2024)",
-              "url": "https://www.bia.com/press-releases/bia-advisory-services-forecasts-u-s-local-ad-spend-in-2025-to-reach-171-billion-sees-increases-in-2024-local-political-ad-revenues-by-560-million/"
+              "name": "BIA Advisory Services, U.S. Local Advertising Forecast advertiser-type cut, public summary: $116.4B regional and national marketers against $59.2B SMBs (SMB = 33.7 percent); corroborated by the BIA/Kelsey 2015 vintage at SMB $50.4B of a $140.7B local total (35.9 percent). The public post is undated and its $175.6B block does not match BIA's published 2018 local total of $151.2B, so only the RATIO is usable.",
+              "url": "https://shop.biakelsey.com/product/uslocaladvertisingforecast"
+            },
+            {
+              "name": "US Census Bureau, Service Annual Survey, broadcast air time split 'National/regional air time' versus 'Local air time', 2008-2010 (TV 2008: national $17,779m against local $10,899m)",
+              "url": "https://www2.census.gov/services/sas/data/51/2010_NAICS51.xls"
+            },
+            {
+              "name": "Radio Advertising Bureau / Miller Kaplan Arase, US radio revenue split local spot / national spot / network (local share 74.1 percent in 2015 against the Census SAS reading of 72.2 percent in 2010)"
+            },
+            {
+              "name": "MAGNA Advertising Forecast, June 2025: US media-owner advertising revenue $398B in 2025 (digital pure players $294B + traditional media owners $104B), a rail that excludes direct mail",
+              "url": "https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/"
+            },
+            {
+              "name": "R2b money-type source hunt, era 7 (p2-ad-market/data/moneytype/sources-era-7.json)"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 7, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "2025-08"
         },
         "classified": {
           "id": "e7-scale-008",
-          "statement": "Classified and directory money counted as advertising was about $15B in 2025 (roughly 4% of US spend): $12.5B of digital classifieds, directories and lead generation, plus roughly $1B each of residual print classified and print directory revenue.",
-          "central": 15,
-          "unit": "USD billions of US classified/directory ad spend, 2025",
+          "statement": "Classified and directory money counted as advertising was about $9.95B in 2025, 2.5 percent of the $398B US total. The 2008 anchor is far firmer: $22.7B, buildable entirely from grade-A government statistics. Lead generation, roughly $4.5-6B of IAB's 'Other' bucket, is money paid per acquired lead and mostly sits with direct response rather than here.",
+          "central": 9.95,
+          "unit": "USD billions of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
           "ci80": [
-            10,
-            30
+            5.6,
+            27.1
           ],
           "grade": "C",
-          "method": "IAB/PwC's 'Other' format bucket ($12.5B in 2025) is explicitly defined as classifieds, directories and lead generation. Residual print classified and print directory revenue are each estimated at ~$1B from trade sources (newspaper print advertising in total was ~$6B by 2023; directories ~$1.1B in 2024). Upper bound of the interval accounts for marketplace and job-board listing revenue (recruitment, auto, real estate) that no measured-media series counts as advertising but that is the economic descendant of the classified page.",
+          "method": "SOURCED BY: SOURCED FOR 2008-2021 AT GRADE A ON THREE INDEPENDENT LEGS - the hunt's main finding, which overturns the note that no modern source publishes this. (1) US Census Bureau Service Annual Survey, NAICS 511110, 'Breakdown of Revenue by Advertising Type: classified advertising', free, 2005-2021 with 2012 and 2022 suppressed: $8,087m (2008) falling to $1,978m (2021), a government probability survey independent of NAA, Coen, IAB, MAGNA and BIA. (2) The same survey's NAICS 511140 directory advertising space line, free, 2005-2020: $11,400m (2008) to $1,781m (2020), replacing the two trade blogs the record previously cited. (3) IAB/PwC's classifieds format line, free, with its own share to about 2016 and a stated dollar figure inside 'Other' to 2021, $3.2B (2008) to $5.3B (2021). Overlap test passes: NAA $5,030m against Census $4,840m for newspaper classified in 2011, a 3.9 percent gap. The 2008 anchor is fully grade A at $22.7B. NOT SOURCED: reference years 2022-2026 on any leg, and the marketplace and listings leg in every year. THE 2025 ANCHOR THEREFORE STAYS GRADE C: every sourced leg stops at reference year 2021 and nothing free reaches the anchor year. RAIL: MAGNA media-owner advertising revenue, $398B for 2025 (digital pure players $294B + traditional media owners $104B, which sums exactly, so DIRECT MAIL IS OUT of this rail). All four pools are defined ex-direct-mail to match, which is the fix for the mechanical residual depression the era-7 verifier flagged: the superseded residual was computed with direct mail excluded from the denominator but present in two subtracted pools. RAIL SENSITIVITY EXCEEDS EVERY INTERVAL IN THIS SPLIT: IRS SOI corporate advertising deductions read $473,153m for 2022 against MAGNA's $325,000m, a $148B wedge that is overwhelmingly direct-response and retail money. Any chart of this split must name its rail in the axis label, not the footnote. || AGGREGATION: median of three lens centrals (structural-proxy 1.9, reference-class 3.4, decomposition 2.5). No extremizing. Three routes, each run by all three lenses. || ROUTE C-A, decomposition of IAB's 'Other' bucket ($12.5B in FY2025) using its own last-published internal composition, MEDIAN WEIGHT 0.45. PROXY-POPULATION-GAP ADJUSTMENTS: BUCKET COMPOSITION BREAK - digital audio left 'Other' after FY2021 and directories were named into it from FY2022, so the FY2021 shares cannot be applied to the FY2025 total directly and the raw series must never be read across that join. TIME DRIFT - lead generation grew with the performance market while classified listing revenue migrated to transaction fees, so classifieds' share of the classified-plus-lead-generation pair falls; the lenses set it at 45, 55 and about 64 percent, and that single parameter is where the lens spread lives. || ROUTE C-B, Census SAS print legs extrapolated past their discontinuation, MEDIAN WEIGHT 0.30. PROXY-POPULATION-GAP ADJUSTMENT: extrapolation across four to five unpublished reference years at each leg's own observed compound rate (newspaper classified -10 to -11 percent a year, directories -13.6 to -15 percent a year), with the print-only portion of the directory line separated from the digital portion already counted in C-A. The route's INPUTS are grade A to 2021; only the carry-forward is C. || ROUTE C-C, marketplace and listings leg rebuilt bottom-up from EDGAR and company disclosure, MEDIAN WEIGHT 0.25. PROXY-POPULATION-GAP ADJUSTMENTS: LISTED-COMPANY BIAS - EDGAR filers over-represent consolidated national portals and miss private and regional portals, direction up 8 to 15 percent; DEFINITIONAL BIAS the other way - Zillow Premier Agent, Angi and LinkedIn Recruiter seats are arguably lead generation or service fees rather than listing advertisements, direction down 10 to 15 percent; the two roughly cancel, so the central is not shifted and the interval is widened instead. De-duplicated against C-A, because roughly $3.5-7B of the listings revenue is already inside IAB's 'Other'. || INTERVAL: min lower to max upper across the lenses. WARNING, and it is a scope statement rather than an uncertainty band: above about 2.8 percent of the market (about $11.1B) the interval is FRAME, not measurement error, because two lenses set their upper bound on a widened denominator that counts the listings successors ($410-421B rather than $398B). The in-frame-only interval is 1.4 to 2.8 percent, i.e. $5.6B to $11.1B. The two readings are both correct on their own frames and must never be blended in a chart. || SCOPE ALTERNATIVE, recorded because it is the era's boundary-shift argument in one number: on a listings-inclusive reading the classified money type is about $21B (range $15-29B), of which roughly $12-16B sits outside every published US advertising total. Indeed's US revenue alone ($5.31B) approaches the whole of IAB's $12.5B 'Other' bucket. || DEFINITIONAL FORK 1: lead generation is roughly $4.5-6B of IAB's 'Other'. Two lenses move it to direct response on the ground that money paid per acquired lead is action-priced; one keeps a portion at weight 0.35 on the ground that a firm paying per lead for a roofer is buying what the classified page sold. That call produces almost the whole 1.9-to-3.4 spread. DEFINITIONAL FORK 2: directory money is carried in classified here, following the record, the hunt and IAB's own bucket; the alternative moves this pool from 2.5 to about 2.2 percent in 2025 but from 9.3 to about 5.2 percent in 2008.",
           "sources": [
             {
-              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025, p.21 and endnote 39",
+              "name": "US Census Bureau, Service Annual Survey, NAICS 511110 Newspaper Publishers, 'Breakdown of Revenue by Advertising Type: classified advertising', free, 2005-2021 ($8,087m in 2008 falling to $1,978m in 2021; 2012 and 2022 suppressed)",
+              "url": "https://www2.census.gov/programs-surveys/sas/tables/time-series/sas-latest/Table8.xlsx"
+            },
+            {
+              "name": "US Census Bureau, Service Annual Survey, NAICS 511140 Directory and Mailing List Publishers, advertising space revenue, free, 2005-2020 ($11,400m in 2008 to $1,781m in 2020)",
+              "url": "https://www2.census.gov/programs-surveys/sas/tables/time-series/sas-latest/Table4.xlsx"
+            },
+            {
+              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026): US internet ad revenue $294.593B, mutually exclusive format partition, and the $12.5B 'Other' bucket defined as classifieds, directories and lead generation",
               "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
             },
             {
-              "name": "AEI Carpe Diem, newspaper advertising revenue series (classified peak $19.6B in 2000)",
-              "url": "https://www.aei.org/carpe-diem/creative-destruction-newspaper-ad-revenue-continued-its-precipitous-free-fall-in-2014-and-its-likely-to-continue/"
+              "name": "SEC EDGAR FY2025 filings and company disclosure for the marketplace and listings leg: Recruit Holdings (Indeed US revenue $5.31B), LinkedIn, ZipRecruiter, Zillow, CoStar, Move, Cars.com, CarGurus, Cox/Autotrader, Angi",
+              "url": "https://www.sec.gov/edgar/searchedgar/companysearch"
             },
             {
-              "name": "Vendasta / UENI, US directory advertising revenue estimates",
-              "url": "https://www.vendasta.com/blog/yellow-pages-evolution/"
+              "name": "R2b money-type source hunt, era 7 (p2-ad-market/data/moneytype/sources-era-7.json)"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 7, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "2026-04"
         },
         "direct_response": {
           "id": "e7-scale-009",
-          "statement": "National direct-response money was about $130B of US ad spend in 2025 (roughly 32% of the total), the pool that grew fastest across the era and the one search, commerce media and performance social are built to serve.",
-          "central": 130,
-          "unit": "USD billions of US national direct-response ad spend, 2025",
+          "statement": "National direct-response money was about $151.2B of US advertising in 2025, 38.0 percent of the $398B total, on a basis that excludes direct mail. It is the pool that grew fastest across the era and the one search, commerce media and performance social are built to serve. It cannot be ranked against national brand: the two centrals sit 1.4 points apart and the lenses do not agree on the direction.",
+          "central": 151.2,
+          "unit": "USD billions of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
           "ci80": [
-            95,
-            165
+            117.4,
+            187.1
           ],
           "grade": "C",
-          "method": "Path (a): two-thirds of $294.6B US digital is performance-priced ($196.4B); remove local digital ($90.4B, BIA) to isolate national ($106B); direct mail is then EXCLUDED, because the $405B denominator excludes it and BIA's local pool already contains the local-bought portion. That gives ~$106B. Path (b): search $114.2B + commerce media $63.4B + ~70% of social $117.7B, less the local-bought portion (~$90B) and the brand-bought portion of social and video (~$75B) = ~$102B. Including national direct mail on a media-comparable basis (roughly half of the ~$30B national share, the non-postage part) would add ~$15B. Interval spans the direct-mail-in and direct-mail-out treatments.",
+          "method": "SOURCED BY: POOL NOT SOURCED; ONE INPUT SOURCED AT GRADE A. IAB/PwC's 'Revenues by pricing model' exhibit publishes the performance-priced share of US digital annually 2004-2019 - 57 percent for 2008, 62-66 percent across 2010-2019, 62.1 percent at HY2019 - which converts 'two-thirds of digital is performance-priced' from an assumption into a published number for twelve of the nineteen era years. The exhibit was discontinued after HY2019, so 2020-2026 is EXTRAPOLATION. The only source that ever sized the whole pool, DMA/IHS Global Insight ($153.3B in 2010, 54.2 percent of US ad expenditure), died inside the era. Pool grade C. RAIL: MAGNA media-owner advertising revenue, $398B for 2025 (digital pure players $294B + traditional media owners $104B, which sums exactly, so DIRECT MAIL IS OUT of this rail). All four pools are defined ex-direct-mail to match, which is the fix for the mechanical residual depression the era-7 verifier flagged: the superseded residual was computed with direct mail excluded from the denominator but present in two subtracted pools. RAIL SENSITIVITY EXCEEDS EVERY INTERVAL IN THIS SPLIT: IRS SOI corporate advertising deductions read $473,153m for 2022 against MAGNA's $325,000m, a $148B wedge that is overwhelmingly direct-response and retail money. Any chart of this split must name its rail in the axis label, not the footnote. || AGGREGATION: median of three lens centrals (structural-proxy 38.0, reference-class 36.5, decomposition 40.7). No extremizing. THE APPARENT AGREEMENT IS AN ARTEFACT: all three centrals are three parameterisations of ONE unobserved quantity, the performance-priced share of US digital in 2025, which the lenses set at 60.0, 62.6 and 67.7 percent. Their 4.2pp dispersion measures disagreement about one parameter, not independent convergence, which is why the interval is taken from the combined lens bounds and not from the dispersion. || ROUTE D-A, performance-priced share applied to IAB's mutually exclusive FY2025 format partition, then strip local-bought digital and add national traditional direct response, MEDIAN WEIGHT 0.50. All three lenses run this route, and one lens's two variants (mix-shift decomposition of the 2019-2025 increment versus direct format weighting) are near-duplicates of each other because both consume the same IAB partition and the same HY2019 anchor - that is one route, not two. PROXY-POPULATION-GAP ADJUSTMENTS: pricing basis is not buyer intent, with offsetting errors in both directions netting small; local-bought digital is removed so the pools stay disjoint; and the load-bearing step is extrapolating IAB's published 62.1 percent across the five unmeasured years that contain Performance Max, Advantage+ and the rise of retail media. || ROUTE D-B, the DMA/IHS direct-marketing pool decayed forward and rail-converted, WEIGHT 0.45 in the lens that ran it. PROXY-POPULATION-GAP ADJUSTMENTS: DMA's denominator sits on a billings and deductions rail rather than a media-owner rail, and is converted at IRS SOI / MAGNA 2022 = 1.456; DMA's pool includes local direct marketing and lead generation, so the national portion is taken at 65 percent; the 2010 share of 54.2 percent is carried UP to about 62 percent for search, retail media and performance social growth. This route shares no input with D-A - different compiler, different decade, different rail - and lands at 37.6 percent against D-A's 38.5 percent. THE ONE GENUINELY INDEPENDENT CONVERGENCE IN THE ERA. || ROUTE D-C, advertiser-stated performance share (WARC/Ebiquity), WEIGHT 0.00 to 0.20, bound only. PROXY-POPULATION-GAP ADJUSTMENTS: global to US, +2 to +4pp; large-advertiser panel to whole market, +5 to +10pp; the survey conflates 'performance' as short-term activation intent with 'direct response' as measurable-action pricing. Adjusted it reads 44 to 57 percent and sets the top of the interval. || NEAR-DUPLICATE DECLARED AND DISCOUNTED: the seller-filings route (Alphabet, Meta and Amazon 10-Ks) is not independent of D-A, because Amazon's sponsored-product revenue sits inside IAB's search line, so it re-counts what D-A counts once. || RETIRED: the superseded path (b) - search plus commerce media plus 70 percent of social - is not a route. It sums $260B of a $294.6B market before any subtraction, because IAB's format partition already exhausts the total and commerce media and social are cross-cuts on top of it. All three lenses retired it independently. || INTERVAL: min lower to max upper across the lenses. It is deliberately NOT drawn from the 4.2pp lens dispersion, which is spuriously tight.",
           "sources": [
             {
-              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025",
+              "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026): US internet ad revenue $294.593B, mutually exclusive format partition, and the $12.5B 'Other' bucket defined as classifieds, directories and lead generation",
               "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
             },
             {
-              "name": "BIA Advisory Services 2025 US Local Advertising Forecast update",
-              "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+              "name": "IAB / PwC Internet Advertising Revenue Report, 'Revenues by pricing model' exhibit (performance-priced share of US digital: 57 percent for 2008, 62-66 percent across 2010-2019, 62.1 percent at HY2019; exhibit discontinued after HY2019)",
+              "url": "https://www.iab.com/wp-content/uploads/2019/10/IAB-HY19-Internet-Advertising-Revenue-Report.pdf"
             },
             {
-              "name": "Winterberry Group / WhatTheyThink, US direct mail spend 2024 ($37.3B)",
+              "name": "Direct Marketing Association / IHS Global Insight, 'The Power of Direct Marketing': US direct-marketing expenditure $153.3B in 2010, 54.2 percent of US ad expenditure - the last time anyone sized the whole pool; the series died inside the era",
+              "url": "https://www.piworld.com/article/dma-releases-new-the-power-direct-marketing-industry-forecast-direct-mail/all/"
+            },
+            {
+              "name": "WARC / Ebiquity advertiser budget surveys, brand-building versus performance share (40.1 percent brand in 2023, 31.2 percent in 2024) - the only genuinely independent instrument bearing on the brand/response split, and it reads about 15 points below the construction",
+              "url": "https://www.warc.com/content/feed/performance-budgets-rise-at-expense-of-brand/en-GB/10128"
+            },
+            {
+              "name": "MAGNA Advertising Forecast, June 2025: US media-owner advertising revenue $398B in 2025 (digital pure players $294B + traditional media owners $104B), a rail that excludes direct mail",
+              "url": "https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/"
+            },
+            {
+              "name": "Winterberry Group / WhatTheyThink, US direct mail spend 2024 ($37.3B) - carried outside the $398B rail on both sides of the ledger",
               "url": "https://whattheythink.com/articles/123330-direct-mails-373b-resurgence-selling-value-over-volume-2025/"
+            },
+            {
+              "name": "R2b money-type source hunt, era 7 (p2-ad-market/data/moneytype/sources-era-7.json)"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 7, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "2026-04"

@@ -1,0 +1,770 @@
+{
+  "era": 7,
+  "era_name": "The Machine Market",
+  "metric": "US advertising spend split by MONEY TYPE (national_brand / local_retail / classified / direct_response), 2008-2026",
+  "coverage_window": [2008, 2026],
+  "definitional_axes": ["money_type", "money_type x medium where a compiler publishes the cross-tab"],
+  "as_of": "2026-07-30",
+  "data_freeze": "2026-06-30",
+  "built_by": "series-archaeologist (R2b money-type source hunt, era 7)",
+  "scope": "SOURCE HUNT ONLY. No estimate is produced in this file. Every number below is a transcription of a published figure, recorded as evidence that the source exists and to fix what it actually says. Nothing here is derived, bridged or interpolated.",
+  "schema_notes": [
+    "No schema_spec was supplied for this file; the shape requested in the invocation is used (era / sources_found / pools_sourceable / verdict / proxy_leads) with four additions the r2b contract needs: dead_ends, consequences_for_existing_claims, cross_check_note and unranked_pairs_evidence.",
+    "No new e7-{field}-{NNN} claim IDs were minted. The hunt produced no estimates, and minting IDs for transcriptions would put found numbers and built numbers in the same namespace. The next free IDs for the downstream reconciler are e7-scale-010, e7-buyers-009, e7-medium-008.",
+    "values_observed entries carry a grade under the era rigor spec (A = official statistics or filings, B = credible named reporting, C = triangulated or proxy-derived). Grade A here means the compiler published the figure; it does not mean the figure measures the money-type pool.",
+    "role follows the project convention: stitch-candidate = eligible to populate a pool; cross-check-only = independent aggregate, never stitched; context = background anchor, never a point."
+  ],
+
+  "sources_found": [
+    {
+      "id": "s7-01",
+      "name": "US Census Bureau, Service Annual Survey (SAS) - NAICS 511110 Newspaper Publishers, 'Breakdown of Revenue by Advertising Type: classified advertising / all other advertising'",
+      "compiler": "US Census Bureau, Economic Indicators Division",
+      "institutional_home": "US Department of Commerce",
+      "role": "stitch-candidate",
+      "measures": "Advertising space revenue RECEIVED by US newspaper publishers, split into classified advertising and all other advertising. Probability sample of employer firms, taxable and tax-exempt, benchmarked to the Economic Census and to administrative records. Receipts basis, not advertiser outlay.",
+      "population": "Establishments classified in NAICS 511110. Excludes advertising placed with non-newspaper sellers, so it is the print-and-newspaper-digital leg of classified only.",
+      "coverage_years": [2005, 2021],
+      "coverage_note": "Published continuously 2005-2021. 2012 and 2022 are suppressed ('S', coefficient of variation over 30% or response quality below standard). The breakdown does NOT appear in the current 2017-NAICS Table 4; it lives in Table 8 (Estimated Revenue by Product and Class of Customer) and, for 2005-2010, in the legacy Information-sector tables. There is no 2023+ observation: the item has not been reinstated.",
+      "pools_it_can_populate": ["classified"],
+      "breakdowns_available": [
+        "classified vs all other advertising (advertising type)",
+        "print newspapers vs online newspapers vs other media (media type)",
+        "advertising space vs subscriptions and sales vs printing vs distribution (source of revenue)"
+      ],
+      "money_type_x_medium": "yes, for one medium: classified x newspapers, split print/online",
+      "access": "free",
+      "access_detail": "census.gov static tables (xlsx and legacy xls) and FRED mirror RPCNCAEF51111ALLEST. Downloaded and parsed directly for this hunt.",
+      "independent_of_project_series": true,
+      "independence_note": "Independent of naa_newspaper, coen_mce, iab_pwc, magna and bia. NAA was a publisher trade association census of its members; SAS is a government probability sample of all firms in the industry, with a different frame, a different reference concept and mandatory-response backing.",
+      "urls": [
+        "https://www2.census.gov/programs-surveys/sas/tables/time-series/sas-latest/Table8.xlsx",
+        "https://www2.census.gov/services/sas/data/51/2010_NAICS51.xls",
+        "https://www2.census.gov/programs-surveys/sas/tables/2013/sas-13.xlsx",
+        "https://www.census.gov/data/tables/2022/econ/services/sas-naics.html"
+      ],
+      "values_observed": [
+        {"year": 2005, "item": "newspaper classified advertising revenue", "value": 11175, "unit": "USD millions", "grade": "A", "vintage": "SAS 2010"},
+        {"year": 2006, "item": "newspaper classified advertising revenue", "value": 10864, "unit": "USD millions", "grade": "A", "vintage": "SAS 2010"},
+        {"year": 2007, "item": "newspaper classified advertising revenue", "value": 10044, "unit": "USD millions", "grade": "A", "vintage": "SAS 2010"},
+        {"year": 2008, "item": "newspaper classified advertising revenue", "value": 8087, "unit": "USD millions", "grade": "A", "vintage": "SAS 2010"},
+        {"year": 2009, "item": "newspaper classified advertising revenue", "value": 6010, "unit": "USD millions", "grade": "A", "vintage": "SAS 2010"},
+        {"year": 2010, "item": "newspaper classified advertising revenue", "value": 5706, "unit": "USD millions", "grade": "A", "vintage": "SAS 2010"},
+        {"year": 2010, "item": "newspaper classified advertising revenue", "value": 5285, "unit": "USD millions", "grade": "A", "vintage": "SAS 2013 (revised down 7.4% from the 2010 vintage)"},
+        {"year": 2011, "item": "newspaper classified advertising revenue", "value": 4840, "unit": "USD millions", "grade": "A", "vintage": "SAS 2013"},
+        {"year": 2012, "item": "newspaper classified advertising revenue", "value": null, "unit": "USD millions", "grade": "A", "vintage": "SAS 2013", "note": "suppressed ('S')"},
+        {"year": 2013, "item": "newspaper classified advertising revenue", "value": 3916, "unit": "USD millions", "grade": "A", "vintage": "SAS 2013"},
+        {"year": 2013, "item": "newspaper classified advertising revenue", "value": 3638, "unit": "USD millions", "grade": "A", "vintage": "SAS 2022 re-release (revised down 7.1%)"},
+        {"year": 2014, "item": "newspaper classified advertising revenue", "value": 3308, "unit": "USD millions", "grade": "A", "vintage": "SAS 2022 re-release"},
+        {"year": 2015, "item": "newspaper classified advertising revenue", "value": 3492, "unit": "USD millions", "grade": "A", "vintage": "SAS 2022 re-release"},
+        {"year": 2016, "item": "newspaper classified advertising revenue", "value": 3181, "unit": "USD millions", "grade": "A", "vintage": "SAS 2022 re-release"},
+        {"year": 2017, "item": "newspaper classified advertising revenue", "value": 3167, "unit": "USD millions", "grade": "A", "vintage": "SAS 2022 re-release"},
+        {"year": 2018, "item": "newspaper classified advertising revenue", "value": 2291, "unit": "USD millions", "grade": "A", "vintage": "SAS 2022 re-release"},
+        {"year": 2019, "item": "newspaper classified advertising revenue", "value": 2398, "unit": "USD millions", "grade": "A", "vintage": "SAS 2022 re-release", "note": "rises above 2018; sampling wobble, not a real recovery"},
+        {"year": 2020, "item": "newspaper classified advertising revenue", "value": 2165, "unit": "USD millions", "grade": "A", "vintage": "SAS 2022 re-release"},
+        {"year": 2021, "item": "newspaper classified advertising revenue", "value": 1978, "unit": "USD millions", "grade": "A", "vintage": "SAS 2022 re-release"},
+        {"year": 2022, "item": "newspaper classified advertising revenue", "value": null, "unit": "USD millions", "grade": "A", "note": "suppressed ('S')"},
+        {"year": 2021, "item": "newspaper all-other (non-classified) advertising revenue", "value": 8276, "unit": "USD millions", "grade": "A"},
+        {"year": 2021, "item": "newspaper total advertising space revenue", "value": 10254, "unit": "USD millions", "grade": "A"},
+        {"year": 2013, "item": "newspaper total advertising space revenue", "value": 16131, "unit": "USD millions", "grade": "A"}
+      ],
+      "known_breaks": [
+        "Vintage revisions of 7% in both directions tested here (2010: 5706 -> 5285; 2013: 3916 -> 3638). Any stitch must declare its vintage.",
+        "2012 and 2022 suppressed; 2011 exists only in the 2013 vintage.",
+        "Item disappears entirely after the 2021 reference year; the 2017-NAICS Table 4 does not carry it.",
+        "Receipts, not advertiser outlay: no agency commission or production, so it sits below any billings-basis series by the same wedge documented in the project's coen-census-receipts concordance entry."
+      ],
+      "why_it_matters": "This is the finding the era-7 record said did not exist. The era-7 notes state 'no money-type split exists in any published modern US series' and the classified claims are built from the IAB 'Other' bucket plus a ~$1B trade-press guess for print classified. An official annual print-classified series runs through 2021 and puts 2021 at $1,978M, roughly double that guess."
+    },
+
+    {
+      "id": "s7-02",
+      "name": "US Census Bureau, Service Annual Survey - broadcast air time split 'National/regional air time' vs 'Local air time' (NAICS 515111 radio networks, 515112 radio stations, 51512 television broadcasting)",
+      "compiler": "US Census Bureau",
+      "institutional_home": "US Department of Commerce",
+      "role": "stitch-candidate",
+      "measures": "Air-time (advertising) revenue received by US broadcasters, split national/regional vs local. Receipts basis.",
+      "population": "Employer firms in the named NAICS codes. Broadcast media only; no print, no digital, no OOH, no direct mail.",
+      "coverage_years": [2005, 2010],
+      "coverage_note": "The two-way split is published in the legacy Information-sector SAS tables through reference year 2010. From the 2013 vintage onward Census collapses it into a single line, 'National/regional/local air time'. Verified directly: sas-13.xlsx Table 4 shows one combined line for all three broadcast NAICS. Inside era 7 the split therefore exists for 2008, 2009 and 2010 only.",
+      "pools_it_can_populate": ["national_brand", "local_retail"],
+      "breakdowns_available": ["national/regional vs local air time, by broadcast industry"],
+      "money_type_x_medium": "yes: national_brand and local_retail x (network radio, spot radio, television broadcasting)",
+      "access": "free",
+      "access_detail": "census.gov legacy xls, downloaded and parsed for this hunt.",
+      "independent_of_project_series": true,
+      "independence_note": "Independent of Coen, MAGNA, RAB, TVB and BIA. Coen's national/local partition is an advertiser-billings estimate; this is a government survey of seller receipts.",
+      "urls": ["https://www2.census.gov/services/sas/data/51/2010_NAICS51.xls"],
+      "values_observed": [
+        {"year": 2008, "item": "television broadcasting (51512) national/regional air time", "value": 17779, "unit": "USD millions", "grade": "A"},
+        {"year": 2008, "item": "television broadcasting (51512) local air time", "value": 10899, "unit": "USD millions", "grade": "A"},
+        {"year": 2009, "item": "television broadcasting (51512) national/regional air time", "value": 15346, "unit": "USD millions", "grade": "A"},
+        {"year": 2009, "item": "television broadcasting (51512) local air time", "value": 8627, "unit": "USD millions", "grade": "A"},
+        {"year": 2010, "item": "television broadcasting (51512) national/regional air time", "value": 17317, "unit": "USD millions", "grade": "A"},
+        {"year": 2010, "item": "television broadcasting (51512) local air time", "value": 9716, "unit": "USD millions", "grade": "A"},
+        {"year": 2008, "item": "radio stations (515112) national/regional air time", "value": 3139, "unit": "USD millions", "grade": "A"},
+        {"year": 2008, "item": "radio stations (515112) local air time", "value": 8851, "unit": "USD millions", "grade": "A"},
+        {"year": 2010, "item": "radio stations (515112) national/regional air time", "value": 2846, "unit": "USD millions", "grade": "A"},
+        {"year": 2010, "item": "radio stations (515112) local air time", "value": 7382, "unit": "USD millions", "grade": "A"},
+        {"year": 2010, "item": "radio networks (515111) national/regional air time", "value": 472, "unit": "USD millions", "grade": "A"},
+        {"year": 2010, "item": "radio networks (515111) local air time", "value": 548, "unit": "USD millions", "grade": "A"}
+      ],
+      "known_breaks": [
+        "The split is discontinued after reference year 2010; the successor line is a single combined 'National/regional/local air time'.",
+        "'National/regional' is a seller-side classification of who bought the time, not a buyer-side classification of what the money was for. National direct-response TV sits inside 'national/regional', not in a direct-response pool."
+      ],
+      "why_it_matters": "The only OFFICIAL national-vs-local advertising split that exists anywhere inside the era-7 window. It covers three years and two media, and then it stops. That is a documented absence with a date attached, which is worth more than a wide interval."
+    },
+
+    {
+      "id": "s7-03",
+      "name": "US Census Bureau, Service Annual Survey - NAICS 511140 Directory and Mailing List Publishers, advertising space revenue (print vs online)",
+      "compiler": "US Census Bureau",
+      "institutional_home": "US Department of Commerce",
+      "role": "stitch-candidate",
+      "measures": "Advertising space revenue received by US directory publishers (print and digital listings), plus a print/online media-type split and a separate 'rental or sale of mailing lists' line.",
+      "coverage_years": [2005, 2020],
+      "coverage_note": "Advertising space line published 2005-2020; 2021 and 2022 suppressed ('S'). The media-type split (print/online/other) runs to 2020.",
+      "pools_it_can_populate": ["classified"],
+      "money_type_x_medium": "yes: classified (directory leg) x print/online",
+      "access": "free",
+      "independent_of_project_series": true,
+      "independence_note": "Independent of the Vendasta / UENI trade-blog figures the era-7 record currently uses for directory advertising, and independent of Coen's Yellow Pages line (which ends 2007).",
+      "urls": [
+        "https://www2.census.gov/programs-surveys/sas/tables/time-series/sas-latest/Table4.xlsx",
+        "https://www2.census.gov/services/sas/data/51/2010_NAICS51.xls"
+      ],
+      "values_observed": [
+        {"year": 2005, "item": "directories advertising space revenue", "value": 12778, "unit": "USD millions", "grade": "A", "vintage": "SAS 2010"},
+        {"year": 2008, "item": "directories advertising space revenue", "value": 11400, "unit": "USD millions", "grade": "A", "vintage": "SAS 2010"},
+        {"year": 2009, "item": "directories advertising space revenue", "value": 9858, "unit": "USD millions", "grade": "A", "vintage": "SAS 2010"},
+        {"year": 2010, "item": "directories advertising space revenue", "value": 6895, "unit": "USD millions", "grade": "A", "vintage": "SAS 2010"},
+        {"year": 2014, "item": "directories/databases advertising space revenue", "value": 4239, "unit": "USD millions", "grade": "A", "vintage": "SAS 2022 re-release"},
+        {"year": 2015, "item": "directories/databases advertising space revenue", "value": 3712, "unit": "USD millions", "grade": "A"},
+        {"year": 2016, "item": "directories/databases advertising space revenue", "value": 3079, "unit": "USD millions", "grade": "A"},
+        {"year": 2017, "item": "directories/databases advertising space revenue", "value": 2770, "unit": "USD millions", "grade": "A"},
+        {"year": 2018, "item": "directories/databases advertising space revenue", "value": 2066, "unit": "USD millions", "grade": "A"},
+        {"year": 2019, "item": "directories/databases advertising space revenue", "value": 1618, "unit": "USD millions", "grade": "A"},
+        {"year": 2020, "item": "directories/databases advertising space revenue", "value": 1781, "unit": "USD millions", "grade": "A", "note": "rises above 2019; sampling wobble"},
+        {"year": 2021, "item": "directories/databases advertising space revenue", "value": null, "unit": "USD millions", "grade": "A", "note": "suppressed ('S')"}
+      ],
+      "known_breaks": [
+        "The 2005-2010 legacy tables report 'Directories' and 'Databases and other collections of information' as separate lines with separate advertising-space figures; the 2013+ tables merge them. The merge inflates the modern series relative to a directories-only reading.",
+        "No observation after 2020."
+      ],
+      "why_it_matters": "The era-7 record grades directory advertising C on two trade blogs (Vendasta, UENI) with a $0.7-2.0B interval. An official series exists through 2020 and reads $1,618M for 2019 and $1,781M for 2020, which is inside that interval but does not need a C grade."
+    },
+
+    {
+      "id": "s7-04",
+      "name": "IAB / PwC Internet Advertising Revenue Report - 'Revenues by pricing model' (performance-based / CPM-impression / hybrid)",
+      "compiler": "Interactive Advertising Bureau, survey conducted by PwC",
+      "institutional_home": "IAB (trade association)",
+      "role": "stitch-candidate",
+      "measures": "The share of US internet advertising revenue transacted on a performance basis (advertiser pays per action or click), on a CPM/impression basis, or on a hybrid basis. Seller-reported, same survey and same universe as the iab_pwc series already in adspend.json.",
+      "coverage_years": [2004, 2019],
+      "coverage_note": "Charted 2004-2008 in the FY2008 report, 2005-2013 in the FY2013 report, 2006-2019 in the HY2019 report. Verified absent from the FY2021 and FY2022 reports: the exhibit was dropped. Last observation is HY2019 (half-year). No full-year 2020+ observation exists.",
+      "pools_it_can_populate": ["direct_response"],
+      "pool_caveat": "This is a PRICING BASIS, not a buyer intent. A brand advertiser buying reach on a CPC basis lands in 'performance'; a direct-response advertiser buying a guaranteed CPM lands in 'CPM'. It bounds the direct-response pool for digital, it does not measure it.",
+      "money_type_x_medium": "digital only; no medium cross-tab",
+      "access": "free",
+      "access_detail": "Free PDFs on iab.com. Downloaded and text-extracted for this hunt (FY2008, FY2013, HY2019, FY2021, FY2022, FY2025).",
+      "independent_of_project_series": false,
+      "independence_note": "NOT independent. Same compiler, same survey and same respondents as iab_pwc, which is already stitched. It is an additional axis on an existing series, not a new rail. It must never be used to cross-check the IAB internet total.",
+      "urls": [
+        "https://www.iab.com/wp-content/uploads/2015/05/IAB_Internet_Advertising_Revenue_Report_FY_2013.pdf",
+        "https://www.iab.com/wp-content/uploads/2019/10/IAB-HY19-Internet-Advertising-Revenue-Report.pdf"
+      ],
+      "values_observed": [
+        {"year": 2005, "item": "performance / CPM / hybrid share of US internet ad revenue", "value": "46 / 41 / 13", "unit": "percent", "grade": "A"},
+        {"year": 2006, "item": "performance / CPM / hybrid", "value": "48 / 47 / 5", "unit": "percent", "grade": "A"},
+        {"year": 2007, "item": "performance / CPM / hybrid", "value": "51 / 45 / 4", "unit": "percent", "grade": "A"},
+        {"year": 2008, "item": "performance / CPM / hybrid", "value": "57 / 39 / 4", "unit": "percent", "grade": "A"},
+        {"year": 2009, "item": "performance / CPM / hybrid", "value": "59 / 37 / 4", "unit": "percent", "grade": "A"},
+        {"year": 2010, "item": "performance / CPM / hybrid", "value": "62 / 33 / 5", "unit": "percent", "grade": "A"},
+        {"year": 2011, "item": "performance / CPM / hybrid", "value": "65 / 31 / 4", "unit": "percent", "grade": "A"},
+        {"year": 2012, "item": "performance / CPM / hybrid", "value": "66 / 32 / 2", "unit": "percent", "grade": "A"},
+        {"year": 2013, "item": "performance / CPM / hybrid", "value": "65 / 33 / 2", "unit": "percent", "grade": "A"},
+        {"year": 2017, "item": "performance / hybrid (full year)", "value": "62 / 4", "unit": "percent", "grade": "A"},
+        {"year": 2018, "item": "performance / CPM / hybrid (half year)", "value": "61.0 / 35.5 / 4.6", "unit": "percent", "grade": "A", "note": "the HY2019 report restates HY2018 CPM as 34.5%; vintage inconsistency of 1.0pp"},
+        {"year": 2019, "item": "performance / CPM / hybrid (half year)", "value": "62.1 / 35.7 / 2.2", "unit": "percent", "grade": "A"}
+      ],
+      "known_breaks": [
+        "IAB's own footnote: 'Pricing model definitions may have changed over the time period depicted both within the survey process and as interpreted by survey respondents.'",
+        "Exhibit discontinued after HY2019. There is no published pricing-model share for 2020-2025."
+      ],
+      "why_it_matters": "The era-7 direct_response method asserts 'two-thirds of US digital is performance-priced' as an assumption. IAB PUBLISHED that ratio: 62-66% every year from 2010 to 2019. For 2008-2019 the assumption is a found number, not a built one. For 2020-2025 it is an extrapolation across a five-year hole and should be graded and bounded as such."
+    },
+
+    {
+      "id": "s7-05",
+      "name": "IAB / PwC Internet Advertising Revenue Report - 'Classifieds' as a reported ad format, and the classifieds dollar figure inside the 'Other' bucket",
+      "compiler": "Interactive Advertising Bureau / PwC",
+      "institutional_home": "IAB",
+      "role": "stitch-candidate",
+      "measures": "US digital classified advertising revenue: 'fees paid by advertisers to online companies to list specific products or services (e.g., online job boards and directories)'.",
+      "coverage_years": [1998, 2021],
+      "coverage_note": "Classifieds is a first-class format line with its own share through roughly FY2016. From FY2017 to FY2021 it is folded into 'Other' but the dollar figure is still stated in the report prose. From FY2022 the report gives only a combined 'Other (classified and directories and lead generation)' with no classifieds sub-figure. Verified in the FY2022 and FY2025 PDFs.",
+      "pools_it_can_populate": ["classified"],
+      "money_type_x_medium": "yes: classified x digital",
+      "access": "free",
+      "independent_of_project_series": false,
+      "independence_note": "Same series as iab_pwc, already stitched. Additional axis, not a new rail.",
+      "urls": [
+        "https://www.iab.com/wp-content/uploads/2015/05/IAB_PWC_2008_6m.pdf",
+        "https://www.iab.com/wp-content/uploads/2022/04/IAB_Internet_Advertising_Revenue_Report_Full_Year_2021.pdf",
+        "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+      ],
+      "values_observed": [
+        {"year": 2007, "item": "US digital classifieds revenue", "value": 3300, "unit": "USD millions", "grade": "A"},
+        {"year": 2008, "item": "US digital classifieds revenue", "value": 3200, "unit": "USD millions", "grade": "A", "note": "14% of FY2008 internet ad revenue"},
+        {"year": 2012, "item": "US digital classifieds revenue", "value": 2400, "unit": "USD millions", "grade": "A", "note": "7% of FY2012"},
+        {"year": 2013, "item": "US digital classifieds revenue", "value": 2600, "unit": "USD millions", "grade": "A", "note": "6% of FY2013"},
+        {"year": 2019, "item": "US digital classifieds revenue, half year", "value": 1900, "unit": "USD millions", "grade": "A", "note": "HY2019; lead generation $1.5B in the same half"},
+        {"year": 2021, "item": "US digital classifieds revenue", "value": 5300, "unit": "USD millions", "grade": "A", "note": "stated inside 'Other' ($14.8B), alongside lead generation $4.6B and digital audio $4.9B"},
+        {"year": 2022, "item": "'Other' (classified + directories + lead generation)", "value": 8800, "unit": "USD millions", "grade": "A", "note": "no classifieds sub-figure published"},
+        {"year": 2025, "item": "'Other' (classified + directories + lead generation)", "value": 12500, "unit": "USD millions", "grade": "A", "note": "no classifieds sub-figure published"}
+      ],
+      "known_breaks": [
+        "CRITICAL: the 'Other' bucket changes composition between FY2021 and FY2022. FY2021 'Other' = classifieds + lead generation + DIGITAL AUDIO ($14.8B). FY2022 onward digital audio is its own reported line ($5.9B in 2022) and 'Other' = classified + directories + lead generation ($8.8B). Reading the Other series across 2021/2022 manufactures a 41% fall that is entirely definitional.",
+        "The classifieds line itself moves from a first-class format to a prose mention to nothing across the era.",
+        "IAB's classifieds definition explicitly includes online job boards and directories, so it overlaps s7-03 (Census directory publishers) on the digital-directory leg."
+      ],
+      "why_it_matters": "Gives the digital leg of classified an A-grade annual figure for most of era 7, and pins the exact year (reference year 2022) after which no compiler publishes a US digital classified number at all."
+    },
+
+    {
+      "id": "s7-06",
+      "name": "Newspaper Association of America - annual newspaper advertising expenditure by category (national / retail / classified)",
+      "compiler": "NAA research department (association dissolved into News Media Alliance, 2016)",
+      "institutional_home": "Newspaper trade association",
+      "role": "stitch-candidate",
+      "measures": "Newspaper advertising revenue reported by publishers, split national / retail / classified, print and (from 2003) online.",
+      "coverage_years": [1950, 2012],
+      "coverage_note": "Already in adspend.json as naa_newspaper for 1950-2010. The category split continues into era 7 for 2011 and 2012; NAA discontinued its industry revenue reporting after reference year 2013 (totals only for 2013). The project's series therefore stops two years short of the source.",
+      "pools_it_can_populate": ["national_brand", "local_retail", "classified"],
+      "money_type_x_medium": "yes: all three pools x newspapers",
+      "access": "free",
+      "access_detail": "Internet Archive captures of naa.org; secondary reproductions in AEI Carpe Diem (1950-2013 total, three-category basis) and MarketingCharts (2011 category detail). Pew Research Center's Newspapers Fact Sheet carries NAA data through 2012.",
+      "independent_of_project_series": false,
+      "independence_note": "NOT independent of coen_mce. The dataset's coen-naa-newspapers concordance entry already records that Coen's newspaper line IS the NAA survey for 1950-1989 and an adjustment of it thereafter.",
+      "urls": [
+        "https://www.marketingcharts.com/industries/media-and-entertainment-21519",
+        "https://www.pewresearch.org/journalism/fact-sheet/newspapers/",
+        "https://www.aei.org/carpe-diem/creative-destruction-newspaper-ad-revenue-continued-its-precipitous-free-fall-in-2013-and-its-probably-not-over-yet/"
+      ],
+      "values_observed": [
+        {"year": 2011, "item": "newspaper national advertising", "value": 3780, "unit": "USD millions", "grade": "B", "note": "-10.5% YoY"},
+        {"year": 2011, "item": "newspaper retail advertising", "value": 11880, "unit": "USD millions", "grade": "B", "note": "-8.0% YoY, from $12.93B in 2010"},
+        {"year": 2011, "item": "newspaper classified advertising", "value": 5030, "unit": "USD millions", "grade": "B", "note": "-11% YoY"},
+        {"year": 2011, "item": "newspaper total advertising", "value": 23940, "unit": "USD millions", "grade": "B", "note": "from $25.84B in 2010"},
+        {"year": 2012, "item": "newspaper print advertising total", "value": 18900, "unit": "USD millions", "grade": "B"},
+        {"year": 2013, "item": "newspaper print advertising total", "value": 17300, "unit": "USD millions", "grade": "B", "note": "last NAA year; no category split published"}
+      ],
+      "known_breaks": [
+        "Series ends 2012 for the category split, 2013 for totals. NAA's stated reason (reported by Poynter) was that the numbers were bad news; the successor News Media Alliance did not reinstate them.",
+        "The NAA 2011 classified figure ($5.03B) sits ABOVE the Census SAS 2011 figure ($4.84B) by 3.9%, a difference within a receipts-vs-reported-revenue wedge and well inside the 15% tolerance."
+      ],
+      "why_it_matters": "Extends the project's only three-pool-by-medium series two years into era 7, and gives one overlap year (2011) against the independent Census classified rail."
+    },
+
+    {
+      "id": "s7-07",
+      "name": "BIA Advisory Services - U.S. Local Advertising Forecast, advertiser-type breakdown (national / regional / SMB)",
+      "compiler": "BIA Advisory Services (formerly BIA/Kelsey)",
+      "institutional_home": "Private research firm",
+      "role": "stitch-candidate",
+      "measures": "Paid advertising revenue on inventory that sells access to LOCAL AUDIENCES, in 210 TV markets and 253 radio markets, across traditional and digital platforms - broken out by the type of buyer: national, regional, and small-and-medium business (SMB).",
+      "coverage_years": [2008, 2026],
+      "coverage_note": "The headline local total is published free annually. The advertiser-type breakdown is a paid deliverable (U.S. Local Advertising Forecast, BIA ADVantage platform). One free historical decomposition was located, for 2015, from a BIA/Kelsey press cycle.",
+      "pools_it_can_populate": ["local_retail"],
+      "pool_caveat": "DECISIVE FINDING. BIA's own definition: 'local' is all media generating revenue by selling access to local audiences to ALL types of advertisers, INCLUDING national and regional companies and SMBs. That makes the headline $169B a GEOGRAPHY measure of inventory, not a money-type measure of buyers. The local_retail money pool is BIA's SMB leg, which is roughly a third of the headline on BIA's own 2015 decomposition.",
+      "money_type_x_medium": "yes, in the paid product: advertiser type x each of ~17 traditional and digital platforms",
+      "access": "paywalled",
+      "access_detail": "shop.biakelsey.com sells the U.S. Local Advertising Forecast and the Nationwide View; the advertiser-type cut is inside those products and the ADVantage platform. Free: annual press releases with the headline total, a free 2022 forecast brochure carrying the full media definitions, and a free 2026 'Top Ten Opportunities' report hosted by OAAA (qualitative only). NOT PURCHASED - the SMB share for 2016-2026 is not read and is not estimated here.",
+      "independent_of_project_series": true,
+      "independence_note": "Independent as a compiler, but its digital lines are built partly by allocating national platform revenue (Google, Facebook) to local markets, so it is not independent of the IAB universe at the digital level.",
+      "urls": [
+        "https://www.bia.com/wp-content/uploads/BIA-U.S.-Local-Advertising-Forecast-2022-Oct2021Issue.pdf",
+        "https://shop.biakelsey.com/product/uslocaladvertisingforecast",
+        "https://www.thryv.com/blog/large-increase-local-ad-spending-small-medium-businesses-forecast/",
+        "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+      ],
+      "values_observed": [
+        {"year": 2015, "item": "SMB share of US local media spending", "value": 35.9, "unit": "percent", "grade": "B", "source_note": "BIA/Kelsey U.S. Local Media Forecast 2015"},
+        {"year": 2015, "item": "SMB local media spend", "value": 50400, "unit": "USD millions", "grade": "B", "note": "$37.7B traditional + $12.4B digital"},
+        {"year": 2015, "item": "total US local media spend", "value": 140700, "unit": "USD millions", "grade": "B"},
+        {"year": 2019, "item": "SMB local media spend (forecast made in 2015)", "value": 59700, "unit": "USD millions", "grade": "C", "note": "forecast, not actual; against a forecast local total of $163.4B, i.e. 36.5%"},
+        {"year": 2018, "item": "US local advertising total", "value": 151200, "unit": "USD millions", "grade": "B"},
+        {"year": 2022, "item": "US local advertising total", "value": 161500, "unit": "USD millions", "grade": "B", "note": "includes $7.5B political"},
+        {"year": 2023, "item": "US local advertising total", "value": 165700, "unit": "USD millions", "grade": "B"},
+        {"year": 2024, "item": "US local advertising total", "value": 172000, "unit": "USD millions", "grade": "B"},
+        {"year": 2025, "item": "US local advertising total", "value": 169000, "unit": "USD millions", "grade": "B"},
+        {"year": 2026, "item": "US local advertising total (revised forecast)", "value": 184500, "unit": "USD millions", "grade": "B"},
+        {"year": null, "item": "BIA's assumed national/local split of direct mail", "value": "90/10", "unit": "ratio", "grade": "A", "note": "stated verbatim in BIA's own free 2022 methodology brochure: 'The average split of national/local is 90/10.'"}
+      ],
+      "known_breaks": [
+        "BIA's local total includes direct mail and local political; the MAGNA/eMarketer denominators used elsewhere in era 7 exclude direct mail. The project already flags this.",
+        "BIA's 'PC/Laptop' digital definition explicitly 'includes search, display and classified/vertical advertising', so BIA local overlaps both the classified pool and the search line.",
+        "Two BIA vintages for 2025 exist: $171B (Aug 2024 forecast) and $169B (Aug 2025 update)."
+      ],
+      "why_it_matters": "The era-7 record sets local_retail = BIA $169B = 41% of US spend. BIA's own definition says that number is not the local_retail money type. Its SMB decomposition, which IS the money type, is behind a paywall and was ~36% of the local total the last time it was public. That is the single largest correction this hunt produces."
+    },
+
+    {
+      "id": "s7-08",
+      "name": "MAGNA (IPG Mediabrands) - the Direct / National / Local media typology inside MG8",
+      "compiler": "MAGNA Global",
+      "institutional_home": "Interpublic Group",
+      "role": "context",
+      "measures": "MAGNA classifies every medium first as Direct, National or Local, then into eight core media. Direct = direct mail, direct online, directories. National = television, magazines, digital/online, network, satellite radio, newspapers. Local = newspapers, television, radio, digital/online, outdoor (traditional and digital OOH), cinema.",
+      "coverage_years": [1980, 2026],
+      "coverage_note": "The taxonomy is documented in the published academic literature (Silk & Berndt) and covers the whole of era 7. The DOLLAR VALUES for the three domains are not published at line-item level in any public MAGNA release located.",
+      "pools_it_can_populate": ["national_brand", "local_retail", "direct_response"],
+      "pool_caveat": "Three of the four pools, and the closest thing to a native money-type split that exists for era 7. But MAGNA's 'Direct' is a channel bucket (mail, direct online, directories), not a buyer-intent bucket, and MAGNA has NO classified pool at all - directories sit under Direct.",
+      "money_type_x_medium": "yes, by construction - the typology IS a money-type x medium cross-tab",
+      "access": "licensed",
+      "access_detail": "MAGNA's annual series and methodology document are not public. The project's existing magna series is already flagged LICENSED with 1981-2017 and 2019-2020 unsourceable without a licence. NOT PURCHASED. The typology is recorded here from the published description; no MAGNA line-item value is paraphrased into this file.",
+      "independent_of_project_series": false,
+      "independence_note": "magna is already stitched in adspend.json. The concordance already records that MAGNA's 2025 digital line is the IAB series carried through.",
+      "urls": [
+        "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf",
+        "https://iariw.org/wp-content/uploads/2021/10/ernst_paper.pdf",
+        "https://www.nowpublishers.com/article/Details/MKT-074"
+      ],
+      "values_observed": [],
+      "known_breaks": [
+        "MAGNA changed basis in 2009 from advertiser cost to media-supplier revenue; the Direct/National/Local hierarchy described by Silk & Berndt is the POST-2009 structure.",
+        "The project's own magna-basis-change concordance entry already records that MAGNA's public 2020s splits (digital pure players + traditional media owners) show no direct-mail line, which is unresolved against the MG8 description."
+      ],
+      "why_it_matters": "Establishes that the split the project needs exists as a real compiler product for the whole window - and is unavailable. That is a licensing finding, not an absence finding, and it should be stated differently."
+    },
+
+    {
+      "id": "s7-09",
+      "name": "Guideline / Standard Media Index (SMI)",
+      "compiler": "Standard Media Index, now a Guideline company",
+      "institutional_home": "Private, agency-consortium data pool",
+      "role": "stitch-candidate",
+      "measures": "Actual booked media spend taken from the billing systems of the major agency holding companies and large independents - not a survey and not an estimate. Marketed as capturing 'up to 95% of all US national brand ad spending', across 6 major media types and 31 sub-types, with digital format/buy/placement breakouts.",
+      "coverage_years": [2010, 2026],
+      "coverage_note": "SMI has 15+ years of cleaned agency billing data; data lands two weeks after month end.",
+      "pools_it_can_populate": ["national_brand"],
+      "pool_caveat": "The best available instrument for the national_brand pool, with one structural hole that matters more every year of era 7: it sees only what passes through an agency. Self-serve platform buying, in-housed media (82% of ANA members had an in-house agency by 2023, per the project's own e7-creators-002), and the long tail of millions of Meta and Google advertisers are invisible to it.",
+      "money_type_x_medium": "yes: national brand spend by media type and sub-type",
+      "access": "licensed",
+      "access_detail": "Subscription product (guideline.ai / standardmediaindex.com). NOT PURCHASED. No SMI value is transcribed into this file.",
+      "independent_of_project_series": true,
+      "independence_note": "Fully independent of Coen, IAB, MAGNA, Census and BIA: it is transaction data from the buy side, not a seller survey or a modelled forecast.",
+      "urls": [
+        "https://www.guideline.ai/ad-intelligence/ad-intelligence-spend",
+        "https://www.standardmediaindex.com/products-and-services/the-americas/"
+      ],
+      "values_observed": [],
+      "why_it_matters": "If any single purchase would move the national_brand pool from grade C to grade A/B, it is this one. Worth pricing before the freeze."
+    },
+
+    {
+      "id": "s7-10",
+      "name": "MediaRadar (formerly Vivvix; formerly Kantar Media Ad Intel + Numerator Ad Intel)",
+      "compiler": "MediaRadar",
+      "institutional_home": "Private; acquired from Kantar Group, November 2023",
+      "role": "cross-check-only",
+      "measures": "Monitored US advertising expenditure by company, brand and channel (internet, TV, magazine, newspaper, radio, outdoor); 'coverage of $250 billion+ in media spend'. Occurrence-times-rate-card monitoring, not billing data.",
+      "coverage_years": [2008, 2026],
+      "coverage_note": "Continuous through the era under three owners and three names (Kantar Media -> Vivvix 2022 -> MediaRadar 2023).",
+      "pools_it_can_populate": ["national_brand", "local_retail"],
+      "pool_caveat": "Sold as two products: US national media (about 60% of total expenditure) and local/specialised media (the remaining 40%), often licensed separately. The national/local line is therefore a purchasable cut, but it is a monitored-spend basis and systematically overstates against negotiated prices.",
+      "access": "licensed",
+      "access_detail": "Subscription; also reachable through some university library subscriptions (Emory, UC Irvine, Temple guides list it). NOT PURCHASED.",
+      "independent_of_project_series": true,
+      "urls": [
+        "https://go.vivvix.com/kantar-ad-intel",
+        "https://libraries.emory.edu/business/research-learning/databases/vivvix-formerly-advertising-insights-stradegy"
+      ],
+      "values_observed": [],
+      "why_it_matters": "Marked cross-check-only rather than stitch-candidate because rate-card monitoring is a different object from both billings and media-owner revenue, and the project already carries one billings rail and one revenue rail."
+    },
+
+    {
+      "id": "s7-11",
+      "name": "AIM Group - Marketplaces Report (formerly the Classified Intelligence Report)",
+      "compiler": "AIM Group (Advanced Interactive Media Group LLC), founded 1998 by Peter M. Zollman",
+      "institutional_home": "Private consultancy, Orlando FL",
+      "role": "stitch-candidate",
+      "measures": "Revenue and market structure for classified advertising and marketplaces: automotive, real estate, recruitment and horizontal/general merchandise, globally and for the US. Described in the trade as 'the bible of the classified-advertising industry'. Publishes annual craigslist revenue estimates.",
+      "coverage_years": [2008, 2026],
+      "pools_it_can_populate": ["classified"],
+      "pool_caveat": "The only surviving specialist compiler of the classified money type, and the only source located that covers the marketplace/listings leg (job boards, auto and real-estate portals) that no measured-media series counts as advertising at all. That leg is exactly what the era-7 classified interval's upper bound is trying to hold.",
+      "access": "paywalled",
+      "access_detail": "Paid subscription (Continuous Advisory Service / AIM Group Marketplaces Report). NOT PURCHASED. No AIM Group figure is transcribed here.",
+      "independent_of_project_series": true,
+      "urls": ["https://www.aimgroup.com/services/classified-intelligence-report/"],
+      "values_observed": [],
+      "why_it_matters": "Closes the post-2021 classified gap if bought. Nothing free covers the marketplace leg."
+    },
+
+    {
+      "id": "s7-12",
+      "name": "Direct Marketing Association / IHS Global Insight - 'The Power of Direct Marketing' and the DMA Statistical Fact Book",
+      "compiler": "DMA, econometric model built by Global Insight (later IHS Global Insight)",
+      "institutional_home": "Trade association; DMA merged into the ANA in 2018",
+      "role": "context",
+      "measures": "US direct-marketing advertising expenditure - spend on advertising intended to produce a measurable direct response - across all channels, plus the sales, ROI and employment it drove. Biennial, with one-year and five-year projections.",
+      "coverage_years": [1999, 2013],
+      "coverage_note": "Last editions located are 2011 and 2012. DMA folded into the ANA in 2018 and the series was not continued. Overlaps era 7 for roughly 2008-2013.",
+      "pools_it_can_populate": ["direct_response"],
+      "pool_caveat": "SEVERE definitional divergence. DMA put direct-marketing ad expenditure at 54.2% of ALL US ad expenditure in 2010. The era-7 record's direct_response pool is ~32%. The two are not the same object: DMA counts direct-response-oriented spending in every medium including catalogue and telemarketing, and uses a wider advertising denominator. It bounds the pool from ABOVE; it does not measure it.",
+      "access": "lost / paywalled",
+      "access_detail": "The full reports were paid DMA member publications and are not on the ANA site; press summaries survive (piworld, MediaPost, multibriefs). Treated as effectively lost: figures below come from contemporaneous trade reporting, not from the report itself.",
+      "independent_of_project_series": true,
+      "urls": ["https://www.piworld.com/article/dma-releases-new-the-power-direct-marketing-industry-forecast-direct-mail/all/"],
+      "values_observed": [
+        {"year": 2010, "item": "US direct-marketing ad expenditure", "value": 153300, "unit": "USD millions", "grade": "B", "note": "stated as 54.2% of all US ad expenditures"},
+        {"year": 2010, "item": "US direct-marketing ad expenditure (alternate vintage)", "value": 154400, "unit": "USD millions", "grade": "B", "note": "the 2011 forecast release restates 2010 at $154.4B; two DMA vintages differ by $1.1B"},
+        {"year": 2011, "item": "US direct-marketing ad expenditure", "value": 163000, "unit": "USD millions", "grade": "B", "note": "+5.6% forecast"}
+      ],
+      "why_it_matters": "The only source found that ever tried to size the direct-response money type for the US as a whole. It died inside era 7, and its answer was 1.7x the project's. Recording that divergence honestly is better than narrowing it."
+    },
+
+    {
+      "id": "s7-13",
+      "name": "Winterberry Group - Outlook for Advertising, Marketing and Data (annual)",
+      "compiler": "Winterberry Group",
+      "institutional_home": "Private strategic consultancy",
+      "role": "context",
+      "measures": "Annual US spend on advertising, marketing AND data/data services, by channel: direct mail, linear TV, radio, print, magazine, search, social, display, video, CTV, digital OOH, email, plus a data-infrastructure line.",
+      "coverage_years": [2010, 2026],
+      "coverage_note": "Annual January release, continuous through the era.",
+      "pools_it_can_populate": ["direct_response"],
+      "pool_caveat": "Channel-based, not money-type based. Its addressable/direct channels (direct mail, email, addressable digital) are a floor on direct_response, not the pool. Its universe is far wider than any advertising total in the project: US$607.4B for 2025 and US$664.2B forecast for 2026, against MAGNA's US$398B, because it includes marketing services and data spend.",
+      "access": "free (summaries) / paywalled (full report)",
+      "access_detail": "Free press releases and free presentation decks on winterberrygroup.com; the full Outlook is a paid deliverable. The $37.3B 2024 direct-mail figure already used in era-7 claim e7-buyers-004 comes from this house via WhatTheyThink.",
+      "independent_of_project_series": false,
+      "independence_note": "Winterberry builds partly from other compilers' channel numbers; treat as a re-aggregator, not an independent rail.",
+      "urls": [
+        "https://winterberrygroup.com/marketing-advertising-data-outlook-presentation-2026",
+        "https://www.globenewswire.com/news-release/2026/01/15/3219716/0/en/Winterberry-Group-Expects-9-4-Percent-Growth-in-Its-Annual-Outlook-for-U-S-Ad-Marketing-and-Data-Spend-in-2026-to-Top-660B-Following-a-Resilient-Stable-2025.html"
+      ],
+      "values_observed": [
+        {"year": 2025, "item": "US advertising, marketing and data spend", "value": 607400, "unit": "USD millions", "grade": "B"},
+        {"year": 2026, "item": "US advertising, marketing and data spend (forecast)", "value": 664200, "unit": "USD millions", "grade": "C", "note": "forecast; +9.4% including >$10B political"}
+      ],
+      "why_it_matters": "Documents that the widest credible US 'marketing money' universe is 1.5x the measured-media total the era-7 record uses as its denominator. Any money-type share is denominator-sensitive by 50%."
+    },
+
+    {
+      "id": "s7-14",
+      "name": "USPS Revenue, Pieces & Weight (RPW) reports and Postal Regulatory Commission Annual Compliance Reports",
+      "compiler": "US Postal Service; PRC",
+      "institutional_home": "US federal government / independent regulator",
+      "role": "cross-check-only",
+      "measures": "Marketing Mail revenue, pieces and weight by fiscal year and quarter. Postage revenue only, not the full advertiser outlay (no creative, printing or list costs).",
+      "coverage_years": [2008, 2026],
+      "pools_it_can_populate": ["direct_response"],
+      "pool_caveat": "Postage is roughly a third to a half of direct-mail advertiser spend. It is a volume-and-price rail under the direct-response pool, not a measure of it. Fiscal year, not calendar year.",
+      "access": "free",
+      "independent_of_project_series": true,
+      "urls": [
+        "https://about.usps.com/what/financials/revenue-pieces-weight-reports/fy2023.pdf",
+        "https://about.usps.com/newsroom/national-releases/2025/1114-usps-reports-fiscal-year-2025-results.htm",
+        "https://www.uspsoig.gov/reports/white-papers/analysis-historical-mail-volume-trends"
+      ],
+      "values_observed": [
+        {"year": 2025, "item": "USPS Marketing Mail revenue change, FY2025 vs FY2024", "value": 350, "unit": "USD millions (+2.3%)", "grade": "A", "note": "on a volume decline of 764 million pieces (-1.3%)"}
+      ],
+      "why_it_matters": "The only government rail under any part of the direct-response pool, and the only one that runs the full window without a break."
+    },
+
+    {
+      "id": "s7-15",
+      "name": "Radio Advertising Bureau / Miller Kaplan Arase - US radio revenue by spot local, spot national, network, digital and off-air",
+      "compiler": "Miller Kaplan Arase LLP for the RAB",
+      "institutional_home": "Radio trade association",
+      "role": "stitch-candidate",
+      "measures": "US commercial radio revenue split local spot vs national spot vs network vs digital vs off-air, built from station financial submissions.",
+      "coverage_years": [2008, 2021],
+      "coverage_note": "Quarterly and annual releases through roughly 2020-2021; the detailed public reporting thinned thereafter.",
+      "pools_it_can_populate": ["national_brand", "local_retail"],
+      "money_type_x_medium": "yes: national/local x radio",
+      "access": "free (summaries) / member-only (full report)",
+      "access_detail": "Headline splits appear in Radio World, Inside Radio and MediaPost; the full RAB revenue report is member-restricted.",
+      "independent_of_project_series": true,
+      "urls": [
+        "https://www.radioworld.com/news-and-business/us-radio-revenue-174-billion-down-1-last-year",
+        "https://www.millerkaplan.com/industries/media/"
+      ],
+      "values_observed": [
+        {"year": 2015, "item": "US radio advertising revenue", "value": 14300, "unit": "USD millions", "grade": "B"},
+        {"year": 2015, "item": "US LOCAL radio advertising revenue", "value": 10600, "unit": "USD millions", "grade": "B", "note": "74.1% local"}
+      ],
+      "why_it_matters": "Carries the national/local radio split forward from where Census SAS drops it in 2010, on a different compiler, for another decade."
+    },
+
+    {
+      "id": "s7-16",
+      "name": "TVB (Television Bureau of Advertising) - broadcast TV revenue by local spot, national spot, network and syndication",
+      "compiler": "TVB, using MediaRadar/Kantar and station data",
+      "institutional_home": "Broadcast TV trade association",
+      "role": "stitch-candidate",
+      "measures": "US broadcast television advertising revenue by source, including a national-spot vs local-spot split.",
+      "coverage_years": [2008, 2026],
+      "pools_it_can_populate": ["national_brand", "local_retail"],
+      "access": "paywalled",
+      "access_detail": "tvb.org research portal; the ad-spending analytics are gated to TVB members. NOT ACCESSED. Fragments reach the trade press and Statista.",
+      "independent_of_project_series": true,
+      "urls": ["https://www.tvb.org/research/"],
+      "values_observed": [],
+      "why_it_matters": "The television analogue of s7-15. Would let national_brand vs local_retail be built bottom-up for the largest traditional medium across the whole window."
+    },
+
+    {
+      "id": "s7-17",
+      "name": "Borrell Associates - Compass",
+      "compiler": "Borrell Associates",
+      "institutional_home": "Private research firm",
+      "role": "cross-check-only",
+      "measures": "Estimates of LOCAL and NATIONAL spending on advertising and promotions directed to consumers in a given market, tracked across 100 local business categories at county level.",
+      "coverage_years": [2008, 2026],
+      "pools_it_can_populate": ["local_retail", "national_brand"],
+      "access": "licensed",
+      "access_detail": "Subscription (Compass). NOT PURCHASED.",
+      "independent_of_project_series": true,
+      "independence_note": "A second, independent local compiler. Its existence is why BIA should not be treated as the only possible local rail; its category-level cut is the only located source that could separate retail-vertical money from other local money.",
+      "urls": ["https://borrellassociates.com/compass/", "https://borrellassociates.com/forecasts/"],
+      "values_observed": [
+        {"year": 2026, "item": "Borrell US local ad spend growth forecast", "value": 3.0, "unit": "percent", "grade": "B", "note": "described as the strongest growth rate in eight years"}
+      ],
+      "why_it_matters": "The natural cross-check on BIA for the local pool. Marked cross-check-only precisely so that a validated local number never comes from the same house as the stitched one."
+    },
+
+    {
+      "id": "s7-18",
+      "name": "PwC Global Entertainment & Media Outlook - internet advertising sub-segments including classified",
+      "compiler": "PwC",
+      "institutional_home": "PwC (also the executor of the IAB revenue survey)",
+      "role": "context",
+      "measures": "Five years of history and five years of forecast for 11 industry segments across 53 territories; the internet advertising segment is sub-divided, and PwC's own definitions - reproduced in the appendix of the IAB report - state that 'the wired sub-segments consider paid search, display and classified'.",
+      "coverage_years": [2008, 2030],
+      "pools_it_can_populate": ["classified"],
+      "pool_caveat": "PwC keeps classified as a first-class internet-advertising sub-segment for the whole window, which is more than IAB does after 2021. But PwC also executes the IAB survey, so a PwC US classified figure is unlikely to be independent of iab_pwc.",
+      "access": "licensed",
+      "access_detail": "Subscription at pwc.com/outlook. NOT PURCHASED. Only the taxonomy is recorded here, from the free IAB report appendix.",
+      "independent_of_project_series": false,
+      "urls": [
+        "https://www.pwc.com/us/en/industries/tmt/library/global-entertainment-media-outlook.html",
+        "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+      ],
+      "values_observed": [],
+      "why_it_matters": "Shows the classified segment survives in a compiler's internal taxonomy even after it vanishes from the free public tables. Its US line is buyable."
+    },
+
+    {
+      "id": "s7-19",
+      "name": "EMARKETER - 'Allocation of Brand vs. Direct Response Spending According to US Ad Buyers'",
+      "compiler": "EMARKETER (Insider Intelligence)",
+      "institutional_home": "Private research firm (Axel Springer)",
+      "role": "context",
+      "measures": "Survey of US ad buyers on how they split budget between brand and direct response.",
+      "coverage_years": [2021, 2022],
+      "coverage_note": "Only two years located as a published chart. Not a continuous series.",
+      "pools_it_can_populate": ["national_brand", "direct_response"],
+      "pool_caveat": "A survey of stated budget ALLOCATION by respondents, not measured spend, and self-selected. Useful only as a sanity band on the brand/response ratio.",
+      "access": "paywalled",
+      "access_detail": "EMARKETER PRO subscription; figures withheld from the public chart page. NOT PURCHASED, values not read.",
+      "independent_of_project_series": true,
+      "urls": ["https://www.emarketer.com/chart/262058/allocation-of-brand-vs-direct-response-spending-according-us-ad-buyers-2021-2022-of-respondents"],
+      "values_observed": []
+    },
+
+    {
+      "id": "s7-20",
+      "name": "WARC / Ebiquity advertiser budget surveys - brand-building vs performance share",
+      "compiler": "WARC; Ebiquity",
+      "institutional_home": "Ascential (WARC); Ebiquity plc",
+      "role": "context",
+      "measures": "Share of advertiser media budget allocated to brand-building versus short-term performance tactics, from advertiser surveys.",
+      "coverage_years": [2023, 2024],
+      "pools_it_can_populate": ["national_brand", "direct_response"],
+      "pool_caveat": "Global advertiser survey, not US spend. Measures intent, not transactions. Moves 9 percentage points in one year, which is implausible as a real shift in a $400B market and is better read as sample composition.",
+      "access": "free (summaries) / licensed (full data)",
+      "independent_of_project_series": true,
+      "urls": [
+        "https://www.warc.com/content/feed/performance-budgets-rise-at-expense-of-brand/en-GB/10128",
+        "https://ebiquity.com/general/unveiling-2024-key-insights-into-global-advertisers-media-budget/"
+      ],
+      "values_observed": [
+        {"year": 2023, "item": "brand-building / performance share of advertiser budgets", "value": "40.1 / 59.9", "unit": "percent", "grade": "B", "note": "global advertiser survey"},
+        {"year": 2024, "item": "brand-building / performance share of advertiser budgets", "value": "31.2 / 68.8", "unit": "percent", "grade": "B", "note": "global advertiser survey; respondents named 50:50 as their ideal in both years"}
+      ],
+      "why_it_matters": "The only located source that puts a modern number on brand vs response for the whole market. It is a survey and it is global, so it belongs in the interval-widening argument, not in the estimate."
+    },
+
+    {
+      "id": "s7-21",
+      "name": "US Bureau of Labor Statistics, Producer Price Index - advertising space and time sales by advertising type",
+      "compiler": "BLS",
+      "institutional_home": "US Department of Labor",
+      "role": "cross-check-only",
+      "measures": "PRICE indexes, not spend. Separate indexes exist for advertising space sales in newspapers (WPU361102), internet advertising sales excluding print publishers (WPU365), broadcast and network TV time (WPS362101), cable network time (WPU36210201), directory and mailing-list ad sales (PCU5111405111401), and - discontinued - newspaper daily/Sunday advertising sales (PCU5111105111102, ends September 2015). Industry-level PPI detail for newspaper publishers includes a classified-advertising product breakdown.",
+      "coverage_years": [2008, 2026],
+      "pools_it_can_populate": [],
+      "pool_caveat": "NO POOL. These are deflators. Their RELATIVE IMPORTANCE weights are derived from Economic Census revenue shares, so the weights encode a revenue split by advertising type - but BLS publishes the weights as shares of the PPI universe, not as dollar levels, and re-weights only at benchmark revisions. Proxy lead only.",
+      "access": "free",
+      "independent_of_project_series": true,
+      "urls": [
+        "https://fred.stlouisfed.org/series/PCU5111105111102",
+        "https://fred.stlouisfed.org/series/WPU361102",
+        "https://www.bls.gov/ppi/tables/commodity-special-requests.htm"
+      ],
+      "values_observed": [],
+      "why_it_matters": "Silk & Berndt used exactly these indexes to deflate US advertising aggregates. They are the right tool for a real-terms money-type chart and the wrong tool for a nominal one."
+    },
+
+    {
+      "id": "s7-22",
+      "name": "US Census Bureau, Service Annual Survey - NAICS 519130 / 516210 Internet Publishing and Broadcasting, 'Online advertising space' revenue",
+      "compiler": "US Census Bureau",
+      "institutional_home": "US Department of Commerce",
+      "role": "cross-check-only",
+      "measures": "Online advertising space revenue received by US internet publishing and broadcasting firms; plus a 'Breakdown of Revenue by Type of Customer' (household consumers vs business/nonprofit/government).",
+      "coverage_years": [2005, 2022],
+      "pools_it_can_populate": [],
+      "access": "free",
+      "independent_of_project_series": true,
+      "independence_note": "A government rail against the IAB internet total. NOT a money-type source, but the only official independent check on the era-7 digital spine.",
+      "urls": ["https://www2.census.gov/programs-surveys/sas/tables/time-series/sas-latest/Table4.xlsx"],
+      "values_observed": [
+        {"year": 2013, "item": "online advertising space revenue (NAICS 51913)", "value": 52975, "unit": "USD millions", "grade": "A"},
+        {"year": 2019, "item": "online advertising space revenue", "value": 145922, "unit": "USD millions", "grade": "A"},
+        {"year": 2021, "item": "online advertising space revenue", "value": 218856, "unit": "USD millions", "grade": "A"},
+        {"year": 2022, "item": "online advertising space revenue", "value": 239025, "unit": "USD millions", "grade": "A", "note": "IAB/PwC's US internet total for 2022 is $209,728M; Census runs 14.0% above IAB, inside the 15% tolerance but only just"}
+      ],
+      "why_it_matters": "Offered to the cross-check layer, not to the money-type layer. The 2022 gap of 14.0% against IAB is worth carrying as a standing flag."
+    },
+
+    {
+      "id": "s7-23",
+      "name": "Statista Digital Market Outlook - 'Classifieds - United States'; and syndicated market-research reports on classified services",
+      "compiler": "Statista; Verified Market Reports; Market Research Future; Straits Research; Business Research Insights",
+      "role": "context",
+      "measures": "Modelled market sizes for classified advertising in the US.",
+      "coverage_years": [2018, 2034],
+      "pools_it_can_populate": ["classified"],
+      "pool_caveat": "REJECTED AS A SOURCE. The estimates disagree by more than 4x for the same object and the same year - Statista's US classifieds market volume reaches US$2.6bn by 2028 while syndicated reports put US classified advertisement services at US$8.3bn in 2024 - and none discloses a method. Against IAB's $12.5B 'Other' bucket for 2025 neither is reconcilable. Recorded so that a later step does not rediscover them and mistake them for evidence.",
+      "access": "licensed",
+      "independent_of_project_series": true,
+      "urls": ["https://www.statista.com/outlook/dmo/digital-advertising/classifieds/united-states"],
+      "values_observed": []
+    }
+  ],
+
+  "pools_sourceable": {
+    "national_brand": "PARTIALLY SOURCED, and only for 2008-2010 on free terms. FOUND: Census SAS national/regional air time for television and radio (s7-02), official, free, grade A - but the split is discontinued after reference year 2010, so it covers three of the nineteen era-7 years and two media. RAB/Miller Kaplan carries national vs local spot radio forward to about 2021 in free trade summaries (s7-15), and TVB does the same for television behind a member wall (s7-16). NAA gives newspaper national money through 2012 (s7-06). For a whole-market national_brand figure in any year after 2010 there is NO free source: the two instruments that exist are licensed - Guideline/SMI agency billing data, marketed as up to 95% of US national brand ad spend (s7-09), and MAGNA's National domain inside MG8 (s7-08), whose taxonomy is documented in the academic literature but whose line-item values are not public. TRIED AND FAILED: Coen/McCann's national-vs-local partition, which is the only all-media version that ever existed, ends in 2007 - one year before this era begins; IRS SOI has no money-type axis; BEA and the Economic Census have no advertiser-type cut for advertising; no academic reconstruction of the national/local split past 2007 was located, and Silk & Berndt, the only sustained academic work on US aggregate advertising, analyse totals and media shares rather than money types. The pool remains a residual and must stay one unless SMI is bought.",
+
+    "local_retail": "NOT SOURCED AS A MONEY TYPE, and the source currently standing in for it measures something else. The era-7 record sets local_retail to BIA's $169B. BIA's own published definition is that 'local' means all media generating revenue by selling access to LOCAL AUDIENCES to ALL types of advertisers, INCLUDING national and regional companies as well as SMBs - a geography-of-inventory measure, not a class-of-buyer measure. BIA does publish the class-of-buyer cut (national / regional / SMB), and that cut IS the money type; it sits inside the paid U.S. Local Advertising Forecast and the ADVantage platform (s7-07), which was not purchased. The one free decomposition located is BIA/Kelsey's 2015 vintage: SMB local media spend $50.4B against a $140.7B local total, i.e. 35.9%. On that basis the local_retail money pool is roughly a third of the number the era-7 record uses, not the whole of it. FREE PARTIAL SOURCES: Census SAS local air time for TV and radio, 2008-2010 only (s7-02); NAA newspaper retail money through 2012 (s7-06); RAB local spot radio to about 2021 (s7-15). TRIED AND FAILED: Borrell Compass is the only independent local compiler and is licensed (s7-17); no government series distinguishes local from national advertisers after 2010; no survey of small-business advertising spend with national coverage and a consistent method was located.",
+
+    "classified": "SOURCED - and this is the hunt's main finding. The era-7 notes record that no modern source publishes classified; that is not correct. THREE independent A-grade legs exist. (1) PRINT NEWSPAPER: US Census Bureau Service Annual Survey, NAICS 511110, 'Breakdown of Revenue by Advertising Type: classified advertising', annual and free, 2005-2021 with 2012 and 2022 suppressed - $8,087M in 2008 falling to $1,978M in 2021 (s7-01). This is a government probability survey, fully independent of NAA, Coen, IAB, MAGNA and BIA. (2) DIRECTORIES: the same survey's NAICS 511140 advertising space line, free, 2005-2020 - $11,400M in 2008 to $1,781M in 2020 (s7-03), which replaces the two trade blogs the record currently grades C. (3) DIGITAL: IAB/PwC's classifieds format line, free, with its own share through about 2016 and a stated dollar figure inside 'Other' through 2021 - $3.2B in 2008, $5.3B in 2021 (s7-05). NAA adds a fourth, non-independent reading for 2011-2012 (s7-06). WHAT IS STILL MISSING: nothing free covers reference years 2022-2026 for any leg, and nothing free at all covers the marketplace/listings leg - recruitment, automotive and real-estate portals - which is the economic descendant of the classified page and the reason the era-7 interval reaches 8%. That leg has exactly one specialist compiler, AIM Group's Marketplaces Report, and it is a paid subscription (s7-11). Statista and the syndicated market-research reports disagree with each other by more than 4x and were rejected (s7-23).",
+
+    "direct_response": "NOT SOURCED AS A POOL; three partial rails and one dead compiler. FOUND: IAB/PwC's 'Revenues by pricing model' exhibit gives the performance-priced share of US digital advertising annually from 2004 to 2019 (s7-04) - 57% in 2008 rising to 62-66% across 2010-2019 - which converts the era-7 method's 'two-thirds of digital is performance-priced' from an assumption into a published number for twelve of the nineteen era years, and leaves 2020-2025 as an extrapolation across a hole IAB created when it dropped the exhibit. USPS Revenue, Pieces & Weight reports give official Marketing Mail postage revenue for the whole window, but postage is only part of direct-mail outlay (s7-14). Winterberry Group's annual Outlook gives direct mail, email and addressable digital by channel, free in summary form, on a universe 1.5x the size of the project's (s7-13). The only source that ever sized the pool itself for the whole US market is DMA/IHS Global Insight's 'The Power of Direct Marketing', which put US direct-marketing ad expenditure at $153.3B in 2010, 54.2% of all US ad expenditure - roughly 1.7x the era-7 record's 32% share - and which died inside this era when the DMA folded into the ANA (s7-12). WARC/Ebiquity advertiser surveys put performance at 59.9% of budget in 2023 and 68.8% in 2024, globally and by survey, not by transaction (s7-20). TRIED AND FAILED: no compiler publishes a US direct-response advertising SPEND series for any year after 2013; EMARKETER's brand-vs-DR chart is a two-year buyer survey behind the PRO paywall (s7-19); pricing basis is not buyer intent and none of the rails above can be summed."
+  },
+
+  "verdict": "WHAT CAN BE SOURCED: classified, properly, for 2008-2021 and for the first time in this project from official statistics - Census SAS newspaper classified (2005-2021) and directory advertising (2005-2020), plus IAB's digital classifieds line (to 2021), three legs that are independent of each other and of every series already in adspend.json. Also sourceable, but only in fragments: the national-vs-local split for broadcast media in 2008-2010 from Census SAS, for radio to about 2021 from RAB, for newspapers to 2012 from NAA; and the performance-priced share of digital for 2004-2019 from IAB's own discontinued pricing-model exhibit. WHAT MUST BE ESTIMATED: all four pools as WHOLE-MARKET quantities in every year, because no source publishes a US four-way money-type split for any year of 2008-2026; national_brand in every year after 2010; local_retail in every year, since the number currently used for it (BIA's local total) is a geography measure and the buyer-type cut that would be the money type is paywalled; direct_response in every year, and especially 2020-2026 where even the pricing-basis proxy stops; and the entire classified pool for reference years 2022-2026, plus the marketplace/listings leg of classified in every year. THE MODERN DEFINITIONAL PROBLEM IS WORSE THAN THE RECORD STATES: IAB's own FY2025 format partition sums to the total (search $114.2B + display $81.6B + digital video $78.0B + digital audio $8.4B + other $12.5B = $294.7B against a $294.593B total), which means social media ($117.7B) and commerce media ($63.4B) are CROSS-CUTS reported on top of that partition, not members of it. The era-7 direct_response method path (b) adds search + commerce media + 70% of social, which is $260B of a $294.6B market before any subtraction, and double-counts by construction. This is the same error the R2 forecast panel warned against when it wrote that most of Amazon's contribution is sponsored-products search inventory and 'must not be added to' the search forecast. THE UNRANKABLE MIDDLE STANDS, AND ITS CAUSE IS NOW NAMED: local_retail and classified cannot be ranked against each other or against the other pools not because the intervals are wide but because BIA's local number and IAB's classified number are measured on incompatible frames - one counts inventory by geography and includes national buyers, the other counts a format by seller - and BIA's own digital definition ('includes search, display and classified/vertical advertising') puts classified money inside the local total. Until BIA's SMB cut or SMI's national cut is bought, the ordering of the middle two pools is not decidable from public evidence and should be recorded as unranked rather than resolved.",
+
+  "unranked_pairs_evidence": [
+    {
+      "pair": ["local_retail", "classified"],
+      "why_unranked": "BIA's local total explicitly includes classified/vertical advertising inside its PC/Laptop digital definition, so the two pools are not disjoint on the sources currently used. They cannot be ordered until the classified money inside BIA's local number is removed, which requires the paid product."
+    },
+    {
+      "pair": ["local_retail", "national_brand"],
+      "why_unranked": "BIA's 'local' includes national and regional buyers by its own definition, so part of what the record calls local_retail is national_brand money. BIA's 2015 SMB share of 35.9% implies the misallocation is large - on the order of $100B in 2025 terms - but the current-year share is paywalled."
+    },
+    {
+      "pair": ["national_brand", "direct_response"],
+      "why_unranked": "national_brand is a residual computed after direct_response is subtracted, so the two move in lockstep by construction and their ordering is an artefact of the residual, not a measurement."
+    }
+  ],
+
+  "consequences_for_existing_claims": [
+    {
+      "claim_ids": ["e7-scale-008", "e7-buyers-007", "e7-medium-006"],
+      "finding": "The classified and directory pools are now sourceable from official statistics for most of the era. The record's method assumes residual print classified of about $1B and print directory of about $1.1B; Census SAS reads $1,978M for newspaper classified in 2021 and $1,781M for directory advertising in 2020, both roughly double the assumed values and both grade A rather than grade C.",
+      "action_for_reconciler": "Re-anchor the print legs on s7-01 and s7-03 and regrade. Under r2b-val-03 a pool the hunt sourced must not stay at C."
+    },
+    {
+      "claim_ids": ["e7-scale-007", "e7-buyers-006"],
+      "finding": "BIA's $169B is a local-AUDIENCE-inventory measure that BIA states includes national and regional buyers. The local_retail money type is BIA's SMB cut, last publicly ~35.9% of the local total (2015).",
+      "action_for_reconciler": "Either buy the BIA advertiser-type cut, or restate the pool as bounded between the SMB share and the full local total and widen the interval downward accordingly. The current central treats an upper bound as a point."
+    },
+    {
+      "claim_ids": ["e7-scale-009", "e7-buyers-008"],
+      "finding": "Path (b) of the direct_response method sums search, commerce media and 70% of social. IAB's format partition already sums to the total without commerce media or social, so both are cross-cuts and the sum double-counts. Separately, path (a)'s 'two-thirds of digital is performance-priced' is a PUBLISHED IAB figure for 2004-2019 rather than an assumption, and is unmeasured for 2020-2025.",
+      "action_for_reconciler": "Retire path (b) or rebuild it on the mutually exclusive format partition. Re-source path (a) on s7-04 for the years IAB published it, and treat 2020-2026 explicitly as an extrapolation."
+    },
+    {
+      "claim_ids": ["e7-scale-006", "e7-buyers-005"],
+      "finding": "No source found. The residual construction stands, and the verifier's existing note that the residual is mechanically depressed by inconsistent direct-mail treatment is confirmed by BIA's own published 90/10 national/local direct-mail split assumption.",
+      "action_for_reconciler": "Keep the pool as a residual, keep it grade C, and state the direct-mail treatment on both sides of the subtraction."
+    }
+  ],
+
+  "cross_check_note": "Two independent aggregates were located for era 7 that the project does not currently use. (1) US Census Bureau SAS 'Online advertising space' revenue for NAICS 519130/516210 - a government rail against the IAB internet total: Census reads $239,025M for 2022 against IAB's $209,728M, a 14.0% gap, inside the 15% tolerance but close enough to flag as a standing divergence. (2) Census SAS newspaper classified against NAA newspaper classified in the single overlap year 2011: NAA $5,030M, Census $4,840M, a 3.9% gap, well inside tolerance. No independent aggregate exists for any of the four money-type pools taken as whole-market quantities; that is a documented absence, not a gap in this hunt.",
+
+  "dead_ends": [
+    "Coen/McCann Structured Advertising Expenditure Dataset - the only all-media national/local partition that ever existed for the US - ends at reference year 2007, one year before era 7 opens. There is no successor.",
+    "IRS Statistics of Income corporate advertising deduction: a single aggregate, no money-type or medium axis.",
+    "BEA input-output and national accounts: advertising appears as an industry and as an intermediate input, never split by advertiser type.",
+    "US Economic Census product lines (2012, 2017, 2022): the advertising-type detail for newspaper publishers lives in the Service Annual Survey, not in the quinquennial Economic Census product tables, and the SAS item stops after 2021.",
+    "News/Media Alliance (successor to NAA): stopped publishing industry revenue after 2013 and did not reinstate it; Poynter's contemporaneous reporting records the association's own stated reason.",
+    "Academic literature: no dissertation, working paper or book appendix reconstructing a US brand/response or national/local advertising split for any year after 2007 was located. Silk & Berndt (NBER WP 28161; Foundations and Trends in Marketing, 2021) is the only sustained academic treatment of US aggregate advertising in this period; it documents MAGNA's Direct/National/Local taxonomy in a figure but analyses totals, media shares and price indexes, not money-type levels.",
+    "Google, Meta and Amazon filings: no advertiser-type, buyer-size or objective breakdown is disclosed in any 10-K or earnings release.",
+    "OAAA: publishes OOH revenue by format and by advertiser category, and hosts a free BIA local-opportunity report, but no national/local revenue split was located.",
+    "Statista Digital Market Outlook and the syndicated classified-market reports: mutually inconsistent by more than 4x with no disclosed method; rejected rather than carried."
+  ],
+
+  "proxy_leads": [
+    {
+      "lead": "Census SAS broadcast national/local ratio, held forward",
+      "what_it_gives": "TV national/local of about 64/36 and radio-station national/local of about 28/72 in 2010, the last published year.",
+      "what_it_needs": "A defensible drift assumption from 2011 to 2026, cross-checked against RAB's free radio local share (74.1% local in 2015) and, if bought, TVB's television split. Any point built this way is constructed and must be graded C with the drift stated.",
+      "cost": "free",
+      "source_ids": ["s7-02", "s7-15", "s7-16"]
+    },
+    {
+      "lead": "BIA SMB share of local, held forward from 2015",
+      "what_it_gives": "A local_retail money-type pool of roughly 36% of BIA's local total, against the 100% the record currently uses.",
+      "what_it_needs": "Either the paid BIA advertiser-type cut, or an explicit forward assumption. Direction of drift is arguable both ways: self-serve platforms lowered the entry cost for SMBs, while national brands' geo-targeted buying grew the numerator of the other leg.",
+      "cost": "BIA U.S. Local Advertising Forecast (paid) removes the need for the assumption entirely",
+      "source_ids": ["s7-07"]
+    },
+    {
+      "lead": "IAB performance-priced share, extrapolated 2020-2026",
+      "what_it_gives": "A published 62.1% for HY2019 as the last anchor for the performance share of US digital.",
+      "what_it_needs": "An extrapolation across seven unmeasured years through the largest structural change of the era (Performance Max, Advantage+, retail media). Bound it with the era's own evidence rather than a trend: retail media is close to fully performance-priced, CTV is close to fully impression-priced, and both grew.",
+      "cost": "free",
+      "source_ids": ["s7-04"]
+    },
+    {
+      "lead": "Classified marketplace/listings leg from public-company filings",
+      "what_it_gives": "A bottom-up reconstruction of the classified money that measured-media series do not count: recruitment (Indeed/Recruit Holdings, ZipRecruiter, LinkedIn), automotive (Cars.com, CarGurus, Carvana marketplace fees), real estate (Zillow, CoStar/Homes.com), horizontal (eBay classifieds lineage, Craigslist via AIM Group's annual estimate).",
+      "what_it_needs": "Segment-level revenue from each 10-K, an explicit rule for which listing revenue is advertising and which is a transaction fee, and a de-duplication pass against IAB's classifieds and lead-generation lines. Each filing is grade A; the aggregate is grade C and must say so.",
+      "cost": "free (EDGAR), except the Craigslist estimate which is AIM Group's",
+      "source_ids": ["s7-11", "s7-05"]
+    },
+    {
+      "lead": "BLS PPI relative-importance weights as a revenue-share proxy",
+      "what_it_gives": "The advertising-type composition implied by BLS's weighting of newspaper, broadcast and directory advertising indexes, benchmarked to Economic Census revenue.",
+      "what_it_needs": "The weights are published as shares of the PPI universe and are re-benchmarked only at revisions, so they lag and are not a level. Use for real-terms deflation and for direction, never for a nominal pool size.",
+      "cost": "free",
+      "source_ids": ["s7-21"]
+    },
+    {
+      "lead": "Purchase the split rather than build it",
+      "what_it_gives": "Three purchases would replace almost every grade-C money-type estimate in era 7: Guideline/SMI for national_brand, BIA's advertiser-type cut for local_retail, AIM Group's Marketplaces Report for the classified marketplace leg. MAGNA's Direct/National/Local would give three pools on one consistent frame, which none of the others do.",
+      "what_it_needs": "A licensing decision and a budget. Recorded here so the choice to estimate instead is a choice on the record and not an inference from absence.",
+      "cost": "licensed / paid",
+      "source_ids": ["s7-09", "s7-07", "s7-11", "s7-08"]
+    }
+  ]
+}

@@ -136,23 +136,59 @@ const ok = results.filter(Boolean)
 log(`${ok.length}/3 eras estimated`)
 
 phase('Reconcile')
-const reconciled = await agent(
-  `You are the reconcile step of stage R2b (p2-ad-market/planning/gate-b-approval.md). Three eras (1, 5, 7) were re-researched for the money-type split: a source hunt, then a three-lens estimation panel per era (structural-proxy, reference-class, Fermi decomposition).
 
-Panel output (verbatim JSON): ${JSON.stringify(ok).slice(0, 120000)}
+// One reconciler PER ERA. A single reconciler needs every lens from all three
+// eras in one prompt (~360k chars) and the first version of this script sliced
+// that to fit, silently discarding six of nine lens estimates. Per-era keeps
+// each payload whole; the size of what each agent receives is logged.
+const perEra = await parallel(
+  ok.map((r) => () => {
+    const payload = JSON.stringify(r)
+    log(`era ${r.era}: reconciling ${r.panel.length} lens result(s), ${payload.length} chars — untruncated`)
+    if (r.panel.length < 3) {
+      log(`WARNING era ${r.era}: only ${r.panel.length}/3 lenses returned; the median is over what arrived`)
+    }
+    return agent(
+      `You are reconciling ONE era's money-type estimates for stage R2b (p2-ad-market/planning/gate-b-approval.md). Era ${r.era}.
+
+Its source hunt and its full estimation panel (structural-proxy, reference-class, Fermi decomposition), verbatim JSON: ${payload}
+
+Produce the reconciled split for THIS ERA ONLY. Do not write to any era record or claims file — a later step applies your output.
+
+1. For each of the four pools, the headline is the plain MEDIAN of the lenses' centrals — no extremizing, per PROCESS.md, because the lenses share an evidence base. State how many lenses contributed; if fewer than three arrived, say so and treat the result as provisional.
+2. The ci80 spans the lenses' combined uncertainty: min lower and max upper across lenses, unless one lens is clearly mis-specified — in which case discount it and say why.
+3. Where the source hunt found a REAL source, the sourced figure wins over every estimate, and the claim is graded on the source (A or B), not C.
+4. Where the lenses cannot separate two pools, record them in unranked_pairs. Do not manufacture an ordering.
+5. Force the four pools to reconcile against this era's observed total from p2-ad-market/data/adspend.json. Report the residual explicitly as its own figure with its own reasoning. A residual is legitimate; a silent shortfall is not.
+6. Every proxy-derived figure is grade C and carries a method naming each independent route, its adjustment for the proxy-population gap, and its weight. Routes sharing a common input are ONE route — say so if the panel offered near-duplicates.
+
+Return JSON as your final message: {"era": ${r.era}, "lenses_used": <n>, "observed_total": {...}, "pools": [{"pool", "central", "ci80", "unit", "grade", "method", "sourced_by", "lens_centrals": [...]}], "residual": {"central", "ci80", "reasoning"}, "unranked_pairs": [...], "grade_changes": [...], "findings": [...]}`,
+      { label: `reconcile:era-${r.era}`, phase: 'Reconcile', agentType: 'general-purpose' }
+    )
+  })
+)
+const eraResults = perEra.filter(Boolean)
+log(`${eraResults.length}/${ok.length} eras reconciled`)
+
+const reconciled = await agent(
+  `You are the APPLY step of stage R2b (p2-ad-market/planning/gate-b-approval.md). Three eras (1, 5, 7) were re-researched for the money-type split and each has now been reconciled independently.
+
+Reconciled output, verbatim JSON: ${JSON.stringify(eraResults)}
 
 Do exactly this:
 
-1. For each era and each of the four pools, produce ONE reconciled figure. The headline is the plain MEDIAN of the lenses' centrals — no extremizing, per PROCESS.md, because the lenses share an evidence base. The ci80 spans the lenses' combined uncertainty, not just their central spread: take the min lower and max upper across lenses unless one lens is clearly mis-specified, and say so if you discount one.
-2. Where a real SOURCE was found, the sourced figure wins over every estimate, and the claim is graded on the source (A or B), not C.
-3. Where the lenses genuinely cannot separate two pools, record them as UNRANKED with overlapping intervals and say so explicitly. Do not manufacture an ordering.
-4. Force each era's four pools to reconcile against that era's observed total from adspend.json. Report the residual explicitly as its own figure. A residual is legitimate — silent non-summing is not.
-5. Apply the results to p2-ad-market/data/eras/era-{1,5,7}.json: update the by_money_type claims in SCALE and BUYERS in place, keeping their existing claim IDs. Every updated claim must carry a full calibration object and, at grade C, a method naming every proxy route, its adjustment and its weight. Update each claim's STATEMENT prose to match its new central — a statement that contradicts its own central is a defect the pipeline now checks for.
-6. Write p2-ad-market/data/moneytype/reconciled.json recording, per era and pool: the source verdict, each lens's central, the median, the final interval, the residual and any unranked pairs. This is the audit trail.
-7. Rebuild p2-ad-market/data/claims.json so the three eras' updated claims are reflected — copy each claim verbatim and preserve the origin and verdict fields on every other entry. Do not regenerate other entries.
-8. Run and confirm: python3 tools/verify_p2.py r1-records && r1-claims && r5-stale-prose && r5-claimsfile && r2-reconcile. Fix anything that traces to your own application work.
+You are APPLYING these reconciled figures, not re-deriving them. The centrals, intervals, grades and residuals above are decided — do not recompute or second-guess them. Your job is to land them correctly and leave the repo consistent.
 
-Final message: per era, the four reconciled pools with grades, the residual, any unranked pairs, and which pools improved from grade C to a sourced grade.`,
+1. Apply to p2-ad-market/data/eras/era-{1,5,7}.json: update the by_money_type claims in SCALE and BUYERS in place, KEEPING their existing claim IDs. Every updated claim carries a full calibration object and, at grade C, the method from the reconciled output naming each route, its adjustment and its weight.
+2. Update each updated claim's STATEMENT prose to match its new central. A statement contradicting its own central is a defect the pipeline checks for (r5-stale-prose).
+3. Add each era's residual as its own claim, continuing that era's SCALE numbering, with the reasoning in its method.
+4. Write p2-ad-market/data/moneytype/reconciled.json as the audit trail: per era and pool, the source verdict, every lens central, the median, the final interval, the residual, unranked pairs, grade changes, and how many lenses contributed.
+5. Update p2-ad-market/data/claims.json so the three eras' claims are reflected — copy each changed claim verbatim, insert the new residual claims, and preserve the origin and verdict fields on every other entry. Do not regenerate untouched entries.
+6. Chapters: if any chapter states a money-type value these figures supersede, correct it, then re-run python3 tools/readability.py on that chapter and confirm all four gates still pass. Chapters 02, 06, 08 and 09 are the likely ones.
+7. TAXONOMY CHECK — surfaced by an earlier run and not yet resolved: era 5 splits Yellow Pages between local_retail and direct_response, while era 7 books all directories in classified. In 2000 that is worth about $13.2bn, or 5.3 points. Do NOT unilaterally re-classify: moving it would shift the project's most-quoted $19.6bn classified peak into a headline pool and ripple into naa_newspaper and several chapters. Record it in reconciled.json under open_taxonomy_questions with its magnitude and what it would touch, and flag it in your final message for the human.
+8. Run and confirm: python3 tools/verify_p2.py r1-records, r1-claims, r5-stale-prose, r5-chapter-stale, r5-claimsfile, r2-reconcile. Fix anything tracing to your own application work. If r3-applied now diverges because R2b legitimately supersedes an R3 value, do NOT edit verdicts.json to hide it — verdicts.json is the historical R3 record. Report the divergences instead.
+
+Final message: per era, the four applied pools with grades and lens counts, the residual, any unranked pairs, which pools improved to a sourced grade, the taxonomy question, and any r3-applied divergences.`,
   { label: 'reconcile:money-type', phase: 'Reconcile', agentType: 'general-purpose' }
 )
 

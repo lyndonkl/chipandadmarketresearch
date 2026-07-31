@@ -1,0 +1,644 @@
+{
+  "era": 1,
+  "era_name": "The Middlemen",
+  "metric": "US advertising spend by money type (national_brand / local_retail / classified / direct_response)",
+  "coverage_window": "1840s-1917",
+  "as_of": "2026-07-30",
+  "built_by": "source-hunt pass (no estimation performed; every number below is transcribed from a source read directly)",
+  "tolerance_pct": 15,
+  "schema_notes": [
+    "Shape is the one the invocation specified: era, sources_found, pools_sourceable, verdict, proxy_leads. Four extra top-level keys are added because the findings do not fit inside those five without hiding things: definitional_breaks (the seams between the taxonomies the sources actually use), cross_check_flags (divergences past the 15 percent tolerance), dead_ends (documented absences, which are findings), and proposed_claims (pure transcriptions offered to the era record, not estimates).",
+    "proposed_claims are PROPOSALS. They are not yet in p2-ad-market/data/eras/era-1.json. IDs continue the existing e1-{field}-{NNN} numbering and will collide if the era record is edited independently before they are merged.",
+    "'money type' is not a category any era-1 source uses. The period taxonomy is 'general' (= national), 'retail' or 'local', 'classified' or 'want', and 'mail order'. Every mapping from a source category to a money-type pool is an act of interpretation and is labelled as such in each entry."
+  ],
+
+  "sources_found": [
+    {
+      "id": "s01",
+      "name": "Printers' Ink, 'The following is our estimate of the amount of money spent through different advertising channels', 4 May 1911, vol. LXXV no. 5, p. 79",
+      "compiler": "Printers' Ink Publishing Company, New York (founded 1888 by George P. Rowell); editorial estimate, no method stated",
+      "published": "1911-05-04",
+      "measures": "advertiser money spent through twelve named advertising channels in the United States, one year, current dollars; grand total $616,000,000",
+      "coverage_years": [1911, 1911],
+      "in_window": true,
+      "transcribed_values_usd_millions": {
+        "newspaper_advertising_retail_and_general": 250,
+        "direct_mail_advertising_circulars_form_letters_etc": 100,
+        "magazine_advertising": 60,
+        "farm_and_mail_order_advertising": 75,
+        "novelty_advertising": 30,
+        "billposting": 30,
+        "outdoor_electric_sign_painted_sign_etc": 25,
+        "demonstration_and_sampling": 18,
+        "street_car_advertising": 10,
+        "house_organs_etc": 7,
+        "distributing": 6,
+        "theater_programme_curtain_and_miscellaneous": 5,
+        "grand_total": 616
+      },
+      "pools_it_can_populate": {
+        "national_brand": "partial - magazine 60, billposting 30, outdoor 25, street car 10, novelty 30 are predominantly (not exclusively) national money in 1911; the national half of the newspaper line is not separated",
+        "local_retail": "partial - the newspaper line is explicitly labelled 'retail and general' but is published as one number, $250m, with no split",
+        "classified": "NO - classified is not a line item and is not named anywhere in the twelve channels",
+        "direct_response": "yes, best in-window base found - direct mail 100, farm and mail-order 75, demonstration and sampling 18, distributing 6, house organs 7"
+      },
+      "access": "free; primary. Full run of Printers' Ink 1888-1917 scanned at Internet Archive, not lending-restricted. The table was read from the page image (leaf n78 = printed p. 79), not from OCR, because the microfilm OCR clips the left column.",
+      "url": "https://archive.org/details/sim_marketing-communications-1888_1911-05-04_75_5",
+      "independent_of_project_sources": "partially. Same publishing house as Historical Statistics series T 444 (whose source note reads 'Printers' Ink Publications, New York, 1867-1934'), so it is NOT provenance-independent of the project's benchmarks_pre1919 series. It IS method-independent: a contemporaneous 1911 editorial estimate versus a retrospective series prepared decades later by Robert J. Coen. The two disagree by 38-46 percent for adjacent years (see cross_check_flags cc01).",
+      "why_it_matters": "This is the only in-window, named-compiler, by-channel dollar breakdown of US advertising found anywhere in the hunt. It also settles a logged era-1 dead end: the uncited Duke figure of '$600 million spent on advertising by big business, 1910' matches this $616m tabulation and is therefore traceable after all (the accompanying '4 percent of national income' remains unsupported)."
+    },
+    {
+      "id": "s02",
+      "name": "Daniel Starch, 'Advertising: Its Principles, Practice, and Technique' (Scott, Foresman, 1914), pp. 7 and 91-92",
+      "compiler": "Daniel Starch, then the leading academic advertising researcher",
+      "published": "1914",
+      "measures": "p. 7: 'It has been estimated that nearly $700,000,000 are spent annually' for printed advertising in America, and 'about 2000 square miles of printed space are used each year'. pp. 91-92: reprints the Printers' Ink 4 May 1911 channel table in full, footnoted 'Printer's Ink, May 4, 1911, p. 78', and reads it as 'about 40 percent of all advertising is done in the newspapers, about 15 percent in farm and mail-order journals, and about 10 percent in magazines'.",
+      "coverage_years": [1911, 1914],
+      "in_window": true,
+      "pools_it_can_populate": {
+        "national_brand": "partial, via the magazine and outdoor lines it reprints",
+        "local_retail": "no",
+        "classified": "no",
+        "direct_response": "partial, via the direct mail and farm/mail-order lines it reprints"
+      },
+      "access": "free full text, Internet Archive (advertisingitspr00staruoft)",
+      "url": "https://archive.org/details/advertisingitspr00staruoft",
+      "independent_of_project_sources": "yes as a document; not as data, since its table is the Printers' Ink 1911 table (s01). Its own $700m 'printed advertising' figure is a separate statement and is a third total-spend lineage for the era, sitting 36-46 percent below the two lineages the project already carries.",
+      "why_it_matters": "Corroborates s01's transcription independently (Starch cites p. 78, the table sits on p. 79; the editorial begins on p. 78) and supplies the percentage reading a compiler gave its own table."
+    },
+    {
+      "id": "s03",
+      "name": "ANPA Bureau of Advertising, 'Expenditures of National Advertisers in Newspapers, 1915-1938', as tabulated in Neil H. Borden, 'The Economic Effects of Advertising' (Irwin, 1942), Appendix Table 1, p. 888",
+      "compiler": "Bureau of Advertising, American Newspaper Publishers' Association",
+      "published": "1939-1942 (series compiled from 1915)",
+      "measures": "newspaper advertising dollars split national versus local-including-classified. In-window values: 1915 national 55 / local 220; 1916 75 / 300; 1917 80 / 320",
+      "coverage_years": [1915, 1938],
+      "in_window": true,
+      "pools_it_can_populate": {
+        "national_brand": "yes, newspapers only, 1915-1917",
+        "local_retail": "only bundled with classified; never separated",
+        "classified": "no - it is inside the local line by construction",
+        "direct_response": "no"
+      },
+      "access": "the underlying ANPA publication was not located in any free or open repository and is not held digitally anywhere the hunt could reach; treat as library-held print. The numbers are free and machine-readable in Galbi's cs-ad-dataset.xls, sheet 'estimates 1900-34', columns 'newspapers national advertising' and 'newspapers local advertising (inc. classifieds)'.",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls",
+      "independent_of_project_sources": "no - already the basis of e1-buyers-005, e1-buyers-006, e1-scale-011 and e1-scale-012",
+      "why_it_matters": "Still the era's only two-way money split expressed in dollars. Re-inventoried to confirm nothing better exists and that the column header itself says 'inc. classifieds'."
+    },
+    {
+      "id": "s04",
+      "name": "William H. Field (Business Manager, Chicago Tribune), 'Business Management of a Newspaper', Bulletin of the University of Notre Dame (1916)",
+      "compiler": "the Chicago Tribune's own business manager, speaking about his own books",
+      "published": "1916",
+      "measures": "'The total volume of advertising printed in the Tribune is about equally divided between classified and display, although the former brings a much lower rate than the latter.' Also documents a daily commercial report covering all eight Chicago dailies, split display versus classified and by origin (Chicago / West / East), plus a monthly report naming every display advertiser and tabulating classified by roughly 380 classifications.",
+      "coverage_years": [1916, 1916],
+      "in_window": true,
+      "pools_it_can_populate": {
+        "national_brand": "indirectly - the origin split (Chicago vs West vs East) is a local-vs-out-of-town measurement",
+        "local_retail": "indirectly",
+        "classified": "yes, the only in-window quantitative statement on classified share found anywhere - but it is LINAGE at one newspaper, and the source itself warns the rate is much lower, so it is an upper bound on volume and says nothing directly about revenue",
+        "direct_response": "no"
+      },
+      "access": "free full text, Internet Archive (businessmanageme1916fiel)",
+      "url": "https://archive.org/details/businessmanageme1916fiel",
+      "independent_of_project_sources": "yes - not cited anywhere in the existing era-1 record or notes",
+      "why_it_matters": "Two findings. (1) The project's classified anchor is the 1928-1941 52-city linage band of 18-21 percent; the Tribune, the era's leading want-ad daily, was running near 50 percent of linage in 1916, which argues the pre-WWI classified share was NOT materially below the 1928 level and supports the R3 correction upward rather than a return to 12 percent. (2) A commercial service measuring display-versus-classified linage for a whole city existed in 1916, twelve years before Media Records' series begins. The compiler is not named in the text and was not identified."
+    },
+    {
+      "id": "s05",
+      "name": "Jason Rogers, 'Building Newspaper Advertising: Selling the By-Product of the Publisher's Business' (Harper, 1919), p. 319",
+      "compiler": "Jason Rogers, publisher of the New York Globe, quoting an unnamed national special representative",
+      "published": "1919 (statement describes practice c. 1917-1918)",
+      "measures": "'while the average volume of foreign or national advertising is about 30 per cent. of the total advertising lineage carried by a paper, it really represents about 50 per cent. of the net income'; and 'the average daily paper in cities from 30,000 to 200,000 has a rate which is accorded department stores, which is on an average of from 20 to 30 per cent. lower than the foreign or national rate'",
+      "coverage_years": [1917, 1919],
+      "in_window": "boundary - the practice described straddles 1917/1918",
+      "pools_it_can_populate": {
+        "national_brand": "yes, as a conflicting share estimate",
+        "local_retail": "yes, via the documented 20-30 percent retail rate discount",
+        "classified": "no",
+        "direct_response": "no"
+      },
+      "access": "free full text, Internet Archive; verified against a second independent scan of the same edition because the first OCR garbled the '50 per cent'",
+      "url": "https://archive.org/details/buildingnewspape00roge",
+      "independent_of_project_sources": "yes",
+      "why_it_matters": "It contradicts the ANPA split and must not be averaged with it. ANPA has national at 55/275 = 20 percent of newspaper dollars in 1915; this source has national at about 50 percent of net income on the average mid-size daily. The two are reconcilable only if ANPA's gross basis, its universe of papers, or the meaning of 'net income' differs - none of which is documented. The right treatment under the rigor spec is a widened interval citing both."
+    },
+    {
+      "id": "s06",
+      "name": "Harvard University Bureau of Business Research, Bulletin No. 1, 'Object and History of the Bureau, with Some Preliminary Figures on the Retailing of Shoes' (1913)",
+      "compiler": "Harvard Graduate School of Business Administration, Bureau of Business Research (founded 1911); first US systematic retail expense study",
+      "published": "1913",
+      "measures": "advertising expense as a percentage of net sales in retail shoe stores, standardised on the Harvard System of Accounts: range 0.0 to 8.8 percent, 'a tendency to centre about 2.0 percent', greatest concentration between 1 and 2 percent. Based on profit-and-loss statements from over 130 retail shoe stores.",
+      "coverage_years": [1912, 1913],
+      "in_window": true,
+      "pools_it_can_populate": {
+        "national_brand": "no",
+        "local_retail": "yes - the ratio side of a bottom-up retail build",
+        "classified": "no",
+        "direct_response": "no"
+      },
+      "access": "free full text, Internet Archive (objecthistoryofb00harvrich)",
+      "url": "https://archive.org/details/objecthistoryofb00harvrich",
+      "independent_of_project_sources": "yes",
+      "why_it_matters": "First in-window measured advertising-to-sales ratio for an American retail trade. With s07 it opens a local_retail path that does not run through ANPA at all."
+    },
+    {
+      "id": "s07",
+      "name": "Harvard University Bureau of Business Research, Bulletin No. 5, 'Expenses in Operating Retail Grocery Stores' (November 1915)",
+      "compiler": "Harvard Bureau of Business Research; study of the retail grocery trade begun June 1914",
+      "published": "1915-11",
+      "measures": "'Advertising Expense is small in the retail grocery trade, varying from practically nothing to 1.8%. The common figure is one-tenth of one per cent.' Excludes chain stores, department stores, mail-order houses and fancy grocers, which are stated to be separate classes.",
+      "coverage_years": [1914, 1915],
+      "in_window": true,
+      "pools_it_can_populate": {
+        "national_brand": "no",
+        "local_retail": "yes",
+        "classified": "no",
+        "direct_response": "no"
+      },
+      "access": "free full text, Internet Archive (expensesinoperat00harvrich)",
+      "url": "https://archive.org/details/expensesinoperat00harvrich",
+      "independent_of_project_sources": "yes",
+      "why_it_matters": "Shows the spread across trades is an order of magnitude (grocery 0.1 percent, shoes 2.0 percent), so any local_retail build must be trade-weighted, not a single blended ratio. Also flags that the department-store class - the largest local advertiser - is explicitly excluded here and has no in-window Harvard bulletin; the department-store series starts with Bulletin No. 33 covering 1921."
+    },
+    {
+      "id": "s08",
+      "name": "Alfred McClung Lee, 'The Daily Newspaper in America: The Evolution of a Social Instrument' (Macmillan, 1937), Appendix Table XXIX and pp. 170-172",
+      "compiler": "Alfred McClung Lee, from US Census data",
+      "published": "1937",
+      "measures": "value of products and sources of revenue in printing and publishing, 1849-1933, with newspaper-and-periodical revenue split into 'Subscriptions and Sales' versus 'Advertising'. Advertising receipts of newspapers and periodicals: 1879 $39,136 thousand (44.0 percent of revenue); 1889 $71,243 thousand (49.6 percent); rising to 56.7 percent in 1904 and 70.9 percent in 1929. For 1879 only, the daily-newspaper industry alone: advertising $21,488 thousand or 49.2 percent, subscriptions and sales $22,214 thousand, value of products $43,702 thousand.",
+      "coverage_years": [1849, 1933],
+      "in_window": true,
+      "pools_it_can_populate": {
+        "national_brand": "no",
+        "local_retail": "no",
+        "classified": "no",
+        "direct_response": "no"
+      },
+      "access": "free full text, Internet Archive (dailynewspaperin007602mbp)",
+      "url": "https://archive.org/details/dailynewspaperin007602mbp",
+      "independent_of_project_sources": "yes as a document; it is the same Census enumeration the project already uses for 1909/1914/1919, extended back to 1879",
+      "why_it_matters": "Pushes the era's only A-grade denominator back thirty years, to 1879 and 1889. It also supplies a primary-source replacement for e1-sellers-004, which currently rests on Pope (1983) cited at second hand for the 44 percent figure - Lee gives the same 44.0 percent straight from the Census. It does NOT split advertising by class in any year; Lee's own classified discussion is qualitative and 1920s-1930s."
+    },
+    {
+      "id": "s09",
+      "name": "Douglas Galbi, CS Ad Expenditure Dataset (cs-ad-dataset.xls), sheets 'categories', 'schemes' and 'estimates 1900-34'",
+      "compiler": "Douglas Galbi, digitising Robert J. Coen / McCann-Erickson",
+      "published": "2009 (v1.14 file last saved 2009-12-01)",
+      "measures": "machine-readable Coen series with an explicit category inventory: 'Newspapers | National' and 'Newspapers | Local' both run 1935-2007; 'Total National' and 'Total Local' both run 1935-2007; 'Newspapers | Newspapers' runs 1919-2007; 'Grand Total' runs 1919-2007. No category has a first year before 1919.",
+      "coverage_years": [1900, 2007],
+      "in_window": false,
+      "pools_it_can_populate": {
+        "national_brand": "no, not before 1935",
+        "local_retail": "no, not before 1935",
+        "classified": "no, ever - Coen has no classified category at all",
+        "direct_response": "no, direct mail starts 1935"
+      },
+      "access": "free download",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls",
+      "independent_of_project_sources": "no - already the project's transcription channel for Coen, Borden and Hower",
+      "why_it_matters": "Negative evidence, now documented from the compiler's own category table rather than inferred: the national/local partition in the canonical US series begins in 1935, eighteen years after this era ends, and classified never enters it."
+    },
+    {
+      "id": "s10",
+      "name": "Historical Statistics of the United States, Millennial Edition, table De516-522 'Newspaper advertising-linage for 52 cities: 1928-1970' (and the 1975 edition equivalent, series T 485-491)",
+      "compiler": "Media Records, Inc.",
+      "published": "2006 (Millennial), 1975 (Colonial Times to 1970)",
+      "measures": "newspaper linage for 52 cities: total, classified, and display broken into automotive, financial, general and retail",
+      "coverage_years": [1928, 1970],
+      "in_window": false,
+      "pools_it_can_populate": {
+        "national_brand": "post-window only, via display/general",
+        "local_retail": "post-window only, via display/retail",
+        "classified": "post-window only - this is the anchor e1-buyers-007 already back-projects from",
+        "direct_response": "no"
+      },
+      "access": "Millennial edition paywalled at Cambridge; the 1975 edition chapter T PDF is free from the Census Bureau. Media Records, Inc. filed its trademark for 'printed records, bulletins, and reports on business and advertising, published periodically' on 27 November 1928.",
+      "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe516-522.html",
+      "independent_of_project_sources": "no - already used",
+      "why_it_matters": "Checked specifically to see whether the Millennial edition's advertising table group (De482-537) carries a pre-1928 classified series. It does not: De516-522 has the identical 1928 start as the 1975 edition. The eleven-year gap between the end of the era and the start of the only classified series is structural, not an artefact of which edition you read."
+    },
+    {
+      "id": "s11",
+      "name": "Paul Terry Cherington, 'Advertising as a Business Force: A Compilation of Experience Records' (Doubleday for the Associated Advertising Clubs of America, 1913)",
+      "compiler": "Paul T. Cherington, Harvard; compiled from named firms' own accounts",
+      "published": "1913",
+      "measures": "firm-level advertising appropriations and experience records across trades; contains no national aggregate. Relevant qualitative testimony on money-type ordering: department stores' 'individual investments in their own advertising in any great city dwarf in amount the national appropriation of any three textile manufacturers'.",
+      "coverage_years": [1910, 1913],
+      "in_window": true,
+      "pools_it_can_populate": {
+        "national_brand": "firm-level appropriations only",
+        "local_retail": "qualitative ordering only",
+        "classified": "no",
+        "direct_response": "firm-level only"
+      },
+      "access": "free full text, Internet Archive (advertisingasbus00cher)",
+      "url": "https://archive.org/details/advertisingasbus00cher",
+      "independent_of_project_sources": "yes",
+      "why_it_matters": "Searched specifically for an aggregate and there is none. Its value is as period testimony that in a large city, retail money exceeded national money per advertiser - which is the qualitative shape the ANPA 1915 four-to-one ratio quantifies."
+    },
+    {
+      "id": "s12",
+      "name": "Crowell Publishing Company, 'National Markets and National Advertising' (1927; 1930)",
+      "compiler": "Crowell Publishing Company",
+      "published": "1927, 1930",
+      "measures": "total advertising expenditure of the top 75 advertisers in national magazines, annual series beginning 1919 ($13.7m in 1919)",
+      "coverage_years": [1919, 1930],
+      "in_window": false,
+      "pools_it_can_populate": {
+        "national_brand": "yes but the series starts two years after the era ends",
+        "local_retail": "no",
+        "classified": "no",
+        "direct_response": "no"
+      },
+      "access": "print, library-held; the derived series is free inside Galbi's cs-ad-dataset.xls",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls",
+      "independent_of_project_sources": "yes as a compiler; reached only through Galbi",
+      "why_it_matters": "The nearest thing to a named national-brand compiler, and it begins in 1919. Worth a follow-on check of whether the 1927 volume carries any back-series before 1919; the hunt could not open the volume."
+    },
+    {
+      "id": "s13",
+      "name": "Publishers' Information Bureau, 'National Advertising Records' (LC HF5801 .P87); PIB Class Totals; National Advertising Investments (LC HF5802 .N3)",
+      "compiler": "Publishers' Information Bureau / Leading National Advertisers",
+      "published": "1920s onward; PIB itself dates from 1945; National Advertising Investments 1947-1973",
+      "measures": "national advertising by class and by individual publication title, monthly with annual volumes",
+      "coverage_years": [1927, 1973],
+      "in_window": false,
+      "pools_it_can_populate": {
+        "national_brand": "yes, post-window only",
+        "local_retail": "no",
+        "classified": "no",
+        "direct_response": "no"
+      },
+      "access": "library-held print (Library of Congress); not digitised free",
+      "url": "https://guides.loc.gov/marketing-industry/industry-data/historical",
+      "independent_of_project_sources": "yes",
+      "why_it_matters": "The national-brand measurement institution exists but starts a decade after the era. Its earliest documented use in the literature is Agnew (1931) citing 'National Advertising Records' for 1927-1930 network radio."
+    },
+    {
+      "id": "s14",
+      "name": "Hugh E. Agnew, 'Advertising Media' (D. Van Nostrand, 1931)",
+      "compiler": "Hugh E. Agnew, New York University",
+      "published": "1931",
+      "measures": "media inventory and statistics, splitting advertising media into publications, direct advertising, signs, and radio; flagged by the Library of Congress as carrying 'useful statistical information and descriptions of industry resources that are difficult to find elsewhere'",
+      "coverage_years": [1920, 1931],
+      "in_window": false,
+      "pools_it_can_populate": {
+        "national_brand": "possible retrospective tables, unverified",
+        "local_retail": "possible, unverified",
+        "classified": "possible, unverified",
+        "direct_response": "possible, unverified - 'direct advertising' is one of his four classes"
+      },
+      "access": "digital copy at HathiTrust per the Library of Congress guide; not opened in this hunt",
+      "url": "https://guides.loc.gov/marketing-industry/industry-data/historical",
+      "independent_of_project_sources": "yes",
+      "why_it_matters": "The only pre-1935 media-statistics compendium the Library of Congress itself singles out. Unopened; listed so the next pass does not have to rediscover it."
+    },
+    {
+      "id": "s15",
+      "name": "1926 Encyclopaedia Britannica, 'Advertising'",
+      "compiler": "Britannica",
+      "published": "1926",
+      "measures": "direct-mail advertising about $300,000,000 in 1920",
+      "coverage_years": [1920, 1920],
+      "in_window": false,
+      "pools_it_can_populate": {
+        "national_brand": "no",
+        "local_retail": "no",
+        "classified": "no",
+        "direct_response": "yes - currently the sole basis of e1-buyers-008 and the back-cast in e1-scale-014"
+      },
+      "access": "free (Wikisource)",
+      "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising",
+      "independent_of_project_sources": "no - already used",
+      "why_it_matters": "Re-inventoried because s01 supersedes it as the primary direct-mail anchor: Printers' Ink gives $100m of direct mail in 1911 as a measured-in-period line, against which the $300m for 1920 is a plausible nine-year path through wartime inflation. The era no longer has to back-cast a 1920 number to reach 1914."
+    },
+    {
+      "id": "s16",
+      "name": "Direct Mail Advertising Association (founded 1917; first convention Chicago 1918, Homer Buckley first chairman)",
+      "compiler": "the direct-mail trade body",
+      "published": "1918 onward",
+      "measures": "trade-association proceedings; no expenditure series located for any year inside the window",
+      "coverage_years": [1918, 1918],
+      "in_window": false,
+      "pools_it_can_populate": {
+        "national_brand": "no",
+        "local_retail": "no",
+        "classified": "no",
+        "direct_response": "institutional context only"
+      },
+      "access": "not located digitally",
+      "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/businesses-and-occupations/direct-mail-advertising",
+      "independent_of_project_sources": "yes",
+      "why_it_matters": "Explains the shape of the record: the direct-mail pool acquires a trade body in the last year of the era, so its statistics necessarily begin after the window."
+    },
+    {
+      "id": "s17",
+      "name": "United States Post Office Department / USPS, mail volume by class of mail",
+      "compiler": "Post Office Department; USPS Historian",
+      "published": "annual",
+      "measures": "third-class mail (the class carrying circulars and advertising mail). The Act of 28 February 1925 first required the Postmaster General to account annually for revenues and costs by class; detailed annual estimates of mail volume by class exist only from 1926. Pre-1926 by-class volumes are periodic-weighing estimates, not a series. The project's existing datum (301 million third-class pieces in 1880 rising above 6 billion by 1930) is of this estimated kind.",
+      "coverage_years": [1926, 2025],
+      "in_window": false,
+      "pools_it_can_populate": {
+        "national_brand": "no",
+        "local_retail": "no",
+        "classified": "no",
+        "direct_response": "only as a volume proxy, and only on estimated pre-1926 readings"
+      },
+      "access": "free",
+      "url": "https://about.usps.com/who/profile/history/pdf/advertising-mail-history.pdf",
+      "independent_of_project_sources": "no - already used",
+      "why_it_matters": "Closes off what looked like the strongest government proxy for direct response. There is no annual pre-1926 third-class series to convert into dollars; the postal route to the direct_response pool is weaker than the Printers' Ink 1911 route."
+    },
+    {
+      "id": "s18",
+      "name": "Harold Barger, 'Distribution's Place in the American Economy since 1869' (NBER, 1955)",
+      "compiler": "National Bureau of Economic Research",
+      "published": "1955",
+      "measures": "retail and wholesale sales and distributive margins by year from 1869 - the denominator a bottom-up local_retail build needs. Advertising is not separated.",
+      "coverage_years": [1869, 1949],
+      "in_window": true,
+      "pools_it_can_populate": {
+        "national_brand": "no",
+        "local_retail": "denominator only, paired with s06 and s07 ratios",
+        "classified": "no",
+        "direct_response": "no"
+      },
+      "access": "free at NBER (books-and-chapters); page verified reachable",
+      "url": "https://www.nber.org/books-and-chapters/distributions-place-american-economy-1869",
+      "independent_of_project_sources": "yes",
+      "why_it_matters": "Supplies the missing half of the Harvard Bureau ratio path. Retail sales times a trade-weighted advertising ratio is a local_retail estimate that shares no input with ANPA."
+    },
+    {
+      "id": "s19",
+      "name": "Jason Rogers, 'Newspaper Building: Application of Efficiency to Editing, to Mechanical Production, to Circulation and Advertising' (Harper, 1918)",
+      "compiler": "Jason Rogers, publisher, New York Globe",
+      "published": "1918",
+      "measures": "publisher's chart of accounts carrying 'Expenses, Classified' as a distinct advertising sub-ledger; qualitative accounts of classified as the driver of circulation at the Chicago Daily News, New York World, Kansas City Star and Boston Globe; classified rate card at two cents per word",
+      "coverage_years": [1917, 1918],
+      "in_window": true,
+      "pools_it_can_populate": {
+        "national_brand": "no",
+        "local_retail": "no",
+        "classified": "structural evidence only - classified was separately accounted for inside newspapers, so the data existed at firm level even though no one aggregated it",
+        "direct_response": "no"
+      },
+      "access": "free full text, Internet Archive (newspaperbuildin00rogeuoft)",
+      "url": "https://archive.org/details/newspaperbuildin00rogeuoft",
+      "independent_of_project_sources": "yes",
+      "why_it_matters": "Establishes that the classified number existed in every daily's ledger in 1917-1918 and that no trade body was collecting it. The absence is an aggregation failure, not a bookkeeping one."
+    },
+    {
+      "id": "s20",
+      "name": "Library of Congress, 'Historical Marketing Industry Data' research guide (Marketing Industry: A Resource Guide)",
+      "compiler": "Library of Congress",
+      "published": "last updated 2026-07-14",
+      "measures": "the Library's own inventory of historical US advertising and marketing data sources",
+      "coverage_years": [1919, 2014],
+      "in_window": false,
+      "pools_it_can_populate": {
+        "national_brand": "no",
+        "local_retail": "no",
+        "classified": "no",
+        "direct_response": "no"
+      },
+      "access": "free (blocks generic fetchers; retrieved with a browser user-agent)",
+      "url": "https://guides.loc.gov/marketing-industry/industry-data/historical",
+      "independent_of_project_sources": "yes",
+      "why_it_matters": "Used as a completeness test on the hunt. The earliest item on the Library of Congress's own list of historical advertising data is Standard Rate and Data Service (from 1919, and it is rates, not spend); the earliest analytical compendium is Agnew (1931); Media Records, PIB, and National Advertising Investments are all later. Nothing on the list covers any year of this era."
+    }
+  ],
+
+  "pools_sourceable": {
+    "national_brand": "PARTIAL, from two in-window compilers, neither of which frames it as a money type. (1) ANPA Bureau of Advertising via Borden 1942 gives national newspaper dollars for 1915 ($55m), 1916 ($75m) and 1917 ($80m) - newspapers only. (2) Printers' Ink 4 May 1911 gives the channels that were overwhelmingly national in 1911: magazines $60m, billposting $30m, outdoor $25m, street car $10m, novelty $30m - but publishes the newspaper line as a single 'retail and general' $250m and never splits it. No source anywhere states national advertising as a share of TOTAL US advertising for any year in the window. A conflicting period ratio exists and must be carried, not averaged: Rogers 1919 p.319 puts national at about 30 percent of a typical daily's linage and about 50 percent of its net income, against ANPA's 20 percent of newspaper dollars.",
+    "local_retail": "PARTIAL and never separated from classified by any compiler. The only in-window dollar figure is ANPA's local line, which its own column header says includes classified ($220m in 1915, $300m in 1916, $320m in 1917). Printers' Ink 1911 names 'retail' as a category in its newspaper line label but publishes no split. A second, wholly independent path was found and is new to the project: measured advertising-to-net-sales ratios by trade from the Harvard Bureau of Business Research - retail shoes 1913 (0.0 to 8.8 percent, centring about 2.0 percent, over 130 stores) and retail groceries 1915 (0 to 1.8 percent, common 0.1 percent, study begun June 1914) - applied to retail sales from Barger (NBER 1955). Caution recorded at source: the Harvard grocery bulletin explicitly excludes department stores, chains and mail-order houses, and no in-window Harvard department-store bulletin exists (that series starts with 1921 data).",
+    "classified": "NO SOURCE FOUND. No compiler published a classified dollar figure, a classified share, or a classified linage series for any year in 1840s-1917. What was tried: US Census of Manufactures printing and publishing bulletins (advertising receipts are enumerated but never split by class of advertising, in any census year from 1879 through 1919 - confirmed for 1879-1933 through Lee 1937 Table XXIX as well as the 1919 bulletin the project already reads); Historical Statistics 1975 series T 485-491 and Millennial Edition De516-522 (both start 1928, both sourced to Media Records, Inc., whose trademark was filed November 1928); Coen via Galbi's category table (no classified category ever, and no national/local partition before 1935); the Association of Newspaper Classified Advertising Managers (founded 1920, three years after the era ends); Publishers' Information Bureau (1945); Standard Rate and Data Service (1919, and it publishes rates not spend); the Library of Congress's own historical-marketing-data inventory (nothing pre-1919); Printers' Ink's 4 May 1911 channel table (classified is not one of the twelve channels and appears to be outside the $616m total); Lee 1937 (classified discussion is qualitative and 1920s-1930s); NAA (1950 onward, already the project's only classified compiler). The best in-window evidence found is firm-level and is about LINAGE, not revenue: William H. Field, business manager of the Chicago Tribune, wrote in 1916 that the Tribune's total advertising volume was 'about equally divided between classified and display, although the former brings a much lower rate'. A city-wide display-versus-classified linage report for all eight Chicago dailies also existed in 1916; its compiler is unnamed in the source and was not identified.",
+    "direct_response": "PARTIAL, and materially better sourced than before. Printers' Ink 4 May 1911 publishes, in window, the component channels: direct mail (circulars, form letters, etc.) $100m, farm and mail-order advertising $75m, demonstration and sampling $18m, distributing $6m, house organs $7m. That replaces the project's current back-cast from the 1926 Britannica's $300m for 1920 with a contemporaneous measurement point. Two definitional cautions are unavoidable and are recorded rather than resolved: no source uses the term 'direct response', so assigning these channels to that pool is the analyst's interpretation; and the $75m 'farm and mail-order advertising' line does not say how much is space bought in farm and mail-order journals versus advertising placed by mail-order houses, which matters because the first is a medium and the second is a money type. Cross-check on the ambiguity: interpolated Census 'other periodicals' advertising receipts for 1911 are about $57m, so magazines plus farm plus mail-order at $135m in the Printers' Ink table cannot all be periodical space."
+  },
+
+  "verdict": "No compiler - trade body, government agency, academic, or commercial service - has ever published the national_brand / local_retail / classified / direct_response split of US advertising spend for any year between the 1840s and 1917, and the hunt found no evidence that one ever tried. Three things exist instead, and all three are now in hand. First, one two-way dollar split: ANPA's national versus local-including-classified for newspapers only, 1915-1918, which the project already uses. Second, and new: one in-window by-CHANNEL dollar table from a named compiler - Printers' Ink, 4 May 1911, twelve channels summing to $616,000,000 - which is the single most useful find of this hunt, because it gives direct mail, farm and mail-order, magazines, outdoor, billposting, street car, novelty, sampling and distributing as separately measured lines in the middle of the window. Its newspaper line is labelled 'retail and general', which is the period's own name for the local/national money-type distinction, and it names no classified line at all. Third, and also new: firm- and trade-level ratios that let two pools be built from the bottom without touching ANPA - the Chicago Tribune's 1916 classified-versus-display linage split, and the Harvard Bureau of Business Research's measured advertising-to-sales ratios for shoe and grocery retailing in 1913 and 1915. What must still be estimated: all four pool shares as fractions of total outlay, because no source expresses any of them that way; the split of the $250m 1911 newspaper line between retail and general; the split of ANPA's local line between retail and classified; and the entire classified pool, which has no in-window aggregate of any kind. The 34 percent residual in the current era-1 record is therefore not a research failure that a better source would fix. It is a real property of the evidence, and the honest response is to re-base the four pools on the Printers' Ink 1911 channel table, carry an explicit unallocated line, and label the classified figure as constructed from a firm-level linage observation and a post-window series. One further caution the hunt turned up: the Printers' Ink 1911 total of $616m is 38 to 46 percent below the retrospective Printers' Ink / Coen benchmarks for adjacent years, so the era's total-spend denominator is even less settled than the two lineages the record already carries.",
+
+  "definitional_breaks": [
+    {
+      "id": "db01",
+      "year": 1911,
+      "what_differs": "Printers' Ink's own contemporaneous taxonomy has no classified line. Its newspaper category is 'Newspaper advertising (retail and general)', which enumerates exactly two of the four money types and omits the third.",
+      "why_it_matters": "If classified sits outside the $616m, the table understates newspaper money by whatever classified was. If it sits silently inside the $250m, the label is wrong. The source does not say which, and no way to decide was found.",
+      "measured_level_shift": "unquantified - this is the classified gap itself"
+    },
+    {
+      "id": "db02",
+      "year": 1915,
+      "what_differs": "ANPA's 'local' is local-including-classified; Printers' Ink's 'retail' is retail alone; Coen's 'Local' (from 1935) is a different construct again and never has a classified sibling.",
+      "why_it_matters": "Three compilers use the word local/retail for three different objects across the era boundary. Any chart line running from 1911 through 1915 to 1935 crosses two undocumented redefinitions.",
+      "measured_level_shift": "not measurable - the overlap years needed to size it do not exist"
+    },
+    {
+      "id": "db03",
+      "year": 1911,
+      "what_differs": "'Farm and mail-order advertising' ($75m) is a hybrid: 'farm' names a medium, 'mail-order' names a buying logic. The two cannot be separated from the published line.",
+      "why_it_matters": "It is the largest single ambiguity in the direct_response pool. Assigning all $75m to direct response overstates it; assigning none understates it.",
+      "measured_level_shift": "$0m to $75m, i.e. up to 12 percent of the entire Printers' Ink total"
+    },
+    {
+      "id": "db04",
+      "year": 1917,
+      "what_differs": "ANPA measures national as a share of newspaper GROSS dollars (20 percent in 1915). Rogers's special representative measures it as a share of a paper's NET INCOME (about 50 percent) and of LINAGE (about 30 percent).",
+      "why_it_matters": "Three different denominators, all called 'national's share'. The rigor spec forbids averaging them.",
+      "measured_level_shift": "20 vs 30 vs 50 percent depending on basis"
+    },
+    {
+      "id": "db05",
+      "year": 1916,
+      "what_differs": "Classified share measured in linage at one metropolitan daily (about 50 percent, Chicago Tribune) versus measured in linage across 52 cities twelve years later (18-21 percent, Media Records) versus measured in revenue (never).",
+      "why_it_matters": "The project's classified estimate back-projects a 52-city 1928 linage band. The one in-window observation available is roughly 2.5 times that band, at a paper that led the country in want ads, and on a lower rate base. Both bounds move.",
+      "measured_level_shift": "about 50 percent of linage (1 paper, 1916) vs 18-21 percent of linage (52 cities, 1928-1941)"
+    }
+  ],
+
+  "cross_check_flags": [
+    {
+      "id": "cc01",
+      "test": "Printers' Ink 1911 contemporaneous grand total against the retrospective Printers' Ink / Coen benchmarks the project carries",
+      "computation": "616 / 1142 = 0.539, i.e. 46.1 percent below Historical Statistics series T 444 for 1909; 616 / 1000 = 0.616, i.e. 38.4 percent below Coen 1999 for 1909; 616 / 1302 = 0.473 against T 444 for 1914; 616 / 1100 = 0.560 against Coen 1999 for 1914",
+      "tolerance_pct": 15,
+      "flag": "BREACH - the divergence is 2.5 to 3.5 times the tolerance",
+      "reading": "The same publishing house's contemporaneous estimate and its later retrospective series differ by roughly a factor of two. Either the retrospective series is on a broader basis (the T 444 source note does say it includes cost of preparation) or the 1911 editorial estimate is narrow. Both are credible and named, so both are carried and the interval widens; neither is averaged away."
+    },
+    {
+      "id": "cc02",
+      "test": "Printers' Ink 1911 newspaper line against the Census of Manufactures newspaper advertising receipts, using the project's documented Coen-to-Census wedge",
+      "computation": "Census newspaper advertising receipts: 1909 $148.551m, 1914 $184.147m. Linear interpolation to 1911: 148.551 + (184.147 - 148.551) * (2/5) = 148.551 + 14.238 = $162.789m. Printers' Ink newspaper line 250 / 162.789 = 1.536. Galbi's documented Coen-to-Census scaling factor is 1.51870771642571. Difference: (1.536 - 1.519) / 1.519 = 1.1 percent.",
+      "tolerance_pct": 15,
+      "flag": "PASS - and a strong one",
+      "reading": "At the medium level the Printers' Ink 1911 table reproduces the receipts-to-outlay wedge the project already documents, to about one percent. That raises confidence in its individual channel lines even while its grand total fails cc01, and it is the reason the direct mail line is worth using."
+    },
+    {
+      "id": "cc03",
+      "test": "Printers' Ink 1911 periodical lines against Census 'other periodicals' advertising receipts",
+      "computation": "Census other-periodicals advertising receipts: 1909 $53.879m, 1914 $71.586m; interpolated to 1911 = 53.879 + (71.586 - 53.879) * (2/5) = $60.962m; times the 1.519 wedge = $92.6m of outlay. Printers' Ink magazines $60m + farm and mail-order $75m = $135m, which is 1.46 times that.",
+      "tolerance_pct": 15,
+      "flag": "BREACH - 46 percent above",
+      "reading": "Confirms db03: the 'farm and mail-order' line cannot be periodical space alone. Roughly $40-45m of it is something other than magazine, farm, trade and business paper advertising receipts - most plausibly mail-order houses' own outlay. This is evidence FOR reading part of that line as direct-response money, but it is inference, not what the source says."
+    },
+    {
+      "id": "cc04",
+      "test": "Is there any independent aggregate - tax-based, census-based or national-accounts - against which an era-1 money-type split could be validated?",
+      "computation": "n/a",
+      "flag": "NONE EXISTS",
+      "reading": "Federal corporate income tax begins 1913 and IRS Statistics of Income does not break out an advertising deduction for these years (the project's irs_soi series starts 1960). The Census of Manufactures enumerates publisher receipts, not advertiser outlay, and never by class of advertising. National accounts begin 1929. There is no independent aggregate for any money-type pool in this era, and the record should say so plainly rather than implying one was checked."
+    }
+  ],
+
+  "dead_ends": [
+    {"what": "Association of Newspaper Classified Advertising Managers", "result": "founded 1920, three years after the era closes; its Classified Journal and convention proceedings cannot cover the window", "url": "https://archiveswest.orbiscascade.org/ark:80444/xv78689"},
+    {"what": "Publishers Information Bureau as a pre-1919 national-brand source", "result": "PIB dates from 1945; its predecessor National Advertising Records is first documented in use for 1927-1930", "url": "https://guides.loc.gov/marketing-industry/industry-data/historical"},
+    {"what": "Media Records, Inc. as a pre-1928 linage source", "result": "trademark filed 27 November 1928; both HSUS editions start the 52-city series at 1928; Lee 1937 cites it for 87 and 196 cities in the 1930s. No pre-1928 Media Records data found.", "url": "https://trademarks.justia.com/owners/media-records-inc-11991"},
+    {"what": "Daniel Pope, 'The Development of National Advertising, 1865-1920' (Columbia PhD 1973), dissertation summary in Journal of Economic History 34:1 (1974) pp. 294-296", "result": "paywalled at Cambridge, no abstract published, access listed as temporarily unavailable; could not confirm whether it quantifies national advertising's share. The book version (Basic Books 1983) is lending-restricted at the Internet Archive.", "url": "https://www.cambridge.org/core/journals/journal-of-economic-history/article/abs/development-of-national-advertising-18651920/EBFEA9F6777B4FF7D49A6BFDB77A034C"},
+    {"what": "Historical Statistics Millennial Edition advertising table group De482-537", "result": "paywalled; the one table in it that would matter, De516-522, was reachable and is the identical 1928-1970 52-city linage table already used", "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe516-522.html"},
+    {"what": "Census of Manufactures 1929 (Fifteenth Census, Manufactures vol. III)", "result": "downloaded and searched; contains no split of newspaper advertising receipts into display and classified. The only 'advertising' entries are the 'signs and advertising novelties' industry.", "url": "https://archive.org/details/fifteenthcensuso03unit"},
+    {"what": "Post Office Department third-class mail as a direct-response dollar proxy", "result": "annual mail volume by class exists only from 1926, under the Act of 28 February 1925; pre-1926 figures are periodic-weighing estimates and there is no revenue-by-class series", "url": "https://about.usps.com/who/profile/history/rates-historical-statistics.htm"},
+    {"what": "Tipper, Hollingworth, Hotchkiss and Parsons, 'Advertising: Its Principles and Practice' (1919 printing)", "result": "read; contains no aggregate expenditure table, unlike Starch 1914", "url": "https://archive.org/details/advertisingitspr00tippuoft"},
+    {"what": "Paul T. Cherington, 'Advertising as a Business Force' (1913)", "result": "read; firm-level experience records only, no national aggregate and no money-type split", "url": "https://archive.org/details/advertisingasbus00cher"},
+    {"what": "N. W. Ayer's own books (Hower 1939) for a client-side money-type split", "result": "not pursued further; the project already established that only the gross-receipts table reached the open literature via Galbi. Hower's Table 15 gives billings, not money type.", "url": "https://www.galbithink.org/cs-ad-dataset.xls"},
+    {"what": "ANPA Bureau of Advertising, 'Expenditures of National Advertisers in Newspapers, 1915-1938' as a primary document", "result": "no free or open digital copy located; the series is reachable only at second hand through Borden 1942 and third hand through Galbi. Borden 1942 itself was not found in any free full-text repository.", "url": "https://www.galbithink.org/cs-ad-dataset.xls"}
+  ],
+
+  "proxy_leads": [
+    {
+      "id": "pl01",
+      "pool": "classified",
+      "lead": "Bound classified from below and above with the two linage observations rather than from the 1928 band alone: Chicago Tribune 1916 at about 50 percent of linage at the country's leading want-ad daily (Field 1916), and the 52-city 1928-1941 band at 18-21 percent (Media Records). Convert linage share to revenue share with the rate differential the same sources describe - Field says classified 'brings a much lower rate', Rogers 1918 prints a two-cents-per-word classified rate, and Rogers 1919 documents a 20-30 percent retail-versus-national rate gap.",
+      "what_it_would_populate": "the classified pool's interval, currently 7-21 percent of newspaper receipts",
+      "status": "sources in hand, arithmetic not performed (source hunt only)"
+    },
+    {
+      "id": "pl02",
+      "pool": "local_retail",
+      "lead": "Bottom-up build that never touches ANPA: trade-weighted advertising-to-net-sales ratios from the Harvard Bureau of Business Research (shoes 1913 about 2.0 percent, groceries 1915 about 0.1 percent) applied to retail sales by trade from Barger (NBER 1955). Needs a department-store ratio, which has no in-window Harvard bulletin - the nearest is Bulletin No. 33 covering 1921, and Scott and Walker's Journal of Economic History work on interwar department-store advertising.",
+      "what_it_would_populate": "an independent local_retail level to cross-check the ANPA-derived one",
+      "status": "both halves located and free; department-store ratio still missing for the window"
+    },
+    {
+      "id": "pl03",
+      "pool": "direct_response",
+      "lead": "Re-base the pool on the Printers' Ink 1911 lines (direct mail 100, demonstration and sampling 18, distributing 6, house organs 7, plus a stated fraction of farm and mail-order 75) instead of back-casting the 1920 Britannica $300m. Use cc03's arithmetic - Census other-periodicals receipts interpolated to 1911 and scaled by the documented 1.519 wedge - to bound how much of the $75m cannot be periodical space.",
+      "what_it_would_populate": "direct_response, with an in-window rather than back-cast base",
+      "status": "ready; the interval must stay wide because 'direct response' is the analyst's category, not the source's"
+    },
+    {
+      "id": "pl04",
+      "pool": "national_brand",
+      "lead": "Two conflicting national shares must both be carried: ANPA at 20 percent of newspaper dollars (1915) and Rogers's special representative at about 30 percent of linage / 50 percent of net income on the average daily in cities of 30,000-200,000 (1917-18). The rigor spec's rule applies - widen and cite both rather than pick.",
+      "what_it_would_populate": "the national_brand interval, currently 11-23 percent of total outlay",
+      "status": "ready"
+    },
+    {
+      "id": "pl05",
+      "pool": "all four",
+      "lead": "Search the free Printers' Ink run at the Internet Archive (weekly, 1888 through the window, not lending-restricted) for later editions of the 4 May 1911 channel table. A journal that published such an estimate once probably updated it; a 1914 or 1916 edition would put a by-channel table on the era's own benchmark years and might add a classified line.",
+      "what_it_would_populate": "potentially all four pools, in window",
+      "status": "highest-value unexplored lead in the hunt. Note that Internet Archive full-text search over this collection did not return the 1911 table by phrase, so the 1911 issue was found by working back from Starch's footnote; a follow-on pass should walk issues by date rather than rely on search."
+    },
+    {
+      "id": "pl06",
+      "pool": "classified, local_retail, national_brand",
+      "lead": "Identify the compiler of the 1916 Chicago daily linage report Field describes (all eight Chicago papers, split display versus classified and by origin Chicago / West / East, with a monthly report tabulating classified under about 380 classifications). If that service's reports survive, they are an in-window, city-level, three-way money-type measurement twelve years earlier than Media Records.",
+      "what_it_would_populate": "all three newspaper-side pools, at city level, in window",
+      "status": "compiler unnamed in the source; not identified in this hunt"
+    },
+    {
+      "id": "pl07",
+      "pool": "national_brand",
+      "lead": "Open Crowell Publishing's 'National Markets and National Advertising' (1927 and 1930 editions) to see whether the top-75-national-magazine-advertiser series carries any years before its 1919 start, and Agnew's 'Advertising Media' (1931, HathiTrust) for retrospective tables the Library of Congress says are hard to find elsewhere.",
+      "what_it_would_populate": "national_brand, possibly extending a named series backward into the window",
+      "status": "both located, neither opened"
+    },
+    {
+      "id": "pl08",
+      "pool": "denominator for every pool",
+      "lead": "Lee 1937 Table XXIX extends Census newspaper-and-periodical advertising receipts back to 1879 ($39.1m, 44.0 percent of revenue) and 1889 ($71.2m, 49.6 percent), with a daily-only split for 1879. The era's A-grade spine can run from 1879 rather than starting at 1909.",
+      "what_it_would_populate": "the denominator and the SELLERS field; also replaces the second-hand Pope citation behind e1-sellers-004 with the primary Census figure",
+      "status": "transcribed, free, ready to use"
+    }
+  ],
+
+  "proposed_claims": [
+    {
+      "id": "e1-scale-015",
+      "statement": "Printers' Ink, in its issue of 4 May 1911, published its own estimate of US advertising money by channel totalling $616,000,000: newspaper advertising (retail and general) $250m, direct mail (circulars, form letters, etc.) $100m, farm and mail-order $75m, magazines $60m, novelty $30m, billposting $30m, outdoor electric and painted signs $25m, demonstration and sampling $18m, street car $10m, house organs $7m, distributing $6m, theatre programme, curtain and miscellaneous $5m. Classified advertising is not a line in this table. The same house's later retrospective series, carried into Historical Statistics as series T 444, puts 1909 at $1,142m and 1914 at $1,302m, so the contemporaneous estimate is 38 to 46 percent below the retrospective one for adjacent years; both are carried and neither is averaged.",
+      "central": 616,
+      "unit": "USD millions (current)",
+      "ci80": [616, 616],
+      "grade": "A",
+      "sources": [
+        {"name": "Printers' Ink, 4 May 1911, vol. LXXV no. 5, p. 79 (page image read directly; the editorial begins p. 78, which is the page Starch cites)", "url": "https://archive.org/details/sim_marketing-communications-1888_1911-05-04_75_5"},
+        {"name": "Daniel Starch, 'Advertising: Its Principles, Practice, and Technique' (1914), pp. 91-92, reprinting the same table with the footnote 'Printer's Ink, May 4, 1911, p. 78'", "url": "https://archive.org/details/advertisingitspr00staruoft"}
+      ],
+      "as_of": "1911-05-04",
+      "note": "Grade A is for the transcription (an exactly quoted published table read from the page image), not for the estimate's accuracy. The estimate itself carries no stated method."
+    },
+    {
+      "id": "e1-scale-016",
+      "statement": "Daniel Starch wrote in 1914 that 'it has been estimated that nearly $700,000,000 are spent annually' on printed advertising in America, covering about 2,000 square miles of printed space a year. This is a third total-spend lineage for the era, sitting 36 to 46 percent below the two the record already carries for 1914 ($1,100m Coen 1999, $1,302m series T 444), and it is restricted to printed advertising.",
+      "central": 700,
+      "unit": "USD millions (current), printed advertising only",
+      "ci80": [616, 750],
+      "grade": "B",
+      "method": "Transcribed statement, not a computation. The interval's lower bound is the Printers' Ink 1911 grand total of $616m that Starch reprints eighty pages later in the same book, which is the only figure he gives that could support the 'nearly $700,000,000'; the upper bound allows for the three years between the 1911 tabulation and the 1914 book.",
+      "sources": [{"name": "Daniel Starch, 'Advertising: Its Principles, Practice, and Technique' (Scott, Foresman, 1914), p. 7", "url": "https://archive.org/details/advertisingitspr00staruoft"}],
+      "as_of": "1914"
+    },
+    {
+      "id": "e1-buyers-009",
+      "statement": "The business manager of the Chicago Tribune wrote in 1916 that the paper's total volume of advertising printed was 'about equally divided between classified and display, although the former brings a much lower rate than the latter'. This is the only in-window quantitative statement on classified share found in the hunt. It is linage at one newspaper, and the Tribune led the country in want-ad volume, so it bounds volume from above and says nothing directly about revenue.",
+      "central": 50,
+      "unit": "percent of one newspaper's advertising linage, 1916",
+      "ci80": [40, 55],
+      "grade": "B",
+      "method": "Direct quotation from the newspaper's own business manager about his own accounts. The interval reflects that 'about equally divided' is a rounded verbal statement, not a measurement, and that the speaker had an interest in the Tribune's standing. It is NOT a national figure and must not be used as one.",
+      "sources": [{"name": "William H. Field, 'Business Management of a Newspaper', Bulletin of the University of Notre Dame (1916), p. 8", "url": "https://archive.org/details/businessmanageme1916fiel"}],
+      "as_of": "1916"
+    },
+    {
+      "id": "e1-buyers-010",
+      "statement": "A national special representative quoted by publisher Jason Rogers in 1919 put national ('foreign') advertising at about 30 percent of the total advertising linage carried by the average daily paper but about 50 percent of its net income, and recorded that in cities of 30,000 to 200,000 the department-store rate ran 20 to 30 percent below the national rate. These figures conflict with the ANPA Bureau of Advertising split, which has national at $55m against $220m local in 1915, or 20 percent of newspaper dollars. Both are carried.",
+      "central": 30,
+      "unit": "percent of a typical daily's advertising linage attributable to national advertisers",
+      "ci80": [20, 50],
+      "grade": "B",
+      "method": "Transcribed period testimony, verified against a second independent scan of the same edition because the first OCR garbled the 50 percent. The interval spans the ANPA gross-dollar reading (20 percent) and this source's net-income reading (50 percent) precisely because the rigor spec forbids averaging conflicting credible sources; the central is this source's linage figure, which is the one measured on the same basis as the era's other linage evidence.",
+      "sources": [
+        {"name": "Jason Rogers, 'Building Newspaper Advertising' (Harper, 1919), p. 319", "url": "https://archive.org/details/buildingnewspape00roge"},
+        {"name": "Borden (1942) App. Table 1 p. 888 (ANPA Bureau of Advertising national vs local), via Galbi's CS Ad Expenditure Dataset", "url": "https://www.galbithink.org/cs-ad-dataset.xls"}
+      ],
+      "as_of": "1918"
+    },
+    {
+      "id": "e1-sellers-007",
+      "statement": "US Census enumeration, as tabulated by Alfred McClung Lee, puts advertising at 44.0 percent of newspaper and periodical revenue in 1879 ($39,136 thousand of advertising against $49,873 thousand of subscriptions and sales) and 49.6 percent in 1889 ($71,243 thousand against $72,343 thousand). For the daily-newspaper industry alone, reported only in the 1879 census, advertising was $21,488 thousand or 49.2 percent of a value of products of $43,702 thousand.",
+      "central": 44.0,
+      "unit": "percent of newspaper and periodical revenue from advertising, 1879",
+      "ci80": [44.0, 44.0],
+      "grade": "A",
+      "sources": [{"name": "Alfred McClung Lee, 'The Daily Newspaper in America' (Macmillan, 1937), Appendix Table XXIX and pp. 170-172, from US Census data", "url": "https://archive.org/details/dailynewspaperin007602mbp"}],
+      "as_of": "1879",
+      "note": "Supersedes the second-hand route behind the existing e1-sellers-004, which cites Pope (1983) via Horsky and Zeithammer for the same 44 percent. The primary Census figure and the dollar amounts behind it are now in hand, and the series extends to 1889 and 1904."
+    },
+    {
+      "id": "e1-buyers-011",
+      "statement": "Measured advertising expense as a percentage of net sales in American retail trades, from the first systematic US retail expense studies: retail shoe stores in 1913 ranged from 0.0 to 8.8 percent with a tendency to centre about 2.0 percent and greatest concentration between 1 and 2 percent (over 130 stores); retail grocery stores in the study begun June 1914 ranged from practically nothing to 1.8 percent with a common figure of one-tenth of one percent. The grocery study explicitly excludes chain stores, department stores, mail-order houses and fancy grocers.",
+      "central": 2.0,
+      "unit": "percent of net sales spent on advertising, retail shoe stores 1913",
+      "ci80": [0.1, 2.0],
+      "grade": "A",
+      "sources": [
+        {"name": "Harvard University Bureau of Business Research, Bulletin No. 1, 'Object and History of the Bureau, with Some Preliminary Figures on the Retailing of Shoes' (1913)", "url": "https://archive.org/details/objecthistoryofb00harvrich"},
+        {"name": "Harvard University Bureau of Business Research, Bulletin No. 5, 'Expenses in Operating Retail Grocery Stores' (November 1915)", "url": "https://archive.org/details/expensesinoperat00harvrich"}
+      ],
+      "as_of": "1914",
+      "note": "The interval deliberately spans the two trades rather than describing one, because the finding is the spread: an order of magnitude between trades means no single blended retail ratio is defensible."
+    }
+  ]
+}

@@ -1,0 +1,1240 @@
+{
+  "artifact": "p2-ad-market/data/moneytype/reconciled.json",
+  "stage": "R2b",
+  "produced": "2026-07-30",
+  "purpose": "Audit trail for the money-type re-research. For eras 1, 5 and 7 it records, per pool: whether a source populates it or not, every estimation lens's central, the aggregation rule and the median it produced, the published interval and where its width comes from, the applied claim ID, and the grade. It also records each era's residual, the pairs the evidence cannot rank, every grade change, and the taxonomy question that is still open. Eras 2, 3, 4 and 6 were not re-researched at this stage and are untouched.",
+  "aggregation_rule": "Headline is the plain median of the lens centrals. No extremizing anywhere: within each era the lenses share one evidence digest, so they are not informationally independent and extremizing can push the aggregate outside the panel (PROCESS.md rigor standard). Published interval = min lower bound to max upper bound across the lenses. No lens was discounted in any era. Routes sharing a common input were collapsed to one route before any weighting.",
+  "claim_id_policy": "The four by_money_type claims in SCALE and BUYERS keep their existing IDs in all three eras; only their values, statements, methods, sources and (era 7 local retail) grades changed. Each era's residual was added as a new SCALE claim. Era 1's residual took e1-scale-017 rather than e1-scale-015, because the era-1 source hunt has six unmerged pure transcriptions queued at e1-scale-015, e1-scale-016, e1-buyers-009, e1-buyers-010, e1-buyers-011 and e1-sellers-007; 015 and 016 are reserved for them. Era 5's residual took e5-scale-014 and era 7's took e7-scale-010, both the next free ID in their era.",
+  "eras": [
+    {
+      "era": 1,
+      "era_name": "The Middlemen",
+      "window": "1840s-1917",
+      "anchor_year": 1914,
+      "lenses_used": 3,
+      "lenses": [
+        "structural-proxy",
+        "reference-class",
+        "decomposition"
+      ],
+      "provisional": false,
+      "observed_total": {
+        "value": 1200,
+        "unit": "USD millions (current)",
+        "year": 1914,
+        "ci80": [
+          990,
+          1450
+        ],
+        "grade": "C",
+        "source_of_record": "p2-ad-market/data/adspend.json, series benchmarks_pre1919, point year=1914, medium=total",
+        "method": "midpoint of the two surviving vintages for this benchmark year: Printers' Ink / HSUS T 444 = $1,302m and Coen 1999 = $1,100m",
+        "note": "This is the denominator all four pools are forced to reconcile against. It is NOT an observation: it is a constructed midpoint of two retrospective reconstructions that disagree by 18 percent, and the only contemporaneous tabulation in the window (Printers' Ink 4 May 1911, $616m, rebased to $697m for 1914) runs 42 percent below it."
+      },
+      "pools": [
+        {
+          "pool": "national_brand",
+          "claim_id": "e1-scale-011",
+          "buyers_claim_id": "e1-buyers-005",
+          "source_verdict": "NO SOURCE. No compiler in or out of the window states national advertising as a share of total US advertising for any year 1840s-1917. Three sourced inputs each cover only part of the pool: ANPA national newspaper dollars for 1915 (third-hand via Borden via Galbi), Census of Manufactures 1914 other-periodicals receipts $71.586m (grade A, but receipts not outlay and never split by class of advertiser), and the Printers' Ink 4 May 1911 channel lines (grade B, contemporaneous, but MEDIA not money types).",
+          "lens_centrals": {
+            "structural-proxy": 36.1,
+            "reference-class": 22,
+            "decomposition": 17.0
+          },
+          "median": 22.0,
+          "published_central": 22.0,
+          "unit": "percent of total US advertising outlay, 1914 benchmark ($1,200m)",
+          "central_usd_m": 264,
+          "ci80": [
+            11,
+            46
+          ],
+          "ci80_usd_m": [
+            132,
+            552
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 5,
+          "interval_source": "min lower to max upper across the three lenses; the width is denominator-treatment disagreement, not measurement disagreement",
+          "lenses_contributing": 3,
+          "buyers_claim_grade": "B"
+        },
+        {
+          "pool": "local_retail",
+          "claim_id": "e1-scale-012",
+          "buyers_claim_id": "e1-buyers-006",
+          "source_verdict": "NO SOURCE for the pool. The only in-window dollar figure is ANPA's newspaper local line, whose own column header says it INCLUDES classified ($220m in 1915); no compiler has ever separated the two. The Harvard Bureau of Business Research's measured advertising-to-net-sales ratios (Bulletin No. 1, retail shoes 1913; Bulletin No. 5, retail groceries Nov 1915) are grade A/B, in window and directly measured, but the retail-sales denominator they multiply is constructed.",
+          "lens_centrals": {
+            "structural-proxy": 36.4,
+            "reference-class": 22,
+            "decomposition": 22.0
+          },
+          "median": 22.0,
+          "published_central": 22.0,
+          "unit": "percent of total US advertising outlay, 1914 benchmark ($1,200m)",
+          "central_usd_m": 264,
+          "ci80": [
+            15,
+            46
+          ],
+          "ci80_usd_m": [
+            180,
+            552
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 2.5,
+          "interval_source": "min lower to max upper across the three lenses",
+          "key_cross_check": "L1 (ANPA newspaper dollars) and L2 (Harvard retailer profit-and-loss ratios on constructed retail sales) share no input at all and land within 5-22 percent of each other in every lens that ran both. That is the strongest independent convergence in era 1.",
+          "lenses_contributing": 3,
+          "buyers_claim_grade": "B"
+        },
+        {
+          "pool": "classified",
+          "claim_id": "e1-scale-013",
+          "buyers_claim_id": "e1-buyers-007",
+          "source_verdict": "NO SOURCE FOUND, recorded as a completed exhaustive search rather than an open gap. Eleven named dead ends were closed: Census of Manufactures printing and publishing bulletins 1879-1919; HSUS T 485-491 and Millennial De516-522 (both start 1928, both Media Records Inc., trademark filed Nov 1928); Coen via Galbi; ANCAM (1920); PIB (1945); SRDS (1919, rates not spend); NAA (1950 on); the Library of Congress historical marketing data inventory; and Printers' Ink 4 May 1911, which has no classified line among its twelve channels. The best in-window evidence is firm-level and about LINAGE: Field 1916 on the Chicago Tribune. Cannot be raised by further search.",
+          "lens_centrals": {
+            "structural-proxy": 2.2,
+            "reference-class": 2.2,
+            "decomposition": 2.4
+          },
+          "median": 2.2,
+          "published_central": 2.2,
+          "unit": "percent of total US advertising outlay, 1914 benchmark ($1,200m)",
+          "central_usd_m": 26,
+          "ci80": [
+            1.1,
+            5.0
+          ],
+          "ci80_usd_m": [
+            13,
+            60
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 5,
+          "interval_source": "min lower to max upper across the lenses; the width is two treatment levers, the linage-to-revenue rate ratio r (0.55-0.90) and the wedge treatment. The upper bound of 5.0 is what classified becomes if the no-wedge argument is rejected.",
+          "lenses_contributing": 3,
+          "buyers_claim_grade": "C"
+        },
+        {
+          "pool": "direct_response",
+          "claim_id": "e1-scale-014",
+          "buyers_claim_id": "e1-buyers-008",
+          "source_verdict": "PARTIAL. Printers' Ink 4 May 1911 p.79 publishes the component channels in window and contemporaneously (direct mail $100m, farm and mail-order $75m, demonstration and sampling $18m, distributing $6m, house organs $7m), and this sourced tabulation supersedes the 1926 Britannica back-cast as the pool's primary anchor. The POOL still grades C: no source in the era uses the term 'direct response', and the $75m farm-and-mail-order line does not separate periodical space from mail-order houses' own outlay - a $0-85m swing.",
+          "lens_centrals": {
+            "structural-proxy": 16.0,
+            "reference-class": 19,
+            "decomposition": 14.0
+          },
+          "median": 16.0,
+          "published_central": 16.0,
+          "unit": "percent of total US advertising outlay, 1914 benchmark ($1,200m)",
+          "central_usd_m": 192,
+          "ci80": [
+            8,
+            30
+          ],
+          "ci80_usd_m": [
+            96,
+            360
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 4,
+          "interval_source": "min lower to max upper across the lenses",
+          "lenses_contributing": 3,
+          "buyers_claim_grade": "C"
+        }
+      ],
+      "residual": {
+        "claim_id": "e1-scale-017",
+        "central": 37.8,
+        "ci80": [
+          5,
+          55
+        ],
+        "unit": "percent of total US advertising outlay, 1914 benchmark",
+        "central_usd_m": 454,
+        "ci80_usd_m": [
+          60,
+          660
+        ],
+        "grade": "C",
+        "lens_centrals": {
+          "structural-proxy": 9.3,
+          "reference-class": 34.8,
+          "decomposition": 44.7
+        },
+        "closes_exactly": "22.0 + 22.0 + 2.2 + 16.0 + 37.8 = 100.0",
+        "decomposition": {
+          "real_fifth_money_type_points": [
+            5,
+            9
+          ],
+          "real_fifth_money_type_note": "business, trade and technical papers; dealer-directed direct mail; house organs; legal, financial and government notices; theatrical and circus billposting; institutional, transportation and political advertising. Corroborated forward: Coen's business-papers line was 4.5 percent of the 1935 total.",
+          "denominator_artefact_points": [
+            29,
+            33
+          ],
+          "denominator_artefact_note": "the undocumented gap between the contemporaneous channel enumeration ($697-725m for 1914) and the retrospective benchmark ($1,200m). Not a money type; must never be drawn as one."
+        },
+        "why_wide": "The three lenses agree on the evidence and disagree only on what the denominator contains. Reading A (the gap is genuine cost of preparation and non-media promotion, so it belongs to the pools) gives 5-18; reading B (the gap is retrospective overstatement) gives 33-55. Both are carried; neither is averaged away."
+      },
+      "unranked_pairs": [
+        {
+          "pair": [
+            "national_brand",
+            "local_retail"
+          ],
+          "medians": [
+            22.0,
+            22.0
+          ],
+          "confidence_that_ordering_is_indeterminate": "high",
+          "reason": "Exact tie at the median, and all three lenses independently declined to separate them (36.1 vs 36.4; 22 vs 22; 17.0 vs 22.0). The two routes that would separate them run in OPPOSITE directions, and the pools are built from partly shared inputs, so their errors are negatively correlated: raising one mechanically lowers the other. Report as joint-largest and unranked; a chart must not sort these bars."
+        },
+        {
+          "pair": [
+            "national_brand",
+            "direct_response"
+          ],
+          "medians": [
+            22.0,
+            16.0
+          ],
+          "confidence_that_ordering_is_indeterminate": "high",
+          "reason": "Two of three lenses declared this pair unrankable and the third ranked it at only about 85 percent. Intervals [11,46] and [8,30] overlap across almost their whole length. The separating quantity is unmeasurable from any surviving source: how much of the Printers' Ink farm-and-mail-order line is periodical space bought by national brands versus outlay by mail-order houses, a $0-85m swing larger than the 6-point gap between the centrals."
+        },
+        {
+          "pair": [
+            "local_retail",
+            "direct_response"
+          ],
+          "medians": [
+            22.0,
+            16.0
+          ],
+          "confidence_that_ordering_is_indeterminate": "moderate",
+          "reason": "Carried as unranked because the reference-class lens declared it indeterminate with high confidence and the intervals overlap over their whole range. INFORMATION PRESERVED: all three lenses put local above direct on the central and two assigned that ordering about 0.85 confidence. Direction if forced: local_retail > direct_response, confidence about 0.70. NOT chart-safe."
+        }
+      ],
+      "confidently_ranked": [
+        {
+          "claim": "classified was the smallest of the four money types, by a wide margin",
+          "confidence": 0.97,
+          "reason": "2.2 percent with an interval top of 5.0 against interval bottoms of 8, 11 and 15 for the other three. No overlap under any treatment, denominator or lens. This is the one ordering era 1 can honestly assert."
+        },
+        {
+          "claim": "the other three pools form one undifferentiated block and the era's narrative must not claim which was largest",
+          "confidence": 0.9,
+          "reason": "Every pairwise comparison among national_brand, local_retail and direct_response fails at least one lens, and the national/local pair fails all three."
+        }
+      ],
+      "grade_changes": [
+        {
+          "target": "all four money-type pools (e1-scale-011 to e1-scale-014 and e1-buyers-007/008)",
+          "from": "C",
+          "to": "C",
+          "change": "no upgrade available",
+          "reason": "The source hunt read 20 sources, 14 new to the project, and confirmed no compiler has ever published this four-way split for any year 1840s-1917. The A-grade material in reach (Census of Manufactures advertising receipts) is the wrong concept - publisher receipts rather than advertiser outlay - and is never split by class of advertising in any census year 1879-1919."
+        },
+        {
+          "target": "e1-scale-014 / e1-buyers-008 primary anchor",
+          "from": "1926 Encyclopaedia Britannica, direct mail about $300m in 1920 (retrospective, tertiary, out of window)",
+          "to": "Printers' Ink, 4 May 1911, vol. LXXV no. 5, p.79 (contemporaneous, primary, in window, free)",
+          "change": "anchor upgraded; pool grade unchanged at C",
+          "applied": true,
+          "reason": "Where a real source exists it wins. The Britannica back-cast is retained only as corroborating route D3, where deflating it lands within 12 percent of the PI line. e1-buyers-008 was restated from '$300m of direct mail in 1920' to the era's direct-response buyer pool of $192m at the 1914 benchmark."
+        },
+        {
+          "target": "e1-buyers-007 (classified as a share of newspaper advertising receipts)",
+          "from": "13 percent, ci80 [7,21], grade C",
+          "to": "13 percent, ci80 [8,22], grade C",
+          "change": "central holds, interval widened on the panel spread",
+          "applied": true,
+          "reason": "Panel positions 13 / 11.5 / 13.8, median 13.0. The R3 correction from 12 is upheld and is now supported by two independent linage traditions that both land at 15-16 percent of national newspaper linage in 1914-16."
+        },
+        {
+          "target": "every claim resting on ANPA newspaper national/local dollars (e1-scale-011, e1-scale-012, e1-buyers-005, e1-buyers-006, e1-buyers-007 lineage)",
+          "from": "cited as though primary",
+          "to": "flagged as third-hand pending a primary reading",
+          "change": "provenance flag, not a numeric change",
+          "applied": true,
+          "reason": "The project's single most load-bearing money-type source, ANPA Bureau of Advertising 1915-1938, has never been read in primary. It reaches the record via Borden 1942 App. Table 1 p.888 and then Galbi's spreadsheet, and no free copy of either exists. The flag is now visible in the statements rather than implied by the citation."
+        },
+        {
+          "target": "e1-scale-006 / adspend.json benchmarks_pre1919 point year=1914 ($1,200m)",
+          "from": "graded B in claims.json and C in adspend.json - the record disagrees with itself",
+          "to": "C in both",
+          "change": "resolve to C",
+          "applied": false,
+          "reason": "The value is a constructed midpoint of two retrospective vintages that disagree by 18 percent; neither is a filing or a disclosure, and the only contemporaneous tabulation in the window runs 42 percent below it. Because every money-type pool divides by this number, a B grade on the denominator overstates the confidence of everything downstream.",
+          "not_applied_because": "e1-scale-006 is not a by_money_type claim and its grade is fixed by an R3 'confirmed' verdict at grade B in claims.json. Changing it here would put claims.json out of step with verdicts.json without an R3 record. Flagged for the human at the freeze rather than applied unilaterally."
+        }
+      ],
+      "findings": [
+        "The apparent 17-to-36 percent spread across the lenses on national_brand is NOT a measurement disagreement. It is a denominator-treatment disagreement, and on the channel-enumerated basis the lenses agree to within 1.5 points on every pool: structural-proxy 26.8 / 38.0 / 3.7 / 22.5 with 9.0 unassigned, decomposition 27.9 / 36.6 / 4.0 / 23.0 with 8.6 business-and-notices.",
+        "The chapter should publish the CHANNEL-ENUMERATED partition as the primary figure and the benchmark-basis shares as a footnoted secondary line; all three lenses recommended this independently. Reconciled channel-basis split for 1914 on a $700-725m denominator: national_brand 27.9, local_retail 36.6, classified 3.7, direct_response 23.0, business-to-business and notices 8.8, summing to 100.0. RISK IF IGNORED: splicing era-1 benchmark-basis shares to era-2 Coen-basis shares on one chart crosses an undocumented redefinition worth a factor of about 1.65-1.72.",
+        "The 1.5187 Coen-to-Census wedge is an AVERAGE across money types and must be applied asymmetrically: above 1.5187 for national brand (implied display-only wedge about 1.58), roughly 1.15-1.25 for local retail placed direct with the paper, and 1.00 for classified, which carried neither agency commission nor cost of preparation. Applying the full wedge to classified, as the superseded record did, inflates that pool by roughly half and gets the DIRECTION of the receipts-to-outlay adjustment backwards.",
+        "The residual is a property of the evidence, not a research failure - but it is 37.8 percent, and it must be published as an explicit labelled line. Only 5-9 points is a real fifth money type; the other 29-33 points is the undocumented gap between a contemporaneous enumeration and a retrospective benchmark. Drawing the second as a money type would be a fabrication; hiding it would be worse.",
+        "ID COLLISION WARNING, now handled: the era-1 source hunt has six unmerged transcriptions queued at e1-scale-015, e1-scale-016, e1-buyers-009, e1-buyers-010, e1-buyers-011 and e1-sellers-007. This apply step reserved 015 and 016 and put the residual at e1-scale-017.",
+        "A source-provenance mystery in the era-1 notes is closed: the rejected 'Lineage C' figure ($600m for 1910, from Duke, uncited) is traceable to the Printers' Ink 4 May 1911 tabulation of $616m. The other half of that lineage, '4 percent of national income', stays rejected.",
+        "Three lines in the panel's builds are documented ASSUMPTIONS with no source of any kind and total roughly $113m, or 9.4 percent of the benchmark: window display and store signage (about $22m, in none of the twelve Printers' Ink channels), non-store local advertisers such as theatres, banks, hotels and physicians (about $43m), and the long tail of about 40,000 small mail-order and coupon advertisers (about $48m). Removing all three drops the four-pool sum by about 9 points and raises the residual correspondingly.",
+        "Highest-value next source, and it is free: walk the Printers' Ink run at the Internet Archive by date through 1912-1917 for a later edition of the 4 May 1911 channel table. A 1914 or 1916 edition would put a by-channel tabulation on the era's own benchmark year, test the x1.131 growth factor every lens used, and might carry a classified line. Second, identify the compiler of the 1916 Chicago all-eight-dailies display-versus-classified linage report Field describes. Third, and cheapest: read the 52-city classified LINAGE share for 1950 out of HSUS T 485-486 against the NAA 1950 revenue share of 18.2 percent already in the dataset - together they give the rate ratio r directly, and r sets the classified interval's width.",
+        "Two ceilings on knowability belong in the chapter. First, national_brand and local_retail cannot be separated at all. Second, the LEVEL of all four pools rests on a denominator that is a retrospective reconstruction running 1.72x the only contemporaneous tabulation, produced by the same publishing house, with no reconciliation ever documented. Shares WITHIN the measured base are far better identified than shares of total outlay, and no independent aggregate - tax, census or national accounts - can ever validate an era-1 money-type pool.",
+        "Directional continuity against era 2 holds on all four pools and was not used as an input to any build. Era 2's own 1949 reading is national 43, local 36, classified 6.5, direct response 14.5; the reconciled 1914 channel-basis reading is 27.9 / 36.6 / 3.7 / 23.0. Four out of four directions of travel match what the mechanism history predicts."
+      ],
+      "buyers_grade_note": "Era 1's BUYERS pools are not four restatements of the SCALE pools. e1-buyers-005 and e1-buyers-006 stay grade B, because they are transcriptions of the ANPA newspaper national/local dollars rather than constructions, and the reconciliation changed only their provenance flag. e1-buyers-007 (classified as a share of newspaper receipts) and e1-buyers-008 (the direct-response buyer pool in dollars) are grade C constructions and carry the full route-by-route method."
+    },
+    {
+      "era": 5,
+      "era_name": "The Impression",
+      "window": "1994-2001",
+      "anchor_year": 2000,
+      "anchor_note": "Year 2000, to match the four standing money-type claims and the anchor all three lenses reported natively. The Fermi-decomposition lens also reported era-cumulative centrals; its published 2000 point estimates are the values used here.",
+      "lenses_used": 3,
+      "lenses": [
+        "structural-proxy",
+        "reference-class",
+        "fermi-decomposition"
+      ],
+      "provisional": false,
+      "observed_total": {
+        "series": "coen_mce",
+        "year": 2000,
+        "value_usd_millions": 247472.0,
+        "grade": "B",
+        "verified": "Recomputed from adspend.json series.coen_mce.points where partition_member=true; the 11 medium lines sum to exactly 247,472. Full era path re-confirmed: 1994 153,024 / 1995 162,930 / 1996 175,230 / 1997 187,529 / 1998 206,697 / 1999 222,308 / 2000 247,472 / 2001 231,287; era cumulative 1,586,477.",
+        "basis_caveat": "Advertiser billings valued at list price, bottom-up, 11 media. Every share below is conditional on this basis. The direct-mail basis question is larger than every interval in the table."
+      },
+      "route_consolidation": "About fourteen named routes across three lenses collapse to eight independent evidence bases. The Coen national/local geography residual was offered seven times, MAGNA via Statistical Abstract T1279 six times, the 1997 Economic Census three times, DMA/WEFA three times with three different discount factors, the Knight Ridder 10-K three times, and IAB format and pricing shares five times. Genuinely distinct and offered once each: USPS postal quantities, the ERA/infomercial direct-response-TV build, the PIB 1993 magazine mail-order category, and the demand-side buyer-count fringe build. CONSEQUENCE: national_brand and local_retail rest on TWO independent evidence bases plus one one-year, one-medium official check.",
+      "pools": [
+        {
+          "pool": "national_brand",
+          "claim_id": "e5-scale-010",
+          "buyers_claim_id": "e5-buyers-010",
+          "source_verdict": "NO SOURCE. No compiler in 1994-2001 published a national-BRAND pool, only a National GEOGRAPHY containing direct-response and classified money inside it.",
+          "lens_centrals": {
+            "structural-proxy": 36.75,
+            "reference-class": 38.34,
+            "fermi-decomposition": 38.92
+          },
+          "lens_ci80s": [
+            [
+              33.0,
+              40.0
+            ],
+            [
+              34.0,
+              43.0
+            ],
+            [
+              31.5,
+              40.5
+            ]
+          ],
+          "median": 38.34,
+          "published_central": 38.34,
+          "unit": "percent of total US measured ad spend, 2000 (Coen basis, $247,472m)",
+          "central_usd_millions": 94881,
+          "ci80": [
+            31.5,
+            43.0
+          ],
+          "ci80_usd_billions": [
+            77.95,
+            106.41
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 4,
+          "interval_source": "min lower to max upper across the lenses. 4.9pp is the Coen-versus-MAGNA basis gap, about 3pp the unpublished composition of Coen's miscellaneous bucket, 1.5pp the general-media direct-response allowance, 0.9pp Coen's own vintage restatement.",
+          "standing_claim_before": {
+            "central": 41.9,
+            "ci80": [
+              38,
+              45
+            ],
+            "delta_pp": -3.56
+          },
+          "lenses_contributing": 3
+        },
+        {
+          "pool": "local_retail",
+          "claim_id": "e5-scale-011",
+          "buyers_claim_id": "e5-buyers-011",
+          "source_verdict": "NO SOURCE. No compiler published a local-RETAIL pool, only a Local GEOGRAPHY containing classified and directory money.",
+          "lens_centrals": {
+            "structural-proxy": 23.005,
+            "reference-class": 28.32,
+            "fermi-decomposition": 29.61
+          },
+          "lens_ci80s": [
+            [
+              20.8,
+              26.0
+            ],
+            [
+              25.0,
+              33.0
+            ],
+            [
+              24.5,
+              33.0
+            ]
+          ],
+          "median": 28.32,
+          "published_central": 28.32,
+          "unit": "percent of total US measured ad spend, 2000 (Coen basis, $247,472m)",
+          "central_usd_millions": 70084,
+          "ci80": [
+            20.8,
+            33.0
+          ],
+          "ci80_usd_billions": [
+            51.47,
+            81.67
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 4,
+          "interval_source": "min lower to max upper across the lenses. The 12.2pp width is dominated by one definitional question: 4.50pp of the downside is the directory convention alone.",
+          "containment_check": "NAA retail $21,409m + NAA classified $19,608m = $41,017m sits inside Coen's local newspaper line of $41,821m with $804m to spare, verified for all eight years.",
+          "standing_claim_before": {
+            "central": 30.8,
+            "ci80": [
+              28,
+              33
+            ],
+            "delta_pp": -2.48
+          },
+          "lenses_contributing": 3
+        },
+        {
+          "pool": "classified",
+          "claim_id": "e5-scale-012",
+          "buyers_claim_id": "e5-buyers-012",
+          "source_verdict": "PARTIAL AND DOMINANT. NAA newspaper classified (grade B, all eight years, already in adspend.json as series.naa_newspaper) is $19,608m for 2000 = 89.5 percent of the pool, used AS PUBLISHED; a proposed rebasing onto Coen's newspaper line (+$153m) was NOT applied because it is a construction and the source is not. Corroborated independently at grade A by Knight Ridder's audited FY2000 10-K. The remaining 10.5 percent is unsourced construction, which is why the POOL stays C.",
+          "lens_centrals": {
+            "structural-proxy": 8.63,
+            "reference-class": 8.85,
+            "fermi-decomposition": 9.142
+          },
+          "lens_ci80s": [
+            [
+              8.4,
+              10.1
+            ],
+            [
+              7.9,
+              9.8
+            ],
+            [
+              8.2,
+              10.1
+            ]
+          ],
+          "median": 8.85,
+          "published_central": 8.85,
+          "unit": "percent of total US measured ad spend, 2000 (Coen basis, $247,472m)",
+          "central_usd_millions": 21901,
+          "ci80": [
+            7.9,
+            10.1
+          ],
+          "ci80_usd_billions": [
+            19.55,
+            25.0
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 4,
+          "interval_source": "min lower to max upper across the lenses, 2.2pp - the narrowest in the era, because 89.5 percent of the pool is a published series.",
+          "sourced_sub_object": {
+            "what": "newspaper classified as a share of the observed US total, all eight years",
+            "grade": "B",
+            "path_percent": {
+              "1994": 8.145,
+              "1995": 8.434,
+              "1996": 8.597,
+              "1997": 8.944,
+              "1998": 8.647,
+              "1999": 8.389,
+              "2000": 7.923,
+              "2001": 7.187
+            },
+            "finding": "The SHARE peak is 1997, three years before the DOLLAR peak of $19,608m in 2000. Numerator and denominator are both published; nothing is derived. In 1997 online classified was roughly $20m, about 0.01 percent of the market, so the early share decline CANNOT be the internet taking the money.",
+            "recorded_in": "the method of e5-scale-012 and e5-buyers-012; upgradeable to A by summing the roughly fifteen public newspaper groups' 10-Ks"
+          },
+          "standing_claim_before": {
+            "central": 8.2,
+            "ci80": [
+              7.9,
+              8.5
+            ],
+            "delta_pp": 0.65
+          },
+          "lenses_contributing": 3
+        },
+        {
+          "pool": "direct_response",
+          "claim_id": "e5-scale-013",
+          "buyers_claim_id": "e5-buyers-013",
+          "source_verdict": "PARTIAL, at component level only. Direct mail $44,591m is Coen's own published line (grade B) and is 73 percent of the pool. No source publishes this POOL on this denominator. Two compilers publish incompatible direct-response objects and both are LARGER than the superseded construction: MAGNA's Direct domain (grade A, free for 2000 via Statistical Abstract T1279) at $31,108m on a $177.5bn universe, and DMA/WEFA (grade B) at $191.6bn on a $339.3bn universe that counts $73.2bn of telemarketing.",
+          "lens_centrals": {
+            "structural-proxy": 22.62,
+            "reference-class": 24.71,
+            "fermi-decomposition": 31.102
+          },
+          "lens_ci80s": [
+            [
+              26.5,
+              36.0
+            ],
+            [
+              19.0,
+              27.5
+            ],
+            [
+              19.5,
+              33.0
+            ]
+          ],
+          "median": 24.71,
+          "published_central": 24.71,
+          "unit": "percent of total US measured ad spend, 2000 (Coen basis, $247,472m)",
+          "central_usd_millions": 61150,
+          "ci80": [
+            19.0,
+            36.0
+          ],
+          "ci80_usd_billions": [
+            47.02,
+            89.09
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 6,
+          "interval_source": "min lower to max upper across the lenses, 17.0pp - the widest in the era, and correctly so: the panel spans $5.0bn to $18.5bn for direct-response money bought inside general media.",
+          "standing_claim_before": {
+            "central": 19.2,
+            "ci80": [
+              18,
+              23
+            ],
+            "delta_pp": 5.51
+          },
+          "lenses_contributing": 3
+        }
+      ],
+      "residual": {
+        "claim_id": "e5-scale-014",
+        "central": -0.22,
+        "ci80": [
+          -0.6,
+          0.2
+        ],
+        "unit": "percentage points of the observed 2000 US total; negative means the four pools over-allocate",
+        "central_usd_millions": -544.4,
+        "grade": "C",
+        "cause": "An exact, fully attributable artefact of the median operator. The medians for national_brand (38.34), local_retail (28.32) and direct_response (24.71) all come from the Fermi lens, whose own four values sum to 100.00 with classified at 8.63; the classified median is 8.85, from the reference-class lens, and 8.85 - 8.63 = 0.22 exactly.",
+        "bounds": "Taking the mean of lens centrals instead of the median reconciles to 100.000 exactly, and dropping any one lens and taking the mean of the remaining two reconciles to within 0.003pp.",
+        "second_larger_residual_outside_the_universe": [
+          "TELEMARKETING: DMA counts $73.2bn of it as advertising in 2000; Coen counts none. That is 29.6 percent of the observed total, and if it were in the denominator direct response would dominate every other pool. A scope choice, not a measurement error.",
+          "ONLINE LISTING AND POSTING REVENUE: Forrester put the whole US online recruitment market at $1.2bn in 2000, more than double IAB's entire classifieds format ($566m); a bottom-up build from named sellers puts real online classified near $1.0bn against the $455m that fits inside Coen's internet line. Roughly $0.5-1.0bn of functionally classified money sits outside every series here.",
+          "1994 HAS NO DIRECT-RESPONSE SOURCE OF ANY KIND: the WEFA series begins in 1995 and 1994 is backcast at the published 1995-2000 medium-weighted CAGR of 8.69 percent. That year should render as a visible hole, not a point."
+        ]
+      },
+      "unranked_pairs": [
+        {
+          "pair": [
+            "local_retail",
+            "direct_response"
+          ],
+          "scope": "fully unranked, at the 2000 anchor and across the era",
+          "centrals": [
+            28.32,
+            24.71
+          ],
+          "ci80s": [
+            [
+              20.8,
+              33.0
+            ],
+            [
+              19.0,
+              36.0
+            ]
+          ],
+          "overlap_pp": 12.2,
+          "reason": "Declared unrankable by two of three lenses independently. The overlap is the whole of one interval and the centrals are 3.6pp apart. The ordering flips on ONE definitional choice with no measurement content: local Yellow Pages, $11,135m in 2000, 4.499pp of the market. Under the era-5 convention local_retail leads 28.32 to 24.71; move that one block and direct_response leads 29.21 to 23.82. The flip is exact and the block is the sole cause.",
+          "resolved_by": "A single project-wide editorial rule on where directory advertising sits, applied to all seven eras. That is a decision, not a finding. See open_taxonomy_questions."
+        },
+        {
+          "pair": [
+            "national_brand",
+            "direct_response"
+          ],
+          "scope": "ORDERED at the 2000 anchor, UNRANKED across the era",
+          "centrals": [
+            38.34,
+            24.71
+          ],
+          "ci80s": [
+            [
+              31.5,
+              43.0
+            ],
+            [
+              19.0,
+              36.0
+            ]
+          ],
+          "overlap_pp": 4.5,
+          "reason": "At the 2000 anchor all three lenses put national_brand above direct_response, so that ordering is supported. Across the era it is not: the structural-proxy lens's year path reverses the ordering in 1994, 1995, 1996 and 1997. The whole question turns on direct-response money bought inside general media, whose only published measurement counts response-CARRYING placements rather than response-BOUGHT money and whose panel range spans $5.0bn to $18.5bn. 'national_brand was the largest pool throughout era 5' is NOT supported; 'in 2000' is."
+        }
+      ],
+      "confidently_ranked": [
+        {
+          "claim": "classified is unambiguously the smallest pool, in every year, under every lens and under every convention tested",
+          "confidence": 0.97,
+          "reason": "Its interval [7.9, 10.1] does not touch any other pool's; the nearest floor is local_retail at 20.8."
+        },
+        {
+          "claim": "national_brand is the largest pool at the 2000 anchor",
+          "confidence": 0.85,
+          "reason": "All three lenses put it first. Its overlap with local_retail is 1.5pp of tail on intervals of 11.5pp and 12.2pp, and no lens reverses it. CAVEAT: on MAGNA's supplier-revenue basis local money is the largest pool - a definitional disagreement, not an empirical one."
+        }
+      ],
+      "grade_changes": [
+        {
+          "action": "new grade-B sub-claim recorded inside e5-scale-012 / e5-buyers-012 rather than as a separate claim ID",
+          "target": "newspaper classified as a share of the US total, era 5, all eight years",
+          "applied": true,
+          "detail": "Newspaper classified was $19,608m in 2000 and 7.923 percent of the observed US total, with the SHARE peak in 1997 at 8.944 percent. Numerator and denominator are both published series already in adspend.json; nothing is derived. Grade B on NAA, upgradeable to A by summing the roughly fifteen public newspaper groups' 10-Ks.",
+          "why_not_a_new_claim_id": "The apply instruction adds exactly one new claim per era, the residual. The sourced sub-object is therefore recorded in the pool claim's method and here, so the freeze can promote it to its own ID without a second renumbering."
+        },
+        {
+          "action": "amend, grade unchanged (C)",
+          "target": "e5-scale-010 / e5-buyers-010 national_brand",
+          "applied": true,
+          "detail": "41.9 percent -> 38.34 percent; ci80 [38,45] -> [31.5,43.0]. The standing interval excluded the entire reconciled lower half and was never wide enough to carry the Coen-versus-MAGNA basis gap."
+        },
+        {
+          "action": "amend, grade unchanged (C)",
+          "target": "e5-scale-011 / e5-buyers-011 local_retail",
+          "applied": true,
+          "detail": "30.8 percent -> 28.32 percent; ci80 [28,33] -> [20.8,33.0]. The widening is almost entirely the directory convention, 4.50pp, which the standing interval did not carry at all."
+        },
+        {
+          "action": "amend and fix a method defect; grade unchanged (C)",
+          "target": "e5-scale-012 / e5-buyers-012 classified",
+          "applied": true,
+          "detail": "8.2 percent -> 8.85 percent; ci80 [7.9,8.5] -> [7.9,10.1]. ARITHMETIC DEFECT, found independently by two lenses: the standing method took 7 percent of IAB's $8,225m internet total ($576m) and subtracted it against a Coen grand total containing only $6,507m of internet. On the Coen line the same share is $455m, so the old method imported $121m that is not in the denominator. A partition error, not a rounding choice."
+        },
+        {
+          "action": "amend and fix a method defect and a statement defect; grade unchanged (C)",
+          "target": "e5-scale-013 / e5-buyers-013 direct_response",
+          "applied": true,
+          "detail": "19.2 percent -> 24.71 percent; ci80 [18,23] -> [19.0,36.0]. Same partition error as e5-scale-012: 10 percent of IAB's $8,225m ($822m) against a denominator carrying $6,507m of internet; on the Coen line it is $651m. Combined, the two claims over-counted $292m, 0.118pp. STATEMENT DEFECT: 'direct-response television and print insertions are not separable in the Coen series' - not separable in COEN is true, not separable is false. DMA/WEFA published them by medium for 2000."
+        },
+        {
+          "action": "documentation correction, NOT APPLIED",
+          "target": "p2-ad-market/research/notes/dataset-notes.md section 8",
+          "applied": false,
+          "detail": "The table row 'direct_response | not published by any compiler | - | 0' is wrong, and it is the assumption the superseded era-5 construction rests on. MAGNA publishes a Direct domain, free for 2000 via Statistical Abstract Table 1279, and DMA/WEFA publishes direct-marketing expenditure by medium for 1995 and 2000. Correct wording: 'no compiler publishes THIS project's four-way split; two publish incompatible direct-response objects, and both are larger than this project's construction.'",
+          "not_applied_because": "dataset-notes.md is an R2 working note, outside this apply step's declared surface (era records, reconciled.json, claims.json, chapters). Recorded here for the freeze."
+        },
+        {
+          "action": "metadata correction, NOT APPLIED",
+          "target": "p2-ad-market/data/adspend.json, series.magna.access",
+          "applied": false,
+          "detail": "The field reads that 1981-2017 and 2019-2020 are unsourceable without a licence. MAGNA is licensed EXCEPT year 2000 and years 2003-2010, which the Census Bureau published free in the Statistical Abstract, Tables 1278 and 1279. The 2000 column is the only free, methodologically independent money-type partition in this era and is the load-bearing corroboration for national_brand.",
+          "not_applied_because": "adspend.json is under R2 verdicts and outside this step's surface; editing series metadata here would diverge from verdicts.json without an R3 record."
+        }
+      ],
+      "findings": [
+        "THE REVISION IS UNANIMOUS IN DIRECTION. Every lens moved intent money up. Standing: classified 8.2 + direct_response 19.2 = 27.35 percent of the 2000 market, $67.7bn. Reconciled: 8.85 + 24.71 = 33.56 percent, $83.1bn - a $15.4bn, 6.21pp revision. The lowest lens central for direct_response (22.62) is still 3.4pp above the standing figure. Independent corroboration: re-expressing MAGNA's own Direct share with Coen's direct-mail line, changing nothing else, gives 28.2 percent, and MAGNA's Direct excludes direct-response TV, print and radio and telemarketing by construction. The standing 19.2 percent was nine points below another compiler's floor.",
+        "THE SHARE PEAK PRECEDES THE DOLLAR PEAK BY THREE YEARS, AND THIS IS GRADE B, NOT C. Newspaper classified's share of US advertising peaked in 1997 at 8.944 percent and fell every year after, while dollars kept climbing to the 2000 peak of $19,608m. Any migration chart dated at the 2000 dollar peak is dating the wrong quantity for a share-based argument, and the 1997-1999 slide is a denominator effect a naive chart will misattribute to search.",
+        "THE DIRECT-MAIL BASIS IS A CEILING ON KNOWABILITY, AND IT IS LARGER THAN EVERY INTERVAL IN THIS TABLE. Direct mail is 18.02pp of the observed 2000 total on its own. Coen books it at full advertiser program cost ($44,591m) while every other Coen medium is space only; MAGNA books the same medium and year at $18,250m, a 2.44x gap; USPS Standard Mail (A) postage was roughly $15-16bn. On a media-space-only basis the 2000 total falls to about $221bn and the shares become roughly national_brand 43.6, local_retail 33.1, direct_response 13.4, classified 9.9. The rank order survives; the magnitudes do not. This is the only like-for-like basis on which era 5 can be compared with era 7's ex-direct-mail rail.",
+        "THE MEASUREMENT SYSTEM IS STRUCTURALLY BLIND TO EXACTLY THE MONEY THAT IS MIGRATING. Bottom-up from named sellers, real US online classified in 2000 was roughly $1.0bn (recruitment about $550m, automotive about $240m, real-estate listings about $150m, personals and portal sections about $60m). IAB's published classifieds line is $566m and only $455m fits inside Coen's smaller internet line. Pure-play job boards, auto portals and property portals sold direct to HR departments and dealers with no agency in the loop, and much of their revenue was job-posting and resume-database fees neither IAB nor Coen counted as advertising.",
+        "TWO INDEPENDENCE FAILURES COLLAPSE THE APPARENT CORROBORATION. DMA/WEFA's direct-mail line matches Coen to $9m and MAGNA's newspaper line matches NAA to $1m. Both are re-badged, not independent, on those media. The four compilers that appear to triangulate the two largest lines in this era are, on those lines, two.",
+        "THE GENERAL-MEDIA DIRECT-RESPONSE QUANTITY IS THE PANEL'S LIVE DISAGREEMENT, AND THE INDEPENDENT CHECKS LAND LOW. The panel spans $5.0bn to $18.5bn, 5.4pp of the market. The only published measurement (DMA/WEFA) says $104.2bn, which all three lenses reject. The two genuinely independent checks both land near the bottom: the ERA/infomercial build gives $3.5-5.3bn of direct-response television against DMA's $21.9bn, and PIB's 1993 magazine mail-order category was 9.8 percent of Coen magazines against DMA's 56.6 percent. No lens was discounted, because the high lens's figure is a disclosed and argued discount of a published measurement rather than a specification error.",
+        "VINTAGE INSTABILITY NOBODY WAS CARRYING. Coen restated Total National for 2000 by +2.41 percent and the internet line by +50.2 percent between the contemporaneous 2001 vintage and the Galbi-curated vintage. MAGNA restated its own 2000 direct mail by +10.0 percent between two consecutive Statistical Abstract editions. Running the identical construction on the 2001 vintage moves national_brand by about 0.9pp. Both instabilities are inside the reconciled intervals; neither was inside any point estimate the project carried.",
+        "WHAT WOULD ACTUALLY MOVE THESE NUMBERS, in order of value: (1) USPS Revenue, Pieces and Weight FY1994-2001, which settles the direct-mail basis at grade A; (2) a project-wide editorial rule on directories, which resolves 4.50pp and one of the two unranked pairs; (3) summing the roughly fifteen public newspaper groups' 10-Ks, which lifts the classified spine from B to A; (4) recovering MAGNA's licensed 1994-1999 backcast."
+      ]
+    },
+    {
+      "era": 7,
+      "era_name": "The Machine Market",
+      "window": "2008-2026",
+      "anchor_year": 2025,
+      "lenses_used": 3,
+      "lenses": [
+        "structural-proxy",
+        "reference-class",
+        "decomposition"
+      ],
+      "provisional": false,
+      "observed_total": {
+        "value": 398000,
+        "unit": "USD millions (current), US total advertising spend, 2025",
+        "ci80": [
+          388000,
+          408000
+        ],
+        "grade": "B",
+        "source_series": "adspend.json series 'magna', year 2025, medium 'total'",
+        "rail": "MAGNA media-owner advertising revenue. Digital pure players $294,000m + traditional media owners $104,000m sums exactly, so DIRECT MAIL IS OUT of this rail. All four pools are defined ex-direct-mail to match, which is the fix for the mechanical residual depression the era-7 verifier flagged.",
+        "note": "The era record's e7-scale-001 carries $405bn as a MAGNA/EMARKETER blend, 1.8 percent above the observation and inside its own interval, so it is not a competing measurement. Reconciliation is on $398bn. The reference-class lens built its shares on $405bn; its shares are taken as stated rather than rebased, and the rebasing sensitivity is quantified in the residual."
+      },
+      "pools": [
+        {
+          "pool": "national_brand",
+          "claim_id": "e7-scale-006",
+          "buyers_claim_id": "e7-buyers-005",
+          "source_verdict": "NO SOURCE. No compiler publishes a US national-brand advertising figure for any year after 2007. Partial free evidence exists only for 2008-2010 (Census SAS national/regional air time, grade A) and for newspapers to 2012 (NAA). The two instruments that would source the pool - Guideline/SMI agency billing data and MAGNA's National domain inside MG8 - are licensed and were not purchased.",
+          "lens_centrals": {
+            "structural-proxy": 39.7,
+            "reference-class": 36.6,
+            "decomposition": 32.9
+          },
+          "lens_ci80s": [
+            [
+              30.0,
+              47.0
+            ],
+            [
+              29.0,
+              44.0
+            ],
+            [
+              25.0,
+              42.0
+            ]
+          ],
+          "median": 36.6,
+          "published_central_pct": 36.6,
+          "published_central_usd_billions": 145.7,
+          "unit": "percent of US advertising spend, 2025, MAGNA media-owner rail ($398bn, direct mail excluded)",
+          "ci80": [
+            25.0,
+            47.0
+          ],
+          "ci80_usd_billions": [
+            99.5,
+            187.1
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 3,
+          "interval_source": "min lower to max upper across the lenses, NOT route dispersion: routes N-A and N-B share the performance-share input. The lower end is where the independent survey rail (WARC/Ebiquity, adjusted, about 22 percent) sits; the upper end is where local_retail's lower bound pushes the residual.",
+          "correction_size": "The record read $95bn / 23 percent and called this the smallest of the four pools. Restated to $145.7bn / 36.6 percent: the pool is the largest or joint-largest. Two named causes, confirmed independently by all three lenses: the residual was computed with direct mail excluded from the denominator but present in two subtracted pools (about +6pp), and the local pool subtracted from it was an inventory-geography measure (about +11pp).",
+          "lenses_contributing": 3
+        },
+        {
+          "pool": "direct_response",
+          "claim_id": "e7-scale-009",
+          "buyers_claim_id": "e7-buyers-008",
+          "source_verdict": "POOL NOT SOURCED; ONE INPUT SOURCED AT GRADE A. IAB/PwC's 'Revenues by pricing model' exhibit publishes the performance-priced share of US digital annually 2004-2019 (57 percent for 2008, 62-66 percent across 2010-2019, 62.1 percent at HY2019), which converts the standing 'two-thirds is performance-priced' assumption into a published number for twelve of the nineteen era years. The exhibit was discontinued after HY2019, so 2020-2026 is extrapolation. The only source that ever sized the whole pool, DMA/IHS ($153.3bn in 2010, 54.2 percent of US ad expenditure), died inside the era.",
+          "lens_centrals": {
+            "structural-proxy": 38.0,
+            "reference-class": 36.5,
+            "decomposition": 40.7
+          },
+          "lens_ci80s": [
+            [
+              30.0,
+              47.0
+            ],
+            [
+              29.5,
+              43.5
+            ],
+            [
+              32.0,
+              47.0
+            ]
+          ],
+          "median": 38.0,
+          "published_central_pct": 38.0,
+          "published_central_usd_billions": 151.2,
+          "unit": "percent of US advertising spend, 2025, MAGNA media-owner rail ($398bn, direct mail excluded)",
+          "ci80": [
+            29.5,
+            47.0
+          ],
+          "ci80_usd_billions": [
+            117.4,
+            187.1
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 3,
+          "interval_source": "min lower to max upper across the lenses, deliberately NOT the 4.2pp lens dispersion, which is spuriously tight because all three centrals are three parameterisations of the same unobserved quantity (the performance-priced share of US digital in 2025, set at 60.0, 62.6 and 67.7 percent).",
+          "correction_size": "Record read $130bn / 32 percent. Restated to $151.2bn / 38.0 percent. Path (b) of the standing method was retired as double-counting by construction; path (a) was rebuilt on the mutually exclusive format partition and re-anchored on IAB's published performance-priced share rather than an assumed two-thirds.",
+          "lenses_contributing": 3
+        },
+        {
+          "pool": "local_retail",
+          "claim_id": "e7-scale-007",
+          "buyers_claim_id": "e7-buyers-006",
+          "source_verdict": "NOT SOURCED AS A MONEY TYPE. BIA's $169bn US local advertising total measures a different object: BIA's own published definition is all media selling access to LOCAL AUDIENCES to ALL advertiser types INCLUDING national and regional companies - geography of inventory, not class of buyer. What IS available is BIA's own advertiser-type ratio, public in summary form at $116.4bn regional-and-national against $59.2bn SMBs (33.7 percent), corroborated by the BIA/Kelsey 2015 vintage at 35.9 percent. That ratio grades B; the derived 2025 pool needs a regional-tier allocation and a rail conversion on top of it, so the pool is C.",
+          "lens_centrals": {
+            "structural-proxy": 19.6,
+            "reference-class": 23.5,
+            "decomposition": 23.9
+          },
+          "lens_ci80s": [
+            [
+              15.0,
+              25.0
+            ],
+            [
+              18.5,
+              29.0
+            ],
+            [
+              19.0,
+              31.0
+            ]
+          ],
+          "median": 23.5,
+          "published_central_pct": 23.5,
+          "published_central_usd_billions": 93.5,
+          "unit": "percent of US advertising spend, 2025, MAGNA media-owner rail ($398bn, direct mail excluded)",
+          "ci80": [
+            15.0,
+            31.0
+          ],
+          "ci80_usd_billions": [
+            59.7,
+            123.4
+          ],
+          "grade": "C",
+          "independent_routes_after_collapse": 3,
+          "interval_source": "min lower to max upper across the lenses. The width is definitional, not statistical: BIA's regional-tier allocation alone spans it (0 percent gives 14.3, 45 percent gives 24.1).",
+          "correction_size": "Record read $169bn / 41 percent and made this the largest pool. Restated to $93.5bn / 23.5 percent - third on every lens. The largest single correction available in era 7, about 17pp of share, and it costs nothing.",
+          "lenses_contributing": 3
+        },
+        {
+          "pool": "classified",
+          "claim_id": "e7-scale-008",
+          "buyers_claim_id": "e7-buyers-007",
+          "source_verdict": "SOURCED FOR 2008-2021 AT GRADE A ON THREE INDEPENDENT LEGS - the hunt's main finding, which overturns the record's note that no modern source publishes this. (1) Census SAS NAICS 511110 classified advertising, free, 2005-2021: $8,087m (2008) to $1,978m (2021). (2) Census SAS NAICS 511140 directory advertising space, free, 2005-2020: $11,400m (2008) to $1,781m (2020), replacing two trade blogs. (3) IAB/PwC's classifieds line to 2021: $3.2bn (2008) to $5.3bn (2021). Overlap test passes: NAA $5,030m against Census $4,840m for 2011, 3.9 percent apart. NOT SOURCED: reference years 2022-2026 on any leg, and the marketplace and listings leg in every year, whose only specialist compiler (AIM Group) is a paid subscription that was not purchased.",
+          "grade_by_period": {
+            "2008-2021": "A",
+            "2022-2026": "C",
+            "marketplace_listings_leg_all_years": "C"
+          },
+          "lens_centrals": {
+            "structural-proxy": 1.9,
+            "reference-class": 3.4,
+            "decomposition": 2.5
+          },
+          "lens_ci80s": [
+            [
+              1.4,
+              2.8
+            ],
+            [
+              2.3,
+              6.8
+            ],
+            [
+              1.8,
+              5.5
+            ]
+          ],
+          "median": 2.5,
+          "published_central_pct": 2.5,
+          "published_central_usd_billions": 9.95,
+          "unit": "percent of US advertising spend, 2025, MAGNA media-owner rail ($398bn, direct mail excluded)",
+          "ci80": [
+            1.4,
+            6.8
+          ],
+          "ci80_in_frame_only": [
+            1.4,
+            2.8
+          ],
+          "ci80_usd_billions": [
+            5.6,
+            27.1
+          ],
+          "grade": "C",
+          "grade_note": "The applied claim grade is C because the 2025 ANCHOR is unsourced: every sourced leg stops at reference year 2021. The 2008 anchor is fully grade A at $22.7bn and is recorded here so the sourced years are not left at C.",
+          "era_open_2008_grade_A_anchor_usd_billions": 22.7,
+          "independent_routes_after_collapse": 3,
+          "interval_source": "min lower to max upper across the lenses. WARNING: above about 2.8 percent the interval is FRAME, not measurement error - two lenses set their upper bound on a widened denominator ($410-421bn) that counts the listings successors. The two readings must never be blended in a chart.",
+          "scope_alternative": {
+            "label": "classified as a money type, listings-inclusive",
+            "usd_billions": 21.0,
+            "range_usd_billions": [
+              15.0,
+              29.0
+            ],
+            "outside_the_398bn_frame_usd_billions": [
+              12.0,
+              16.0
+            ],
+            "note": "All three lenses independently reconstructed the listings leg and landed at $19.0bn, $21.0bn and $23.2bn gross. Indeed's US revenue alone ($5.31bn) approaches the whole of IAB's $12.5bn 'Other' bucket. This is the era-7 boundary-shift argument in one number."
+          },
+          "correction_size": "Record read $15bn / about 4 percent, built by assigning the whole of IAB's $12.5bn 'Other' bucket to classified. Restated to $9.95bn / 2.5 percent, because lead generation is roughly $4.5-6bn of that bucket and is money paid per acquired lead.",
+          "lenses_contributing": 3
+        }
+      ],
+      "residual": {
+        "claim_id": "e7-scale-010",
+        "central": -0.6,
+        "ci80": [
+          -1.6,
+          0.0
+        ],
+        "unit": "percentage points of the $398bn observed 2025 US total; negative means the four pools over-allocate",
+        "central_usd_billions": -2.39,
+        "grade": "C",
+        "cause": "The four medians sum to 100.6 percent, or $400.4bn. national_brand and direct_response are constructed complements - in every lens one is computed as, or against, the residual left by the other - so taking each pool's median independently picks national_brand from the reference-class lens and direct_response from the structural-proxy lens, a combination no lens produced. Each lens's own partition closes at 99.2, 100.0 and 100.0 percent.",
+        "sensitivity": "Rebasing the reference-class lens's dollar figures from its $405bn rail onto the observed $398bn and re-taking the medians gives 101.56 percent, a residual of -1.6pp / -$6.2bn: that is the interval's lower end. The upper end, 0.0pp, is reached if classified is taken at the structural-proxy lens's in-frame 1.9 percent and national_brand at the decomposition lens's 32.9 percent.",
+        "outside_the_frame": "Roughly $38bn of US direct mail (Winterberry $37.3bn for 2024) and roughly $12-16bn of classified-successor listing revenue sit outside the frame on BOTH sides of the ledger and are excluded from numerator and denominator alike.",
+        "independent_second_reconciliation": "Inside the digital sub-total the pools sum to $291.7bn against IAB's grade-A $294.593bn, a 1.0 percent gap."
+      },
+      "unranked_pairs": [
+        {
+          "pair": [
+            "national_brand",
+            "direct_response"
+          ],
+          "verdict": "UNRANKED",
+          "lens_agreement": "3 of 3 lenses declare this pair unranked",
+          "centrals": [
+            36.6,
+            38.0
+          ],
+          "ci80s": [
+            [
+              25.0,
+              47.0
+            ],
+            [
+              29.5,
+              47.0
+            ]
+          ],
+          "reason": "Centrals sit 1.4pp apart inside near-identical intervals, and the lenses do not agree on the direction: structural-proxy and reference-class order national_brand above direct_response, decomposition orders it below. The overlap is structural, not statistical - national_brand's dominant route is a residual computed after direct_response is subtracted, so the two move one-for-one. The independent instrument makes it worse: WARC/Ebiquity, adjusted, reads national_brand near 22 percent and direct_response near 57 percent, a complete reversal, and it cannot be dismissed because the pricing rail it contradicts has been unmeasured since HY2019.",
+          "resolvable_by": "Guideline/SMI's national cut, or MAGNA's Direct/National/Local line items. Both licensed."
+        },
+        {
+          "pair": [
+            "national_brand",
+            "local_retail"
+          ],
+          "verdict": "UNRANKED BY INTERVAL; direction unanimous but not certified",
+          "lens_agreement": "all 3 lenses put national_brand above local_retail in their centrals, by 20.1pp, 13.1pp and 9.0pp, but they split on whether to certify it",
+          "centrals": [
+            36.6,
+            23.5
+          ],
+          "ci80s": [
+            [
+              25.0,
+              47.0
+            ],
+            [
+              15.0,
+              31.0
+            ]
+          ],
+          "reason": "The combined intervals overlap over 25-31 percent, six points, so the pair is recorded as unranked rather than ordered. The dependence is the reason: national_brand is a residual and local_retail is the largest thing subtracted from it. The single input that decides it is BIA's regional tier - at 0 percent local_retail reads about 14.3, at 45 percent about 24.1, and at the decomposition lens's upper bound ($123bn) the ordering reverses outright."
+        },
+        {
+          "pair": [
+            "direct_response",
+            "local_retail"
+          ],
+          "verdict": "UNRANKED AT THE TAIL ONLY; direction unanimous and wide",
+          "lens_agreement": "all 3 lenses put direct_response above local_retail by 13.0pp, 18.4pp and 16.8pp",
+          "centrals": [
+            38.0,
+            23.5
+          ],
+          "ci80s": [
+            [
+              29.5,
+              47.0
+            ],
+            [
+              15.0,
+              31.0
+            ]
+          ],
+          "reason": "Recorded for completeness: the combined intervals touch over 29.5-31 percent, about 1.5pp of shared range at the extreme tails. The ordering is supported but the intervals are not disjoint."
+        }
+      ],
+      "newly_ranked": [
+        {
+          "pair": [
+            "local_retail",
+            "classified"
+          ],
+          "verdict": "RANKED. local_retail > classified, by roughly a factor of nine in frame and roughly a factor of four on the widest defensible classified scope.",
+          "resolves": "the source hunt's unranked_pairs_evidence entry 1 and gate-b-approval.md section 2's 'the middle two pools cannot be ranked'",
+          "reason": "3 of 3 lenses rank this pair independently and decisively. Combined intervals [15.0,31.0] against [1.4,6.8] do not meet at any point, and they still do not meet if classified is taken on its listings-inclusive scope. The hunt was right about the cause and wrong that it was fatal: the pools were not disjoint, because BIA's PC/Laptop digital definition explicitly includes classified and vertical advertising. That is a stitching problem, not an evidence problem, and it lifts once the roughly $2-3.5bn of classified money inside BIA's local number is moved across."
+        },
+        {
+          "pair": [
+            "national_brand",
+            "classified"
+          ],
+          "verdict": "RANKED. national_brand > classified; intervals disjoint on every lens."
+        },
+        {
+          "pair": [
+            "direct_response",
+            "classified"
+          ],
+          "verdict": "RANKED. direct_response > classified; intervals disjoint on every lens."
+        }
+      ],
+      "confidently_ranked": [
+        {
+          "claim": "classified is the smallest of the four pools, under every lens and every convention tested",
+          "confidence": 0.97,
+          "reason": "Its interval [1.4, 6.8] is disjoint from every other pool's, and remains so on the listings-inclusive scope."
+        }
+      ],
+      "grade_changes": [
+        {
+          "claim_ids": [
+            "e7-scale-007",
+            "e7-buyers-006"
+          ],
+          "pool": "local_retail",
+          "from": "B",
+          "to": "C",
+          "direction": "DOWNGRADE",
+          "applied": true,
+          "reason": "The only grade change in this stage that goes the wrong way, and it is required. The B grade rested on BIA's $169bn, a real published figure - but BIA's own definition makes it a measure of local-AUDIENCE INVENTORY sold to all advertiser types including national and regional companies. It is not a measurement of the local_retail money type, so it cannot carry a source grade for it. Central falls from $169bn to $93.5bn. NOTE: e7-buyers-006 already stood at C; only e7-scale-007 changes grade."
+        },
+        {
+          "claim_ids": [
+            "e7-scale-008",
+            "e7-buyers-007"
+          ],
+          "pool": "classified",
+          "from": "C",
+          "to": "A for reference years 2008-2021; C retained for the 2025 anchor and for 2022-2026",
+          "direction": "UPGRADE, period-limited",
+          "applied": "recorded, not applied to the claim grade",
+          "reason": "The print-newspaper and print-directory legs are now sourced from official statistics (Census SAS NAICS 511110 and 511140), replacing the AEI Carpe Diem and Vendasta/UENI trade-blog citations, and IAB's own classifieds line to 2021 is the third leg. The 2008 anchor is fully grade A at $22.7bn. The APPLIED claim is anchored on 2025 and cannot inherit the upgrade, because every leg stops at reference year 2021 and nothing free covers 2022-2026 or the marketplace leg in any year. The period grades are recorded in the claim's method and in grade_by_period above, so the sourced years are not left at C."
+        },
+        {
+          "claim_ids": [
+            "e7-scale-009",
+            "e7-buyers-008"
+          ],
+          "pool": "direct_response",
+          "from": "C",
+          "to": "C",
+          "direction": "NO CHANGE to the pool; INPUT UPGRADE",
+          "applied": true,
+          "reason": "The pool has no source and stays C. But the method's central assumption - 'two-thirds of $294.6bn US digital is performance-priced' - is a PUBLISHED IAB figure for 2004-2019, not an assumption. The method now cites it and states explicitly that 2020-2026 is extrapolation across an exhibit IAB discontinued."
+        },
+        {
+          "claim_ids": [
+            "e7-scale-006",
+            "e7-buyers-005"
+          ],
+          "pool": "national_brand",
+          "from": "C",
+          "to": "C",
+          "direction": "NO CHANGE",
+          "applied": true,
+          "reason": "No source found; the residual construction stands and must stay one. What changes is the central ($95bn to $145.7bn) and the method, which now states the direct-mail treatment on both sides of the subtraction."
+        }
+      ],
+      "findings": [
+        "THE RECORD'S ORDERING WAS WRONG AT THE TOP, and all three lenses reached that independently. The record made local_retail the largest pool at 41 percent and national_brand the smallest at 23 percent. On the reconciled split local_retail is THIRD at 23.5 percent and national_brand is joint-first at 36.6 percent. The single cause is that the record set local_retail equal to BIA's $169bn headline, whose own decomposition prices the national and regional leg at $116.4bn against $59.2bn for SMBs.",
+        "THE APPARENT AGREEMENT ON direct_response IS AN ARTEFACT, and it is the strongest argument in this era for the no-extremizing rule. All three centrals are three parameterisations of one unobserved quantity: the performance-priced share of US digital in 2025, extrapolated across the five years since IAB discontinued its pricing-model exhibit at 62.1 percent for HY2019. The lenses set it at 60.0, 62.6 and 67.7 percent.",
+        "THE ONE GENUINELY INDEPENDENT CONVERGENCE IS WORTH MORE THAN THE THREE-LENS AGREEMENT. Route D-B takes DMA/IHS's 2010 direct-marketing pool (54.2 percent of US ad expenditure), carries it forward, and converts it from a billings rail to the media-owner rail through the IRS SOI / MAGNA ratio of 1.456. It lands at 37.6 percent against the format rail's 38.5 percent, sharing no input. Separately, the reference-class lens rebuilt IAB's discontinued performance share from the FY2025 format partition with no fitting to the historical series and returned 62.6 percent against IAB's last published 62.1 percent - a five-year hole closed out of sample.",
+        "RAIL SENSITIVITY EXCEEDS EVERY INTERVAL IN THIS SPLIT. IRS SOI corporate advertising deductions read $473,153m for 2022 against MAGNA's $325,000m for the same year, a $148bn wedge, 45.6 percent of the MAGNA base. The wedge is trade and consumer promotion, co-op allowances, catalogue and mail production, agency fees and events, which is overwhelmingly direct-response and retail money. Carried to 2025 and allocated, every resulting shift is larger than the corresponding interval half-width: two lenses independently computed restatements putting national_brand near 29.5-31.8 percent and local_retail near 22.4-27.4 percent. Any chart of this split must name its rail in the axis label, not the footnote.",
+        "A CORRECTION TO THE SOURCE HUNT, on classified print. The hunt reports the record's roughly $1bn print-classified assumption as 'roughly half' the true value, citing Census's $1,978m for 2021. That compares a 2021 observation with a 2025 assumption. Carried forward four years at the observed -11 percent a year, $1,978m reads about $1.24bn by 2025, and two of three lenses independently landed at $1.15-1.3bn. The record's print assumption was approximately right FOR THE ANCHOR YEAR, and the hunt's correction, applied as stated, would inflate classified. The same date-alignment error applies to the directory leg.",
+        "A CORRECTION TO THE SOURCE HUNT, on BIA. The hunt records BIA's advertiser-type cut as paywalled and not purchased. Two of three lenses found a public summary giving $116.4bn regional-and-national against $59.2bn SMB. Only the RATIO is usable - the post is undated and its $175.6bn block does not reconcile with BIA's published 2018 local total of $151.2bn - which is exactly how all three lenses used it.",
+        "THE CLASSIFIED SPREAD IS ONE DEFINITIONAL FORK, NOT THREE ESTIMATES. Lead generation is roughly $4.5-6bn of IAB's $12.5bn 'Other' bucket. Two lenses move it to direct_response because money paid per acquired lead is action-priced; one keeps a portion at weight 0.35 because a firm paying per lead for a roofer is buying what the classified page sold. That single call produces almost the whole 1.9-to-3.4 spread.",
+        "THE SECOND DEFINITIONAL FORK IS DIRECTORIES, and it barely matters in 2025 but dominates 2008. Directory money is carried in classified here. The alternative - a plumber's directory listing is a local business buying advertising - moves classified from 2.5 to about 2.2 percent in 2025 but from 9.3 to about 5.2 percent in 2008, and moves local_retail up about 4pp in 2008.",
+        "THE ERA-OPEN (2008) SPLIT IS NOT RECONCILED, and cannot be against this repo's data: adspend.json carries no 2008 all-media total on any series (Coen ends 2007 at $279,612m, MAGNA begins 2018). The lenses disperse widely on the 2008 shares - national_brand 41-50, local_retail 23-28, direct_response 15-25, classified 6-11 - using two different reference years and two different direct-mail treatments. What IS solid at the era open is the classified dollar anchor, $22.7bn, buildable entirely from grade-A sources.",
+        "THE PANEL OFFERED FEWER INDEPENDENT ROUTES THAN IT APPEARS TO. After de-duplication the twelve pool-estimates rest on nine distinct routes, not the thirty-odd the lenses list. national_brand has only TWO construction routes and they share the performance-share input, plus one truly independent survey rail that all three lenses gave zero weight because it reads 15 points lower. local_retail is the strongest, with three genuinely independent routes whose SMB legs converged at $62bn, $63bn and $63bn.",
+        "THE FOUR PURCHASES THAT WOULD RETIRE THESE ESTIMATES, in the order all three lenses converged on: (1) BIA's advertiser-type cut, which resolves the regional tier; (2) Guideline/SMI agency billing data, the only instrument that could rank national_brand against direct_response; (3) AIM Group's Marketplaces Report, which replaces the filing-by-filing listings build; (4) MAGNA's Direct/National/Local line items, the only source that would give three pools on one internally consistent frame. Recorded so that the choice to estimate rather than buy is on the record.",
+        "FREEZE COMPLIANCE HOLDS. Every input across all three lenses carries a publication or reference date on or before 2026-06-30. BIA's 2026 forecast of $184.5bn and Winterberry's 2026 outlook are recorded by the lenses but not used, since the anchor year is 2025."
+      ]
+    }
+  ],
+  "open_taxonomy_questions": [
+    {
+      "id": "tax-01",
+      "title": "Where does directory and Yellow Pages money sit? Era 5 splits it by advertiser geography; every other place in the project puts all of it in one intent pool.",
+      "status": "OPEN - deliberately NOT resolved by this apply step",
+      "surfaced_by": "the era-5 reconciliation (unranked_pairs entry 1) and an earlier R2b run; carried forward unresolved",
+      "magnitude": {
+        "year": 2000,
+        "usd_millions": 13228,
+        "as_percent_of_the_2000_us_total": 5.35,
+        "local_leg_usd_millions": 11135,
+        "national_leg_usd_millions": 2093,
+        "effect_on_era_5_shares": "Local Yellow Pages alone is 4.499pp of the 2000 market. Under the era-5 convention local_retail leads direct_response 28.32 to 24.71; move the local leg across and direct_response leads 29.21 to 23.82. The flip is exact and this block is its sole cause."
+      },
+      "the_inconsistency": "Era 5's e5-scale-011 and e5-scale-013 split directories by advertiser geography and are the ONLY place in the project that does. Three other places put ALL directory money in the intent pool: adspend.json's dataset-notes section 8 (the constructed intent grouping is newspaper classified $19,608m + the FULL $13,228m Yellow Pages line + direct mail $44,591m = $77,427m, recomputed exact and carried as ds-money_type-003); era 6's e6-scale-010 (the whole $14,250m Yellow Pages line, no split); and era 7's e7-scale-008 (classified and directories as one pool). MAGNA, the only compiler in the era-5 window that partitions by money type at all, also places ALL directories inside its Direct domain with no geographic split.",
+      "why_not_resolved_here": "Moving it would shift the project's most-quoted figure - the $19.6bn classified peak - into a headline pool and would ripple into series.naa_newspaper, ds-money_type-003, and chapters 01, 05, 06 and 09. No evidence in the 1994-2001 window adjudicates what a Yellow Pages buyer thought it was buying, so this is not resolvable by more research. It is an editorial rule, not a finding, and it belongs to the human at the freeze.",
+      "what_it_would_touch": [
+        "p2-ad-market/data/eras/era-5.json: e5-scale-011, e5-scale-013, e5-buyers-011, e5-buyers-013 (and the SCALE/BUYERS summaries)",
+        "p2-ad-market/data/eras/era-6.json: e6-scale-010",
+        "p2-ad-market/data/eras/era-7.json: e7-scale-008, e7-buyers-007",
+        "p2-ad-market/data/adspend.json: ds-money_type-003 ($77,427m intent grouping) and series.naa_newspaper's role as the classified spine",
+        "p2-ad-market/research/notes/dataset-notes.md section 8",
+        "chapters 01 (the $77.4bn intent grouping), 05, 06 (the era-5 money-type table) and 09 (the four-era money-type table)"
+      ],
+      "recommendation_if_the_human_wants_one": "Follow MAGNA, the data layer and eras 6-7: put all directory money in the response-and-listing pool in every era. That would make direct_response the second-largest era-5 pool and local_retail the third, and would remove the contradiction between era 5's claims and the project's own dataset notes. It would NOT change the classified pool in era 5, because directories would go to direct_response, not to classified."
+    }
+  ],
+  "r3_divergences": {
+    "policy": "verdicts.json is the historical R3 record and was NOT edited. R2b legitimately supersedes several R3 values, so `verify_p2.py r3-applied` and `r3-coverage` now report the divergences below. They are reported, not hidden.",
+    "r3_applied": [
+      {
+        "claim_id": "e1-scale-011",
+        "r3_new": {
+          "central": 16,
+          "ci80": [
+            11,
+            23
+          ]
+        },
+        "r2b_applied": {
+          "central": 22.0,
+          "ci80": [
+            11,
+            46
+          ]
+        }
+      },
+      {
+        "claim_id": "e1-scale-014",
+        "r3_new": {
+          "central": 24,
+          "ci80": [
+            17,
+            34
+          ]
+        },
+        "r2b_applied": {
+          "central": 16.0,
+          "ci80": [
+            8,
+            30
+          ]
+        }
+      },
+      {
+        "claim_id": "e1-buyers-007",
+        "r3_new": {
+          "central": 13,
+          "ci80": [
+            7,
+            21
+          ]
+        },
+        "r2b_applied": {
+          "central": 13,
+          "ci80": [
+            8,
+            22
+          ]
+        }
+      },
+      {
+        "claim_id": "e7-scale-006",
+        "r3_new": {
+          "central": 95,
+          "ci80": [
+            70,
+            150
+          ]
+        },
+        "r2b_applied": {
+          "central": 145.7,
+          "ci80": [
+            99.5,
+            187.1
+          ]
+        }
+      },
+      {
+        "claim_id": "e7-scale-009",
+        "r3_new": {
+          "central": 130,
+          "ci80": [
+            95,
+            165
+          ]
+        },
+        "r2b_applied": {
+          "central": 151.2,
+          "ci80": [
+            117.4,
+            187.1
+          ]
+        }
+      },
+      {
+        "claim_id": "e7-buyers-005",
+        "r3_new": {
+          "central": 23,
+          "ci80": [
+            17,
+            38
+          ]
+        },
+        "r2b_applied": {
+          "central": 36.6,
+          "ci80": [
+            25.0,
+            47.0
+          ]
+        }
+      },
+      {
+        "claim_id": "e7-buyers-006",
+        "r3_new": {
+          "central": 41,
+          "ci80": [
+            33,
+            46
+          ]
+        },
+        "r2b_applied": {
+          "central": 23.5,
+          "ci80": [
+            15.0,
+            31.0
+          ]
+        }
+      },
+      {
+        "claim_id": "e7-buyers-008",
+        "r3_new": {
+          "central": 32,
+          "ci80": [
+            23,
+            41
+          ]
+        },
+        "r2b_applied": {
+          "central": 38.0,
+          "ci80": [
+            29.5,
+            47.0
+          ]
+        }
+      }
+    ],
+    "r3_coverage": [
+      "e1-scale-017",
+      "e5-scale-014",
+      "e7-scale-010"
+    ],
+    "r3_coverage_note": "The three residual claims are new at R2b and therefore have no R3 verdict. They are recorded in claims.json with verdict 'post-verification', the value the project already uses for claims minted after the R3 pass."
+  }
+}

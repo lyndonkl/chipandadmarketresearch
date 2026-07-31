@@ -195,7 +195,7 @@
       "by_money_type": {
         "national_brand": {
           "id": "e1-buyers-005",
-          "statement": "National advertisers bought $55 million of newspaper space in 1915, against $220 million bought by local advertisers including classified - national money was about 20 percent of newspaper advertising.",
+          "statement": "National advertisers bought $55 million of newspaper space in 1915, against $220 million bought by local advertisers including classified - national money was about 20 percent of newspaper advertising. PROVENANCE FLAG: this figure has never been read in primary. It reaches the record third-hand, through Borden (1942) App. Table 1 p. 888 and then Galbi's dataset, and no free copy of Borden or of the ANPA original exists. Every route in every lens that touches the 20 percent share inherits that chain.",
           "central": 55,
           "unit": "USD millions (current), newspaper space",
           "ci80": [
@@ -205,7 +205,11 @@
           "grade": "B",
           "sources": [
             {
-              "name": "Borden, 'The Economic Effects of Advertising' (Irwin, 1942), App. Table 1, p. 888, sourced to ANPA Bureau of Advertising, 'Expenditures of National Advertisers in Newspapers, 1915-1938'; tabulated in Galbi's CS Ad Expenditure Dataset",
+              "name": "Borden, 'The Economic Effects of Advertising' (Irwin, 1942), App. Table 1, p. 888, sourced to ANPA Bureau of Advertising, 'Expenditures of National Advertisers in Newspapers, 1915-1938', tabulated in Galbi's CS Ad Expenditure Dataset. THIRD-HAND: never read in primary, and no free copy of Borden or of the ANPA original exists.",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            },
+            {
+              "name": "Douglas Galbi, CS Ad Expenditure Dataset (Coen/McCann lineage; the documented 1.5187 receipts-to-outlay wedge; Coen national/local from 1935)",
               "url": "https://www.galbithink.org/ad-spending.htm"
             }
           ],
@@ -213,7 +217,7 @@
         },
         "local_retail": {
           "id": "e1-buyers-006",
-          "statement": "Local advertisers (retailers plus classified) bought $220 million of newspaper space in 1915, four times the national-advertiser total.",
+          "statement": "Local advertisers (retailers plus classified) bought $220 million of newspaper space in 1915, four times the national-advertiser total. The line bundles classified with retail display and no compiler has ever separated the two. PROVENANCE FLAG: third-hand via Borden (1942) p. 888 and then Galbi; never read in primary.",
           "central": 220,
           "unit": "USD millions (current), newspaper space",
           "ci80": [
@@ -223,7 +227,11 @@
           "grade": "B",
           "sources": [
             {
-              "name": "Borden (1942), App. Table 1, p. 888, sourced to ANPA Bureau of Advertising; tabulated in Galbi's CS Ad Expenditure Dataset",
+              "name": "Borden, 'The Economic Effects of Advertising' (Irwin, 1942), App. Table 1, p. 888, sourced to ANPA Bureau of Advertising, 'Expenditures of National Advertisers in Newspapers, 1915-1938', tabulated in Galbi's CS Ad Expenditure Dataset. THIRD-HAND: never read in primary, and no free copy of Borden or of the ANPA original exists.",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            },
+            {
+              "name": "Douglas Galbi, CS Ad Expenditure Dataset (Coen/McCann lineage; the documented 1.5187 receipts-to-outlay wedge; Coen national/local from 1935)",
               "url": "https://www.galbithink.org/ad-spending.htm"
             }
           ],
@@ -231,22 +239,34 @@
         },
         "classified": {
           "id": "e1-buyers-007",
-          "statement": "Classified advertising bought by individuals and very small businesses accounted for roughly 13 percent of US newspaper advertising receipts in 1914, about $24 million.",
+          "statement": "Classified advertising bought by individuals and very small businesses was about 13 percent of US newspaper advertising receipts in 1914, about $24 million. Its share of advertiser OUTLAY is lower, because the receipts-to-outlay wedge does not apply to a channel that carried no agency commission and no cost of preparation.",
           "central": 13,
           "unit": "percent of US newspaper advertising receipts",
           "ci80": [
-            7,
-            21
+            8,
+            22
           ],
           "grade": "C",
-          "method": "No dollar series for classified exists before 1928. Anchored on the earliest measured split: classified was 18-21 percent of newspaper linage in 52 cities across every year of 1928-1941 (Historical Statistics series T 485-486: 1928 345,835/1,802,482 = 19.2%; 1930 18.1%; 1933 18.5%; 1936 19.2%; 1938 20.8%; 1940 20.7%), a band that held through a 44 percent collapse in total linage. Classified is argued to be a smaller share pre-WWI because help-wanted, autos and real estate classified grew in the 1920s, and because the claim is about revenue rather than linage; but neither argument is evidenced, so the interval's upper bound is set at the observed 1928-40 level rather than below it. Cross-check: a 7-21 percent band on the Census 1914 newspaper receipts of $184.0m gives $13-39m, inside the ANPA 'local incl. classified' envelope of $220m for 1915.",
+          "method": "AGGREGATION: median of three lens positions (structural-proxy 13, reference-class 11.5, decomposition 13.8). The R3 upward correction from 12 is UPHELD and is now supported by two independent linage traditions that both land at 15-16 percent of national newspaper linage in 1914-16. || ROUTE 1, the 52-city linage band, WEIGHT 0.45. Input: HSUS T 485-486, classified 18-21 percent of newspaper linage in every year 1928-1941. PROXY-POPULATION GAP: a metropolitan panel eleven years after the window against a 1914 universe of 2,580 dailies among 22,754 publications. ADJUSTMENTS: universe correction, direction down, size -3.8pp; period correction for the 1920s growth of help-wanted, used-automobile and suburban-real-estate classified, direction down, size small and poorly evidenced. || ROUTE 2, the Chicago Tribune 1916 observation, WEIGHT 0.30. Input: Field 1916, advertising volume 'about equally divided between classified and display'. PROXY-POPULATION GAP: the country's leading want-ad daily is the extreme upper tail of the distribution whose mean is wanted. ADJUSTMENT: scale by a top-paper-to-average ratio calibrated on 1928, where the 52-city average was 19.2 percent while leading want-ad papers ran near 50 percent (ratio 2.0-2.5x); direction down, size -60 percent from the raw figure. || ROUTE 3, linage-to-receipts rate conversion, WEIGHT 0.25. Input: the NAA 1950 revenue identity (classified $377m of $2,070m = 18.2 percent of newspaper revenue) at a 22-27 percent linage share, which solves the unmeasured rate ratio r at 0.60-0.79; Rogers 1918's two-cents-per-word card. PROXY-POPULATION GAP: every measured series is LINAGE and the target is RECEIPTS, and r is the hinge no source states. ADJUSTMENT: apply r = 0.70 (band 0.55-0.90) to a 15-19 percent linage share, giving 11-14 percent of receipts. || The literature's claim that pre-WWI classified was materially below the 1928 level is asserted and unmeasured, and the one in-window observation runs the other way. INTERVAL widened to [8, 22] on the panel spread. NOTE THE BASIS: this is a share of newspaper RECEIPTS. The share of advertiser OUTLAY is lower, because the 1.5187 receipts-to-outlay wedge - agency commission plus cost of preparation - does not apply to a channel that carried neither.",
           "sources": [
             {
-              "name": "Historical Statistics of the United States, Colonial Times to 1970, series T 485-491 (newspaper linage, 52 cities)",
+              "name": "Historical Statistics of the United States, Colonial Times to 1970, series T 444-471 (advertising outlay) and T 485-491 (newspaper linage, 52 cities, from 1928, Media Records Inc.)",
               "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"
             },
             {
-              "name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12",
+              "name": "William H. Field (Business Manager, Chicago Tribune), 'Business Management of a Newspaper' (1916): advertising volume 'about equally divided between classified and display, although the former brings a much lower rate'",
+              "url": "https://archive.org/details/businessmanageme1916fiel"
+            },
+            {
+              "name": "Jason Rogers, 'Building Newspaper Advertising' (1919) p. 319 and 'Newspaper Building' (1918): national share of a mid-size daily's linage and net income; the two-cents-per-word classified card and the separate 'Expenses, Classified' sub-ledger",
+              "url": "https://archive.org/details/buildingnewspape00roge"
+            },
+            {
+              "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' (1950: national $518m, retail $1,175m, classified $377m of $2,070m), via the Internet Archive",
+              "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+            },
+            {
+              "name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12 (newspaper advertising receipts $184.047m and other-periodical receipts $71.586m, 1914)",
               "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"
             }
           ],
@@ -254,21 +274,35 @@
         },
         "direct_response": {
           "id": "e1-buyers-008",
-          "statement": "Direct-mail advertising outlay in the United States was put at about $300 million in 1920, the earliest datable industry estimate and the closest measure of the era's direct-response buyer class.",
-          "central": 300,
-          "unit": "USD millions (current)",
+          "statement": "Direct-response buyers - mail-order houses, patent-medicine makers and every advertiser working a keyed reply - spent about $192 million in 1914, roughly 16 percent of the benchmark total. The anchor is now Printers' Ink of 4 May 1911, which tabulates direct mail at $100 million, farm and mail-order at $75 million, sampling at $18 million, distributing at $6 million and house organs at $7 million, in window and contemporaneously.",
+          "central": 192,
+          "unit": "USD millions (current), 1914 benchmark",
           "ci80": [
-            200,
-            400
+            96,
+            360
           ],
-          "grade": "B",
+          "grade": "C",
+          "method": "Buyer-side dollar reading of the era's direct-response pool: 16.0 percent of the $1,200m 1914 benchmark. ANCHOR UPGRADED, under the rule that where a real source exists it wins. Printers' Ink of 4 May 1911 p. 79 states the component channels in window and contemporaneously - direct mail $100m, farm and mail-order $75m, demonstration and sampling $18m, distributing $6m, house organs $7m - and its twelve lines sum exactly to its stated $616m total. The 1926 Britannica's $300m for 1920, which the record previously carried as the primary anchor, is retained only as a corroborating route: deflating it for the price level (CPI x1.99 over 1914-1920) and for real growth (+15 to +25 percent) gives about $126m for 1914, within 12 percent of the PI-derived $113m direct-mail line. || ROUTES AND WEIGHTS are those of e1-scale-014. D1, the PI 1911 direct lines grown x1.131 to 1914, WEIGHT 0.35, with direct mail split 65 percent direct response / 20 percent business-to-business / 15 percent local retail (proxy-population gap: direct mail was not one money type; the 50-80 percent range on that first share is the largest lever here). D2, mail-order sales x expense ratio, WEIGHT 0.30, US mail-order trade sales $325-365m at an 8-14 percent all-in advertising ratio validated from catalogue production arithmetic rather than assumed. D3, the Britannica back-cast, WEIGHT 0.15, adjusted for the price level and for real growth, direction down on both. D4, the direct-mail share-of-total path across 1911, 1920, 1935 and 1950, WEIGHT 0.20, which pins Coen-basis direct mail at 10-12 percent of the 1914 total and is the only route constraining how the measured base maps onto the broad benchmark. CEILING: Adams 1905 caps ALL patent-medicine advertising of every kind at roughly $25-33m. || The pool grades C for two reasons that are not resolvable: no source in the era uses the term 'direct response', so assigning these channels to it is interpretation; and the $75m farm-and-mail-order line does not say how much is periodical space rather than mail-order houses' own outlay - a $0-85m swing, larger than the gap between this pool's central and national brand's.",
           "sources": [
             {
-              "name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource)",
+              "name": "Printers' Ink, 4 May 1911, vol. LXXV no. 5, p. 79 - the magazine's own estimate of money spent through each advertising channel; twelve channels summing exactly to $616,000,000 (verified)",
+              "url": "https://archive.org/details/sim_marketing-communications-1888_1911-05-04_75_5"
+            },
+            {
+              "name": "1926 Encyclopaedia Britannica, 'Advertising' (direct mail about $300,000,000 in 1920) - demoted at R2b from primary anchor to corroborating route",
               "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"
+            },
+            {
+              "name": "Samuel Hopkins Adams, 'The Great American Fraud', Collier's, 7 October 1905: US consumer spending on patent medicines put at $75,000,000"
+            },
+            {
+              "name": "R2b money-type source hunt, era 1 (p2-ad-market/data/moneytype/sources-era-1.json): 20 sources read, 14 new to the project; documented negative result that no compiler ever published this four-way split for any year 1840s-1917"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 1, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
-          "as_of": "1920"
+          "as_of": "1914"
         }
       }
     },
@@ -712,101 +746,197 @@
             }
           ],
           "as_of": "1935"
+        },
+        {
+          "id": "e1-scale-017",
+          "statement": "The four money-type pools account for 62.2 percent of the 1914 benchmark, leaving 37.8 percent - about $454 million - unattributed. Roughly 5 to 9 points of that is a real fifth money type: business, trade and technical papers, legal, financial and government notices, and institutional and political money. The rest is the undocumented gap between a contemporaneous channel enumeration and a retrospective benchmark, and it is not a money type.",
+          "central": 37.8,
+          "unit": "percent of total US advertising outlay",
+          "ci80": [
+            5,
+            55
+          ],
+          "grade": "C",
+          "method": "RECONCILIATION IS FORCED AND EXACT. The four pool medians sum to 62.2 percent of the $1,200m observed total (national brand 22.0 + local retail 22.0 + classified 2.2 + direct response 16.0), leaving 37.8 percent = $454m unattributed; 22.0 + 22.0 + 2.2 + 16.0 + 37.8 = 100.0 exactly. The residual is reported as its own figure, not absorbed. Lens centrals: structural-proxy 9.3, reference-class 34.8, decomposition 44.7. || IT DECOMPOSES INTO TWO PARTS THAT MUST NOT BE CONFLATED. PART ONE, roughly 5-9 points ($60-112m): a GENUINE FIFTH MONEY TYPE the four-way taxonomy cannot hold - business, trade and technical paper advertising (the Census other-periodicals class is about 28 percent business and technical papers, dealer- and engineer-directed money), dealer-directed direct mail, house organs, legal, financial and government notices in newspapers, theatrical and circus billposting, and institutional, transportation and political advertising. Two lenses sized it independently at 9.3 and 5.2 percent, and it is corroborated forward: Coen's business-papers line was $76m of a $1,690m total in 1935, or 4.5 percent, with legal and financial notices a further 2-4 percent of newspaper linage. This part is real money with a real name and should be a labelled series in any chart. PART TWO, roughly 29-33 points ($350-400m): a DENOMINATOR ARTEFACT, the gap between a contemporaneous channel enumeration and a retrospective benchmark that nobody has ever decomposed. It is not a money type and must never be drawn as one. || THE GAP'S SIZE AND WHY IT EXISTS. Two anchors exist for 1914 and they are 1.72x apart. The MEASURED base is $697-725m: the twelve Printers' Ink channels, which sum exactly to their stated $616m, grown to 1914 at the Census newspaper-receipts ratio x1.131 = $697m, plus window display and directory listings. It is independently corroborated by Starch 1914 p. 7 ('nearly $700,000,000 are spent annually' on printed advertising), and its newspaper line reproduces the documented 1.5187 receipts-to-outlay wedge to within 1.1 percent (1.5356 against 1.5187). The RETROSPECTIVE benchmark is $1,200m. The $503m difference is 42 percent of the denominator, and the SAME PUBLISHING HOUSE's contemporaneous 1911 tabulation runs 38-46 percent below its own retrospective series for adjacent years, with no documented reconciliation anywhere. || TWO READINGS, BOTH CARRIED, NEITHER AVERAGED AWAY. READING A: the gap is genuine cost of preparation and non-media promotion, which the HSUS source note for series T 444-471 says is inside the basis - in which case it IS buyer money and belongs to the pools, allocated by below-the-line intensity (national brand about 1.4x space money, local retail about 0.7x, direct response about 0.5x because its lines are already all-in, classified about 0.0x), and the residual collapses to the fifth pool alone at 5-9 percent. That is the structural-proxy lens's position and the source of the interval's lower bound of 5. READING B: the gap is retrospective overstatement in the Printers' Ink / Coen lineage, in which case it stays unallocated at 43-55 percent. That is the decomposition lens's position and the source of the upper bound of 55. The consolidated central sits between them, closer to B, because the median rejected the full allocation that only one of three lenses performed. || THE GAP CANNOT BE SPREAD EVENLY, and this is a positive finding rather than a caveat. The measured-base lines are not on a common basis with each other: newspapers, periodicals and out-of-home are SPACE-ONLY (about $467m of the $697m), while direct mail, mail-order, novelty, sampling, distributing and house organs are ALL-IN production figures (about $230m). Broadening the denominator lifts the space pools by roughly their own value again and barely moves the all-in pools. The direct-mail share path is the check that confirms it: direct mail was 10-12 percent of the total-outlay basis in 1920 and 16.7 percent in 1935, so it cannot have been 25-30 percent in 1914, which an even spread would require. || INTERVAL: min lower to max upper across the lenses (structural-proxy [5,18], reference-class [22,45], decomposition [33,55]). No lens was discounted. The width is not sloppiness - it IS the finding. The three lenses agree on the evidence and disagree only on what the denominator contains, and no compiler has ever documented that.",
+          "sources": [
+            {
+              "name": "Printers' Ink, 4 May 1911, vol. LXXV no. 5, p. 79 - the magazine's own estimate of money spent through each advertising channel; twelve channels summing exactly to $616,000,000 (verified)",
+              "url": "https://archive.org/details/sim_marketing-communications-1888_1911-05-04_75_5"
+            },
+            {
+              "name": "Daniel Starch, 'Advertising: Its Principles, Practice, and Technique' (1914), p. 7 ('nearly $700,000,000 are spent annually' on printed advertising)",
+              "url": "https://archive.org/details/advertisingitspr00staruoft"
+            },
+            {
+              "name": "Historical Statistics of the United States, Colonial Times to 1970, series T 444-471 (advertising outlay) and T 485-491 (newspaper linage, 52 cities, from 1928, Media Records Inc.)",
+              "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"
+            },
+            {
+              "name": "Douglas Galbi, CS Ad Expenditure Dataset (Coen/McCann lineage; the documented 1.5187 receipts-to-outlay wedge; Coen national/local from 1935)",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            },
+            {
+              "name": "R2b money-type source hunt, era 1 (p2-ad-market/data/moneytype/sources-era-1.json): 20 sources read, 14 new to the project; documented negative result that no compiler ever published this four-way split for any year 1840s-1917"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 1, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
+            }
+          ],
+          "as_of": "1914"
         }
       ],
       "by_money_type": {
         "national_brand": {
           "id": "e1-scale-011",
-          "statement": "National brand advertising was roughly 16 percent of total US advertising outlay at the 1914 benchmark.",
-          "central": 16,
+          "statement": "National brand advertising was about 22 percent of total US advertising outlay at the 1914 benchmark, roughly $264 million of $1,200 million. It is joint-largest with local retail, and no surviving evidence separates the two. This supersedes the 16 percent the record carried before the money-type re-research.",
+          "central": 22.0,
           "unit": "percent of total US advertising outlay",
           "ci80": [
             11,
-            23
+            46
           ],
           "grade": "C",
-          "method": "Bottom-up on the 1914 benchmark of $1,100-1,302m. Components on a consistent expenditure basis: ANPA national newspaper space $55m (already an expenditure measure; at most a 1.13 uplift to Coen basis, giving $55-62m); Census non-newspaper periodicals $71.6m receipts, taken 70-100 percent national and left unscaled to $109m scaled, giving $50-109m; national outdoor and streetcar $15-40m. Total $150-211m against $1,100-1,302m = 11.5-19.2 percent. Preparation is NOT added separately because the Coen/HSUS total-outlay basis already includes it (HSUS chapter T source note for T 444-471).",
+          "method": "SOURCED BY: no source. No compiler in or out of the window states national advertising as a share of total US advertising for any year 1840s-1917. The pool rests on three sourced inputs that each cover only part of it (ANPA national newspaper dollars for 1915 via Borden via Galbi, third-hand; Census of Manufactures 1914 other-periodicals receipts $71.586m, grade A but receipts rather than outlay and never split by class of advertiser; the Printers' Ink 4 May 1911 channel lines, grade B and contemporaneous but enumerating MEDIA rather than money types). Grade stays C because every route from those inputs to this pool is a construction. || AGGREGATION: plain median of three lens centrals (structural-proxy 36.1, reference-class 22, decomposition 17.0). No extremizing, per PROCESS.md: the three lenses share one evidence base, so they are not informationally independent and extremizing would push the aggregate outside the panel. Five independent routes survive after collapsing near-duplicates. || R1 ANPA newspaper national share, re-based from space to outlay, WEIGHT 0.25. Input: ANPA 1915 national $55m against local-including-classified $220m, i.e. 20.0 percent of newspaper money; Census 1914 newspaper receipts $184.047m x the documented 1.5187 Galbi wedge = $279.5m of newspaper outlay. PROXY-POPULATION GAP: ANPA measures newspaper SPACE at gross card rate in 1915, not total outlay in 1914. ADJUSTMENTS: deflate 1915 to 1914 at the Census newspaper-receipts growth rate of about 4.4 percent a year, direction down, size -5 percent; raise national's share of OUTLAY above its share of SPACE, because national money carried materially more preparation per dollar of space (plates and electrotypes cut once and shipped to hundreds of papers, agency art and copy), direction up, size +3pp. Result about 23 percent of newspaper outlay, about $64m. NEAR-DUPLICATES COLLAPSED: all three lenses ran this same ANPA pair; counted as ONE route. || R2 Census other-periodicals decomposition, WEIGHT 0.20. Input: 1914 other-periodicals advertising receipts $71.586m x 1.5187 = $108.7m of outlay. PROXY-POPULATION GAP: the Census class bundles consumer magazines with farm, trade, business, technical and religious papers, which are not one money type. ADJUSTMENT: strip business and technical papers (about 28 percent of the class) to the business-to-business residual as dealer- and engineer-directed money, and split farm papers (about 17 percent) between national brand and mail order; direction down, size -38 percent of the class, giving about $60-74m. This is the single largest correction to the superseded reading, which took the whole periodicals line at 70-100 percent national. || R3 Printers' Ink 1911 channel build grown to 1914, WEIGHT 0.25. Input: the twelve published channel lines, which sum exactly to the stated $616m, grown at the Census newspaper-receipts ratio x1.131, with a national fraction applied channel by channel. PROXY-POPULATION GAP: PI enumerates MEDIA, not money types, and publishes its newspaper line as one undivided 'retail and general' $250m. ADJUSTMENT: novelty (calendars, fans, matchbooks) was predominantly given away by local merchants and billposting carried heavy theatrical and circus money, so the out-of-home and promotion block is taken at 50-70 percent national; direction down, size -45 percent of the block, giving about $64m. || R4 buyer-count x appropriation Fermi build, WEIGHT 0.15. Input: six advertiser tiers, from the Crowell top-75 national magazine advertisers ($13.7m of magazine spend, 1919) down to 30,000 regional and sectional brands and 25,000 trade-paper-only industrial advertisers. Touches none of R1-R3's inputs. PROXY-POPULATION GAP: the Crowell series begins in 1919, two years past the era close, and covers magazines only. ADJUSTMENT: deflate on the Census other-periodicals receipts ratio (71.6/154.8 = 0.463) and gross up to all media at a 40 percent magazine weight; both analyst-set, neither sourced, and the deflator risks overcorrecting because periodical receipts nearly doubled 1914-19 on wartime prices. || R5 reference-class continuity from the first measured partition, WEIGHT 0.15. Input: Coen 1935 national $890m of $1,720m = 51.7 percent, with non-newspaper media 77.4 percent national; ANPA's 20.0 percent newspaper national share in 1915 against Coen's 19.4 percent in 1935, flat across the era boundary. PROXY-POPULATION GAP: 1935 postdates the era by 21 years and Coen's two-way taxonomy has no direct-response category, so mail-order and patent-medicine money sits inside 'national'. ADJUSTMENTS: strip radio, which did not exist in 1914 and was about 6.6 percent of the 1935 total and overwhelmingly national, direction down; reclassify the mail-order and patent-medicine block out of national into direct response, direction down, size -12 to -18pp. || NOT ROUTES. Rogers 1919 p. 319 (national about 30 percent of a mid-size daily's linage, about 50 percent of its net income) is a coherence check, reconciled rather than averaged by reading the 50 percent as a MARGIN statement. Cherington 1913 and the N. W. Ayer patent-medicine revenue shares are documentary pull, not measurement. The below-the-line uplift that lifts the structural-proxy lens from 15.6 to 36.1 is a DENOMINATOR TREATMENT rather than a route to this pool, which is why the plain median and not a weighted mean is the correct aggregator here. || INTERVAL: min lower bound to max upper bound across the three lenses. Its width is denominator-treatment disagreement, not measurement disagreement: on the channel-enumerated basis the lenses agree on this pool to within about one point.",
           "sources": [
             {
-              "name": "Borden (1942) App. Table 1 p. 888 (ANPA Bureau of Advertising national vs local), via Galbi's CS Ad Expenditure Dataset",
+              "name": "Borden, 'The Economic Effects of Advertising' (Irwin, 1942), App. Table 1, p. 888, sourced to ANPA Bureau of Advertising, 'Expenditures of National Advertisers in Newspapers, 1915-1938', tabulated in Galbi's CS Ad Expenditure Dataset. THIRD-HAND: never read in primary, and no free copy of Borden or of the ANPA original exists.",
               "url": "https://www.galbithink.org/ad-spending.htm"
             },
             {
-              "name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12",
+              "name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12 (newspaper advertising receipts $184.047m and other-periodical receipts $71.586m, 1914)",
               "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"
+            },
+            {
+              "name": "Printers' Ink, 4 May 1911, vol. LXXV no. 5, p. 79 - the magazine's own estimate of money spent through each advertising channel; twelve channels summing exactly to $616,000,000 (verified)",
+              "url": "https://archive.org/details/sim_marketing-communications-1888_1911-05-04_75_5"
+            },
+            {
+              "name": "Douglas Galbi, CS Ad Expenditure Dataset (Coen/McCann lineage; the documented 1.5187 receipts-to-outlay wedge; Coen national/local from 1935)",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            },
+            {
+              "name": "R2b money-type source hunt, era 1 (p2-ad-market/data/moneytype/sources-era-1.json): 20 sources read, 14 new to the project; documented negative result that no compiler ever published this four-way split for any year 1840s-1917"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 1, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "1914"
         },
         "local_retail": {
           "id": "e1-scale-012",
-          "statement": "Local retail advertising, excluding classified, was roughly 23 percent of total US advertising outlay at the 1914 benchmark.",
-          "central": 23,
+          "statement": "Local retail advertising, excluding classified, was about 22 percent of total US advertising outlay at the 1914 benchmark, roughly $264 million. It ties with national brand as the joint-largest money type, and every route that raises one mechanically lowers the other.",
+          "central": 22.0,
           "unit": "percent of total US advertising outlay",
           "ci80": [
-            16,
-            32
+            15,
+            46
           ],
           "grade": "C",
-          "method": "ANPA reports newspaper local advertising including classified at $220m in 1915 against $55m national. Applying the era's classified share estimate (12 percent of newspaper advertising, e1-buyers-007) leaves local display at about $190m on the ANPA basis, plus local outdoor, bill posting, directories and window display of roughly $40-70m, giving about $230-310m of a $1,200m total.",
+          "method": "SOURCED BY: no source for the pool. The only in-window dollar figure is ANPA's newspaper local line, whose own column header says it INCLUDES classified ($220m in 1915), and no compiler has ever separated the two. Sourced inputs: ANPA via Borden via Galbi (third-hand); the Harvard Bureau of Business Research's measured advertising-to-net-sales ratios (grade A/B, in window, directly measured, but the retail-sales denominator they multiply is constructed). Grade stays C. || AGGREGATION: plain median of three lens centrals (structural-proxy 36.4, reference-class 22, decomposition 22.0). No extremizing; shared evidence base. Three routes survive, one of them only half-independent. || L1 ANPA local line net of classified, plus local out-of-home, WEIGHT 0.40. Input: ANPA local-including-classified $220m for 1915; total newspaper outlay 1914 $279.5m (Census receipts x 1.5187); local shares of the PI 1911 out-of-home and promotion lines grown to 1914 (novelty about 50 percent, billposting about 35, outdoor 45-50, streetcar 22-40, theatre programmes about 70, distributing 50-75, plus 14-15 percent of the direct-mail line as merchants' circulars). PROXY-POPULATION GAP: the ANPA line is 1915 and bundles classified, and classified must be subtracted on a RECEIPTS basis rather than a linage basis. ADJUSTMENTS: deflate 1915 to 1914, direction down, size -8 percent; remove classified at about 12 percent of newspaper receipts, -$22m. Basis check performed: ANPA's implied total newspaper money for 1914 is about $262m against the Census-derived $279.5m, 6 percent apart, so the ANPA basis needs no re-scaling. NEAR-DUPLICATES COLLAPSED: all three lenses ran this same ANPA line; ONE route. || L2 Harvard expense ratios x retail sales, WEIGHT 0.40. Touches no ANPA input and no Printers' Ink input - the only genuinely clean second route in the era. Input: Harvard's measured ratios by trade; US retail sales 1914 constructed at $15.8-17.5bn from nominal GDP $36,831m x a retail-to-GDP ratio of 0.43-0.47 taken from the 1929 Census of Distribution. THREE PROXY-POPULATION GAPS, each adjusted. (a) Trade mix: Harvard's spread across trades is an order of magnitude, so a single blended ratio is indefensible; trade-weighting food 28-30 percent at 0.15-0.2 percent, general merchandise 11-14 percent at 3.0 percent, apparel and shoes 10-13 percent at 2.0 percent, drug, furniture and hardware about 15 percent at 1.5-3.0 percent, automotive 7-10 percent at 0.8-1.2 percent, remainder at 0.5-1.0 percent gives 1.0-1.23 percent weighted, well below a naive blend. (b) Population: Harvard measures RETAIL STORES only, while the money type also holds local services - theatres and amusements, banks, hotels and restaurants, real-estate brokers, physicians, undertakers; direction up, size +15 to +30 percent. (c) Basis: the Harvard ratio is BOOKED advertising expense and already includes the store's own preparation, window trim and circulars, so it is comparable to the outlay basis and must NOT be scaled by the 1.5187 receipts wedge; applying the wedge here would double-count. KNOWN WEAKNESS CARRIED, NOT HIDDEN: Barger (NBER 1955), the correct retail-sales source, was located but not opened by any lens, and no in-window Harvard department-store bulletin exists, so importing a 1920s department-store ratio biases this route up. || L3 reference-class local-advertising-to-retail-sales ratio at 1935 and 1950, WEIGHT 0.20, HALF-INDEPENDENT. Input: Coen local 1935 $830m less about $90m classified = $740m against about $33bn of retail sales = 2.2 percent; Coen local 1950 $2,440m less $377m classified = $2,063m against about $145bn = 1.4 percent. PROXY-POPULATION GAP: 1935 is a depression year with a collapsed sales denominator, which inflates the ratio, so 1950 is the cleaner reading. ADJUSTMENT: band 1.3-1.7 percent applied to the same $17bn 1914 retail-sales figure L2 uses. DECLARED NOT INDEPENDENT: L3 shares L2's constructed denominator, so L2 and L3 are one-and-a-half routes, not two, and their agreement is partly mechanical. || THE KEY CROSS-CHECK: L1 and L2 share no input at all - one runs through ANPA newspaper dollars, the other through retailer profit and loss ratios on retail sales - and they land within 5-22 percent of each other in every lens that ran both. That is the strongest independent convergence in era 1 and it is what caps this pool. It also rejects a naive reference-class projection: carrying Coen's 1935 local share of 48.3 percent straight back would put local at about $580m, which requires a blended advertising-to-sales ratio above 2 percent that the Harvard grocery bulletin directly contradicts. || INTERVAL: min lower to max upper across the three lenses. The structural-proxy lens's 36.4 comes from the same below-the-line denominator treatment described under e1-scale-011, not from a different measurement of the money.",
           "sources": [
             {
-              "name": "Borden (1942) App. Table 1 p. 888 (ANPA Bureau of Advertising), via Galbi's CS Ad Expenditure Dataset",
+              "name": "Borden, 'The Economic Effects of Advertising' (Irwin, 1942), App. Table 1, p. 888, sourced to ANPA Bureau of Advertising, 'Expenditures of National Advertisers in Newspapers, 1915-1938', tabulated in Galbi's CS Ad Expenditure Dataset. THIRD-HAND: never read in primary, and no free copy of Borden or of the ANPA original exists.",
               "url": "https://www.galbithink.org/ad-spending.htm"
+            },
+            {
+              "name": "Harvard University Bureau of Business Research, Bulletin No. 1 (retail shoe stores, 1913): advertising 0.0-8.8 percent of net sales, centring about 2.0 percent, over 130 stores",
+              "url": "https://archive.org/details/objecthistoryofb00harvrich"
+            },
+            {
+              "name": "Harvard University Bureau of Business Research, Bulletin No. 5 (retail grocery stores, November 1915): advertising nil to 1.8 percent of net sales, common figure 0.1 percent",
+              "url": "https://archive.org/details/expensesinoperat00harvrich"
+            },
+            {
+              "name": "Printers' Ink, 4 May 1911, vol. LXXV no. 5, p. 79 - the magazine's own estimate of money spent through each advertising channel; twelve channels summing exactly to $616,000,000 (verified)",
+              "url": "https://archive.org/details/sim_marketing-communications-1888_1911-05-04_75_5"
             },
             {
               "name": "OAAA, 'History of OOH'",
               "url": "https://oaaa.org/resources/history-of-ooh/"
+            },
+            {
+              "name": "R2b money-type source hunt, era 1 (p2-ad-market/data/moneytype/sources-era-1.json): 20 sources read, 14 new to the project; documented negative result that no compiler ever published this four-way split for any year 1840s-1917"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 1, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "1914"
         },
         "classified": {
           "id": "e1-scale-013",
-          "statement": "Classified advertising was roughly 3 percent of total US advertising outlay at the 1914 benchmark, about $35 million.",
-          "central": 3,
+          "statement": "Classified advertising was about 2.2 percent of total US advertising outlay at the 1914 benchmark, about $26 million. It was the smallest of the four money types by a wide margin, and that is the one ordering this era can honestly assert.",
+          "central": 2.2,
           "unit": "percent of total US advertising outlay",
           "ci80": [
-            1.5,
-            6
+            1.1,
+            5.0
           ],
           "grade": "C",
-          "method": "Classified at 12 percent of Census newspaper advertising receipts of $184.1m gives about $22m of receipts (see e1-buyers-007 for the linage-based derivation), scaled to about $33m of outlay at the documented 1.52 factor, against a $1,200m total. Directory and Yellow Pages classified listings add a small unmeasured amount. Interval spans the full 7-18 percent classified band applied to both benchmark totals.",
+          "method": "SOURCED BY: NO SOURCE FOUND, and this is a documented negative result rather than an unfinished search. No compiler published a classified dollar figure, a classified share or a classified linage series for any year 1840s-1917. Exhausted: the Census of Manufactures printing and publishing bulletins 1879-1919 (receipts enumerated but never split by class of advertising); HSUS T 485-491 and Millennial De516-522 (both start 1928, both sourced to Media Records Inc., trademark filed November 1928); Coen via Galbi (no classified category ever, no national/local partition before 1935); ANCAM (founded 1920); PIB (1945); SRDS (1919, and it publishes rates not spend); NAA (1950 onward); the Library of Congress inventory of historical marketing data (nothing pre-1919); and Printers' Ink 4 May 1911, which has NO classified line among its twelve channels. The best in-window evidence is firm-level and about LINAGE: Field 1916 on the Chicago Tribune. Grade C, and it cannot be raised by further search. || AGGREGATION: plain median of three lens centrals (structural-proxy 2.2, reference-class 2.2, decomposition 2.4) - the tightest agreement in the panel, reached from three different route mixes. Four routes survive after collapsing near-duplicates, plus one correction all three lenses made independently. || C1 Media Records 52-city linage band, back-projected and universe-adjusted, WEIGHT 0.30. Input: HSUS T 485-486 - classified was 18-21 percent of newspaper linage in 52 cities in EVERY year 1928-1941 (1928 19.2 percent, 1930 18.1, 1933 18.5, 1936 19.2, 1938 20.8, 1940 20.7), a band that held through a 44 percent collapse in total linage. TWO PROXY-POPULATION GAPS, both adjusted downward. (a) Period: the series starts eleven years after the window, and help-wanted, used-automobile and suburban-real-estate classified all expanded in the 1920s (motor registrations rose roughly tenfold 1915-29); direction down, size small and poorly evidenced, and partly offset by the band's stability through the Depression. (b) Universe: the 52-city panel is metropolitan, while the 1914 universe was 2,580 dailies among 22,754 publications and far more weekly-heavy. ADJUSTMENT: if metro papers carried about 60 percent of newspaper money at 19-25 percent classified and small papers ran 8-12 percent, the national average is about 15-19 percent of linage; direction down, size -3.8pp, LARGER than the period adjustment and pointing the same way. || C2 Chicago Tribune 1916 scaled by a calibrated top-paper-to-average ratio, WEIGHT 0.20. Input: Field 1916, about 50 percent of linage at the country's leading want-ad daily. PROXY-POPULATION GAP: the Tribune is the extreme upper tail of a distribution whose mean is the quantity wanted. ADJUSTMENT: calibrate the top-paper-to-average ratio on the one year where both exist in the same measurement tradition - the 52-city average was 19.2 percent in 1928 while leading want-ad papers ran near 50 percent, a ratio of 2.0-2.5x - then apply it in reverse to Field's 50 percent, then apply C1's small-paper universe adjustment; direction down, size -60 percent from the raw figure. Result about 16 percent of national linage in 1916, landing on C1 from a wholly different and IN-WINDOW source. That two independent traditions converge at 15-16 percent of linage is this pool's strongest result. || C3 linage-to-receipts rate conversion calibrated on the NAA 1950 revenue identity, WEIGHT 0.20. Input: NAA 1950 newspaper revenue - national $518m, retail $1,175m, classified $377m of $2,070m, so classified was 18.2 percent of newspaper REVENUE in 1950; Rogers 1918 prints a two-cents-per-word classified rate. PROXY-POPULATION GAP: the rate ratio r (classified revenue per agate line over display revenue per agate line) is the single unmeasured hinge and no source in or out of the window states it. ADJUSTMENT: solve revenue_share = L*r/(L*r + (1-L)) for r at the plausible 1950 classified linage share of 22-27 percent, which yields r = 0.60-0.79, far above the naive metropolitan rate-card comparison of 0.3-0.4, for two structural reasons - classified is set solid with no white space so every agate line is paid words, and classified carried no 15 percent agency commission and no contract discount. Use r = 0.70 (band 0.55-0.90). Applying it to a 15-19 percent linage share gives 11-14 percent of newspaper receipts. || C4 transaction-count Fermi, WEIGHT 0.20. Shares no input with any linage or revenue series - the only fully independent route here. Input: about 20.5m US households of which about 10m urban; urban households placing want ads, 30 percent of 10m at 2 orders = 6m; employers placing help-wanted against very high period labour turnover, 500,000 firms at 6 a year = 3m; landlords, rooming-house keepers and real-estate agents, 1m at 4 a year = 4m; lost-and-found, personals, business opportunity, livestock and agents-wanted 3m; about 16m orders at a blended $1.50. PROXY-POPULATION GAP: the two-cents-per-word rate is a metropolitan card, so small-town rates bias the average order value DOWN while a roughly 10 percent tail of standing dealer, agency and rooming-house contracts at about $8 biases it UP, the second being the larger term. Result 13.0 percent of newspaper receipts. || C5 newspaper-total reconciliation residual, WEIGHT 0.10, upper bound only. Forces newspaper outlay $279.5m less national about $64m less local-retail newspaper display (from the independent L2 build, $150-180m), bracketing classified at $36-66m of newspaper money on a space basis. || THE CORRECTION ALL THREE LENSES MADE INDEPENDENTLY, and the most consequential result of this pass: the documented 1.5187 Coen-to-Census wedge must NOT be applied to classified. That wedge is agency commission plus cost of preparation, and classified was the era's one channel with neither - no agency, no plates, no copy, no position charges, cash over a counter, with Rogers 1918 carrying 'Expenses, Classified' as its own sub-ledger. Classified outlay therefore equals classified receipts, so classified's share of OUTLAY sits BELOW its share of RECEIPTS (about 13 percent of receipts maps to about 8 percent of newspaper outlay), which REVERSES the direction of the adjustment the superseded reading applied. The corollary the chapter should carry: the wedge is ASYMMETRIC by money type - above 1.5187 for national brand (implied display-only wedge about 1.58), roughly 1.15-1.25 for local retail placed direct with the paper, and 1.00 for classified. Directory and telephone classified listings are carried at $3-4m (band $2-8m) as this pool's only non-newspaper component. || INTERVAL: min lower to max upper across the lenses. Its width is driven by two treatment levers, not by measurement: the rate ratio r (0.55-0.90) and the wedge treatment. The upper bound of 5.0 is what classified becomes if a future pass rejects the no-wedge argument and applies the full 1.5187 factor.",
           "sources": [
             {
-              "name": "Historical Statistics of the United States, series T 485-486 (classified share of newspaper linage, 52 cities, from 1928)",
+              "name": "Historical Statistics of the United States, Colonial Times to 1970, series T 444-471 (advertising outlay) and T 485-491 (newspaper linage, 52 cities, from 1928, Media Records Inc.)",
               "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"
             },
             {
-              "name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12",
+              "name": "William H. Field (Business Manager, Chicago Tribune), 'Business Management of a Newspaper' (1916): advertising volume 'about equally divided between classified and display, although the former brings a much lower rate'",
+              "url": "https://archive.org/details/businessmanageme1916fiel"
+            },
+            {
+              "name": "Jason Rogers, 'Building Newspaper Advertising' (1919) p. 319 and 'Newspaper Building' (1918): national share of a mid-size daily's linage and net income; the two-cents-per-word classified card and the separate 'Expenses, Classified' sub-ledger",
+              "url": "https://archive.org/details/buildingnewspape00roge"
+            },
+            {
+              "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' (1950: national $518m, retail $1,175m, classified $377m of $2,070m), via the Internet Archive",
+              "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+            },
+            {
+              "name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12 (newspaper advertising receipts $184.047m and other-periodical receipts $71.586m, 1914)",
               "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"
+            },
+            {
+              "name": "R2b money-type source hunt, era 1 (p2-ad-market/data/moneytype/sources-era-1.json): 20 sources read, 14 new to the project; documented negative result that no compiler ever published this four-way split for any year 1840s-1917"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 1, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "1914"
         },
         "direct_response": {
           "id": "e1-scale-014",
-          "statement": "Direct-response money - catalogues, direct mail, and keyed print advertising bought by mail-order houses and patent-medicine makers - was roughly 24 percent of total US advertising outlay at the 1914 benchmark, comparable in size to local retail and the largest or joint-largest money type in the era.",
-          "central": 24,
+          "statement": "Direct-response money - catalogues, direct mail, and keyed print space bought by mail-order houses and patent-medicine makers - was about 16 percent of total US advertising outlay at the 1914 benchmark, roughly $192 million. It cannot be ranked against national brand or local retail.",
+          "central": 16.0,
           "unit": "percent of total US advertising outlay",
           "ci80": [
-            17,
-            34
+            8,
+            30
           ],
           "grade": "C",
-          "method": "Direct mail and catalogues put at about $300m in 1920 (1926 Britannica). Back-cast three ways rather than one: direct mail was 10.2-12.1 percent of the 1920 total (Coen $2,480m / HSUS $2,935m) and 16.7 percent of the 1935 total (HSUS T 464 $282m over T 444 $1,690m), and the price level roughly doubled 1914-1920; the resulting 1914 band is $120-190m. Add mail-order houses' keyed print space $30-45m, patent-medicine keyed press $30-50m, and premiums, samples and novelties $40-70m. Total $220-355m against $1,100-1,302m. The superlative is dropped: at this level direct response and local retail are within the noise of each other.",
+          "method": "SOURCED BY: PARTIAL, and materially better sourced than the superseded record. Printers' Ink of 4 May 1911 p. 79 publishes the component channels IN WINDOW and CONTEMPORANEOUSLY - direct mail $100m, farm and mail-order $75m, demonstration and sampling $18m, distributing $6m, house organs $7m - and that sourced tabulation supersedes the 1926 Britannica back-cast as this pool's primary anchor. The POOL still grades C for two reasons recorded at source and not resolvable: no source in the era uses the term 'direct response', so assigning these channels to it is interpretation; and the $75m 'farm and mail-order' line does not say how much is space bought in farm and mail-order journals (a medium) versus advertising placed by mail-order houses (a money type) - a $0-85m swing. || AGGREGATION: plain median of three lens centrals (structural-proxy 16.0, reference-class 19, decomposition 14.0). No extremizing; shared evidence base. All three lenses moved this pool DOWN, for two named mechanical reasons rather than one judgment. Four routes survive after collapsing near-duplicates, plus one binding ceiling. || D1 Printers' Ink 1911 direct lines re-based to 1914, WEIGHT 0.35. Input: the five channels above, grown x1.131 to 1914 - direct mail $113m, farm and mail-order $85m, sampling $20m, distributing $7m, house organs $8m. PROXY-POPULATION GAP: direct mail in 1914 was not one money type; it carried consumer order-seeking mail, manufacturers' dealer and trade literature, and local merchants' house-to-house circulars. ADJUSTMENT: split 65 percent direct response, 20 percent business-to-business, 15 percent local retail, with the 50-80 percent range on that first share the single largest lever in this pool; house organs are predominantly dealer- and employee-directed, take 40 percent; sampling is largely national-brand trial generation rather than order-seeking, take 15-30 percent. || D2 mail-order sales x expense ratio, WEIGHT 0.30. Input: Sears about $101m of sales in 1914, Montgomery Ward about $45m; the two at 40-45 percent of the trade implies total US mail-order sales of $325-365m; the all-in advertising ratio for a mail-order house runs 8-14 percent of sales against store retail's about 1.1 percent, because the catalogue IS the store. PROXY-POPULATION GAP: no source states a mail-order advertising ratio, so it is validated rather than assumed - Sears's four-pound, 1,200-page big book at roughly $0.40-0.60 a copy over 15-20m mailed pieces a year gives $7.5-12m, i.e. 8-12 percent of sales, which reproduces the ratio from physical production arithmetic. ADJUSTMENT: apply 8-14 percent to $325-365m of trade sales. PARTIAL DEPENDENCE DECLARED: one lens's version of this route also leans on a Printers' Ink-derived residual, so only the sales-ratio half is clean; the clean half reproduces that residual ($48.3m against $48.0m) from a wholly different derivation, which is what resolves the farm-and-mail-order break toward mail-order houses' own outlay. || D3 Britannica 1920 back-cast, WEIGHT 0.15. Input: the 1926 Encyclopaedia Britannica's direct mail 'about $300,000,000' for 1920. PROXY-POPULATION GAP: six years past the era close, retrospective and tertiary. ADJUSTMENTS: deflate for the price level, CPI roughly doubled 1914-1920 (30.1 to 60.0, x1.99), direction down; deflate for real growth, +15 to +25 percent of real expansion over 1914-20 boosted by Liberty Loan and war-agency mail, direction down. $300m / (1.99 x 1.20) = about $126m for 1914, against D1's $113m, 12 percent apart. The value of running this route is not its estimate but its retirement: it shows the two anchors are mutually consistent and removes the record's reliance on the back-cast as primary. || D4 direct-mail share-of-total path across four observations, WEIGHT 0.20 - THE DISCRIMINATING ROUTE. Input: direct mail as a share of each compiler's own total - 16.2 percent in the PI 1911 table (100/616), 10.2-12.1 percent in 1920 (Coen $2,480m over HSUS $2,935m), 16.4 percent in 1935 (HSUS T 464 $282m over T 444 $1,690m), 14.1 percent in 1950 (Coen $803m of $5,700m). PROXY-POPULATION GAP: each share sits on its own compiler's denominator, and the pre-1919 denominator is not like-for-like with the post-1935 one. ADJUSTMENT: the observed path pins Coen-basis direct mail at 10-12 percent of the 1914 total, i.e. $120-144m, only 6-27 percent above the contemporaneous PI line, because the PI direct-mail and mail-order lines are ALREADY all-in production-plus-postage figures and barely scale when the basis broadens, while pure space money scales by roughly its own value again. This is the only route that constrains how the measured base maps onto the broad benchmark, and it rests on observed post-window readings rather than judgment: an even spread of the $503m basis gap would require a direct-mail line far above 12 percent of the total and CONTRADICTS the observed 1920 and 1935 readings. || THE BINDING CEILING (a constraint, not a route, WEIGHT 0). Adams, Collier's, 7 October 1905, put total US consumer spending on patent medicines at $75m. Grown to about $110m of retail by 1914, with manufacturers taking about 55 percent and spending about 40 percent of that on advertising, the ENTIRE patent-medicine category's advertising of every kind cannot exceed roughly $25-33m, of which only the keyed and mail-order portion is direct response. The superseded reading assigned $30-50m to patent-medicine KEYED PRESS ALONE. Caveat carried: Adams's $75m is a round number in a polemic, and at $200m of real retail spending the ceiling relaxes and this pool rises 2-3 points. || WHY THE POOL FELL. Two named mechanical causes, not a judgment call. (1) Double counting: the superseded method added mail-order and patent-medicine KEYED PRESS on top of a direct-mail base, but that keyed space is already inside the newspaper and periodical lines counted in the other pools; it also added premiums, samples and novelties wholesale, which the PI channel table places largely with national brand and local retail (novelty $30m was mostly local-merchant giveaway, sampling $18m mostly national-brand trial generation). Worth 4-5 points. (2) The patent-medicine ceiling above, worth 2-3 points. The basis correction is separate from and additional to both. || INTERVAL: min lower to max upper across the lenses.",
           "sources": [
             {
-              "name": "1926 Encyclopaedia Britannica, 'Advertising' (direct mail about $300,000,000 in 1920)",
+              "name": "Printers' Ink, 4 May 1911, vol. LXXV no. 5, p. 79 - the magazine's own estimate of money spent through each advertising channel; twelve channels summing exactly to $616,000,000 (verified)",
+              "url": "https://archive.org/details/sim_marketing-communications-1888_1911-05-04_75_5"
+            },
+            {
+              "name": "1926 Encyclopaedia Britannica, 'Advertising' (direct mail about $300,000,000 in 1920) - demoted at R2b from primary anchor to corroborating route",
               "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"
             },
             {
-              "name": "United States Postal Service, 'Advertising Mail: A Brief History' (third-class volume path)",
-              "url": "https://about.usps.com/who/profile/history/pdf/advertising-mail-history.pdf"
+              "name": "Samuel Hopkins Adams, 'The Great American Fraud', Collier's, 7 October 1905: US consumer spending on patent medicines put at $75,000,000"
             },
             {
-              "name": "Hagley Museum and Library, 'Advertising and Branding - Patent Medicine'",
-              "url": "https://www.hagley.org/research/digital-exhibits/advertising-and-branding"
+              "name": "Historical Statistics of the United States, Colonial Times to 1970, series T 444-471 (advertising outlay) and T 485-491 (newspaper linage, 52 cities, from 1928, Media Records Inc.)",
+              "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"
+            },
+            {
+              "name": "R2b money-type source hunt, era 1 (p2-ad-market/data/moneytype/sources-era-1.json): 20 sources read, 14 new to the project; documented negative result that no compiler ever published this four-way split for any year 1840s-1917"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 1, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
           "as_of": "1914"

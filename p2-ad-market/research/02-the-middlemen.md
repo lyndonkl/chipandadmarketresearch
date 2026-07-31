@@ -3,8 +3,8 @@ title: "The Middlemen (1840s-1917)"
 project: p2-ad-market
 chapter: 2
 era: 1
-claim_ids: [e1-creators-001, e1-creators-002, e1-creators-003, e1-creators-004, e1-creators-005, e1-buyers-001, e1-buyers-002, e1-buyers-003, e1-buyers-004, e1-buyers-005, e1-buyers-006, e1-buyers-007, e1-buyers-008, e1-sellers-001, e1-sellers-002, e1-sellers-003, e1-sellers-004, e1-sellers-005, e1-sellers-006, e1-medium-001, e1-medium-002, e1-medium-003, e1-medium-004, e1-medium-005, e1-scale-001, e1-scale-002, e1-scale-003, e1-scale-004, e1-scale-005, e1-scale-006, e1-scale-007, e1-scale-008, e1-scale-009, e1-scale-010, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-pricing-001, e1-pricing-002, e1-pricing-003, e1-pricing-004, e1-measurement-001, e1-measurement-002, e1-measurement-003, e1-measurement-004, e1-targeting-001, e1-targeting-002, e1-targeting-003, e1-events-001, e1-events-002, e1-events-003, e1-events-004, e2-scale-004]
-readability: "PASS fk_grade=7.0 reading_ease=66.1 gunning_fog=9.5 smog=9.91"
+claim_ids: [e1-creators-001, e1-creators-002, e1-creators-003, e1-creators-004, e1-creators-005, e1-buyers-001, e1-buyers-002, e1-buyers-003, e1-buyers-004, e1-buyers-005, e1-buyers-006, e1-buyers-007, e1-buyers-008, e1-sellers-001, e1-sellers-002, e1-sellers-003, e1-sellers-004, e1-sellers-005, e1-sellers-006, e1-medium-001, e1-medium-002, e1-medium-003, e1-medium-004, e1-medium-005, e1-scale-001, e1-scale-002, e1-scale-003, e1-scale-004, e1-scale-005, e1-scale-006, e1-scale-007, e1-scale-008, e1-scale-009, e1-scale-010, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-pricing-001, e1-pricing-002, e1-pricing-003, e1-pricing-004, e1-measurement-001, e1-measurement-002, e1-measurement-003, e1-measurement-004, e1-targeting-001, e1-targeting-002, e1-targeting-003, e1-events-001, e1-events-002, e1-events-003, e1-events-004, e2-scale-004]
+readability: "PASS fk_grade=7.02 reading_ease=66.27 gunning_fog=9.53 smog=9.94"
 status: draft-for-review
 ---
 
@@ -72,9 +72,9 @@ Two postal changes did the heavy lifting. Third-class mail, the cheap class that
 
 **Local retail was the biggest buyer of newspaper space, by a lot.** In 1915, national advertisers bought $55 million of newspaper space. Local advertisers, counting classified, bought $220 million.[^21] Local money was four times national money, and national money was only about a fifth of newspaper advertising.[^22] The national brand was the new buyer in this era, not the big one.
 
-**Classified was the fourth pool, and the odd one.** It was sold by the line over a counter, to individuals and very small firms, with no agent involved. It was probably around 13 percent of newspaper advertising receipts in 1914, but that one is genuinely uncertain. No dollar series for classified exists before 1928, so the estimate is built from later line counts. The honest range is 7 to 21 percent.[^23]
+**Classified was the fourth pool, and the odd one.** It was sold by the line over a counter, to individuals and very small firms, with no agent involved. It was probably around 13 percent of newspaper advertising receipts in 1914, but that one is genuinely uncertain. No dollar series for classified exists before 1928, so the estimate is built from later line counts and one in-era witness. The honest range is 8 to 22 percent.[^23]
 
-One pool crossed all the others. Direct mail was already large: industry sources put US direct-mail outlay at about $300 million in 1920, with our range running from $200 million to $400 million.[^24]
+One pool crossed all the others. Response-driven money was already large. In 1911 *Printers' Ink* counted $100 million of direct mail, $75 million of farm and mail-order advertising, and about $31 million more in sampling, distributing and house organs. Carried to 1914 and split by who was really buying, that pool comes to about $192 million.[^24]
 
 ## How big was all of it
 
@@ -110,16 +110,19 @@ Splitting that total by money type is a modelling job, not a measurement. All fo
 
 | Money type, 1914 | Best estimate | 80% range | Claim |
 |---|---|---|---|
-| Local retail, excluding classified | 23% | 16-32% | e1-scale-012 |
-| Direct response | 24% | 17-34% | e1-scale-014 |
-| National brand | 16% | 11-23% | e1-scale-011 |
-| Classified | 3% | 1.5-6% | e1-scale-013 |
+| National brand | 22% | 11-46% | e1-scale-011 |
+| Local retail, excluding classified | 22% | 15-46% | e1-scale-012 |
+| Direct response | 16% | 8-30% | e1-scale-014 |
+| Classified | 2.2% | 1.1-5% | e1-scale-013 |
+| Not assigned to any of the four | 37.8% | 5-55% | e1-scale-017 |
 
-Read the shape, not the digits. Local retail and direct response are the two big pools, and at this level of precision they cannot be told apart.[^31] An earlier draft of this record called direct response the largest money type in the era. The verification pass killed that claim. The two are within the noise of each other, so the superlative went.
+Read the shape, not the digits. National brand and local retail tie at the top, and no route we have can tell them apart.[^31] Every route that lifts one lowers the other, because the two share the same newspaper total. An earlier draft called direct response the largest money type in the era. It is not, and neither is any other pool: the only ranking this evidence supports is that classified was the smallest.
 
-Classified was small in dollars, at roughly 3 percent of the total, or about $35 million.[^32] Its importance is not its size. It is the only channel here bought self-serve, over a counter, by people who never met an agent and never paid the 15 percent.
+Classified was small in dollars, at roughly 2.2 percent of the total, or about $26 million.[^32] Its importance is not its size. It is the only channel here bought self-serve, over a counter, by people who never met an agent and never paid the 15 percent. Its smallness is partly a pricing fact. Classified paid no agency cut and needed no plates or art, so a dollar of classified space cost a dollar, while a dollar of brand space came with about half a dollar of preparation behind it.
 
-The four shares do not add up to the whole, and we do not force them to. A large slice of the era's promotional spending cannot be assigned to any of the four. The types also overlap. Patent-medicine and mail-order money was national and response-driven at once, and this record counts it as direct response, because that is how the buyer judged it.
+The four shares reach only 62 percent of the whole, and we do not force them higher. About 5 to 9 points of the rest is a real fifth pool with a real name: trade and technical papers, legal and financial notices, institutional and political money. The remaining 29 to 33 points is not a money type at all. It is the gap between the only in-era count of advertising by channel, about $700 million, and the retrospective benchmark of $1,200 million. Nobody has ever explained that gap, so we show it rather than spread it.
+
+The types also overlap. Patent-medicine and mail-order money was national and response-driven at once, and this record counts it as direct response, because that is how the buyer judged it.
 
 ### The share-of-GDP trap
 
@@ -221,18 +224,18 @@ And one buyer class worth marking. The classified counter and the mail-order cou
 [^18]: Claim `e1-buyers-004`, grade B, range $36m-$45m.
 [^19]: Claim `e1-medium-003`, grade B, range 250-360 million pieces for the 1880 figure.
 [^20]: Claim `e1-targeting-003`, grade B, range 3-6 times prior-year orders.
-[^21]: Claims `e1-buyers-005` (grade B, range $45m-$70m) and `e1-buyers-006` (grade B, range $185m-$265m). Borden (1942), App. Table 1, p. 888, from ANPA Bureau of Advertising data.
+[^21]: Claims `e1-buyers-005` (grade B, range $45m-$70m) and `e1-buyers-006` (grade B, range $185m-$265m). Borden (1942), App. Table 1, p. 888, from ANPA Bureau of Advertising data. Nobody on this project has read the ANPA original, or Borden. Both figures reach us third-hand.
 [^22]: Claim `e1-buyers-005`.
-[^23]: Claim `e1-buyers-007`, grade C, range 7-21 percent. Derived from classified's share of newspaper line counts in 52 cities, measured from 1928 onward.
-[^24]: Claim `e1-buyers-008`, grade B, range $200m-$400m. 1926 Encyclopaedia Britannica, "Advertising."
+[^23]: Claim `e1-buyers-007`, grade C, range 8-22 percent. Built from classified's share of newspaper line counts in 52 cities, measured from 1928 onward, and from the Chicago Tribune's own 1916 split of classified against display.
+[^24]: Claim `e1-buyers-008`, grade C, range $96m-$360m. *Printers' Ink*, 4 May 1911, p. 79. The 1926 Britannica estimate of $300 million of direct mail for 1920 is now a check on this figure, not its source.
 [^25]: Claim `e1-scale-006`, grade B, range $990m-$1,450m.
 [^26]: Claim `e1-scale-007`, grade B, range $1,250m-$1,800m.
 [^27]: Claim `e1-scale-008`, grade A. Census of Manufactures 1919, Table 12.
 [^28]: Claims `e1-medium-001` (grade A, $184,047,106) and `e1-medium-002` (grade A, range 71-73 percent). The newspaper figure was corrected at verification against the primary census table.
 [^29]: Claim `e1-scale-010`, grade B, range 1.35-1.75. Galbi, CS Ad Expenditure Dataset v1.14.
 [^30]: Claim `e1-medium-005`, grade C, range 17-27 percent.
-[^31]: Claims `e1-scale-012` (grade C, 16-32 percent) and `e1-scale-014` (grade C, 17-34 percent). The direct-response estimate was cut from 32 percent to 24 percent at verification, and the "largest money type" superlative was dropped with it.
-[^32]: Claim `e1-scale-013`, grade C, range 1.5-6 percent.
+[^31]: Claims `e1-scale-011` and `e1-scale-012`, both grade C. All four pools were rebuilt in a later pass that ran three separate estimating methods and took the middle answer. The pools no longer sum to the whole, and the unassigned share is published as its own figure, `e1-scale-017`.
+[^32]: Claim `e1-scale-013`, grade C, range 1.1-5 percent.
 [^33]: Claim `e1-scale-009`, grade C, range 2.6-4.0 percent. GDP denominator from MeasuringWorth (Johnston & Williamson reconstruction).
 [^34]: Claim `e2-scale-004`, grade B, range 2.6-3.2 percent, on the Coen/BEA basis for 1919-2007. Not comparable to the era-1 ratios; see `data/eras/era-1.json`, boundary note 10.
 [^35]: Claim `e1-sellers-001`, grade A, exact enumeration.

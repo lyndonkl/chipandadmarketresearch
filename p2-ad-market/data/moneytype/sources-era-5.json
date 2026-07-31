@@ -1,0 +1,976 @@
+{
+  "era": 5,
+  "era_name": "The Impression",
+  "coverage_window": [
+    1994,
+    2001
+  ],
+  "metric": "Split of US advertising spend by money type (national_brand / local_retail / classified / direct_response), 1994-2001",
+  "definitional_axes": [
+    "money_type",
+    "money_type x medium where a compiler publishes the cross-tab"
+  ],
+  "task": "source hunt only - no estimation, no bridging, no assembly",
+  "as_of": "2026-07-30",
+  "built_by": "R2b money-type source hunt, era 5",
+  "tolerance_pct": 15,
+  "schema_notes": [
+    "Schema is the one named in the invocation: era / sources_found / pools_sourceable / verdict / proxy_leads. Four keys added beyond it and flagged here: era_name, coverage_window, negative_findings, access_warnings, claim_id_convention.",
+    "Claim IDs use the project's e{era}-{field}-{NNN} form in a new field namespace 'src', starting at e5-src-001. Verified against claims.json that no e5-src-* ID already exists; highest existing e5 numbers are buyers-013 and scale-013.",
+    "Every figure in key_figures is a value READ from the named source, not an estimate. Grades follow the rigor_spec: A = official statistics or filings, B = credible named reporting. No grade-C figure appears in this file, because no number here was derived.",
+    "Conflicting credible sources are never averaged. Where two compilers disagree on the same object (Coen vs MAGNA direct mail; Coen vs RAB radio; Coen 2001-vintage vs Galbi-restated national/local) both are carried with the gap stated."
+  ],
+  "claim_id_convention": "e5-src-{NNN}",
+  "sources_found": [
+    {
+      "source_id": "dma_wefa_economic_impact",
+      "name": "The DMA Report: Economic Impact - U.S. Direct & Interactive Marketing Today (Direct Marketing Association, study conducted by The WEFA Group), as reproduced in the DMA Statistical Fact Book 2001, 23rd edition, pp. 295-299",
+      "compiler": "The WEFA Group (Wharton Econometric Forecasting Associates) for the Direct Marketing Association",
+      "institutional_home": "Direct Marketing Association, New York (DMA merged into the Association of National Advertisers in 2018; the DMA as an institution no longer exists)",
+      "what_it_measures": "US DIRECT MARKETING advertising expenditure, in current dollars, by medium (direct mail, telephone marketing, newspaper, magazine, television, radio, other-including-interactive), each further split consumer vs business-to-business AND by intended purpose of the offer (direct order / lead generation / traffic generation). Separately publishes, for the same media, total US advertising expenditure on DMA's own universe definition and the direct-marketing PERCENT of each medium.",
+      "object_caveat": "This is NOT Coen's measured-media universe. DMA's denominator for 2000 is $339.3B, against Coen's $247.5B, because DMA counts telephone marketing ($73.2B) and an 'other' category ($32.0B) as advertising media. Any use of DMA's totals against a Coen-based grand total requires an explicit scope reconciliation. The per-medium PERCENTAGES are the transferable part: DMA's per-medium denominators sit close to Coen's (magazines $17.3B vs Coen consumer magazines $12.370B + business papers $4.915B = $17.285B; radio $19.4B vs Coen $19.295B; newspapers $49.4B vs NAA $48.670B).",
+      "how_built": "Econometric model plus DMA member surveys; a forecast-and-backcast product, not a census. Published years are a mix of historical and projected: the 2001 edition presents 1995 and 1999 as history, 2000 as an estimate-for-the-completed-year, 2001 and 2005 as forecasts.",
+      "coverage_years": [
+        1995,
+        2001
+      ],
+      "years_actually_printed": [
+        1995,
+        1999,
+        2000,
+        2001
+      ],
+      "gap_in_window": "1994 is not covered - the Economic Impact study series begins with 1995. 1996, 1997 and 1998 are not printed as levels; the table gives compound annual growth 1995-2000 by medium, which constrains but does not publish them.",
+      "pools_it_can_populate": [
+        "direct_response"
+      ],
+      "populates_by_medium": true,
+      "access": "FREE as read. Full 2001 Statistical Fact Book PDF retrieved and parsed at http://courses.washington.edu/dmarket/2001Factbook.pdf (1.61 MB, 403pp, HTTP 200). WARNING: this is a copy of a copyrighted DMA publication hosted on a University of Washington course site, not a publisher-authorised open release; the underlying Economic Impact report itself was sold. Earlier editions (1996-2000), which would carry 1994 and 1996-1998, were NOT found free anywhere. archive.org holds only the 1989, 2007 and 2011 editions.",
+      "independent_of_project_sources": "YES for the direct-response estimates themselves - WEFA's model and DMA's surveys share no input with Coen/McCann, IAB/PwC or NAA. PARTIAL caveat: the same Fact Book reprints Coen's own national/local table (p.6) for context, so the volume is not wholly independent even though the DR series is.",
+      "reputation_note": "Widely cited in the trade press of the period (Chief Marketer / DIRECT, DM News) and treated as the industry's reference direct-marketing size. Criticised then and since for a broad 'direct marketing' definition that flatters the category, and for blending survey with model output without publishing the model.",
+      "urls": [
+        {
+          "name": "DMA Statistical Fact Book 2001, 23rd ed. (full PDF)",
+          "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+        },
+        {
+          "name": "Chief Marketer / DIRECT, 'WEFA: The More Things Change' (contemporaneous trade write-up of the same study)",
+          "url": "https://www.chiefmarketer.com/wefa-the-more-things-change/"
+        }
+      ],
+      "key_figures": [
+        {
+          "id": "e5-src-001",
+          "statement": "US direct-marketing advertising expenditure by medium in 2000, as published by DMA/WEFA: direct mail $44.6B, telephone marketing $73.2B, newspaper $18.4B, magazine $9.8B, television $21.9B, radio $7.7B, other (incl. interactive) $16.0B; total $191.6B.",
+          "central": 191.6,
+          "unit": "USD billions (2000 US direct-marketing advertising expenditure, DMA universe)",
+          "ci80": [
+            191.6,
+            191.6
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "DMA Statistical Fact Book 2001, p.296, 'DM Advertising Expenditures by Medium and Market', sourced to The DMA Report: Economic Impact - U.S. Direct & Interactive Marketing Today, 2000",
+              "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+            }
+          ],
+          "as_of": "2001",
+          "note": "Interval is degenerate because this is a transcription of a printed figure, not an estimate. The uncertainty lives in the definition, not the number."
+        },
+        {
+          "id": "e5-src-002",
+          "statement": "US direct-marketing advertising expenditure by medium in 1995, as published by DMA/WEFA: direct mail $32.9B, telephone marketing $50.2B, newspaper $13.1B, magazine $6.7B, television $14.0B, radio $4.4B, other $10.5B; total $131.8B.",
+          "central": 131.8,
+          "unit": "USD billions (1995 US direct-marketing advertising expenditure, DMA universe)",
+          "ci80": [
+            131.8,
+            131.8
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "DMA Statistical Fact Book 2001, p.296",
+              "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+            }
+          ],
+          "as_of": "2001"
+        },
+        {
+          "id": "e5-src-003",
+          "statement": "Direct-marketing share of each medium's US advertising expenditure in 2000, as published by DMA/WEFA: direct mail 100.0%, telephone marketing 60.4%, newspaper 37.3%, magazine 56.6%, television 39.6%, radio 39.9%, other 50.1%; all media 56.5% of a $339.3B DMA-universe total.",
+          "central": 56.5,
+          "unit": "percent of US advertising expenditure (DMA universe) attributable to direct marketing, 2000",
+          "ci80": [
+            56.5,
+            56.5
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "DMA Statistical Fact Book 2001, p.298, 'DM Media Expenditures Compared to Total U.S. Advertising Expenditures'",
+              "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+            }
+          ],
+          "as_of": "2001",
+          "note": "This is the single most useful table found for era 5. It is the only published cross-tab of money type against medium in the window, and it directly contradicts the project's current standing note that direct-response TV and direct-response print 'are not separable in the Coen series' - a named compiler did separate them, on its own definition."
+        },
+        {
+          "id": "e5-src-004",
+          "statement": "Compound annual growth of US direct-marketing advertising expenditure by medium, 1995-2000, as published by DMA/WEFA: total 7.8%, direct mail 6.3%, telephone marketing 7.8%, newspaper 7.0%, magazine 7.9%, television 9.4%, radio 11.8%, other 8.8%.",
+          "central": 7.8,
+          "unit": "percent compound annual growth, 1995-2000, total DM advertising expenditure",
+          "ci80": [
+            7.8,
+            7.8
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "DMA Statistical Fact Book 2001, p.296",
+              "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+            }
+          ],
+          "as_of": "2001",
+          "note": "These growth rates are what constrains 1996-1998, which the source does not print as levels. Filling those years is interpolation and belongs to the estimation stage, not to this hunt."
+        }
+      ]
+    },
+    {
+      "source_id": "magna_direct_national_local_statab",
+      "name": "MAGNAGLOBAL media-supplier advertising revenue, Direct / National / Local typology, as reproduced in the Statistical Abstract of the United States",
+      "compiler": "MAGNA Global (IPG Mediabrands), reproduced by the US Census Bureau",
+      "institutional_home": "Interpublic Group; reproduction by US Census Bureau, Statistical Abstract of the United States",
+      "what_it_measures": "Advertising REVENUE reported by media suppliers (top-down, net of the advertiser-side production and agency layers), classified first into three money-type domains - Direct, National, Local - and then into eight core media within them, with Political and Olympic revenue held outside the three domains.",
+      "object_caveat": "MAGNA's three domains are close to but not identical with the project's four pools. (a) MAGNA 'Direct' = direct mail + direct online (paid search, lead generation, internet yellow pages) + directories ONLY; it excludes direct-response television, direct-response print and telemarketing, so it is far narrower than DMA's direct-marketing object. (b) MAGNA has NO classified category at any level: newspaper classified sits inside 'Local newspapers', and internet classifieds sit inside 'Local digital/online' per the table's own footnote 5. (c) MAGNA counts supplier revenue, Coen counts advertiser billings at list price; the 2000 totals are $177.5B vs $247.5B, a 28% scope gap.",
+      "how_built": "Top-down from advertising revenue reported by media owners. Introduced in 2009 to replace the McCann-Erickson (Coen) series, with a backcast to 1980 computed on the new methodology.",
+      "coverage_years": [
+        1980,
+        2025
+      ],
+      "years_actually_free_in_window": [
+        2000
+      ],
+      "gap_in_window": "1994-1999 are NOT free. MAGNA's backcast covers them, but the only public renderings found are the Statistical Abstract tables, which begin at 2000. The MAGNA methodology document (Magna Global [2015]) and Letang & Leszega [2017] 'U.S. Advertising Forecast' are not public.",
+      "pools_it_can_populate": [
+        "national_brand",
+        "local_retail",
+        "direct_response"
+      ],
+      "populates_by_medium": true,
+      "access": "FREE for 2000: US Census Bureau PDFs, retrieved HTTP 200. Statistical Abstract 2012 (131st ed.) Table 1279 'Forecast Summary - Media Supplier Advertising Revenues: 2000 to 2010'; Statistical Abstract 2011 (130th ed.) Table 1278, same title, '2000 to 2009'. LICENSED for 1994-1999. The project's adspend.json already carries magna with access 'LICENSED'; this finding narrows that to 'licensed except 2000, 2003-2010, which the Statistical Abstract published free'.",
+      "independent_of_project_sources": "YES methodologically - a top-down supplier-revenue count against Coen's bottom-up advertiser-billings count, with different primary inputs. GOVERNANCE CAVEAT: MAGNA and McCann-Erickson are both Interpublic units, and MAGNA was built to replace Coen's series, so the two are institutionally related even though they are not methodologically derived from one another. Treat as independent for cross-check purposes, but say so.",
+      "reputation_note": "Silk & Berndt (NBER WP 28161) treat MG8 as the successor-of-record to the McCann series and reproduce its typology as Figure 2a. They describe the changeover as 'a fundamental departure ... with respect to scope and granularity', which is the reason the totals do not line up with Coen.",
+      "urls": [
+        {
+          "name": "Statistical Abstract of the United States 2012, Table 1279, Forecast Summary - Media Supplier Advertising Revenues: 2000 to 2010 (source: MAGNAGLOBAL)",
+          "url": "https://www2.census.gov/library/publications/2011/compendia/statab/131ed/tables/12s1279.pdf"
+        },
+        {
+          "name": "Statistical Abstract of the United States 2011, Table 1278, Forecast Summary - Media Supplier Advertising Revenues: 2000 to 2009 (source: MAGNAGLOBAL)",
+          "url": "https://www2.census.gov/library/publications/2010/compendia/statab/130ed/tables/11s1277.pdf"
+        },
+        {
+          "name": "Silk & Berndt, 'Aggregate Advertising Expenditure in the U.S. Economy', NBER WP 28161, pp.7-8 (MAGNA typology: media 'first classified as Direct, National or Local')",
+          "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+        }
+      ],
+      "key_figures": [
+        {
+          "id": "e5-src-005",
+          "statement": "MAGNA's Direct / National / Local split of US media-supplier advertising revenue in 2000, as published free by the Census Bureau (2012 Statistical Abstract vintage): Direct $31,108M (direct mail $18,250M, direct online $560M, directories $12,299M); National $53,494M (national TV $25,574M, magazines $19,025M, national digital/online $5,665M, network and satellite radio $1,065M, national newspapers $2,165M); Local $90,933M (local newspapers $46,506M, local TV $18,530M, local radio $18,819M, other outdoor $5,040M, local digital/online $1,843M, emerging outdoor $195M); plus Political $1,180M and Olympics $785M. Total supplier ad revenue $177,500M.",
+          "central": 177500,
+          "unit": "USD millions (2000 US media-supplier advertising revenue, MAGNA basis)",
+          "ci80": [
+            175777,
+            177500
+          ],
+          "grade": "A",
+          "sources": [
+            {
+              "name": "Statistical Abstract of the United States 2012, Table 1279",
+              "url": "https://www2.census.gov/library/publications/2011/compendia/statab/131ed/tables/12s1279.pdf"
+            },
+            {
+              "name": "Statistical Abstract of the United States 2011, Table 1278",
+              "url": "https://www2.census.gov/library/publications/2010/compendia/statab/130ed/tables/11s1277.pdf"
+            }
+          ],
+          "as_of": "2011-12",
+          "note": "Graded A as an official Census Bureau publication carrying a named private compiler's series verbatim. The interval spans the two published vintages rather than expressing sampling error - see e5-src-006."
+        },
+        {
+          "id": "e5-src-006",
+          "statement": "MAGNA restated its own year-2000 figures between the 2011 and 2012 Statistical Abstract editions: total supplier ad revenue $175,777M then $177,500M; Direct $29,526M then $31,108M; direct mail $16,585M then $18,250M (+10.0%); directories $12,382M then $12,299M; Local $90,791M then $90,933M. National ($53,494M) and direct online ($560M) were unchanged.",
+          "central": 10.0,
+          "unit": "percent upward restatement of MAGNA's year-2000 direct mail between the 2011 and 2012 Statistical Abstract vintages",
+          "ci80": [
+            10.0,
+            10.0
+          ],
+          "grade": "A",
+          "sources": [
+            {
+              "name": "Statistical Abstract 2011, Table 1278 (2000 column)",
+              "url": "https://www2.census.gov/library/publications/2010/compendia/statab/130ed/tables/11s1277.pdf"
+            },
+            {
+              "name": "Statistical Abstract 2012, Table 1279 (2000 column)",
+              "url": "https://www2.census.gov/library/publications/2011/compendia/statab/131ed/tables/12s1279.pdf"
+            }
+          ],
+          "as_of": "2011-12",
+          "note": "A concordance entry, not a data point: the same compiler moved its own direct-mail number 10% in one year of republication. Any direct_response figure resting on MAGNA must carry this."
+        },
+        {
+          "id": "e5-src-007",
+          "statement": "MAGNA's year-2000 direct mail ($18,250M supplier revenue) is 41% of Coen's year-2000 direct mail ($44,591M advertiser billings) - a 2.44x gap on the same named medium in the same year, entirely definitional.",
+          "central": 2.44,
+          "unit": "ratio, Coen direct mail 2000 divided by MAGNA direct mail 2000",
+          "ci80": [
+            2.44,
+            2.69
+          ],
+          "grade": "A",
+          "sources": [
+            {
+              "name": "Statistical Abstract 2012, Table 1279 (MAGNA direct mail 2000 = $18,250M)",
+              "url": "https://www2.census.gov/library/publications/2011/compendia/statab/131ed/tables/12s1279.pdf"
+            },
+            {
+              "name": "Coen Structured Advertising Expenditure Dataset, curated by Douglas Galbi (direct mail 2000 = $44,591M)",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            }
+          ],
+          "as_of": "2000",
+          "note": "Interval spans the two MAGNA vintages: 44,591/18,250 = 2.44 and 44,591/16,585 = 2.69. This is the largest single-line definitional divergence found anywhere in the era-5 money-type hunt, and it sits underneath the project's whole direct_response pool, which is built on Coen's direct mail number."
+        }
+      ]
+    },
+    {
+      "source_id": "naa_annual_newspaper_ad_expenditures",
+      "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' (Research Department)",
+      "compiler": "Newspaper Association of America research department",
+      "institutional_home": "NAA (dissolved; merged into the News Media Alliance in 2016, industry revenue series discontinued after 2013)",
+      "what_it_measures": "Newspaper advertising revenue reported by publishers, split national / retail / classified, print only in this window (online enters 2003).",
+      "how_built": "Publisher census/survey aggregation.",
+      "coverage_years": [
+        1950,
+        2010
+      ],
+      "gap_in_window": "None. All eight years 1994-2001 are present, with the caveat already recorded in the project that as-published 1996 national + retail + classified does not sum to the print total.",
+      "pools_it_can_populate": [
+        "classified",
+        "national_brand",
+        "local_retail"
+      ],
+      "populates_by_medium": true,
+      "medium_limit": "newspapers only",
+      "access": "FREE via the Internet Archive.",
+      "independent_of_project_sources": "NO - already in the project as the naa_newspaper stitch series with 252 points, added expressly because classified is derivable from no other named compiler.",
+      "already_in_project": true,
+      "reputation_note": "The industry's reference series for the newspaper category split, and the number Coen used for the newspaper line. Its classified figure is the one every retrospective quotes for the 2000 peak.",
+      "urls": [
+        {
+          "name": "NAA, 'Annual Newspaper Ad Expenditures' (Research Dept., 3/11), via Internet Archive",
+          "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+        }
+      ],
+      "key_figures": [
+        {
+          "id": "e5-src-008",
+          "statement": "NAA newspaper classified advertising revenue across era 5: 1994 $12,464M, 1995 $13,742M, 1996 $15,065M, 1997 $16,773M, 1998 $17,873M, 1999 $18,650M, 2000 $19,608M (the peak), 2001 $16,622M.",
+          "central": 19608,
+          "unit": "USD millions (2000 US newspaper classified advertising revenue)",
+          "ci80": [
+            19608,
+            19608
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "NAA, 'Annual Newspaper Ad Expenditures', via Internet Archive",
+              "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+            }
+          ],
+          "as_of": "2011-03-01",
+          "note": "Transcribed from the project's own adspend.json naa_newspaper points, which were read off this table. Carried here so the classified pool's spine is visible inside the source-hunt record."
+        }
+      ]
+    },
+    {
+      "source_id": "newspaper_company_10ks",
+      "name": "Audited advertising-revenue category splits in US newspaper-publisher SEC filings (Knight Ridder, Gannett, The New York Times Company, Tribune, Times Mirror, Dow Jones, McClatchy, E.W. Scripps, Lee, Belo, Washington Post, Central Newspapers, Pulitzer, Journal Register, Media General)",
+      "compiler": "the issuers themselves; audited",
+      "institutional_home": "SEC EDGAR",
+      "what_it_measures": "Consolidated newspaper advertising revenue split retail / general (i.e. national) / classified, in dollars, annually, for each public newspaper group. Several also publish full-run advertising LINAGE on the same three categories.",
+      "how_built": "Audited company books - the primary records that NAA's survey aggregates.",
+      "coverage_years": [
+        1994,
+        2001
+      ],
+      "gap_in_window": "None for the covered companies. The universe gap is real: public groups are roughly half the industry by revenue, so this route measures a share, not the total.",
+      "pools_it_can_populate": [
+        "classified",
+        "national_brand",
+        "local_retail"
+      ],
+      "populates_by_medium": true,
+      "medium_limit": "newspapers only",
+      "access": "FREE on SEC EDGAR. NOTE the project's own recorded dead end: EDGAR returns HTTP 403 to the WebFetch tool; filings must be pulled with curl and a declared User-Agent. Verified working during this hunt.",
+      "independent_of_project_sources": "YES for the classified pool. These are the audited primary books, not NAA's aggregation of a publisher survey, so a bottom-up sum is a genuinely independent check on NAA's classified share rather than a restatement of it.",
+      "already_in_project": false,
+      "reputation_note": "Grade-A by the rigor_spec's own rule (filings). The definitional risk is that 'general' vs 'national' naming varies by issuer and a few groups fold preprints/inserts differently.",
+      "urls": [
+        {
+          "name": "Knight Ridder Inc., Form 10-K for FY2000",
+          "url": "https://www.sec.gov/Archives/edgar/data/0000205520/000101905601500014/file001.txt"
+        },
+        {
+          "name": "Knight Ridder Inc., Form 10-K for FY1999",
+          "url": "https://www.sec.gov/Archives/edgar/data/0000205520/000101905600000163/0001019056-00-000163.txt"
+        }
+      ],
+      "key_figures": [
+        {
+          "id": "e5-src-009",
+          "statement": "Knight Ridder's audited newspaper advertising revenue by category: 2000 retail $1,104,766k, general $336,613k, classified $1,066,457k, total $2,507,836k; 1999 retail $1,065,970k, general $289,894k, classified $997,656k, total $2,353,520k; 1998 retail $1,026,926k, general $240,258k, classified $955,413k, total $2,222,597k. Classified was 42.5% of Knight Ridder's advertising revenue in 2000 against NAA's 40.3% for the whole industry.",
+          "central": 42.5,
+          "unit": "percent of Knight Ridder 2000 newspaper advertising revenue that was classified",
+          "ci80": [
+            42.5,
+            42.5
+          ],
+          "grade": "A",
+          "sources": [
+            {
+              "name": "Knight Ridder Inc., Form 10-K for FY2000, Operating Revenue table and consolidated statements of income",
+              "url": "https://www.sec.gov/Archives/edgar/data/0000205520/000101905601500014/file001.txt"
+            }
+          ],
+          "as_of": "2001-03",
+          "note": "One issuer, pulled to prove the route works and that the category split is in the filings verbatim. A full bottom-up sum across the fifteen listed groups was NOT built - that is estimation work and outside this task."
+        }
+      ]
+    },
+    {
+      "source_id": "iab_pwc_format_and_pricing",
+      "name": "IAB / PricewaterhouseCoopers Internet Advertising Revenue Report - advertising-format and pricing-model splits",
+      "compiler": "Interactive Advertising Bureau, survey conducted by PwC",
+      "institutional_home": "IAB",
+      "what_it_measures": "US internet advertising revenue by ad FORMAT (banners, sponsorships, classifieds, interstitials, e-mail, referrals, rich media, keyword search, other) and by PRICING MODEL (straight CPM/impression, straight performance, hybrid).",
+      "how_built": "Seller-side survey of publishers and ad networks, top-down.",
+      "coverage_years": [
+        1996,
+        2025
+      ],
+      "gap_in_window": "MATERIAL. Classifieds is broken out as its own format only from FY2000. For FY1999 the report folds classifieds into 'Others' (11% of full-year 1999 revenue) and it cannot be separated. Nothing before FY1999 carries a format split at all. So online classified is sourceable for 2000 and 2001 only, and 1996-1999 online classified has no published figure.",
+      "pools_it_can_populate": [
+        "classified",
+        "direct_response"
+      ],
+      "populates_by_medium": true,
+      "medium_limit": "internet only",
+      "access": "FREE PDFs on iab.com. Project dead end already recorded: the FY2000 full-year PDF is not archived under a predictable name; the Q4-2000 edition and the FY2001 edition together carry the needed history.",
+      "independent_of_project_sources": "NO - already in the project as the iab_pwc stitch series.",
+      "already_in_project": true,
+      "urls": [
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2000 Fourth-Quarter and Full-Year Results",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_004_2000.pdf"
+        },
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf"
+        }
+      ],
+      "key_figures": [
+        {
+          "id": "e5-src-010",
+          "statement": "IAB/PwC internet ad revenue by pricing model, full year: 1999 straight CPM 40%, hybrid 53%, straight performance 7% (of $4.6B); 2000 straight CPM 43%, hybrid 47%, straight performance 10% (of $8.2B); 2001 straight performance 12%. Classifieds as a format: FY2000 7%, Q4 2000 10%, FY2001 16%; FY1999 not broken out (inside 'Others', 11%).",
+          "central": 10,
+          "unit": "percent of FY2000 US internet advertising revenue priced on a straight performance basis",
+          "ci80": [
+            10,
+            10
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "IAB/PwC Internet Advertising Revenue Report, 2000 Fourth-Quarter and Full-Year Results, pp.8-10",
+              "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_004_2000.pdf"
+            }
+          ],
+          "as_of": "2001",
+          "note": "Confirms the FY1999-and-earlier hole in online classifieds directly from the source, rather than assuming it."
+        }
+      ]
+    },
+    {
+      "source_id": "econ_census_1997_broadcast_natl_local",
+      "name": "1997 Economic Census, Information sector (NAICS 51), Subject Series: Sources of Receipts (EC97, report 97s51-ls), Table 1",
+      "compiler": "US Census Bureau",
+      "institutional_home": "US Census Bureau",
+      "what_it_measures": "Establishment receipts by source. For NAICS 5131 Radio & Television Broadcasting it splits advertising receipts into 'National and regional (net)' and 'Local (net)'.",
+      "how_built": "Census of establishments with payroll - an actual count, not a model.",
+      "coverage_years": [
+        1997,
+        1997
+      ],
+      "gap_in_window": "Quinquennial. 1997 only inside era 5 (1992 and 2002 sit outside, and 2002's Information product-line report drops the national/local advertising cut entirely - see negative_findings).",
+      "pools_it_can_populate": [
+        "national_brand",
+        "local_retail"
+      ],
+      "populates_by_medium": true,
+      "medium_limit": "radio and television broadcasting only",
+      "access": "FREE. Retrieved HTTP 200, 904 KB, parsed.",
+      "independent_of_project_sources": "YES - an official establishment census, sharing no input with Coen, MAGNA, NAA, IAB or DMA. This is the only grade-A official national/local advertising split found anywhere in the window.",
+      "already_in_project": false,
+      "urls": [
+        {
+          "name": "1997 Economic Census, Information Subject Series, Sources of Receipts (97s51-ls.pdf)",
+          "url": "https://www2.census.gov/library/publications/economic-census/1997/information/97s51-ls.pdf"
+        },
+        {
+          "name": "1997 Economic Census, Information sector report index",
+          "url": "https://www.census.gov/library/publications/1997/econ/census/information.html"
+        }
+      ],
+      "key_figures": [
+        {
+          "id": "e5-src-011",
+          "statement": "1997 Economic Census, NAICS 5131 Radio & Television Broadcasting: total advertising receipts $29,290,099 thousand, of which national and regional (net) $12,816,382 thousand (43.8%) and local (net) $16,473,717 thousand (56.2%), across 8,789 establishments.",
+          "central": 43.8,
+          "unit": "percent of 1997 US radio and TV broadcasting advertising receipts that were national or regional",
+          "ci80": [
+            43.8,
+            43.8
+          ],
+          "grade": "A",
+          "sources": [
+            {
+              "name": "1997 Economic Census, Information Subject Series, Sources of Receipts, Table 1, NAICS 5131 rows (receipt lines 7780/7781/7782)",
+              "url": "https://www2.census.gov/library/publications/economic-census/1997/information/97s51-ls.pdf"
+            }
+          ],
+          "as_of": "2000-08-16",
+          "note": "Establishment receipts, so network compensation ($5,039,492k, reported separately on line 7800) is outside this total. Not directly comparable to Coen's network+spot+cable TV plus network+spot radio without a scope reconciliation."
+        }
+      ]
+    },
+    {
+      "source_id": "rab_radio_local_national",
+      "name": "Radio Advertising Bureau annual radio revenue, split local / national spot / network",
+      "compiler": "Radio Advertising Bureau (with Miller Kaplan Arase for the local/spot tabulation)",
+      "institutional_home": "RAB",
+      "what_it_measures": "US radio advertising revenue by sales channel: local, national spot, network.",
+      "coverage_years": [
+        1994,
+        2001
+      ],
+      "gap_in_window": "Levels for the full annual history were NOT found free. Only 1999 and 2000 were recovered from contemporaneous trade reporting; earlier years appear only as a growth narrative ('around $11 billion in 1994 to nearly $20 billion in 2000').",
+      "pools_it_can_populate": [
+        "national_brand",
+        "local_retail"
+      ],
+      "populates_by_medium": true,
+      "medium_limit": "radio only",
+      "access": "PARTIAL / FREE-BY-FRAGMENT. RAB's own historical tables were not found free; the numbers reach us through MediaPost and WARC write-ups.",
+      "independent_of_project_sources": "YES - RAB's tabulation is a different count from Coen's radio line, and they disagree: RAB 2000 total $19.819B vs Coen $19.295B, RAB local $15.223B vs Coen local $14.847B.",
+      "already_in_project": false,
+      "urls": [
+        {
+          "name": "MediaPost / Online Media Daily, 'Radio Ad Revenues Climb To $20 Billion In 2000'",
+          "url": "https://www.mediapost.com/publications/article/9933/radio-ad-revenues-climb-to-20-billion-in-2000.html"
+        },
+        {
+          "name": "WARC, 'Radio Ad Revenue up 12% for 2000'",
+          "url": "https://www.warc.com/newsandopinion/news/radio-ad-revenue-up-12%25-for-2000/8061"
+        }
+      ],
+      "key_figures": [
+        {
+          "id": "e5-src-012",
+          "statement": "RAB US radio revenue: 2000 local $15.223B, national spot $3.596B, network approximately $1.0B, total $19.819B; 1999 local $13.592B, national spot $3.211B, network $0.878B, total $17.681B. Coen's 2000 radio lines for the same year are local $14.847B, national spot $3.668B, network $0.780B, total $19.295B.",
+          "central": 19.819,
+          "unit": "USD billions (2000 US radio advertising revenue, RAB basis)",
+          "ci80": [
+            19.295,
+            19.819
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "MediaPost / Online Media Daily, 'Radio Ad Revenues Climb To $20 Billion In 2000'",
+              "url": "https://www.mediapost.com/publications/article/9933/radio-ad-revenues-climb-to-20-billion-in-2000.html"
+            },
+            {
+              "name": "Coen Structured Advertising Expenditure Dataset via Galbi",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            }
+          ],
+          "as_of": "2001",
+          "note": "Interval spans the two credible compilers rather than being averaged, per the rigor_spec."
+        }
+      ]
+    },
+    {
+      "source_id": "hsus_de523_526",
+      "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526, 'Newspaper advertising expenditures: 1950-2001'",
+      "compiler": "Daniel M. G. Raff (contributor), Cambridge University Press",
+      "institutional_home": "Cambridge University Press",
+      "what_it_measures": "Newspaper advertising expenditures, columns Total / Retail / National / Classified, in million dollars.",
+      "coverage_years": [
+        1950,
+        2001
+      ],
+      "gap_in_window": "None - the table terminates exactly at 2001, the last year of era 5.",
+      "pools_it_can_populate": [
+        "classified",
+        "national_brand",
+        "local_retail"
+      ],
+      "populates_by_medium": true,
+      "medium_limit": "newspapers only",
+      "access": "PAYWALLED (Cambridge HSUS Online). Table identity, title, coverage, column headings and contributor were confirmed from the free table-of-contents page; the VALUES WERE NOT READ and nothing from this source is transcribed into this file. This matches the project's existing standing treatment of HSUS De482-515.",
+      "independent_of_project_sources": "NO in substance - it is a scholarly rendering of the same NAA/Editor & Publisher lineage the project already uses. It IS an independent VINTAGE with published definitional documentation, which is its only real value here.",
+      "already_in_project": false,
+      "urls": [
+        {
+          "name": "HSUS Millennial Edition Online, Table De523-526 (table of contents entry)",
+          "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+        }
+      ],
+      "key_figures": []
+    },
+    {
+      "source_id": "cmr_national_measured_media",
+      "name": "Competitive Media Reporting (CMR; sold to Taylor Nelson Sofres in 2001, later TNS Media Intelligence, later Kantar Media)",
+      "compiler": "Competitive Media Reporting",
+      "institutional_home": "CMR / TNS / Kantar",
+      "what_it_measures": "Occurrence and expenditure data for over 750,000 brands across 15 measured media - a national-advertiser-side census of monitored placements valued at rate-card.",
+      "coverage_years": [
+        1994,
+        2001
+      ],
+      "gap_in_window": "Levels reach us only as trade-press fragments. Recovered: total measured advertising 1999 = $89.2B, of which internet 2.1% ($1.9B, up from $1.1B in 1998).",
+      "pools_it_can_populate": [
+        "national_brand"
+      ],
+      "populates_by_medium": true,
+      "access": "LICENSED and now effectively LOST as a public series - CMR's annual releases are not archived anywhere free, and the successor (Kantar) no longer publishes the historical file. Only trade-press fragments survive.",
+      "independent_of_project_sources": "YES - CMR is an occurrence-monitoring count, methodologically unrelated to Coen, MAGNA, IAB, NAA and DMA. The IAB report of the period cites CMR as a rival rendering (CMR's 'nearly -10%' for 2001 against Coen's -6.5%), which the project already carries as a visible conflict.",
+      "already_in_project": false,
+      "recommended_role": "cross-check-only. CMR's measured-media universe is closest to a national-brand object but is neither a superset nor a subset of it, so it should validate national_brand and never be stitched into it.",
+      "urls": [
+        {
+          "name": "DMNews, 'Internet Marketing, 2.1 Percent of Companies 1999 Ad Spend' (CMR total 1999 = $89.2B)",
+          "url": "https://dmnews.com/channel-marketing/news/13096957/internet-marketing-21-percent-of-companies-1999-ad-spend"
+        },
+        {
+          "name": "Competitive Media Reporting sold to Taylor Nelson Sofres (company/coverage description)",
+          "url": "https://www.thefreelibrary.com/COMPETITIVE+MEDIA+REPORTING+SOLD+TO+TAYLOR+NELSON+SOFRES.-a061556342"
+        }
+      ],
+      "key_figures": [
+        {
+          "id": "e5-src-013",
+          "statement": "CMR measured US advertising expenditure across 15 media in 1999 was $89.2B, of which internet was 2.1% ($1.9B, up from $1.1B in 1998). Coen's total for 1999 on the same nominal year was $222.3B (2001 vintage) - the gap is the local, direct-mail and unmonitored universe CMR does not track.",
+          "central": 89.2,
+          "unit": "USD billions (1999 US measured advertising expenditure, CMR basis)",
+          "ci80": [
+            89.2,
+            89.2
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "DMNews, reporting CMRinteractive's 1999 release",
+              "url": "https://dmnews.com/channel-marketing/news/13096957/internet-marketing-21-percent-of-companies-1999-ad-spend"
+            }
+          ],
+          "as_of": "2000"
+        }
+      ]
+    },
+    {
+      "source_id": "coen_mce_vintages",
+      "name": "Robert J. Coen / Universal McCann 'Insider's Report' national and local tables, contemporaneous vintage vs Galbi-curated vintage",
+      "compiler": "Robert J. Coen, McCann-Erickson / Universal McCann",
+      "institutional_home": "Interpublic; digitised by Douglas Galbi",
+      "what_it_measures": "US advertising expenditure by medium, each medium split National vs Local, on an advertiser-billings basis at list prices.",
+      "coverage_years": [
+        1919,
+        2007
+      ],
+      "pools_it_can_populate": [
+        "national_brand",
+        "local_retail"
+      ],
+      "populates_by_medium": true,
+      "access": "FREE (galbithink.org). A contemporaneous 2001-vintage rendering of the 1999 and 2000 tables also survives free inside the DMA Statistical Fact Book 2001, p.6.",
+      "independent_of_project_sources": "NO - already the project's spine as the coen_mce stitch series.",
+      "already_in_project": true,
+      "finding": "The hunt turned up a VINTAGE BREAK the project does not currently carry. The DMA Fact Book's 2001-vintage Coen table gives 2000 total $243,680M, Total National $148,098M, Total Local $95,582M, internet (national) $4,333M. Galbi's curated vintage gives 2000 total $247,472M, Total National $151,664M, Total Local $95,808M, internet $6,507M. Every national_brand and local_retail figure in era 5 is vintage-dependent by about 2.4% on the national side.",
+      "urls": [
+        {
+          "name": "Douglas Galbi, Coen Structured Advertising Expenditure Dataset",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        },
+        {
+          "name": "DMA Statistical Fact Book 2001, p.6, '1999-2000 U.S. Ad Expenditures', source: Robert J. Coen, Universal McCann, 2001",
+          "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+        }
+      ],
+      "key_figures": [
+        {
+          "id": "e5-src-014",
+          "statement": "Coen's year-2000 national/local split differs between the contemporaneous 2001 vintage and the Galbi-curated vintage: Total National $148,098M vs $151,664M (+2.41%), Total Local $95,582M vs $95,808M (+0.24%), grand total $243,680M vs $247,472M (+1.56%). The internet line moved most: $4,333M vs $6,507M (+50.2%).",
+          "central": 2.41,
+          "unit": "percent upward restatement of Coen 'Total National' for 2000 between the 2001 vintage and the curated vintage",
+          "ci80": [
+            2.41,
+            2.41
+          ],
+          "grade": "B",
+          "sources": [
+            {
+              "name": "DMA Statistical Fact Book 2001, p.6 (Coen/Universal McCann 2001 vintage)",
+              "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+            },
+            {
+              "name": "Douglas Galbi, CS Ad Dataset (curated vintage)",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            }
+          ],
+          "as_of": "2001",
+          "note": "The project's e5-buyers-010 and e5-scale-010 both start from Total National $151.664B. Under the vintage the market actually read in 2001, the same construction yields a national_brand figure about $3.6B lower."
+        }
+      ]
+    },
+    {
+      "source_id": "vss_specialty_media",
+      "name": "Veronis, Suhler & Associates Communications Industry Forecast - 'specialty media' segment",
+      "compiler": "Veronis Suhler (with Wilkofsky Gruen Associates)",
+      "institutional_home": "Veronis Suhler Stevenson",
+      "what_it_measures": "Advertising and marketing spending by segment; VSS classes direct mail inside 'specialty media' alongside sponsorships and consumer/B2B promotion.",
+      "coverage_years": [
+        1994,
+        2004
+      ],
+      "pools_it_can_populate": [],
+      "access": "LICENSED. Only growth RATES and a single 1999 total ($119.2B for all specialty media, up 6.0% on 1998) reached this hunt, via the DMA Fact Book's reproduction.",
+      "independent_of_project_sources": "PARTIAL - the reproduced table is jointly sourced to 'Veronis, Suhler, The Publishing@Media Group, Universal McCann, Promo Magazine, IEG Sponsorship Report' and others, i.e. it consumes Coen among its inputs.",
+      "already_in_project": false,
+      "verdict_on_source": "Cannot populate any pool. VSS's 'specialty media' is not a money type - it mixes direct mail with sponsorship and promotion, and it consumes Coen. Inventoried so it is not chased again.",
+      "urls": [
+        {
+          "name": "DMA Statistical Fact Book 2001, p.26, 'Growth of Specialty Media Advertising Spending, 1995-2004'",
+          "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+        }
+      ],
+      "key_figures": []
+    }
+  ],
+  "pools_sourceable": {
+    "national_brand": "NO SOURCE FOUND for 'national brand' as such - no compiler in this window publishes a national-BRAND pool. What exists is a published 'National' geography pool, from three compilers, all of which include direct-response money inside it: (1) Coen/McCann Total National, free, annual 1994-2001, but includes direct mail and national Yellow Pages, and is vintage-unstable by 2.4% at 2000 (e5-src-014); (2) MAGNA 'National', free for 2000 only via Statistical Abstract Table 1279 at $53,494M, licensed for 1994-1999, and on a supplier-revenue basis 28% below Coen's universe (e5-src-005); (3) the 1997 Economic Census, which gives an official national-and-regional vs local advertising receipts split for broadcasting alone, one year, grade A (e5-src-011). Medium-level national/local also exists from NAA for newspapers (annual, grade B) and RAB for radio (2 years free, grade B). TRIED AND FAILED: Ad Age 100 Leading National Advertisers back file; CMR/TNS annual national totals (licensed and now effectively lost - only a 1999 fragment survives, e5-src-013); TVB, CAB and OAAA historical national/local tables (no free archive found); MAGNA 1994-1999 (licensed). CONCLUSION: national_brand cannot be sourced; it can only be constructed as National minus the direct-response and classified money sitting inside it. It stays a derived residual and the derivation, not the pool, is what should be graded.",
+    "local_retail": "NO SOURCE FOUND for 'local retail' as such - same structural problem, mirrored. A published 'Local' geography pool exists from Coen (free, annual, Total Local $95,808M in 2000), MAGNA (free for 2000 only, Local $90,933M), the 1997 Economic Census for broadcasting (Local net $16,473,717k, grade A), NAA for newspaper retail (annual, grade B) and RAB for local radio (1999-2000, grade B, and disagreeing with Coen by $0.38B on local radio in 2000). All of these include newspaper classified inside the local total, which is exactly the money the project needs to pull out. TRIED AND FAILED: Kelsey Group local-advertising market sizings (their published local-market work starts mid-2000s); Borrell Associates (founded 2001, series starts after the window); Yellow Pages Publishers Association national/local annual tables (association dissolved into the Local Search Association, no free historical file found). CONCLUSION: local_retail cannot be sourced; it can only be constructed as Local minus classified.",
+    "classified": "PARTIALLY SOURCED - and this is the pool with the best evidence in era 5. (a) NEWSPAPER classified, which is the overwhelming majority of the pool: NAA 'Annual Newspaper Ad Expenditures', all eight years 1994-2001, free, grade B, already in the project (e5-src-008, 2000 peak $19,608M). Independently corroborable at grade A from audited SEC filings of the public newspaper groups - verified live for Knight Ridder, which reports classified separately for 1998, 1999 and 2000 (e5-src-009). Independently reproduced with academic documentation, at a different vintage, in HSUS Millennial Edition Table De523-526 (paywalled, values not read). (b) ONLINE classified: IAB/PwC breaks classifieds out as a format for FY2000 (7%) and FY2001 (16%) only; for FY1999 it is inside 'Others' and for 1996-1998 there is no format split at all (e5-src-010). So online classified is sourced for 2 of the 8 years and has NO source for 1994-1999. (c) NON-NEWSPAPER, NON-ONLINE classified - shoppers, free community papers, trade-press classified, penny-savers: NO SOURCE FOUND. Tried the Association of Free Community Papers, Editor & Publisher International Year Book, and the Economic Census. TRIED AND FAILED for an official series: the 1997 Economic Census Information Subject Series publishes NO source-of-receipts detail whatsoever for the publishing industries (NAICS 5111 carries a dash), and the 2002 Economic Census newspaper product lines split advertising space by print / internet / other media and general / specialized newspapers, with no national, retail or classified cut. No government statistical programme anywhere measures classified advertising as a category in this window. CONCLUSION: the pool's dominant component is well sourced and upgradeable from B to A; the pool as a whole is not exhaustively sourceable and the residual should be declared rather than absorbed.",
+    "direct_response": "SOURCED FOR 1995-2001, WHICH IS NEW - and it overturns the project's standing position. The dataset notes currently record direct response as 'not published by any compiler'. That is wrong: TWO named compilers publish it, on two incompatible definitions that differ by more than 3x on the same object, and neither was in the project. (a) DMA / The WEFA Group, 'Economic Impact: U.S. Direct & Interactive Marketing Today', reproduced in full in the DMA Statistical Fact Book 2001 pp.295-299 - direct-marketing advertising expenditure by medium for 1995, 1999, 2000 and 2001, with 1996-1998 constrained by published CAGRs, plus a direct-marketing-percent-of-medium cross-tab (e5-src-001 to e5-src-004). This is the only published money-type-by-medium cross-tab found for era 5, and it explicitly quantifies the direct-response television ($21.9B in 2000), newspaper ($18.4B), magazine ($9.8B) and radio ($7.7B) that the project's era-5 notes say 'are not separable in the Coen series'. Free as read, with a hosting caveat. (b) MAGNA's 'Direct' domain - $31,108M in 2000 (direct mail + direct online + directories), free for 2000 via Statistical Abstract Table 1279, licensed for 1994-1999 (e5-src-005). THE TWO DISAGREE ENORMOUSLY AND MUST NOT BE AVERAGED: DMA's 2000 direct-marketing advertising expenditure is $191.6B on a $339.3B universe; MAGNA's Direct is $31.1B on a $177.5B universe; the project's current construction is $47.5B on a $247.5B universe. As shares of their own universes: 56.5%, 17.5%, 19.2%. The spread is definitional, not empirical - DMA counts telemarketing and all direct-response placements in general media, MAGNA counts only three supplier categories, and the project counts direct mail plus national Yellow Pages plus performance-priced internet. GAP: 1994 has no direct-response source at all; the WEFA study series begins with 1995. TRIED AND FAILED: earlier DMA Statistical Fact Books (1996-2000 editions) not found free - archive.org holds only 1989, 2007 and 2011; the underlying Economic Impact reports were sold and the DMA no longer exists; USPS Revenue Pieces and Weight and Household Diary Study were identified as an official direct-mail volume rail but not retrieved within this hunt."
+  },
+  "verdict": "NO SOURCE, ANYWHERE, PUBLISHES THE FOUR-WAY SPLIT FOR ERA 5. The closest published object is MAGNA Global's three-way Direct / National / Local typology, which has no classified category at all and whose 'Direct' is far narrower than direct response; it is free for the year 2000 only (Statistical Abstract Tables 1278 and 1279) and licensed for 1994-1999. So the four-pool split remains a construction. But the hunt materially changes what the construction stands on, in three ways. FIRST, direct_response is not unpublished - it is doubly published, by DMA/WEFA (1995-2001, by medium, free as read) and by MAGNA (2000, free), on definitions that disagree by more than 3x. The honest treatment is to widen the direct_response interval to span the definitional range and cite both, not to keep a single Coen-derived floor. SECOND, classified is the strongest-sourced pool in the era, not the weakest: NAA covers all eight years at grade B, audited SEC filings can lift the newspaper component to grade A, and only the online sliver (2 of 8 years) and the non-newspaper fringe (0 of 8 years) are genuinely missing. THIRD, national_brand and local_retail are the pools that cannot be sourced at all - no compiler has ever published a national-BRAND or local-RETAIL pool, only National and Local geographies that contain the other two money types inside them. These two must stay grade C with an explicit derivation, and their intervals should widen to carry two newly documented instabilities: Coen's own 2.4% vintage restatement of Total National for 2000 (e5-src-014), and the 2.44x-to-2.69x Coen-vs-MAGNA gap on direct mail (e5-src-007), which is the line being subtracted out of National to make national_brand. TWO POOLS SOURCEABLE IN PART (classified, direct_response), TWO POOLS NOT SOURCEABLE AT ALL (national_brand, local_retail). Every grade-C money-type claim in era 5 should therefore stay grade C for national_brand and local_retail, and should be regraded on its source for classified (B, upgradeable to A) and re-derived with a widened interval for direct_response.",
+  "negative_findings": [
+    {
+      "id": "nf-01",
+      "what": "1997 Economic Census, Information Subject Series, Sources of Receipts",
+      "result": "NAICS 5111 (newspaper, periodical, book and database publishers) carries a dash for every receipt line - the Census publishes NO source-of-receipts detail for publishing at all in 1997. No newspaper national/retail/classified split.",
+      "checked": "PDF retrieved and parsed",
+      "url": "https://www2.census.gov/library/publications/economic-census/1997/information/97s51-ls.pdf"
+    },
+    {
+      "id": "nf-02",
+      "what": "2002 Economic Census, Newspaper Publishers industry series (EC0251I01) and Information Product Lines (EC0251SLLS)",
+      "result": "Newspaper advertising space is split by delivery (print / internet / other media) and by title type (general / specialized, daily / other-than-daily). There is no national, retail or classified cut at any level.",
+      "checked": "both PDFs retrieved and parsed",
+      "url": "https://www2.census.gov/library/publications/economic-census/2002/information/industry-series/ec0251i01.pdf"
+    },
+    {
+      "id": "nf-03",
+      "what": "Any government statistical series measuring classified advertising, 1994-2001",
+      "result": "None exists. Census does not collect it, BLS produces only price indexes (newspaper advertising space PPIs, no expenditure), IRS SOI carries a single undifferentiated advertising deduction.",
+      "checked": "Economic Census 1997 and 2002, Statistical Abstract table scan, Silk & Berndt's survey of official sources"
+    },
+    {
+      "id": "nf-04",
+      "what": "IAB/PwC online classifieds before FY2000",
+      "result": "Not broken out. FY1999 classifieds sits inside 'Others' at 11% of a $4.6B year and cannot be separated; 1996-1998 have no format split at all.",
+      "checked": "IAB/PwC Q4-2000 full-year report, pp.9-10",
+      "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_004_2000.pdf"
+    },
+    {
+      "id": "nf-05",
+      "what": "DMA/WEFA coverage of 1994",
+      "result": "The Economic Impact study series begins with 1995. 1994 has no direct-response source of any kind.",
+      "checked": "DMA Statistical Fact Book 2001 tables, all of which start at 1995"
+    },
+    {
+      "id": "nf-06",
+      "what": "Earlier DMA Statistical Fact Books (1996-2000 editions), which would carry 1994 and 1996-1998 as levels",
+      "result": "Not found free. Internet Archive holds only the 1989, 2007 and 2011 editions; Google Books and HathiTrust hold catalogue records without full view; the DMA is dissolved and the reports were sold.",
+      "checked": "archive.org advancedsearch, Google Books, HathiTrust catalogue"
+    },
+    {
+      "id": "nf-07",
+      "what": "MAGNA Direct/National/Local for 1994-1999",
+      "result": "Licensed. The backcast to 1980 exists (Silk & Berndt confirm it) but the only free renderings are the Statistical Abstract tables, which begin at 2000. The Magna Global [2015] methodology document and Letang & Leszega [2017] are not public.",
+      "checked": "Statistical Abstract 2011 and 2012 editions, Silk & Berndt bibliography"
+    },
+    {
+      "id": "nf-08",
+      "what": "TVB, CAB, OAAA historical national/local tables for 1994-2001",
+      "result": "No free archive found. TVB's site carries no historical file; searches returned only organisational descriptions and post-2010 BIA estimates.",
+      "checked": "web search, tvb.org"
+    },
+    {
+      "id": "nf-09",
+      "what": "Yellow Pages Publishers Association national vs local directory revenue, 1994-2001",
+      "result": "No free annual series found. The association became the Local Search Association and its historical file is not public. Only a peak-around-$13B-in-2000 characterisation survives in secondary sources.",
+      "checked": "web search"
+    },
+    {
+      "id": "nf-10",
+      "what": "Non-newspaper, non-online classified (shoppers, free community papers, penny-savers, trade-press classified)",
+      "result": "No source found. This component is simply absent from every compiler in the window and should be declared as a residual rather than absorbed into the newspaper figure.",
+      "checked": "web search, Economic Census product lines"
+    },
+    {
+      "id": "nf-11",
+      "what": "Veronis Suhler as a money-type source",
+      "result": "Cannot populate any pool. VSS's 'specialty media' mixes direct mail with sponsorship and consumer/B2B promotion, and the reproduced table is jointly sourced to Universal McCann among others, so it consumes Coen rather than being independent of it.",
+      "checked": "DMA Statistical Fact Book 2001 p.26"
+    },
+    {
+      "id": "nf-12",
+      "what": "NAA classified sub-category detail (recruitment / automotive / real estate) for the full window",
+      "result": "Not recovered as an annual series. naa.org Wayback captures of the classified and ad-expenditure pages return archived 404s. Only the year-2000 sub-split already in the project (recruitment $8.7B, automotive $5.0B, real estate $3.2B, other $2.7B) survives, through secondary reporting.",
+      "checked": "Wayback CDX domain crawl of naa.org 2000-2006, two direct capture fetches"
+    }
+  ],
+  "access_warnings": [
+    "The DMA Statistical Fact Book 2001 PDF is a copyrighted DMA publication hosted on a University of Washington course site. It was read in full, and everything transcribed from it in this file is attributed to the DMA/WEFA study by page. It is not a publisher-authorised open release and the link may not persist. Nothing was paraphrased from a source that was not actually read.",
+    "HSUS Millennial Edition Table De523-526 is PAYWALLED. Its title, coverage, columns and contributor were read from the free contents page; NO VALUES were read and none appear here.",
+    "MAGNA 1994-1999 is LICENSED. The 2000 column used here is free only because the Census Bureau reproduced it. The project's existing magna series access note should be amended from a blanket 'LICENSED' to 'licensed except 2000 and 2003-2010, free via Statistical Abstract Tables 1278/1279'.",
+    "CMR / TNS Media Intelligence annual national totals are LICENSED and now effectively LOST - the successor no longer publishes the historical file and no archive of the annual releases was found. Only trade-press fragments survive.",
+    "SEC EDGAR returns HTTP 403 to the WebFetch tool. The Knight Ridder filing was retrieved with curl and a declared User-Agent, as the project's era-5 notes already record."
+  ],
+  "proxy_leads": [
+    {
+      "lead": "Bottom-up sum of audited newspaper-group 10-Ks to validate NAA classified",
+      "pools": [
+        "classified",
+        "national_brand",
+        "local_retail"
+      ],
+      "why": "The public groups report retail / general / classified in audited dollars. Summing Gannett, Knight Ridder, Tribune, New York Times Co., Times Mirror, Dow Jones, McClatchy, E.W. Scripps, Lee, Belo, Washington Post, Central Newspapers, Pulitzer, Journal Register and Media General for 1994-2001 gives a classified SHARE from primary records that is genuinely independent of NAA's survey. Knight Ridder alone puts classified at 42.5% of its 2000 ad revenue against NAA's 40.3% industry-wide.",
+      "grade_if_built": "A for the covered companies; the industry grossing-up is the C step",
+      "access": "free, SEC EDGAR via curl",
+      "effort": "medium - 15 issuers x 8 years, but only 3 numbers per filing",
+      "independence": "high"
+    },
+    {
+      "lead": "DMA-percent-of-medium applied to Coen per-medium totals",
+      "pools": [
+        "direct_response",
+        "national_brand",
+        "local_retail"
+      ],
+      "why": "DMA's 2000 direct-marketing shares by medium (newspaper 37.3%, magazine 56.6%, television 39.6%, radio 39.9%) sit on denominators that are close to Coen's, so the shares transfer with a stated scope reconciliation. This is the route that would finally separate the direct-response TV and print the project currently says cannot be separated - and it would move a large sum out of national_brand.",
+      "grade_if_built": "C, with a method naming DMA's universe gap and the denominator reconciliation as its two adjustment steps",
+      "access": "free as read",
+      "effort": "low",
+      "independence": "high for the shares, partial for the denominators",
+      "caution": "DMA's 'direct marketing' is a deliberately broad category built by an association with an interest in the number being large. The share for television in particular (39.6%) is far above any other contemporaneous characterisation of direct-response TV. Treat it as the upper bound of a range, not as the estimate."
+    },
+    {
+      "lead": "MAGNA 2000 column as a second money-type rail",
+      "pools": [
+        "national_brand",
+        "local_retail",
+        "direct_response"
+      ],
+      "why": "A complete Direct/National/Local decomposition of one era-5 year, free, from a compiler methodologically independent of Coen. It cannot be stitched (different universe, no classified category, one year only) but it is the best available cross-check on whether the constructed shares are the right shape.",
+      "grade_if_built": "n/a - use as cross-check",
+      "access": "free",
+      "effort": "already extracted, see e5-src-005",
+      "independence": "high methodologically, with an IPG common-parent caveat",
+      "recommended_role": "cross-check-only"
+    },
+    {
+      "lead": "USPS Revenue, Pieces and Weight reports and the Household Diary Study",
+      "pools": [
+        "direct_response"
+      ],
+      "why": "Standard Mail (A) volume and revenue are official annual statistics covering the whole window, and the Household Diary Study measures advertising mail received per household. Together they are an official rail underneath the single largest direct-response line, and would adjudicate between MAGNA's $18.25B and Coen's $44.59B for 2000 by separating postage from media value.",
+      "grade_if_built": "A for the postal quantities, C for the translation into advertising expenditure",
+      "access": "free, usps.gov and prc.gov",
+      "effort": "medium",
+      "independence": "high - identified but NOT retrieved in this hunt"
+    },
+    {
+      "lead": "Coen 2001-vintage tables as a vintage rail on national/local",
+      "pools": [
+        "national_brand",
+        "local_retail"
+      ],
+      "why": "The DMA Fact Book preserves Coen's contemporaneous 1999 and 2000 national/local tables. Running the project's money-type construction on both vintages bounds how much of the national_brand figure is a curation artefact - 2.4% at the Total National line, 50% at the internet line.",
+      "grade_if_built": "B",
+      "access": "free",
+      "effort": "low",
+      "independence": "none - same compiler, different vintage; this measures instability, not truth"
+    },
+    {
+      "lead": "1997 Economic Census broadcasting national/local as an official anchor",
+      "pools": [
+        "national_brand",
+        "local_retail"
+      ],
+      "why": "The only grade-A official national-vs-local advertising split in the window. One year, one medium group, but it independently tests whether Coen's national/local ratio for broadcast is roughly right, which underwrites the whole geography-based decomposition.",
+      "grade_if_built": "A for the census figure; C for any reconciliation against Coen's broadcast lines",
+      "access": "free",
+      "effort": "already extracted, see e5-src-011",
+      "independence": "high",
+      "recommended_role": "cross-check-only"
+    },
+    {
+      "lead": "Editor and Publisher International Year Book, 1995-2002 volumes",
+      "pools": [
+        "classified"
+      ],
+      "why": "Not chased in this hunt for want of a free copy. It carries newspaper ad revenue by category and is the lineage HSUS Table De523-526 documents. Would give an independent vintage of the newspaper classified series, and possibly the non-daily and weekly classified that NAA's daily-centred series under-covers.",
+      "grade_if_built": "B",
+      "access": "print / library; no free digitisation found",
+      "effort": "high",
+      "independence": "low to medium - shares the NAA lineage"
+    }
+  ],
+  "cross_checks": [
+    {
+      "id": "xc-01",
+      "test": "MAGNA total digital 2000 against IAB/PwC internet 2000",
+      "a": {
+        "source": "MAGNA via Statistical Abstract 2012 Table 1279",
+        "value": 8068,
+        "unit": "USD millions",
+        "detail": "national digital/online 5,665 + local digital/online 1,843 + direct online 560"
+      },
+      "b": {
+        "source": "IAB/PwC restated FY2000",
+        "value": 8087,
+        "unit": "USD millions"
+      },
+      "divergence_pct": -0.23,
+      "tolerance_pct": 15,
+      "flag": false,
+      "reading": "MAGNA and IAB agree on the internet total to a quarter of one percent, which raises confidence that MAGNA's split of that total across Direct, National and Local is a real allocation rather than a residual."
+    },
+    {
+      "id": "xc-02",
+      "test": "MAGNA total supplier ad revenue 2000 against Coen total 2000",
+      "a": {
+        "source": "MAGNA via Statistical Abstract 2012 Table 1279",
+        "value": 177500,
+        "unit": "USD millions"
+      },
+      "b": {
+        "source": "Coen via Galbi",
+        "value": 247472,
+        "unit": "USD millions"
+      },
+      "divergence_pct": -28.3,
+      "tolerance_pct": 15,
+      "flag": true,
+      "reading": "FLAGGED, and expected. Supplier revenue against advertiser billings at list price. The flag is a definitional finding, not a data error, and it is the reason MAGNA must be a cross-check and never a stitch partner for Coen inside era 5."
+    },
+    {
+      "id": "xc-03",
+      "test": "MAGNA direct mail 2000 against Coen direct mail 2000",
+      "a": {
+        "source": "MAGNA via Statistical Abstract 2012 Table 1279",
+        "value": 18250,
+        "unit": "USD millions"
+      },
+      "b": {
+        "source": "Coen via Galbi",
+        "value": 44591,
+        "unit": "USD millions"
+      },
+      "divergence_pct": -59.1,
+      "tolerance_pct": 15,
+      "flag": true,
+      "reading": "FLAGGED, and the largest divergence found. The project's entire direct_response pool rests on the Coen figure. Two named compilers put the same medium in the same year 2.44x apart. Neither is wrong; the objects differ. The direct_response interval must span this."
+    },
+    {
+      "id": "xc-04",
+      "test": "DMA/WEFA direct mail 2000 against Coen direct mail 2000",
+      "a": {
+        "source": "DMA/WEFA via Statistical Fact Book 2001 p.296",
+        "value": 44600,
+        "unit": "USD millions"
+      },
+      "b": {
+        "source": "Coen via Galbi",
+        "value": 44591,
+        "unit": "USD millions"
+      },
+      "divergence_pct": 0.02,
+      "tolerance_pct": 15,
+      "flag": false,
+      "reading": "DMA and Coen agree on direct mail to nine million dollars, which almost certainly means DMA took Coen's direct-mail line rather than estimating it. This is a WARNING about independence: DMA's direct-mail line is NOT independent of the project's existing sources, even though its direct-response TV, newspaper, magazine and radio lines are."
+    },
+    {
+      "id": "xc-05",
+      "test": "MAGNA local newspapers 2000 against NAA newspaper print total 2000",
+      "a": {
+        "source": "MAGNA via Statistical Abstract 2012 Table 1279",
+        "value": 46506,
+        "unit": "USD millions",
+        "detail": "local newspapers only; MAGNA also carries national newspapers 2,165 separately, giving 48,671 combined"
+      },
+      "b": {
+        "source": "NAA annual newspaper ad expenditures, print total",
+        "value": 48670,
+        "unit": "USD millions"
+      },
+      "divergence_pct": 0.002,
+      "tolerance_pct": 15,
+      "flag": false,
+      "reading": "MAGNA local plus national newspapers = 48,671 against NAA's 48,670 - a one-million-dollar match. MAGNA is carrying the NAA newspaper total and splitting it 95.6 local / 4.4 national. So MAGNA's newspaper line is NOT independent of NAA either, and MAGNA's national/local newspaper split is a different partition of the same total than NAA's national/retail/classified. Both facts belong in the concordance."
+    },
+    {
+      "id": "xc-06",
+      "test": "RAB total US radio revenue 2000 against Coen total radio 2000",
+      "a": {
+        "source": "RAB via MediaPost/WARC",
+        "value": 19819,
+        "unit": "USD millions"
+      },
+      "b": {
+        "source": "Coen via Galbi",
+        "value": 19295,
+        "unit": "USD millions",
+        "detail": "network 780 + national spot 3,668 + local 14,847"
+      },
+      "divergence_pct": 2.72,
+      "tolerance_pct": 15,
+      "flag": false,
+      "reading": "Within tolerance. Two independent compilers, same medium, same year, 2.7% apart - a useful calibration of how much a national/local split wobbles between compilers even when the total nearly agrees. MAGNA's radio for 2000 (network and satellite 1,065 + local 18,819 = 19,884) is a third rendering, 0.3% from RAB."
+    },
+    {
+      "id": "xc-07",
+      "test": "Independent aggregate for the money-type split itself",
+      "result": "NONE EXISTS. There is no tax-based, census-based or national-accounts aggregate anywhere that measures US advertising by money type in 1994-2001. IRS SOI carries a single undifferentiated advertising deduction; the Economic Census carries no classified cut and only a one-year broadcasting national/local cut; BEA's national accounts do not partition advertising by buyer type. This is stated here explicitly, per the operating principle, rather than left implied.",
+      "flag": true
+    }
+  ]
+}

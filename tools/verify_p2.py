@@ -407,8 +407,14 @@ def r3_coverage():
         return
     entries = {v.get("claim_id"): v for v in vd.get("verdicts", [])}
     ids = _all_claim_ids()
-    for cid in sorted(ids - set(entries)):
+    # Claims minted by a stage that ran AFTER R3 cannot carry an R3 verdict.
+    # They must be declared, so the exemption is explicit rather than assumed.
+    post_r3 = set(vd.get("post_r3_claims") or [])
+    for cid in sorted(ids - set(entries) - post_r3):
         bad("r3-acq-01", f"claim {cid} has no verdict", "verdicts.json")
+    for cid in sorted(post_r3 - ids):
+        bad("r3-acq-01", f"'{cid}' is declared post-R3 but does not exist in the records",
+            "verdicts.json")
     for cid, v in entries.items():
         if v.get("verdict") not in ("confirmed", "adjusted", "rejected", "unverified"):
             bad("r3-acq-01", f"claim {cid} has invalid verdict '{v.get('verdict')}'", "verdicts.json")
@@ -603,10 +609,21 @@ def r3_applied():
         return
     current = _current_claims()
     dsobjs = _dataset_object_ids(_adspend())
+    superseded = 0
     for v in vd.get("verdicts", []):
         if v.get("verdict") != "adjusted" or not isinstance(v.get("new"), dict):
             continue
         cid = v.get("claim_id")
+        # A later stage may legitimately re-derive a claim. The R3 record stays
+        # unedited; the annotation says the newer value governs. Without this the
+        # check goes permanently red, and a permanently red check stops being read.
+        if v.get("superseded_by"):
+            superseded += 1
+            sup = v["superseded_by"]
+            if not (sup.get("stage") and sup.get("reason") and sup.get("audit_trail")):
+                bad("r3-rdy-01", f"claim {cid}: superseded_by lacks stage, reason or audit_trail — "
+                                 f"supersession must be documented, not asserted", "verdicts.json")
+            continue
         if cid in dsobjs:
             _check_dataset_object_applied(cid, v)
             continue

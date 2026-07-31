@@ -2,8 +2,8 @@
 title: The Capture Question
 project: p2-ad-market
 chapter: 9
-claim_ids: [ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-provenance-001, ds-money_type-001, ds-money_type-002, ds-money_type-003, e1-scale-001, e1-scale-006, e1-scale-009, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-medium-005, e1-measurement-002, e2-scale-004, e2-scale-005, e2-scale-006, e2-scale-010, e2-scale-011, e2-scale-012, e2-scale-013, e2-medium-001, e2-medium-002, e2-medium-004, e2-measurement-009, e3-scale-004, e3-scale-005, e3-scale-006, e4-scale-003, e4-buyers-003, e4-buyers-004, e4-buyers-006, e4-buyers-007, e4-buyers-008, e4-medium-006, e4-targeting-004, e5-scale-002, e5-scale-004, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-medium-002, e5-medium-005, e5-medium-006, e5-buyers-001, e5-buyers-002, e6-scale-003, e6-scale-009, e6-scale-010, e6-buyers-001, e6-buyers-002, e6-buyers-005, e6-buyers-008, e6-medium-003, e6-medium-006, e6-events-010, e6-sellers-005, e7-scale-001, e7-scale-002, e7-scale-006, e7-buyers-001, e7-buyers-002, e7-buyers-005, e7-buyers-006, e7-buyers-007, e7-buyers-008, e7-medium-001, e7-medium-002, e7-medium-004, e7-medium-006, e7-medium-007, e7-sellers-001, e7-sellers-004, e7-sellers-005, e7-sellers-007]
-readability: "PASS fk_grade=7.64 reading_ease=64.16 gunning_fog=10.70 smog=10.77"
+claim_ids: [ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-provenance-001, ds-money_type-001, ds-money_type-002, ds-money_type-003, e1-scale-001, e1-scale-006, e1-scale-009, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-medium-005, e1-measurement-002, e2-scale-004, e2-scale-005, e2-scale-006, e2-scale-010, e2-scale-011, e2-scale-012, e2-scale-013, e2-medium-001, e2-medium-002, e2-medium-004, e2-measurement-009, e3-scale-004, e3-scale-005, e3-scale-006, e4-scale-003, e4-buyers-003, e4-buyers-004, e4-buyers-006, e4-buyers-007, e4-buyers-008, e4-medium-006, e4-targeting-004, e5-scale-002, e5-scale-004, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-medium-002, e5-medium-005, e5-medium-006, e5-buyers-001, e5-buyers-002, e6-scale-003, e6-scale-009, e6-scale-010, e6-buyers-001, e6-buyers-002, e6-buyers-005, e6-buyers-008, e6-medium-003, e6-medium-006, e6-events-010, e6-sellers-005, e7-scale-001, e7-scale-002, e7-scale-006, e7-scale-007, e7-scale-008, e7-scale-009, e7-scale-010, e7-buyers-001, e7-buyers-002, e7-buyers-005, e7-buyers-006, e7-buyers-007, e7-buyers-008, e7-medium-001, e7-medium-002, e7-medium-004, e7-medium-006, e7-medium-007, e7-sellers-001, e7-sellers-004, e7-sellers-005, e7-sellers-007]
+readability: "PASS fk_grade=7.71 reading_ease=63.98 gunning_fog=10.72 smog=10.79"
 status: draft-for-review
 ---
 
@@ -141,24 +141,26 @@ Four kinds of money. **National brand**: a manufacturer buying reach for a brand
 
 This is not the split the compilers publish. Coen publishes two buckets, national and local, and he books all direct mail as national. In 1993 direct mail alone was 33.3% of everything Coen called national spending — more than all national television put together.[^42] So a rising "national" share in his series can mean brand money growing or mail growing, and the reader cannot tell which. The four-way split below is our own construction, built to separate those. It is graded C wherever we built it.
 
-| Year | National brand | Local retail | Classified | Direct response |
-|---|---|---|---|---|
-| 1914 | ~16% | ~23% | ~3% | ~24% |
-| 1949 | ~43% | ~36% | ~6.5% | ~14.5% |
-| 2000 | 41.9% | 30.8% | 8.2% | 19.2% |
-| 2025 | ~23% | ~41% | ~4% | ~32% |
+| Year | National brand | Local retail | Classified | Direct response | Not assigned |
+|---|---|---|---|---|---|
+| 1914 | ~22% | ~22% | ~2.2% | ~16% | ~38% |
+| 1949 | ~43% | ~36% | ~6.5% | ~14.5% | — |
+| 2000 | 38.3% | 28.3% | 8.9% | 24.7% | — |
+| 2025 | ~37% | ~24% | ~2.5% | ~38% | — |
 
-Read the 1914 row with care. Those four shares are our own bottom-up estimates, each graded C, and they sum to about 66% rather than 100%. The pre-1919 total is a broad measure of all advertising outlay, of which print was only about 21%.[^43] The rest of that year's money sat in forms nobody itemised. The 1914 shares are best read as rough sizes, not a partition: national brand somewhere between 11% and 23%, local retail 16% to 32%, classified 1.5% to 6%, direct response 17% to 34%.[^44]
+Read the 1914 row with care. Those four shares are our own bottom-up estimates, each graded C, and they reach only 62% rather than 100%. The pre-1919 total is a broad measure of all advertising outlay, of which print was only about 21%.[^43] We now publish the unassigned 38% as its own figure rather than leaving it as a silent gap. About a fifth of it is a real fifth pool with a name — trade papers, legal and financial notices, institutional money. The rest is the distance between the only in-era count of advertising by channel and a much larger figure worked out decades later. The 1914 shares are best read as rough sizes, not a partition: national brand 11% to 46%, local retail 15% to 46%, classified 1.1% to 5%, direct response 8% to 30%.[^44] Only one ordering in that row is safe. Classified was the smallest.
 
-The 2025 row carries its own warning. Those four shares are also grade C, and their ranges are wide and overlapping: national brand 17% to 38%, local and retail 33% to 46%, classified 2% to 8%, national direct response 23% to 41%.[^45] They come from different compilers with different rules about direct mail, so the ranking of the middle two pools is not settled by this evidence. The brand pool in particular is a residual, and on a basis that treats direct mail the same way on both sides it would sit nearer a third of the market than a quarter.
+The 2025 row carries its own warning. Those four shares are also grade C, and their ranges are wide and overlapping: national brand 25% to 47%, local and retail 15% to 31%, classified 1.4% to 6.8%, national direct response 29.5% to 47%.[^45] Brand money and response money sit 1.4 points apart and cannot be ranked against each other at all.
 
-With those caveats, the shape is still clear and it is not subtle. **Response money grew and brand money shrank.**
+The rows also do not share a ruler. The 2000 row counts direct mail at what the advertiser spent, program and postage included; the 2025 row leaves direct mail out on both sides. Put 2000 on the 2025 footing and it reads roughly 43.6% national brand, 33.1% local retail, 9.9% classified and 13.4% direct response.[^45] That is the only like-for-like comparison in the table, and it is the one the next paragraph uses.
+
+With those caveats, the shape is still clear and it is not subtle. **Response money grew, classified nearly vanished, local money shrank, and brand money held its ground without ever regaining the lead it had.**
 
 The 1949 and 2000 rows are firmer, and they set up the change. In 1949, direct mail was 14.5% of all US spend and the second-largest medium in most years of that era.[^46] In 1975, national money was 54.5% of the total.[^47] By 1993, classified alone was 7.9% of all measured US advertising, and direct-response buyers spent about $31 billion, roughly 22% of the market.[^48] Local money was heavily concentrated in exactly the media digital would later take: local buyers supplied 88.7% of newspaper ad revenue in 1993.[^49]
 
-Then in 2000 the market split four ways as $103.6 billion of national brand money, $76.2 billion local, $20.2 billion classified and $47.5 billion direct response.[^50] The pool the search auction was actually built to compete for — newspaper classified, directories and direct mail — was $77.4 billion that year, 31.3% of all US advertising. The entire internet was $6.5 billion on the same series.[^51] The auction was not aimed at television. It was aimed at the phone book.
+Then in 2000 the market split four ways as $94.9 billion of national brand money, $70.1 billion local, $21.9 billion classified and $61.2 billion direct response.[^50] The pool the search auction was actually built to compete for — newspaper classified, directories and direct mail — was $77.4 billion that year, 31.3% of all US advertising. The entire internet was $6.5 billion on the same series.[^51] The auction was not aimed at television. It was aimed at the phone book.
 
-By 2007 that response-priced and intent-matched pool was roughly $99 billion, about 34% of all US advertising.[^52] The pricing followed: 57% of US internet ad revenue was already bought on a performance basis by 2008, against 39% bought by the thousand impressions.[^53] By 2025, search alone is $114.2 billion of US internet revenue, while classifieds, directories and lead generation together are $12.5 billion — 4.2% of it.[^54] National brand money is now the smallest of the four pools for the first time in the record.[^55]
+By 2007 that response-priced and intent-matched pool was roughly $99 billion, about 34% of all US advertising.[^52] The pricing followed: 57% of US internet ad revenue was already bought on a performance basis by 2008, against 39% bought by the thousand impressions.[^53] By 2025, search alone is $114.2 billion of US internet revenue, while classifieds, directories and lead generation together are $12.5 billion — 4.2% of it.[^54] Response money is now the largest pool, or tied for it, and classified has fallen to a fortieth of the market.[^55]
 
 That is the trade. The auction did not mainly take television's money. It took the money that was already paying for a measured response, made that response cheaper to measure, and then pulled more of the market onto the same footing.
 
@@ -182,7 +184,7 @@ Advertising's share of the US economy hit its post-1960 peak in 2000 and fell th
 
 Capture is real where the money was a listing rather than a message. Classified fell 91% in its largest sub-category. Directories fell 93%. The sell side went from 72% concentration in 2008 to 84.1% in 2025. But capture fails as a description of the whole market. National money gained share during the auction era. The number of advertisers rose from thousands to millions. Categories worth tens of billions exist now that did not exist then.
 
-What is left is the axis that actually moved. Money paying for a measured action went from roughly a fifth of the market in 2000 to roughly a third in 2025. Money paying for reach went from the largest pool to the smallest. The medium mix is the visible change; the money-type mix is the real one.
+What is left is the axis that actually moved. On one ruler, applied to both years, money paying for a measured action went from about 13% of the market in 2000 to about 38% in 2025. Money paying for reach went from 44% to 37%: it lost its lead without losing much of its size. Classified went from about a tenth of the market to a fortieth. The medium mix is the visible change; the money-type mix is the real one.
 
 ### What would change our minds
 
@@ -192,7 +194,7 @@ A free, consistent by-medium US series for 2011 to 2025 would test all of this d
 
 A second overlap year between the Coen and MAGNA bases would replace our single-observation bridge with a measured trend. If the true gap between the two bases moved a lot between 1980 and 2007, the size of the ad/GDP fall changes, though its direction almost certainly does not.
 
-A published money-type split from a compiler, rather than our own construction, would settle the 2025 row. Ours is built from three sources with different rules about direct mail, and its ranges are wide enough that the middle two pools cannot be ranked with confidence. That is the number in this chapter most likely to be wrong.
+A published money-type split from a compiler, rather than our own construction, would settle the 2025 row. Ours is built from three sources with different rules about direct mail, and its ranges are wide enough that the top two pools cannot be ranked with confidence. That is the number in this chapter most likely to be wrong. Two purchases would fix it: agency billing data with a national cut, and MAGNA's own three-way split. Both are licensed and neither was bought.
 
 [^1]: Coen Structured Advertising Expenditure Dataset, from Robert J. Coen / McCann-Erickson, digitised by Douglas Galbi.
 [^2]: MAGNA and EMARKETER US totals for 2025, media-owner revenue basis.
@@ -237,18 +239,18 @@ A published money-type split from a compiler, rather than our own construction, 
 [^41]: IAB and PwC Internet Advertising Revenue Report, 2008 and 2025.
 [^42]: Coen dataset, direct mail as a share of national spending, 1993.
 [^43]: Census of Manufactures print receipts against the 1914 benchmark total.
-[^44]: Our own bottom-up estimates for 1914, each graded C with the stated ranges.
-[^45]: BIA local estimates, IAB format detail and MAGNA totals, reconciled by us.
+[^44]: Claims e1-scale-011 to e1-scale-014 and e1-scale-017, each graded C. Rebuilt in a later pass that ran three separate estimating methods and took the middle answer.
+[^45]: Claims e7-scale-006 to e7-scale-010, each graded C, on MAGNA's $398B media-owner total with direct mail excluded. The like-for-like restatement of 2000 comes from the same reconciliation, which prices the 2000 market at about $221B once direct mail is taken out.
 [^46]: Coen dataset, direct mail line, 1949.
 [^47]: Coen dataset, national share, 1975.
 [^48]: Newspaper Association of America classified line, and our direct-response estimate for 1993.
 [^49]: Coen and NAA newspaper revenue by buyer type, 1993.
-[^50]: Our four-pool decomposition of the Coen 2000 total.
+[^50]: Claims e5-scale-010 to e5-scale-014, our four-pool decomposition of the Coen 2000 total plus the 0.2-point overshoot.
 [^51]: Newspaper classified, Coen directories and Coen direct mail for 2000, against Coen's internet line.
 [^52]: Our four-pool decomposition for 2007, with the IAB internet correction.
 [^53]: IAB and PwC pricing-model split, full-year 2008.
 [^54]: IAB and PwC format detail, full-year 2025.
-[^55]: Our residual estimate of national brand money for 2025.
+[^55]: Claims e7-scale-008 and e7-scale-009. Brand money and response money cannot be ranked against each other; classified can be, and it is last.
 [^56]: Quote Investigator citation chain, 1890 to 1919.
 [^57]: Audit Bureau of Circulations founding records, 1914.
 [^58]: Direct-marketing industry benchmarks for rented-list response rates.
