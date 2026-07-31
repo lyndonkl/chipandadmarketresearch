@@ -143,7 +143,7 @@ Decomposition and anchors:
 - Cost: non-TAC cost of revenues 2007 = $6,649.1M − $4,933.9M = $1,715.2M (10-K, grade A).
 
 Results: revenue/query $0.0256; cost/query $0.0035 (bounded by Kelly's $0.0028 below and the
-full non-TAC allocation $0.00413 above); gross margin per owned query 86%.
+full non-TAC allocation $0.00413 above); gross margin per owned query 85%.
 
 Bounds and sanity checks:
 - Query range 350-500bn gives revenue/query $0.0212-$0.0304; widened to [0.018, 0.033] because
@@ -152,13 +152,13 @@ Bounds and sanity checks:
 - Cross-check via clicks: at a plausible 2007 average CPC near $0.50, $0.0256/query implies ~5 paid
   clicks per 100 searches. Plausible when most queries are non-commercial. Passes.
 - Cross-check via reported margins: Google's 2007 gross margin was 59.9% and operating margin 30.6%
-  ($5,084.4M on $16,594.0M). The 86% per-owned-query gross margin is higher precisely because it
+  ($5,084.4M on $16,594.0M). The 85% per-owned-query gross margin is higher precisely because it
   excludes TAC (30.1% of ad revenue in 2007), which is a distribution cost, not a serving cost.
-  This is the twin-engine result in one line: the auction's yield is ~86% margin; distribution
+  This is the twin-engine result in one line: the auction's yield is ~85% margin; distribution
   costs ~30 points of it.
 - Triangulated era-start value for PRICING: 2002 Google-owned ad revenue $306.978M over ~54.8bn
-  queries (Google Zeitgeist 2001: "more than 150 million queries per day") = $0.0056/query. Yield
-  per query rose ~4.6x across the era.
+  queries (Google Zeitgeist 2001: "more than 150 million queries per day") = $0.0047/query. Yield
+  per query rose ~4.7x across the era.
 
 Deliberately NOT used: the SemiAnalysis ~1.06c cost / ~1.61c revenue per query figures — those are
 a 2022-2023 vintage and belong to era 7's comparison series.

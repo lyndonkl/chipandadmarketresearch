@@ -1,0 +1,83 @@
+{
+  "overall": "PASS",
+  "stage": "R5",
+  "name": "Chapter synthesis",
+  "audited_at": "2026-07-30",
+  "audit_cycle": 3,
+  "preconditions": [
+    {
+      "path": "p2-ad-market/planning/contracts/r4-report.json",
+      "verdict": "satisfied",
+      "evidence": "File exists and parses as JSON. Top-level \"overall\" is \"PASS\". All five R4 invariants carry verdict \"satisfied\" (r4-acq-01, r4-val-01, r4-val-02, r4-val-03, r4-rdy-01), and both R4 preconditions (r3-report.json, era-6.json) are satisfied. The contract requires \"V4 report with overall PASS\"; that condition holds."
+    },
+    {
+      "path": "p2-ad-market/data/claims.json",
+      "verdict": "satisfied",
+      "evidence": "File exists (562,354 bytes, 11,619 lines) and parses as a JSON object with keys [\"claims\", \"dropped\"]: 498 claim objects and 22 dropped-duplicate records. All 498 ids are unique. The id set is an exact match (0 missing, 0 extra) against the union of claim ids in data/eras/era-1..7.json, data/adspend.json and data/mechanism.json, so the aggregation from verified era records + dataset is complete. Grade distribution A=133, B=262, C=103; verdict distribution confirmed=326, adjusted=123, post-verification=45, rejected=4."
+    }
+  ],
+  "produces": [
+    { "path": "p2-ad-market/research/01-thesis.md", "exists": true, "bytes": 21750 },
+    { "path": "p2-ad-market/research/02-the-middlemen.md", "exists": true, "bytes": 26322 },
+    { "path": "p2-ad-market/research/03-sponsorship.md", "exists": true, "bytes": 19255 },
+    { "path": "p2-ad-market/research/04-the-spot-market.md", "exists": true, "bytes": 20012 },
+    { "path": "p2-ad-market/research/05-segmentation.md", "exists": true, "bytes": 18983 },
+    { "path": "p2-ad-market/research/06-the-impression.md", "exists": true, "bytes": 23996 },
+    { "path": "p2-ad-market/research/07-the-auction.md", "exists": true, "bytes": 29599 },
+    { "path": "p2-ad-market/research/08-the-machine-market.md", "exists": true, "bytes": 28104 },
+    { "path": "p2-ad-market/research/09-the-capture-question.md", "exists": true, "bytes": 26867 },
+    { "path": "p2-ad-market/research/10-verdict-and-handoff.md", "exists": true, "bytes": 19376 },
+    { "path": "p2-ad-market/planning/thread-candidates.md", "exists": true, "bytes": 39457 }
+  ],
+  "invariants": [
+    {
+      "id": "r5-acq-01",
+      "class": "acquisition",
+      "verdict": "satisfied",
+      "evidence": "Deterministic check ran verbatim from the repo root and exited 0 with no violation output. verify_p2.py r5_files() asserts each of the ten chapter filenames under p2-ad-market/research/ and p2-ad-market/planning/thread-candidates.md; silence plus exit 0 is the tool's documented pass signal. Independently confirmed by an existence-and-size pass: all eleven contracted artifacts exist and are non-empty (smallest is 05-segmentation.md at 18,983 bytes; thread-candidates.md is 39,457 bytes). The research directory contains exactly these ten .md files plus .gitkeep and a notes/ subdirectory.",
+      "command_output": "$ python3 tools/verify_p2.py r5-files\n(no output)\nEXIT_CODE=0"
+    },
+    {
+      "id": "r5-val-01",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Deterministic check ran verbatim and exited 0. All ten chapters PASS all four gates with margin: highest FK grade 7.64 (09-the-capture-question.md, limit 10), lowest Reading Ease 64.16 (09, limit 50), highest Fog 10.70 (09, limit 12), highest SMOG 10.77 (09, limit 12). Separately confirmed the invariant's frontmatter clause, which the contracted command does not itself inspect: all ten chapters record their four scores in YAML frontmatter under a `readability` key, and every recorded value matches the tool's computed output exactly (e.g. 03-sponsorship.md records {fk_grade: 7.0, reading_ease: 70.95, gunning_fog: 9.41, smog: 9.65}; 08-the-machine-market.md records {flesch_kincaid: 7.25, reading_ease: 66.84, gunning_fog: 9.82, smog: 10.12}). See contract_concerns[0] on the command's partial coverage of the invariant text.",
+      "command_output": "$ python3 tools/readability.py p2-ad-market/research/*.md\nPASS  01-thesis.md  fk_grade=5.91 reading_ease=77.2 gunning_fog=8.03 smog=8.45\nPASS  02-the-middlemen.md  fk_grade=7.0 reading_ease=66.1 gunning_fog=9.5 smog=9.91\nPASS  03-sponsorship.md  fk_grade=7.0 reading_ease=70.95 gunning_fog=9.41 smog=9.65\nPASS  04-the-spot-market.md  fk_grade=6.11 reading_ease=73.34 gunning_fog=8.59 smog=9.19\nPASS  05-segmentation.md  fk_grade=7.29 reading_ease=70.21 gunning_fog=9.76 smog=9.86\nPASS  06-the-impression.md  fk_grade=6.39 reading_ease=67.47 gunning_fog=9.45 smog=9.81\nPASS  07-the-auction.md  fk_grade=6.64 reading_ease=71.62 gunning_fog=9.03 smog=9.44\nPASS  08-the-machine-market.md  fk_grade=7.25 reading_ease=66.84 gunning_fog=9.82 smog=10.12\nPASS  09-the-capture-question.md  fk_grade=7.64 reading_ease=64.16 gunning_fog=10.7 smog=10.77\nPASS  10-verdict-and-handoff.md  fk_grade=5.29 reading_ease=77.89 gunning_fog=7.15 smog=8.0\n(all four gates marked passing on every line)\nEXIT_CODE=0"
+    },
+    {
+      "id": "r5-val-02",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Deterministic check ran verbatim and exited 0 with no violation output. verify_p2.py r5_traceability() parses each chapter's frontmatter, requires a non-empty claim_ids list, and flags any id absent from claims.json or carrying verdict \"rejected\" in data/verification/verdicts.json. All ten chapters carry populated claim_ids lists (54 to 108 ids each). Separately confirmed the invariant's third clause, which the command does not cover: the four rejected claims are e2-creators-001, e7-medium-003, ds-total-001 and ds-gdp-001; none is cited in any chapter's frontmatter, and greps for their rejected numbers found no occurrence in chapter prose (no chapter states a 2006 Coen level peak of $281,653m, a 2000 ad/GDP peak presented as the record maximum, a 72% mobile share of US digital, or a JWT top-ten-programs statistic). Chapter 08 line 39 states the corrected finding explicitly: \"The high point for US ad spend as a share of GDP was not the year 2000. On the long series it falls in the early 1920s.\" See contract_concerns[1].",
+      "command_output": "$ python3 tools/verify_p2.py r5-traceability\n(no output)\nEXIT_CODE=0"
+    },
+    {
+      "id": "r5-val-03",
+      "class": "validity",
+      "verdict": "satisfied",
+      "evidence": "Read all ten chapters against their claims; each of the three named failure modes was tested and none is present. (1) NO ASSERTED POINT VALUE ON A WIDE CI. Enumerated every cited claim whose ci80 width exceeds 0.6x its central and checked how the owning chapter states it. Each surfaces the band and the grade in prose. The four AI inference-cost claims, the widest in the dataset (e7-unit_econ-005 ci80 [0.00025, 0.0095], 28x central), are given in 08-the-machine-market.md lines 191-201 with per-year ranges, the warning \"Every point below carries a wide band, because which model serves the answer matters more than which year it is\", a recomputation at the frontier tier, and \"Read the pair as a direction, not as a measurement\"; 10-verdict-and-handoff.md line 130 repeats \"All four points are graded C and the bands are wide... which tier answers dominates the whole figure\". Likewise e6-buyers-002 (550,000-2,600,000) in 01 L78, 07 L218 and 09 L122; e6-measurement-002 in 07 L81 (\"grade C and the honest range is wide, from 3% to 20%\"); e2-medium-003 in 03 L95 (\"we carry both, and the band on that number runs from 3.5 to 11\"); e3-targeting-003 in 04 L90 (1,500-4,500); e5-unit_econ-002 in 06 L98 ($0.40-$2.50); e7-medium-006 in 01 L50 and 08 L41 ($0.7B-$2.0B). 01-thesis.md carries a 71-row table (lines 126-198) giving grade and 80% range for every number it uses. (2) THE CAPTURE-QUESTION CHAPTER HIDES NO COMPETING SERIES. 09-the-capture-question.md names all five compilers in the dataset's SERIES_KEYS - Coen/McCann, MAGNA, IAB/PwC, IRS and the pre-1919 benchmarks (lines 30-38) - states the rule \"two ribbons, never one line. Where series disagree, both are shown\" (L52), prints the ad/GDP table with a per-row Basis column (L58-72), gives 2000 as \"2.3-2.5%, Coen billings, three renderings\" rather than a point, measures the seams (23.4% Coen/MAGNA 1980 gap, Coen internet at 49.7% of IAB for 2007, Billboards-to-Out-of-Home at 2.77x), grades its own bridge C with a $211bn-$244bn interval and calls it \"our shakiest construction\", carries the IRS rail that disagrees (L92), states the four-pool 1914 and 2025 rows with their full overlapping intervals and the warning that the middle two pools cannot be ranked (L151, L153), and closes with a \"What would change our minds\" section. (3) NO UNEXPLAINED JARGON. Traced first use of 58 technical terms across all ten chapters; each is glossed at or beside first use - \"A commission here just means a cut of the sale\" (02 L23), \"Billings are the full amount the advertiser was charged\" (02 L59), \"An agate line is one line of very small type\" (02 L61), \"circulation, meaning the number of copies a publication sold\" (02 L134), \"This is spot buying\" (03 L81), \"GDP is the value of everything the country produces in a year\" (03 L125), \"Make-goods are free replacement spots\" (04 L76), \"the rating point, which is a share of all TV homes\" (04 L74), \"a consent decree, which is a settlement the defendants agree to and a judge signs\" (04 L162), \"a CPM - the cost per thousand impressions\" (06 L19), \"anchor tenancy - a fixed fee for guaranteed placement\" (06 L68), \"An impression is one showing of an ad\" (07 L26), \"Paying the next bidder's price rather than your own is called second-price pricing\" (07 L36), \"The money paid to partners is called traffic acquisition cost\" (07 L145), \"a warrant, which is the right to buy shares at a fixed price\" (07 L133), \"'Programmatic' is just a name for this: buying ad slots by software and by rule\" (08 L27), \"rGSP... The letters stand for randomized generalized second-price\" (08 L73), \"the demand-side platform, the software a buyer uses to bid for ad slots\" (08 L105), \"made-for-advertising sites, which exist to carry ads rather than readers\" (08 L105), \"Retail media turns a shop into a media owner selling its own shelf\" (08 L141). CYCLE HISTORY: the cycle-2 report recorded r5-val-03 violated at two locations. Both are repaired and were independently re-read this cycle. 07-the-auction.md L187 now reads \"Its share of GDP hit its post-1960 peak in 2000, at 2.3%, 2.4% or 2.5% depending on which build of the series you read. That is the peak of the recent window only. The all-time high is older and higher: 3.0% of GDP in 1922\" - window qualifier present, contest between builds shown. 05-segmentation.md L24 now reads \"Different builds of the same series put the post-1960 top in 2000, somewhere between 2.3% and 2.5%. That gap is real and we leave it open rather than pick a winner. The whole-series high is older and higher: about 3.0% of GDP in 1922\" - same correction. 06-the-impression.md L134 and its footnote 49 carry the same qualifier independently, as do 08 L39 and 10 L75.",
+      "command_output": "judgment check - no command specified in contract"
+    },
+    {
+      "id": "r5-rdy-01",
+      "class": "readiness",
+      "verdict": "satisfied",
+      "evidence": "THREAD MENU. thread-candidates.md presents 14 numbered candidates plus a \"Considered and folded\" section. Every candidate carries the four declared elements (Arc, Evidence, Visual, Strength) and an explicit named-hole statement. Each Evidence block names schema fields (MEASUREMENT, PRICING, SELLERS, CREATORS, BUYERS, SCALE, MEDIUM, TARGETING, EVENTS, unit_economics) and per-era grade coverage in the notation declared at line 16. Extracted 148 distinct explicit claim ids from the file; all 148 resolve to claims.json with zero unknown ids. Per-candidate explicit id counts range from 5 (#7, which additionally rests on by_money_type schema coverage that is 7/7 by construction) to 22 (#3). Selection support for the human at Gate B is present and specific: a strength scale defined at lines 20-26, an overlap map naming the three candidates already spoken for (#4 is the era spine, #6 is the base-layer chart, #8 is already chapter 9) and the three genuinely additive ones (#1, #2, #3), three natural pairs, and per-candidate data-layer implications. The file also carries an accurate verification note (line 30) that the four R3-rejected claims were rewritten in place at the same ids, and repeats that caveat inside the affected candidates (#8 L215, #11 L271). DATA LAYER FREEZABLE. The instructed consistency check ran verbatim and exited 0 with no violation output: verify_p2.py r5_claimsfile() validates every one of the 498 claims for the required keys (id, statement, central, unit, ci80, grade, sources, as_of), id-convention match, duplicate ids, central lying inside ci80, ci80 ordering, grade in A/B/C, a recorded method on every grade-C claim, non-empty sources, and ISO-shaped as_of. Weighing that output alongside an independent completeness pass: 498 ids, all unique, an exact set match against the era records, adspend.json and mechanism.json with 0 missing and 0 extra.",
+      "command_output": "$ python3 tools/verify_p2.py r5-claimsfile\n(no output)\nEXIT_CODE=0"
+    }
+  ],
+  "remediation": [],
+  "contract_concerns": [
+    "r5-val-01: the invariant text ends '...with scores recorded in frontmatter', but the contracted command (tools/readability.py) only computes the four scores from stripped prose and gates them against thresholds - it never opens the frontmatter. That clause is unenforced by the contracted check. Audited independently this cycle and found to hold on all ten chapters, with recorded values matching computed values exactly, so the verdict is unaffected. If the clause is meant to be enforced, the check belongs in verify_p2.py rather than in the readability gate.",
+    "r5-val-02: the invariant text ends '...no chapter states a number whose claim was rejected', but verify_p2.py r5_traceability() only inspects frontmatter claim_ids. A rejected claim's number appearing in prose without its id being listed would pass the command. Audited independently this cycle against all four rejected claims (e2-creators-001, e7-medium-003, ds-total-001, ds-gdp-001) and found no occurrence in chapter prose, so the verdict is unaffected. Note also that all four rejected claims were rewritten in place at the same ids, so their claims.json statements now carry the corrected text while retaining verdict 'rejected'; the check's rejected-id blocklist is therefore stricter than the underlying data warrants, which is the safe direction.",
+    "Non-blocking observation, outside every invariant: chapters 03 and 08 use a different frontmatter shape from the other eight - readability as an inline YAML map rather than a quoted string, 08 keying it 'flesch_kincaid' where the others use 'fk_grade', and both omitting the 'project', 'chapter' and 'status' keys the other eight carry. No contracted invariant requires a uniform frontmatter shape, so this is recorded rather than charged against any verdict.",
+    "Process note for the orchestrator, not a defect in the artifacts: this is audit cycle 3 against a remediation policy of max_cycles 2 with on_exhaust 'halt-and-escalate'. The audit itself is clean, but whether the repair budget was already spent is the invoking pipeline's determination, not this auditor's."
+  ],
+  "echo": {
+    "remediation": {
+      "policy": "bounded-auto-repair",
+      "max_cycles": 2,
+      "on_exhaust": "halt-and-escalate"
+    }
+  }
+}

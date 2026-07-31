@@ -825,6 +825,109 @@ def r5_traceability():
                 bad("r5-val-02", f"chapter cites REJECTED claim {cid}", path)
 
 
+def _num_forms(x):
+    """Plausible written forms of a number, including unit-scaled ones.
+
+    A central of 0.022 is written "2.2 cents"; 0.74 may appear as "74". Adjusted
+    claims must not keep the superseded figure in their prose.
+    """
+    # Exact representations only, at the original and unit-scaled magnitudes.
+    # Rounded variants (0.56 -> "0.6") were tried and collide with unrelated
+    # numbers in prose — a bid of $0.60, a 0.6% ratio — producing false hits.
+    forms = set()
+    for v in (x, x * 100, x * 1000):
+        s = f"{v:g}"
+        if s.endswith(".0"):
+            s = s[:-2]
+        forms.add(s)
+    # Two significant characters minimum: a bare "5" matches far too much.
+    return {f for f in forms if len(f.replace(".", "").lstrip("-0")) >= 2}
+
+
+def r5_stale_prose():
+    """A claim's statement must not still quote a value R3 superseded.
+
+    Nothing else checks statement prose against the claim's own central, so an
+    adjusted number could be corrected in the value and left stale in the text —
+    and chapters quote the text.
+    """
+    vd = _verdicts()
+    if vd is None:
+        return
+    cur = _current_claims()
+    for v in vd.get("verdicts", []):
+        if v.get("verdict") != "adjusted":
+            continue
+        old, new = v.get("old") or {}, v.get("new") or {}
+        if not isinstance(old, dict) or not isinstance(new, dict):
+            continue
+        o, n = old.get("central"), new.get("central")
+        if not isinstance(o, (int, float)) or not isinstance(n, (int, float)) or o == n:
+            continue
+        claim = cur.get(v.get("claim_id"))
+        if not claim:
+            continue
+        stmt = str(claim.get("statement", ""))
+        # A statement that also states the NEW value is discussing both on
+        # purpose — a contested date, two rival measures — not carrying a stale
+        # figure. Only flag when the superseded value appears alone.
+        if any(re.search(rf"(?<![\d.]){re.escape(f)}(?![\d])", stmt)
+               for f in _num_forms(float(n))):
+            continue
+        stale = _num_forms(float(o)) - _num_forms(float(n))
+        for form in sorted(stale, key=len, reverse=True):
+            if re.search(rf"(?<![\d.]){re.escape(form)}(?![\d])", stmt):
+                bad("r5-val-03", f"claim {v['claim_id']}: statement still quotes the superseded "
+                                 f"value '{form}' (central was adjusted {o} -> {n})", "claims")
+                break
+
+
+def r5_chapter_stale():
+    """Chapter prose must not quote a value R3 superseded.
+
+    r5-traceability proves a chapter's cited claim IDs exist; it never reads the
+    numbers in the prose. A chapter can therefore cite the right claim and print
+    the pre-adjustment figure — which is exactly what happened to chapter 07's
+    per-query revenue and gross margin.
+    """
+    vd = _verdicts()
+    if vd is None:
+        return
+    superseded = {}
+    for v in vd.get("verdicts", []):
+        if v.get("verdict") != "adjusted":
+            continue
+        o = (v.get("old") or {}).get("central")
+        n = (v.get("new") or {}).get("central")
+        if isinstance(o, (int, float)) and isinstance(n, (int, float)) and o != n:
+            superseded[v["claim_id"]] = (float(o), float(n))
+    for fname in CHAPTERS:
+        path = P2 / "research" / fname
+        if not path.exists():
+            continue
+        fm = _frontmatter(path)
+        if not fm or "claim_ids" not in fm:
+            continue
+        text = path.read_text()
+        body = text[text.find("\n---", 3) + 4:] if text.startswith("---") else text
+        cited = [x.strip() for x in fm["claim_ids"].strip("[]").split(",") if x.strip()]
+        for cid in cited:
+            if cid not in superseded:
+                continue
+            o, n = superseded[cid]
+            new_forms, old_forms = _num_forms(n), _num_forms(o)
+            for form in sorted(old_forms - new_forms, key=len, reverse=True):
+                if not re.search(rf"(?<![\d.]){re.escape(form)}(?![\d])", body):
+                    continue
+                # Present alongside the new value: the chapter is contrasting
+                # them (a correction it states on purpose), not quoting a stale one.
+                if any(re.search(rf"(?<![\d.]){re.escape(f)}(?![\d])", body) for f in new_forms):
+                    continue
+                bad("r5-val-03", f"{fname} cites {cid} but its prose quotes the superseded "
+                                 f"value '{form}' (central adjusted {o} -> {n})", path)
+                break
+
+
 def r5_claimsfile():
     claims = load(P2 / "data" / "claims.json")
     if claims is None:
@@ -842,6 +945,8 @@ COMMANDS = {
     "r4-coverage": r4_coverage, "r4-arithmetic": r4_arithmetic, "r4-claims": r4_claims,
     "r4-simparams": r4_simparams,
     "r5-files": r5_files, "r5-traceability": r5_traceability, "r5-claimsfile": r5_claimsfile,
+    "r5-stale-prose": r5_stale_prose,
+    "r5-chapter-stale": r5_chapter_stale,
 }
 
 
