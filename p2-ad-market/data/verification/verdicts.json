@@ -2777,7 +2777,24 @@
           "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
           "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "R3b",
+        "reason": "R3 confirmed this claim by quoting Beville's 20 percent sentence in a one-sentence window. The preceding sentence - 'Now that the CAB had adopted Hooper's coincidental telephone technique' - reverses its meaning. The 20 percent is a coincidental-versus-coincidental gap from 1944-46, not a gap against the CAB's recall ratings; against recall the direction was reversed for most programs in 1934. The R3b statement and unit govern.",
+        "r3b_applied": {
+          "statement": "After the CAB adopted Hooper's coincidental telephone technique in 1944, Hooper's ratings still ran about 20 percent above the CAB's on average; Hans Zeisel's McCann-Erickson study traced the residual gap to ring counts, unidentified-program handling and busy-signal treatment - the two services were by then using the same method and still disagreed.",
+          "central": 20,
+          "unit": "percent by which Hooper's coincidental ratings exceeded the CAB's coincidental ratings on average, 1944-46",
+          "ci80": [
+            15,
+            25
+          ],
+          "grade": "B",
+          "as_of": "1946",
+          "value_change": "none - central 20, ci80 [15, 25] and grade B all stand; the comparison being made was wrong, not the number"
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-era2-measurement.json (full re-attack, verbatim source quotations); p2-ad-market/data/verification/REPAIR-R3b.md (postmortem)"
+      }
     },
     {
       "claim_id": "e2-measurement-004",
@@ -2799,7 +2816,24 @@
           "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
           "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "R3b",
+        "reason": "R3 confirmed this claim after quoting the correct Beville sentence and matching the token string '25 percent of households' across source and claim without checking its referent. In Beville the phrase modifies 'an area' - the east central region the sample was drawn from; in the claim it modified the 800 metered homes, which is arithmetically impossible by a factor of about 11,000 (800/0.25 implies a US household base of 3,200 against roughly 36 million). R3b also found, independently of the repair brief, that the 800 itself is contested: the Museum of Broadcast Communications 'A.C. Nielsen Company' entry gives 500 while its own 'Audimeter' entry gives 800, so the point interval [800, 800] excluded a credible published figure. The R3b statement, unit, ci80, sources and method govern.",
+        "r3b_applied": {
+          "statement": "The Nielsen Radio Index went commercial in December 1942 with an 800-home Audimeter sample confined to the east central United States - a region accounting for roughly 25 percent of US households - and had acquired 47 subscribers by 1945. The 25 percent is the region's share of US households, not the sample's coverage of them; Beville notes acceptance was limited precisely because the service was predicated on such limited geography.",
+          "central": 800,
+          "unit": "metered homes in the Nielsen Radio Index at commercial launch, December 1942 (sample drawn from an east-central region holding ~25 percent of US households)",
+          "ci80": [
+            500,
+            800
+          ],
+          "grade": "B",
+          "as_of": "1942-12",
+          "value_change": "central held at 800; ci80 widened [800, 800] -> [500, 800] to span an unresolved published conflict rather than average it. The settling primary (Nielsen, Journal of Marketing 9:3, 1945) was unreachable: SAGE and HathiTrust both returned HTTP 403."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-era2-measurement.json (full re-attack, verbatim source quotations); p2-ad-market/data/verification/REPAIR-R3b.md (postmortem)"
+      }
     },
     {
       "claim_id": "e2-measurement-006",
@@ -2821,7 +2855,24 @@
           "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
           "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
         }
-      ]
+      ],
+      "superseded_by": {
+        "stage": "R3b",
+        "reason": "R3 confirmed this claim on the strength of the quoted speech and wrote 'the 1946 dating is right'. The dating is right; the characterisation attached to it is not. In 1946 the Nielsen Radio Index reached 63 percent of US homes on 1,300 Audimeters in 1,100 homes, with New England and virtually all of the Middle Atlantic, Southeast, Mid-South, Plains and Rocky Mountain states excluded - the disconfirming figure sits four lines above the quoted sentence in the same source. 'Nationally competitive in 1946' is the same coverage-inflation error as e2-measurement-005 in a milder form. The R3b statement, unit and method govern.",
+        "r3b_applied": {
+          "statement": "A.C. Nielsen said in a March 1946 speech that his company had spent nearly ten years and about $2 million refining the Audimeter. At that point the Nielsen Radio Index covered 63 percent of US homes on 1,300 Audimeters in 1,100 homes and was ready to compete head-on with the CAB and Hooper - but it was not yet a national service; national projectability came in April 1949.",
+          "central": 2,
+          "unit": "US$ millions Nielsen said he had spent developing the Audimeter, as claimed in his March 1946 speech",
+          "ci80": [
+            1.5,
+            2.5
+          ],
+          "grade": "B",
+          "as_of": "1946",
+          "value_change": "none - central 2, ci80 [1.5, 2.5] and grade B all stand. The unit now states that the figure is self-reported from a competitive sales speech, and a method field records that the attributive framing must never be dropped in prose."
+        },
+        "audit_trail": "p2-ad-market/data/verification/repair-era2-measurement.json (full re-attack, verbatim source quotations); p2-ad-market/data/verification/REPAIR-R3b.md (postmortem)"
+      }
     },
     {
       "claim_id": "e2-measurement-008",
@@ -8000,7 +8051,18 @@
         "event_desc_fragment": "a record number of internet-company advertisements - 14 dot-com companies in-game, 21 dot-com ads all told, close to 20% of the 61 spots available"
       },
       "reason": "Central 17 and interval [16,19] exclude both figures given by the claim's own primary citation; the '36 sponsors' denominator is contradicted by the same source's '61 spots available'.",
-      "disagreement": "The researcher used the widely circulated '17 of 36 sponsors' formulation, which I could not trace to any primary source, over the count in the source actually cited. The narrative point - that the dot-com boom was funded by venture capital being spent on television - is untouched by the correction; $44M of dot-com money on one broadcast makes it either way."
+      "disagreement": "The researcher used the widely circulated '17 of 36 sponsors' formulation, which I could not trace to any primary source, over the count in the source actually cited. The narrative point - that the dot-com boom was funded by venture capital being spent on television - is untouched by the correction; $44M of dot-com money on one broadcast makes it either way.",
+      "open_defect": {
+        "stage": "R3b",
+        "raised_by": "R3b plausibility sweep, 2026-07-31",
+        "severity": "IMPOSSIBLE",
+        "status": "OPEN - NOT REPAIRED. The R3 verdict stands and no value was changed.",
+        "problem": "The claim's statement and its parent event's desc both carry 'close to 20% of the 61 spots available', which no pairing of the numbers in the same sentence produces: 21/61 = 34.4 percent, 14/61 = 23.0 percent, and 20 percent of 61 = 12.2 ads.",
+        "why_not_repaired": "The sweep did not establish the correct figure from a source. The likely corruption is 'close to 20 OF the 61 spots', but the alternative reading is the true share of about a third, and the two tell different stories. No replacement number has been invented.",
+        "resolution_required": "Re-read the two cited sources, or a human decision, before this sentence is quoted anywhere.",
+        "audit_trail": "p2-ad-market/data/verification/REPAIR-R3b.md",
+        "source_carries_the_error": "The figure is NOT a paraphrase error introduced by this project: the R3 verdict on this claim quotes the cited Wikipedia article as saying the 21 ads 'amounted to nearly 20% of the 61 spots available', and R3 imported that string verbatim. The impossibility therefore sits in the source, so repairing it means deciding whether to correct the source's arithmetic (about a third), read it as a corrupted 'nearly 20 OF the 61 spots', or drop the share entirely. That is a human call on the source, not a data-entry fix."
+      }
     },
     {
       "claim_id": "e5-events-008",
@@ -12965,6 +13027,7 @@
     "e5-buyers-014",
     "e5-buyers-015"
   ],
-  "supersession_note": "Entries carrying superseded_by were re-derived by a later stage. Their R3 old/new values are unedited and remain the historical verification record. post_r3_claims lists claims minted after R3 ran, which therefore have no R3 verdict by construction.",
-  "post_r3_note_taxonomy_seam": "e5-scale-015, e5-scale-016, e5-buyers-014 and e5-buyers-015 were minted at the Gate B taxonomy decision of 2026-07-30, long after R3 ran, so they carry no R3 verdict by construction. They are the cross-era comparable (unified-intent) view of era 5's local-retail and direct-response pools and live in era-5.json under fields.SCALE.by_money_type_alt and fields.BUYERS.by_money_type_alt. They do not replace, re-value or supersede the era-native claims e5-scale-011, e5-scale-013, e5-buyers-011 and e5-buyers-013, whose R3 'confirmed' verdicts stand untouched: the project carries BOTH rules, which is the decision. See taxonomy_seam in p2-ad-market/data/moneytype/reconciled.json."
+  "supersession_note": "Entries carrying superseded_by were re-derived by a later stage. Their R3 old/new values are unedited and remain the historical verification record. post_r3_claims lists claims minted after R3 ran, which therefore have no R3 verdict by construction. Entries carrying open_defect record a defect a later stage FOUND but did not repair, because no source settled the correct value; the R3 verdict and every value stand until a human resolves them.",
+  "post_r3_note_taxonomy_seam": "e5-scale-015, e5-scale-016, e5-buyers-014 and e5-buyers-015 were minted at the Gate B taxonomy decision of 2026-07-30, long after R3 ran, so they carry no R3 verdict by construction. They are the cross-era comparable (unified-intent) view of era 5's local-retail and direct-response pools and live in era-5.json under fields.SCALE.by_money_type_alt and fields.BUYERS.by_money_type_alt. They do not replace, re-value or supersede the era-native claims e5-scale-011, e5-scale-013, e5-buyers-011 and e5-buyers-013, whose R3 'confirmed' verdicts stand untouched: the project carries BOTH rules, which is the decision. See taxonomy_seam in p2-ad-market/data/moneytype/reconciled.json.",
+  "post_r3_note_r3b": "R3b (2026-07-31) re-attacked the whole era-2 MEASUREMENT field after a seed defect was found in e2-measurement-005, then swept all 505 claims for the same failure mode. Three claims were overturned - e2-measurement-003, -005 and -007 - all three of which R3 had CONFIRMED. Their R3 entries are untouched and still read 'confirmed'; each now carries a superseded_by naming stage R3b, the reason, the governing value and the audit trail. e2-measurement-005 also widened its interval to [500, 800] over an unresolved published conflict. One further arithmetically impossible statement was found and deliberately NOT repaired - e5-events-007, marked with open_defect. The common mechanism, and why four gates missed it, is written up in p2-ad-market/data/verification/REPAIR-R3b.md. Full re-attack with verbatim source quotations: p2-ad-market/data/verification/repair-era2-measurement.json."
 }

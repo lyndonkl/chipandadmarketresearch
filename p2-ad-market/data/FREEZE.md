@@ -19,6 +19,12 @@ Changing a frozen number requires the same discipline that produced it: a new st
 
 The precedent is already set. R2b superseded eight R3 values, and rather than editing history, `verdicts.json` annotates each with the superseding stage, the reason, the governing value and a pointer to the audit trail. The R3 record is untouched. Any future change follows that pattern.
 
+## Post-freeze changes
+
+**R3b — 2026-07-31.** Three era-2 MEASUREMENT claims overturned, all three of which R3 had *confirmed*: `e2-measurement-003`, `-005` and `-007`. No central moved; `e2-measurement-005` widened its ci80 from [800, 800] to [500, 800] over an unresolved conflict between two published figures. The errors were in what the numbers referred to, not in the numbers. One further impossible statement (`e5-events-007`) was found and deliberately **not** repaired, because no source settled it; it carries an `open_defect` marker in `eras/era-5.json`, `claims.json` and `verdicts.json`. Chapter 03 was rewritten to match and still clears all four readability gates.
+
+R3b followed the R2b pattern exactly: the R3 entries still read `"verdict": "confirmed"` with their original evidence intact, and each carries a `superseded_by` naming stage R3b. Read `verification/REPAIR-R3b.md` before trusting any secondary number inside a claim's `statement` — section 4 explains why four gates missed a four-order-of-magnitude error, and section 6 lists twelve items still open for a human.
+
 ## Verification state at freeze
 
 All 20 deterministic checks pass. All ten chapters clear the four readability gates. Every stage contract (r1, r2, r2b, r3, r4, r5) has a PASS report in `../planning/contracts/`.

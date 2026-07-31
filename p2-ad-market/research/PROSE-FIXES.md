@@ -446,6 +446,7 @@ The reader's first page, and the worst offender in the piece. It front-loads its
 **3.1** `L67` — "The Nielsen Radio Index went commercial in December 1942 with 800 metered homes, about a quarter of US households, and had 47 subscribers by 1945"
 - *Problem:* The arithmetic is impossible on its face. 800 homes cannot be a quarter of the households in a country of 130 million people. The reader stops dead and cannot tell which number is wrong.
 - *Fix:* **Check claim `e2-measurement-005` first.** If the quarter refers to the areas the sample was drawn from, write: "The Nielsen Radio Index went commercial in December 1942 with 800 metered homes, drawn from areas holding about a quarter of US households. It had 47 subscribers by 1945." If the quarter cannot be sourced to anything, delete the clause and write: "…with 800 metered homes, a tiny sample against the whole country. It had 47 subscribers by 1945."
+- *RESOLVED by stage R3b, 2026-07-31.* The claim was checked against Beville p. 21-22. The quarter is the share of US households living in the east central region the sample was drawn from, and Beville treats it as a ceiling on the service's reach. `e2-measurement-005` and L67 are both rewritten; L65 was rewritten at the same time for the related `e2-measurement-003` defect. **Do not re-apply this item.** See `../data/verification/REPAIR-R3b.md`.
 
 **3.2** `L67` — "Nielsen industrialised the job with a meter wired into the set."
 - *Problem:* Nielsen is introduced with no gloss. This is the firm that prices the next three eras.

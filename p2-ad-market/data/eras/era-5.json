@@ -1696,7 +1696,21 @@
             "url": "https://www.fastcompany.com/90453258/20-years-ago-the-dot-coms-took-over-the-super-bowl"
           }
         ],
-        "as_of": "2000-01-30"
+        "as_of": "2000-01-30",
+        "open_defect": {
+          "stage": "R3b",
+          "raised_by": "R3b plausibility sweep, 2026-07-31 (505 claims checked)",
+          "severity": "IMPOSSIBLE",
+          "status": "OPEN - NOT REPAIRED. No value in this claim has been changed.",
+          "where": "The secondary share in this claim's statement, and the identical phrase in the parent event's desc field.",
+          "problem": "'close to 20% of the 61 spots available' cannot be true against the counts stated in the same sentence. 21/61 = 34.4 percent; the narrower count 14/61 = 23.0 percent; and 20 percent of 61 = 12.2 ads, which matches neither 14 nor 21. Everything else in the sentence reconciles: 14 + 5 + 2 = 21, and $44M / 21 = $2.10M per spot against the stated ~$2.2M.",
+          "unaffected": "central 14, ci80 [14, 21], unit, grade B and as_of 2000-01-30 are not in question. The defect is a percentage carried in prose, not the calibrated value.",
+          "why_not_repaired": "The sweep did not establish the correct figure from a source. Two readings are open - a corrupted 'close to 20 OF the 61 spots' (21 is close to 20), or the true share of about a third - and 34 percent and 20 percent tell materially different stories about how far the bubble reached into the Super Bowl. Writing either without re-reading the Wikipedia and Fast Company sources would be inventing a replacement number, which this repair does not do.",
+          "resolution_required": "Human decision, or a fresh source read of the two cited sources, before this sentence is quoted anywhere.",
+          "chapter_exposure": "None. Chapter 06 (06-the-impression.md) carries only the fourteen in-game advertisers and the ~$2.2M spot price, neither of which is affected.",
+          "audit_trail": "p2-ad-market/data/verification/REPAIR-R3b.md",
+          "source_carries_the_error": "The figure is NOT a paraphrase error introduced by this project: the R3 verdict on this claim quotes the cited Wikipedia article as saying the 21 ads 'amounted to nearly 20% of the 61 spots available', and R3 imported that string verbatim. The impossibility therefore sits in the source, so repairing it means deciding whether to correct the source's arithmetic (about a third), read it as a corrupted 'nearly 20 OF the 61 spots', or drop the share entirely. That is a human call on the source, not a data-entry fix."
+        }
       }
     },
     {

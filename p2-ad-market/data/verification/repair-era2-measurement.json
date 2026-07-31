@@ -1,0 +1,234 @@
+{
+  "batch": "era-2 MEASUREMENT field, full re-attack",
+  "as_of": "2026-07-31",
+  "source_of_record": {
+    "name": "Beville, Hugh Malcolm Jr., Audience Ratings: Radio, Television, Cable (1988), ch. 1 'Radio Services - Pre-TV (1930-1946)'",
+    "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf",
+    "method": "PDF downloaded (12.9 MB), text extracted with pdftotext -layout, 18,692 lines, searched directly. All page-level quotations below are from that extraction, not from a summary of it."
+  },
+  "batch_level_findings": {
+    "single_source_concentration": "8 of 9 claims cite one source (Beville ch. 1) and none cite a page. Every prior gate therefore checked the same text, so an error introduced at the paraphrase step could not be caught by re-checking the citation.",
+    "root_cause_of_the_e2-005_failure": "The R3 verdict in verdicts-era-2.json quoted the correct Beville sentence - 'an 800-home sample in the east central portion of the United States - an area accounting for approximately 25 percent of households' - and then concluded 'All four elements ... ~25 percent of households ... match exactly.' The verifier matched the token string '25 percent of households' across source and claim without checking its REFERENT. In Beville the phrase modifies 'an area'; in the claim it modifies the 800 homes. String-level citation matching passed while the semantic referent was inverted, and no arithmetic was run. The same mechanism passed e2-003 (quoted the 20 percent sentence without checking which method the CAB was using at that date) and e2-007 (accepted the 1946 dating without questioning 'nationally competitive').",
+    "recommended_gate": "Any statement containing both an absolute count and a percentage must name the percentage's base explicitly in the unit or method field, and the count/share/base triple must be arithmetically reconciled before the claim can pass. That single mechanical check would have caught e2-005 at R1."
+  },
+  "verdicts": [
+    {
+      "claim_id": "e2-measurement-001",
+      "verdict": "confirmed",
+      "internal_consistency": "PASSES. The count (49 subscribers), the rate ($70/mo, $60 for ANA members) and the total ($33,045) can all be true at once, and the residual is informative rather than contradictory.",
+      "evidence": "Beville ch. 1, p. 4-5, verbatim: 'In March 1930, CAB field interviewing inaugurated a 12-month study in 50 cities with three 4-month comprehensive reports, each covering 17,000 user radio families. ... Advertisers agreed to pay $70 per month ($60 if an ANA member). In the first year 49 advertisers subscribed, producing a revenue of $33,045. The cost was about 37c per telephone call.' Every figure in the claim matches. The ANA endorsement and March 1930 field start are confirmed on the same pages ('The meeting on February 7, 1930 provided final joint subscriber suggestions and official ANA endorsement ... the initial interviewing began one month later'). Two independent arithmetic cross-checks corroborate rather than merely restate the figure: (a) Crossley's November 1929 proposal to the ANA Radio Committee was budgeted at $1,800 per month = $21,600 for the year, and Beville records that 'by the end of January 1930 he had secured enough subscriptions to cover his budget' - $33,045 comfortably exceeds $21,600, consistent with a service that beat its budget; (b) at Beville's stated ~37c per call, $33,045 buys ~89,300 calls, and three reports x 17,000 radio families = 51,000 completed radio-family interviews, which at 1931's recorded 53 percent radio ownership among telephone subscribers would require roughly 96,000 calls. Same order of magnitude from an independent direction. Grade B is correct under the rigor spec: Beville is credible named reporting by NBC's research vice-president, not an official statistic or filing. Point interval [33045, 33045] is right for an exactly reported historical figure. The characterisation 'the first national audience-ratings business' is standard and defensible - the CAB was the first continuous syndicated national radio ratings service.",
+      "sources_consulted": [
+        {"name": "Beville, Audience Ratings (1988), ch. 1, p. 4-5 - PDF text extraction", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+        {"name": "Gold Time Radio, 'Radio's Rulers: Crossley, Hooper & Nielsen' (worldradiohistory.com) - independent narrative of CAB founding", "url": "https://www.worldradiohistory.com/GOLDTIME-RADIO/radiosrulerscrossleyhooperandnielsen.html"}
+      ],
+      "recomputation": [
+        {"expr": "49 * 70 * 12", "expected": 41160, "note": "ceiling if all 49 paid the full rate for all 12 months; $33,045 sits below it, as staggered sign-ups and the $60 ANA rate require"},
+        {"expr": "49 * 60 * 12", "expected": 35280, "note": "ceiling at the ANA member rate; $33,045 still below, so the mix is internally possible"},
+        {"expr": "33045 / (49 * 70)", "expected": 9.63, "note": "implied average months of subscription at the full rate - plausible for a service that signed subscribers through January 1930 and fielded from March"},
+        {"expr": "33045 / 0.37", "expected": 89311, "note": "calls implied by revenue at Beville's ~37c per call, against ~96,000 calls needed to reach 51,000 radio families at 53 percent radio ownership among telephone subscribers"}
+      ]
+    },
+    {
+      "claim_id": "e2-measurement-002",
+      "verdict": "confirmed",
+      "internal_consistency": "PASSES, and the check is load-bearing rather than decorative. The two shares have different bases - 31 percent is of all US families, 96 percent is of telephone subscribers - and the claim keeps them straight. Composed, they imply 0.96 x 31 = 29.8 percent of all US families were radio-owning telephone households.",
+      "evidence": "Beville ch. 1, p. 8, CAB chronology, entry headed '1934-1935', verbatim: 'Radio ownership among telephone subscribers was up to 96%, but only 31% of the nation's families had telephones.' Both figures and the 1934-35 date range match the claim exactly - the claim did not invent the date range, it is Beville's own chronology bucket. Beville's ch. 2 notes independently repeat the figure for a different purpose: 'In 1934, telephone household penetration was only 31 percent nationally, and telephone interviews were limited to local call areas.' Independent corroboration from outside Beville: the Hagley Museum's Census-based account records that almost 41 percent of American housing units had a telephone by 1930 and that the Depression then drove more than 2.5 million households to cancel service, leaving 'fewer than a third of American homes ... reachable by phone' by 1933. A 31 percent figure for 1934-35 sits exactly on that trajectory. The structural inference the claim draws is the one Beville draws himself: his 1938-39 chronology entry records that Crossley's random-call data showed Class D homes 'with only one-fourth the number of telephones needed to properly reflect it in his sample', forcing a move to quota sampling. Grade B is correct for Beville as cited.",
+      "sources_consulted": [
+        {"name": "Beville, Audience Ratings (1988), ch. 1 p. 8 chronology and ch. 2 notes - PDF text extraction", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+        {"name": "Hagley Museum and Library, 'By 1930, almost 41% of American housing units featured a telephone'", "url": "https://www.hagley.org/research/news/hagley-vault/1930-almost-41-american-housing-units-featured-telephone"},
+        {"name": "Gold Time Radio, 'Radio's Rulers' - 'Sixty-five percent of American homes had a radio in 1934'", "url": "https://www.worldradiohistory.com/GOLDTIME-RADIO/radiosrulerscrossleyhooperandnielsen.html"}
+      ],
+      "recomputation": [
+        {"expr": "0.96 * 0.31 * 100", "expected": 29.8, "note": "percent of all US families that were radio-owning telephone homes"},
+        {"expr": "(0.96 * 0.31) / 0.65 * 100", "expected": 45.8, "note": "telephone homes as a share of ALL radio homes, using the independently sourced 65 percent 1934 radio ownership - so about 54 percent of radio homes were unreachable by telephone, which is precisely the bias the claim asserts"}
+      ],
+      "disagreement": "None on the numbers. One sourcing note for the pipeline, not an adjustment: a Grade-A source exists for the telephone figure (US Census Bureau, Historical Statistics of the United States, Colonial Times to 1970, Part 2, p. 783, telephone series). The B grade is correct for Beville as the source actually cited, but this claim could be upgraded to A by re-sourcing rather than by re-arguing."
+    },
+    {
+      "claim_id": "e2-measurement-003",
+      "verdict": "adjusted",
+      "internal_consistency": "FAILS as written - not arithmetically, but causally. The claim attributes a 20 percent gap to a comparison between two DIFFERENT methods (coincidental vs recall) while simultaneously attributing the gap's causes to ring counts, unidentified-program handling and busy-signal treatment. Those three are parameters INTERNAL to the coincidental technique; they cannot explain a recall-vs-coincidental difference. The stated cause and the stated comparison cannot both be true.",
+      "evidence": "The 20 percent is real; the comparison is misdescribed. Beville ch. 1, p. 10, sets it up explicitly: 'Now that the CAB had adopted Hooper's coincidental telephone technique, it could be assumed that the ratings would be reasonably close, even though the areas covered were not the same. Actually, Hooper showed higher radio usage, and thus higher ratings on the average, of 20 percent.' The CAB adopted the coincidental technique in 1944 (Beville, p. 9: 'in 1944 the CAB Governing Committee decided to meet Hooper's competition head on by adopting his coincidental technique'; and p. 14: the Chappell/Lucas findings were 'a potent factor in the CAB's decision to go first to the overlap method in 1942 and ultimately to the coincidental technique in 1944'). Beville's own end-of-chapter review question states the point unambiguously: 'The CAB's final downfall was due to the consistent CAB-Hooper difference in coincidental telephone technique results. Which of the following was not a factor in explaining the 20% higher ratings reported by Hooper?' The whole force of the Zeisel finding is that the two services were by then using the SAME method and still disagreed by 20 percent, which localised the discrepancy in execution rather than technique - that is why it was, in Beville's word, 'the thunderbolt that felled the CAB'. Against recall the direction was the opposite or mixed, which is fatal to the claim as written: Beville p. 12 records that 'The first Clark-Hooper ratings showed a significantly lower level than those presented by the CAB for most programs', and p. 14 records Darrell B. Lucas's 1942 analysis that the coincidental 'average audience' by definition must be smaller than the recall 'total audience', while day-part recall rated less popular shows below the coincidental level. Independent corroboration of the direction in 1934 from outside Beville: the Gold Time Radio history states that the first Clark-Hooper Broadcast Advertising Report of November 1934 'indicated Network Radio listening ... were noticeably less than the numbers reported by CAB'. Everything else in the claim is exact: Zeisel of the McCann-Erickson research department, study conducted late 1945, three named causes, presented by Marion Harper Jr. on 7 February 1946 at the Radio Executives Club. Grade B, central 20 and ci80 [15, 25] all stand.",
+      "old": {
+        "statement": "Hooper's coincidental ratings ran about 20 percent above the CAB's recall ratings on average; a McCann-Erickson study traced the gap to ring counts, unidentified-program handling and busy-signal treatment.",
+        "unit": "percent by which Hooper ratings exceeded CAB ratings on average"
+      },
+      "new": {
+        "id": "e2-measurement-003",
+        "statement": "After the CAB adopted Hooper's coincidental telephone technique in 1944, Hooper's ratings still ran about 20 percent above the CAB's on average; Hans Zeisel's McCann-Erickson study traced the residual gap to ring counts, unidentified-program handling and busy-signal treatment - the two services were by then using the same method and still disagreed.",
+        "central": 20,
+        "unit": "percent by which Hooper's coincidental ratings exceeded the CAB's coincidental ratings on average, 1944-46",
+        "ci80": [15, 25],
+        "grade": "B",
+        "sources": [
+          {"name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 p. 9-10 and appendix D (Zeisel study, presented by Marion Harper Jr., 7 February 1946)", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"}
+        ],
+        "as_of": "1946"
+      },
+      "reason": "The 20 percent gap is a coincidental-versus-coincidental comparison from 1944-46, not coincidental-versus-recall. Describing it as a gap against 'the CAB's recall ratings' inverts the meaning of the Zeisel finding, whose significance was that method had been held constant. Against recall the direction was in fact reversed for most programs in 1934 and mixed thereafter, so the claim as written is not merely imprecise but directionally unsupportable.",
+      "sources_consulted": [
+        {"name": "Beville, Audience Ratings (1988), ch. 1 p. 9-10, p. 12, p. 14, and review questions - PDF text extraction", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+        {"name": "Zeisel, Hans, 'CAB and Hooper, an Investigation of the Coincidental Telephone Interview' (cited in Beville's bibliography)", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+        {"name": "Gold Time Radio, 'Radio's Rulers: Crossley, Hooper & Nielsen'", "url": "https://www.worldradiohistory.com/GOLDTIME-RADIO/radiosrulerscrossleyhooperandnielsen.html"}
+      ],
+      "disagreement": "The prior R3 verdict quoted Beville's 20 percent sentence in isolation and confirmed the claim. Read in isolation the sentence is compatible with the claim; read with the sentence immediately preceding it ('Now that the CAB had adopted Hooper's coincidental telephone technique') it is not. This is the same one-sentence-window failure that passed e2-005, and the field summary reproduces it: the summary describes the CAB's method as '24-hour telephone recall' throughout and never mentions the 1944 switch, so a reader of the chapter draws exactly the wrong inference."
+    },
+    {
+      "claim_id": "e2-measurement-004",
+      "verdict": "confirmed",
+      "internal_consistency": "PASSES trivially - a single count (16 cities) with no share or base to reconcile. No composed quantity in the statement.",
+      "evidence": "Beville ch. 1, p. 12, verbatim: 'In the fall of 1934, the new research firm of Clark-Hooper Inc. launched the first syndicated coincidental survey conducted in 16 cities. It was financed by a subscriber group of magazine publishers who were feeling the competitive heat of radio and who became convinced that the ratings provided by the CAB service overstated the audience of network radio programs.' City count, season, funder identity and funder motive all match the claim exactly, including the load-bearing part - that a rival medium paid for the audit. Independent corroboration from Gold Time Radio: Clark-Hooper Inc. was founded in April 1934, 'magazine publishers seeking an 'honest count' were the first subscribers to the new, independently owned Clark-Hooper Radio Research Service, launched in the fall of 1934', and 'The first Clark-Hooper Broadcast Advertising Report was issued in November, 1934' - which fixes 'autumn 1934' precisely. The publisher group was led by Don Parsons, promotion director of McCall's (Beville, p. 12). Grade B correct; point interval right for an exact count.",
+      "sources_consulted": [
+        {"name": "Beville, Audience Ratings (1988), ch. 1 p. 12 - PDF text extraction", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+        {"name": "Gold Time Radio, 'Radio's Rulers: Crossley, Hooper & Nielsen'", "url": "https://www.worldradiohistory.com/GOLDTIME-RADIO/radiosrulerscrossleyhooperandnielsen.html"}
+      ],
+      "disagreement": "The Gold Time Radio account describes Clark-Hooper operators working '30 major cities' during the first week of every month. I attacked the claim with this and it does not break: the passage describes the routine monthly operation and is undated relative to the launch, whereas the claim and Beville both speak specifically of the FIRST syndicated survey. A grade-C hobbyist account of a later operating scale is not evidence against a grade-B account of the launch. Recorded so the reading is on file, not treated as a conflict requiring a wider interval."
+    },
+    {
+      "claim_id": "e2-measurement-005",
+      "verdict": "adjusted",
+      "internal_consistency": "FAILS as written, decisively. 800 homes cannot be 25 percent of US households. With roughly 36 million US households in 1942 (1940 census: 34.9 million occupied dwelling units), 800 homes is 0.0022 percent. For 800 to be a quarter of the country the base would have to be 3,200 households. The stated count, share and implied base are off by a factor of about 11,000. Under the corrected reading the triple reconciles exactly: 25 percent of ~36 million is ~9.0 million households in the east-central region, and an 800-home sample within it is 1 metered home per ~11,250 regional households.",
+      "evidence": "The source says the 25 percent belongs to the GEOGRAPHY, not to the sample. Beville ch. 1, p. 21-22, verbatim: 'In December 1942, despite wartime equipment shortages, Nielsen went commercial with an 800-home sample in the east central portion of the United States - an area accounting for approximately 25 percent of households. Acceptance was limited for a service predicated on such limited geography, but by 1945 the service had acquired 47 subscribers, mostly large advertisers and the networks.' Of the three hypotheses the context offered, the second is correct - the share of households in the sampled geography - and it is not the radio-homes frame and not a misdated later figure. Beville's very next sentence settles it beyond argument: 'Acceptance was limited for a service predicated on such limited geography' only parses if the 25 percent is a CEILING on the service's reach, not a description of it. The claim as written converts Nielsen's central commercial weakness into a strength. Corroborating context from the same pages: the service grew out of a 200-home Chicago pilot launched 1938 that 'operated for four years' and fanned out from Chicago through Wisconsin toward Minneapolis and southeast across Indiana toward Cincinnati - a description of a regional, not national, footprint. Independent corroboration of the regional confinement from outside Beville: the Museum of Broadcast Communications / Encyclopedia of Radio entry on the A.C. Nielsen Company states the NRI 'was introduced commercially in December 1942' with a sample 'in the east-central portion of the U.S.' SECOND DEFECT, found independently and not flagged in the brief: the 800 itself is contested. That same MBC / Encyclopedia of Radio entry gives 'initially just 500 homes', while the MBC 'Audimeter' entry gives 800 - the same encyclopedia contradicts itself. Nielsen's own July 1942 Journal of Marketing article ('Trends toward Mechanization of Radio Advertising') described about 200 Midwest homes with about 1,000 promised nationally, which brackets both figures without resolving them. I could not reach the primary that would settle it (Arthur C. Nielsen, 'Two Years of Commercial Operation of the Audimeter and the Nielsen Radio Index', Journal of Marketing 9:3, 1945, pp. 239-255; SAGE returned HTTP 403, HathiTrust 403, and no open full text was locatable). Per the rigor spec I widen rather than average: ci80 becomes [500, 800], deliberately asymmetric with central held at 800 because Beville is the more detailed and better-positioned account (he supplies geography, subscriber count and dates, and MBC contradicts itself), and both sources are now cited. December 1942 and the 47 subscribers by 1945 are confirmed verbatim and stand. Grade B correct.",
+      "old": {
+        "statement": "The Nielsen Radio Index went commercial in December 1942 with 800 metered homes covering roughly 25 percent of US households, and had 47 subscribers by 1945.",
+        "central": 800,
+        "unit": "metered homes in the Nielsen Radio Index at commercial launch, December 1942",
+        "ci80": [800, 800],
+        "sources": [{"name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"}]
+      },
+      "new": {
+        "id": "e2-measurement-005",
+        "statement": "The Nielsen Radio Index went commercial in December 1942 with an 800-home Audimeter sample confined to the east central United States - a region accounting for roughly 25 percent of US households - and had acquired 47 subscribers by 1945. The 25 percent is the region's share of US households, not the sample's coverage of them; Beville notes acceptance was limited precisely because the service was predicated on such limited geography.",
+        "central": 800,
+        "unit": "metered homes in the Nielsen Radio Index at commercial launch, December 1942 (sample drawn from an east-central region holding ~25 percent of US households)",
+        "ci80": [500, 800],
+        "grade": "B",
+        "sources": [
+          {"name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 p. 21-22 (gives 800)", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+          {"name": "Museum of Broadcast Communications / Encyclopedia of Radio, 'A.C. Nielsen Company' (gives 500)", "url": "https://www.museum.tv/radio-encyclopedia/ac-nielsen-company"},
+          {"name": "Museum of Broadcast Communications / Encyclopedia of Radio, 'Audimeter' (gives 800)", "url": "https://www.museum.tv/radio-encyclopedia/audimeter"}
+        ],
+        "as_of": "1942-12",
+        "method": "Interval widened to [500, 800] to span an unresolved conflict between two credible published figures for the launch sample rather than averaging them. Central held at 800 on the strength of Beville's greater specificity and the internal contradiction between the two Museum of Broadcast Communications entries. The primary that would settle it - Arthur C. Nielsen, 'Two Years of Commercial Operation of the Audimeter and the Nielsen Radio Index', Journal of Marketing 9:3 (1945), 239-255 - was not reachable in this run."
+      },
+      "reason": "Two defects. First, the 25 percent was attached to the wrong noun: in the source it modifies the east-central REGION, not the 800 metered homes, and as written the claim is arithmetically impossible by a factor of about 11,000. Second, and found independently of the brief, the headline count of 800 is contested by a credible published source giving 500, so a point interval [800, 800] excludes a credible figure and must widen.",
+      "sources_consulted": [
+        {"name": "Beville, Audience Ratings (1988), ch. 1 p. 21-22 - PDF text extraction", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+        {"name": "Museum of Broadcast Communications / Encyclopedia of Radio, 'A.C. Nielsen Company'", "url": "https://www.museum.tv/radio-encyclopedia/ac-nielsen-company"},
+        {"name": "Museum of Broadcast Communications / Encyclopedia of Radio, 'Audimeter'", "url": "https://www.museum.tv/radio-encyclopedia/audimeter"},
+        {"name": "Paleofuture, 'The Weird Machine That Measured Radio Audiences in the 30s and 40s' (reports Nielsen's own 1942 Journal of Marketing description: ~200 Midwest homes, ~1,000 promised)", "url": "https://paleofuture.com/blog/2019/4/5/the-weird-machine-that-measured-radio-audiences-in-the-30s-and-40s"},
+        {"name": "Arthur C. Nielsen, 'Two Years of Commercial Operation of the Audimeter and the Nielsen Radio Index', Journal of Marketing 9:3 (1945) - NOT REACHED, HTTP 403", "url": "https://journals.sagepub.com/doi/10.1177/002224294500900305"}
+      ],
+      "recomputation": [
+        {"expr": "800 / 36000000 * 100", "expected": 0.00222, "note": "800 metered homes as a percent of ~36M US households in 1942 - not 25 percent"},
+        {"expr": "800 / 0.25", "expected": 3200, "note": "household base the claim as written implies: the entire United States would need 3,200 households"},
+        {"expr": "36000000 * 0.25", "expected": 9000000, "note": "households in the east-central region under the corrected reading"},
+        {"expr": "9000000 / 800", "expected": 11250, "note": "regional households per metered home - the sampling ratio the corrected statement implies"}
+      ],
+      "disagreement": "The prior R3 verdict reproduced Beville's sentence correctly and then wrote 'All four elements - December 1942, 800 homes, ~25 percent of households, 47 subscribers by 1945 - match exactly.' Three of the four do. The fourth matches as a string and inverts as a fact. The referent of the share, not its value, is what failed, and no arithmetic was attempted at any gate."
+    },
+    {
+      "claim_id": "e2-measurement-006",
+      "verdict": "confirmed",
+      "internal_consistency": "PASSES, and this one is a genuine test rather than a formality. The claim's share (97 percent) and its stated cause (only the Mountain time zone excluded) must agree, and they do: the eight Mountain-zone states totalled 5.08 million of 151.3 million US residents at the 1950 census, or 3.35 percent, leaving 96.6 percent - which rounds to the stated 97. The share, the exclusion and the base are mutually consistent.",
+      "evidence": "Beville ch. 1, p. 23, verbatim: 'In April 1949, when the NRI was expanded to cover 97 percent of U.S. homes (only the Mountain time zone was excluded on the basis of extreme field costs), Nielsen had achieved his long-sought objective of national projectable ratings.' Date, coverage figure and projectability claim all match. Independent corroboration from outside Beville: the Museum of Broadcast Communications / Encyclopedia of Radio entry on the A.C. Nielsen Company states 'By early 1949, the NRI sample had expanded to cover virtually all of the country except for the Mountain time zone, which was especially expensive to serve' - an independently written source that reproduces both the timing and the specific exclusion. The trajectory is coherent across Beville: 63 percent of US homes in 1946, 68 percent of US radio homes by 1947 with a 97 percent target set for 1948 (p. 15), 97 percent achieved April 1949. Monotone, with the 1948 target simply slipping a year - no contradiction. ci80 [95, 98] around a single reported figure is honest and I see no reason to narrow it to a point. Grade B correct.",
+      "sources_consulted": [
+        {"name": "Beville, Audience Ratings (1988), ch. 1 p. 15 and p. 23 - PDF text extraction", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+        {"name": "Museum of Broadcast Communications / Encyclopedia of Radio, 'A.C. Nielsen Company'", "url": "https://www.museum.tv/radio-encyclopedia/ac-nielsen-company"}
+      ],
+      "recomputation": [
+        {"expr": "(591+589+291+1325+681+750+689+160) / 151326 * 100", "expected": 3.35, "note": "Mountain-zone states (MT, ID, WY, CO, NM, AZ, UT, NV) as percent of US population, 1950 census, thousands"},
+        {"expr": "100 - 3.35", "expected": 96.65, "note": "remaining coverage after excluding the Mountain time zone - rounds to the claimed 97 percent"}
+      ],
+      "disagreement": "One wording risk flagged rather than adjusted, because the record itself is sound and the statement is faithful to the source. The 97 percent is sample-FRAME coverage - the share of US homes the sample was drawn from and projectable to - not metered penetration. The unit field already says 'sample frame', so the calibration object is correct and I will not manufacture an adjustment. But this is structurally the identical construction that produced the e2-005 failure, and in the field summary the phrase 'projectable to 97 percent of US homes by April 1949' sits in the same sentence as '800 metered homes'. Recommend the chapter prose spell out 'the sample frame reached 97 percent of US homes', so that the two numbers cannot be read as commensurable. A second nuance worth carrying, noted by the prior R3 pass and which I confirm: Beville records that 'Hooper had beaten him to this goal by publishing his first U.S. Hooperatings study a year earlier', so 'the first genuinely projectable national audience estimates' is contestable on priority - Nielsen's was the first CONTINUOUS projectable service, which is the defensible form of the claim."
+    },
+    {
+      "claim_id": "e2-measurement-007",
+      "verdict": "adjusted",
+      "internal_consistency": "PASSES on every number and date, and fails on a characterisation. Four independent date statements close on each other: the Audimeter was acquired in 1936 and the speech was given in 1946, giving exactly the 'nearly 10 years' claimed; the Chicago pilot launched 1938 and Beville records it 'operated for four years', landing on the December 1942 commercial launch; and the Zeisel findings were presented 7 February 1946 with Beville noting Nielsen's speech came 'only 6 weeks after', which computes to 21 March 1946 - the date Beville himself gives. The 'ten years' and the '$2 million' are not in tension with any base in the statement. What fails is the clause 'nationally competitive in 1946', which contradicts the coverage figure Beville reports on the same page.",
+      "evidence": "The money and the duration are exact. Beville ch. 1, p. 22, verbatim: 'In a speech, Nielsen explained that his company had spent nearly 10 years and $2 million to refine the original Audimeter \"to a point where it produces accurate results under all conditions ... and to ... get the instrument into successful production on a quantity basis and at a reasonable cost.\"' The trailing characterisation does not survive. In 1946 the NRI reached 63 percent of US homes, with 'New England and virtually all of the Middle Atlantic, Southeast, Mid-South, Plains, and Rocky Mountain states' excluded, on 1,300 Audimeters placed in 1,100 homes. Beville's own words are 'Nielsen was now ready to compete head on with the Cooperative Analysis of Broadcasting and C. E. Hooper' - competitive WITH the national services, not itself a national service. Nielsen said so in the same speech: 'While coverage of the remaining areas is definitely planned, the present area is considered sufficiently representative to provide a sound basis for solving' the major problems. National projectability arrived in April 1949, which is the content of e2-006. Independent corroboration of the 1946 partial footprint: the MBC / Encyclopedia of Radio entry records 'By 1946 the NRI had expanded service to some 1,100 homes over most of the country', and places full coverage in early 1949. Calling the 1946 service 'nationally competitive' is the same coverage-inflation error as e2-005 in a milder form, and it should not survive a repair pass aimed at exactly that error. Central 2, unit, ci80 [1.5, 2.5], grade B and as_of 1946 all stand. Provenance caveat preserved and worth keeping explicit: the $2 million is Nielsen's own figure from a competitive sales speech aimed at displacing the CAB, and no independent corroboration of the amount was findable; the claim's attributive framing ('A.C. Nielsen said his company had spent') is what makes grade B defensible and must not be dropped in the prose.",
+      "old": {
+        "statement": "A.C. Nielsen said his company had spent nearly ten years and about $2 million refining the Audimeter before the service became nationally competitive in 1946."
+      },
+      "new": {
+        "id": "e2-measurement-007",
+        "statement": "A.C. Nielsen said in a March 1946 speech that his company had spent nearly ten years and about $2 million refining the Audimeter. At that point the Nielsen Radio Index covered 63 percent of US homes on 1,300 Audimeters in 1,100 homes and was ready to compete head-on with the CAB and Hooper - but it was not yet a national service; national projectability came in April 1949.",
+        "central": 2,
+        "unit": "US$ millions Nielsen said he had spent developing the Audimeter, as claimed in his March 1946 speech",
+        "ci80": [1.5, 2.5],
+        "grade": "B",
+        "sources": [
+          {"name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 p. 22, quoting Nielsen's March 1946 speech 'New Facts about Radio Research'", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+          {"name": "Museum of Broadcast Communications / Encyclopedia of Radio, 'A.C. Nielsen Company' (1946 footprint: ~1,100 homes)", "url": "https://www.museum.tv/radio-encyclopedia/ac-nielsen-company"}
+        ],
+        "as_of": "1946",
+        "method": "The $2 million is a self-reported figure from a competitive sales speech, not an audited or filed amount; the ci80 hedges the round number and the attributive framing must be preserved in any prose rendering."
+      },
+      "reason": "The dollar figure and the duration are exact, but 'nationally competitive in 1946' misdescribes a service that in 1946 excluded New England, virtually all the Middle Atlantic, the Southeast, Mid-South, Plains and Rocky Mountain states and reached 63 percent of US homes. Beville's phrase is that Nielsen was ready to compete head-on with the CAB and Hooper; Nielsen himself described the coverage as incomplete in the very speech being quoted.",
+      "sources_consulted": [
+        {"name": "Beville, Audience Ratings (1988), ch. 1 p. 22-23 - PDF text extraction", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+        {"name": "Museum of Broadcast Communications / Encyclopedia of Radio, 'A.C. Nielsen Company'", "url": "https://www.museum.tv/radio-encyclopedia/ac-nielsen-company"}
+      ],
+      "recomputation": [
+        {"expr": "1946 - 1936", "expected": 10, "note": "Audimeter acquired from its MIT inventors 1936 to the 1946 speech - matches 'nearly 10 years'"},
+        {"expr": "1938 + 4", "expected": 1942, "note": "Chicago pilot launched 1938, 'operated for four years', landing on the December 1942 commercial launch"},
+        {"expr": "7 + 42", "expected": 49, "note": "7 February 1946 plus Beville's stated 6 weeks = 21 March 1946, the date he gives for Nielsen's speech - the two datings close"}
+      ],
+      "disagreement": "The prior R3 pass wrote 'the 1946 dating is right' and confirmed. The dating is right; the characterisation attached to it is not, and the disconfirming figure (63 percent) sits four lines above the quoted sentence in the same source."
+    },
+    {
+      "claim_id": "e2-measurement-008",
+      "verdict": "confirmed",
+      "internal_consistency": "PASSES. The rate ($3,000 per point per week), the baseline it is measured against (Benny's NBC Hooper of 'a formidable 24 plus') and the resulting exposure are mutually coherent: maximum theoretical exposure was 24 x $3,000 = $72,000 a week, about $3.7 million a year, against a programme purchase price reported at roughly $2 million. Large but not absurd for a sponsor-protection clause on a network's marquee acquisition, and Beville records that the clause was never triggered.",
+      "evidence": "Beville ch. 1, p. 14-15, quoting Robert Metz verbatim: 'The only way Benny's sponsor, the American Tobacco Company, would go along with the switch was if Paley guaranteed them $3000 for every point that Jack Benny fell below his Hooper rating at NBC - $3000 per point per week. At that time Benny's Hooper rating was a formidable 24 plus, but Paley never had to make any payments.' Sponsor, mechanism, per-week basis and the January 1949 move all match the claim. Independently confirmed: Benny's first CBS broadcast was 2 January 1949 as part of Paley's 1948-49 raid on NBC talent, and American Tobacco (Lucky Strike) was his sponsor. Independent corroboration that the guarantee existed and was pegged to Hooper ratings comes from the CBS talent-raid literature, which records that Paley agreed to make up the difference to American Tobacco if Benny's Hooper rating on CBS fell below his best NBC level. Grade B correct and should NOT be upgraded: the $3,000 figure is single-sourced to Metz's 1975 popular corporate history and relayed through Beville, and because the guarantee was never exercised no payment record exists to corroborate it. The claim's attributive framing via Metz is what licenses the B. Point interval right for an exact contractual figure as reported.",
+      "sources_consulted": [
+        {"name": "Beville, Audience Ratings (1988), ch. 1 p. 14-15, quoting Robert Metz, CBS: Reflections in a Bloodshot Eye (1975) - PDF text extraction", "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"},
+        {"name": "Wikipedia, '1949 in radio' (Benny's first CBS broadcast, 2 January 1949)", "url": "https://en.wikipedia.org/wiki/1949_in_radio"},
+        {"name": "The A.V. Club, 'CBS built a legacy by raiding comedy talent'", "url": "https://www.avclub.com/cbs-built-a-legacy-by-raiding-comedy-talent-1818546254"}
+      ],
+      "recomputation": [
+        {"expr": "24 * 3000", "expected": 72000, "note": "maximum weekly exposure if Benny's rating had collapsed to zero from his 24-plus NBC Hooper"},
+        {"expr": "24 * 3000 * 52", "expected": 3744000, "note": "annualised worst case, against a reported ~$2 million purchase price for the programme - the guarantee is a real risk transfer, not a token"}
+      ],
+      "disagreement": "Recorded for the pipeline: the corroborating sources confirm the existence and the Hooper-pegged structure of the guarantee, but only Metz supplies the $3,000 figure. The claim is confirmed as an accurately relayed report, not as an independently established contract term. If the chapter states it flatly as fact rather than as Metz's account, that is a stronger assertion than the evidence carries."
+    },
+    {
+      "claim_id": "e2-measurement-009",
+      "verdict": "confirmed",
+      "internal_consistency": "PASSES. The date structure is the claim's whole content and it holds: the saying's first print appearance (1890) strictly precedes the first Wanamaker attribution (1919), and the intervening citations are monotone in year with the 1898 attribution going to Robert C. Ogden rather than Wanamaker. No count, share or base to reconcile; the relation that must be true - saying older than attribution - is true.",
+      "evidence": "Quote Investigator's citation chain matches the claim's method field item for item: 1890 Printers' Ink, unattributed ('don't forget that half of the money spent in advertising is wasted'); 1897 Gunton's Magazine, unattributed; 1898 The Bankers Magazine, attributed to Robert C. Ogden, a Wanamaker company executive; 1911 Golden Book of the Wanamaker Stores, unattributed; 1919 Winona Echoes, Rev. Roy L. Smith crediting John Wanamaker at an Indiana bible conference - the first Wanamaker attribution. QI's own conclusion supports the claim's strongest assertion: 'QI has been unable to find a direct citation to a written or spoken instance from Wanamaker; hence, this ascription remains uncertain.' Grade B is defensible for Quote Investigator (named, credible, works from primary scans and states its evidentiary limits); the method field is present and does the work the rigor spec requires of a documented citation chain.",
+      "sources_consulted": [
+        {"name": "Quote Investigator, 'One-Half the Money I Spend for Advertising Is Wasted'", "url": "https://quoteinvestigator.com/2022/04/11/advertising/"}
+      ],
+      "disagreement": "Two precision notes, neither large enough to move the verdict, both worth carrying into the prose. First, QI classifies the 1890 Printers' Ink appearance as a PARTIAL match: it carries only the first half of the saying and not the 'trouble is, I don't know which half' half that makes the epigram famous. The claim survives this because it is worded precisely - it quotes only 'half the money spent on advertising is wasted' - but the chapter must not say the full two-part epigram dates to 1890. Second, the claim's word 'legend' is one notch stronger than QI's 'remains uncertain'; the claim's own preceding sentence ('No written or spoken instance from Wanamaker himself has been found') is exactly what QI supports, so the record stands as written. SEPARATE FLAG, and this one is a real contradiction: the MEASUREMENT field summary says 'the Wanamaker line, first appears in print in 1919 with no primary source behind it', which contradicts this claim's 1890. The claim is right and the summary is wrong - 1919 is the date of the first ATTRIBUTION, not of the saying. The summary needs fixing."
+    }
+  ],
+  "field_summary_findings": {
+    "note": "The MEASUREMENT summary paragraph is not a claim ID and carries no verdict, but it was in scope as part of 'the entire MEASUREMENT field' and it propagates two of the errors found above plus one of its own.",
+    "errors": [
+      {
+        "text": "the era's most famous complaint about advertising waste, the Wanamaker line, first appears in print in 1919 with no primary source behind it",
+        "problem": "Contradicts e2-measurement-009, which says 1890. 1919 is the first Wanamaker ATTRIBUTION; the saying itself is in Printers' Ink in 1890. Direct internal contradiction between the summary and a claim in the same field."
+      },
+      {
+        "text": "Its method was 24-hour telephone recall ... Hooper's numbers nonetheless ran about 20 percent above the CAB's",
+        "problem": "Reproduces the e2-measurement-003 error. The summary never mentions the CAB's 1944 switch to the coincidental technique, so the 20 percent reads as a recall-versus-coincidental gap. It was coincidental versus coincidental, which is the entire point of why the Zeisel finding destroyed the CAB."
+      },
+      {
+        "text": "commercial from December 1942 with 800 metered homes, and projectable to 97 percent of US homes by April 1949",
+        "problem": "Drops the east-central limitation entirely rather than misstating it, but the effect is the same: a regional service reads as national, and '800 metered homes' sits in the same clause as '97 percent of US homes', inviting the reader to compose them. Add the ~25 percent regional confinement."
+      }
+    ],
+    "verified_and_correct": [
+      "CAB began field work March 1930 with ANA endorsement, advertisers paying $70 a month - Beville p. 4.",
+      "CAB deliberately excluded the networks as subscribers until 1937 - Beville p. 12: 'The radio networks had not been accepted as subscribers by the ANA-dominated Cooperative Analysis of Broadcasting, which wanted no part of media influence (at that time)'; and the 1937 chronology entry: 'NBC and CBS were accepted as subscribers but without representation on the CAB governing board.'",
+      "Hans Zeisel of the McCann-Erickson research department; Marion Harper Jr. presented 7 February 1946 - Beville p. 10.",
+      "Hooper absorbed the CAB's accounts that July - Beville p. 11: deal made 17 June 1946, effective 31 July 1946.",
+      "Audimeter bought from its MIT inventors in 1936, Chicago pilot from 1938 - Beville p. 20-21.",
+      "Bing Crosby's pre-recording right - Beville p. 14: Crosby 'agreed that his program would have to go live if the Hooperating dropped below 12', after an opening 24 falling to 18.3, 15.1, 12.2."
+    ],
+    "not_checked_in_this_run": [
+      "'the Audit Bureau of Circulations dated from 1914' - widely attested (ABC founded 1914) but not independently verified in this run, and it is a summary assertion with no claim ID backing it. Recommend it be given a claim ID or dropped."
+    ]
+  }
+}

@@ -2407,9 +2407,9 @@
     },
     {
       "id": "e2-measurement-003",
-      "statement": "Hooper's coincidental ratings ran about 20 percent above the CAB's recall ratings on average; a McCann-Erickson study traced the gap to ring counts, unidentified-program handling and busy-signal treatment.",
+      "statement": "After the CAB adopted Hooper's coincidental telephone technique in 1944, Hooper's ratings still ran about 20 percent above the CAB's on average; Hans Zeisel's McCann-Erickson study traced the residual gap to ring counts, unidentified-program handling and busy-signal treatment - the two services were by then using the same method and still disagreed.",
       "central": 20,
-      "unit": "percent by which Hooper ratings exceeded CAB ratings on average",
+      "unit": "percent by which Hooper's coincidental ratings exceeded the CAB's coincidental ratings on average, 1944-46",
       "ci80": [
         15,
         25
@@ -2417,13 +2417,13 @@
       "grade": "B",
       "sources": [
         {
-          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 and appendix D (Zeisel study, presented by Marion Harper Jr., 7 February 1946)",
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 p. 9-10 and appendix D (Zeisel study, presented by Marion Harper Jr., 7 February 1946)",
           "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
         }
       ],
       "as_of": "1946",
       "origin": "p2-ad-market/data/eras/era-2.json",
-      "verdict": "confirmed"
+      "verdict": "adjusted"
     },
     {
       "id": "e2-measurement-004",
@@ -2447,23 +2447,32 @@
     },
     {
       "id": "e2-measurement-005",
-      "statement": "The Nielsen Radio Index went commercial in December 1942 with 800 metered homes covering roughly 25 percent of US households, and had 47 subscribers by 1945.",
+      "statement": "The Nielsen Radio Index went commercial in December 1942 with an 800-home Audimeter sample confined to the east central United States - a region accounting for roughly 25 percent of US households - and had acquired 47 subscribers by 1945. The 25 percent is the region's share of US households, not the sample's coverage of them; Beville notes acceptance was limited precisely because the service was predicated on such limited geography.",
       "central": 800,
-      "unit": "metered homes in the Nielsen Radio Index at commercial launch, December 1942",
+      "unit": "metered homes in the Nielsen Radio Index at commercial launch, December 1942 (sample drawn from an east-central region holding ~25 percent of US households)",
       "ci80": [
-        800,
+        500,
         800
       ],
       "grade": "B",
       "sources": [
         {
-          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1",
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 p. 21-22 (gives 800)",
           "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        },
+        {
+          "name": "Museum of Broadcast Communications / Encyclopedia of Radio, 'A.C. Nielsen Company' (gives 500)",
+          "url": "https://www.museum.tv/radio-encyclopedia/ac-nielsen-company"
+        },
+        {
+          "name": "Museum of Broadcast Communications / Encyclopedia of Radio, 'Audimeter' (gives 800)",
+          "url": "https://www.museum.tv/radio-encyclopedia/audimeter"
         }
       ],
       "as_of": "1942-12",
+      "method": "Interval widened to [500, 800] to span an unresolved conflict between two credible published figures for the launch sample rather than averaging them. Central held at 800 on the strength of Beville's greater specificity and the internal contradiction between the two Museum of Broadcast Communications entries. The primary that would settle it - Arthur C. Nielsen, 'Two Years of Commercial Operation of the Audimeter and the Nielsen Radio Index', Journal of Marketing 9:3 (1945), 239-255 - was not reachable in this run.",
       "origin": "p2-ad-market/data/eras/era-2.json",
-      "verdict": "confirmed"
+      "verdict": "adjusted"
     },
     {
       "id": "e2-measurement-006",
@@ -2487,9 +2496,9 @@
     },
     {
       "id": "e2-measurement-007",
-      "statement": "A.C. Nielsen said his company had spent nearly ten years and about $2 million refining the Audimeter before the service became nationally competitive in 1946.",
+      "statement": "A.C. Nielsen said in a March 1946 speech that his company had spent nearly ten years and about $2 million refining the Audimeter. At that point the Nielsen Radio Index covered 63 percent of US homes on 1,300 Audimeters in 1,100 homes and was ready to compete head-on with the CAB and Hooper - but it was not yet a national service; national projectability came in April 1949.",
       "central": 2,
-      "unit": "US$ millions Nielsen spent developing the Audimeter before 1946",
+      "unit": "US$ millions Nielsen said he had spent developing the Audimeter, as claimed in his March 1946 speech",
       "ci80": [
         1.5,
         2.5
@@ -2497,13 +2506,18 @@
       "grade": "B",
       "sources": [
         {
-          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1, quoting Nielsen's 1946 speech",
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 p. 22, quoting Nielsen's March 1946 speech 'New Facts about Radio Research'",
           "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        },
+        {
+          "name": "Museum of Broadcast Communications / Encyclopedia of Radio, 'A.C. Nielsen Company' (1946 footprint: ~1,100 homes)",
+          "url": "https://www.museum.tv/radio-encyclopedia/ac-nielsen-company"
         }
       ],
       "as_of": "1946",
+      "method": "The $2 million is a self-reported figure from a competitive sales speech, not an audited or filed amount; the ci80 hedges the round number and the attributive framing must be preserved in any prose rendering.",
       "origin": "p2-ad-market/data/eras/era-2.json",
-      "verdict": "confirmed"
+      "verdict": "adjusted"
     },
     {
       "id": "e2-measurement-008",
@@ -7332,6 +7346,20 @@
         }
       ],
       "as_of": "2000-01-30",
+      "open_defect": {
+        "stage": "R3b",
+        "raised_by": "R3b plausibility sweep, 2026-07-31 (505 claims checked)",
+        "severity": "IMPOSSIBLE",
+        "status": "OPEN - NOT REPAIRED. No value in this claim has been changed.",
+        "where": "The secondary share in this claim's statement, and the identical phrase in the parent event's desc field.",
+        "problem": "'close to 20% of the 61 spots available' cannot be true against the counts stated in the same sentence. 21/61 = 34.4 percent; the narrower count 14/61 = 23.0 percent; and 20 percent of 61 = 12.2 ads, which matches neither 14 nor 21. Everything else in the sentence reconciles: 14 + 5 + 2 = 21, and $44M / 21 = $2.10M per spot against the stated ~$2.2M.",
+        "unaffected": "central 14, ci80 [14, 21], unit, grade B and as_of 2000-01-30 are not in question. The defect is a percentage carried in prose, not the calibrated value.",
+        "why_not_repaired": "The sweep did not establish the correct figure from a source. Two readings are open - a corrupted 'close to 20 OF the 61 spots' (21 is close to 20), or the true share of about a third - and 34 percent and 20 percent tell materially different stories about how far the bubble reached into the Super Bowl. Writing either without re-reading the Wikipedia and Fast Company sources would be inventing a replacement number, which this repair does not do.",
+        "resolution_required": "Human decision, or a fresh source read of the two cited sources, before this sentence is quoted anywhere.",
+        "chapter_exposure": "None. Chapter 06 (06-the-impression.md) carries only the fourteen in-game advertisers and the ~$2.2M spot price, neither of which is affected.",
+        "audit_trail": "p2-ad-market/data/verification/REPAIR-R3b.md",
+        "source_carries_the_error": "The figure is NOT a paraphrase error introduced by this project: the R3 verdict on this claim quotes the cited Wikipedia article as saying the 21 ads 'amounted to nearly 20% of the 61 spots available', and R3 imported that string verbatim. The impossibility therefore sits in the source, so repairing it means deciding whether to correct the source's arithmetic (about a third), read it as a corrupted 'nearly 20 OF the 61 spots', or drop the share entirely. That is a human call on the source, not a data-entry fix."
+      },
       "origin": "p2-ad-market/data/eras/era-5.json",
       "verdict": "adjusted"
     },

@@ -3,13 +3,15 @@ title: The Capture Question
 project: p2-ad-market
 chapter: 9
 claim_ids: [ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-provenance-001, ds-money_type-001, ds-money_type-002, ds-money_type-003, e1-scale-001, e1-scale-006, e1-scale-009, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-medium-005, e1-measurement-002, e2-scale-004, e2-scale-005, e2-scale-006, e2-scale-010, e2-scale-011, e2-scale-012, e2-scale-013, e2-medium-001, e2-medium-002, e2-medium-004, e2-measurement-009, e3-scale-004, e3-scale-005, e3-scale-006, e4-scale-003, e4-buyers-003, e4-buyers-004, e4-buyers-006, e4-buyers-007, e4-buyers-008, e4-medium-006, e4-targeting-004, e5-scale-002, e5-scale-004, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-scale-015, e5-scale-016, e5-medium-002, e5-medium-005, e5-medium-006, e5-buyers-001, e5-buyers-002, e6-scale-003, e6-scale-009, e6-scale-010, e6-buyers-001, e6-buyers-002, e6-buyers-005, e6-buyers-008, e6-medium-003, e6-medium-006, e6-events-010, e6-sellers-005, e7-scale-001, e7-scale-002, e7-scale-006, e7-scale-007, e7-scale-008, e7-scale-009, e7-scale-010, e7-buyers-001, e7-buyers-002, e7-buyers-005, e7-buyers-006, e7-buyers-007, e7-buyers-008, e7-medium-001, e7-medium-002, e7-medium-004, e7-medium-006, e7-medium-007, e7-sellers-001, e7-sellers-004, e7-sellers-005, e7-sellers-007]
-readability: "PASS fk_grade=7.81 reading_ease=63.86 gunning_fog=10.80 smog=10.84"
+readability: "PASS fk_grade=7.79 reading_ease=64.60 gunning_fog=10.71 smog=10.76"
 status: draft-for-review
 ---
 
 # The Capture Question
 
 In 2000, US advertisers were billed about $247.5 billion.[^1] In 2025, US media owners took in about $405 billion.[^2] Those two numbers are not measured with the same ruler, and that fact is the subject of this chapter.
+
+Each ruler has a name. Call it a **basis**: the set of rules a figure was built under. A basis says what counts as advertising, whose money gets counted, and at what price. Two figures on different bases can both be right and still cannot be set side by side. Every figure in this chapter names its basis, and where a year has more than one, we print them all.
 
 Something took the money that used to go to newspapers, phone books and network television. The short answer is digital advertising, and the short answer is not wrong. But "digital took the money" hides three different claims. They do not agree with each other, and only one of them survives the evidence.
 
@@ -23,9 +25,9 @@ Our stance, stated up front. **Reallocation is the reading the record supports.*
 
 Getting there needs a detour, because the evidence is the hard part.
 
-## There is no single series to read this off
+## No single series covers this
 
-A reader expects a chart: one line, 1919 to 2025, advertising as a share of the economy. No such line exists. What exists is five compilers who each measured a different object. Some of them have stopped.
+A reader expects a chart: one line, 1919 to 2025, advertising as a share of the economy. No such line exists. Five compilers exist instead, and each measured a different object. Some have stopped.
 
 **Coen/McCann** is the spine. Robert Coen at the McCann-Erickson agency built an annual US total from 1919 onward. It measures *billings*: what advertisers were charged, valued at published rate-card prices rather than at the price actually paid. It ends with 2007 at $279.6 billion, and Interpublic shut it down in 2009.[^3] The longest advertising series ever built has no successor on its own basis.
 
@@ -35,7 +37,7 @@ A reader expects a chart: one line, 1919 to 2025, advertising as a share of the 
 
 **The IRS** publishes the advertising deduction claimed on corporate tax returns. That is a tax line, not a media market. It includes promotion and agency work that never reaches a media owner.
 
-Before 1919 there is nothing annual at all. There are benchmark years, estimated decades after the fact: $50 million in 1867,[^4] somewhere between $1,100 million and $1,302 million in 1914.[^5]
+Before 1919 no annual series exists at all. Only benchmark years survive, estimated decades later: $50 million in 1867,[^4] and somewhere between $1,100 million and $1,302 million in 1914.[^5]
 
 ### The seams sit exactly where the story does
 
@@ -47,9 +49,9 @@ The word "internet" means two things. Coen has an internet line and so does IAB.
 
 Coen changes his own categories mid-series. In 2000 "Billboards" was replaced by "Out of Home", which is 2.77 times as large on identical 1999 data.[^9] Splice those two lines without a note and you invent a 177% jump that never happened.
 
-Then there is the hole. Coen ends with 2007. MAGNA's early years are licensed. For 2008 to 2020 there is no free annual US total at all, and for 2011 to 2025 there is no free by-medium US series of any kind. That is fifteen years — the exact fifteen years this project cares most about — with the thinnest evidence in the whole window.[^10]
+Then the hole. Coen ends with 2007. MAGNA's early years are licensed. No free annual US total covers 2008 to 2020, and no free by-medium US series covers 2011 to 2025. Those fifteen years, the ones this project cares most about, carry the thinnest evidence in the whole window.[^10]
 
-So the rule for the rest of this chapter: two ribbons, never one line. Where series disagree, both are shown. Our dataset holds 1,573 points, and every one names its compiler, its source and its date.[^11]
+The rule for the rest of this chapter: two ribbons, never one line. Where series disagree, both are shown. Our dataset holds 1,573 points, and every one names its compiler, its source and its date.[^11]
 
 ## Advertising as a share of the economy
 
@@ -85,11 +87,11 @@ The 2007 figure is Coen billings. The 2025 figure is media-owner revenue. We bui
 
 That bridge is our shakiest construction, and we say so. It rests on a single measured overlap year, 1980, held constant all the way to 2007. It is graded C throughout, and the 2007 restatement could sit anywhere between about $211 billion and $244 billion. The one honest test we could run was out of sample, against a third compiler's separately published 2007 US total. The bridge passed it.
 
-The direction matters more than the size. The basis change pushes the 2025 number *down* relative to 2007. So the fall from 2.0% to 1.32% is partly real and partly a change in what the word "advertising" counts.
+The direction matters more than the size. The basis change pushes the 2025 number *down* relative to 2007. Part of the fall from 2.0% to 1.32% is real, and part is a change in what the word "advertising" counts.
 
 ### The tax line goes the other way
 
-There is a second rail, and it disagrees. The IRS advertising deduction and the Coen total are often said to have agreed almost exactly in 2007. They did — but that agreement compares advertiser billings against a tax deduction, and those are different objects. On a consistent media-owner basis, the tax line already ran about 17% above measured media revenue in 2007. By 2022 the gap was about 31%.[^18]
+A second rail disagrees. The IRS advertising deduction and the Coen total are often said to have agreed almost exactly in 2007. They did — but that agreement compares advertiser billings against a tax deduction, and those are different objects. On a consistent media-owner basis, the tax line already ran about 17% above measured media revenue in 2007. By 2022 the gap was about 31%.[^18]
 
 That gap is a finding, not an error. The tax line keeps absorbing promotion, agency fees and marketing technology that never reaches a media owner. This is graded C and the range runs 28% to 34%, because the media-side number is a licensed estimate we could only read from press releases.
 
@@ -131,38 +133,55 @@ And the tax rail, as we saw, keeps growing faster than the media rail. If "adver
 
 The economy grew too. Every series that spans the change shows advertising falling as a share of it, from 2.3–2.5% in 2000 to about 1.32% in 2025. Even granting that some of that fall is the basis change, no plausible correction turns a decline into a rise. Advertising did not claim more of the economy in the digital era. It claimed less.
 
-So expansion is true of the buyer count and false of the economy. Those can both hold, and they do: many more buyers, each spending far less.
+Expansion is true of the buyer count and false of the economy. Those can both hold, and they do: many more buyers, each spending far less.
 
 ## Reading three: reallocation
 
-The reallocation case is best seen on an axis that has nothing to do with media. Sort the money by *why it was spent* rather than *where it ran*.
+See the reallocation case on an axis that has nothing to do with media. Sort the money by *why it was spent* rather than *where it ran*.
 
 Four kinds of money. **National brand**: a manufacturer buying reach for a brand. **Local retail**: a shop buying customers in its own town. **Classified**: an individual or tiny firm paying to list a job, a car or a home. **Direct response**: an advertiser paying against a measured order rather than an audience.
 
-This is not the split the compilers publish. Coen publishes two buckets, national and local, and he books all direct mail as national. In 1993 direct mail alone was 33.3% of everything Coen called national spending — more than all national television put together.[^42] So a rising "national" share in his series can mean brand money growing or mail growing, and the reader cannot tell which. The four-way split below is our own construction, built to separate those. It is graded C wherever we built it.
+No compiler publishes that split. Coen publishes two buckets, national and local, and he books all direct mail as national. In 1993 direct mail alone was 33.3% of everything Coen called national spending, more than all national television put together.[^42] A rising "national" share in his series can therefore mean brand money growing or mail growing, and the reader cannot tell which. The four-way split below is our own construction, built to separate those. It is graded C wherever we built it.
 
-One rule has to be fixed before the 2000 and 2025 rows can be read together: where directory money goes. This table puts all of it in the response pool, which is what era 6, era 7 and our own data layer do.[^63] Era 5 also keeps a second rule of its own, which splits the 2000 directory line by who bought it. On that rule the 2000 row reads 28.3% local retail and 24.7% direct response instead. The two middle pools swap places between the rules, the $11.1B of local Yellow Pages money is the whole cause, and nothing written at the time settles which rule is right.
+Two bookkeeping choices sit behind every money-type figure in this section, and both need names before the table can be read.
 
-| Year | National brand | Local retail | Classified | Direct response | Not assigned |
-|---|---|---|---|---|---|
-| 1914 | ~22% | ~22% | ~2.2% | ~16% | ~38% |
-| 1949 | ~43% | ~36% | ~6.5% | ~14.5% | — |
-| 2000 | 38.3% | 23.8% | 8.9% | 29.2% | — |
-| 2025 | ~37% | ~24% | ~2.5% | ~38% | — |
+The first choice is the **rule**: where directory money goes. Yellow Pages money can count as local money, because a plumber buys it for his own town. It can equally count as response money, because he buys it to be found by someone already looking. The **comparable rule** puts all of it in the response pool, which is what era 6, era 7 and our own data layer do.[^63] Era 5 keeps a second rule of its own, which splits the 2000 directory line by who bought it and leaves the $11.1B local part in local money. The two middle pools swap places between the rules, that one block is the whole cause, and nothing written at the time settles which rule is right. Every comparison across years in this chapter uses the comparable rule, because the later eras are already built on it.
+
+The second choice is the **rail**: the price direct mail is counted at. Coen counts mail at what the advertiser spent on the whole mailing, $44.6B in 2000, while every other line in his table counts only the space the advertiser bought. Count mail instead at the $18.3B the carrier was paid, and the 2000 market prices at $221.1B rather than $247.5B.[^64] Call that second footing the **media-space rail**. The 2025 figures sit on it too, except that they drop mail altogether.
+
+The main table below sets each year on its own source basis, named in the last column. Its 2000 and 2025 rows therefore cannot be subtracted from each other. The restated 2000 row that can be subtracted comes after the table.
+
+| Year | National brand | Local retail | Classified | Direct response | Not assigned | Basis |
+|---|---|---|---|---|---|---|
+| 1914 | ~22% | ~22% | ~2.2% | ~16% | ~38% | pre-1919 benchmark, all outlay |
+| 1949 | ~43% | ~36% | ~6.5% | ~14.5% | — | Coen billings, mail at full cost |
+| 2000 | 38.3% | 23.8% | 8.9% | 29.2% | — | Coen billings, mail at full cost, comparable rule |
+| 2025 | 36.6% | 23.5% | 2.5% | 38.0% | — | media-owner revenue, mail excluded, comparable rule |
 
 Read the 1914 row with care. Those four shares are our own bottom-up estimates, each graded C, and they reach only 62% rather than 100%. The pre-1919 total is a broad measure of all advertising outlay, of which print was only about 21%.[^43] We now publish the unassigned 38% as its own figure rather than leaving it as a silent gap. About a fifth of it is a real fifth pool with a name — trade papers, legal and financial notices, institutional money. The rest is the distance between the only in-era count of advertising by channel and a much larger figure worked out decades later. The 1914 shares are best read as rough sizes, not a partition: national brand 11% to 46%, local retail 15% to 46%, classified 1.1% to 5%, direct response 8% to 30%.[^44] Only one ordering in that row is safe. Classified was the smallest.
 
 The 2025 row carries its own warning. Those four shares are also grade C, and their ranges are wide and overlapping: national brand 25% to 47%, local and retail 15% to 31%, classified 1.4% to 6.8%, national direct response 29.5% to 47%.[^45] Brand money and response money sit 1.4 points apart and cannot be ranked against each other at all.
 
-The rows also do not share a ruler. The 2000 row counts direct mail at what the advertiser spent, program and postage included; the 2025 row leaves direct mail out on both sides. Put 2000 on the 2025 footing, keeping directory money in the response pool, and it reads roughly 43.6% national brand, 28.1% local retail, 9.9% classified and 18.4% direct response.[^45] That is the only like-for-like comparison in the table, and it is the one the next paragraph uses.
+### Four readings of the year 2000
 
-With those caveats, the shape is still clear and it is not subtle. **Response money grew, classified nearly vanished, brand money held its ground without ever regaining the lead it had, and local money fell hard before 2000 and then only drifted.** Local money is the line the directory rule moves most. On the like-for-like footing it went from 28.1% in 2000 to about 24% in 2025, a fall of four points. On era 5's own rule the same comparison starts at 33.1% and the fall looks more than twice as big.
+Two choices, two answers each, give four readings of the same money. All four sit in our data and all four are legitimate. Mixing them is what makes the year look as though it is arguing with itself.
+
+| 2000, four readings | National brand | Local retail | Classified | Direct response |
+|---|---|---|---|---|
+| Coen billings, comparable rule (the 2000 row above) | 38.3% | 23.8% | 8.9% | 29.2% |
+| Coen billings, era 5's own rule | 38.3% | 28.3% | 8.9% | 24.7% |
+| Media-space rail, comparable rule | 43.6% | 28.1% | 9.9% | 18.4% |
+| Media-space rail, era 5's own rule | 43.6% | 33.1% | 9.9% | 13.4% |
+
+The 2025 figures use the comparable rule, and they price mail as a media owner would, by leaving it out. Only the third line above is built both ways, so the third line is the one every 2000-against-2025 sentence in this chapter uses: 43.6% brand, 28.1% local, 9.9% classified, 18.4% response.[^64] The fourth line is printed to show what the directory rule is worth on its own, which on this rail is 5.04 points of the market. Neither of the first two lines can be set against 2025 at all, because both price direct mail the way 2025 does not.
+
+With those caveats, the shape is still clear and it is not subtle. **Response money grew, classified nearly vanished, brand money kept most of its share, and local money fell hard before 2000 and then only drifted.** Local money is the line the directory rule moves most. On the matched footing it went from 28.1% in 2000 to 23.5% in 2025, a fall of under five points. Swap in era 5's own rule for 2000 and the same comparison starts at 33.1%, which makes the fall look more than twice as big. The rule does that, not the market.
 
 The 1949 and 2000 rows are firmer, and they set up the change. In 1949, direct mail was 14.5% of all US spend and the second-largest medium in most years of that era.[^46] In 1975, national money was 54.5% of the total.[^47] By 1993, classified alone was 7.9% of all measured US advertising, and direct-response buyers spent about $31 billion, roughly 22% of the market.[^48] Local money was heavily concentrated in exactly the media digital would later take: local buyers supplied 88.7% of newspaper ad revenue in 1993.[^49]
 
-Then in 2000 the market split four ways as $94.9 billion of national brand money, $58.9 billion local, $21.9 billion classified and $72.3 billion direct response.[^50] The pool the search auction was actually built to compete for — newspaper classified, directories and direct mail — was $77.4 billion that year, 31.3% of all US advertising. The entire internet was $6.5 billion on the same series.[^51] The auction was not aimed at television. It was aimed at the phone book.
+Then in 2000, on Coen's billings and the comparable rule, the market split four ways: $94.9 billion of national brand money, $58.9 billion local, $21.9 billion classified and $72.3 billion direct response.[^50] The pool the search auction actually chased, newspaper classified plus directories plus direct mail, was $77.4 billion that year, 31.3% of all US advertising. The entire internet was $6.5 billion on the same series.[^51] The auction was not aimed at television. It was aimed at the phone book.
 
-By 2007 that response-priced and intent-matched pool was roughly $99 billion, about 34% of all US advertising.[^52] The pricing followed: 57% of US internet ad revenue was already bought on a performance basis by 2008, against 39% bought by the thousand impressions.[^53] By 2025, search alone is $114.2 billion of US internet revenue, while classifieds, directories and lead generation together are $12.5 billion — 4.2% of it.[^54] Response money is now the largest pool, or tied for it, and classified has fallen to a fortieth of the market.[^55]
+By 2007, on that same billings rail, the response-priced and intent-matched pool was roughly $99 billion, about 34% of all US advertising.[^52] The pricing followed: 57% of US internet ad revenue was already bought on a performance basis by 2008, against 39% bought by the thousand impressions.[^53] By 2025, search alone is $114.2 billion of US internet revenue, while classifieds, directories and lead generation together are $12.5 billion — 4.2% of it.[^54] Response money is now the largest pool, or tied for it, and classified has fallen to a fortieth of the market.[^55]
 
 That is the trade. The auction did not mainly take television's money. It took the money that was already paying for a measured response, made that response cheaper to measure, and then pulled more of the market onto the same footing.
 
@@ -184,9 +203,9 @@ This matters for the capture question because the standard story treats each new
 
 Advertising's share of the US economy hit its post-1960 peak in 2000 and fell through the entire digital period, from 2.3–2.5% to about 1.32%. The record on the continuous Coen series is older: 3.0% in 1922. Some of that fall is the ruler changing rather than the market: restating 2007 onto the modern basis alone moves the level 17.4%. But the direction is the same in every series we have, so expansion in the strong sense is out.
 
-Capture is real where the money was a listing rather than a message. Classified fell 91% in its largest sub-category. Directories fell 93%. The sell side went from 72% concentration in 2008 to 84.1% in 2025. But capture fails as a description of the whole market. National money gained share during the auction era. The number of advertisers rose from thousands to millions. Categories worth tens of billions exist now that did not exist then.
+Capture is real where the money was a listing rather than a message. Classified fell 91% in its largest sub-category. Directories fell 93%. The top ten sellers of US internet advertising went from 72% of that revenue in 2008 to 84.1% in 2025. But capture fails as a description of the whole market. National money gained share during the auction era. The number of advertisers rose from thousands to millions. Categories worth tens of billions exist now that did not exist then.
 
-What is left is the axis that actually moved. On one ruler, applied to both years, money paying for a measured action went from about 13% of the market in 2000 to about 38% in 2025. Money paying for reach went from 44% to 37%: it lost its lead without losing much of its size. Classified went from about a tenth of the market to a fortieth. The medium mix is the visible change; the money-type mix is the real one.
+That leaves the axis that actually moved. Read both years on the matched footing set out above: media-owner prices for direct mail, and all directory money in the response pool.[^64] Money paying for a measured action went from 18.4% of the market in 2000 to 38.0% in 2025. Money paying for reach went from 43.6% to 36.6%, giving up a clear lead without losing much of its size. Classified went from about a tenth of the market to a fortieth. The medium mix is the visible change; the money-type mix is the real one.
 
 ### What would change our minds
 
@@ -242,7 +261,7 @@ A published money-type split from a compiler, rather than our own construction, 
 [^42]: Coen dataset, direct mail as a share of national spending, 1993.
 [^43]: Census of Manufactures print receipts against the 1914 benchmark total.
 [^44]: Claims e1-scale-011 to e1-scale-014 and e1-scale-017, each graded C. Rebuilt in a later pass that ran three separate estimating methods and took the middle answer.
-[^45]: Claims e7-scale-006 to e7-scale-010, each graded C, on MAGNA's $398B media-owner total with direct mail excluded. The like-for-like restatement of 2000 comes from the same reconciliation, which prices the 2000 market at about $221B once direct mail is taken out. Directory money is in the response pool there too; the arithmetic is recorded in the method of e5-scale-015 and e5-scale-016.
+[^45]: Claims e7-scale-006 to e7-scale-010, each graded C, on MAGNA's $398B media-owner total for 2025, with direct mail excluded from the total and from every pool. The centrals are national brand 36.6% ($145.7B), local and retail 23.5% ($93.5B), classified and directories 2.5% ($9.95B), national direct response 38.0% ($151.2B). Those four sum to 100.6%, and we print the 0.6-point overshoot rather than shave it (e7-scale-010). The matching buyer-side claims are e7-buyers-005 to e7-buyers-008.
 [^46]: Coen dataset, direct mail line, 1949.
 [^47]: Coen dataset, national share, 1975.
 [^48]: Newspaper Association of America classified line, and our direct-response estimate for 1993.
@@ -261,4 +280,6 @@ A published money-type split from a compiler, rather than our own construction, 
 [^61]: Coen dataset, newspaper share, 1949.
 [^62]: Coen dataset, direct mail and newspapers, 2001.
 
-[^63]: Claims e5-scale-015 and e5-scale-016 for 2000 on the comparable rule; e6-scale-010 and e7-scale-008 for the same rule in the later eras; ds-money_type-003 for the data layer. The seam itself, with both orderings and the reason no evidence settles it, is recorded at `taxonomy_seam` in p2-ad-market/data/moneytype/reconciled.json.
+[^63]: Claims e5-scale-015 and e5-scale-016 for 2000 on the comparable rule; e6-scale-010 and e7-scale-008 for the same rule in the later eras; ds-money_type-003 for the data layer. The era's own rule is e5-scale-011 and e5-scale-013. The seam itself, with both orderings and the reason no evidence settles it, is recorded at `taxonomy_seam` in p2-ad-market/data/moneytype/reconciled.json.
+
+[^64]: The media-space rail for 2000, recorded in the method of e5-scale-015 and e5-scale-016 and in the era-5 reconciliation. Coen's 2000 total is $247,472m, with direct mail carried at the advertiser's full program cost of $44,591m. MAGNA prices the same medium and the same year at $18,250m, the carriage charge alone. Swap the two and the total becomes 247,472 - 44,591 + 18,250 = $221,131m. On that smaller total the local Yellow Pages block, $11,135m, is worth 5.04 points rather than the 4.50 points it is worth on Coen's own total. The two bottom rows of the four-readings table follow from that. Era 5's own rule reads 43.6 / 33.1 / 9.9 / 13.4; the comparable rule carries the block across, giving 33.1 - 5.04 = 28.1 local retail and 13.4 + 5.04 = 18.4 direct response, with national brand and classified untouched at 43.6 and 9.9. The first two lines of that table carry era 5's declared 0.22-point overshoot (e5-scale-014); the two media-space lines sum to 100 as the reconciliation records them. One difference between the two years survives even here: the 2000 rail keeps the $18.3B carriage charge in, while the 2025 total leaves mail out altogether. No source we have closes that last gap, which is why we call the footing matched rather than identical.
