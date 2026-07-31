@@ -2,7 +2,7 @@
 
 This repo holds three research projects. Each one turns a question into a web page you can read and click through. Every number on the page is sourced.
 
-Only the first project is built. The other two have not started yet.
+The first project is built and live. The second is researched and its numbers are frozen; its design and page are still to come. The third has not started.
 
 Last updated: 2026-07-31.
 
@@ -10,7 +10,7 @@ Last updated: 2026-07-31.
 
 Project 1, the cost of running AI, is done and live. Its research, its numbers, and its web page are all finished and checked.
 
-Project 2, the ad market, is fully planned but not yet researched. The plan was locked on 2026-07-30 through a grilling session and a seven-scout blind-spot probe. Everything a fresh session needs is written down: the plan, the era map, the schema, the agents, the workflows, and the checks. See "Project 2 planning" below.
+Project 2, the ad market, is researched. Ten chapters are written and 505 numbers are checked and frozen. What is left is the design session and the web page. See "Project 2 research" below.
 
 Project 3, the synthesis, has not started. It waits on the first two.
 
@@ -20,7 +20,7 @@ The live site is at `https://lyndonkl.github.io/chipandadmarketresearch/`. The c
 
 `p1-ai-economics/` is the first project: the cost of running AI. Done.
 
-`p2-ad-market/` is the second project: the history of the ad market. Empty but for a brief.
+`p2-ad-market/` is the second project: the history of the ad market. Research done, numbers frozen, page not built.
 
 `p3-synthesis/` is the third project: what the first two teach about ads and AI. Empty but for a brief.
 
