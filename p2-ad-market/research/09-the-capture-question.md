@@ -2,8 +2,8 @@
 title: The Capture Question
 project: p2-ad-market
 chapter: 9
-claim_ids: [ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-provenance-001, ds-money_type-001, ds-money_type-002, ds-money_type-003, e1-scale-001, e1-scale-006, e1-scale-009, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-medium-005, e1-measurement-002, e2-scale-004, e2-scale-005, e2-scale-006, e2-scale-010, e2-scale-011, e2-scale-012, e2-scale-013, e2-medium-001, e2-medium-002, e2-medium-004, e2-measurement-009, e3-scale-004, e3-scale-005, e3-scale-006, e4-scale-003, e4-buyers-003, e4-buyers-004, e4-buyers-006, e4-buyers-007, e4-buyers-008, e4-medium-006, e4-targeting-004, e5-scale-002, e5-scale-004, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-medium-002, e5-medium-005, e5-medium-006, e5-buyers-001, e5-buyers-002, e6-scale-003, e6-scale-009, e6-scale-010, e6-buyers-001, e6-buyers-002, e6-buyers-005, e6-buyers-008, e6-medium-003, e6-medium-006, e6-events-010, e6-sellers-005, e7-scale-001, e7-scale-002, e7-scale-006, e7-scale-007, e7-scale-008, e7-scale-009, e7-scale-010, e7-buyers-001, e7-buyers-002, e7-buyers-005, e7-buyers-006, e7-buyers-007, e7-buyers-008, e7-medium-001, e7-medium-002, e7-medium-004, e7-medium-006, e7-medium-007, e7-sellers-001, e7-sellers-004, e7-sellers-005, e7-sellers-007]
-readability: "PASS fk_grade=7.71 reading_ease=63.98 gunning_fog=10.72 smog=10.79"
+claim_ids: [ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-provenance-001, ds-money_type-001, ds-money_type-002, ds-money_type-003, e1-scale-001, e1-scale-006, e1-scale-009, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-medium-005, e1-measurement-002, e2-scale-004, e2-scale-005, e2-scale-006, e2-scale-010, e2-scale-011, e2-scale-012, e2-scale-013, e2-medium-001, e2-medium-002, e2-medium-004, e2-measurement-009, e3-scale-004, e3-scale-005, e3-scale-006, e4-scale-003, e4-buyers-003, e4-buyers-004, e4-buyers-006, e4-buyers-007, e4-buyers-008, e4-medium-006, e4-targeting-004, e5-scale-002, e5-scale-004, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-scale-015, e5-scale-016, e5-medium-002, e5-medium-005, e5-medium-006, e5-buyers-001, e5-buyers-002, e6-scale-003, e6-scale-009, e6-scale-010, e6-buyers-001, e6-buyers-002, e6-buyers-005, e6-buyers-008, e6-medium-003, e6-medium-006, e6-events-010, e6-sellers-005, e7-scale-001, e7-scale-002, e7-scale-006, e7-scale-007, e7-scale-008, e7-scale-009, e7-scale-010, e7-buyers-001, e7-buyers-002, e7-buyers-005, e7-buyers-006, e7-buyers-007, e7-buyers-008, e7-medium-001, e7-medium-002, e7-medium-004, e7-medium-006, e7-medium-007, e7-sellers-001, e7-sellers-004, e7-sellers-005, e7-sellers-007]
+readability: "PASS fk_grade=7.81 reading_ease=63.86 gunning_fog=10.80 smog=10.84"
 status: draft-for-review
 ---
 
@@ -141,24 +141,26 @@ Four kinds of money. **National brand**: a manufacturer buying reach for a brand
 
 This is not the split the compilers publish. Coen publishes two buckets, national and local, and he books all direct mail as national. In 1993 direct mail alone was 33.3% of everything Coen called national spending — more than all national television put together.[^42] So a rising "national" share in his series can mean brand money growing or mail growing, and the reader cannot tell which. The four-way split below is our own construction, built to separate those. It is graded C wherever we built it.
 
+One rule has to be fixed before the 2000 and 2025 rows can be read together: where directory money goes. This table puts all of it in the response pool, which is what era 6, era 7 and our own data layer do.[^63] Era 5 also keeps a second rule of its own, which splits the 2000 directory line by who bought it. On that rule the 2000 row reads 28.3% local retail and 24.7% direct response instead. The two middle pools swap places between the rules, the $11.1B of local Yellow Pages money is the whole cause, and nothing written at the time settles which rule is right.
+
 | Year | National brand | Local retail | Classified | Direct response | Not assigned |
 |---|---|---|---|---|---|
 | 1914 | ~22% | ~22% | ~2.2% | ~16% | ~38% |
 | 1949 | ~43% | ~36% | ~6.5% | ~14.5% | — |
-| 2000 | 38.3% | 28.3% | 8.9% | 24.7% | — |
+| 2000 | 38.3% | 23.8% | 8.9% | 29.2% | — |
 | 2025 | ~37% | ~24% | ~2.5% | ~38% | — |
 
 Read the 1914 row with care. Those four shares are our own bottom-up estimates, each graded C, and they reach only 62% rather than 100%. The pre-1919 total is a broad measure of all advertising outlay, of which print was only about 21%.[^43] We now publish the unassigned 38% as its own figure rather than leaving it as a silent gap. About a fifth of it is a real fifth pool with a name — trade papers, legal and financial notices, institutional money. The rest is the distance between the only in-era count of advertising by channel and a much larger figure worked out decades later. The 1914 shares are best read as rough sizes, not a partition: national brand 11% to 46%, local retail 15% to 46%, classified 1.1% to 5%, direct response 8% to 30%.[^44] Only one ordering in that row is safe. Classified was the smallest.
 
 The 2025 row carries its own warning. Those four shares are also grade C, and their ranges are wide and overlapping: national brand 25% to 47%, local and retail 15% to 31%, classified 1.4% to 6.8%, national direct response 29.5% to 47%.[^45] Brand money and response money sit 1.4 points apart and cannot be ranked against each other at all.
 
-The rows also do not share a ruler. The 2000 row counts direct mail at what the advertiser spent, program and postage included; the 2025 row leaves direct mail out on both sides. Put 2000 on the 2025 footing and it reads roughly 43.6% national brand, 33.1% local retail, 9.9% classified and 13.4% direct response.[^45] That is the only like-for-like comparison in the table, and it is the one the next paragraph uses.
+The rows also do not share a ruler. The 2000 row counts direct mail at what the advertiser spent, program and postage included; the 2025 row leaves direct mail out on both sides. Put 2000 on the 2025 footing, keeping directory money in the response pool, and it reads roughly 43.6% national brand, 28.1% local retail, 9.9% classified and 18.4% direct response.[^45] That is the only like-for-like comparison in the table, and it is the one the next paragraph uses.
 
-With those caveats, the shape is still clear and it is not subtle. **Response money grew, classified nearly vanished, local money shrank, and brand money held its ground without ever regaining the lead it had.**
+With those caveats, the shape is still clear and it is not subtle. **Response money grew, classified nearly vanished, brand money held its ground without ever regaining the lead it had, and local money fell hard before 2000 and then only drifted.** Local money is the line the directory rule moves most. On the like-for-like footing it went from 28.1% in 2000 to about 24% in 2025, a fall of four points. On era 5's own rule the same comparison starts at 33.1% and the fall looks more than twice as big.
 
 The 1949 and 2000 rows are firmer, and they set up the change. In 1949, direct mail was 14.5% of all US spend and the second-largest medium in most years of that era.[^46] In 1975, national money was 54.5% of the total.[^47] By 1993, classified alone was 7.9% of all measured US advertising, and direct-response buyers spent about $31 billion, roughly 22% of the market.[^48] Local money was heavily concentrated in exactly the media digital would later take: local buyers supplied 88.7% of newspaper ad revenue in 1993.[^49]
 
-Then in 2000 the market split four ways as $94.9 billion of national brand money, $70.1 billion local, $21.9 billion classified and $61.2 billion direct response.[^50] The pool the search auction was actually built to compete for — newspaper classified, directories and direct mail — was $77.4 billion that year, 31.3% of all US advertising. The entire internet was $6.5 billion on the same series.[^51] The auction was not aimed at television. It was aimed at the phone book.
+Then in 2000 the market split four ways as $94.9 billion of national brand money, $58.9 billion local, $21.9 billion classified and $72.3 billion direct response.[^50] The pool the search auction was actually built to compete for — newspaper classified, directories and direct mail — was $77.4 billion that year, 31.3% of all US advertising. The entire internet was $6.5 billion on the same series.[^51] The auction was not aimed at television. It was aimed at the phone book.
 
 By 2007 that response-priced and intent-matched pool was roughly $99 billion, about 34% of all US advertising.[^52] The pricing followed: 57% of US internet ad revenue was already bought on a performance basis by 2008, against 39% bought by the thousand impressions.[^53] By 2025, search alone is $114.2 billion of US internet revenue, while classifieds, directories and lead generation together are $12.5 billion — 4.2% of it.[^54] Response money is now the largest pool, or tied for it, and classified has fallen to a fortieth of the market.[^55]
 
@@ -240,12 +242,12 @@ A published money-type split from a compiler, rather than our own construction, 
 [^42]: Coen dataset, direct mail as a share of national spending, 1993.
 [^43]: Census of Manufactures print receipts against the 1914 benchmark total.
 [^44]: Claims e1-scale-011 to e1-scale-014 and e1-scale-017, each graded C. Rebuilt in a later pass that ran three separate estimating methods and took the middle answer.
-[^45]: Claims e7-scale-006 to e7-scale-010, each graded C, on MAGNA's $398B media-owner total with direct mail excluded. The like-for-like restatement of 2000 comes from the same reconciliation, which prices the 2000 market at about $221B once direct mail is taken out.
+[^45]: Claims e7-scale-006 to e7-scale-010, each graded C, on MAGNA's $398B media-owner total with direct mail excluded. The like-for-like restatement of 2000 comes from the same reconciliation, which prices the 2000 market at about $221B once direct mail is taken out. Directory money is in the response pool there too; the arithmetic is recorded in the method of e5-scale-015 and e5-scale-016.
 [^46]: Coen dataset, direct mail line, 1949.
 [^47]: Coen dataset, national share, 1975.
 [^48]: Newspaper Association of America classified line, and our direct-response estimate for 1993.
 [^49]: Coen and NAA newspaper revenue by buyer type, 1993.
-[^50]: Claims e5-scale-010 to e5-scale-014, our four-pool decomposition of the Coen 2000 total plus the 0.2-point overshoot.
+[^50]: Claims e5-scale-010, e5-scale-012 and e5-scale-014, plus e5-scale-015 and e5-scale-016 for the two pools restated on the comparable rule. This is our four-pool decomposition of the Coen 2000 total, with the 0.2-point overshoot shown. On era 5's own rule (e5-scale-011 and e5-scale-013) the same two pools read $70.1 billion local and $61.2 billion direct response.
 [^51]: Newspaper classified, Coen directories and Coen direct mail for 2000, against Coen's internet line.
 [^52]: Our four-pool decomposition for 2007, with the IAB internet correction.
 [^53]: IAB and PwC pricing-model split, full-year 2008.
@@ -258,3 +260,5 @@ A published money-type split from a compiler, rather than our own construction, 
 [^60]: Coen dataset, radio share, 1976 and 1993.
 [^61]: Coen dataset, newspaper share, 1949.
 [^62]: Coen dataset, direct mail and newspapers, 2001.
+
+[^63]: Claims e5-scale-015 and e5-scale-016 for 2000 on the comparable rule; e6-scale-010 and e7-scale-008 for the same rule in the later eras; ds-money_type-003 for the data layer. The seam itself, with both orderings and the reason no evidence settles it, is recorded at `taxonomy_seam` in p2-ad-market/data/moneytype/reconciled.json.

@@ -76,15 +76,22 @@ def check_claim(c, inv, where, seen_ids=None):
 
 
 def iter_claims(era):
-    """Yield (claim, where) for every claim-shaped object in an era record."""
+    """Yield (claim, where) for every claim-shaped object in an era record.
+
+    by_money_type_alt is a SIBLING of by_money_type carrying the same era's
+    split on a second, declared taxonomy (era 5's directory seam). Its claims
+    are real calibrated claims and must be validated, verdict-covered and
+    duplicate-checked exactly like the native ones.
+    """
     for fk, fv in era.get("fields", {}).items():
         if not isinstance(fv, dict):
             continue
         for c in fv.get("claims", []):
             yield c, fk
-        for mk, mv in (fv.get("by_money_type") or {}).items():
-            if mv and not is_absence(mv):
-                yield mv, f"{fk}.by_money_type.{mk}"
+        for split_key in ("by_money_type", "by_money_type_alt"):
+            for mk, mv in (fv.get(split_key) or {}).items():
+                if mv and not is_absence(mv):
+                    yield mv, f"{fk}.{split_key}.{mk}"
     for ev in era.get("events", []):
         if isinstance(ev, dict) and ev.get("claim"):
             yield ev["claim"], "events"

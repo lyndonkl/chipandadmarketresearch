@@ -3,8 +3,8 @@ title: The Impression
 project: p2-ad-market
 chapter: 6
 era: 5 (1994-2001)
-claim_ids: [e5-events-001, e5-events-002, e5-events-003, e5-events-006, e5-events-007, e5-events-008, e5-events-010, e5-creators-001, e5-creators-002, e5-creators-003, e5-creators-004, e5-creators-005, e5-buyers-001, e5-buyers-002, e5-buyers-003, e5-buyers-004, e5-buyers-005, e5-buyers-010, e5-buyers-011, e5-buyers-012, e5-buyers-013, e5-sellers-001, e5-sellers-002, e5-sellers-003, e5-sellers-004, e5-sellers-005, e5-sellers-006, e5-medium-001, e5-medium-002, e5-medium-003, e5-medium-004, e5-medium-005, e5-medium-006, e5-scale-001, e5-scale-002, e5-scale-003, e5-scale-004, e5-scale-005, e5-scale-006, e5-scale-007, e5-scale-008, e5-scale-009, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-pricing-001, e5-pricing-002, e5-pricing-003, e5-pricing-004, e5-pricing-005, e5-pricing-006, e5-pricing-007, e5-pricing-008, e5-measurement-001, e5-measurement-002, e5-measurement-003, e5-measurement-004, e5-measurement-005, e5-measurement-006, e5-targeting-001, e5-targeting-002, e5-targeting-003, e5-targeting-004, e5-targeting-005, e5-unit_econ-001, e5-unit_econ-002, e5-unit_econ-003, mech-aol-003]
-readability: "PASS fk_grade=6.41 reading_ease=67.6 gunning_fog=9.44 smog=9.82"
+claim_ids: [e5-events-001, e5-events-002, e5-events-003, e5-events-006, e5-events-007, e5-events-008, e5-events-010, e5-creators-001, e5-creators-002, e5-creators-003, e5-creators-004, e5-creators-005, e5-buyers-001, e5-buyers-002, e5-buyers-003, e5-buyers-004, e5-buyers-005, e5-buyers-010, e5-buyers-011, e5-buyers-012, e5-buyers-013, e5-buyers-014, e5-buyers-015, e5-sellers-001, e5-sellers-002, e5-sellers-003, e5-sellers-004, e5-sellers-005, e5-sellers-006, e5-medium-001, e5-medium-002, e5-medium-003, e5-medium-004, e5-medium-005, e5-medium-006, e5-scale-001, e5-scale-002, e5-scale-003, e5-scale-004, e5-scale-005, e5-scale-006, e5-scale-007, e5-scale-008, e5-scale-009, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-scale-015, e5-scale-016, e5-pricing-001, e5-pricing-002, e5-pricing-003, e5-pricing-004, e5-pricing-005, e5-pricing-006, e5-pricing-007, e5-pricing-008, e5-measurement-001, e5-measurement-002, e5-measurement-003, e5-measurement-004, e5-measurement-005, e5-measurement-006, e5-targeting-001, e5-targeting-002, e5-targeting-003, e5-targeting-004, e5-targeting-005, e5-unit_econ-001, e5-unit_econ-002, e5-unit_econ-003, mech-aol-003]
+readability: "PASS fk_grade=6.45 reading_ease=67.82 gunning_fog=9.40 smog=9.81"
 status: draft-for-review
 ---
 
@@ -53,11 +53,15 @@ Sort the 2000 market by the job the money was doing, not by the medium carrying 
 
 This split is ours, not a published series.[^14] Three separate methods were run at it and the middle answer taken, so it no longer sums to exactly 100%. It runs 0.2 points over, and we show that rather than shave it. Grade it C, except the newspaper classified inside the fourth row, which is a real published series and grades B.
 
-Two of these rows cannot be ranked against each other. Local retail and direct response sit 3.6 points apart with ranges that overlap almost completely, and the order flips on one bookkeeping choice: whether local Yellow Pages, $11.1B of it, counts as local money or as response money.
+Two of these rows cannot be ranked against each other. Local retail and direct response sit 3.6 points apart, their ranges overlap almost completely, and the order flips on one bookkeeping choice: where the Yellow Pages money goes.
+
+That choice is a real seam, and we carry both sides of it rather than pick one.[^61] The table above uses this era's own rule, which splits the $13.2B directory line by who bought it: the $11.1B local part counts as local money, the $2.1B national part as response money. The other rule puts all of it in the response pool. That is what era 6, era 7 and our own data layer do, so it is the rule to use whenever you compare 2000 against another year. On that rule local retail is $58.9B, or 23.8%, and direct response is $72.3B, or 29.2%.
+
+So the order depends on the rule and on nothing else. Under this era's rule local retail leads direct response, 28.3% to 24.7%. Under the comparable rule direct response leads local retail, 29.2% to 23.8%. The $11.1B block is the whole cause. Nothing in the 1994-2001 record says which reading is right, and no further digging can settle it: no source of that time asked a Yellow Pages buyer what it thought it was buying. Under either rule the two ranges still overlap, so a chart must not sort these two bars. National brand and classified do not move at all.
 
 Now set the web against it. The whole internet ad market in 2000 was about $8.1B. Classified alone was more than twice that. Direct mail alone was more than five times it. Almost none of the local or classified money had moved: under 3% of the classified pool was online at the top of the boom.[^15]
 
-That kills a popular story. Measurable, response-priced advertising did not arrive with the web. Close to a quarter of all US ad money was already paying for a counted reply, and it ran on mail and directories.
+That kills a popular story. Measurable, response-priced advertising did not arrive with the web. On the comparable rule, 29.2% of all US ad money was already paying for a counted reply, and it ran on mail and directories.
 
 ## Who sold it
 
@@ -147,7 +151,7 @@ On 23 October 2000 Google opened AdWords to self-serve signups, with about 350 b
 
 The scoreboard at the handover is worth holding in mind. Overture booked $288.1M in 2001. Google's total revenue that year was $86.4M.[^58] The incumbent in paid search was not Google, and the pure-bid auction was not failing.
 
-Era 6 inherits a market of about $7.1B, still 48% priced per impression, with the top ten sellers holding 77% of it.[^59] It also inherits the pools that search will actually take. In 2000 those were classified at $21.9B and direct response at $61.2B, sitting almost entirely in newspapers, mail and phone books.[^60]
+Era 6 inherits a market of about $7.1B, still 48% priced per impression, with the top ten sellers holding 77% of it.[^59] It also inherits the pools that search will actually take. In 2000, counted on the rule era 6 itself uses, those were classified at $21.9B and direct response at $72.3B, sitting almost entirely in newspapers, mail and phone books.[^60]
 
 ## Legends this chapter does not repeat
 
@@ -220,4 +224,6 @@ And measurable advertising did not begin with the web. Direct mail and directori
 [^57]: e5-pricing-005, e5-events-008. Google press release, 23 October 2000.
 [^58]: e5-events-003 (Overture); mech-aol-003 (Google FY2001 net revenues of $86.4M, from Google's own later filings).
 [^59]: e5-scale-006, e5-pricing-001, e5-sellers-001.
-[^60]: e5-buyers-012, e5-buyers-013, grade C.
+[^60]: e5-buyers-012 and e5-buyers-015, grade C. e5-buyers-015 is the direct-response pool on the comparable rule, which is the rule era 6 uses. The era's own rule (e5-buyers-013) reads $61.2B.
+
+[^61]: e5-scale-015, e5-scale-016, e5-buyers-014, e5-buyers-015, all grade C. These are the two pools restated on the comparable rule, held beside the era's own claims (e5-scale-011, e5-scale-013) rather than replacing them. The seam is recorded in full at `taxonomy_seam` in p2-ad-market/data/moneytype/reconciled.json.

@@ -564,7 +564,8 @@
           ],
           "overlap_pp": 12.2,
           "reason": "Declared unrankable by two of three lenses independently. The overlap is the whole of one interval and the centrals are 3.6pp apart. The ordering flips on ONE definitional choice with no measurement content: local Yellow Pages, $11,135m in 2000, 4.499pp of the market. Under the era-5 convention local_retail leads 28.32 to 24.71; move that one block and direct_response leads 29.21 to 23.82. The flip is exact and the block is the sole cause.",
-          "resolved_by": "A single project-wide editorial rule on where directory advertising sits, applied to all seven eras. That is a decision, not a finding. See open_taxonomy_questions."
+          "resolved_by": "A single project-wide editorial rule on where directory advertising sits, applied to all seven eras. That is a decision, not a finding. See open_taxonomy_questions.",
+          "resolution": "SETTLED AT GATE B, 2026-07-30, as a declared seam rather than as a finding. Both rules are carried: the geographic rule leaves this record's centrals as they stand (28.32 to 24.71, local ahead), and the unified-intent rule reverses them (29.21 to 23.82, direct response ahead). The pair stays UNRANKED BY INTERVAL under both, because the intervals overlap either way. See taxonomy_seam."
         },
         {
           "pair": [
@@ -1092,7 +1093,7 @@
     {
       "id": "tax-01",
       "title": "Where does directory and Yellow Pages money sit? Era 5 splits it by advertiser geography; every other place in the project puts all of it in one intent pool.",
-      "status": "OPEN - deliberately NOT resolved by this apply step",
+      "status": "CLOSED at Gate B, 2026-07-30, by DECLARING A SEAM rather than by choosing a rule. Both taxonomies are now carried: see taxonomy_seam in this file. The magnitude, inconsistency and touch-list below stand as recorded and are the evidence base for the seam object.",
       "surfaced_by": "the era-5 reconciliation (unranked_pairs entry 1) and an earlier R2b run; carried forward unresolved",
       "magnitude": {
         "year": 2000,
@@ -1112,9 +1113,122 @@
         "p2-ad-market/research/notes/dataset-notes.md section 8",
         "chapters 01 (the $77.4bn intent grouping), 05, 06 (the era-5 money-type table) and 09 (the four-era money-type table)"
       ],
-      "recommendation_if_the_human_wants_one": "Follow MAGNA, the data layer and eras 6-7: put all directory money in the response-and-listing pool in every era. That would make direct_response the second-largest era-5 pool and local_retail the third, and would remove the contradiction between era 5's claims and the project's own dataset notes. It would NOT change the classified pool in era 5, because directories would go to direct_response, not to classified."
+      "recommendation_if_the_human_wants_one": "Follow MAGNA, the data layer and eras 6-7: put all directory money in the response-and-listing pool in every era. That would make direct_response the second-largest era-5 pool and local_retail the third, and would remove the contradiction between era 5's claims and the project's own dataset notes. It would NOT change the classified pool in era 5, because directories would go to direct_response, not to classified. NOT TAKEN. The human's Gate B decision was to carry BOTH rules as a declared definitional seam, on the same footing as the Coen-versus-MAGNA basis break, rather than to prefer one and discard the other. The unified rule is the cross-era comparable basis; the geographic rule is era 5's native basis. See taxonomy_seam."
     }
   ],
+  "taxonomy_seam": {
+    "id": "seam-directories",
+    "title": "Directory and Yellow Pages money, era 5: carried under BOTH taxonomies as a declared definitional seam",
+    "status": "DECLARED AND CARRIED, not resolved. Decided by the human at Gate B on 2026-07-30.",
+    "decision": "Do not pick one rule and discard the other. Era 5 keeps its geographic split as the era-native view and gains a sibling unified-intent split as the cross-era comparable view. This is the same treatment the dataset already gives the Coen-versus-MAGNA basis break: two internally consistent readings of the same money, both published, neither averaged away.",
+    "supersedes": "open_taxonomy_questions entry tax-01, which recorded this as OPEN and recommended picking the unified rule. The recommendation was NOT taken; carrying both is the decision.",
+    "the_two_rules": {
+      "geographic": {
+        "label": "era-native basis",
+        "rule": "Split the Yellow Pages line by advertiser geography: local directory money is local money, national directory money is response money.",
+        "where_it_is_used": "Era 5's own record and era 5's own chapter, at fields.SCALE.by_money_type and fields.BUYERS.by_money_type in p2-ad-market/data/eras/era-5.json.",
+        "claims": [
+          "e5-scale-011",
+          "e5-scale-013",
+          "e5-buyers-011",
+          "e5-buyers-013"
+        ],
+        "taxonomy_tag": "geographic",
+        "argument_for": "A plumber buying a quarter-page in the local Yellow Pages is a local business buying advertising in its own town, which is exactly what the local-retail pool is for. The directory salesman called on it door to door on a yearly contract, the same way the local newspaper rep did."
+      },
+      "unified-intent": {
+        "label": "cross-era comparable basis",
+        "rule": "Put ALL directory money in one intent pool - the response-and-listing pool - with no geographic split.",
+        "where_it_is_used": "Everywhere else in the project, and it is therefore the basis every cross-era comparison must use: era 6 (e6-scale-010, the whole $14,250m Yellow Pages line), era 7 (e7-scale-008, classified and directories as one pool), adspend.json's intent grouping (ds-money_type-003, newspaper classified $19,608m + the FULL $13,228m Yellow Pages line + direct mail $44,591m = $77,427m), dataset-notes.md section 8, and MAGNA itself, the only compiler in the era-5 window that partitions by money type at all, which places all directories inside its Direct domain.",
+        "claims": [
+          "e5-scale-015",
+          "e5-scale-016",
+          "e5-buyers-014",
+          "e5-buyers-015"
+        ],
+        "taxonomy_tag": "unified-intent",
+        "argument_for": "A directory listing is bought to be found by someone already looking, and it is priced and renewed on the calls it produces. That is a counted reply, not reach. Overture's own 10-K benchmarked its business against Yellow Pages calls and direct-mail responses rather than against television."
+      }
+    },
+    "cross_era_comparable_basis": "unified-intent. Any chart, table or sentence that sets era 5 beside another era must use it, because eras 6 and 7 and the dataset's own intent grouping are already built on it. Splicing era 5's geographic shares to era 6 or 7 crosses an undocumented redefinition worth 4.50 points of the 2000 market.",
+    "era_native_basis": "geographic. It is what era 5 reports on its own terms, and era 5's chapter states both rules and both orderings rather than presenting one silently.",
+    "what_moves": {
+      "block": "local Yellow Pages, 2000",
+      "usd_millions": 11135,
+      "percentage_points_of_the_2000_us_total": 4.4995,
+      "from_pool_under_the_unified_rule": "local_retail",
+      "to_pool_under_the_unified_rule": "direct_response",
+      "local_retail": {
+        "geographic_central_pct": 28.32,
+        "unified_central_pct": 23.82,
+        "delta_pp": -4.4995,
+        "geographic_central_usd_millions": 70084,
+        "unified_central_usd_millions": 58949,
+        "delta_usd_millions": -11135,
+        "geographic_ci80": [
+          20.8,
+          33.0
+        ],
+        "unified_ci80": [
+          20.8,
+          28.5
+        ],
+        "interval_note": "The interval NARROWS from 12.2pp to 7.70pp rather than translating. The ceiling falls by the whole block, because the two lenses that set it carried the block inside this pool. The floor holds at 20.8, because 4.50pp of the native 7.52pp downside WAS the directory convention; settle it by rule and the 3.02pp that remains is the dispersion the lenses actually disagree about."
+      },
+      "direct_response": {
+        "geographic_central_pct": 24.71,
+        "unified_central_pct": 29.21,
+        "delta_pp": 4.4995,
+        "geographic_central_usd_millions": 61150,
+        "unified_central_usd_millions": 72285,
+        "delta_usd_millions": 11135,
+        "geographic_ci80": [
+          19.0,
+          36.0
+        ],
+        "unified_ci80": [
+          23.5,
+          40.5
+        ],
+        "interval_note": "A pure translation, width unchanged at 17.0pp. The directory question contributes none of this pool's native width, which is the general-media direct-response quantity ($5.0-18.5bn, about 5.46pp) plus the basis gaps. A block that is either wholly out or wholly in adds no uncertainty of its own."
+      },
+      "pools_that_do_not_move": {
+        "national_brand": "identical under both rules at 38.34 percent / $94,881m (e5-scale-010, e5-buyers-010). No directory money sits in it under either rule.",
+        "classified": "identical under both rules at 8.85 percent / $21,901m (e5-scale-012, e5-buyers-012). Directories go to direct response, not to classified, so the project's most-quoted era-5 figure - newspaper classified at $19,608m - is untouched by the seam.",
+        "residual": "e5-scale-014 is unchanged at -0.22pp. The block moves between two pools inside the same partition, so the four pools still sum to 100.22 percent of the observed total."
+      }
+    },
+    "magnitude": {
+      "year": 2000,
+      "whole_directory_line_usd_millions": 13228,
+      "whole_directory_line_as_percent_of_the_2000_us_total": 5.35,
+      "local_leg_usd_millions": 11135,
+      "local_leg_pp": 4.4995,
+      "national_leg_usd_millions": 2093,
+      "national_leg_note": "The national leg already sits in direct response under BOTH rules, so only the local leg moves. The $13.2bn / 5.35pp figure is the size of the whole definitional question; the $11.1bn / 4.50pp figure is the size of the move."
+    },
+    "no_evidence_adjudicates_it": "Confirmed, and it is not a gap that more research closes. No source published in or about 1994-2001 records what a Yellow Pages buyer thought it was buying. Coen publishes one Yellow Pages line and splits it by advertiser geography, not by intent; MAGNA publishes it inside Direct and does not split it at all; no survey of directory advertisers' purchase intent exists for the window. The choice is therefore an editorial rule, not a finding, and no amount of source hunting can convert it into one. That is precisely why both rules are carried rather than one being preferred.",
+    "consequence_the_ordering": {
+      "under_the_geographic_rule": "local_retail LEADS direct_response, 28.32 percent to 24.71 percent ($70.1bn to $61.2bn). Local retail is the second-largest pool and direct response the third.",
+      "under_the_unified_rule": "direct_response LEADS local_retail, 29.21 percent to 23.82 percent ($72.3bn to $58.9bn). Direct response is the second-largest pool and local retail the third.",
+      "cause": "The flip is exact and the local Yellow Pages block is its sole cause. Nothing else in the two pools changes.",
+      "unranked_either_way": "Under BOTH rules the two intervals still overlap - [20.8,33.0] against [19.0,36.0] on the geographic rule, [20.8,28.5] against [23.5,40.5] on the unified one - so the pair remains unranked by interval on either basis and a chart must not sort these two bars. What the rule decides is which central is larger, not whether the pair can be ranked.",
+      "unaffected_orderings": "national_brand is first on the central under both rules, and classified is unambiguously last under both. Only the middle two pools swap."
+    },
+    "applied_to": [
+      "p2-ad-market/data/eras/era-5.json: fields.SCALE.by_money_type_alt and fields.BUYERS.by_money_type_alt added as SIBLINGS of by_money_type (the schema's money_type_split sets additionalProperties:false with exactly four keys, so the alt view cannot be nested inside it); the four native claims in each field tagged \"taxonomy\": \"geographic\"; both field summaries restated to declare the seam and both orderings.",
+      "p2-ad-market/data/claims.json: the four new claims inserted with origin era-5.json and verdict 'post-verification'; the eight era-native money-type claims updated only by the addition of the taxonomy tag.",
+      "p2-ad-market/data/verification/verdicts.json: the four new IDs added to post_r3_claims. They are minted after R3 and carry no R3 verdict by construction. No existing verdict was edited.",
+      "p2-ad-market/research/06-the-impression.md: the era's own chapter keeps the geographic table, names the seam, and gives both orderings and the comparable figures.",
+      "p2-ad-market/research/09-the-capture-question.md: the four-era money-type table's 2000 row moved onto the unified-intent basis, because that table compares across eras.",
+      "tools/verify_p2.py: iter_claims extended to walk by_money_type_alt, so the new claims are schema-checked, duplicate-checked and verdict-covered like every other claim rather than being invisible to the verifier."
+    ],
+    "not_applied": [
+      "Eras 1, 2, 3, 4, 6 and 7 are untouched. Eras 6 and 7 already use the unified rule; eras 1-4 are outside the question's reach.",
+      "adspend.json ds-money_type-003 is untouched and needs no change: it was already built on the unified rule.",
+      "p2-ad-market/research/01-thesis.md and 05-segmentation.md were checked and needed no edit. Chapter 01's only 2000 money-type figure is the $77.4bn intent grouping (ds-money_type-003), which is already on the unified rule and states no local-versus-response ordering. Chapter 05 states no era-5 money-type figure at all; its directory money is era 4's."
+    ]
+  },
   "r3_divergences": {
     "policy": "verdicts.json is the historical R3 record and was NOT edited. R2b legitimately supersedes several R3 values, so `verify_p2.py r3-applied` and `r3-coverage` now report the divergences below. They are reported, not hidden.",
     "r3_applied": [

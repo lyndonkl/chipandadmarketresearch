@@ -107,7 +107,7 @@
       ]
     },
     "BUYERS": {
-      "summary": "The buyer of a web ad in this era was, disproportionately, another internet company spending venture or IPO money. DoubleClick reported that traditional advertisers only passed half of its network revenue in the fourth quarter of 2000 — meaning internet firms had been the majority of demand until then — and Yahoo blamed its 44% marketing-services collapse in 2001 directly on internet companies losing access to capital markets. Across all media the buyer mix barely moved: on the R2b reconciliation national brand money was about 38% of the $247.5B US market in 2000, local retail about 28%, direct response (direct mail, directories, online performance deals and the direct-response money bought inside general media) about 25%, and classified about 9%. Almost none of the local or classified money was online yet: online classifieds were 7% of a $8.2B internet market in 2000, i.e. under 3% of the $21.9B US classified pool. The era's genuinely new buyer class was the self-serve advertiser with no agency: Google signed roughly 350 businesses in AdWords' first month (October 2000), and by December 2001 Overture had about 53,000 paying advertisers, mostly small merchants who had never bought media through an agency at all. That buyer class is era 6's engine; here it is still a rounding error.",
+      "summary": "The buyer of a web ad in this era was, disproportionately, another internet company spending venture or IPO money. DoubleClick reported that traditional advertisers only passed half of its network revenue in the fourth quarter of 2000 — meaning internet firms had been the majority of demand until then — and Yahoo blamed its 44% marketing-services collapse in 2001 directly on internet companies losing access to capital markets. Across all media the buyer mix barely moved: on the R2b reconciliation national brand money was about 38% of the $247.5B US market in 2000, local retail about 28%, direct response (direct mail, directories, online performance deals and the direct-response money bought inside general media) about 25%, and classified about 9%. Almost none of the local or classified money was online yet: online classifieds were 7% of a $8.2B internet market in 2000, i.e. under 3% of the $21.9B US classified pool. The era's genuinely new buyer class was the self-serve advertiser with no agency: Google signed roughly 350 businesses in AdWords' first month (October 2000), and by December 2001 Overture had about 53,000 paying advertisers, mostly small merchants who had never bought media through an agency at all. That buyer class is era 6's engine; here it is still a rounding error. TAXONOMY SEAM, declared rather than resolved. This era carries TWO money-type splits of the buyer pools. The era-native split above divides directory money by advertiser geography, putting the $11.1B local Yellow Pages block with local retail. The cross-era comparable split, carried beside it as by_money_type_alt, books all $13.2B of directory money as money bought for a counted reply, the rule eras 6 and 7 and the dataset's intent grouping already use; on that rule local-retail buyers spent about $58.9B (23.8 percent) and direct-response buyers about $72.3B (29.2 percent). Cross-era comparisons use the comparable split. Which of the two pools is larger depends on the rule and on nothing else: local retail leads under the geographic rule, direct response leads under the unified rule, and the $11.1B directory block is the sole cause of the flip. No 1994-2001 source records what a Yellow Pages buyer thought it was buying, so no research can settle it. Classified buyers and national-brand buyers are unaffected.",
       "claims": [
         {
           "id": "e5-buyers-001",
@@ -237,7 +237,8 @@
               "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
-          "as_of": "2000"
+          "as_of": "2000",
+          "taxonomy": "geographic"
         },
         "local_retail": {
           "id": "e5-buyers-011",
@@ -271,7 +272,8 @@
               "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
-          "as_of": "2000"
+          "as_of": "2000",
+          "taxonomy": "geographic"
         },
         "classified": {
           "id": "e5-buyers-012",
@@ -305,7 +307,8 @@
               "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
-          "as_of": "2000"
+          "as_of": "2000",
+          "taxonomy": "geographic"
         },
         "direct_response": {
           "id": "e5-buyers-013",
@@ -344,6 +347,98 @@
             },
             {
               "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
+            }
+          ],
+          "as_of": "2000",
+          "taxonomy": "geographic"
+        }
+      },
+      "by_money_type_alt": {
+        "local_retail": {
+          "id": "e5-buyers-014",
+          "statement": "On the cross-era comparable rule, where ALL directory money sits in the same intent pool eras 6 and 7 use, US local-retail advertisers' measured media spend in 2000 was about $58.9B, 23.8 percent of the market. That is the era-native pool (e5-buyers-011, $70.1B) less the local Yellow Pages block, $11.1B, which this rule books as money bought for a counted reply rather than as local money. Under the era-native geographic rule local retail leads direct response, 28.32 to 24.71; under this unified-intent rule direct response leads local retail, 29.21 to 23.82. The flip is exact and this one block is its sole cause. Under BOTH rules the two intervals still overlap, so the pair stays unranked by interval and a chart must not sort these two bars. No 1994-2001 evidence decides which rule is right; both are carried.",
+          "central": 58.949,
+          "unit": "USD billions (2000 US ad spend)",
+          "ci80": [
+            51.47,
+            70.53
+          ],
+          "grade": "C",
+          "taxonomy": "unified-intent",
+          "method": "TAXONOMY: unified-intent. This is the CROSS-ERA COMPARABLE view of era 5's local-retail pool, and it is a declared definitional seam, not a correction. The era-native claim (e5-scale-011 / e5-buyers-011) stands unchanged at 28.32 percent and is the view era 5 reports on its own terms. || THE BLOCK THAT MOVES: local Yellow Pages, $11,135m in 2000, which is 4.4995 percent of the observed $247,472m Coen total. The national directory leg, $2,093m, already sits in direct response under both rules, so only the local leg moves. Both legs are Coen's own published Yellow Pages line for 2000 ($13,228m) split by advertiser geography. || DERIVATION: this claim inherits the era-native pool's whole evidence base, three-lens panel and aggregation rule, and changes exactly one convention. Central = 28.32 - 4.4995 = 23.82 percent, $70,084m - $11,135m = $58,949m. Every other input is untouched: the Coen Total Local residual (E1, weight 0.60), the 1997 Economic Census local receipts check (E3, weight 0.15), the supply-side and demand-side shopper-and-weekly classified fringe builds (E7/E8, weight 0.10 combined, independent of each other and agreeing within 12 percent), the DMA/WEFA local share of general-media direct response (E4, weight 0.05) and MAGNA Local as a ceiling only (E2, weight 0.10, interval only). The containment check still holds and was not re-run because it does not touch directories: NAA retail $21,409m + NAA classified $19,608m = $41,017m sits inside Coen's local newspaper line of $41,821m with $804m to spare, verified for all eight years. || INTERVAL, and it NARROWS rather than shifting whole. Native ci80 [20.8, 33.0], 12.2pp wide. UPPER BOUND: 33.0 - 4.4995 = 28.50. The native ceiling was set by the reference-class and Fermi lenses, both of which carried the local directory block inside this pool, so removing the block lowers the ceiling by the whole block. LOWER BOUND: unchanged at 20.8. The reconciliation attributes 4.50pp of the native 7.52pp downside to the directory convention alone; under this rule that convention is settled by construction, so what is left below the central is the 3.02pp of measurement and construction dispersion the lenses actually disagree about, and 23.82 - 3.02 = 20.80. Net width 7.70pp against the native 12.2pp: a definitional question worth 4.50pp has been retired by rule, and the interval is narrower because of it, not because anything was measured. || NO EVIDENCE ADJUDICATES THE RULE, and this claim does not pretend otherwise. Nothing published in 1994-2001 records what a Yellow Pages buyer thought it was buying, so no source hunt can settle whether a plumber's directory listing is a local business buying advertising or an advertiser buying a counted reply. Both readings are defensible and the project carries both: the geographic rule as era 5's native view, this unified-intent rule as the cross-era comparable one. The choice is an editorial rule, not a finding. MAGNA, the only compiler in the era-5 window that partitions by money type at all, uses the unified rule: all directories sit inside its Direct domain with no geographic split. || GRADE: C, unchanged. No compiler published a local-RETAIL pool in this window on either rule; only a Local GEOGRAPHY containing classified and directory money. Re-cutting an unsourced pool on a different editorial rule cannot raise its grade. || WHAT DOES NOT MOVE: national brand (e5-scale-010 / e5-buyers-010, 38.34 percent) and classified (e5-scale-012 / e5-buyers-012, 8.85 percent) are identical under both rules, because no directory money sits in either pool under either rule. They keep their native IDs and are not restated here; the alt split therefore carries two pools, not four. The era residual (e5-scale-014, -0.22pp) is also unchanged, because the block is moved between two pools inside the same partition and the four pools still sum to 100.22 percent. || EX-DIRECT-MAIL RAIL: on the media-space-only basis, where Coen's $44,591m direct-mail line is replaced by MAGNA's $18,250m carriage-only figure and the 2000 total falls to about $221,131m, the same block is 5.04pp. The reconciled geographic shares on that rail (national brand 43.6, local retail 33.1, classified 9.9, direct response 13.4) become, on this rule, local retail about 28.1 and direct response about 18.4, with national brand and classified unchanged. That is the only like-for-like footing on which era 5 can be set beside era 7's ex-direct-mail rail, and it must be read on this rule, because era 7 uses this rule.",
+          "sources": [
+            {
+              "name": "Coen Structured Advertising Expenditure Dataset (McCann-Erickson series, curated by Douglas Galbi), 2000 national/local and by-medium detail",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            },
+            {
+              "name": "Newspaper Association of America classified series (2000 classified $19,608m; recruitment $8.7bn, automotive $5.0bn, real estate $3.2bn), via MediaPost/Online Media Daily and the NAA tables on the Internet Archive",
+              "url": "https://www.mediapost.com/publications/article/11138/ad-spending-in-newspapers-hit-487-billion-in-200.html"
+            },
+            {
+              "name": "1997 Economic Census, Information Subject Series, Sources of Receipts (NAICS 5131 broadcast: national/regional air time versus local air time)",
+              "url": "https://www2.census.gov/library/publications/economic-census/1997/information/97s51-ls.pdf"
+            },
+            {
+              "name": "MAGNAGLOBAL media-supplier advertising revenue on the Direct / National / Local typology, published free for year 2000 in the US Census Bureau's Statistical Abstract 2012, Table 1279",
+              "url": "https://www2.census.gov/library/publications/2011/compendia/statab/131ed/tables/12s1279.pdf"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
+            },
+            {
+              "name": "Gate B taxonomy decision, 2026-07-30: the directory seam is declared and BOTH rules are carried (p2-ad-market/data/moneytype/reconciled.json, object taxonomy_seam)"
+            },
+            {
+              "name": "The unified-intent rule as it already stands elsewhere in the project: era 6 claim e6-scale-010 (the whole $14,250m Yellow Pages line, no geographic split), era 7 claim e7-scale-008 (classified and directories as one pool), and adspend.json claim ds-money_type-003 (the $77,427m intent grouping = newspaper classified + the FULL Yellow Pages line + direct mail)"
+            }
+          ],
+          "as_of": "2000"
+        },
+        "direct_response": {
+          "id": "e5-buyers-015",
+          "statement": "On the cross-era comparable rule, where ALL directory money sits in the same intent pool eras 6 and 7 use, US direct-response advertisers' measured media spend in 2000 was about $72.3B, 29.2 percent of the market: direct mail $44.6B, the whole Yellow Pages line $13.2B, performance-priced internet $0.7-1.4B and direct-response money bought inside general media $5-18.5B. That is the era-native pool (e5-buyers-013, $61.2B) plus the local Yellow Pages block, $11.1B. Overture's own filing benchmarked its business against Yellow Pages calls and direct-mail responses, which is the buyer-side reading this rule follows. Under the era-native geographic rule local retail leads direct response, 28.32 to 24.71; under this unified-intent rule direct response leads local retail, 29.21 to 23.82. The flip is exact and this one block is its sole cause. Under BOTH rules the two intervals still overlap, so the pair stays unranked by interval and a chart must not sort these two bars. No 1994-2001 evidence decides which rule is right; both are carried.",
+          "central": 72.285,
+          "unit": "USD billions (2000 US ad spend)",
+          "ci80": [
+            58.16,
+            100.23
+          ],
+          "grade": "C",
+          "taxonomy": "unified-intent",
+          "method": "TAXONOMY: unified-intent. This is the CROSS-ERA COMPARABLE view of era 5's direct-response pool, and it is a declared definitional seam, not a correction. The era-native claim (e5-scale-013 / e5-buyers-013) stands unchanged at 24.71 percent and is the view era 5 reports on its own terms. || THE BLOCK THAT MOVES: local Yellow Pages, $11,135m in 2000, which is 4.4995 percent of the observed $247,472m Coen total. The national directory leg, $2,093m, already sits in direct response under both rules, so only the local leg moves. Both legs are Coen's own published Yellow Pages line for 2000 ($13,228m) split by advertiser geography. || DERIVATION: this claim inherits the era-native pool's whole evidence base, three-lens panel and aggregation rule, and changes exactly one convention. Central = 24.71 + 4.4995 = 29.21 percent, $61,150m + $11,135m = $72,285m. Every other input is untouched: Coen's own direct-mail and Yellow Pages lines (E1, weight 0.45), MAGNA's Direct domain as an independent compiler's floor (E2, weight 0.15, and note that MAGNA already books ALL directories inside Direct, so on this rule the two structures finally agree about directories), DMA/WEFA as the ceiling-setter (E4, weight 0.20), the ERA/infomercial and PIB checks on general-media direct response (E10/E11, weight 0.15 combined), the IAB/PwC pricing-model split applied to Coen's internet line rather than IAB's larger one (E6, weight 0.05), and USPS postage as the basis adjudicator (E9, weight 0.0 on the central). || INTERVAL: a pure translation, native ci80 [19.0, 36.0] + 4.4995 = [23.50, 40.50], width unchanged at 17.0pp. The directory question contributes NONE of this pool's native width. That width is the general-media direct-response quantity, which the panel spans from $5.0bn to $18.5bn, about 5.46pp, plus the Coen-versus-MAGNA basis gap and the direct-mail basis. Under the era-native rule the local directory block was simply absent from this pool; under this rule it is present with certainty. A block that is either wholly out or wholly in adds no uncertainty of its own, so the whole interval moves with the central rather than widening. || NO EVIDENCE ADJUDICATES THE RULE, and this claim does not pretend otherwise. Nothing published in 1994-2001 records what a Yellow Pages buyer thought it was buying, so no source hunt can settle whether a plumber's directory listing is a local business buying advertising or an advertiser buying a counted reply. Both readings are defensible and the project carries both: the geographic rule as era 5's native view, this unified-intent rule as the cross-era comparable one. The choice is an editorial rule, not a finding. MAGNA, the only compiler in the era-5 window that partitions by money type at all, uses the unified rule: all directories sit inside its Direct domain with no geographic split. || GRADE: C, unchanged. No source publishes this POOL on this denominator under either rule. The sourced fraction of the pool actually RISES: Coen's own published lines, direct mail $44,591m plus the whole Yellow Pages line $13,228m, are $57,819m or 80 percent of this claim's central, against $46,684m or 76 percent under the era-native rule, which counts direct mail plus the national directory leg only. The pool still grades C because the general-media direct-response quantity, $5.0-18.5bn of it, remains a construction on either rule. || WHAT DOES NOT MOVE: national brand (e5-scale-010 / e5-buyers-010, 38.34 percent) and classified (e5-scale-012 / e5-buyers-012, 8.85 percent) are identical under both rules. Directories go to direct response, not to classified, so the project's most-quoted era-5 figure - newspaper classified at $19.6bn - is untouched by the seam. The era residual (e5-scale-014, -0.22pp) is unchanged, because the block moves between two pools inside the same partition. || EX-DIRECT-MAIL RAIL: on the media-space-only basis, where Coen's $44,591m direct-mail line is replaced by MAGNA's $18,250m carriage-only figure and the 2000 total falls to about $221,131m, the same block is 5.04pp. The reconciled geographic shares on that rail (national brand 43.6, local retail 33.1, classified 9.9, direct response 13.4) become, on this rule, local retail about 28.1 and direct response about 18.4. That is the only like-for-like footing on which era 5 can be set beside era 7's ex-direct-mail rail, and it must be read on this rule, because era 7 uses this rule.",
+          "sources": [
+            {
+              "name": "Coen Structured Advertising Expenditure Dataset (McCann-Erickson series, curated by Douglas Galbi), 2000 national/local and by-medium detail",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            },
+            {
+              "name": "MAGNAGLOBAL media-supplier advertising revenue on the Direct / National / Local typology, published free for year 2000 in the US Census Bureau's Statistical Abstract 2012, Table 1279",
+              "url": "https://www2.census.gov/library/publications/2011/compendia/statab/131ed/tables/12s1279.pdf"
+            },
+            {
+              "name": "DMA / WEFA, 'The Economic Impact: US Direct & Interactive Marketing Today', in the DMA Statistical Fact Book 2001 (direct-marketing expenditure by medium, 1995 and 2000)",
+              "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+            },
+            {
+              "name": "IAB / PricewaterhouseCoopers Internet Advertising Revenue Report, 2001 Full-Year Results (FY2000 format and pricing-model splits; classifieds 7 percent, performance pricing 10 percent)",
+              "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf"
+            },
+            {
+              "name": "Overture Services, Inc., Form 10-K for FY2001 (revenue $103.052m in 2000; direct mail and Yellow Pages lead-volume benchmarks citing DMA and YPPA)",
+              "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm"
+            },
+            {
+              "name": "United States Postal Service, Revenue, Pieces and Weight reports (Standard Mail (A) postage revenue, roughly $15-16bn in FY2000) - named as the basis adjudicator; not yet retrieved for FY1994-2001"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
+            },
+            {
+              "name": "Gate B taxonomy decision, 2026-07-30: the directory seam is declared and BOTH rules are carried (p2-ad-market/data/moneytype/reconciled.json, object taxonomy_seam)"
+            },
+            {
+              "name": "The unified-intent rule as it already stands elsewhere in the project: era 6 claim e6-scale-010 (the whole $14,250m Yellow Pages line, no geographic split), era 7 claim e7-scale-008 (classified and directories as one pool), and adspend.json claim ds-money_type-003 (the $77,427m intent grouping = newspaper classified + the FULL Yellow Pages line + direct mail)"
             }
           ],
           "as_of": "2000"
@@ -598,7 +693,7 @@
       ]
     },
     "SCALE": {
-      "summary": "US measured advertising grew from $153.0B in 1994 to $247.5B in 2000, the largest run in the series' post-war history, then fell 6.5% to $231.3B in 2001 — one of only six down years in seventy (the others being 1938, 1942, 1961 and 1991). Advertising's share of GDP peaked in 2000 at roughly 2.3-2.5% depending on the series and the GDP vintage, and has never regained that level, which makes 2000 the high-water mark of advertising intensity in the American economy and complicates any story in which the web enlarged the pie. Internet advertising itself went from unmeasurable in 1994-1995 to $267M in 1996, $8.1-8.2B in 2000 and back to $7.1-7.2B in 2001, with four consecutive quarterly declines from the Q4 2000 peak of $2.16B. By money type in 2000, on the R2b three-lens reconciliation, the market split roughly $94.9B national brand, $70.1B local retail, $61.2B direct response and $21.9B classified — and the two pools search would later take, classified and direct response, were together worth $83.1B while the entire internet ad market was worth $8.2B. Newspaper classified's SHARE of US advertising peaked in 1997 at 8.94 percent, three years before its dollar peak.",
+      "summary": "US measured advertising grew from $153.0B in 1994 to $247.5B in 2000, the largest run in the series' post-war history, then fell 6.5% to $231.3B in 2001 — one of only six down years in seventy (the others being 1938, 1942, 1961 and 1991). Advertising's share of GDP peaked in 2000 at roughly 2.3-2.5% depending on the series and the GDP vintage, and has never regained that level, which makes 2000 the high-water mark of advertising intensity in the American economy and complicates any story in which the web enlarged the pie. Internet advertising itself went from unmeasurable in 1994-1995 to $267M in 1996, $8.1-8.2B in 2000 and back to $7.1-7.2B in 2001, with four consecutive quarterly declines from the Q4 2000 peak of $2.16B. By money type in 2000, on the R2b three-lens reconciliation, the market split roughly $94.9B national brand, $70.1B local retail, $61.2B direct response and $21.9B classified — and the two pools search would later take, classified and direct response, were together worth $83.1B while the entire internet ad market was worth $8.2B. Newspaper classified's SHARE of US advertising peaked in 1997 at 8.94 percent, three years before its dollar peak. TAXONOMY SEAM, declared rather than resolved. This era carries TWO money-type splits, and the difference is worth $13.2B in 2000, 5.35 points of that year's market. The era-native split above divides directory money by advertiser geography: local Yellow Pages ($11,135m) counts as local money, national directories ($2,093m) as response money. The cross-era comparable split, carried beside it as by_money_type_alt, puts ALL directory money in the response pool, which is the rule era 6, era 7, the dataset's own intent grouping and MAGNA all use; on that rule local retail is 23.82 percent ($58.9B) and direct response is 29.21 percent ($72.3B). Any comparison that crosses eras must use the comparable split. The rank of local retail against direct response depends entirely on which rule is chosen: local retail leads on the geographic rule, 28.32 to 24.71, and direct response leads on the unified rule, 29.21 to 23.82. No evidence from 1994-2001 adjudicates the choice, so this is an editorial rule and not a finding. National brand and classified are identical under both rules.",
       "claims": [
         {
           "id": "e5-scale-001",
@@ -866,7 +961,8 @@
               "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
-          "as_of": "2000"
+          "as_of": "2000",
+          "taxonomy": "geographic"
         },
         "local_retail": {
           "id": "e5-scale-011",
@@ -903,7 +999,8 @@
               "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
-          "as_of": "2000"
+          "as_of": "2000",
+          "taxonomy": "geographic"
         },
         "classified": {
           "id": "e5-scale-012",
@@ -944,7 +1041,8 @@
               "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
             }
           ],
-          "as_of": "2000"
+          "as_of": "2000",
+          "taxonomy": "geographic"
         },
         "direct_response": {
           "id": "e5-scale-013",
@@ -982,6 +1080,100 @@
             },
             {
               "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
+            }
+          ],
+          "as_of": "2000",
+          "taxonomy": "geographic"
+        }
+      },
+      "by_money_type_alt": {
+        "local_retail": {
+          "id": "e5-scale-015",
+          "statement": "On the cross-era comparable rule, where ALL directory money sits in the same intent pool eras 6 and 7 use, local-retail advertising was 23.8 percent of the $247.5B US measured advertising market in 2000, about $58.9B. That is the era-native pool (e5-scale-011, 28.3 percent) less local Yellow Pages, $11,135m or 4.50 points of the market. Under the era-native geographic rule local retail leads direct response, 28.32 to 24.71; under this unified-intent rule direct response leads local retail, 29.21 to 23.82. The flip is exact and this one block is its sole cause. Under BOTH rules the two intervals still overlap, so the pair stays unranked by interval and a chart must not sort these two bars. No 1994-2001 evidence decides which rule is right; both are carried.",
+          "central": 23.82,
+          "unit": "percent of total US ad spend",
+          "ci80": [
+            20.8,
+            28.5
+          ],
+          "grade": "C",
+          "taxonomy": "unified-intent",
+          "method": "TAXONOMY: unified-intent. This is the CROSS-ERA COMPARABLE view of era 5's local-retail pool, and it is a declared definitional seam, not a correction. The era-native claim (e5-scale-011 / e5-buyers-011) stands unchanged at 28.32 percent and is the view era 5 reports on its own terms. || THE BLOCK THAT MOVES: local Yellow Pages, $11,135m in 2000, which is 4.4995 percent of the observed $247,472m Coen total. The national directory leg, $2,093m, already sits in direct response under both rules, so only the local leg moves. Both legs are Coen's own published Yellow Pages line for 2000 ($13,228m) split by advertiser geography. || DERIVATION: this claim inherits the era-native pool's whole evidence base, three-lens panel and aggregation rule, and changes exactly one convention. Central = 28.32 - 4.4995 = 23.82 percent, $70,084m - $11,135m = $58,949m. Every other input is untouched: the Coen Total Local residual (E1, weight 0.60), the 1997 Economic Census local receipts check (E3, weight 0.15), the supply-side and demand-side shopper-and-weekly classified fringe builds (E7/E8, weight 0.10 combined, independent of each other and agreeing within 12 percent), the DMA/WEFA local share of general-media direct response (E4, weight 0.05) and MAGNA Local as a ceiling only (E2, weight 0.10, interval only). The containment check still holds and was not re-run because it does not touch directories: NAA retail $21,409m + NAA classified $19,608m = $41,017m sits inside Coen's local newspaper line of $41,821m with $804m to spare, verified for all eight years. || INTERVAL, and it NARROWS rather than shifting whole. Native ci80 [20.8, 33.0], 12.2pp wide. UPPER BOUND: 33.0 - 4.4995 = 28.50. The native ceiling was set by the reference-class and Fermi lenses, both of which carried the local directory block inside this pool, so removing the block lowers the ceiling by the whole block. LOWER BOUND: unchanged at 20.8. The reconciliation attributes 4.50pp of the native 7.52pp downside to the directory convention alone; under this rule that convention is settled by construction, so what is left below the central is the 3.02pp of measurement and construction dispersion the lenses actually disagree about, and 23.82 - 3.02 = 20.80. Net width 7.70pp against the native 12.2pp: a definitional question worth 4.50pp has been retired by rule, and the interval is narrower because of it, not because anything was measured. || NO EVIDENCE ADJUDICATES THE RULE, and this claim does not pretend otherwise. Nothing published in 1994-2001 records what a Yellow Pages buyer thought it was buying, so no source hunt can settle whether a plumber's directory listing is a local business buying advertising or an advertiser buying a counted reply. Both readings are defensible and the project carries both: the geographic rule as era 5's native view, this unified-intent rule as the cross-era comparable one. The choice is an editorial rule, not a finding. MAGNA, the only compiler in the era-5 window that partitions by money type at all, uses the unified rule: all directories sit inside its Direct domain with no geographic split. || GRADE: C, unchanged. No compiler published a local-RETAIL pool in this window on either rule; only a Local GEOGRAPHY containing classified and directory money. Re-cutting an unsourced pool on a different editorial rule cannot raise its grade. || WHAT DOES NOT MOVE: national brand (e5-scale-010 / e5-buyers-010, 38.34 percent) and classified (e5-scale-012 / e5-buyers-012, 8.85 percent) are identical under both rules, because no directory money sits in either pool under either rule. They keep their native IDs and are not restated here; the alt split therefore carries two pools, not four. The era residual (e5-scale-014, -0.22pp) is also unchanged, because the block is moved between two pools inside the same partition and the four pools still sum to 100.22 percent. || EX-DIRECT-MAIL RAIL: on the media-space-only basis, where Coen's $44,591m direct-mail line is replaced by MAGNA's $18,250m carriage-only figure and the 2000 total falls to about $221,131m, the same block is 5.04pp. The reconciled geographic shares on that rail (national brand 43.6, local retail 33.1, classified 9.9, direct response 13.4) become, on this rule, local retail about 28.1 and direct response about 18.4, with national brand and classified unchanged. That is the only like-for-like footing on which era 5 can be set beside era 7's ex-direct-mail rail, and it must be read on this rule, because era 7 uses this rule.",
+          "sources": [
+            {
+              "name": "Coen Structured Advertising Expenditure Dataset (McCann-Erickson series, curated by Douglas Galbi), 2000 national/local and by-medium detail",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            },
+            {
+              "name": "Newspaper Association of America classified series (2000 classified $19,608m; recruitment $8.7bn, automotive $5.0bn, real estate $3.2bn), via MediaPost/Online Media Daily and the NAA tables on the Internet Archive",
+              "url": "https://www.mediapost.com/publications/article/11138/ad-spending-in-newspapers-hit-487-billion-in-200.html"
+            },
+            {
+              "name": "1997 Economic Census, Information Subject Series, Sources of Receipts (NAICS 5131 broadcast: national/regional air time versus local air time)",
+              "url": "https://www2.census.gov/library/publications/economic-census/1997/information/97s51-ls.pdf"
+            },
+            {
+              "name": "MAGNAGLOBAL media-supplier advertising revenue on the Direct / National / Local typology, published free for year 2000 in the US Census Bureau's Statistical Abstract 2012, Table 1279",
+              "url": "https://www2.census.gov/library/publications/2011/compendia/statab/131ed/tables/12s1279.pdf"
+            },
+            {
+              "name": "R2b money-type source hunt, era 5 (p2-ad-market/data/moneytype/sources-era-5.json)"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
+            },
+            {
+              "name": "Gate B taxonomy decision, 2026-07-30: the directory seam is declared and BOTH rules are carried (p2-ad-market/data/moneytype/reconciled.json, object taxonomy_seam)"
+            },
+            {
+              "name": "The unified-intent rule as it already stands elsewhere in the project: era 6 claim e6-scale-010 (the whole $14,250m Yellow Pages line, no geographic split), era 7 claim e7-scale-008 (classified and directories as one pool), and adspend.json claim ds-money_type-003 (the $77,427m intent grouping = newspaper classified + the FULL Yellow Pages line + direct mail)"
+            }
+          ],
+          "as_of": "2000"
+        },
+        "direct_response": {
+          "id": "e5-scale-016",
+          "statement": "On the cross-era comparable rule, where ALL directory money sits in the same intent pool eras 6 and 7 use, direct-response advertising was 29.2 percent of the $247.5B US measured advertising market in 2000, about $72.3B: direct mail $44.6B, the whole Yellow Pages line $13.2B, performance-priced internet $0.7-1.4B and direct-response money bought inside general media $5-18.5B. That is the era-native pool (e5-scale-013, 24.7 percent) plus local Yellow Pages, $11,135m or 4.50 points of the market. Under the era-native geographic rule local retail leads direct response, 28.32 to 24.71; under this unified-intent rule direct response leads local retail, 29.21 to 23.82. The flip is exact and this one block is its sole cause. Under BOTH rules the two intervals still overlap, so the pair stays unranked by interval and a chart must not sort these two bars. No 1994-2001 evidence decides which rule is right; both are carried.",
+          "central": 29.21,
+          "unit": "percent of total US ad spend",
+          "ci80": [
+            23.5,
+            40.5
+          ],
+          "grade": "C",
+          "taxonomy": "unified-intent",
+          "method": "TAXONOMY: unified-intent. This is the CROSS-ERA COMPARABLE view of era 5's direct-response pool, and it is a declared definitional seam, not a correction. The era-native claim (e5-scale-013 / e5-buyers-013) stands unchanged at 24.71 percent and is the view era 5 reports on its own terms. || THE BLOCK THAT MOVES: local Yellow Pages, $11,135m in 2000, which is 4.4995 percent of the observed $247,472m Coen total. The national directory leg, $2,093m, already sits in direct response under both rules, so only the local leg moves. Both legs are Coen's own published Yellow Pages line for 2000 ($13,228m) split by advertiser geography. || DERIVATION: this claim inherits the era-native pool's whole evidence base, three-lens panel and aggregation rule, and changes exactly one convention. Central = 24.71 + 4.4995 = 29.21 percent, $61,150m + $11,135m = $72,285m. Every other input is untouched: Coen's own direct-mail and Yellow Pages lines (E1, weight 0.45), MAGNA's Direct domain as an independent compiler's floor (E2, weight 0.15, and note that MAGNA already books ALL directories inside Direct, so on this rule the two structures finally agree about directories), DMA/WEFA as the ceiling-setter (E4, weight 0.20), the ERA/infomercial and PIB checks on general-media direct response (E10/E11, weight 0.15 combined), the IAB/PwC pricing-model split applied to Coen's internet line rather than IAB's larger one (E6, weight 0.05), and USPS postage as the basis adjudicator (E9, weight 0.0 on the central). || INTERVAL: a pure translation, native ci80 [19.0, 36.0] + 4.4995 = [23.50, 40.50], width unchanged at 17.0pp. The directory question contributes NONE of this pool's native width. That width is the general-media direct-response quantity, which the panel spans from $5.0bn to $18.5bn, about 5.46pp, plus the Coen-versus-MAGNA basis gap and the direct-mail basis. Under the era-native rule the local directory block was simply absent from this pool; under this rule it is present with certainty. A block that is either wholly out or wholly in adds no uncertainty of its own, so the whole interval moves with the central rather than widening. || NO EVIDENCE ADJUDICATES THE RULE, and this claim does not pretend otherwise. Nothing published in 1994-2001 records what a Yellow Pages buyer thought it was buying, so no source hunt can settle whether a plumber's directory listing is a local business buying advertising or an advertiser buying a counted reply. Both readings are defensible and the project carries both: the geographic rule as era 5's native view, this unified-intent rule as the cross-era comparable one. The choice is an editorial rule, not a finding. MAGNA, the only compiler in the era-5 window that partitions by money type at all, uses the unified rule: all directories sit inside its Direct domain with no geographic split. || GRADE: C, unchanged. No source publishes this POOL on this denominator under either rule. The sourced fraction of the pool actually RISES: Coen's own published lines, direct mail $44,591m plus the whole Yellow Pages line $13,228m, are $57,819m or 80 percent of this claim's central, against $46,684m or 76 percent under the era-native rule, which counts direct mail plus the national directory leg only. The pool still grades C because the general-media direct-response quantity, $5.0-18.5bn of it, remains a construction on either rule. || WHAT DOES NOT MOVE: national brand (e5-scale-010 / e5-buyers-010, 38.34 percent) and classified (e5-scale-012 / e5-buyers-012, 8.85 percent) are identical under both rules. Directories go to direct response, not to classified, so the project's most-quoted era-5 figure - newspaper classified at $19.6bn - is untouched by the seam. The era residual (e5-scale-014, -0.22pp) is unchanged, because the block moves between two pools inside the same partition. || EX-DIRECT-MAIL RAIL: on the media-space-only basis, where Coen's $44,591m direct-mail line is replaced by MAGNA's $18,250m carriage-only figure and the 2000 total falls to about $221,131m, the same block is 5.04pp. The reconciled geographic shares on that rail (national brand 43.6, local retail 33.1, classified 9.9, direct response 13.4) become, on this rule, local retail about 28.1 and direct response about 18.4. That is the only like-for-like footing on which era 5 can be set beside era 7's ex-direct-mail rail, and it must be read on this rule, because era 7 uses this rule.",
+          "sources": [
+            {
+              "name": "Coen Structured Advertising Expenditure Dataset (McCann-Erickson series, curated by Douglas Galbi), 2000 national/local and by-medium detail",
+              "url": "https://www.galbithink.org/ad-spending.htm"
+            },
+            {
+              "name": "MAGNAGLOBAL media-supplier advertising revenue on the Direct / National / Local typology, published free for year 2000 in the US Census Bureau's Statistical Abstract 2012, Table 1279",
+              "url": "https://www2.census.gov/library/publications/2011/compendia/statab/131ed/tables/12s1279.pdf"
+            },
+            {
+              "name": "DMA / WEFA, 'The Economic Impact: US Direct & Interactive Marketing Today', in the DMA Statistical Fact Book 2001 (direct-marketing expenditure by medium, 1995 and 2000)",
+              "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+            },
+            {
+              "name": "IAB / PricewaterhouseCoopers Internet Advertising Revenue Report, 2001 Full-Year Results (FY2000 format and pricing-model splits; classifieds 7 percent, performance pricing 10 percent)",
+              "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf"
+            },
+            {
+              "name": "United States Postal Service, Revenue, Pieces and Weight reports (Standard Mail (A) postage revenue, roughly $15-16bn in FY2000) - named as the basis adjudicator; not yet retrieved for FY1994-2001"
+            },
+            {
+              "name": "R2b money-type source hunt, era 5 (p2-ad-market/data/moneytype/sources-era-5.json)"
+            },
+            {
+              "name": "R2b money-type reconciliation, era 5, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
+            },
+            {
+              "name": "Gate B taxonomy decision, 2026-07-30: the directory seam is declared and BOTH rules are carried (p2-ad-market/data/moneytype/reconciled.json, object taxonomy_seam)"
+            },
+            {
+              "name": "The unified-intent rule as it already stands elsewhere in the project: era 6 claim e6-scale-010 (the whole $14,250m Yellow Pages line, no geographic split), era 7 claim e7-scale-008 (classified and directories as one pool), and adspend.json claim ds-money_type-003 (the $77,427m intent grouping = newspaper classified + the FULL Yellow Pages line + direct mail)"
             }
           ],
           "as_of": "2000"
