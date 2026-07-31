@@ -1,0 +1,1785 @@
+{
+  "verdicts": [
+    {
+      "claim_id": "e2-creators-001",
+      "verdict": "rejected",
+      "evidence": "I fetched both cited sources. The Business History Conference page (Cynthia Meyers, 'Salesmanship vs. Showmanship') is an abstract whose only concrete JWT datum is 'J. Walter Thompson produced Kraft Music Hall' - it carries no count of top-ten programs and no share statistic. The Museum of Broadcast Communications 'Advertising' page says only 'By the mid-1930s, advertising agencies were not only selling most of radio network time but were increasingly producing the programs themselves' - no JWT-specific count. Neither source contains the assertion, the number 5, or any top-ten ranking. Independent searches (Meyers's book, Duke JWT archive finding aids, LOC Great Depression advertising guide, Encyclopedia.com) surfaced only a different and weaker datum: 'By 1933, J. Walter Thompson's clients sponsored nine weekly shows including Kraft Music Hall and the Fleischmann Yeast Hour.' Sponsorship by clients is not production by JWT, and 'nine weekly shows' is not 'five of the top ten.' The claim traces to nothing.",
+      "sources_consulted": [
+        {
+          "name": "Business History Conference - Meyers, 'Salesmanship vs. Showmanship'",
+          "url": "https://thebhc.org/salesmanship-vs-showmanship-advertising-agencies-radio-during-1930s-1940s"
+        },
+        {
+          "name": "Museum of Broadcast Communications, Radio Encyclopedia: Advertising",
+          "url": "https://www.museum.tv/radio-encyclopedia/advertising"
+        },
+        {
+          "name": "Encyclopedia.com, 'J. Walter Thompson'",
+          "url": "https://www.encyclopedia.com/media/encyclopedias-almanacs-transcripts-and-maps/j-walter-thompson"
+        }
+      ],
+      "reason": "Cited sources do not contain the claimed statistic; no independent source for it was findable. A grade-B calibration on an untraceable number is unsupportable.",
+      "replaced_by": "Suggested replacement (sourced): 'By 1933 J. Walter Thompson's clients sponsored nine weekly network radio shows, including Kraft Music Hall and the Fleischmann Yeast Hour; by the mid-1930s advertising agencies, not networks, were producing most nationally sponsored network programs.' central 9, unit 'weekly network radio programs sponsored by JWT clients, 1933', ci80 [9,9], grade B, sources: Encyclopedia.com 'J. Walter Thompson'; MBC Radio Encyclopedia: Advertising; FCC Report on Chain Broadcasting (1941) ch. VI for the agency-production finding. If the top-ten framing is wanted, it must be rebuilt from Crossley/CAB season rankings against agency-of-record attributions - primary work not done in this run.",
+      "disagreement": "The record treats the BHC abstract as carrying a quantitative finding. It does not; it is a conference abstract."
+    },
+    {
+      "claim_id": "e2-creators-002",
+      "verdict": "adjusted",
+      "evidence": "UCLA Anderson Review confirms the first half: 'For over a century, advertising agencies collected a 15% commission on media billings, even after they switched from selling ad space for publishers to buying ad space on behalf of advertisers,' with the rate originating in the 1840s-1880s and holding until the 1990s. But that page says nothing about radio program production, and the second cited source (MBC Radio Encyclopedia: Advertising) mentions neither a 15 percent commission nor its relation to production - I fetched it and confirmed both absences. The production half is however verifiable at grade A from a source the record already quotes in the field summary but does not cite on this claim: FCC, Report on Chain Broadcasting (1941), ch. VI - 'the network further delegates the actual production of programs to advertising agencies. These agencies are far more than mere brokers or intermediaries between the network and the advertiser. To an ever-increasing extent, these agencies actually exercise the function of program production.' The FCC report nowhere states the standard agency commission was 15 percent; its only '15 percent' is Mutual's commission on affiliated-station proceeds.",
+      "sources_consulted": [
+        {
+          "name": "UCLA Anderson Review, 'The Long History of Middlemen Earning a Lucrative Fixed Commission'",
+          "url": "https://www.anderson-review.ucla.edu/the-long-history-of-middlemen-earning-a-lucrative-fixed-commission/"
+        },
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        },
+        {
+          "name": "Museum of Broadcast Communications, Radio Encyclopedia: Advertising",
+          "url": "https://www.museum.tv/radio-encyclopedia/advertising"
+        }
+      ],
+      "old": {
+        "sources": [
+          {
+            "name": "UCLA Anderson Review"
+          },
+          {
+            "name": "MBC Radio Encyclopedia: Advertising"
+          }
+        ]
+      },
+      "new": {
+        "id": "e2-creators-002",
+        "statement": "The standard agency commission held at 15 percent of gross media billing through the whole era, and on radio it covered program production as well as media buying.",
+        "central": 15,
+        "unit": "percent of gross media billing retained by the agency",
+        "ci80": [
+          15,
+          15
+        ],
+        "grade": "B",
+        "sources": [
+          {
+            "name": "UCLA Anderson Review, 'The Long History of Middlemen Earning a Lucrative Fixed Commission'",
+            "url": "https://www.anderson-review.ucla.edu/the-long-history-of-middlemen-earning-a-lucrative-fixed-commission/"
+          },
+          {
+            "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI (networks delegated actual program production to advertising agencies)",
+            "url": "https://earlyradiohistory.us/1941cb06.htm"
+          }
+        ],
+        "as_of": "1930"
+      },
+      "reason": "Source swap only: the MBC citation does not support either half of the claim and is replaced by the FCC 1941 report, which supports the program-production half at grade A. Value, interval and grade unchanged.",
+      "disagreement": "ci80 [15,15] treats a posted standard rate as a point estimate. That is defensible for the card rate but the realised commission varied (recognised-agency rules, rebating, and media that paid other rates). Flagging, not adjusting."
+    },
+    {
+      "claim_id": "e2-creators-003",
+      "verdict": "adjusted",
+      "evidence": "The claim's only source is 'Hower ... Table 15, p. 536, as tabulated in the CS Ad Dataset source sheet' pointing at https://www.galbithink.org/cs-ad-dataset.xls. I downloaded that workbook and scanned all nine sheets (summary, categories, schemes, CS ad dataset, dataset notes, estimates 1900-34, revisions, internet, naa comparison) cell by cell with a regex for Ayer/Hower/agency/13.7/38.0. There is no Ayer table, no Hower reference and no agency-receipts series anywhere in the file - the only 38.0 hits are the year 1938 and an unrelated expenditure cell. The cited electronic source demonstrably does not carry the claim. Hower's monograph is real (Harvard University Press; 1939 first edition, 1949 revised as 'N. W. Ayer & Son at Work, 1869-1949') and is a plausible home for such a table, but I could not reach its text in this run and no online reproduction of the figures was findable.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Hower, The History of an Advertising Agency (Harvard University Press) - edition and contents verified via bookseller/library records only",
+          "url": "https://www.abebooks.com/History-Advertising-Agency-Ayer-Work-1869-1949/31365611402/bd"
+        },
+        {
+          "name": "N W Ayer Advertising Agency Records, Smithsonian NMAH AC.0059",
+          "url": "https://sova.si.edu/record/nmah.ac.0059"
+        }
+      ],
+      "old": {
+        "sources": [
+          {
+            "name": "Hower ... as tabulated in the CS Ad Dataset source sheet",
+            "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+          }
+        ]
+      },
+      "new": {
+        "id": "e2-creators-003",
+        "statement": "N.W. Ayer's gross receipts reached $38.0M in 1930, up from $13.7M in 1919 (figure not independently verified; see method).",
+        "central": 38.0,
+        "unit": "US$ millions, N.W. Ayer gross receipts, 1930",
+        "ci80": [
+          34.0,
+          42.0
+        ],
+        "grade": "C",
+        "method": "Sole source is Hower, The History of an Advertising Agency (Harvard University Press), Table 15, p. 536. The book was not reachable in this run and no online reproduction of Table 15 was found; the figure is carried on the strength of the monograph alone. Interval widened from +/-2.0 to +/-4.0 to reflect that the value has not been read against the source. VERIFY AGAINST THE BOOK BEFORE PUBLICATION.",
+        "sources": [
+          {
+            "name": "Hower, The History of an Advertising Agency: N. W. Ayer & Son at Work (Harvard University Press), Table 15, p. 536",
+            "url": "https://www.abebooks.com/History-Advertising-Agency-Ayer-Work-1869-1949/31365611402/bd"
+          },
+          {
+            "name": "N W Ayer Advertising Agency Records, Smithsonian NMAH AC.0059 (primary corporate records, unconsulted)",
+            "url": "https://sova.si.edu/record/nmah.ac.0059"
+          }
+        ],
+        "as_of": "1930"
+      },
+      "reason": "The cited URL is false: the Coen workbook contains no Ayer or Hower data of any kind. Source corrected to the book alone, grade lowered B->C (the figure now rests on an unread monograph rather than a checkable tabulation) and the interval widened to reflect that.",
+      "disagreement": "The record's phrase 'as tabulated in the CS Ad Dataset source sheet' implies a checkable secondary tabulation that does not exist. This is the second claim in the batch whose citation points at a document that does not contain it."
+    },
+    {
+      "claim_id": "e2-creators-004",
+      "verdict": "adjusted",
+      "evidence": "I fetched both Encyclopedia.com pages. The cited one ('J. Walter Thompson Company', culture-magazines) confirms the rank half verbatim: 'For half a century, from 1922 to 1972, it led the industry in billings.' The companion page ('J. Walter Thompson', media) says billings grew 'from $10 million to nearly $1 billion' across 1922-1972. Neither page contains $37.5 million or any late-1920s billings figure. The Duke Rubenstein JWT collection page carries no financial data either. The only place the figure surfaced in my search was a decomposition ('1929 US billings $32.1M, international $5.4M', summing to exactly 37.5) that traces to an AI-generated encyclopedia, which does not meet grade B under the rigor_spec. The number is plausible and internally coherent but I could not land it on a gradeable source.",
+      "sources_consulted": [
+        {
+          "name": "Encyclopedia.com, 'J. Walter Thompson Company'",
+          "url": "https://www.encyclopedia.com/history/culture-magazines/j-walter-thompson-company"
+        },
+        {
+          "name": "Encyclopedia.com, 'J. Walter Thompson'",
+          "url": "https://www.encyclopedia.com/media/encyclopedias-almanacs-transcripts-and-maps/j-walter-thompson"
+        },
+        {
+          "name": "Duke University Libraries, J. Walter Thompson Company collections",
+          "url": "https://library.duke.edu/rubenstein/collections/creators/corporations/jwt"
+        }
+      ],
+      "old": {
+        "central": 37.5,
+        "ci80": [
+          35.0,
+          42.0
+        ],
+        "grade": "B"
+      },
+      "new": {
+        "id": "e2-creators-004",
+        "statement": "J. Walter Thompson led the industry in billings for fifty years, 1922 to 1972; its billings at the end of the 1920s are reported at about $37.5M, a figure not traceable to a graded source.",
+        "central": 37.5,
+        "unit": "US$ millions, J. Walter Thompson billings, end of the 1920s",
+        "ci80": [
+          32.0,
+          42.0
+        ],
+        "grade": "C",
+        "method": "Two components with different support. (1) The 1922-1972 number-one billings rank is confirmed verbatim by Encyclopedia.com, 'J. Walter Thompson Company': 'For half a century, from 1922 to 1972, it led the industry in billings.' (2) The $37.5M level is not in either Encyclopedia.com entry, the Duke JWT collection pages, or any graded source located in this run; it appears only as 1929 US billings $32.1M plus international $5.4M in an AI-generated encyclopedia. Retained as a C-grade figure with a widened interval pending confirmation from the JWT Company records at Duke (Rubenstein Library) or Meyers, A Word from Our Sponsor.",
+        "sources": [
+          {
+            "name": "Encyclopedia.com, 'J. Walter Thompson Company' (1922-1972 billings rank)",
+            "url": "https://www.encyclopedia.com/history/culture-magazines/j-walter-thompson-company"
+          },
+          {
+            "name": "J. Walter Thompson Company Records, Duke University Rubenstein Library (primary, unconsulted - required to confirm the $37.5M)",
+            "url": "https://library.duke.edu/rubenstein/collections/creators/corporations/jwt"
+          }
+        ],
+        "as_of": "1929"
+      },
+      "reason": "Grade B->C and interval widened: the cited source supports the rank clause but not the headline number, which no graded source could be found for."
+    },
+    {
+      "claim_id": "e2-buyers-001",
+      "verdict": "confirmed",
+      "evidence": "Recomputed from the Coen workbook I downloaded and parsed myself, not from the record's transcription. 1935: Radio|Network 63, Radio|Radio 113 -> 55.75%. 1949: Radio|Network 203, Radio|Radio 571 -> 35.55%. Both round exactly to the stated 55.8 and 35.6. The direction claim also holds: national spot went 15->123 and local spot 35->245 over the same window, both growing faster than network's 63->203.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "63/113*100",
+          "expected": 55.75
+        },
+        {
+          "expr": "203/571*100",
+          "expected": 35.55
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-buyers-002",
+      "verdict": "confirmed",
+      "evidence": "Recomputed from the parsed workbook: 1944 Total National 1,655 / Grand Total 2,700 = 61.30%; 1945 1,740 / 2,840 = 61.27%; 1935 890 / 1,720 = 51.74%. I then tested the 'peaked' assertion by computing the national share for every year the split exists (1935-1950): 51.74, 53.37, 53.81, 54.92, 55.72, 56.40, 56.89, 56.48, 58.43, 61.30, 61.27, 58.38, 58.69, 57.39, 57.39, 57.19. 1944 and 1945 are indeed the two maxima of the series, and no other year comes within 2.8 points. The peak survives the attack.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "1655/2700*100",
+          "expected": 61.3
+        },
+        {
+          "expr": "1740/2840*100",
+          "expected": 61.27
+        },
+        {
+          "expr": "890/1720*100",
+          "expected": 51.74
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-buyers-003",
+      "verdict": "confirmed",
+      "evidence": "Located verbatim in the Beville PDF I downloaded and text-extracted: 'Compared with the original 49 advertiser subscribers, the third year showed 21 advertisers and 18 agencies, while in the fourth year advertiser subscribers dropped to 17 and agencies rose to 27. Networks were not accepted as subscribers at that time.' Both numbers and the crossover reading are exact. The surrounding text independently supports the interpretation: 'a year later agency subscriptions were accepted, and by the end of the third year agencies were paying about two-thirds of the total budget.'",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-buyers-004",
+      "verdict": "confirmed",
+      "evidence": "Recomputed from the parsed workbook: Total National 2,990 / Grand Total 5,210 = 57.39%. The partition closes exactly: Total National 2,990 + Total Local 2,220 = 5,210 = Grand Total, with no residual.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "2990/5210*100",
+          "expected": 57.39
+        },
+        {
+          "expr": "2990+2220",
+          "expected": 5210
+        }
+      ],
+      "disagreement": "Grade inconsistency inside the record, flagged not adjusted: e2-sellers-004 is graded C on the stated rule 'both inputs are grade-A statistics; the ratio is derived, hence graded C.' This claim is the same kind of derived ratio from published inputs and is graded B. One rule or the other should govern both."
+    },
+    {
+      "claim_id": "e2-buyers-005",
+      "verdict": "confirmed",
+      "evidence": "Recomputed: Total Local 2,220 / 5,210 = 42.61%. The 1949 local components in the workbook sum correctly: newspapers 1,448 + radio local spot 245 + billboards 43 + miscellaneous local 465 + TV local spot 19 = 2,220.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "2220/5210*100",
+          "expected": 42.61
+        },
+        {
+          "expr": "1448+245+43+465+19",
+          "expected": 2220
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-buyers-006",
+      "verdict": "confirmed",
+      "evidence": "I independently verified the 1950 anchor and, more importantly, the compatibility argument the method rests on - which turns out to be stronger than the record claims. HSUS table De523-526 gives 1950 newspaper advertising as total 2,070, retail 1,175, national 518, classified 377 (sum 2,070). Against the Coen workbook I parsed: 1950 Newspapers|Newspapers 2,070 (exact match), Newspapers|National 518 (exact match), Newspapers|Local 1,552 - and HSUS retail 1,175 + classified 377 = 1,552 exactly. So the two series are not merely 'definitionally compatible' at the total, they reconcile line by line, and Coen's local-newspaper bucket demonstrably contains classified. 377/2,070 = 18.21%. The 1949 estimate of ~18% sits just below that, as the method argues, and the ci80 [14,22] comfortably covers both the flat-share and rising-share cases.",
+      "sources_consulted": [
+        {
+          "name": "Historical Statistics of the United States, Millennial Edition, table De523-526",
+          "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "377/2070*100",
+          "expected": 18.21
+        },
+        {
+          "expr": "1175+377",
+          "expected": 1552
+        },
+        {
+          "expr": "1175+518+377",
+          "expected": 2070
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-buyers-007",
+      "verdict": "confirmed",
+      "evidence": "Recomputed both endpoints. Coen direct mail 1949 = 756, 1935 = 282 (read from the parsed workbook). Household denominators: linear interpolation between the 1940 census count of 34.9M and the 1950 count of 43.6M gives 42.73M for 1949, not the record's 42.9M - which moves the result to $17.69 rather than $17.62. Using the Census Bureau's own annual estimate for 1949 (~42.2M) gives $17.92. All three land inside the stated ci80 [16.5, 18.7], so the interval absorbs the interpolation choice, which is exactly what the method says it is for. 1935: interpolating 1930 (29.9M) and 1940 (34.9M) gives 32.42M -> $8.70, against the record's 32.3M -> $8.73. Both fine.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "USPS OIG, 'Advertising Mail: Past and Present' (RARC-WP-16-006)",
+          "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "756/42.9",
+          "expected": 17.62
+        },
+        {
+          "expr": "756/42.73",
+          "expected": 17.69
+        },
+        {
+          "expr": "282/32.3",
+          "expected": 8.73
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-sellers-001",
+      "verdict": "confirmed",
+      "evidence": "Verbatim in FCC ch. VI, which I retrieved and searched: 'The net time sales for the entire industry (all networks and 660 stations throughout the country) in 1938 amounted to $100,892,259, of which $44,313,778, or 44 percent, represented NBC and CBS network net time sales. The 23 stations owned or operated by NBC and CBS ... had net time sales for nonnetwork programs of $6,734,772, or 7 percent of the total net time sales of the entire industry.' Both percentages and the station count are the FCC's own. Grade A is correct.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "44313778/100892259*100",
+          "expected": 43.92
+        },
+        {
+          "expr": "6734772/100892259*100",
+          "expected": 6.68
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-sellers-002",
+      "verdict": "confirmed",
+      "evidence": "Verbatim in FCC ch. VI: 'Of their total network net time sales in 1938 ($44,313,778), CBS and NBC retained 73 percent ($32,046,218) and paid only 27 percent ($12,267,560) to the 253 affiliated stations on their networks during the year.' Every figure in the claim matches the source exactly. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "32046218/44313778*100",
+          "expected": 72.32
+        },
+        {
+          "expr": "32046218+12267560",
+          "expected": 44313778
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-sellers-003",
+      "verdict": "confirmed",
+      "evidence": "Extracted the FCC's affiliation table directly from the chapter VI HTML. Commercial station counts: NBC only 135, CBS only 102, Mutual only 74, NBC and Mutual 25, CBS and Mutual 5, total affiliated with national networks 341, total unaffiliated 319, total 660. The internal sums close: 135+102+74+25+5 = 341, and 341+319 = 660. Both numbers in the claim are the FCC's own, and 'affiliated with a national network' correctly includes the Mutual-only affiliates.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "135+102+74+25+5",
+          "expected": 341
+        },
+        {
+          "expr": "341+319",
+          "expected": 660
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-sellers-004",
+      "verdict": "confirmed",
+      "evidence": "All three inputs verified verbatim in FCC ch. VI: industry consolidated net operating income 1938 = $18,854,784; NBC+CBS network operations = $4,319,062; their 23 owned/operated stations = $4,958,289. Recomputed: (4,319,062+4,958,289)/18,854,784 = 49.204%, matching the stated 49.2 and matching the FCC's own prose gloss 'equalled about one-half of the consolidated net operating income for the entire industry.' Grade C for the derived ratio is the right call.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "(4319062+4958289)/18854784*100",
+          "expected": 49.204
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-sellers-005",
+      "verdict": "confirmed",
+      "evidence": "I attacked the method's premise first. The FCC's own footnote 25 in ch. VI reads: 'The \"unit rate\" is the gross card rate per hour, before deducting discounts or agency commissions' - so 'net' excludes both, and the method's $85-per-$100 basis is right. A second cross-check confirms it: NBC's own table gives 1938 time sales 'after discounts; before commissions' of $31,783,277; taking 15 percent off gives $27.0M of NBC net time sales, leaving $17.3M for CBS out of the combined $44,313,778 - a 64 percent CBS/NBC ratio that is plausible for 1938. Reading net time sales as already net of commission would leave CBS at only $12.5M, which is not credible. The arithmetic then follows: 0.73 x 85 = $62.05 and 0.27 x 85 = $22.95.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "0.73*85",
+          "expected": 62.05
+        },
+        {
+          "expr": "0.27*85",
+          "expected": 22.95
+        },
+        {
+          "expr": "31783277*0.85",
+          "expected": 27015785
+        }
+      ],
+      "disagreement": "Material nuance the claim hides. The FCC states that of the $32,046,218 retained by NBC and CBS, '$5,347,388' was credited to their own 23 owned stations as compensation for broadcasting network programs. Strip that internal transfer out and the network qua network keeps 60.25 percent of net time sales, i.e. about $51 of each $100 gross, with all stations (253 affiliates plus 23 owned) sharing about $34. The claim's $62/$23 is correct under the reading 'network company vs independent affiliates' but overstates what the network kept for distribution as opposed to for its own stations. Worth stating in the prose, because $51/$34 is a materially different picture of the intermediary's take."
+    },
+    {
+      "claim_id": "e2-sellers-006",
+      "verdict": "confirmed",
+      "evidence": "The cited MBC AM Radio entry carries the claim almost verbatim - 'AM grew from about 900 stations in 1945 to some 2,500 by the early 1950s' - and independent search corroborates the shape (wartime freeze on new licences, pent-up demand released post-1945, most growth in smaller markets). The load-bearing number is the 1945 count and the ci80 [850, 1000] comfortably covers the range in the standard counts (roughly 900-960 AM stations on air at end-1945).",
+      "sources_consulted": [
+        {
+          "name": "Museum of Broadcast Communications, Radio Encyclopedia: AM Radio",
+          "url": "https://www.museum.tv/radio-encyclopedia/am-radio"
+        },
+        {
+          "name": "Britannica, 'Radio: Reinventing radio, 1945-60'",
+          "url": "https://www.britannica.com/topic/radio/Reinventing-radio-1945-60"
+        }
+      ],
+      "disagreement": "The '2,500 by the early 1950s' tail is at the top of the plausible band, not the middle: standard FCC station counts put AM at roughly 2,100 in 1950 and roughly 2,350 in 1952, reaching 2,500 only around 1953-54. The tail is not the claim's calibrated value so I have not adjusted, but 'roughly 2,500 by the early 1950s' should read 'over 2,000 by 1950 and about 2,400 by 1952' if the prose is to be defensible."
+    },
+    {
+      "claim_id": "e2-sellers-007",
+      "verdict": "confirmed",
+      "evidence": "Extracted the FCC's NBC time-sales table directly from the chapter VI HTML. The year rows run Nov-Dec 1927 through 1940; time sales 1928 = $7,256,179 and 1940 = $37,118,130; the 'Ratio to network time sales (percent)' column runs 17.06, 20.48, 20.90, 19.35, 19.37, 18.70, 18.79, 21.25, 22.02, 20.31, 22.80, 24.57, 26.90, 28.45. So 1928 = 20.48 and 1940 = 28.45, matching the claim's 20.5, 28.45, $7.3M and $37.1M exactly. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "1486146/7256179*100",
+          "expected": 20.48
+        },
+        {
+          "expr": "10562212/37118130*100",
+          "expected": 28.45
+        }
+      ],
+      "disagreement": "One caveat the claim should carry: the FCC's own footnote 2 marks the 1928-1935 entries 'Total time sales; network time sales not available.' The 1928 endpoint is therefore a ratio to total time sales, not strictly to network time sales, so the 1928-to-1940 comparison is very slightly apples-to-oranges. Direction and magnitude are unaffected."
+    },
+    {
+      "claim_id": "e2-medium-001",
+      "verdict": "adjusted",
+      "evidence": "The 1949 headline survives: newspapers 1,911 / 5,210 = 36.68%, and 1945 is 919 / 2,840 = 32.36%, matching the stated 36.7 and 32.4. The 'largest medium in every year' clause also survives if the residual buckets are excluded, which is the fair reading - newspapers outrank every named medium in all of 1919-1949 (the pre-1935 'Other' bucket and the post-1935 'Miscellaneous' bucket are residuals, not media). But the 'bottoming at 32.4 percent in 1945' clause is false across the era as stated. I computed the newspaper share for all 31 years: 1919 = 29.38%, 1920 = 27.02%, 1921 = 41.04%. The era's true minimum is 27.0% in 1920, and 1945 is only the minimum of the 1935-1949 medium-split window. The MEDIUM field summary's flat assertion 'never falling below 32 percent of all spend even at radio's peak' is false for 1919 and 1920 and must be fixed too. Note also that the pre-1935 newspaper figures are Galbi's own interpolated estimates (the workbook's 'estimates 1900-34' sheet carries 1919 newspapers as 567.237...), not Coen data, so they are estimate-grade on both sides.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "1911/5210*100",
+          "expected": 36.68
+        },
+        {
+          "expr": "919/2840*100",
+          "expected": 32.36
+        },
+        {
+          "expr": "670/2480*100",
+          "expected": 27.02
+        },
+        {
+          "expr": "567/1930*100",
+          "expected": 29.38
+        }
+      ],
+      "old": {
+        "statement": "Newspapers took 36.7 percent of US advertising spend in 1949 and were the largest medium in every year of the era, bottoming at 32.4 percent in 1945."
+      },
+      "new": {
+        "id": "e2-medium-001",
+        "statement": "Newspapers took 36.7 percent of US advertising spend in 1949 and outranked every named medium in every year of the era; their share bottomed at 32.4 percent in 1945 within the 1935-1949 medium-split window, but ran lower still in the estimate-grade early years - 29.4 percent in 1919 and 27.0 percent in 1920.",
+        "central": 36.7,
+        "unit": "percent of US ad spend taken by newspapers, 1949",
+        "ci80": [
+          34.0,
+          39.0
+        ],
+        "grade": "B",
+        "method": "Recomputed from the parsed Coen workbook for every year 1919-1949. Newspaper share by year: 1919 29.4, 1920 27.0, 1921 41.0, rising to a 1933 peak of 49.1, then falling to 32.4 in 1945 and recovering to 36.7 in 1949. Pre-1935 newspaper figures are Galbi's interpolated estimates ('estimates 1900-34' sheet), not Coen medium data. 'Largest medium' excludes the 'Other' (1919-34) and 'Miscellaneous' (1935+) residual buckets, which are not media.",
+        "sources": [
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+            "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+          }
+        ],
+        "as_of": "1949"
+      },
+      "reason": "The 'bottoming at 32.4 percent in 1945' clause is false over the era as written - 1920 is 27.0 percent and 1919 is 29.4 percent. Central value and interval are unchanged; the statement is scoped to the window in which it is true and the true era minimum is stated.",
+      "disagreement": "Consequential for the field prose: the MEDIUM summary sentence 'never falling below 32 percent of all spend even at radio's peak' is false and should be struck or rescoped."
+    },
+    {
+      "claim_id": "e2-medium-002",
+      "verdict": "confirmed",
+      "evidence": "Recomputed: radio 424 / 2,840 = 14.93% in 1945. I then tested 'peaked' by computing radio's share for every year the series carries radio (1926-1949); 1945 is the maximum, with 1944 (14.56%) and 1946 (13.62%) the nearest rivals. The 'less than half the newspaper share in the same year' clause also holds: 14.93 vs 32.36, a ratio of 0.46.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "424/2840*100",
+          "expected": 14.93
+        },
+        {
+          "expr": "14.93/32.36",
+          "expected": 0.461
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-medium-003",
+      "verdict": "confirmed",
+      "evidence": "Both sides of the recorded conflict check out. Coen side: radio 63 / total 1,620 in 1932 = 3.89%, matching the stated 3.9. MBC side: I fetched the page and it says verbatim 'Radio's portion of all advertising grew from about two percent in 1928 to nearly 11 percent in 1932' - the record quotes it accurately, including the word 'all'. The claim's decision to record the conflict rather than resolve it is the right call and matches the operating rule against averaging conflicts away.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Museum of Broadcast Communications, Radio Encyclopedia: Advertising",
+          "url": "https://www.museum.tv/radio-encyclopedia/advertising"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "63/1620*100",
+          "expected": 3.89
+        }
+      ],
+      "disagreement": "Two things to flag without adjusting. (1) The claim asserts the MBC figure is 'on a narrower national-media base.' That reconciliation is the record's own hypothesis - MBC says 'all advertising' and offers no base. It is plausible (a Hettinger-style national-media denominator of roughly $570M would reproduce 11 percent from Coen's $63M) but it is unsourced and should be labelled as a conjecture, not a finding. (2) ci80 [3.5, 11.0] around a central of 3.9 is a conflict span, not a probability interval - the central sits at roughly the 5th percentile of its own range. Legitimate as a deliberate device, but downstream consumers that treat ci80 as symmetric uncertainty will misread it."
+    },
+    {
+      "claim_id": "e2-medium-004",
+      "verdict": "adjusted",
+      "evidence": "The headline survives but both supporting clauses are false, and I found them by testing the 'every year' assertion rather than accepting it. (1) Direct mail 756 / 5,210 = 14.51% in 1949 - correct. (2) 'Second-largest named medium in every year the series splits by medium' is FALSE. Ranking named media (excluding the Miscellaneous residual) for every year 1935-1949: direct mail is second in 1935-1943 and 1947-1949, but THIRD in 1944 (newspapers 886, radio 393, direct mail 326) and FOURTH in both 1945 (newspapers 919, radio 424, magazines 344, direct mail 290) and 1946 (newspapers 1,155, radio 455, magazines 405, direct mail 334). Direct mail fell during the war while radio and magazines surged - the record's own e2-medium-007 documents exactly this (-12 percent for direct mail, +92 for magazines) yet the ranking clause contradicts it. (3) 'Its peak share was 16.5 percent in 1936' is FALSE. Computing direct mail's share for every year: the maximum is 16.79% in 1938; 1936 is 16.53%, only the second-highest. The MEDIUM summary's range 'running 14 to 16.5 percent of all spend' is also wrong at both ends - the actual 1935-1949 range is 10.0 percent (1946) to 16.8 percent (1938).",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "756/5210*100",
+          "expected": 14.51
+        },
+        {
+          "expr": "324/1930*100",
+          "expected": 16.79
+        },
+        {
+          "expr": "319/1930*100",
+          "expected": 16.53
+        },
+        {
+          "expr": "290/2840*100",
+          "expected": 10.21
+        }
+      ],
+      "old": {
+        "statement": "Direct mail took 14.5 percent of US advertising spend in 1949 and was the second-largest named medium in every year the series splits by medium; its peak share was 16.5 percent in 1936."
+      },
+      "new": {
+        "id": "e2-medium-004",
+        "statement": "Direct mail took 14.5 percent of US advertising spend in 1949 and was the second-largest named medium in most years the series splits by medium - but not during the war, when radio and magazines overtook it: it ranked third in 1944 and fourth in 1945 and 1946. Its peak share was 16.8 percent in 1938, and it fell to 10.0 percent in 1946.",
+        "central": 14.5,
+        "unit": "percent of US ad spend taken by direct mail, 1949",
+        "ci80": [
+          13.0,
+          16.0
+        ],
+        "grade": "B",
+        "method": "Named-media ranking recomputed for every year 1935-1949 from the parsed Coen workbook, excluding the Miscellaneous residual. Direct mail rank by year: 2nd 1935-1943, 3rd 1944, 4th 1945-1946, 2nd 1947-1949. Share range over the same window: 10.0 percent (1946) to 16.8 percent (1938).",
+        "sources": [
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+            "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+          },
+          {
+            "name": "USPS Office of Inspector General, 'Advertising Mail: Past and Present' (RARC-WP-16-006)",
+            "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf"
+          }
+        ],
+        "as_of": "1949"
+      },
+      "reason": "Two false clauses in the statement: direct mail was not second in every year (third in 1944, fourth in 1945 and 1946) and its peak share was 16.8 percent in 1938, not 16.5 percent in 1936. Central and interval unchanged.",
+      "disagreement": "Consequential for the field prose: the MEDIUM summary's 'number two named medium in every year' and 'running 14 to 16.5 percent of all spend' are both false and must be rewritten. This also weakens, though it does not kill, the record's rhetorical point about the measured-response tradition - direct mail's wartime collapse is itself the more interesting fact."
+    },
+    {
+      "claim_id": "e2-medium-005",
+      "verdict": "confirmed",
+      "evidence": "Recomputed: Miscellaneous 1,022 / 5,210 = 19.62% in 1949. The Yellow Pages assertion is confirmed from the workbook's own 'categories' sheet, which I read directly: 'Yellow Pages | Yellow Pages | first year 1980 | last year 2007' (with Local and National sub-rows also starting 1980). The residual reading is also structurally forced: the workbook's summary sheet points readers to a separate purplemotes dataset for 'Yellow Pages (telephone directory) advertising from 1920 to 2007', so directory spend existed throughout the era but is not a category here, and since the Grand Total is a closed partition it can only sit inside Miscellaneous. The second cited source checks out too: Miscellaneous was 342/1,720 = 19.88% in 1935, matching the 'about 20 percent' gloss.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Galbi, 'U.S. advertising expenditure data' (purple motes)",
+          "url": "https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "1022/5210*100",
+          "expected": 19.62
+        },
+        {
+          "expr": "342/1720*100",
+          "expected": 19.88
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-medium-006",
+      "verdict": "confirmed",
+      "evidence": "Verified against the parsed workbook. Television|Television first appears in the data in 1949 at 58 - I scanned every television row in the file and there is no entry before 1949. Share: 58/5,210 = 1.11%. The Broadcast TV sub-splits for 1949 also close exactly: network 30 + local spot 19 + national spot 9 = 58. Note the workbook's 'categories' sheet lists Television's first year as 1919, which is a formula artifact of the scheme range, not a data claim - the underlying series genuinely starts in 1949.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "58/5210*100",
+          "expected": 1.11
+        },
+        {
+          "expr": "30+19+9",
+          "expected": 58
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-medium-007",
+      "verdict": "confirmed",
+      "evidence": "All four growth figures recomputed from the parsed workbook and all four are right to the stated precision. Business papers 98 -> 204 = +108.16%; magazines 179 -> 344 = +92.18%; newspapers 797 -> 919 = +15.31%; direct mail 329 -> 290 = -11.85%. The method's interval rationale also checks out against the workbook's own 'revisions' sheet, where the 1942-45 totals differ from the Historical Statistics series by between -1.2 and +0.2 percent - well inside the stated 1.8 percent.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "(204/98-1)*100",
+          "expected": 108.16
+        },
+        {
+          "expr": "(344/179-1)*100",
+          "expected": 92.18
+        },
+        {
+          "expr": "(919/797-1)*100",
+          "expected": 15.31
+        },
+        {
+          "expr": "(290/329-1)*100",
+          "expected": -11.85
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-scale-001",
+      "verdict": "adjusted",
+      "evidence": "The value is right: Grand Total 1919 = 1,930 in the parsed workbook, and it is the first year of the series. But the interval fails the interval challenge. The same workbook's 'revisions' sheet publishes the competing figure side by side: Historical Statistics gives 1919 US advertising as 2,282, against Coen's 1,930 - a difference of -15.4 percent. 2,282 is a credible published figure for exactly this quantity and it falls outside the stated ci80 top of 2,220. An interval that excludes a rival published series printed in the claim's own source file is too narrow.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "(1930/2282-1)*100",
+          "expected": -15.43
+        }
+      ],
+      "old": {
+        "ci80": [
+          1650,
+          2220
+        ]
+      },
+      "new": {
+        "id": "e2-scale-001",
+        "statement": "US advertising spend was $1,930 million in 1919, the first year of the Coen/McCann-Erickson series; the older Historical Statistics series puts the same year at $2,282 million.",
+        "central": 1930,
+        "unit": "US$ millions of total US advertising spend, 1919",
+        "ci80": [
+          1650,
+          2300
+        ],
+        "grade": "B",
+        "method": "Coen's 1919 Grand Total is 1,930. The CS Ad Dataset 'revisions' sheet carries the Historical Statistics figure for the same year at 2,282, i.e. Coen sits 15.4 percent below it. Interval top raised from 2,220 to 2,300 so that the rival published series is inside the 80 percent band.",
+        "sources": [
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+            "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+          },
+          {
+            "name": "Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (Coen spend over GDP, 1919-2007) - full table parsed",
+            "url": "https://www.galbithink.org/ad-spending.htm"
+          }
+        ],
+        "as_of": "1919"
+      },
+      "reason": "ci80 top raised 2,220 -> 2,300 so the interval contains the Historical Statistics figure of 2,282, which is published in the claim's own source workbook."
+    },
+    {
+      "claim_id": "e2-scale-002",
+      "verdict": "confirmed",
+      "evidence": "Grand Total 1949 = 5,210 in the parsed workbook. Interval challenge passed: the workbook's 'revisions' sheet gives Historical Statistics 5,202 for the same year, a 0.15 percent difference, and the Coen 2000, 2003 and 2008a vintages all agree at 5,210. Both rival figures sit well inside ci80 [4,950, 5,470]. Independently confirmed against Galbi's published table, which shows 1949 total 5,210.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (Coen spend over GDP, 1919-2007) - full table parsed",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "(5210/5202-1)*100",
+          "expected": 0.154
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-scale-003",
+      "verdict": "adjusted",
+      "evidence": "The Coen-basis arithmetic is exact: 1,325/2,850 - 1 = -53.51%. But the interval fails and the method's attribution is wrong. (1) Interval: run the same peak-to-trough on the rival Historical Statistics series, printed in the claim's own source workbook - 1929 = 3,426, 1933 = 1,302 - and the contraction is -62.0 percent, which falls OUTSIDE the stated ci80 of [-58, -48]. The interval was widened for precisely this uncertainty but not widened enough to contain the alternative it was widened for. (2) Attribution: I read the 'revisions' sheet columns directly. The ~15-18 percent downward revision of the 1920s is the gap between Historical Statistics and the Coen 2000 vintage; the Coen 2008a and 2008b columns are blank for every year before 1948. So the 1920s were not 'revised down about 15 percent in the 2008 restatement' - they were already down in Coen 2000, and the 2008 restatements touch only 1948 onward. Year-by-year gaps: 1919 -15.4, 1923 -18.2, 1926 -17.2, 1929 -16.8, falling to -0.4 by 1932 and turning positive from 1933.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Galbi, 'U.S. advertising expenditure data' (purple motes), revision notes",
+          "url": "https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "(1325/2850-1)*100",
+          "expected": -53.51
+        },
+        {
+          "expr": "(1302/3426-1)*100",
+          "expected": -61.99
+        }
+      ],
+      "old": {
+        "ci80": [
+          -58.0,
+          -48.0
+        ],
+        "method": "... the 1920s figures were revised down about 15 percent in the 2008 restatement ..."
+      },
+      "new": {
+        "id": "e2-scale-003",
+        "statement": "US advertising spend fell 53.5 percent from its 1929 peak of $2,850 million to its 1933 trough of $1,325 million on the Coen series, the deepest peacetime contraction in the whole series; on the older Historical Statistics series the same contraction is 62.0 percent.",
+        "central": -53.5,
+        "unit": "percent change in US advertising spend, 1929 to 1933",
+        "ci80": [
+          -62.0,
+          -48.0
+        ],
+        "grade": "C",
+        "method": "Computed from the Coen series (1,325/2,850 - 1 = -53.51%). The rival Historical Statistics series in the CS Ad Dataset 'revisions' sheet gives 1929 = 3,426 and 1933 = 1,302, a 62.0 percent fall, so the interval floor is set there. The pre-1935 points are estimate-grade: Coen's 1920s totals run 15-18 percent below Historical Statistics (1919 -15.4, 1923 -18.2, 1926 -17.2, 1929 -16.8), a gap that closes to near zero by 1932. That gap is between Historical Statistics and the Coen 2000 vintage, NOT a 2008 restatement - the 2008a/2008b revision columns are blank for every year before 1948. The peak level therefore carries much more uncertainty than the trough.",
+        "sources": [
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+            "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+          },
+          {
+            "name": "Galbi, 'U.S. advertising expenditure data' (purple motes), revision notes",
+            "url": "https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/"
+          }
+        ],
+        "as_of": "1933"
+      },
+      "reason": "ci80 floor lowered -58 -> -62.0 so the interval contains the Historical Statistics computation, and the method's revision attribution corrected: the ~15 percent downward revision belongs to the Coen 2000 vintage vs Historical Statistics, not to the 2008 restatement.",
+      "disagreement": "The record's boundary_notes repeat the same wrong attribution ('the 1920s totals were revised down about 15 percent') without saying revised down from what, by whom, or when. It should read 'Coen's 1920s totals run about 15-18 percent below the older Historical Statistics series.'"
+    },
+    {
+      "claim_id": "e2-scale-004",
+      "verdict": "confirmed",
+      "evidence": "I parsed Galbi's full published table (89 rows, 1919-2007) rather than taking the claim's word for the maximum. 1922: spend 2,200, GDP 73.4bn, ratio 2.997% -> 3.0%. Sorting all 89 years by ad/GDP, the top six are 1922 (3.0), 1925 (2.9), 1924 (2.9), 1932 (2.8), 1929 (2.8), 1928 (2.8). 1922 is the unique maximum of the whole series and no other year reaches 3.0. The claim survives the attack, including the strong 'entire 1919-2007 series' form.",
+      "sources_consulted": [
+        {
+          "name": "Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (Coen spend over GDP, 1919-2007) - full table parsed",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        },
+        {
+          "name": "Silk & Berndt, NBER WP 28161 (2020)",
+          "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "2200/73400*100",
+          "expected": 2.997
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-scale-005",
+      "verdict": "confirmed",
+      "evidence": "From the same parsed 89-row table: 1944 spend 2,700, GDP 219.8bn, ratio 1.228% -> 1.2%. Sorting all 89 years ascending, the bottom six are 1944 (1.2), 1942 (1.3), 1943 (1.3), 1945 (1.3), 1946 (1.5), 1947 (1.7). 1944 is the unique minimum of the series. The stated cause also checks: GDP went 101.4bn (1940) -> 219.8bn (1944), a 117 percent rise, while ad spend went 2,110 -> 2,700, a 28 percent rise.",
+      "sources_consulted": [
+        {
+          "name": "Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (Coen spend over GDP, 1919-2007) - full table parsed",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "2700/219800*100",
+          "expected": 1.228
+        },
+        {
+          "expr": "(219.8/101.4-1)*100",
+          "expected": 116.8
+        },
+        {
+          "expr": "(2700/2110-1)*100",
+          "expected": 27.96
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-scale-006",
+      "verdict": "confirmed",
+      "evidence": "From the parsed table: 1949 spend 5,210, GDP 267.3bn, ratio 1.949% -> 1.9%. Note the GDP vintage is Galbi's (267.3bn); current BEA figures for 1949 are nearer 272.8bn, which gives 1.910% - still 1.9 percent, so the claim is robust to the vintage. Inside ci80 [1.8, 2.0] either way.",
+      "sources_consulted": [
+        {
+          "name": "Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (Coen spend over GDP, 1919-2007) - full table parsed",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "5210/267300*100",
+          "expected": 1.949
+        },
+        {
+          "expr": "5210/272800*100",
+          "expected": 1.91
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-scale-007",
+      "verdict": "adjusted",
+      "evidence": "The point estimate is exact: (5210/1930)^(1/30) - 1 = 3.366%. But the interval is inconsistent with the endpoint uncertainty it claims to propagate. The method says the interval 'propagates the endpoint uncertainty in e2-scale-001 and e2-scale-002' - and once e2-scale-001's interval is corrected to admit the Historical Statistics 1919 figure of 2,282, the implied CAGR is (5210/2282)^(1/30) - 1 = 2.79%, below the stated ci80 floor of 2.9. Running the whole calculation on the Historical Statistics series end to end (2,282 -> 5,202) gives 2.785%, the same answer. The stated interval already fails to contain a directly computable alternative.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (Coen spend over GDP, 1919-2007) - full table parsed",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "((5210/1930)**(1/30)-1)*100",
+          "expected": 3.366
+        },
+        {
+          "expr": "((5210/2282)**(1/30)-1)*100",
+          "expected": 2.79
+        },
+        {
+          "expr": "((5202/2282)**(1/30)-1)*100",
+          "expected": 2.785
+        },
+        {
+          "expr": "((5470/1650)**(1/30)-1)*100",
+          "expected": 4.076
+        }
+      ],
+      "old": {
+        "ci80": [
+          2.9,
+          3.8
+        ]
+      },
+      "new": {
+        "id": "e2-scale-007",
+        "statement": "US advertising spend compounded at about 3.4 percent a year in nominal terms across the era, 1919 to 1949; on the older Historical Statistics series the same span compounds at 2.8 percent.",
+        "central": 3.37,
+        "unit": "percent nominal CAGR of US advertising spend, 1919-1949",
+        "ci80": [
+          2.7,
+          4.1
+        ],
+        "grade": "C",
+        "method": "(5210/1930)^(1/30) - 1 = 3.37%. Interval propagates the corrected endpoint uncertainty in e2-scale-001 (1,650-2,300) and e2-scale-002 (4,950-5,470): the low corner (2,300 -> 4,950) gives 2.58% and the Historical-Statistics-basis calculation (2,282 -> 5,202) gives 2.79%; the high corner (1,650 -> 5,470) gives 4.08%. Floor set at 2.7 and ceiling at 4.1.",
+        "sources": [
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+            "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+          },
+          {
+            "name": "Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (Coen spend over GDP, 1919-2007) - full table parsed",
+            "url": "https://www.galbithink.org/ad-spending.htm"
+          }
+        ],
+        "as_of": "1949"
+      },
+      "reason": "ci80 widened [2.9, 3.8] -> [2.7, 4.1] to actually contain the endpoint uncertainty its own method says it propagates, including the Historical-Statistics-basis CAGR of 2.79 percent."
+    },
+    {
+      "claim_id": "e2-scale-008",
+      "verdict": "confirmed",
+      "evidence": "I attacked the triangulation rather than the number. Both paths hold up. Path (b) anchor: the US ran roughly 57-60 percent of world advertising when the first systematic world surveys began around 1968 (US ~$18bn on a world total around $30bn), so 'roughly 60-65 percent in the late 1960s' is if anything slightly generous to the record and the direction of the 1949 adjustment (higher US share, because commercial broadcasting was almost exclusively American) is sound. Path (a): the implied rest-of-world total at the central is about $2.3bn, which is consistent with the handful of markets large enough to matter in 1949 - the UK at roughly $0.3-0.4bn, Canada, Australia and a war-damaged Western Europe. The internal consistency also checks: $5.21bn / $7.5bn = 69.5 percent, matching the stated 'roughly 70 percent'. The ci80 [6.0, 10.0] is wider than either path's own range and wider than their overlap ($6.8-8.7bn), which is the honest direction to err. The claim states plainly that no contemporaneous world survey exists, which is the key epistemic fact.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (Coen spend over GDP, 1919-2007) - full table parsed",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        },
+        {
+          "name": "ISSN record, Survey of World Advertising Expenditures (Starch INRA Hooper / IAA)",
+          "url": "https://portal.issn.org/resource/ISSN/0894-5004"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "5.21/7.5*100",
+          "expected": 69.47
+        },
+        {
+          "expr": "5.21/0.70",
+          "expected": 7.44
+        },
+        {
+          "expr": "5.21/0.60",
+          "expected": 8.68
+        },
+        {
+          "expr": "5.21/0.80",
+          "expected": 6.51
+        }
+      ],
+      "disagreement": "The second source (an ISSN portal record) is cited to establish that the IAA/Starch INRA Hooper world survey series does not begin until the 1960s. An ISSN record establishes a serial's registration, not the absence of earlier surveys. The negative claim ('no contemporaneous world survey exists for this era') is doing real work in this record and rests on a weak citation; it should be supported by a bibliographic survey or stated as 'none located'."
+    },
+    {
+      "claim_id": "e2-scale-009",
+      "verdict": "adjusted",
+      "evidence": "Both ratios recompute correctly. All-radio: Coen 1938 Radio|Radio = 167 (read from the parsed workbook) against the FCC's $100,892,259 gives 1.655, matching the stated 1.66. Network-only: Coen 1938 Radio|Network = 89 against the three networks' net time sales (NBC+CBS $44,313,778 plus Mutual $2,015,786 = $46,329,564) gives 1.921. But the method asserts 'the interval spans both the all-radio and network-only ratios' and it does not: the network-only ratio is 1.92 and the stated ci80 top is 1.90. The interval is a hair too narrow to do the job it says it does.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Silk & Berndt, NBER WP 28161 (2020)",
+          "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "167/100.892259",
+          "expected": 1.655
+        },
+        {
+          "expr": "44313778+2015786",
+          "expected": 46329564
+        },
+        {
+          "expr": "89/46.329564",
+          "expected": 1.921
+        }
+      ],
+      "old": {
+        "ci80": [
+          1.5,
+          1.9
+        ]
+      },
+      "new": {
+        "id": "e2-scale-009",
+        "statement": "Coen's 1938 radio advertising figure ($167 million) is about 1.66 times the FCC's audited figure for the whole broadcast industry's net time sales ($100.9 million) in the same year.",
+        "central": 1.66,
+        "unit": "ratio of Coen radio advertising to FCC audited industry net time sales, 1938",
+        "ci80": [
+          1.5,
+          1.95
+        ],
+        "grade": "C",
+        "method": "167/100.892 = 1.655 for all radio; on network alone Coen's $89M against the three networks' net time sales of $46,329,564 (NBC+CBS $44,313,778 plus Mutual $2,015,786) gives 1.921. The gap is consistent with Silk & Berndt's finding that the McCann-Erickson series was built on list rate-card prices rather than transaction prices, since FCC net time sales are stated after agency commissions and volume discounts of up to 25 percent (FCC ch. VI fn. 25: the unit rate is 'the gross card rate per hour, before deducting discounts or agency commissions'); some of the gap may also be sponsor program-production outlay. The decomposition is contested, so the interval spans both the all-radio and network-only ratios.",
+        "sources": [
+          {
+            "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+            "url": "https://earlyradiohistory.us/1941cb06.htm"
+          },
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+            "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+          },
+          {
+            "name": "Silk & Berndt, NBER WP 28161 (2020), on MCE list-price basis",
+            "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+          }
+        ],
+        "as_of": "1938"
+      },
+      "reason": "ci80 top raised 1.90 -> 1.95 so the interval actually spans the network-only ratio of 1.92, as the method claims it does."
+    },
+    {
+      "claim_id": "e2-scale-010",
+      "verdict": "confirmed",
+      "evidence": "Arithmetic exact: Total National 2,990 - direct mail 756 = 2,234, and 2,234/5,210 = 42.88%, matching the stated 'roughly 43 percent'. I also independently re-tested the method's load-bearing premise that Coen classifies 100 percent of direct mail as national, using 1935 rather than the record's own check: the 1935 national components are newspapers 148 + magazines 130 + direct mail 282 + business papers 51 + farm publications 10 + billboards 23 + miscellaneous national 168 + radio network 63 + radio national spot 15 = 890 = Total National exactly. The premise holds - direct mail is counted wholly national, and there is no residual.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "2990-756",
+          "expected": 2234
+        },
+        {
+          "expr": "2234/5210*100",
+          "expected": 42.88
+        },
+        {
+          "expr": "148+130+282+51+10+23+168+63+15",
+          "expected": 890
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-scale-011",
+      "verdict": "adjusted",
+      "evidence": "Arithmetic error in the claim. The method states the calculation explicitly - 'Coen's Total Local for 1949 is $2,220M ... Subtracting the triangulated classified estimate of $340M leaves $1,876M' - but 2,220 - 340 = 1,880, not 1,876. The claim is off by $4M against its own stated inputs. The share also moves: 1,880/5,210 = 36.08%, not the 36 percent computed from 1,876 (35.99%). The component check on Total Local passes: 1,448 + 245 + 43 + 465 + 19 = 2,220 exactly, so the 2,220 input is right and the error is purely in the subtraction. The interval [1,780, 1,970] is described as 'the mirror of the classified interval', and the classified interval [270, 420] mirrors to [1,800, 1,950] - close enough that I have shifted rather than rebuilt it.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "2220-340",
+          "expected": 1880
+        },
+        {
+          "expr": "1880/5210*100",
+          "expected": 36.08
+        },
+        {
+          "expr": "1448+245+43+465+19",
+          "expected": 2220
+        },
+        {
+          "expr": "2220-1876",
+          "expected": 344
+        }
+      ],
+      "old": {
+        "central": 1876,
+        "ci80": [
+          1780,
+          1970
+        ]
+      },
+      "new": {
+        "id": "e2-scale-011",
+        "statement": "Local retail advertising, excluding classified, was about $1,880 million in 1949 - roughly 36 percent of all US advertising spend.",
+        "central": 1880,
+        "unit": "US$ millions of US local retail advertising excluding classified, 1949",
+        "ci80": [
+          1800,
+          1950
+        ],
+        "grade": "C",
+        "method": "Coen's Total Local for 1949 is $2,220M (local newspapers $1,448M, local spot radio $245M, local billboards $43M, local miscellaneous $465M, local TV $19M - components verified to sum exactly to 2,220). Subtracting the triangulated classified estimate of $340M leaves $1,880M, 36.1 percent of the $5,210M grand total. Interval is the exact mirror of the classified interval [270, 420].",
+        "sources": [
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+            "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+          }
+        ],
+        "as_of": "1949"
+      },
+      "reason": "Arithmetic error: 2,220 - 340 = 1,880, not 1,876. Central corrected and the interval reset to the exact mirror of the classified interval as the method says it should be."
+    },
+    {
+      "claim_id": "e2-scale-012",
+      "verdict": "confirmed",
+      "evidence": "I verified the 1950 anchor independently and found the compatibility argument is stronger than the record claims. HSUS De523-526 for 1950: total 2,070, retail 1,175, national 518, classified 377, and those three components sum exactly to the total. Against the Coen workbook I parsed: 1950 Newspapers|Newspapers = 2,070 (exact), Newspapers|National = 518 (exact), Newspapers|Local = 1,552 - and HSUS retail 1,175 + classified 377 = 1,552 exactly. The two series reconcile line by line, not merely at the total, and Coen's local-newspaper bucket provably contains classified. Applying the 1950 classified share of total newspaper (18.21%) to Coen's 1949 newspaper total of 1,911 gives $348M; applying instead the 1950 classified share of LOCAL newspaper (24.29%) to Coen's 1949 local newspapers of 1,448 gives $352M. Both anchors land above the record's $340M, which the method deliberately sets lower for the rising postwar trend. That is defensible, and 340 sits comfortably inside ci80 [270, 420]. The 'roughly 6.5 percent of all US advertising' gloss checks: 340/5,210 = 6.53%.",
+      "sources_consulted": [
+        {
+          "name": "Historical Statistics of the United States, Millennial Edition, table De523-526",
+          "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "1175+518+377",
+          "expected": 2070
+        },
+        {
+          "expr": "1175+377",
+          "expected": 1552
+        },
+        {
+          "expr": "377/2070*100",
+          "expected": 18.21
+        },
+        {
+          "expr": "0.1821*1911",
+          "expected": 348.0
+        },
+        {
+          "expr": "377/1552*100",
+          "expected": 24.29
+        },
+        {
+          "expr": "0.2429*1448",
+          "expected": 351.7
+        },
+        {
+          "expr": "340/5210*100",
+          "expected": 6.53
+        }
+      ],
+      "disagreement": "A refinement the method missed and should adopt: because HSUS retail + classified equals Coen's local-newspaper line exactly, the better estimator is classified as a share of LOCAL newspaper revenue (24.3 percent in 1950), not of total newspaper revenue. It gives $352M for 1949 rather than $348M and is definitionally cleaner. Does not change the verdict."
+    },
+    {
+      "claim_id": "e2-scale-013",
+      "verdict": "confirmed",
+      "evidence": "Direct mail 1949 = 756 in the parsed workbook, and 756/5,210 = 14.51%, matching both stated figures. 'Second-largest medium' is correct only if the Miscellaneous residual (1,022, larger than direct mail) is excluded, which is the fair reading and is how the record treats it elsewhere - among named media the 1949 order is newspapers 1,911, direct mail 756, radio 571, magazines 458. Grade B is right: this is a published series figure, though Coen took it from the Direct Mail Advertising Association rather than measuring it.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "USPS OIG, 'Advertising Mail: Past and Present' (RARC-WP-16-006)",
+          "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "756/5210*100",
+          "expected": 14.51
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-pricing-001",
+      "verdict": "confirmed",
+      "evidence": "I fetched both sides of the recorded conflict. Saturday Evening Post: 'the Queensboro Real Estate Corporation bought a 10-minute advertisement for $50', described as a single purchase and 'widely considered to be the first commercial ever broadcast on radio'. Museum of Broadcast Communications, verbatim: 'On 28 August 1922 the Queensboro Corporation spent $100 for a 15-minute commercial message on WEAF.' The claim quotes both accurately and its ci80 [50, 100] spans them rather than splitting the difference, which is the right handling.",
+      "sources_consulted": [
+        {
+          "name": "Saturday Evening Post, 'Making Radio Pay: Toll Broadcasting and the First Ad on the Airwaves'",
+          "url": "https://www.saturdayeveningpost.com/2024/08/making-radio-pay-toll-broadcasting-and-the-first-ad-on-the-airwaves/"
+        },
+        {
+          "name": "Museum of Broadcast Communications, Radio Encyclopedia: Advertising",
+          "url": "https://www.museum.tv/radio-encyclopedia/advertising"
+        },
+        {
+          "name": "oldradio.com, 'When and what was the first radio commercial?'",
+          "url": "https://www.oldradio.com/current/bc_spots.htm"
+        },
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. I - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb01.htm"
+        }
+      ],
+      "disagreement": "Two cautions the record should carry. (1) A third account (oldradio.com) has the $50 covering a set of five programs over five days rather than one ten-minute talk, which would make the per-broadcast price $10 and change the unit economics materially. (2) Neither figure is traceable to a primary record. The FCC's own 1941 Report on Chain Broadcasting, which the record leans on heavily elsewhere, describes WEAF as a toll station from June 1922 but never names Queensboro or a price. Under the adjudicated context's rule about attributed legends, this is closer to the legend class than the grade-B class - better documented than the Wanamaker line, but not primary."
+    },
+    {
+      "claim_id": "e2-pricing-002",
+      "verdict": "adjusted",
+      "evidence": "Values confirmed verbatim in FCC ch. I, which I retrieved and searched - but the date is wrong. The FCC passage reads: 'At the end of 1925 there was a total of 26 stations on the regular Telephone Co. network, extending as far west as Kansas City (station KSD). The company was selling time to advertisers over a basic network of 13 stations at $2,600 per hour, and was deriving gross revenues at the rate of about $750,000 per year from the sale of time.' The $2,600 hourly rate and the ~$750,000 annual run-rate are both explicitly dated to the end of 1925, not 1924. The 1924 reference in the same passage is to a different fact (the coast-to-coast Coolidge hookup of 23 stations in autumn 1924). The claim's as_of of 1924, and the PRICING field summary's 'by 1924 AT&T was renting a basic thirteen-station network at $2,600 an hour', both misdate the source by a year. The 'before RCA bought the business' clause is correct: RCA/NBC paid for Broadcasting Co. of America in November 1926.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. I - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb01.htm"
+        }
+      ],
+      "old": {
+        "as_of": "1924"
+      },
+      "new": {
+        "id": "e2-pricing-002",
+        "statement": "By the end of 1925 AT&T was selling time on its basic thirteen-station toll network at $2,600 per hour, generating gross revenues at a rate of about $750,000 a year from time sales before RCA bought the business.",
+        "central": 2600,
+        "unit": "US$ per hour charged by AT&T for its basic 13-station network",
+        "ci80": [
+          2500,
+          2700
+        ],
+        "grade": "A",
+        "sources": [
+          {
+            "name": "FCC, Report on Chain Broadcasting (May 1941), ch. I - full text retrieved and searched",
+            "url": "https://earlyradiohistory.us/1941cb01.htm"
+          }
+        ],
+        "as_of": "1925"
+      },
+      "reason": "Date error: the FCC dates both figures to 'the end of 1925'. as_of corrected 1924 -> 1925 and the statement rescoped. Value, interval and grade A unchanged.",
+      "disagreement": "The PRICING field summary carries the same wrong year and must be fixed with the claim."
+    },
+    {
+      "claim_id": "e2-pricing-003",
+      "verdict": "confirmed",
+      "evidence": "Verbatim in FCC ch. VI: 'Charges to advertisers for the use of CBS network facilities are determined by the CBS rate card, which lists the stations available, the groups in which they must be purchased, and station rates ranging from $125 to $1,250 per converted hour. The rate applicable to each station is determined by CBS after a consideration of the station's market, its relative popularity, its power and physical coverage, and the price at which it sells [national spot].' All five rate-setting factors and both endpoints match the claim exactly. Grade A correct; the point interval is right for a published card figure.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-pricing-004",
+      "verdict": "confirmed",
+      "evidence": "Both networks verified separately in FCC ch. VI. NBC: 'The rate for other periods is derived by multiplying the evening hour rate by the appropriate fraction; one-half for a daytime hour, three-quarters for a Sunday afternoon hour and one-third for an hour after midnight.' CBS: 'The rate for a daytime hour is derived by multiplying the evening hour rate by one-half, that for an hour after midnight by multiplying the station rate by one-third, and that for a Sunday afternoon hour by multiplying the station rate by two-thirds.' Every fraction in the claim, including the NBC three-quarters vs CBS two-thirds distinction, is exact. The unit-hour footnote corroborates: 'A Sunday afternoon hour counts as three-fourths of a unit hour and a daytime hour counts as one-half.' Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-pricing-005",
+      "verdict": "confirmed",
+      "evidence": "Verbatim in FCC ch. VI: 'Discounts range from 2 1/2 percent for advertisers who broadcast 13 weeks or more and whose gross billings total $1,000 a week or more, to 25 percent for advertisers whose gross billings total $1,200,000 a year or more. These discounts are based on combined billings of the two networks, and are granted regardless of whether one network is used or both.' Every element of the claim - both discount endpoints, both qualifying thresholds, the 13-week condition and the Red/Blue combination - matches exactly, and the FCC presents it in the context the claim describes: as evidence that Red and Blue were one business. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-pricing-006",
+      "verdict": "confirmed",
+      "evidence": "Verbatim in FCC ch. VI: 'Mutual has no network rate card similar to that of NBC or CBS; it charges advertisers at the card rates of the stations associated with it. Mutual does not set these rates and has no control over them. Mutual receives a 3 1/2 percent commission on all proceeds, after agency commissions, from network programs broadcast over the facilities of its \"members\" and \"participating members\"; and 15 percent in the case of its \"affiliated stations.\"' Both rates, the 'after agency commissions' qualifier, and the member/affiliate distinction all match. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-pricing-007",
+      "verdict": "confirmed",
+      "evidence": "Verbatim in FCC ch. VI: 'For the first 16 \"unit hours\" of network commercial programs during each 28-day accounting period, a station received no compensation; for the next 25 unit hours it received 20 percent of the average unit rate; for the next 25 unit hours it received 30 percent; and thereafter 37 1/2 percent.' Every step matches, and the claim's derived threshold is right: 16 + 25 + 25 = 66 unit hours above which 37.5 percent applies. The as_of of 1940 is defensible - the same chapter states this system was introduced in 1935 and that the rates 'with minor changes, have remained in effect'. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "16+25+25",
+          "expected": 66
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-pricing-008",
+      "verdict": "confirmed",
+      "evidence": "Route (b) reproduces exactly against sources I retrieved independently. Three-network net time sales 1938 = $44,313,778 (NBC+CBS, FCC) + $2,015,786 (Mutual, FCC) = $46,329,564. Grossing up for the 15 percent agency commission: 46.33/0.85 = $54.51M. Coen's 1938 Radio|Network is 89 (read from the parsed workbook), leaving a residual of $34.49M = 38.8 percent of the total - matching the method's '$35M residual, 39 percent'. The FCC's footnote 25 independently confirms that net time sales are struck after both discounts and agency commissions, which is what makes the gross-up legitimate. Route (a)'s station-count arithmetic is also sane against the FCC's own 1935 rate ladder ($120 to $1,200 per evening hour), which puts a 50-70 station lineup in the $15,000-$25,000 range. Central 35 percent sits between the two routes and the interval spans them.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Silk & Berndt, NBER WP 28161 (2020)",
+          "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "44313778+2015786",
+          "expected": 46329564
+        },
+        {
+          "expr": "46.329564/0.85",
+          "expected": 54.51
+        },
+        {
+          "expr": "89-54.51",
+          "expected": 34.49
+        },
+        {
+          "expr": "34.49/89*100",
+          "expected": 38.75
+        }
+      ],
+      "disagreement": "Two weaknesses to record. (1) ci80 [20, 55] is a 2.75:1 span; it is close to information-free and should be described as a bound, not an estimate. Given that Silk & Berndt's list-price finding may absorb the ENTIRE route-(b) residual, the true floor could be well below 20. (2) Route (a)'s inputs - 'talent bills for evening network shows ran about $5,000 a broadcast, with top-ten programs at $10,000 or more' - carry no citation at all. None of the three listed sources contains them. The route that produces the narrower answer is the one with no source behind it."
+    },
+    {
+      "claim_id": "e2-measurement-001",
+      "verdict": "confirmed",
+      "evidence": "Located verbatim in the Beville PDF I downloaded and text-extracted: 'Advertisers agreed to pay $70 per month ($60 if an ANA member). In the first year 49 advertisers subscribed, producing a revenue of $33,045.' All four figures - $70, $60, 49 subscribers, $33,045 - match exactly. The point interval is right for an exact reported figure.",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-measurement-002",
+      "verdict": "confirmed",
+      "evidence": "Located verbatim in the Beville CAB chronology under the heading '1934-1935': 'Radio ownership among telephone subscribers was up to 96%, but only 31% of the nation's families had telephones.' Both figures and the 1934-35 dating match exactly, and the direction of the bias the claim draws from them is the one Beville himself draws - the same chapter records that by 1938 the CAB had to move to a quota sample because Crossley's data showed Class D homes 'with only one-fourth the number of telephones needed to properly reflect it in his sample'.",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-measurement-003",
+      "verdict": "confirmed",
+      "evidence": "Located in Beville: 'Hooper showed higher radio usage, and thus higher ratings on the average, of 20 percent.' The three causes match too: 'The study found that three factors operated to create the 20 percent higher ratings reported by Hooper: 1. The Hooper interviewer waited for six rings before classifying a home as unoccupied (and not listening): the CAB interviewer stopped after four rings. 2. CAB used an unsatisfactory system of handling listeners who did not or could not identify the program turned on. 3. [busy-signal treatment].' The study is correctly attributed to Hans Zeisel of the McCann-Erickson research department, conducted late 1945. Grade B correct; ci80 [15, 25] around an 'on average' figure is honest.",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-measurement-004",
+      "verdict": "confirmed",
+      "evidence": "Located verbatim in Beville: 'In the fall of 1934, the new research firm of Clark-Hooper Inc. launched the first syndicated coincidental survey conducted in 16 cities. It was financed by a subscriber group of magazine publishers who were feeling the competitive heat of radio and who became convinced that the ratings provided by the CAB service overstated the audience of network radio programs.' The city count, the season, the funder identity and the funder's motive all match exactly - including the sharp part, that a rival medium paid for the audit.",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-measurement-005",
+      "verdict": "confirmed",
+      "evidence": "Located verbatim in Beville: 'In December 1942, despite wartime equipment shortages, Nielsen went commercial with an 800-home sample in the east central portion of the United States - an area accounting for approximately 25 percent of households ... by 1945 the service had acquired 47 subscribers, mostly large advertisers and the networks.' All four elements - December 1942, 800 homes, ~25 percent of households, 47 subscribers by 1945 - match exactly.",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-measurement-006",
+      "verdict": "confirmed",
+      "evidence": "Located verbatim in Beville: 'In April 1949, when the NRI was expanded to cover 97 percent of U.S. homes (only the Mountain time zone was excluded on the basis of extreme field costs), Nielsen had achieved his long-sought objective of national projectable ratings.' The date, the coverage figure and the projectability claim all match. One nuance worth carrying: Beville notes 'Hooper had beaten him to this goal by publishing his first U.S. Hooperatings study a year earlier', so 'the first genuinely projectable national audience estimates' is contestable on priority even though Nielsen's was the first continuous projectable service.",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-measurement-007",
+      "verdict": "confirmed",
+      "evidence": "Located verbatim in Beville: 'In a speech, Nielsen explained that his company had spent nearly 10 years and $2 million to refine the original Audimeter \"to a point where it produces accurate results under all conditions ... and to ... get the instrument into successful production on a quantity basis and at a reasonable cost.\"' The passage sits immediately after Beville's account of the 1946 expansion of NRI coverage to 63 percent of US homes, so the 1946 dating is right. Grade B correct: this is a self-reported figure from a company speech, which the ci80 [1.5, 2.5] appropriately hedges.",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-measurement-008",
+      "verdict": "confirmed",
+      "evidence": "Located in Beville, quoting Robert Metz: 'The only way Benny's sponsor, the American Tobacco Company, would go along with the switch was if Paley guaranteed them $3000 for every point that Jack Benny fell below his Hooper rating at NBC - $3000 per point per week.' The amount, the per-point-per-week structure, the sponsor, the January 1949 move and the direction (points lost relative to his NBC rating) all match. Beville adds that Benny's Hooper was 'a formidable 24 plus, but Paley never had to make any payments'.",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-measurement-009",
+      "verdict": "adjusted",
+      "evidence": "The claim misreads its own cited source, and the error has a cross-era consequence. I fetched Quote Investigator's pre-1920 table: 1890 Printers' Ink, 'don't forget that half of the money spent in advertising is wasted' (unattributed); 1897 Gunton's Magazine (unattributed); 1898 The Bankers Magazine, attributed to Robert C. Ogden, a Wanamaker executive; 1911 Golden Book of the Wanamaker Stores (unattributed); 1919 Winona Echoes, Rev. Roy L. Smith crediting John Wanamaker. So 1919 is the earliest attribution TO WANAMAKER, not the earliest appearance of the line - the saying is in print in Printers' Ink in 1890, twenty-nine years earlier and already inside the advertising trade press. Under the claim's own stated unit ('year of the earliest located citation of the remark') the correct value is 1890. The 'attributed by a third party' and 'attributed legend' characterisations are both correct and survive.",
+      "sources_consulted": [
+        {
+          "name": "Quote Investigator, 'One-Half the Money I Spend for Advertising Is Wasted'",
+          "url": "https://quoteinvestigator.com/2022/04/11/advertising/"
+        },
+        {
+          "name": "Barry Popik, 'Half the money spent on advertising is wasted'",
+          "url": "https://barrypopik.com/blog/half_the_money_spent_on_advertising_is_wasted_but_no_one_knows_which_half"
+        }
+      ],
+      "old": {
+        "statement": "The 'half the money I spend on advertising is wasted' line first appears in print in 1919, attributed to John Wanamaker by a third party; no written or spoken instance from Wanamaker himself has been found, so it is attributed legend.",
+        "central": 1919,
+        "ci80": [
+          1919,
+          1919
+        ],
+        "unit": "year of the earliest located citation of the 'half my advertising is wasted' remark"
+      },
+      "new": {
+        "id": "e2-measurement-009",
+        "statement": "The 'half the money spent on advertising is wasted' line first appears in print in Printers' Ink in 1890, unattributed; the earliest located attribution to John Wanamaker is 1919, made by a third party at a bible conference. No written or spoken instance from Wanamaker himself has been found, so the attribution is legend.",
+        "central": 1890,
+        "unit": "year of the earliest located print citation of the 'half my advertising is wasted' saying (unattributed)",
+        "ci80": [
+          1890,
+          1890
+        ],
+        "grade": "B",
+        "method": "Quote Investigator's pre-1920 citation chain: 1890 Printers' Ink (unattributed); 1897 Gunton's Magazine (unattributed); 1898 The Bankers Magazine (attributed to Robert C. Ogden, a Wanamaker executive); 1911 Golden Book of the Wanamaker Stores (unattributed); 1919 Winona Echoes (Rev. Roy L. Smith crediting John Wanamaker) - the first Wanamaker attribution.",
+        "sources": [
+          {
+            "name": "Quote Investigator, 'One-Half the Money I Spend for Advertising Is Wasted'",
+            "url": "https://quoteinvestigator.com/2022/04/11/advertising/"
+          }
+        ],
+        "as_of": "1890"
+      },
+      "reason": "The claim's own source dates the saying's first print appearance to Printers' Ink in 1890, not 1919; 1919 is only the first Wanamaker attribution. Under the claim's stated unit the value is 1890.",
+      "disagreement": "Cross-era consequence the pipeline must handle: 1890 falls inside era 1 (1840s-1917), so the boundary_notes line 'The half my advertising is wasted line is dated here (first print citation 1919)' is wrong twice over - the first print citation is 1890 and it belongs to era 1, not era 2. Era 2 should keep only the 1919 Wanamaker attribution. Note also that the 1898 Ogden citation puts the saying in a Wanamaker executive's mouth two decades before the Wanamaker attribution, which is the most interesting fact in the chain and is currently in neither era."
+    },
+    {
+      "claim_id": "e2-targeting-001",
+      "verdict": "confirmed",
+      "evidence": "Recomputed from the parsed workbook: 1935 Magazines|Women's = 51, Magazines|Magazines = 130, giving 39.23%, matching the stated 39.2. The method's internal check also holds exactly: women's 51 + weeklies 54 + monthlies 25 = 130, so the three editorial sub-classes partition the magazine total with no residual. The workbook's categories sheet confirms all three sub-splits run 1935-1989, so 1935 is genuinely the first available year. Grade C for a derived ratio with a stated method is right, and the caveat that these are editorial classes rather than audience measurements is the correct one.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "51/130*100",
+          "expected": 39.23
+        },
+        {
+          "expr": "51+54+25",
+          "expected": 130
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-targeting-002",
+      "verdict": "confirmed",
+      "evidence": "Both endpoints read directly from the parsed workbook: Radio|Spot (nat'l) 1935 = 15, 1949 = 123. Exact match to the claim. The categories sheet confirms the national spot sub-split begins in 1935, so no earlier comparison was available to make.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "123/15",
+          "expected": 8.2
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-targeting-003",
+      "verdict": "confirmed",
+      "evidence": "Read directly from the parsed workbook: 1949 Radio|Spot (local) = 245, Radio|Network = 203. The overtaking claim is right, and I checked when it happened rather than accepting it: local spot passed network in 1948 (261 vs 220 - the crossover year), so by 1949 local spot was the largest radio category, as claimed. The radio sub-splits also close: 203 + 245 + 123 = 571 = Radio|Radio.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "203+245+123",
+          "expected": 571
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-targeting-004",
+      "verdict": "confirmed",
+      "evidence": "All three resolution steps located in Beville's CAB chronology, each under its own year heading. 1935-1936: 'The day part method that Crossley proposed (to reduce memory loss) was introduced. Instead of covering the entire preceding day's listening in one call, separate calls were made at four periods of the day.' 1940-1941: 'the listening day was now divided into eight parts (instead of the four inaugurated in 1935).' 1942-1943: 'The \"overlap method\" was introduced, utilizing 32 sets of interviews per day (compared with the original four and later eight day parts).' The claim's sequence - one call, four in 1935, eight in 1940, 32 by 1942 - matches the source exactly, including the base case of a single 24-hour recall call.",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-targeting-005",
+      "verdict": "confirmed",
+      "evidence": "All three points independently corroborated. 1930 census: 40.3 percent of American households owned a radio set (over 12 million households) - matching the cited National Archives figure. 1940 census: 82.8 percent, which rounds to the claimed 83 and sits inside ci80 [81, 85]. 1950: 95.7 percent, matching 'about 95 percent'. The Craig (2004) census-based analysis the claim cites is the standard source for this series and the demographic detail is consistent with it (1940 urban 91.7 percent vs rural 69.6 percent).",
+      "sources_consulted": [
+        {
+          "name": "US National Archives History Hub, 'Census Fun Fact #3 - Do You Own a Radio Set?'",
+          "url": "https://historyhub.history.gov/genealogy/census-records/b/census-blog/posts/census-fun-fact-3---do-you-own-a-radio-set"
+        },
+        {
+          "name": "Craig, 'How America Adopted Radio', Journal of Broadcasting & Electronic Media 48(2), 2004",
+          "url": "https://www.tandfonline.com/doi/abs/10.1207/s15506878jobem4802_2"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-events-001",
+      "verdict": "confirmed",
+      "evidence": "Verbatim in FCC ch. I: 'On July 1, 1926, a contract was entered into, which became effective November 1, 1926, under which RCA purchased the assets of the Broadcasting Co. of America. The purchase price was $1,000,000, and the transaction included WEAF and the entire broadcasting business of the Telephone Co. except the Washington station, WCAP, which was closed.' The amount, the date and the WEAF inclusion all match. Grade A correct; the point interval is right for a contract price. The FCC adds a detail worth keeping: AT&T covenanted not to compete for seven years 'under penalty of repaying $800,000 of the $1,000,000 purchase price' - so four-fifths of the price was effectively bought non-competition.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. I - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb01.htm"
+        }
+      ],
+      "disagreement": "Attribution nuance: the FCC states that 'In October 1926, RCA assigned to NBC its rights to purchase the Broadcasting Co. of America, and in November NBC paid the purchase price of $1,000,000.' RCA contracted; NBC paid. The claim and the event description both say RCA paid. Defensible shorthand, but the event's own narrative turns on NBC's formation, so the precise sequence is worth stating."
+    },
+    {
+      "claim_id": "e2-events-002",
+      "verdict": "confirmed",
+      "evidence": "Located verbatim in Beville: 'In March 1930, CAB field interviewing inaugurated a 12-month study in 50 cities with three 4-month comprehensive reports, each covering 17,000 user radio families.' All four elements - March 1930, 50 cities, three four-month reports, 17,000 radio families per report - match exactly. The surrounding narrative also confirms the event description: the 7 February 1930 Yale Club meeting, the ANA's endorsement without funding, and Crossley proceeding 'assuming all financial risks'.",
+      "sources_consulted": [
+        {
+          "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 - PDF downloaded, text extracted and searched",
+          "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e2-events-003",
+      "verdict": "adjusted",
+      "evidence": "I extracted the FCC's wattage table from the chapter VI HTML rather than trusting the record's arithmetic, and the record's central turns out to rest on an undisclosed definitional choice that contradicts the claim's own wording. The table gives nighttime watts of unlimited-time stations: NBC only 959,950 (51.4%), CBS only 658,050 (35.2%), Mutual only 117,350 (6.3%), NBC and Mutual 82,800 (4.4%), CBS and Mutual 11,200 (0.6%), total affiliated 1,829,350 (97.9%), unaffiliated 40,050 (2.1%), total 1,869,400. The record's 86.6 is 51.4 + 35.2 - the 'NBC only' and 'CBS only' rows alone. But the claim's statement says 'stations affiliated with NBC OR CBS', which must also include the 25 NBC-and-Mutual and 5 CBS-and-Mutual stations: 959,950 + 658,050 + 82,800 + 11,200 = 1,712,000, or 91.58 percent. The claim's own wording and its own number disagree. A second problem: the denominator 1,869,400 is the nighttime power of the 475 UNLIMITED-TIME stations, which the FCC states is 97.9 percent of the national total - so as a share of all US nighttime wattage the two readings are 84.7 percent and 89.7 percent, and 84.7 falls outside the stated ci80 floor of 85.0. Only the FCC's own hedged summary, 'Stations on the NBC and CBS networks alone thus had over 85 percent of the Nation's nighttime wattage', is grade A; any specific central requires a choice the FCC did not publish.",
+      "sources_consulted": [
+        {
+          "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+          "url": "https://earlyradiohistory.us/1941cb06.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "(959950+658050)/1869400*100",
+          "expected": 86.55
+        },
+        {
+          "expr": "(959950+658050+82800+11200)/1869400*100",
+          "expected": 91.58
+        },
+        {
+          "expr": "1869400/0.979",
+          "expected": 1909499
+        },
+        {
+          "expr": "1712000/1909499*100",
+          "expected": 89.66
+        },
+        {
+          "expr": "1618000/1909499*100",
+          "expected": 84.73
+        }
+      ],
+      "old": {
+        "central": 86.6,
+        "ci80": [
+          85.0,
+          92.0
+        ],
+        "grade": "A"
+      },
+      "new": {
+        "id": "e2-events-003",
+        "statement": "Stations affiliated with NBC or CBS held about 92 percent of the nighttime wattage of US unlimited-time stations at the end of 1938 - about 90 percent of all US nighttime wattage. The FCC's own published summary said only 'over 85 percent'.",
+        "central": 91.6,
+        "unit": "percent of US unlimited-time stations' nighttime wattage held by stations affiliated with NBC or CBS, end of 1938",
+        "ci80": [
+          84.7,
+          91.6
+        ],
+        "grade": "C",
+        "method": "From the FCC ch. VI wattage table. Stations affiliated with NBC or CBS, including dual NBC/Mutual and CBS/Mutual affiliates: 959,950 + 658,050 + 82,800 + 11,200 = 1,712,000 of 1,869,400 = 91.58 percent. Excluding the dual affiliates (NBC only + CBS only) gives 1,618,000 = 86.55 percent - the reading the FCC may have used, since it published 'over 85 percent'. The denominator is the nighttime power of the 475 unlimited-time stations, which the FCC states is 97.9 percent of the national total; against all US nighttime wattage the two readings are 89.7 and 84.7 percent. Interval floor set at 84.7 (narrow reading, national denominator) and ceiling at 91.58 (broad reading, unlimited-time denominator). Grade C rather than A because the number requires a definitional choice the FCC did not publish; only 'over 85 percent' is grade A.",
+        "sources": [
+          {
+            "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI - full text retrieved and searched",
+            "url": "https://earlyradiohistory.us/1941cb06.htm"
+          }
+        ],
+        "as_of": "1938"
+      },
+      "reason": "The record's 86.6 sums only the NBC-only and CBS-only rows, excluding 30 stations that were also NBC or CBS affiliates - inconsistent with the claim's own 'NBC or CBS' wording, which gives 91.6. The denominator is also unlimited-time-station wattage, not all US nighttime wattage; on the national denominator the narrow reading is 84.7, below the old ci80 floor. Central moved to the reading the statement actually describes, interval widened to span both readings and both denominators, grade A -> C.",
+      "disagreement": "Genuine ambiguity I have not resolved: the FCC wrote 'over 85 percent', which is consistent with 86.6 but also with 91.6. I read the sentence's 'alone' as distinguishing NBC and CBS from Mutual (hence including dual affiliates), and the record read it as excluding dual affiliates. Both readings are in the new interval and the FCC's published words are quoted in the new statement so the record can stand on them."
+    },
+    {
+      "claim_id": "e2-events-004",
+      "verdict": "confirmed",
+      "evidence": "The cited Encyclopedia.com entry supports the figure: the body 'operated out of both New York and Washington, D.C., under the auspices of the Office of War Information, funded by $100,000 raised from ad agencies and media associations.' The claim's ci80 [80,000, 120,000] around a round reported figure is appropriately hedged for a 'about $100,000' secondary source. Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "Encyclopedia.com, 'The Advertising Council, Inc.'",
+          "url": "https://www.encyclopedia.com/books/politics-and-business-magazines/advertising-council-inc"
+        },
+        {
+          "name": "University of Illinois Archives, Ad Council: War Advertising Council File, 1941-45",
+          "url": "https://archon.library.illinois.edu/archives/index.php?p=collections%2Fcontrolcard&id=1965"
+        }
+      ],
+      "disagreement": "Not in the claim but in the event description around it: the cited source says the body was incorporated in February 1942 AS the War Advertising Council, while the event text says it was incorporated 26 February 1942 as the Advertising Council and renamed the War Advertising Council on 25 June 1943. The naming chronology is contested between the record and its own source and should be pinned to the Illinois archival finding aid before publication."
+    },
+    {
+      "claim_id": "e2-events-005",
+      "verdict": "adjusted",
+      "evidence": "I attacked the tax arithmetic and it moves the answer up, not down. The Revenue Act of 1942 did replace the 35-60 percent graduated excess-profits schedule with a flat 90 percent rate - but it paired that with two features that both raise the after-tax cost of a deductible dollar, and the claim's method names one of them and then declines to act on it. (1) An overall ceiling limited combined normal tax, surtax and excess-profits tax to 80 percent of surtax net income. (2) A post-war refund credit of 10 percent of the excess-profits tax. The NBER's own marginal-tax-rate methodology computes the ceiling case explicitly as R = 0.8 x 0.9 = 0.72, i.e. a 72 percent effective marginal rate and a 28-cent after-tax cost per deductible dollar. The full grid of cases: 90 percent rate with the credit ignored = 10 cents; 90 percent with the credit valued = 19 cents; at the 80 percent ceiling with the credit ignored = 20 cents; at the ceiling with the credit valued = 28 cents. So the realistic range is 10-28 cents, the modal cases cluster at 19-20 cents, and the claim's ci80 top of 25 cents excludes the ceiling-plus-credit case that the standard methodology computes. The claim's own method concedes 'secondary accounts of the period settle on the government might pay up to 80 percent, implying about 20 cents' and then sets the central at 15 anyway - a downward pull with nothing behind it.",
+      "sources_consulted": [
+        {
+          "name": "NBER, 'Calculation of Marginal Tax Rates on Corporate Income' (ceiling case R = .72 = (.8)(.9))",
+          "url": "https://www.nber.org/system/files/chapters/c6784/c6784.pdf"
+        },
+        {
+          "name": "Encyclopedia.com, 'Excess Profits Tax' (1942 flat 90 percent rate with a postwar refund of 10 percent)",
+          "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/taxation/excess-profits-tax"
+        },
+        {
+          "name": "Stole, Advertising at War (University of Illinois Press, 2012)",
+          "url": "https://www.press.uillinois.edu/books/catalog/54xxe8qn9780252037122.html"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "1-0.90",
+          "expected": 0.1
+        },
+        {
+          "expr": "1-0.90*0.90",
+          "expected": 0.19
+        },
+        {
+          "expr": "1-0.80",
+          "expected": 0.2
+        },
+        {
+          "expr": "1-0.80*0.90",
+          "expected": 0.28
+        }
+      ],
+      "old": {
+        "central": 0.15,
+        "ci80": [
+          0.1,
+          0.25
+        ]
+      },
+      "new": {
+        "id": "e2-events-005",
+        "statement": "For a corporation paying the wartime excess-profits tax, a dollar of deductible advertising cost roughly 20 cents after tax.",
+        "central": 0.2,
+        "unit": "US$ after-tax cost to an excess-profits-tax-paying corporation of $1.00 of deductible advertising, 1943-45",
+        "ci80": [
+          0.1,
+          0.28
+        ],
+        "grade": "C",
+        "method": "The Revenue Act of 1942 set a flat 90 percent excess-profits rate, but paired it with an overall ceiling limiting combined normal tax, surtax and excess-profits tax to 80 percent of surtax net income, and with a post-war refund credit of 10 percent of the excess-profits tax. Four cases: 90 percent with the credit ignored = 10 cents; 90 percent with the credit valued = 19 cents; at the 80 percent ceiling with the credit ignored = 20 cents; at the ceiling with the credit valued = 28 cents (the NBER marginal-rate methodology computes this case as R = .8 x .9 = .72). Most excess-profits payers sat at or near the ceiling, so the modal figure is 19-20 cents; central set at 20, interval spanning all four cases. Secondary accounts of the period ('the government might pay up to 80 percent') agree with the 20-cent figure.",
+        "sources": [
+          {
+            "name": "NBER, 'Calculation of Marginal Tax Rates on Corporate Income'",
+            "url": "https://www.nber.org/system/files/chapters/c6784/c6784.pdf"
+          },
+          {
+            "name": "Encyclopedia.com, 'Excess Profits Tax'",
+            "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/taxation/excess-profits-tax"
+          },
+          {
+            "name": "Stole, Advertising at War: Business, Consumers, and Government in the 1940s (University of Illinois Press, 2012)",
+            "url": "https://www.press.uillinois.edu/books/catalog/54xxe8qn9780252037122.html"
+          }
+        ],
+        "as_of": "1943"
+      },
+      "reason": "Central 0.15 -> 0.20 and ci80 top 0.25 -> 0.28. Two statutory features - the 80 percent overall ceiling and the 10 percent post-war refund credit - both raise the effective after-tax cost, and the old interval excluded the ceiling-plus-credit case that standard methodology computes at 28 cents. The Wikipedia citation is replaced with the NBER methodology chapter and an encyclopedia entry that states the post-war refund.",
+      "disagreement": "The PRICING field summary's 'a dollar of advertising cost a profitable corporation about fifteen cents' carries the same understatement and must move with the claim. The rhetorical point is unharmed - twenty cents on the dollar is still a near-free dollar - but 15 cents overstates the subsidy."
+    },
+    {
+      "claim_id": "e2-events-006",
+      "verdict": "confirmed",
+      "evidence": "The $8 million price is corroborated by three independent sources beyond the two cited: the Museum of Broadcast Communications Blue Network entry, Britannica, and contemporaneous-derived accounts all give $8 million, with FCC approval and the sale closing in October 1943. The event's supporting detail also checks out - Noble acquired the Blue name, the line leases, the New York studios, three owned stations (WJZ New York, WENR Chicago on shared time, KGO San Francisco - the record's 'two and a half stations') and roughly 60 affiliate agreements.",
+      "sources_consulted": [
+        {
+          "name": "Museum of Broadcast Communications, Blue Network",
+          "url": "https://www.museum.tv/radio-encyclopedia-2/blue-network"
+        },
+        {
+          "name": "Britannica, 'Blue Network'",
+          "url": "https://www.britannica.com/topic/Blue-Network"
+        },
+        {
+          "name": "Wikipedia, 'Blue Network'",
+          "url": "https://en.wikipedia.org/wiki/Blue_Network"
+        }
+      ],
+      "disagreement": "Two flags. (1) Source grade: the claim's first citation is Wikipedia, which is not 'credible named reporting with a track record' under the rigor_spec. The value survives on Britannica and MBC, but the Wikipedia citation should be dropped and the FCC's own approval record used if a grade-A source is wanted. (2) The event description says Noble bought the network on 12 October 1943 'and renamed the company the American Broadcasting Company'. The rename did not happen at the sale - the ABC name was adopted in 1944 and went on air in June 1945. The description conflates the two."
+    }
+  ]
+}

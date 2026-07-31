@@ -1,0 +1,2088 @@
+{
+ "verdicts": [
+  {
+   "claim_id": "e3-scale-001",
+   "verdict": "confirmed",
+   "evidence": "Parsed the Coen workbook directly: 1950 Grand Total = 5,700 ($M), matching the claim exactly. The workbook's own 'revisions' sheet shows the 1950 total at 5,710 in Historical Statistics and 5,700 in the Coen 2000/2003/2008 vintages - a 0.18% spread, so the value is stable across every vintage.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Douglas Galbi, 'Annual U.S. Advertising Expenditure Since 1919'",
+     "url": "https://www.galbithink.org/ad-spending.htm"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "coen['1950']['Grand Total'] ",
+     "expected": 5700
+    }
+   ],
+   "disagreement": "ci80 [5500,5900] is +-3.5%, an order of magnitude wider than the 0.18% cross-vintage spread I measured. The width is defensible as single-compiler risk rather than revision risk, but it is not what the sibling claim e3-scale-003 says it is."
+  },
+  {
+   "claim_id": "e3-scale-002",
+   "verdict": "confirmed",
+   "evidence": "Coen workbook: 1975 Grand Total = 27,900 ($M). The revisions sheet shows 27,900 identically in the Coen 2000, 2003 and 2008 vintages (zero revision).",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Douglas Galbi, 'Annual U.S. Advertising Expenditure Since 1919'",
+     "url": "https://www.galbithink.org/ad-spending.htm"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "coen['1975']['Grand Total']",
+     "expected": 27900
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-scale-003",
+   "verdict": "adjusted",
+   "evidence": "Recomputed from the Coen endpoints I parsed myself: (27900/5700)^(1/25)-1 = 0.065588, i.e. 6.56%, and the fold change is 4.8947. Central 6.6 and 'a 4.89-fold increase' are both right. The method's justification for the interval is not: I opened the workbook's 'revisions' sheet and the 1950-1975 total-level revisions across the Coen 2000/2003/2008 vintages are 0.0% to 0.3% (1950: 5,710 vs 5,700; 1970: 19,600 vs 19,550; 1975: no revision), not 'a few percent'. The stated interval [6.4,6.8] is nevertheless the right width for a different reason: a +-3% shock to either endpoint moves the CAGR to 6.43%-6.69%.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    }
+   ],
+   "old": {
+    "method": "...Interval reflects Coen's own revision history (the workbook's 'revisions' sheet shows total-level revisions of a few percent between vintages)."
+   },
+   "new": {
+    "id": "e3-scale-003",
+    "statement": "US advertising expenditure compounded at about 6.6% a year in nominal terms across 1950-1975, a 4.89-fold increase over twenty-five years.",
+    "central": 6.6,
+    "unit": "percent compound annual nominal growth rate, 1950-1975",
+    "ci80": [
+     6.4,
+     6.8
+    ],
+    "grade": "C",
+    "method": "(27,900 / 5,700)^(1/25) - 1 = 0.06559. Inputs are the Coen 1950 and 1975 grand totals. Coen's own revision history is NOT the source of the uncertainty: the workbook's 'revisions' sheet shows 1950-1975 total-level revisions of only 0.0-0.3% across the 2000, 2003 and 2008 vintages. The interval instead reflects single-compiler definitional risk on the endpoints; a +-3% shock to either endpoint gives 6.43%-6.69%.",
+    "sources": [
+     {
+      "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+     }
+    ],
+    "as_of": "1975"
+   },
+   "reason": "Method text misdescribed the Coen revision history; corrected against the workbook's own revisions sheet. Central, unit, interval and grade unchanged.",
+   "recomputation": [
+    {
+     "expr": "(27900/5700)**(1/25)-1",
+     "expected": 0.065588
+    },
+    {
+     "expr": "27900/5700",
+     "expected": 4.8947
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-scale-004",
+   "verdict": "confirmed",
+   "evidence": "World Bank API returns US GDP 1975 = $1,684.904bn, matching the claim's denominator exactly; 27,900/1,684,904 = 1.656%. MeasuringWorth gives 1950 US GDP = $299.827bn, so 5,700/299,827 = 1.901%, matching 'about 1.9% in 1950'. Galbi's published ratio of 1.7% for 1975 is a rounding of the same computation.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "World Bank, GDP (current US$), World and United States",
+     "url": "https://api.worldbank.org/v2/country/WLD;USA/indicator/NY.GDP.MKTP.CD?date=1950:1976&format=json"
+    },
+    {
+     "name": "MeasuringWorth, annual US nominal GDP 1949-1980",
+     "url": "https://www.measuringworth.com/datasets/usgdp/"
+    },
+    {
+     "name": "Douglas Galbi, 'Annual U.S. Advertising Expenditure Since 1919'",
+     "url": "https://www.galbithink.org/ad-spending.htm"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*27900/1684904",
+     "expected": 1.656
+    },
+    {
+     "expr": "100*5700/299827",
+     "expected": 1.901
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-scale-005",
+   "verdict": "adjusted",
+   "evidence": "I built the full ad/GDP series 1950-1975 from the Coen totals and a single consistent GDP vintage (MeasuringWorth/BEA) rather than checking 1960 alone. The peak is not 1960: it is a plateau, and 1956 is marginally the maximum. 1955 2.151%, 1956 2.2054%, 1957 2.166%, 1958 2.142%, 1959 2.160%, 1960 2.2051%, 1961 2.110%. On the World Bank vintage (which has no pre-1960 US data) 1960 reads 2.2067%. The two peak years are a statistical dead heat, separated by 0.0003 percentage points. The claimed level of ~2.2% is exactly right; the year attribution 'around 1960' hides a 1955-1960 plateau and understates how early the peak was reached.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "World Bank, GDP (current US$), World and United States",
+     "url": "https://api.worldbank.org/v2/country/WLD;USA/indicator/NY.GDP.MKTP.CD?date=1950:1976&format=json"
+    },
+    {
+     "name": "MeasuringWorth, annual US nominal GDP 1949-1980",
+     "url": "https://www.measuringworth.com/datasets/usgdp/"
+    },
+    {
+     "name": "Douglas Galbi, 'Annual U.S. Advertising Expenditure Since 1919'",
+     "url": "https://www.galbithink.org/ad-spending.htm"
+    }
+   ],
+   "old": {
+    "statement": "Advertising's share of GDP peaked inside this era at roughly 2.2% around 1960 and then fell for the rest of the period...",
+    "as_of": "1960"
+   },
+   "new": {
+    "id": "e3-scale-005",
+    "statement": "Advertising's share of GDP peaked inside this era on a plateau of roughly 2.2% running from 1955 to 1960 - 2.205% in 1956 and 2.205% in 1960 are a dead heat for the maximum - and then trended down for the rest of the period. Television's rise happened while advertising was shrinking relative to the economy.",
+    "central": 2.2,
+    "unit": "percent of US GDP at the era's peak (1956-1960 plateau)",
+    "ci80": [
+     2.1,
+     2.35
+    ],
+    "grade": "B",
+    "sources": [
+     {
+      "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+     },
+     {
+      "name": "World Bank, GDP (current US$), World and United States",
+      "url": "https://api.worldbank.org/v2/country/WLD;USA/indicator/NY.GDP.MKTP.CD?date=1950:1976&format=json"
+     },
+     {
+      "name": "MeasuringWorth, annual US nominal GDP 1949-1980",
+      "url": "https://www.measuringworth.com/datasets/usgdp/"
+     },
+     {
+      "name": "Douglas Galbi, 'Annual U.S. Advertising Expenditure Since 1919'",
+      "url": "https://www.galbithink.org/ad-spending.htm"
+     }
+    ],
+    "as_of": "1956-1960"
+   },
+   "reason": "Peak year misattributed. Recomputing the full 1950-1975 ad/GDP series on one GDP vintage shows 1956 edging 1960, with a plateau across 1955-1960. Central level and interval stand.",
+   "recomputation": [
+    {
+     "expr": "100*9910/449353",
+     "expected": 2.2054
+    },
+    {
+     "expr": "100*11960/542382",
+     "expected": 2.2051
+    },
+    {
+     "expr": "100*11960/541989",
+     "expected": 2.2067
+    }
+   ],
+   "disagreement": "The record also says the ratio 'then fell for the rest of the period'. It rises in 1963-64 (2.055 to 2.067) and 1971-72 (1.777 to 1.815). The trend claim is right; the monotonic reading is not."
+  },
+  {
+   "claim_id": "e3-scale-006",
+   "verdict": "confirmed",
+   "evidence": "Coen 1975: Total National 15,200 of Grand Total 27,900 = 54.48%. Coen 1950: Total National 3,260 of 5,700 = 57.19%. Independent cross-check in CRS 80-130 E, which I read in full text: 'National advertising continues to dominate the market, representing 55 percent of the advertising media market in 1978' - consistent with a slow drift.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+     "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*15200/27900",
+     "expected": 54.48
+    },
+    {
+     "expr": "100*3260/5700",
+     "expected": 57.19
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-scale-007",
+   "verdict": "confirmed",
+   "evidence": "I attacked this as the weakest number in the record and could not break it. Both arithmetic paths reproduce: World Bank world GDP 1975 = $6,048.0bn and US = $1,684.9bn, so non-US GDP = $4,363bn; at a blended 0.55% that is $24bn, world $51.9bn, US share 53.8%. Path 2 gives $57.3bn and 48.7%. Midpoint $54.6bn, rounded to $54bn. I ran an independent hunt for a period world total (IAA / Starch INRA Hooper 'Survey of World Advertising Expenditures') and found nothing retrievable, which corroborates the claim's own statement that no period source exists. Grade C with an explicit two-path method is the correct handling.",
+   "sources_consulted": [
+    {
+     "name": "World Bank, GDP (current US$), World and United States",
+     "url": "https://api.worldbank.org/v2/country/WLD;USA/indicator/NY.GDP.MKTP.CD?date=1950:1976&format=json"
+    },
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "6048-1685",
+     "expected": 4363
+    },
+    {
+     "expr": "27.9+24",
+     "expected": 51.9
+    },
+    {
+     "expr": "(52+57)/2",
+     "expected": 54.5
+    }
+   ],
+   "disagreement": "ci80 [42,70] is a -22%/+30% band. That is wide, but for a quantity with no found source and a fully disclosed build it carries information rather than hiding it. I would not narrow it."
+  },
+  {
+   "claim_id": "e3-scale-008",
+   "verdict": "confirmed",
+   "evidence": "Money-type construction verified end to end against both underlying series. Coen 1975 Total National 15,200 minus Direct Mail 4,124 = 11,076; 1950: 3,260 - 803 = 2,457. I confirmed Coen books all direct mail as national (Direct Mail appears only under Total National in the workbook's category map, 1935-2007). The four money types sum to 27,900 exactly in 1975 and 5,700 exactly in 1950.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "15200-4124",
+     "expected": 11076
+    },
+    {
+     "expr": "3260-803",
+     "expected": 2457
+    },
+    {
+     "expr": "11076+10541+2159+4124",
+     "expected": 27900
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-scale-009",
+   "verdict": "adjusted",
+   "evidence": "The subtraction is exactly right and I verified the assumption it rests on, which the record did not spell out: NAA's own 1975 newspaper split is national 1,109 / retail 4,966 / classified 2,159, and Coen's Newspapers-National is also 1,109 while Coen's Newspapers-Local is 7,125 = 4,966 + 2,159. So classified sits wholly inside Coen's local, and 12,700 - 2,159 = 10,541 is sound. The defect is the interval. The method says the interval 'reflects the unallocated Yellow Pages money sitting inside Coen's Miscellaneous before 1980, which is largely local-retail in character' - but it does not actually accommodate that treatment. Yellow Pages was 88.6% local when Coen first split it out in 1980 (2,570 of 2,900). Applying that to the record's own 1975 directory estimate of $1.5bn moves $1,329M out of local retail, giving $9,212M - below the stated lower bound of 9,500.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' / 'Annual Newspaper Classified Ad Expenditures' (Internet Archive capture) - the underlying series for HSUS De523-526",
+     "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+    },
+    {
+     "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+     "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+    }
+   ],
+   "old": {
+    "ci80": [
+     9500,
+     11500
+    ]
+   },
+   "new": {
+    "id": "e3-scale-009",
+    "statement": "Local retail advertising was $10,541 million in 1975, up from $2,063 million in 1950 - the money that kept newspapers, and increasingly local spot radio and television, in business.",
+    "central": 10541,
+    "unit": "million USD",
+    "ci80": [
+     9100,
+     11500
+    ],
+    "grade": "C",
+    "method": "Coen 'Total Local' minus newspaper classified from HSUS De526 (= the NAA series): 12,700 - 2,159 = 10,541 for 1975; 2,440 - 377 = 2,063 for 1950. Verified that classified sits wholly inside Coen local: Coen Newspapers-Local 7,125 = NAA retail 4,966 + NAA classified 2,159, and Coen Newspapers-National 1,109 = NAA national 1,109. Lower bound now covers the alternative mapping in which directory advertising is treated as classified rather than local-retail money: at the 1980 Yellow Pages local share of 88.6%, the era-3 directory estimate of $1.5bn removes $1,329M, giving $9,212M.",
+    "sources": [
+     {
+      "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+     },
+     {
+      "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' / 'Annual Newspaper Classified Ad Expenditures' (Internet Archive capture) - the underlying series for HSUS De523-526",
+      "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+     },
+     {
+      "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+      "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+     }
+    ],
+    "as_of": "1975"
+   },
+   "reason": "Interval was too narrow: it excluded the very Yellow Pages treatment its own method text named as the source of uncertainty. Lower bound moved 9,500 to 9,100.",
+   "recomputation": [
+    {
+     "expr": "12700-2159",
+     "expected": 10541
+    },
+    {
+     "expr": "1500*2570/2900",
+     "expected": 1329
+    },
+    {
+     "expr": "12700-2159-1329",
+     "expected": 9212
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-scale-010",
+   "verdict": "confirmed",
+   "evidence": "Verified against the NAA source series that underlies HSUS De523-526, retrieved from an Internet Archive capture rather than the paywalled HSUS: 1950 classified $377M and newspaper total $2,070M; 1975 classified $2,159M and newspaper total $8,234M. The share arithmetic reproduces: 377/2,070 = 18.21% and 2,159/8,234 = 26.22%, matching the claimed 18.2% and 26.2%.",
+   "sources_consulted": [
+    {
+     "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' / 'Annual Newspaper Classified Ad Expenditures' (Internet Archive capture) - the underlying series for HSUS De523-526",
+     "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+    },
+    {
+     "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+     "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*377/2070",
+     "expected": 18.21
+    },
+    {
+     "expr": "100*2159/8234",
+     "expected": 26.22
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-scale-011",
+   "verdict": "confirmed",
+   "evidence": "Coen workbook: Direct Mail 1975 = 4,124 and 1950 = 803. Ranking the 1975 media lines (Newspapers 8,234; Television 5,263; Direct Mail 4,124; Radio 1,980; Magazines 1,465; Business Papers 919; Billboards 335; Farm 74, with Miscellaneous 5,506 not a medium), direct mail is third overall. It is the largest national medium: 4,124 against television's national total of Network 2,306 + national Spot 1,623 = 3,929.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "USPS Office of Inspector General, RARC-WP-16-006, 'Advertising Mail: Past and Present'",
+     "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "2306+1623",
+     "expected": 3929
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-buyers-006",
+   "verdict": "confirmed",
+   "evidence": "11,076/27,900 = 39.70% and 2,457/5,700 = 43.11%, both reproduced from the Coen workbook I parsed myself. Interval [37,43] comfortably covers the alternative mapping in which directory money is pulled out of the national pool (Yellow Pages was 11.4% national in 1980, so ~$171M of the $1.5bn 1975 estimate, giving 39.1%).",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+     "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*11076/27900",
+     "expected": 39.7
+    },
+    {
+     "expr": "100*2457/5700",
+     "expected": 43.11
+    },
+    {
+     "expr": "100*(11076-171)/27900",
+     "expected": 39.09
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-buyers-007",
+   "verdict": "adjusted",
+   "evidence": "Percentages reproduce (10,541/27,900 = 37.78%; 2,063/5,700 = 36.19%), but the interval fails the same test as its sibling e3-scale-009. The stated interval's justification is Yellow Pages treatment, and the Yellow-Pages-as-classified mapping gives 33.0% - outside [35,40].",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+     "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+    },
+    {
+     "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' / 'Annual Newspaper Classified Ad Expenditures' (Internet Archive capture) - the underlying series for HSUS De523-526",
+     "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+    }
+   ],
+   "old": {
+    "ci80": [
+     35,
+     40
+    ]
+   },
+   "new": {
+    "id": "e3-buyers-007",
+    "statement": "Local retail advertisers accounted for 37.8% of all US advertising spend in 1975 ($10.54bn), up from 36.2% in 1950 - the pool that kept newspapers the largest medium in the country all era.",
+    "central": 37.8,
+    "unit": "percent of total US advertising expenditure",
+    "ci80": [
+     32.5,
+     40
+    ],
+    "grade": "C",
+    "method": "local_retail = Coen 'Total Local' minus newspaper classified (HSUS De526 / NAA), because Coen counts classified inside local. 1975: 12,700 - 2,159 = 10,541 of 27,900 = 37.8%. 1950: 2,440 - 377 = 2,063 of 5,700 = 36.2%. Lower bound covers the mapping in which directory advertising is counted as classified money: at the 1980 Yellow Pages local share of 88.6%, the era-3 directory estimate of $1.5bn removes $1,329M and gives 33.0%.",
+    "sources": [
+     {
+      "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+     },
+     {
+      "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+      "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+     },
+     {
+      "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' / 'Annual Newspaper Classified Ad Expenditures' (Internet Archive capture) - the underlying series for HSUS De523-526",
+      "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+     }
+    ],
+    "as_of": "1975"
+   },
+   "reason": "Interval excluded the directory-as-classified mapping that its own method names as the uncertainty. Lower bound moved 35 to 32.5.",
+   "recomputation": [
+    {
+     "expr": "100*10541/27900",
+     "expected": 37.78
+    },
+    {
+     "expr": "100*(10541-1329)/27900",
+     "expected": 33.02
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-buyers-008",
+   "verdict": "adjusted",
+   "evidence": "The dollar figure is solid (NAA/HSUS classified 2,159 in 1975) and 2,159/27,900 = 7.74%. But this is a money-TYPE claim about a buyer pool, not a newspaper claim, and the record defines that pool in its own words as 'a self-serve, per-line, intent-matched market with no agency layer'. By that definition the pool must include directory advertising - the record's own PRICING summary says so explicitly ('Classified and directory advertising ran on an entirely different pricing regime in the same years - self-serve, per agate line or per directory listing tier, annual contract, no agency and no commission') and its own e3-medium-010 sizes 1975 directories at ~$1.5bn. Including directories gives $3,659M = 13.1% of all spend, far outside the stated [7.4,8.1]. The record contradicts itself between fields; the interval is the field that has to give.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' / 'Annual Newspaper Classified Ad Expenditures' (Internet Archive capture) - the underlying series for HSUS De523-526",
+     "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+    },
+    {
+     "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+     "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+    }
+   ],
+   "old": {
+    "ci80": [
+     7.4,
+     8.1
+    ],
+    "grade": "B"
+   },
+   "new": {
+    "id": "e3-buyers-008",
+    "statement": "Classified buyers - the self-serve, per-unit, intent-matched, no-agency pool - accounted for at least 7.7% of all US advertising spend in 1975 ($2.16bn of newspaper classified), up from 6.6% in 1950. Adding directory advertising, which ran on the same self-serve per-unit regime and is not separately reported before 1980, raises the pool to roughly 13%.",
+    "central": 7.7,
+    "unit": "percent of total US advertising expenditure",
+    "ci80": [
+     7.4,
+     13.5
+    ],
+    "grade": "C",
+    "method": "Lower bound and central are newspaper classified alone (NAA/HSUS 2,159) over the Coen 1975 grand total 27,900 = 7.74%. Upper bound adds era-3's own directory estimate of $1.5bn (e3-medium-010): (2,159 + 1,500)/27,900 = 13.1%, plus headroom for the directory estimate's own interval. 1950: 377/5,700 = 6.6%, directories then being far smaller.",
+    "sources": [
+     {
+      "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+     },
+     {
+      "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' / 'Annual Newspaper Classified Ad Expenditures' (Internet Archive capture) - the underlying series for HSUS De523-526",
+      "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+     },
+     {
+      "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+      "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+     }
+    ],
+    "as_of": "1975"
+   },
+   "reason": "Interval was scoped to newspaper classified while the statement was scoped to a buyer pool that the record's own PRICING summary and directory claim place at roughly 13% of spend. Grade moved B to C because the pool figure is now a construction requiring a method.",
+   "recomputation": [
+    {
+     "expr": "100*2159/27900",
+     "expected": 7.74
+    },
+    {
+     "expr": "100*(2159+1500)/27900",
+     "expected": 13.11
+    }
+   ],
+   "disagreement": "The original researcher read 'classified' as a medium (newspaper classified) and I read it as the money type the field is named for. On the medium reading the number is right and I would confirm it - which is exactly what I do for e3-scale-010."
+  },
+  {
+   "claim_id": "e3-buyers-009",
+   "verdict": "confirmed",
+   "evidence": "4,124/27,900 = 14.78% and 803/5,700 = 14.09%. 'Largest single national medium at era end' verified against Coen: direct mail 4,124 vs television national 3,929. I also tested the era's history of that crossover and the record's summary is right - television national exceeded direct mail only in 1968, 1969 and 1970 (2,654/2,612, 2,931/2,670, 2,892/2,766) and never again inside the era.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "USPS Office of Inspector General, RARC-WP-16-006, 'Advertising Mail: Past and Present'",
+     "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*4124/27900",
+     "expected": 14.78
+    },
+    {
+     "expr": "100*803/5700",
+     "expected": 14.09
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-pricing-001",
+   "verdict": "confirmed",
+   "evidence": "Found the exact worked example in Zeigler & Howard: 'Station bills agency $2,500 / Agency pays station $2,125 / Agency bills advertiser/client $2,500', with '15 percent of the figure is $375 - the amount the ad agency pockets'. The claim reproduces the source line for line.",
+   "sources_consulted": [
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    },
+    {
+     "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services: An Economic Analysis', HBS Working Paper 11-039",
+     "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "2500*0.85",
+     "expected": 2125
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-pricing-002",
+   "verdict": "confirmed",
+   "evidence": "Zeigler & Howard, verbatim: 'It is a 2 percent on-time (or cash) discount, granted to the agency, and based on the agency's total cost (which, in the given example, is $2,125). So, since 2 percent of $2,125 is $42.50, the agency may pay as little as $2,082.50 of the original $2,500 bill.' Payment window 'usually within ten days' also confirmed. The claim's framing that this is computed on the net, not the gross, is exactly what the source says.",
+   "sources_consulted": [
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "0.02*2125",
+     "expected": 42.5
+    },
+    {
+     "expr": "2125-42.5",
+     "expected": 2082.5
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-pricing-003",
+   "verdict": "adjusted",
+   "evidence": "The range and the base are confirmed verbatim in Zeigler & Howard: 'The normal range is about 5 to 20 percent' and 'stations normally deduct 15 percent of the total cost (the agency commission) first, and then base the rep's commission on the rest.' The 'typically about 10%' is not. The source gives no central value; what it does say cuts the other way - 'lower averages in TV than in radio because of the higher actual dollar involvement in TV', and national spot television was the largest rep-sold category of the era. So the central is a midpoint the verifier constructed and presented as a source figure.",
+   "sources_consulted": [
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    }
+   ],
+   "old": {
+    "statement": "...took a negotiated commission of roughly 5-20% - typically about 10% - calculated on the amount left after the agency's 15% had been deducted.",
+    "grade": "B"
+   },
+   "new": {
+    "id": "e3-pricing-003",
+    "statement": "Station representative firms, which sold local stations' inventory to national advertisers, took a negotiated commission in a normal range of about 5-20%, calculated on the amount left after the agency's 15% had been deducted. The source publishes the range but no typical value, and notes that television averages ran below radio's.",
+    "central": 10,
+    "unit": "percent commission to the station representative firm",
+    "ci80": [
+     5,
+     20
+    ],
+    "grade": "C",
+    "method": "Zeigler & Howard give the range 5-20% and the calculation base (net of the agency's 15%), but publish no central. Central 10 is the range midpoint and is a construction, not a source figure; because national spot television was the largest rep-sold category in this era and the source states TV averages ran below radio's, the television-weighted central probably sits below 10%.",
+    "sources": [
+     {
+      "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+      "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+     }
+    ],
+    "as_of": "1975"
+   },
+   "reason": "Central was a constructed midpoint presented as a source value. Grade B to C, method added, 'typically about 10%' removed from the statement. Interval unchanged - it is the source's own range."
+  },
+  {
+   "claim_id": "e3-pricing-004",
+   "verdict": "confirmed",
+   "evidence": "Zeigler & Howard, verbatim: 'Corresponding costs per minute were $30,000 in the early 1960s and $65,000 by 1970.' 65,000/30,000 - 1 = 116.67%, so '117% nominal increase' is right. Interval [55000,75000] around a single-source point figure is honest.",
+   "sources_consulted": [
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*(65000/30000-1)",
+     "expected": 116.67
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-pricing-005",
+   "verdict": "confirmed",
+   "evidence": "Every input traced and every step reproduced. Cost per minute from Zeigler & Howard (verified verbatim). Television households from TVB/Nielsen, which I read directly: 1960 = 45,750,000 and 1970 = 58,500,000. 65,000/(58.5m x 0.19/1,000) = $5.85; 30,000/(45.75m x 0.20/1,000) = $3.28. The interval is generated exactly as the method says by varying the prime-time household rating from 15 to 25: $7.41 and $4.44. Grade C with a disclosed rating assumption is the right handling of a derived unit-economics number.",
+   "sources_consulted": [
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    },
+    {
+     "name": "Television Bureau of Advertising, 'National Television Penetration Trends' (source: The Nielsen Company)",
+     "url": "https://www.tvb.org/wp-content/uploads/2022/10/National-TV-Household-Penetration-Trends.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "65000/(58.5e6*0.19/1000)",
+     "expected": 5.848
+    },
+    {
+     "expr": "30000/(45.75e6*0.20/1000)",
+     "expected": 3.279
+    },
+    {
+     "expr": "65000/(58.5e6*0.15/1000)",
+     "expected": 7.407
+    },
+    {
+     "expr": "65000/(58.5e6*0.25/1000)",
+     "expected": 4.444
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-pricing-006",
+   "verdict": "adjusted",
+   "evidence": "The attribution and the interval both fail an independent source hunt. Wikipedia's Super Bowl I article gives '$42,000 (Both CBS and NBC)' - it does not attribute $42,000 to CBS. The record's own second source, Superbowl-Ads.com, has $42,500 for CBS in its table and $37,500 in its prose. The best-documented primary numbers are the per-minute rates, CBS $85,000 and NBC $75,000, whose halves are $42,500 and $37,500 - the CBS/NBC split the claim wants, but at 42,500 not 42,000. So the stated ci80 upper bound of 42,000 excludes a credible published figure that appears in the claim's own cited source. Separately, central 40,000 is a midpoint of two different real prices and is a price nobody paid, which under the rigor spec makes it a construction requiring a method and a C grade.",
+   "sources_consulted": [
+    {
+     "name": "Wikipedia, 'Super Bowl I'",
+     "url": "https://en.wikipedia.org/wiki/Super_Bowl_I"
+    },
+    {
+     "name": "Superbowl-Ads.com, 'Cost of Super Bowl Advertising: Breakdown by Year'",
+     "url": "https://www.superbowl-ads.com/cost-of-super-bowl-advertising-breakdown-by-year/"
+    },
+    {
+     "name": "NBC, 'How Much a Super Bowl Ad Costs in 2023 Compared With History'",
+     "url": "https://www.nbclosangeles.com/news/sports/super-bowl-commercials-how-much-do-they-cost-a-look-through-the-years/2822339/"
+    }
+   ],
+   "old": {
+    "statement": "A 30-second spot in the first Super Bowl (15 January 1967) cost $42,000 on CBS and $37,500 on NBC...",
+    "ci80": [
+     37500,
+     42000
+    ],
+    "grade": "B"
+   },
+   "new": {
+    "id": "e3-pricing-006",
+    "statement": "Published 30-second prices for the first Super Bowl (15 January 1967) run from $37,500 to $42,500. The two networks priced their simultaneous broadcasts differently: the documented per-minute rates were $85,000 on CBS and $75,000 on NBC, whose halves are $42,500 and $37,500. Secondary compilations also quote a flat $42,000 attributed to both networks. No single price applies to both broadcasts.",
+    "central": 40000,
+    "unit": "USD per 30-second spot",
+    "ci80": [
+     37500,
+     42500
+    ],
+    "grade": "C",
+    "method": "Central 40,000 is the midpoint of the two networks' half-minute rates and is a construction, not a transacted price. Bounds are the two networks' own documented half-minute rates: NBC $75,000/2 = $37,500 and CBS $85,000/2 = $42,500. A less well attributed CBS figure of $45,500 circulates and is deliberately excluded for want of a traceable source.",
+    "sources": [
+     {
+      "name": "Wikipedia, 'Super Bowl I'",
+      "url": "https://en.wikipedia.org/wiki/Super_Bowl_I"
+     },
+     {
+      "name": "Superbowl-Ads.com, 'Cost of Super Bowl Advertising: Breakdown by Year'",
+      "url": "https://www.superbowl-ads.com/cost-of-super-bowl-advertising-breakdown-by-year/"
+     },
+     {
+      "name": "NBC, 'How Much a Super Bowl Ad Costs in 2023 Compared With History'",
+      "url": "https://www.nbclosangeles.com/news/sports/super-bowl-commercials-how-much-do-they-cost-a-look-through-the-years/2822339/"
+     }
+    ],
+    "as_of": "1967"
+   },
+   "reason": "Interval excluded $42,500, a credible figure carried by the claim's own cited source; the $42,000 figure was misattributed to CBS when Wikipedia attributes it to both networks; central is a constructed midpoint, so grade B to C with a method.",
+   "recomputation": [
+    {
+     "expr": "85000/2",
+     "expected": 42500
+    },
+    {
+     "expr": "75000/2",
+     "expected": 37500
+    }
+   ],
+   "disagreement": "A $45,500 CBS figure surfaced in one search summary with no traceable attribution. I excluded it rather than widen the interval on an unsourced number, but flag it as the reason the upper bound could be understated."
+  },
+  {
+   "claim_id": "e3-pricing-007",
+   "verdict": "confirmed",
+   "evidence": "Found verbatim in the CRS report's full text, which I read directly: 'Pricing for network commercials for the 1979-1980 season should be stable, since a large portion (75-80 percent) of the prime-time schedule was sold in the up-front or advance buying market at prices 15 percent or more higher than in the previous season.' Central 77.5 as the midpoint of a source-published range, with ci80 = the source's own range, is exactly right.",
+   "sources_consulted": [
+    {
+     "name": "Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+     "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-pricing-008",
+   "verdict": "confirmed",
+   "evidence": "Independent hunt corroborates all three cited trade sources and adds a fourth: 'In 1962, ABC debuted all its shows in the week after Labor Day to woo carmakers launching new models', with CBS and NBC following and premiere week becoming a national event by the mid-1960s. The spring-commitment-for-fall-inventory pattern is described as taking shape from that scheduling change. ci80 [1962,1967] honestly reflects that the upfront 'formed' over several seasons rather than in one.",
+   "sources_consulted": [
+    {
+     "name": "Digiday, 'WTF is the TV upfront?'",
+     "url": "https://digiday.com/future-of-tv/wtf-is-the-tv-upfront/"
+    },
+    {
+     "name": "Westwood One, 'The TV Upfront: History, 2016 Issues, And What It Means For Radio'",
+     "url": "https://www.westwoodone.com/blog/2016/05/25/the-tv-upfront-history-2016-issues-and-what-it-means-for-radio/"
+    },
+    {
+     "name": "AdExchanger, 'A Brief History Of The Upfront'",
+     "url": "https://www.adexchanger.com/online-advertising/a-brief-history-of-the-upfront/"
+    }
+   ],
+   "disagreement": "Every account traces to the same trade-press retelling; none is a contemporaneous 1962 record. Grade B is defensible but the sources are not independent of one another."
+  },
+  {
+   "claim_id": "e3-events-001",
+   "verdict": "adjusted",
+   "evidence": "This is the record's most consequential inherited error, and it took recomputation to find. Silk & Berndt say the complaint 'singled out national (as opposed to local) advertising in print media (newspapers and magazines) which in 1956 accounted for 35 percent of U.S. national advertising and 21 percent total U.S. advertising expenditures.' Recomputing from Coen 1956: newspapers-national 754 + magazines 758 = 1,512, which is 15.26% of the 9,910 total - not 21%. Adding business papers 496 and farm publications 73 gives 2,081, which is 20.999% of 9,910 - an exact match. So the 21% figure requires business and farm papers, and the parenthetical does not. I then checked the DOJ's own case record and the six defendants settle it: the AAAA, the American Newspaper Publishers Association, the Publishers Association of New York City, the Periodical Publishers Association of America, ASSOCIATED BUSINESS PUBLICATIONS and the AGRICULTURAL PUBLISHERS ASSOCIATION. Business papers and farm publications were covered. The number is right; the definition attached to it is wrong, in the source and in the record.",
+   "sources_consulted": [
+    {
+     "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services: An Economic Analysis', HBS Working Paper 11-039",
+     "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+    },
+    {
+     "name": "U.S. Department of Justice, Antitrust Division: legacy antitrust judgment record, U.S. v. American Association of Advertising Agencies, Inc., et al.",
+     "url": "https://www.justice.gov/atr/legacy-antitrust-judgment-american-association-of-advertising-agencies-inc-et-al"
+    },
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    }
+   ],
+   "old": {
+    "statement": "The advertising covered by the 1956 consent decree - national advertising in newspapers and magazines - was 21% of total US advertising expenditure in 1956..."
+   },
+   "new": {
+    "id": "e3-events-001",
+    "statement": "The advertising covered by the 1956 consent decree - national advertising in newspapers, magazines, business papers and farm publications, matching the six defendant associations - was 21% of total US advertising expenditure in 1956, which is why the decree changed the law without changing the price. Newspapers and magazines alone were only 15%.",
+    "central": 21,
+    "unit": "percent of total US advertising expenditure covered by the consent decree",
+    "ci80": [
+     20,
+     22
+    ],
+    "grade": "B",
+    "sources": [
+     {
+      "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services: An Economic Analysis', HBS Working Paper 11-039",
+      "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+     },
+     {
+      "name": "U.S. Department of Justice, Antitrust Division: legacy antitrust judgment record, U.S. v. American Association of Advertising Agencies, Inc., et al.",
+      "url": "https://www.justice.gov/atr/legacy-antitrust-judgment-american-association-of-advertising-agencies-inc-et-al"
+     },
+     {
+      "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+     }
+    ],
+    "as_of": "1956"
+   },
+   "reason": "Coverage definition corrected. The 21% figure is only reproducible with business papers and farm publications included, and the DOJ case record shows Associated Business Publications and the Agricultural Publishers Association among the six defendants. Central, interval and grade unchanged.",
+   "recomputation": [
+    {
+     "expr": "100*(754+758)/9910",
+     "expected": 15.26
+    },
+    {
+     "expr": "100*(754+758+496+73)/9910",
+     "expected": 21.0
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-events-002",
+   "verdict": "adjusted",
+   "evidence": "The numerator is confirmed at source - EBSCO says verbatim 'Cigarette advertising accounted for $225 million a year in revenue to broadcasters' and 'approximately $50 million in annual revenue' to print - and Nelson's five-media total of $296.6M for 1970 cross-checks it ($225 + $50 + outdoor is about right). 225/4,904 = 4.59% reproduces. The flaw is a units mismatch nobody caught: EBSCO's $225M is revenue TO broadcasters, i.e. net of the 15% agency commission, while the Coen denominator is gross advertiser expenditure. Grossing up gives $264.7M and a share of 5.40% - outside the stated upper bound of 5.2%. The interval has to cover the gross-basis reading, because it is arguably the correct one.",
+   "sources_consulted": [
+    {
+     "name": "EBSCO Research Starters, 'Cigarette Ads Are Banned from Broadcast Media'",
+     "url": "https://www.ebsco.com/research-starters/politics-and-government/cigarette-ads-are-banned-broadcast-media"
+    },
+    {
+     "name": "Jon P. Nelson, 'Advertising Bans in the United States', EH.net Encyclopedia (Table 2: cigarette five-media advertising $296.6M in 1970)",
+     "url": "https://eh.net/encyclopedia/nelson-adbans/"
+    },
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    }
+   ],
+   "old": {
+    "ci80": [
+     3.1,
+     5.2
+    ]
+   },
+   "new": {
+    "id": "e3-events-002",
+    "statement": "Cigarette advertising was about 4.6% of all US broadcast advertising expenditure in 1970 - roughly $225 million against $4,904 million of television plus radio spend - the largest single product category ever removed from a US medium by law.",
+    "central": 4.6,
+    "unit": "percent of US broadcast advertising expenditure",
+    "ci80": [
+     3.1,
+     5.5
+    ],
+    "grade": "C",
+    "method": "$225M of cigarette money to broadcasters (EBSCO) divided by Coen's 1970 television ($3,596M) plus radio ($1,308M) total of $4,904M = 4.59%. Lower bound uses the alternative $150M television-only figure that appears in some accounts. Upper bound covers the units mismatch: EBSCO's $225M is revenue TO broadcasters, net of the 15% agency commission, while the Coen denominator is gross advertiser expenditure; grossing up gives $264.7M and 5.40%. Cross-check: Nelson's five-media cigarette total for 1970 is $296.6M against $225M broadcast plus ~$50M print plus outdoor.",
+    "sources": [
+     {
+      "name": "EBSCO Research Starters, 'Cigarette Ads Are Banned from Broadcast Media'",
+      "url": "https://www.ebsco.com/research-starters/politics-and-government/cigarette-ads-are-banned-broadcast-media"
+     },
+     {
+      "name": "Jon P. Nelson, 'Advertising Bans in the United States', EH.net Encyclopedia (Table 2: cigarette five-media advertising $296.6M in 1970)",
+      "url": "https://eh.net/encyclopedia/nelson-adbans/"
+     },
+     {
+      "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+     }
+    ],
+    "as_of": "1970"
+   },
+   "reason": "Upper bound raised 5.2 to 5.5 to cover the net-to-media vs gross-expenditure basis mismatch between numerator and denominator, which the original method did not identify.",
+   "recomputation": [
+    {
+     "expr": "100*225/4904",
+     "expected": 4.588
+    },
+    {
+     "expr": "100*(225/0.85)/4904",
+     "expected": 5.398
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-events-003",
+   "verdict": "adjusted",
+   "evidence": "The number, the date and the four-to-three-hours effect all confirm. CRS 80-130 E: the rule 'prohibits the three network affiliates in the top 50 markets from broadcasting more than three hours of network programming during prime time (7-11 p.m.)'. Wikipedia gives the effective date as the week of 13-19 September 1971. Two things are missing and both matter. First, the rule bound only top-50-market affiliates as a matter of law; networks complied nationwide by choice. Second, 30 minutes a night is the weekday and Saturday figure only - under the original rule Sundays lost a full hour, in two blocks (7:00-7:30 and 10:30-11:00 p.m. Eastern). The weekday-and-Saturday-only shape the claim describes is the post-1975 PTAR, not the 1971 rule.",
+   "sources_consulted": [
+    {
+     "name": "Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+     "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+    },
+    {
+     "name": "Wikipedia, 'Prime Time Access Rule'",
+     "url": "https://en.wikipedia.org/wiki/Prime_Time_Access_Rule"
+    }
+   ],
+   "old": {
+    "statement": "The Prime Time Access Rule removed 30 minutes of weekday and Saturday prime time per night from network control from 13 September 1971, reducing the network prime-time block from four hours to three."
+   },
+   "new": {
+    "id": "e3-events-003",
+    "statement": "The Prime Time Access Rule, effective with the week of 13 September 1971, barred network affiliates in the top 50 markets from carrying more than three of the four prime-time hours (7-11 p.m. Eastern). On weekdays and Saturdays it returned 30 minutes a night (7:30-8:00 p.m. Eastern) to affiliates; under the original rule Sundays lost a full hour, in two blocks (7:00-7:30 and 10:30-11:00 p.m.). Though it bound only the top 50 markets, the networks complied nationwide.",
+    "central": 30,
+    "unit": "minutes of prime time returned to affiliates per weekday night",
+    "ci80": [
+     30,
+     30
+    ],
+    "grade": "B",
+    "sources": [
+     {
+      "name": "Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+      "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+     },
+     {
+      "name": "Wikipedia, 'Prime Time Access Rule'",
+      "url": "https://en.wikipedia.org/wiki/Prime_Time_Access_Rule"
+     }
+    ],
+    "as_of": "1971-09-13"
+   },
+   "reason": "Statement omitted the top-50-market legal scope and described the post-1975 Sunday treatment as if it applied in 1971. Central, unit, interval and grade unchanged."
+  },
+  {
+   "claim_id": "e3-creators-001",
+   "verdict": "confirmed",
+   "evidence": "Went to the DOJ case record rather than the secondary summary. It gives 'Case Open Date: May 12, 1955' and 'Final Judgment [American Association of Advertising Agencies] February 1, 1956', both matching the claim exactly. Grade A is earned - this is the primary docket record.",
+   "sources_consulted": [
+    {
+     "name": "U.S. Department of Justice, Antitrust Division: legacy antitrust judgment record, U.S. v. American Association of Advertising Agencies, Inc., et al.",
+     "url": "https://www.justice.gov/atr/legacy-antitrust-judgment-american-association-of-advertising-agencies-inc-et-al"
+    },
+    {
+     "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services: An Economic Analysis', HBS Working Paper 11-039",
+     "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+    }
+   ],
+   "disagreement": "The DOJ record shows the decree is six judgments, not one: the publisher associations' final judgments were entered 26 April 1956 (ANPA) and 22 May 1956 (Periodical Publishers, Associated Business Publications, Agricultural Publishers, Publishers Association of New York City). Central 1956 is unaffected, but 'the consent decree ... final judgment entered 1 February 1956' names only the AAAA judgment."
+  },
+  {
+   "claim_id": "e3-creators-002",
+   "verdict": "confirmed",
+   "evidence": "Located the sentence in the Silk & Berndt full text: 'Tracking studies conducted by the Association of National Advertisers (ANA) show that as late as 1982, seventy-one percent of the largest U.S. national advertisers surveyed utilized commission-based compensation (Beals 2007).' The paper's adjacent series (61% in 1994, 10% in 2003) confirms the direction the claim uses it for. ci80 [66,76] is a reasonable survey band on a single reported point.",
+   "sources_consulted": [
+    {
+     "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services: An Economic Analysis', HBS Working Paper 11-039",
+     "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-creators-003",
+   "verdict": "confirmed",
+   "evidence": "FundingUniverse, verbatim: 'In January 1961 Interpublic was established as a holding company, and McCann-Erickson became its largest subsidiary' and 'In 1967 Interpublic was billing at over $700 million, yet still insolvent.' The same source independently gives 1966 billings of $711 million across 24 divisions, which brackets the 1967 figure and supports ci80 [650,800].",
+   "sources_consulted": [
+    {
+     "name": "FundingUniverse, 'History of The Interpublic Group of Companies, Inc.'",
+     "url": "https://www.fundinguniverse.com/company-histories/the-interpublic-group-of-companies-inc-history/"
+    },
+    {
+     "name": "Encyclopedia.com, 'The Interpublic Group Of Companies Inc'",
+     "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/businesses-and-occupations/interpublic-group-companies-inc"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-creators-004",
+   "verdict": "adjusted",
+   "evidence": "The headline number is confirmed at source: Encyclopedia.com says 'In 1951 the agency reached the $100 million mark in total billings' and 'by 1960 that figure had more than doubled to $212 million.' The rest of the statement is not in either cited source - I checked, and neither the Encyclopedia.com Y&R entry nor Company-Histories carries a McCann-Erickson figure. An independent hunt does support it (JWT largest at over $325M, McCann-Erickson next at close to $300M in 1960), so the statement survives, but the sources array does not cover what the statement asserts.",
+   "sources_consulted": [
+    {
+     "name": "Encyclopedia.com, 'Young & Rubicam Inc.'",
+     "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/businesses-and-occupations/young-rubicam-inc"
+    },
+    {
+     "name": "Company-Histories.com, 'Young & Rubicam, Inc. - Company History'",
+     "url": "https://www.company-histories.com/Young-Rubicam-Inc-Company-History.html"
+    },
+    {
+     "name": "Wikipedia, 'Harry McCann' (McCann-Erickson billings close to $300M in 1960; J. Walter Thompson largest at over $325M)",
+     "url": "https://en.wikipedia.org/wiki/Harry_McCann"
+    }
+   ],
+   "old": {
+    "sources": [
+     {
+      "name": "Encyclopedia.com, 'Young & Rubicam Inc.'",
+      "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/businesses-and-occupations/young-rubicam-inc"
+     },
+     {
+      "name": "Company-Histories.com, 'Young & Rubicam, Inc. - Company History'",
+      "url": "https://www.company-histories.com/Young-Rubicam-Inc-Company-History.html"
+     }
+    ]
+   },
+   "new": {
+    "id": "e3-creators-004",
+    "statement": "Agency scale in the era: Young & Rubicam's billings reached $212 million in 1960 (up from $100 million in 1951), with McCann-Erickson second at close to $300 million and J. Walter Thompson the largest US agency at over $325 million.",
+    "central": 212,
+    "unit": "million USD of annual billings (Young & Rubicam)",
+    "ci80": [
+     200,
+     225
+    ],
+    "grade": "B",
+    "sources": [
+     {
+      "name": "Encyclopedia.com, 'Young & Rubicam Inc.'",
+      "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/businesses-and-occupations/young-rubicam-inc"
+     },
+     {
+      "name": "Company-Histories.com, 'Young & Rubicam, Inc. - Company History'",
+      "url": "https://www.company-histories.com/Young-Rubicam-Inc-Company-History.html"
+     },
+     {
+      "name": "Wikipedia, 'Harry McCann' (McCann-Erickson billings close to $300M in 1960; J. Walter Thompson largest at over $325M)",
+      "url": "https://en.wikipedia.org/wiki/Harry_McCann"
+     }
+    ],
+    "as_of": "1960"
+   },
+   "reason": "Source array did not support the McCann-Erickson and J. Walter Thompson assertions in the statement; a source that does has been added and the JWT figure made explicit. Central, unit, interval and grade unchanged."
+  },
+  {
+   "claim_id": "e3-creators-005",
+   "verdict": "adjusted",
+   "evidence": "The build reproduces: 0.15 x 15,200 = 2,280, ratio to total 2,280/27,900 = 8.17%, lower bound (2/3) x 15,200 x 0.15 = 1,520. I then tested the central against an independent anchor the record did not use and it holds up well - Census-derived work on the agency industry puts agency receipts at about 8.5% of total US advertising expenditure in 1977, which applied to 1975 gives $2,372M against the claimed $2,300M. That same anchor breaks the method's own cross-check sentence, which asserts that later Census data imply about 5% of spend. It implies roughly 8.5%.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    },
+    {
+     "name": "Silk & King, 'Concentration Levels in the U.S. Advertising and Marketing Services Industry', U.S. Census Bureau CES Working Paper 09-16",
+     "url": "https://www2.census.gov/ces/wp/2009/CES-WP-09-16.pdf"
+    }
+   ],
+   "old": {
+    "method": "...Cross-check: the ratio to total spend (8.2%) sits between the 15% commission rate and the ~5% of spend that later Census data imply for agency income once fees and non-commissionable media are netted out."
+   },
+   "new": {
+    "id": "e3-creators-005",
+    "statement": "Triangulated size of the US agency sector's own revenue in 1975: roughly $2.3 billion of gross income, i.e. about 8% of all US advertising spend, earned as commission on the agency-placed share of the market.",
+    "central": 2300,
+    "unit": "million USD of US advertising-agency gross income",
+    "ci80": [
+     1500,
+     3000
+    ],
+    "grade": "C",
+    "method": "Agencies placed principally national advertising. Coen's 1975 national total is $15,200M; the 15% commission on that is $2,280M. Lower bound assumes only two-thirds of national spend passed through commissionable agency placement ($1.52B); upper bound adds commissionable local and business-paper placement plus production markups ($3.0B). Cross-check: Census-derived work on the advertising agency industry puts agency receipts at about 8.5% of total US advertising expenditure in 1977, which applied to the 1975 total of $27,900M gives $2,372M - close to and slightly above this central, and bracketing the 8.2% ratio implied here.",
+    "sources": [
+     {
+      "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+     },
+     {
+      "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+      "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+     },
+     {
+      "name": "Silk & King, 'Concentration Levels in the U.S. Advertising and Marketing Services Industry', U.S. Census Bureau CES Working Paper 09-16",
+      "url": "https://www2.census.gov/ces/wp/2009/CES-WP-09-16.pdf"
+     }
+    ],
+    "as_of": "1975"
+   },
+   "reason": "Method's cross-check misstated the Census-implied ratio as ~5%; the Census-derived figure is about 8.5% for 1977. Central, unit, interval and grade unchanged.",
+   "recomputation": [
+    {
+     "expr": "0.15*15200",
+     "expected": 2280
+    },
+    {
+     "expr": "100*2280/27900",
+     "expected": 8.17
+    },
+    {
+     "expr": "0.085*27900",
+     "expected": 2371.5
+    }
+   ],
+   "disagreement": "The 8.5% anchor would justify narrowing ci80 from [1500,3000] toward [1900,2700]. I did not narrow it because I could only reach that figure through a quotation of the Census working paper, not the paper's own tables, which I failed to parse."
+  },
+  {
+   "claim_id": "e3-buyers-001",
+   "verdict": "confirmed",
+   "evidence": "Recomputed from the Coen workbook rather than taking Silk & Berndt's word: 1956 Direct Mail 1,419 over Total National 5,940 = 23.89%. The claim's 24% and ci80 [23,25] both hold.",
+   "sources_consulted": [
+    {
+     "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services: An Economic Analysis', HBS Working Paper 11-039",
+     "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+    },
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*1419/5940",
+     "expected": 23.89
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-buyers-002",
+   "verdict": "confirmed",
+   "evidence": "Reconstructed the aggregate from the four Coen lines the claim's definition implies: TV Network 643 + TV national Spot 329 + Radio Network 60 + Radio national Spot 161 = 1,193, over Total National 5,940 = 20.08%. Matches the claim and matches Silk & Berndt's independently stated 20%.",
+   "sources_consulted": [
+    {
+     "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services: An Economic Analysis', HBS Working Paper 11-039",
+     "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+    },
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*(643+329+60+161)/5940",
+     "expected": 20.08
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-buyers-003",
+   "verdict": "adjusted",
+   "evidence": "Same defect as e3-events-001, found the same way. Newspapers-national 754 + magazines 758 = 1,512 over Total National 5,940 = 25.45%, not 35%. Adding business papers 496 and farm publications 73 gives 2,081/5,940 = 35.03% - exact. The DOJ case record confirms Associated Business Publications and the Agricultural Publishers Association were defendants, so the broader definition is the right one and the number stands. The residual also checks: 5,940 - 1,419 (direct mail) - 1,193 (broadcast) - 2,081 (print) = 1,247 = national billboards 136 + national Miscellaneous 1,111, exactly.",
+   "sources_consulted": [
+    {
+     "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services: An Economic Analysis', HBS Working Paper 11-039",
+     "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+    },
+    {
+     "name": "U.S. Department of Justice, Antitrust Division: legacy antitrust judgment record, U.S. v. American Association of Advertising Agencies, Inc., et al.",
+     "url": "https://www.justice.gov/atr/legacy-antitrust-judgment-american-association-of-advertising-agencies-inc-et-al"
+    },
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    }
+   ],
+   "old": {
+    "statement": "National advertising in print media (newspapers and magazines) - the only category the 1956 consent decree's complaint covered - was 35% of US national advertising expenditure in 1956, so the decree left direct mail and broadcast untouched."
+   },
+   "new": {
+    "id": "e3-buyers-003",
+    "statement": "National advertising in the print media the 1956 consent decree's complaint covered - newspapers, magazines, business papers and farm publications, matching the six defendant associations - was 35% of US national advertising expenditure in 1956, so the decree left direct mail and broadcast untouched. Newspapers and magazines alone were 25%.",
+    "central": 35,
+    "unit": "percent of US national advertising expenditure",
+    "ci80": [
+     34,
+     36
+    ],
+    "grade": "B",
+    "sources": [
+     {
+      "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services: An Economic Analysis', HBS Working Paper 11-039",
+      "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+     },
+     {
+      "name": "U.S. Department of Justice, Antitrust Division: legacy antitrust judgment record, U.S. v. American Association of Advertising Agencies, Inc., et al.",
+      "url": "https://www.justice.gov/atr/legacy-antitrust-judgment-american-association-of-advertising-agencies-inc-et-al"
+     },
+     {
+      "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+     }
+    ],
+    "as_of": "1956"
+   },
+   "reason": "Coverage definition corrected against the DOJ defendant list; the 35% figure is only reproducible with business papers and farm publications included. Central, interval and grade unchanged.",
+   "recomputation": [
+    {
+     "expr": "100*(754+758)/5940",
+     "expected": 25.45
+    },
+    {
+     "expr": "100*(754+758+496+73)/5940",
+     "expected": 35.03
+    },
+    {
+     "expr": "5940-1419-1193-2081",
+     "expected": 1247
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-buyers-004",
+   "verdict": "confirmed",
+   "evidence": "Both figures are verbatim in EBSCO: 'Cigarette advertising accounted for $225 million a year in revenue to broadcasters' and, for print, 'it amounted to approximately $50 million in annual revenue'. Independently cross-checked against Nelson's five-media 1970 total of $296.6M, which $225M broadcast + $50M print + outdoor accounts for. The ci80 lower bound of 150 correctly covers the widely circulated television-only figure of 'more than $150M'.",
+   "sources_consulted": [
+    {
+     "name": "EBSCO Research Starters, 'Cigarette Ads Are Banned from Broadcast Media'",
+     "url": "https://www.ebsco.com/research-starters/politics-and-government/cigarette-ads-are-banned-broadcast-media"
+    },
+    {
+     "name": "Jon P. Nelson, 'Advertising Bans in the United States', EH.net Encyclopedia (Table 2: cigarette five-media advertising $296.6M in 1970)",
+     "url": "https://eh.net/encyclopedia/nelson-adbans/"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-buyers-005",
+   "verdict": "confirmed",
+   "evidence": "Verified both endpoints against the NAA series that underlies HSUS De523-526, retrieved from an Internet Archive capture: 1950 classified $377M, 1975 classified $2,159M. 2,159/377 = 5.727, matching central 5.73 and sitting inside ci80 [5.6,5.9].",
+   "sources_consulted": [
+    {
+     "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' / 'Annual Newspaper Classified Ad Expenditures' (Internet Archive capture) - the underlying series for HSUS De523-526",
+     "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+    },
+    {
+     "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+     "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "2159/377",
+     "expected": 5.7268
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-sellers-001",
+   "verdict": "confirmed",
+   "evidence": "Both ratios reproduce from the Coen workbook: Broadcast TV Network 2,306 / Television 5,263 = 43.82% and 2,306/27,900 = 8.27%. The Television Factbook alternative TV total is also confirmed - I found $4,722.1M for 1975 in the Zeigler & Howard table the record cites.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*2306/5263",
+     "expected": 43.82
+    },
+    {
+     "expr": "100*2306/27900",
+     "expected": 8.27
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-sellers-002",
+   "verdict": "confirmed",
+   "evidence": "Found the underlying order cited in the CRS report's own text: 'the FCC modified ownership regulations and announced its new regulation to expand television station ownership to seven stations, to be made up of five VHF and two UHF (43 FCC 2797 [1954])'. The citation, the year, the cap and the VHF sub-cap all check. Grade A is defensible for an official CRS report quoting the FCC order by reporter citation.",
+   "sources_consulted": [
+    {
+     "name": "Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+     "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-sellers-003",
+   "verdict": "confirmed",
+   "evidence": "Found the station table in the Zeigler & Howard full text: 1970 shows 501 VHF / 176 UHF / 677 total and 1975 shows 514 VHF / 192 UHF / 706 total. Every figure in the claim matches, and 514 + 192 = 706 internally.",
+   "sources_consulted": [
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "514+192",
+     "expected": 706
+    },
+    {
+     "expr": "501+176",
+     "expected": 677
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-sellers-004",
+   "verdict": "confirmed",
+   "evidence": "Dirks, Van Essen & April state that the number of groups peaked in 1975 at 176, controlling 59% of the nearly 1,800 daily newspapers then published - all three numbers and the 'peak' framing confirmed at source. The source adds a detail that supports the claim's use of it: 67 of the 176 owned only two dailies.",
+   "sources_consulted": [
+    {
+     "name": "Dirks, Van Essen & April, 'History of Ownership Consolidation'",
+     "url": "https://dirksvanessen.com/news_and_reports/history-of-ownership-consolidation/"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-sellers-005",
+   "verdict": "adjusted",
+   "evidence": "The facts hold. Wikipedia: 'Look ceased publication with its issue of October 19, 1971' after 'a $5 million loss in revenues in 1970', with television cutting into advertising revenue among the causes. I found genuinely independent corroboration in a Des Moines Register report of 17 September 1971 in which Cowles himself blamed television's lure for advertising, which 'cut deeply into our advertising volume'. The defect is the source array: the second cited source, New World Encyclopedia, is a Wikipedia derivative AND its entry is about Life, not Look - so the two cited sources are one source, and it does not cover the claim's subject. The source also lists a slack economy and a proposed 142% postal-rate increase alongside television, so 'principal cause' overstates a three-cause account slightly.",
+   "sources_consulted": [
+    {
+     "name": "Wikipedia, 'Look (American magazine)'",
+     "url": "https://en.wikipedia.org/wiki/Look_(American_magazine)"
+    },
+    {
+     "name": "CITYVIEW (Des Moines), 'LOOK Magazine', quoting the Des Moines Register of 17 September 1971 (Cowles blames television's lure for advertising)",
+     "url": "https://www.dmcityview.com/des-moines-forgotten/2022/08/31/look-magazine/"
+    }
+   ],
+   "old": {
+    "sources": [
+     {
+      "name": "Wikipedia, 'Look (American magazine)'",
+      "url": "https://en.wikipedia.org/wiki/Look_(American_magazine)"
+     },
+     {
+      "name": "New World Encyclopedia, 'Life (magazine)'",
+      "url": "https://www.newworldencyclopedia.org/entry/Life_(magazine)"
+     }
+    ]
+   },
+   "new": {
+    "id": "e3-sellers-005",
+    "statement": "Look magazine ceased publication with its issue of 19 October 1971 after losing about $5 million of revenue in 1970. Its publisher blamed television advertising first among three causes, alongside a slack economy and a proposed 142% postal-rate increase - one of three mass-magazine closures (Saturday Evening Post 1969, Look 1971, Life weekly 1972) that mark national reach moving to television.",
+    "central": 5,
+    "unit": "million USD of lost annual revenue (Look, 1970)",
+    "ci80": [
+     4,
+     7
+    ],
+    "grade": "B",
+    "sources": [
+     {
+      "name": "Wikipedia, 'Look (American magazine)'",
+      "url": "https://en.wikipedia.org/wiki/Look_(American_magazine)"
+     },
+     {
+      "name": "CITYVIEW (Des Moines), 'LOOK Magazine', quoting the Des Moines Register of 17 September 1971 (Cowles blames television's lure for advertising)",
+      "url": "https://www.dmcityview.com/des-moines-forgotten/2022/08/31/look-magazine/"
+     }
+    ],
+    "as_of": "1971"
+   },
+   "reason": "Cited sources were not independent (New World Encyclopedia is a Wikipedia derivative) and the second one is about Life, not Look. Replaced with a contemporaneous Des Moines Register account quoting Cowles; 'principal cause' qualified to match what the sources say. Central, unit, interval and grade unchanged."
+  },
+  {
+   "claim_id": "e3-medium-001",
+   "verdict": "confirmed",
+   "evidence": "Coen 1950 Television = 171 and 171/5,700 = 3.00%. The alternative series is real - I located Television Factbook gross TV revenue of $105.9M for 1950 in the Zeigler & Howard table.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*171/5700",
+     "expected": 3.0
+    }
+   ],
+   "disagreement": "ci80 [106,175] puts the central at the 94th percentile of its own interval. That is the consequence of stretching an interval to cover a figure that measures a different thing - Coen is advertiser expenditure gross of commission, the Factbook is station and network gross broadcast revenue. Refusing to average the two is right; expressing the gap as an uncertainty interval on one quantity is not, and unlike its sibling e3-medium-002 this statement does not disclose the definitional difference in its text."
+  },
+  {
+   "claim_id": "e3-medium-002",
+   "verdict": "confirmed",
+   "evidence": "Coen 1975 Television = 5,263; 5,263/171 = 30.8, so '31-fold' is right. The Television Factbook figure of $4,722.1M for 1975 is confirmed in the Zeigler & Howard table, and the claim's explicit refusal to average the two series is the correct handling.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "5263/171",
+     "expected": 30.78
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-medium-003",
+   "verdict": "confirmed",
+   "evidence": "5,263/27,900 = 18.86% and 8,234/27,900 = 29.51%, both from the workbook. The CRS cross-check verifies at source and, better, verifies against Coen: CRS reports TV at 17.6% in 1972 rising to 20.2% in 1978, and Coen 1972 gives 4,091/23,210 = 17.6% - an exact match to a wholly independent compilation lineage.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+     "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*5263/27900",
+     "expected": 18.86
+    },
+    {
+     "expr": "100*8234/27900",
+     "expected": 29.51
+    },
+    {
+     "expr": "100*4091/23210",
+     "expected": 17.63
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-medium-004",
+   "verdict": "confirmed",
+   "evidence": "Read the TVB/Nielsen penetration table directly: 1950 TV HH 3,880 thousand at 9.0%, 1975 TV HH 68,500 thousand at 97.1%. Both figures and both percentages match exactly.",
+   "sources_consulted": [
+    {
+     "name": "Television Bureau of Advertising, 'National Television Penetration Trends' (source: The Nielsen Company)",
+     "url": "https://www.tvb.org/wp-content/uploads/2022/10/National-TV-Household-Penetration-Trends.pdf"
+    }
+   ],
+   "disagreement": "TVB's 97.1% is computed on its own total-US-household figure of 70,520 thousand. Against the Census CPS count for 1975 of 71,120 thousand, penetration is 96.3%. The claim cites TVB and is internally consistent, but the 97.1% is a Nielsen-universe ratio, not a Census-based one."
+  },
+  {
+   "claim_id": "e3-medium-005",
+   "verdict": "confirmed",
+   "evidence": "Coen 1975 Newspapers = 8,234 (independently matched by NAA's own newspaper total of $8,234M), and 8,234/27,900 = 29.51%. I tested 'largest single medium throughout the era' across every year 1950-1975 in the workbook and newspapers lead in all of them; CRS confirms the survival past the era at 29.0% in 1978.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' / 'Annual Newspaper Classified Ad Expenditures' (Internet Archive capture) - the underlying series for HSUS De523-526",
+     "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+    },
+    {
+     "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+     "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+    },
+    {
+     "name": "Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+     "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-medium-006",
+   "verdict": "confirmed",
+   "evidence": "Coen 1975 Direct Mail = 4,124 = 14.78% of total. Ranking the workbook's 1975 media lines puts direct mail third behind newspapers (8,234) and television (5,263). Television's national total reconstructs exactly as claimed: Network 2,306 + national Spot 1,623 = 3,929, below direct mail.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+     "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "2306+1623",
+     "expected": 3929
+    },
+    {
+     "expr": "100*4124/27900",
+     "expected": 14.78
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-medium-007",
+   "verdict": "confirmed",
+   "evidence": "Every number in the claim reproduces from the workbook. 1954: TV 809, radio 559, magazines 629 - television clears both. 1953: TV 606, radio 611, magazines 627 - television is behind both, and radio's lead is the 'marginally ahead' the claim describes (611 vs 606). So 1954 is the crossover year for both comparisons.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-medium-008",
+   "verdict": "confirmed",
+   "evidence": "Reconstructed both sides. 1954 television national = Network 422 + national Spot 207 = 629; newspapers national = 607, independently confirmed at $607M in the NAA series. 1953 television national = 320 + 145 = 465, well below newspapers' 606, so 1954 is the first crossover year.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' / 'Annual Newspaper Classified Ad Expenditures' (Internet Archive capture) - the underlying series for HSUS De523-526",
+     "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+    },
+    {
+     "name": "Historical Statistics of the United States, Millennial Edition, Table De523-526",
+     "url": "https://hsus.cambridge.org/HSUSWeb/toc/treeTablePathIdDe523-526.html"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "422+207",
+     "expected": 629
+    },
+    {
+     "expr": "320+145",
+     "expected": 465
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-medium-009",
+   "verdict": "confirmed",
+   "evidence": "Coen: Radio Network 196 (1950) to 43 (1960); Radio local Spot 273 (1950) to 428 (1960). All four figures match exactly.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-medium-010",
+   "verdict": "adjusted",
+   "evidence": "The back-cast arithmetic is exactly as stated - 2,900/1.139^5 = 1,513; 2,900/1.17^5 = 1,323; 2,900/1.11^5 = 1,721 - and the 1979-to-1980 Miscellaneous cross-check reproduces (9,633 - 2,074 = 7,559). I ran my own independent back-cast off the 1979 residual rather than the 1980 level: if Miscellaneous-ex-Yellow-Pages grew at the 1980 all-media rate of 9.82%, the implied 1979 Yellow Pages figure is $2,750M, which back-casts to $1,468M-$1,811M for 1975 with a central near $1,634M. That sits in the upper half of the stated interval, which the interval comfortably covers. The defect is a citation one: the source named 'Local Search Association (industry history of directory publishing)' is not the Local Search Association - the URL is a Wikipedia article.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Wikipedia, 'Local Search Association'",
+     "url": "https://en.wikipedia.org/wiki/Local_Search_Association"
+    }
+   ],
+   "old": {
+    "sources": [
+     {
+      "name": "Local Search Association (industry history of directory publishing)",
+      "url": "https://en.wikipedia.org/wiki/Local_Search_Association"
+     }
+    ]
+   },
+   "new": {
+    "id": "e3-medium-010",
+    "statement": "Triangulated Yellow Pages / directory advertising in 1975: about $1.5 billion, roughly 5.4% of all US advertising spend, hidden inside Coen's Miscellaneous category until the series breaks it out separately in 1980 at $2,900 million.",
+    "central": 1500,
+    "unit": "million USD of US Yellow Pages / directory advertising",
+    "ci80": [
+     1150,
+     1900
+    ],
+    "grade": "C",
+    "method": "Coen first reports Yellow Pages separately in 1980 at $2,900M. Back-cast five years at three growth rates: at the all-media 1975-80 nominal CAGR of 13.9% the 1975 value is $1,513M; at a faster directory-specific 17% it is $1,323M; at a slower 11% it is $1,721M. Central taken as $1.5bn. Cross-check: Coen's Miscellaneous falls from $9,633M (1979) to $7,559M (1980) as Yellow Pages is carved out, a $2,074M drop against a $2,900M carve-out, implying the residual Miscellaneous grew ~8.6% that year. A second, independent back-cast anchored on that residual - Miscellaneous-ex-Yellow-Pages growing at the 1980 all-media rate of 9.82% implies 1979 Yellow Pages of $2,750M - gives 1975 values of $1,468M to $1,811M, in the upper half of this interval.",
+    "sources": [
+     {
+      "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+      "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+     },
+     {
+      "name": "Wikipedia, 'Local Search Association'",
+      "url": "https://en.wikipedia.org/wiki/Local_Search_Association"
+     }
+    ],
+    "as_of": "1975"
+   },
+   "reason": "Source misnamed: the entry credited to the Local Search Association points at a Wikipedia article. Renamed, and the verifier's independent back-cast added to the method. Central, unit, interval and grade unchanged.",
+   "recomputation": [
+    {
+     "expr": "2900/1.139**5",
+     "expected": 1513
+    },
+    {
+     "expr": "2900/1.17**5",
+     "expected": 1323
+    },
+    {
+     "expr": "2900/1.11**5",
+     "expected": 1721
+    },
+    {
+     "expr": "9633-7559/(53570/48780)",
+     "expected": 2749.9
+    }
+   ],
+   "disagreement": "My back-cast centres near $1.63bn against the record's $1.5bn. Both are inside the interval, so I did not move the central, but the upper half of the range is better supported than the lower."
+  },
+  {
+   "claim_id": "e3-medium-011",
+   "verdict": "confirmed",
+   "evidence": "I did not take '1971 was the only year' on trust - I walked the full Coen television series 1950-1975 year by year, and 1971 is the single year of decline. 3,596 to 3,534 is -1.724%; the grand total rose 19,550 to 20,700, +5.882%. CRS independently notes FCC statistics show continual growth in television broadcast revenues 'with the exception of the 1970-1971 period'.",
+   "sources_consulted": [
+    {
+     "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), workbook parsed independently by the verifier",
+     "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+    },
+    {
+     "name": "Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+     "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "100*(3534/3596-1)",
+     "expected": -1.724
+    },
+    {
+     "expr": "100*(20700/19550-1)",
+     "expected": 5.882
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-measurement-001",
+   "verdict": "confirmed",
+   "evidence": "Independently corroborated beyond the two cited sources: Hooper sold his national radio and television network rating services to Nielsen in March 1950 for an estimated $650,000, and Nielsen issued its first national NTI survey in May 1950. The month and year both hold.",
+   "sources_consulted": [
+    {
+     "name": "Jim Ramsburg, 'Radio's Rulers: Crossley, Hooper & Nielsen' (Hooper sold his national radio and TV network rating services to Nielsen in March 1950 for an estimated $650,000)",
+     "url": "http://www.jimramsburg.com/radiosrulerscrossleyhooperandnielsen.html"
+    },
+    {
+     "name": "EBSCO Research Starters, 'A. C. Nielsen Company: Pioneers in Marketing and Media Research'",
+     "url": "https://www.ebsco.com/research-starters/communication-and-mass-media/c-nielsen-company-pioneers-marketing-and-media"
+    },
+    {
+     "name": "NYU Libraries, radio ratings research guide",
+     "url": "https://guides.nyu.edu/radio/ratings"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-measurement-002",
+   "verdict": "adjusted",
+   "evidence": "The panel size confirms - Nielsen wired about 1,200 metered households in September 1973. The ratio does not. 1,200 x 57,000 = 68.4 million, which is the 1975 television-household level (TVB gives 68,500 thousand for 1975), not 1973. TVB's 1970 figure is 58,500 thousand, so 1973 interpolates to roughly 64.5 million and Nielsen's own 1973 universe was about 66 million; either way the ratio is one metered home per 54,000-55,000, not 57,000. The 1975 denominator was applied to a 1973 statement.",
+   "sources_consulted": [
+    {
+     "name": "Television Obscurities, 'Nielsen Black Weeks'",
+     "url": "https://www.tvobscurities.com/articles/nielsen_black_weeks/"
+    },
+    {
+     "name": "Museum of Broadcast Communications, 'Audimeter'",
+     "url": "https://www.museum.tv/radio-encyclopedia/audimeter"
+    },
+    {
+     "name": "Television Bureau of Advertising, 'National Television Penetration Trends' (source: The Nielsen Company)",
+     "url": "https://www.tvb.org/wp-content/uploads/2022/10/National-TV-Household-Penetration-Trends.pdf"
+    }
+   ],
+   "old": {
+    "statement": "...roughly one metered home for every 57,000 US television homes in 1973."
+   },
+   "new": {
+    "id": "e3-measurement-002",
+    "statement": "The national metered panel behind every network television price in this era was about 1,200 households - roughly one metered home for every 54,000 US television homes in 1973.",
+    "central": 1200,
+    "unit": "metered households in the Nielsen national television panel",
+    "ci80": [
+     1100,
+     1300
+    ],
+    "grade": "B",
+    "sources": [
+     {
+      "name": "Television Obscurities, 'Nielsen Black Weeks'",
+      "url": "https://www.tvobscurities.com/articles/nielsen_black_weeks/"
+     },
+     {
+      "name": "Museum of Broadcast Communications, 'Audimeter'",
+      "url": "https://www.museum.tv/radio-encyclopedia/audimeter"
+     },
+     {
+      "name": "Television Bureau of Advertising, 'National Television Penetration Trends' (source: The Nielsen Company)",
+      "url": "https://www.tvb.org/wp-content/uploads/2022/10/National-TV-Household-Penetration-Trends.pdf"
+     }
+    ],
+    "as_of": "1973"
+   },
+   "reason": "The 1:57,000 ratio used the 1975 television-household count against a 1973 panel. Corrected to 1:54,000 on the interpolated 1973 universe. Central, unit, interval and grade unchanged.",
+   "recomputation": [
+    {
+     "expr": "1200*57000",
+     "expected": 68400000
+    },
+    {
+     "expr": "(58.5e6+0.6*(68.5e6-58.5e6))/1200",
+     "expected": 53750
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-measurement-003",
+   "verdict": "confirmed",
+   "evidence": "Corroborated well beyond the single cited hobbyist site: in September 1973 Nielsen introduced the Storage Instantaneous Audimeter, connecting 1,200 households directly to its computer hub, producing national ratings in about 36 hours against the one to two weeks the older system needed, and making ratings available every day of the year. Date, panel size, turnaround and the 'previous system' comparison all hold.",
+   "sources_consulted": [
+    {
+     "name": "Television Obscurities, 'Nielsen Black Weeks'",
+     "url": "https://www.tvobscurities.com/articles/nielsen_black_weeks/"
+    },
+    {
+     "name": "Museum of Broadcast Communications, 'Audimeter'",
+     "url": "https://www.museum.tv/radio-encyclopedia/audimeter"
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-measurement-004",
+   "verdict": "adjusted",
+   "evidence": "The two load-bearing dates corroborate independently: the Harris subcommittee's public hearings on broadcast ratings ran from 5 March 1963 to 23 September 1964, and the committee's preference for industry self-regulation over regulation produced the Broadcast Rating Council in 1964. But the citation audit fails. The first source is named 'Media Rating Council (history of the Broadcast Rating Council and the Harris hearings)' while its URL is a Wikipedia article - a secondary source dressed as the institution itself. I went to the MRC's own history page and it carries no dates at all, only 'in the early 1960's'. So the 31 March 1964 standards date and the 13 January 1966 final-report date rest on Wikipedia alone and remain uncorroborated.",
+   "sources_consulted": [
+    {
+     "name": "Wikipedia, 'Media Rating Council'",
+     "url": "https://en.wikipedia.org/wiki/Media_Rating_Council"
+    },
+    {
+     "name": "Media Rating Council, 'History of MRC' (corroborates the Congressional-hearing origin and the Broadcast Rating Council name; carries no dates)",
+     "url": "https://www.mediaratingcouncil.org/about-mrc/history-of-mrc"
+    },
+    {
+     "name": "U.S. House Committee on Interstate and Foreign Commerce, 'Broadcast ratings' hearings, 88th Congress (HathiTrust catalog record)",
+     "url": "https://catalog.hathitrust.org/Record/101710965"
+    }
+   ],
+   "old": {
+    "sources": [
+     {
+      "name": "Media Rating Council (history of the Broadcast Rating Council and the Harris hearings)",
+      "url": "https://en.wikipedia.org/wiki/Media_Rating_Council"
+     },
+     {
+      "name": "U.S. House Committee on Interstate and Foreign Commerce, 'Broadcast ratings' hearings, 88th Congress (HathiTrust catalog record)",
+      "url": "https://catalog.hathitrust.org/Record/101710965"
+     }
+    ]
+   },
+   "new": {
+    "id": "e3-measurement-004",
+    "statement": "The Harris hearings on broadcast ratings ran from 5 March 1963 to 23 September 1964 and produced the industry-funded Broadcast Rating Council in 1964. Its first minimum standards are reported to have taken effect on 31 March 1964 and the final committee report on 13 January 1966; both of those subsidiary dates rest on a single secondary source and are not corroborated by the MRC's own history.",
+    "central": 1964,
+    "unit": "year the Broadcast Rating Council was founded",
+    "ci80": [
+     1963,
+     1964
+    ],
+    "grade": "B",
+    "sources": [
+     {
+      "name": "Wikipedia, 'Media Rating Council'",
+      "url": "https://en.wikipedia.org/wiki/Media_Rating_Council"
+     },
+     {
+      "name": "Media Rating Council, 'History of MRC' (corroborates the Congressional-hearing origin and the Broadcast Rating Council name; carries no dates)",
+      "url": "https://www.mediaratingcouncil.org/about-mrc/history-of-mrc"
+     },
+     {
+      "name": "U.S. House Committee on Interstate and Foreign Commerce, 'Broadcast ratings' hearings, 88th Congress (HathiTrust catalog record)",
+      "url": "https://catalog.hathitrust.org/Record/101710965"
+     }
+    ],
+    "as_of": "1964"
+   },
+   "reason": "Source mislabelled as the Media Rating Council when the URL is Wikipedia. Renamed, MRC's own history added, and the two uncorroborated subsidiary dates flagged in the statement. Central, unit, interval and grade unchanged."
+  },
+  {
+   "claim_id": "e3-measurement-005",
+   "verdict": "confirmed",
+   "evidence": "Both figures are exactly one hundredth of the TVB/Nielsen television-household counts I read directly: 68,500,000/100 = 685,000 for 1975 and 45,750,000/100 = 457,500 for 1960.",
+   "sources_consulted": [
+    {
+     "name": "Television Bureau of Advertising, 'National Television Penetration Trends' (source: The Nielsen Company)",
+     "url": "https://www.tvb.org/wp-content/uploads/2022/10/National-TV-Household-Penetration-Trends.pdf"
+    },
+    {
+     "name": "Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+     "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "68500000/100",
+     "expected": 685000
+    },
+    {
+     "expr": "45750000/100",
+     "expected": 457500
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-targeting-001",
+   "verdict": "adjusted",
+   "evidence": "The 1966 date holds for Arbitron - ADIs were first created in 1966 - but two things break. First, the market count: the documented initial ADI structure divided the United States into 200 exclusive geographic areas, not 220, and the count reached only 209 by 1993-94 (there are 210 DMAs today). Second, the citation: I opened the Precisely page and it carries neither a creation date nor a historical count - only 'over 200 distinctive regions' as a present-day figure. So the cited source supports neither the 1966 date nor the 220 count for Nielsen's DMA, and the Nielsen DMA creation date is not established at 1966 by anything in the record.",
+   "sources_consulted": [
+    {
+     "name": "TV and Radio Schedules Wiki, 'Media market' (Arbitron ADIs first created 1966, dividing the US into 200 exclusive areas)",
+     "url": "https://tvradioschedules.fandom.com/wiki/Media_market"
+    },
+    {
+     "name": "Precisely, 'Designated Market Areas (DMA) - Nielsen DMA maps' (current count only: 'over 200'; carries no creation date)",
+     "url": "https://www.precisely.com/data-guide/products/designated-market-area-regions-nielsen-dma-maps/"
+    }
+   ],
+   "old": {
+    "statement": "Nielsen created Designated Market Areas and Arbitron created Areas of Dominant Influence in 1966, roughly 220 markets...",
+    "central": 220,
+    "ci80": [
+     200,
+     230
+    ]
+   },
+   "new": {
+    "id": "e3-targeting-001",
+    "statement": "Arbitron created Areas of Dominant Influence in 1966, dividing the US into about 200 exclusive markets, and Nielsen's Designated Market Area system dates from the same mid-1960s period; roughly 200-210 markets standardised the geography in which spot television was bought and sold. The market count grew slowly, reaching 209 by the early 1990s.",
+    "central": 210,
+    "unit": "designated market areas",
+    "ci80": [
+     195,
+     225
+    ],
+    "grade": "B",
+    "sources": [
+     {
+      "name": "TV and Radio Schedules Wiki, 'Media market' (Arbitron ADIs first created 1966, dividing the US into 200 exclusive areas)",
+      "url": "https://tvradioschedules.fandom.com/wiki/Media_market"
+     },
+     {
+      "name": "Precisely, 'Designated Market Areas (DMA) - Nielsen DMA maps' (current count only: 'over 200'; carries no creation date)",
+      "url": "https://www.precisely.com/data-guide/products/designated-market-area-regions-nielsen-dma-maps/"
+     }
+    ],
+    "as_of": "1966"
+   },
+   "reason": "Central 220 was above the documented initial ADI count of 200 and above today's 210; moved to 210 with a tightened interval. Statement recast so the 1966 date attaches to Arbitron's ADI, which is documented, rather than jointly to Nielsen's DMA, which is not.",
+   "disagreement": "The record treats Nielsen DMA and Arbitron ADI as jointly created in 1966. Only the ADI date is sourced; Nielsen's DMA (initially 'Effective Marketing Area') is variously placed in 1965 or 1966 and no source in or out of the record settles it."
+  },
+  {
+   "claim_id": "e3-targeting-002",
+   "verdict": "adjusted",
+   "evidence": "The division is right but the divisor is not. 58,500,000/220 = 265,909, which is the claim. With the market count corrected to about 210 (see e3-targeting-001) it is 278,571. The interval also needs re-basing: the method varies the market count 200-245, but 245 is above any count the era ever had, so the low end of the interval was generated by an impossible input.",
+   "sources_consulted": [
+    {
+     "name": "Television Bureau of Advertising, 'National Television Penetration Trends' (source: The Nielsen Company)",
+     "url": "https://www.tvb.org/wp-content/uploads/2022/10/National-TV-Household-Penetration-Trends.pdf"
+    },
+    {
+     "name": "TV and Radio Schedules Wiki, 'Media market' (Arbitron ADIs first created 1966, dividing the US into 200 exclusive areas)",
+     "url": "https://tvradioschedules.fandom.com/wiki/Media_market"
+    }
+   ],
+   "old": {
+    "central": 266000,
+    "ci80": [
+     240000,
+     295000
+    ]
+   },
+   "new": {
+    "id": "e3-targeting-002",
+    "statement": "The average Designated Market Area contained about 279,000 television households in 1970 - the finest geographic unit a television advertiser could buy.",
+    "central": 279000,
+    "unit": "television households per average DMA",
+    "ci80": [
+     260000,
+     300000
+    ],
+    "grade": "C",
+    "method": "58,500,000 US television households in 1970 (Nielsen via TVB) divided by roughly 210 markets = 278,571. Interval varies the market count from 195 to 225, the documented range across the late 1960s and 1970s (Arbitron's ADI structure began at 200 in 1966 and reached 209 by the early 1990s).",
+    "sources": [
+     {
+      "name": "Television Bureau of Advertising, 'National Television Penetration Trends' (source: The Nielsen Company)",
+      "url": "https://www.tvb.org/wp-content/uploads/2022/10/National-TV-Household-Penetration-Trends.pdf"
+     },
+     {
+      "name": "TV and Radio Schedules Wiki, 'Media market' (Arbitron ADIs first created 1966, dividing the US into 200 exclusive areas)",
+      "url": "https://tvradioschedules.fandom.com/wiki/Media_market"
+     }
+    ],
+    "as_of": "1970"
+   },
+   "reason": "Divisor corrected from 220 to about 210 markets, moving the central 5%; interval re-based on a documented 195-225 market range instead of an unsupported 200-245.",
+   "recomputation": [
+    {
+     "expr": "58500000/210",
+     "expected": 278571
+    },
+    {
+     "expr": "58500000/225",
+     "expected": 260000
+    },
+    {
+     "expr": "58500000/195",
+     "expected": 300000
+    }
+   ]
+  },
+  {
+   "claim_id": "e3-targeting-003",
+   "verdict": "confirmed",
+   "evidence": "220 x 12 = 2,640, and with the market count corrected to about 210 it is 2,520 - a 3% move, well inside the rounding of a number the method itself labels an order-of-magnitude metric. The interval survives the correction intact: with markets 195-225 and cells 8-20 the bounds are 1,560 and 4,500, which is [1500,4500] as stated. Grade C with a disclosed construction is right for a cross-era comparison metric no period source reports.",
+   "sources_consulted": [
+    {
+     "name": "TV and Radio Schedules Wiki, 'Media market' (Arbitron ADIs first created 1966, dividing the US into 200 exclusive areas)",
+     "url": "https://tvradioschedules.fandom.com/wiki/Media_market"
+    },
+    {
+     "name": "Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+     "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+    }
+   ],
+   "recomputation": [
+    {
+     "expr": "220*12",
+     "expected": 2640
+    },
+    {
+     "expr": "210*12",
+     "expected": 2520
+    },
+    {
+     "expr": "195*8",
+     "expected": 1560
+    },
+    {
+     "expr": "225*20",
+     "expected": 4500
+    }
+   ],
+   "disagreement": "Strictly the central should read 2,520 once e3-targeting-001 is corrected. I left it at 2,600 because the claim is explicitly an order-of-magnitude precision metric with a 3x interval, and moving it would imply a precision the construction does not have."
+  },
+  {
+   "claim_id": "e3-targeting-004",
+   "verdict": "adjusted",
+   "evidence": "The date is grade-A confirmed: USPS Postal Facts states 'July 1, 1963: The five-digit ZIP Code was introduced.' The postcard detail is not. I read the USPS page and it carries no mailing detail at all, and the Library of Congress page is unreachable. The number traces to period press reporting that the Post Office Department PLANNED to mail 72 million cards - so 'more than 72 million' overstates a planned 72 million, and neither grade-A source in the array supports it.",
+   "sources_consulted": [
+    {
+     "name": "U.S. Postal Service, 'Postal Facts: 1963 - ZIP Code introduced'",
+     "url": "https://facts.usps.com/1963-zip-code-introduced/"
+    },
+    {
+     "name": "Library of Congress, 'ZIP Code Introduced - This Month in Business History'",
+     "url": "https://guides.loc.gov/this-month-in-business-history/july/zip-code-introduced"
+    },
+    {
+     "name": "The '60s at 50, 'Monday, July 1, 1963: ZIP codes' (quoting period press: the Post Office Department planned to mail 72 million cards)",
+     "url": "http://the60sat50.blogspot.com/2013/06/monday-july-1-1963-zip-codes.html"
+    }
+   ],
+   "old": {
+    "statement": "The ZIP code was introduced on 1 July 1963, announced by mailing more than 72 million postcards to US addresses..."
+   },
+   "new": {
+    "id": "e3-targeting-004",
+    "statement": "The ZIP code was introduced on 1 July 1963; the Post Office Department planned an announcement mailing of about 72 million cards to US addresses, a figure that comes from period press reporting rather than from the USPS or Library of Congress records cited here. It gave direct mail a machine-readable geographic key more than a decade before geodemographic segmentation was commercialised.",
+    "central": 1963,
+    "unit": "year the US ZIP code was introduced",
+    "ci80": [
+     1963,
+     1963
+    ],
+    "grade": "A",
+    "sources": [
+     {
+      "name": "U.S. Postal Service, 'Postal Facts: 1963 - ZIP Code introduced'",
+      "url": "https://facts.usps.com/1963-zip-code-introduced/"
+     },
+     {
+      "name": "Library of Congress, 'ZIP Code Introduced - This Month in Business History'",
+      "url": "https://guides.loc.gov/this-month-in-business-history/july/zip-code-introduced"
+     },
+     {
+      "name": "The '60s at 50, 'Monday, July 1, 1963: ZIP codes' (quoting period press: the Post Office Department planned to mail 72 million cards)",
+      "url": "http://the60sat50.blogspot.com/2013/06/monday-july-1-1963-zip-codes.html"
+     }
+    ],
+    "as_of": "1963-07-01"
+   },
+   "reason": "'More than 72 million' overstated a planned 72 million and was not supported by either grade-A source. Statement qualified and the actual origin of the figure cited. Central, unit, interval and grade unchanged - the 1 July 1963 date is USPS-primary."
+  },
+  {
+   "claim_id": "e3-targeting-005",
+   "verdict": "adjusted",
+   "evidence": "The interval excludes the official number. Census Bureau Table HH-1, which I downloaded and parsed, gives 71,120 thousand US households in 1975 - outside the stated ci80 of [70000,71000]. The claim's 70,520 is TVB's Nielsen-universe total-household figure, a research panel universe rather than the official household count, and for a claim about direct mail's addressable universe of US households the Census count is the authoritative one.",
+   "sources_consulted": [
+    {
+     "name": "U.S. Census Bureau, Table HH-1, 'Households by Type: 1940 to present'",
+     "url": "https://www2.census.gov/programs-surveys/demo/tables/families/time-series/households/hh1.xls"
+    },
+    {
+     "name": "Television Bureau of Advertising, 'National Television Penetration Trends' (source: The Nielsen Company)",
+     "url": "https://www.tvb.org/wp-content/uploads/2022/10/National-TV-Household-Penetration-Trends.pdf"
+    },
+    {
+     "name": "USPS Office of Inspector General, RARC-WP-16-006, 'Advertising Mail: Past and Present'",
+     "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf"
+    }
+   ],
+   "old": {
+    "central": 70520,
+    "ci80": [
+     70000,
+     71000
+    ],
+    "grade": "B"
+   },
+   "new": {
+    "id": "e3-targeting-005",
+    "statement": "Direct mail's addressable universe was 71.1 million individual US households in 1975 (Census; Nielsen's television-universe count of total US households for the same year is 70.5 million), each reachable one at a time - a targeting granularity roughly 279,000 times finer than the average unit spot television could sell.",
+    "central": 71120,
+    "unit": "thousand addressable US households",
+    "ci80": [
+     70400,
+     71400
+    ],
+    "grade": "A",
+    "sources": [
+     {
+      "name": "U.S. Census Bureau, Table HH-1, 'Households by Type: 1940 to present'",
+      "url": "https://www2.census.gov/programs-surveys/demo/tables/families/time-series/households/hh1.xls"
+     },
+     {
+      "name": "Television Bureau of Advertising, 'National Television Penetration Trends' (source: The Nielsen Company)",
+      "url": "https://www.tvb.org/wp-content/uploads/2022/10/National-TV-Household-Penetration-Trends.pdf"
+     },
+     {
+      "name": "USPS Office of Inspector General, RARC-WP-16-006, 'Advertising Mail: Past and Present'",
+      "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf"
+     }
+    ],
+    "as_of": "1975"
+   },
+   "reason": "Interval excluded the official Census figure of 71,120 thousand. Central moved to the Census count, interval widened to span both series, grade raised B to A now that an official statistical source carries the number. The granularity ratio is re-based on the corrected average-DMA figure from e3-targeting-002.",
+   "recomputation": [
+    {
+     "expr": "census_hh1_1975_thousands",
+     "expected": 71120
+    },
+    {
+     "expr": "278571/1",
+     "expected": 278571
+    }
+   ],
+   "disagreement": "The record used TVB throughout for household counts, which keeps its television arithmetic internally consistent. That is a defensible choice for the TV claims, but this claim is about postal addressability, where Census is the right authority."
+  }
+ ]
+}

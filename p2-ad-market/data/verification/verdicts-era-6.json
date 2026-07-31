@@ -1,0 +1,1547 @@
+{
+  "verdicts": [
+    {
+      "claim_id": "e6-creators-001",
+      "verdict": "confirmed",
+      "evidence": "Independent pull of the Omnicom 8-K exhibit from EDGAR: 'Worldwide revenue for the twelve months ended December 31, 2007 increased 11.6% to $12,694.0 million from $11,376.9 million'. Exact match to central and to the degenerate interval. Grade A correct (SEC-filed earnings exhibit). The subsidiary '~$12.4bn' for WPP is a derived GBP->USD conversion (WPP FY2007 revenue GBP 6,186m at ~2.00 USD/GBP = ~$12.4bn) and is not separately sourced in the record; it is directionally right but carries no citation.",
+      "sources_consulted": [
+        {
+          "name": "Omnicom Group Inc., Form 8-K FY2007 earnings exhibit 99.1 (SEC EDGAR, fetched and parsed)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0000029989/000089109208000882/e30247ex99_1.htm"
+        }
+      ],
+      "disagreement": "The WPP comparator is uncited. If the record wants the 'two largest' framing to be load-bearing, WPP's FY2007 revenue and the FX rate used need their own source line."
+    },
+    {
+      "claim_id": "e6-creators-002",
+      "verdict": "confirmed",
+      "evidence": "Downloaded the Horsky & Zeithammer PDF and located the sentence directly: 'after the sharp rise in unbundling between 1991 and 1994, the proportion of advertisers using billings-based compensation fell from 61% in 1994 to 10% in 2003'. Both endpoints and the causal ordering (unbundling first, search later) are the paper's own words, not the record's gloss. Grade B correct for a working paper built on ANA triennial surveys.",
+      "sources_consulted": [
+        {
+          "name": "Horsky & Zeithammer, 'The Rise and Fall of the 15%' (UCLA Anderson, Sep 2021) - PDF downloaded, sentence at line 226-228 of extracted text",
+          "url": "https://anderson-review.ucla.edu/wp-content/uploads/2021/09/Zeithammer-compensation-paper-Sep-2021.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-creators-003",
+      "verdict": "adjusted",
+      "evidence": "Both cited quotations verify verbatim in the FY2008 10-K ('Because we offer a simple ad format, advertisers can also avoid incurring significant costs associated with creating ads'; 'AdWords features an automated online signup process') and in the Feb 2002 press release ('New campaigns are created in four easy steps; most ads appear online immediately'). The 25/35/35 character structure is independently correct for the era. BUT neither cited source states any character limit, so the central value of 95 - the number the claim is calibrated on - has no citation behind it in the record.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        },
+        {
+          "name": "Google press release, 'Google Introduces New Pricing For Popular Self-Service Online Advertising Program' (Feb 20, 2002)",
+          "url": "http://googlepress.blogspot.com/2002/02/google-introduces-new-pricing-for.html"
+        },
+        {
+          "name": "Independent confirmation of era AdWords text-ad specs (25-char headline, two 35-char description lines, 35-char display URL)",
+          "url": "https://support.google.com/google-ads/answer/1704389?hl=en"
+        }
+      ],
+      "old": {
+        "sources": "Google 10-K FY2008 + Feb 2002 press release only"
+      },
+      "new": {
+        "sources": "add a source that actually states the 25/35/35 + 35-char display URL limits; keep the two existing quotations as support for the self-serve/zero-marginal-cost half of the statement",
+        "central": 95,
+        "ci80": [
+          95,
+          130
+        ],
+        "grade": "B"
+      },
+      "reason": "Citation audit: the calibrated number (95 characters) is not stated by either cited source. Value and interval survive independent check (25+35+35=95; +35-char display URL=130), so this is a source repair, not a value change.",
+      "recomputation": [
+        {
+          "expr": "25+35+35",
+          "expected": 95
+        },
+        {
+          "expr": "25+35+35+35",
+          "expected": 130
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-creators-004",
+      "verdict": "adjusted",
+      "evidence": "Parsed all three filings. FY2004: 'field sales offices in 14 countries' - exact. FY2005: '32 field sales offices in 19 countries' - exact. FY2008 Global Support: 'over 60 offices in over 20 countries' - exact. However the SAME FY2008 filing, in its 'Sales and Support' section, states 'We have over 65 offices in over 30 countries, the large majority of which includes sales people.' The claim's unit is 'Google sales/support offices worldwide', which is the 65/30 measure, but the claim reports the 60/20 support-org measure. Country count is understated by a factor the filing itself contradicts. Separately, the source list names three 10-Ks but supplies only one URL.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2005 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312506056598/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        }
+      ],
+      "old": {
+        "central": 60,
+        "ci80": [
+          60,
+          70
+        ],
+        "statement_fragment": "more than 60 offices in over 20 countries (year-end 2008)",
+        "sources": "single FY2008 URL standing for three filings"
+      },
+      "new": {
+        "central": 65,
+        "ci80": [
+          60,
+          70
+        ],
+        "statement_fragment": "over 60 offices in over 20 countries on the Global Support measure, or over 65 offices in over 30 countries on the Sales and Support measure - both stated in the FY2008 10-K",
+        "sources": "three separate URLs, one per filing year",
+        "grade": "A"
+      },
+      "reason": "The FY2008 10-K carries two different footprint figures; the claim silently picks the smaller one while labelling the unit as the larger one's measure. Both belong in the statement. Citation list must resolve to three distinct filings.",
+      "disagreement": "Researcher read 'Global Support' as the advertiser-facing footprint; I read the claim's own unit ('sales/support offices') as pointing at the Sales and Support paragraph. Both numbers are primary; the record should carry both rather than choose."
+    },
+    {
+      "claim_id": "e6-buyers-001",
+      "verdict": "confirmed",
+      "evidence": "Pulled the Overture FY2002 10-K from EDGAR and located the sentence: 'The number of advertisers increased from approximately 53,000 in December 2001 to approximately 80,000 in December 2002.' Both endpoints exact. The professionalised-gatekeeping characterisation is separately supported in the same filing ('all new U.S. Overture advertisers must commit to a minimum bid per listing of 10 cents and a minimum $20 monthly spend'). Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Overture Services, Inc., Form 10-K FY2002 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-buyers-002",
+      "verdict": "adjusted",
+      "evidence": "Attacked all three triangulation paths. (1) Arithmetic reproduces: 21128.514*0.65/12000 = 1,144,461 and /25000 = 549,341. But the tail-average assumptions are the entire estimate, and they are implausible in the wrong direction: at the 600k central the implied average revenue per advertiser is $35,214/yr, versus Overture's DISCLOSED $8,347/yr in 2002 (667.730/80,000) for a base that was editorially screened and carried a $20/month floor. Google's base had no floor and no screening, so its average should sit BELOW Overture's, not 4x above it - which pushes the count up, not down. (2) Path 2 as written derives 300k-600k US accounts and then says US is 'roughly half the worldwide total' - that implies 600k-1.2M WORLDWIDE, but the method then quotes path 2 as if 300k-1.1M were the worldwide span. US and worldwide are conflated. (3) Path 3 reproduces arithmetically (95,000 -> 1.2M over 7.75yr = 38.7%/yr; at t=5.5yr gives 574,650) but is doubly broken: it interpolates a worldwide Overture base to an AdGooroo figure for Google's SEARCH NETWORK that is very likely US-only, and the AdGooroo anchor itself could not be verified - the cited clixmarketing URL returns HTTP 403 and no independent source for the spring-2011 1.2M figure surfaced. I did confirm the claim's honest core: Google discloses no advertiser count anywhere in the FY2004, FY2005 or FY2008 10-Ks (searched for 'hundreds/millions of advertisers', 'advertiser base', 'number of advertisers' - only qualitative language appears).",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2005 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312506056598/d10k.htm"
+        },
+        {
+          "name": "Overture Services, Inc., Form 10-K FY2002 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+        }
+      ],
+      "old": {
+        "central": 600000,
+        "ci80": [
+          300000,
+          1100000
+        ],
+        "grade": "C"
+      },
+      "new": {
+        "central": 1100000,
+        "ci80": [
+          550000,
+          2600000
+        ],
+        "grade": "C",
+        "method": "Three paths, corrected. (1) Revenue-per-advertiser: 2008 advertising revenue $21,128.5m (10-K, grade A). Overture's disclosed 2002 revenue per advertiser was $8,347/yr for a screened base with a $20/month floor; Google's ungated self-serve base should average at or below that, giving 2.5M+ at Overture parity, or ~1.1-1.5M if Google's larger share of big accounts lifts the average to $14-19k. (2) Business population: ~6M US employer firms plus a comparable OECD base; 5-10% penetration by 2008 gives 300k-600k US accounts, which at roughly half the worldwide total implies 600k-1.2M WORLDWIDE (the previous method mis-stated this US range as the worldwide range). (3) Endpoint interpolation from Overture ~95,000 (mid-2003) to a reported ~1.2M for spring 2011 gives ~575k at end-2008, but this path is retained only as a floor: its terminal anchor is unverified (source URL dead) and is probably US-only, and its initial anchor is a different, more gated company. Central set at 1.1M; interval spans the old 600k case as a low bound and Overture-parity revenue-per-advertiser as a high bound."
+      },
+      "reason": "Central and interval were biased low by an unexamined revenue-per-advertiser assumption that contradicts the era's own long-tail thesis, by a US/worldwide conflation inside path 2, and by an unverifiable terminal anchor in path 3. The claim remains a legitimate C-grade triangulation but its interval was too narrow and sat too low.",
+      "recomputation": [
+        {
+          "expr": "21128.514e6/600000",
+          "expected": 35214
+        },
+        {
+          "expr": "667.730e6/80000",
+          "expected": 8347
+        },
+        {
+          "expr": "21128.514e6*0.65/12000",
+          "expected": 1144461
+        },
+        {
+          "expr": "(1200000/95000)**(1/7.75)",
+          "expected": 1.3872
+        },
+        {
+          "expr": "95000*1.3872**5.5",
+          "expected": 574650
+        }
+      ],
+      "disagreement": "Researcher treated the $12k-25k tail average as a neutral modelling choice. It is not neutral: it is the single parameter that fixes the answer, and the only disclosed comparable ($8,347 at Overture, from a MORE gated market) points the other way."
+    },
+    {
+      "claim_id": "e6-buyers-003",
+      "verdict": "confirmed",
+      "evidence": "Downloaded the IAB/PwC 2008 full-year PDF and read the category section directly. Verbatim: 'Retail advertisers ... 22 percent of revenues for the full year of 2008 or $5.0 billion'; 'Financial Services ... 13 percent ... or $3.0 billion'; 'Automotive ... third-largest ... 12 percent ... or $2.8 billion'; 'Computing ... fourth-largest ... 12 percent ... or $2.7 billion'; 'Telecom ... 9 percent ... or $2.0 billion'. Every figure and the rank ordering match exactly. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2008 Full-Year Results (PDF downloaded, text extracted)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-buyers-004",
+      "verdict": "confirmed",
+      "evidence": "Downloaded and parsed the Coen workbook. 'CS ad dataset' scheme-1 rows: Broadcast TV 2002 = 42,068 and 2007 = 44,521; Cable 2002 = 16,297 and 2007 = 26,319. All four match the claim to the stated rounding. Grade B correct (Coen is an estimate series, not an official statistic).",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "disagreement": "'Brand television buyers did not leave' is true in nominal dollars but broadcast TV grew only 5.8% over five years against ~18% growth in total US ad spend, so broadcast lost share. Cable's +61.5% is what holds television's aggregate share up. The claim is defensible as written; the record should not let 'did not leave' harden into 'did not shrink'."
+    },
+    {
+      "claim_id": "e6-buyers-005",
+      "verdict": "adjusted",
+      "evidence": "The two dollar figures and both shares reproduce exactly from Coen scheme-3 rows (Total National 2002 = 145,429 and 2007 = 185,280; Total Local 2002 = 91,446 and 2007 = 94,332; both pairs sum to the published grand totals). But the interpretation is refuted by the claim's own numbers: the national share moved 61.39% -> 66.26%, a 4.87 percentage-point rise, and local's share fell from 38.61% to 33.74% - a 12.6% RELATIVE decline in five years. National spending grew 27.4% while local grew 3.2%. Sibling claims e6-scale-007 and e6-scale-008 state exactly this divergence. 'Essentially unchanged' and 'the auction era did not shift the national/local balance' contradict the record's own SCALE section.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "old": {
+        "statement": "...a share essentially unchanged from 2002 (61.4%, $145.4bn of $236.9bn), meaning the auction era did not shift the national/local balance of the whole market."
+      },
+      "new": {
+        "statement": "National advertisers supplied 66.3% of all US advertising dollars in 2007 ($185.3bn of $279.6bn), up 4.9 points from 61.4% in 2002 ($145.4bn of $236.9bn): national spending grew 27.4% across the era while local grew 3.2%, so local's share of the whole market fell by about an eighth. The national/local balance did shift, and it shifted toward national - the opposite of what a 'search eats local budgets' story alone would predict.",
+        "central": 66.3,
+        "ci80": [
+          64,
+          68
+        ],
+        "grade": "B"
+      },
+      "reason": "Value, unit, interval, grade and source all survive. The interpretive clause is falsified by the claim's own figures and by two sibling claims in the same record.",
+      "recomputation": [
+        {
+          "expr": "100*145429/236875",
+          "expected": 61.39
+        },
+        {
+          "expr": "100*185280/279612",
+          "expected": 66.26
+        },
+        {
+          "expr": "100*185280/279612 - 100*145429/236875",
+          "expected": 4.87
+        },
+        {
+          "expr": "100*(185280/145429-1)",
+          "expected": 27.4
+        },
+        {
+          "expr": "100*(94332/91446-1)",
+          "expected": 3.2
+        }
+      ],
+      "disagreement": "Researcher read a 4.9-point move as noise. Against a five-year window and a 12.6% relative fall in local's share, it is the largest single national/local move in the Coen series since the early 1990s and is signal, not noise."
+    },
+    {
+      "claim_id": "e6-buyers-006",
+      "verdict": "confirmed",
+      "evidence": "All three components verified against primary tables. Coen 'Total Local' 2007 = 94,332 (33.74% of the 279,612 grand total). NAA Annual Newspaper Ad Expenditures (Research Dept., NAA, 3/11) gives 2007 retail = $21,018m, matching '$21.0bn'. Coen scheme-2 row 'Yellow Pages | Local' 2007 = 12,065, matching '$12.1bn'. The 'of which' framing survives a containment check: NAA retail + classified ($35,204m) tracks Coen's newspaper-local line ($35,524m).",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "NAA, Annual Newspaper Ad Expenditures (Research Dept., NAA, 3/11) - archived table parsed directly",
+          "url": "https://web.archive.org/web/20110511154447/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*94332/279612",
+          "expected": 33.74
+        },
+        {
+          "expr": "21018+14186",
+          "expected": 35204
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-buyers-007",
+      "verdict": "confirmed",
+      "evidence": "Recovered the NAA classified table from the Internet Archive frame and parsed it row by row. 2002 total = 15,898.240; 2008 total = 9,975.013; 2000 peak = 19,608.690. Recomputed: 2002->2008 = -37.26% ('a 37% fall'), 2008 vs 2000 peak = -49.13% ('49% below'). Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "NAA, Annual Newspaper Classified Ad Expenditures (Research Dept., NAA) - archived frame sheet002.htm parsed directly",
+          "url": "https://web.archive.org/web/20110511154447fw_/http://www.naa.org/docs/Research/Annual-Newspaper-Classified-Ad-Expenditures_files/sheet002.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*(9975.013/15898.240-1)",
+          "expected": -37.26
+        },
+        {
+          "expr": "100*(9975.013/19608.690-1)",
+          "expected": -49.13
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-buyers-008",
+      "verdict": "confirmed",
+      "evidence": "IAB 2008 full-year PDF, 'Performance-Based Pricing Gains' section, verbatim: 'Approximately 57 percent of 2008 full year revenues were priced on a performance basis, up from 51 percent reported in 2007'; 'Approximately 39 percent of 2008 full year revenues were priced on a CPM or impression basis, down from 45 percent in 2007'. I went in expecting 41% for CPM and was wrong - 39% is exactly what the report says. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2008 Full-Year Results (PDF downloaded, text extracted)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-sellers-001",
+      "verdict": "confirmed",
+      "evidence": "Overture FY2002 10-K consolidated statements: Revenue $667,730k (2002) and $288,133k (2001) - exact. Google FY2004 10-K revenue-by-source table: 2002 total revenues $439,508k, total advertising revenues $410,915k - exact. The leadership claim holds on the filings themselves. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Overture Services, Inc., Form 10-K FY2002 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-sellers-002",
+      "verdict": "confirmed",
+      "evidence": "Google FY2008 10-K: total revenues $21,795,550k; FY2004 10-K: 2002 total revenues $439,508k. 21,795.550/439.508 = 49.59x, matching '49.6x'. Geographic note in the FY2008 10-K: United States revenues 2008 = $10,635,553k - exact. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "21795.550/439.508",
+          "expected": 49.59
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-sellers-003",
+      "verdict": "adjusted",
+      "evidence": "Every percentage in the statement verifies. FY2004 10-K: Google Network 2004 = $1,554,256k of $3,189,223k = 48.73%. FY2008 10-K: 2006 network $4,159,831k of $10,604,917k = 39.23%; 2008 network $6,714,688k of $21,795,550k = 30.81%. Q2 2006 8-K exhibit 99.1, verbatim: 'Google's partner sites generated revenues, through AdSense programs, of $997 million, or 41% of total revenues.' The defect is the interval: central = 41 sits ON the upper endpoint of ci80 [39,41], which makes the interval one-sided and unusable for any jitter or convergence rendering. The disclosed figure is 41% and the recomputed figure is 40.6%.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Q2 2006 earnings release, Form 8-K exhibit 99.1 (fetched and parsed)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312506150132/dex991.htm"
+        }
+      ],
+      "old": {
+        "ci80": [
+          39,
+          41
+        ]
+      },
+      "new": {
+        "ci80": [
+          40.6,
+          41.0
+        ]
+      },
+      "reason": "A central value must not sit at an interval endpoint. The underlying quantity is disclosed to the nearest point (41%) and computes to 40.6%; the honest interval is [40.6, 41.0], not [39, 41].",
+      "recomputation": [
+        {
+          "expr": "100*997/2455.9",
+          "expected": 40.6
+        },
+        {
+          "expr": "100*1554.256/3189.223",
+          "expected": 48.73
+        },
+        {
+          "expr": "100*6714.688/21795.550",
+          "expected": 30.81
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-sellers-004",
+      "verdict": "confirmed",
+      "evidence": "Google FY2005 10-K, concentration-of-credit-risk note, verbatim: 'Advertising and other revenues generated from America Online, Inc. (\"AOL\") accounted for 16%, 12% and 9% of revenues, primarily through our AdSense program, in 2003, 2004 and 2005.' All three years exact. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2005 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312506056598/d10k.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-sellers-005",
+      "verdict": "confirmed",
+      "evidence": "IAB 2008 full-year PDF, 'Industry Revenue Concentration Remains High', verbatim: 'the ten leading ad-selling companies, which accounted for 72 percent of total revenues in the fourth quarter of 2008, up slightly from the 69 percent reported for the fourth quarter of 2007. Companies ranked 11th to 25th accounted for 11 percent ... Companies ranked 26th to 50th accounted for 8 percent'. 72+11 = 83 (top 25) and 83+8 = 91 (top 50), matching the claim exactly. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2008 Full-Year Results (PDF downloaded, text extracted)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "72+11",
+          "expected": 83
+        },
+        {
+          "expr": "72+11+8",
+          "expected": 91
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-sellers-006",
+      "verdict": "confirmed",
+      "evidence": "comScore December 2008 US search rankings release verified: Google Sites 63.5%, Yahoo! Sites 20.5%, Microsoft Sites 8.3%, Ask Network 3.9%, AOL LLC 3.8%. Shares sum to 100.0. Grade B correct - comScore is a panel estimator, not an official statistic, and the ci80 [61,66] appropriately reflects panel error rather than treating a vendor figure as exact.",
+      "sources_consulted": [
+        {
+          "name": "comScore, 'comScore Releases December 2008 U.S. Search Engine Rankings'",
+          "url": "https://www.comscore.com/Insights/Press-Releases/2009/1/US-Search-Engine-Rankings"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-medium-001",
+      "verdict": "adjusted",
+      "evidence": "Coen figures exact: Direct Mail 2002 = 46,067 and 2007 = 60,225; 60,225/279,612 = 21.54%; Broadcast TV 2007 = 44,521. Direct mail exceeds broadcast TV in every year 2002-2007. But 'the largest single US advertising medium' is true only because Coen's taxonomy books Broadcast TV and Cable as separate scheme-1 categories. Television as a medium was $58,365m in 2002 and $70,840m in 2007 - larger than direct mail in every single year of the era. The claim's own body text is honest (it compares against broadcast TV explicitly), but the headline framing and the field summary ('the single largest US medium for most of the era') do not survive the taxonomy challenge.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "old": {
+        "statement": "Direct mail was the largest single US advertising medium through most of the era..."
+      },
+      "new": {
+        "statement": "Direct mail was the largest single line in Coen's medium taxonomy through the era, at $46,067m in 2002 and $60,225m in 2007 - 21.5% of total US ad spend in 2007 and ahead of broadcast television ($44,521m) in every year. Television taken as one medium (broadcast $44,521m plus cable $26,319m = $70,840m in 2007) remained larger throughout; the direct-mail-is-biggest result depends on Coen booking broadcast and cable separately.",
+        "central": 60225,
+        "ci80": [
+          57000,
+          63000
+        ],
+        "grade": "B"
+      },
+      "reason": "The number is right and the comparison against broadcast TV is right, but the superlative is an artefact of the source's category scheme and must be stated as such.",
+      "recomputation": [
+        {
+          "expr": "44521+26319",
+          "expected": 70840
+        },
+        {
+          "expr": "42068+16297",
+          "expected": 58365
+        },
+        {
+          "expr": "100*60225/279612",
+          "expected": 21.54
+        }
+      ],
+      "disagreement": "Researcher treats Coen's scheme-1 categories as the definition of 'medium'. That is a defensible convention, but it is a convention, and it produces a headline that reverses under the equally standard convention of treating television as one medium."
+    },
+    {
+      "claim_id": "e6-medium-002",
+      "verdict": "adjusted",
+      "evidence": "Coen side verifies exactly: Yellow Pages 2002 = 13,776 and 2007 = 14,250 (in-series peak is actually 2006 at 14,393). The conflict side fails its citation. I fetched the cited Vendasta page in full (21,337 characters of extracted text): it contains no '14.7', no '2005', no 'billion' and no '$' anywhere. It is a 2023 marketing post on whether a Yellow Pages listing is worth buying, and it does not support the $14.7bn/2005 peak at all. The $14.7bn figure does circulate in industry retrospectives, so the conflict is real - but the record currently cites a page that does not state it. Separately, 'had not yet begun to fall by 2008' is asserted beyond the evidence: the Coen series stops at 2007, and the IAB's own 2008 cross-media chart puts Directory at $13.8bn for 2008, below Coen's 2007 figure.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2008 Full-Year Results (PDF downloaded, text extracted)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+        },
+        {
+          "name": "Vendasta, 'Yellow Pages for Business' - fetched and searched in full; does not contain the cited figure",
+          "url": "https://www.vendasta.com/blog/yellow-pages-evolution/"
+        }
+      ],
+      "old": {
+        "sources": "Coen dataset + Vendasta blog post",
+        "statement_fragment": "the ancestor of paid search was a ~$14bn market that had not yet begun to fall by 2008"
+      },
+      "new": {
+        "sources": "Coen dataset + a source that actually carries the $14.7bn/2005 print peak (Vendasta does not)",
+        "statement_fragment": "the ancestor of paid search was a ~$14bn market still at or near its peak when the era closed; the Coen series ends at 2007 and cannot speak to 2008, and IAB/PwC's own 2008 cross-media chart puts Directory at $13.8bn",
+        "central": 14250,
+        "ci80": [
+          13800,
+          14800
+        ],
+        "grade": "B"
+      },
+      "reason": "Citation failure on the conflict half of a claim whose stated purpose is to keep that conflict open, plus an assertion about 2008 that the cited series cannot reach."
+    },
+    {
+      "claim_id": "e6-medium-003",
+      "verdict": "confirmed",
+      "evidence": "Recovered the NAA Annual Newspaper Ad Expenditures table (footer reads 'Source: Research Dept., Newspaper Association of America, 3/11', matching the cited source name) and parsed every row. Combined print+online: 2005 = $49,435m, 2006 = $49,275m, 2007 = $45,375m, 2008 = $37,848m - so 2005 is the peak, exactly as claimed. Print alone: 2000 = $48,670m, the highest print value in the table. Every figure exact. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "NAA, Annual Newspaper Ad Expenditures (Research Dept., NAA, 3/11) - archived table parsed directly",
+          "url": "https://web.archive.org/web/20110511154447/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-medium-004",
+      "verdict": "confirmed",
+      "evidence": "IAB 2008 full-year PDF annual revenue table: 2002 = $6,010m, 2008 = $23,448m. 23,448/6,010 = 3.901, matching '3.9x'. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2008 Full-Year Results (PDF downloaded, text extracted)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "23448/6010",
+          "expected": 3.901
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-medium-005",
+      "verdict": "confirmed",
+      "evidence": "IAB 2008 full-year PDF, verbatim: 'Search remains the largest revenue format, accounting for 45 percent of 2008 full year revenues, up from the 41 percent reported in 2007. Search revenues totaled $10.5 billion for the full year 2008, up 20 percent from the $8.8 billion reported in 2007.' And on formats: 'Classifieds/Directories revenues have dropped from 18% of total in 2004 to 14% in 2008.' Every number in the claim, including the $8.8bn that does not reconcile with 41% x $21.206bn = $8.69bn, is the report's own published figure. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2008 Full-Year Results (PDF downloaded, text extracted)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+        }
+      ],
+      "disagreement": "41% of $21,206m computes to $8,694m, not $8,800m. The claim correctly reports IAB's published pair rather than recomputing it; downstream arithmetic that uses $8.8bn is using IAB's number, not a derived one."
+    },
+    {
+      "claim_id": "e6-medium-006",
+      "verdict": "confirmed",
+      "evidence": "Opened the Coen workbook's 'internet' worksheet directly. Row 2 reads verbatim: 'The Coen internet ad expenditure figures are serious underestimates for 2004-2007'. The comparison columns give Coen 2007 = 10,529 against IAB 2007 = 21,206; the difference is 10,677, matching the central exactly. Confirmed independently that the dataset terminates with 2007 - the last year in every sheet is 2007. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2008 Full-Year Results (PDF downloaded, text extracted)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+        },
+        {
+          "name": "Silk & Berndt, NBER WP 28161 (PDF downloaded; passage located at p.11)",
+          "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "21206-10529",
+          "expected": 10677
+        }
+      ],
+      "disagreement": "ci80 [10000, 11500] is a +/-7% band around a difference of two exactly published integers, carried at grade A. Elsewhere in this record exactly-published A-grade values use degenerate intervals (e.g. e6-medium-004 at [23448,23448]). Not wrong, but inconsistent with the record's own convention; worth a house-style ruling."
+    },
+    {
+      "claim_id": "e6-scale-001",
+      "verdict": "confirmed",
+      "evidence": "Coen workbook 'summary' sheet, 2002 row: Grand Total = 236,875. Cross-checked against the 'CS ad dataset' sheet scheme-4 row for 2002: identical. Also cross-checked against Galbi's published HTML table: 236,875. Grade B correct for an estimate series; ci80 [230000, 244000] is a ~+/-3% band that honestly reflects series uncertainty rather than treating a modelled estimate as exact.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Douglas Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (%-of-GDP column read directly)",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-scale-002",
+      "verdict": "confirmed",
+      "evidence": "Recomputed from the parsed workbook: 279,612 - 10,529 + 21,206 = 290,289, matching the central to the dollar. Both inputs verified at source (Coen grand total and internet line from the workbook; IAB 2007 = $21,206m from the IAB PDF). The substitution is justified by Coen's own in-workbook warning. Grade C correct - this is a constructed figure and is labelled as one.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2008 Full-Year Results (PDF downloaded, text extracted)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "279612-10529+21206",
+          "expected": 290289
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-scale-003",
+      "verdict": "adjusted",
+      "evidence": "Both sources verify individually. Silk & Berndt NBER WP 28161 p.11, verbatim: 'The series both peak in in 2000 (shares of 2.3 percent and 2.4 percent for MCE$BN and IRS$BN in total GDP, respectively) ... the nominal advertising share of total GDP continues to decrease, in each case dropping below two per cent.' Galbi's published %-of-GDP column reads 2.3% for 2002 and 2.0% for 2007 - exactly as claimed. But the two cited sources contradict each other on the same series in the same year: Galbi's column shows the McCann series peaking at 2.5% in 2000 (247,472/9,817.0bn), not the 2.3% the claim attributes to McCann. The gap is a GDP-vintage artefact (Galbi uses a pre-revision GDP of $9,817bn for 2000; current BEA vintage is $10,251bn, which gives 2.41%). The claim silently takes one number from each source.",
+      "sources_consulted": [
+        {
+          "name": "Silk & Berndt, NBER WP 28161 (PDF downloaded; passage located at p.11)",
+          "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+        },
+        {
+          "name": "Douglas Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (%-of-GDP column read directly)",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "old": {
+        "statement_fragment": "both the McCann-Erickson and IRS corporate-advertising-deduction series peak in 2000 (2.3% and 2.4% of GDP respectively)"
+      },
+      "new": {
+        "statement_fragment": "both series peak in 2000 - Silk & Berndt put the peak at 2.3% (McCann) and 2.4% (IRS), while Galbi's own %-of-GDP column shows the McCann series at 2.5% in 2000; the 0.2pp gap is a GDP-vintage difference, not a data conflict, and the direction is identical in every vintage",
+        "central": 2.0,
+        "ci80": [
+          1.9,
+          2.2
+        ],
+        "grade": "B"
+      },
+      "reason": "The claim's central, unit, interval, grade and sources all survive. The statement quietly reconciles two cited sources that disagree by 0.2pp on the same series and year; the vintage difference should be on the record, as the era's other source conflicts are.",
+      "recomputation": [
+        {
+          "expr": "100*247472/9817000",
+          "expected": 2.52
+        },
+        {
+          "expr": "100*236875/10470000",
+          "expected": 2.26
+        },
+        {
+          "expr": "100*279612/13807000",
+          "expected": 2.03
+        }
+      ],
+      "disagreement": "On current BEA GDP vintages the 2007 share is 1.93%, below the claim's 2.0% central but inside its interval. The interval is doing exactly the job it should here - this is a well-built ci80."
+    },
+    {
+      "claim_id": "e6-scale-004",
+      "verdict": "confirmed",
+      "evidence": "Recomputed: 21,206/290,289 = 7.305%, matching 7.3%. Search cross-check: 8,800/290,289 = 3.03%, matching 3.0%. Both inputs verified at source. Grade C correct - the denominator is the constructed figure from e6-scale-002, and the claim says so.",
+      "sources_consulted": [
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2008 Full-Year Results (PDF downloaded, text extracted)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*21206/290289",
+          "expected": 7.305
+        },
+        {
+          "expr": "100*8800/290289",
+          "expected": 3.03
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-scale-005",
+      "verdict": "adjusted",
+      "evidence": "Values verify exactly against the FY2008 10-K geographic table: United States revenues 2007 = $8,698,021k and 2008 = $10,635,553k. Recomputed 8,698.021/290,289 = 2.996%, matching 3.0%. The defect is the grade. The denominator is the internet-corrected $290,289m total, which the record itself grades C at e6-scale-002 and C again at e6-scale-004. A ratio cannot be better-graded than its denominator; carrying this at B while the arithmetically identical e6-scale-004 sits at C is an internal grading inconsistency.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "old": {
+        "grade": "B"
+      },
+      "new": {
+        "grade": "C"
+      },
+      "reason": "Grade audit: numerator is A (SEC filing), denominator is C (constructed). The composite is C, matching sibling claims that divide by the same denominator.",
+      "recomputation": [
+        {
+          "expr": "100*8698.021/290289",
+          "expected": 2.996
+        }
+      ],
+      "disagreement": "Also worth flagging downstream: Google's US revenue is revenue from advertisers with US billing addresses, not US advertising spend. It is a reasonable proxy but not the same quantity as the Coen denominator measures."
+    },
+    {
+      "claim_id": "e6-scale-006",
+      "verdict": "confirmed",
+      "evidence": "Fetched the cited MediaPost article and verified GroupM's figures: worldwide 2007 = $448.6 billion, 2008 forecast 'some $479 billion' (claim's $478.9bn is the precise form of the same forecast), and US measured media 2007 = $162.6 billion. The definitional-gap framing against Coen's $279.6bn all-media US total is correct and important. Grade B correct for credible named trade reporting of a vendor forecast; ci80 [420,500] appropriately loose for a measured-media aggregate.",
+      "sources_consulted": [
+        {
+          "name": "MediaPost Research Brief, 'World Ad Spending Growing Faster Than U.S. in 2008' (Jan 3, 2008), reporting GroupM",
+          "url": "https://www.mediapost.com/publications/article/73442/world-ad-spending-growing-faster-than-us-in-2008.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-scale-007",
+      "verdict": "confirmed",
+      "evidence": "Coen 'CS ad dataset' scheme-3 rows: Total National 2002 = 145,429 and 2007 = 185,280. Both exact. Containment check passes: national + local equals the published grand total in both years (145,429+91,446 = 236,875; 185,280+94,332 = 279,612). Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "145429+91446",
+          "expected": 236875
+        },
+        {
+          "expr": "185280+94332",
+          "expected": 279612
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-scale-008",
+      "verdict": "confirmed",
+      "evidence": "Coen scheme-3 rows: Total Local 2002 = 91,446 and 2007 = 94,332. Both exact. '+3.2% nominal over five years' recomputes; against ~14% CPI over the same window that is roughly a 9-10% real decline, so 'shrinking in real terms' holds. Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*(94332/91446-1)",
+          "expected": 3.16
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-scale-009",
+      "verdict": "confirmed",
+      "evidence": "Every one of the six figures verified against the parsed NAA classified table. Total: 2002 = 15,898.240, 2007 = 14,185.869, 2008 = 9,975.013. Employment: 2002 = 4,387.793, 2008 = 2,186.351, 2000 peak = 8,712.628, 2009 = 786.847. Real Estate: 2006 peak = 5,155.220. Recomputed the derived percentages: employment 2002->2008 = -50.17% and 2000->2009 = -90.97% ('91% collapse'). Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "NAA, Annual Newspaper Classified Ad Expenditures (Research Dept., NAA) - archived frame sheet002.htm parsed directly",
+          "url": "https://web.archive.org/web/20110511154447fw_/http://www.naa.org/docs/Research/Annual-Newspaper-Classified-Ad-Expenditures_files/sheet002.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*(2186.351/4387.793-1)",
+          "expected": -50.17
+        },
+        {
+          "expr": "100*(786.847/8712.628-1)",
+          "expected": -90.97
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-scale-010",
+      "verdict": "confirmed",
+      "evidence": "Recomputed the sum from independently verified components: 60,225 (Coen direct mail) + 14,250 (Coen Yellow Pages) + 14,185.869 (NAA classified) + 10,815.06 (51% of IAB's $21,206m) = 99,475.93, matching $99,476m. Share: 99,475.93/290,289 = 34.27%, matching 34.3%. Ran a double-count check: newspaper classified is inside Coen's Newspapers line but not inside direct mail or Yellow Pages, so the four addends do not overlap; and the numerator's internet component uses the same IAB series that was substituted into the denominator, so the construction is internally consistent. Grade C correct.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset v1.14 (downloaded and parsed: 'summary', 'CS ad dataset', 'internet' sheets)",
+          "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "NAA, Annual Newspaper Classified Ad Expenditures (Research Dept., NAA) - archived frame sheet002.htm parsed directly",
+          "url": "https://web.archive.org/web/20110511154447fw_/http://www.naa.org/docs/Research/Annual-Newspaper-Classified-Ad-Expenditures_files/sheet002.htm"
+        },
+        {
+          "name": "IAB/PwC Internet Advertising Revenue Report, 2008 Full-Year Results (PDF downloaded, text extracted)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "0.51*21206",
+          "expected": 10815.06
+        },
+        {
+          "expr": "60225+14250+14185.869+10815.06",
+          "expected": 99475.93
+        },
+        {
+          "expr": "100*99475.93/290289",
+          "expected": 34.27
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-pricing-001",
+      "verdict": "confirmed",
+      "evidence": "Fetched the Feb 20, 2002 press release and verified both quotations verbatim: 'AdWords Select ranking is determined by a combination of ad performance (click-thru rate) and how much an advertiser agrees to pay per click' and 'The AdWords Select Discounter automatically ensures advertisers pay the lowest amount possible, and adjusts dynamically with the latest changes in the marketplace.' Date confirmed. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google press release, 'Google Introduces New Pricing For Popular Self-Service Online Advertising Program' (Feb 20, 2002)",
+          "url": "http://googlepress.blogspot.com/2002/02/google-introduces-new-pricing-for.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-pricing-002",
+      "verdict": "confirmed",
+      "evidence": "Located the worked example verbatim in the FY2008 10-K: 'These advertisers have ads with equal click-through rates and bid $1.00 per click, $0.60 per click and $0.50 per click, respectively. With our AdWords discounter, Pat would occupy the first ad position and pay only $0.61 per click, Betty would occupy the second ad position and pay only $0.51 per click, and Joe would occupy the third ad position and pay the minimum bid of $0.01 per click.' Every number exact. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        }
+      ],
+      "disagreement": "The 10-K's example uses a $0.01 minimum bid while e6-pricing-005 asserts a $0.05 AdWords minimum. Both can be true across different periods and quality scores, but the record should not let a reader infer a single stable floor."
+    },
+    {
+      "claim_id": "e6-pricing-003",
+      "verdict": "confirmed",
+      "evidence": "FY2004 10-K TAC table, verbatim row: 'Traffic acquisition costs as a percentage of advertising revenues from Google Network web sites: 91% (2002), 84% (2003), 79% (2004)' - all three exact. FY2008 10-K: AdSense-related TAC $5,284.3m against Google Network revenue $6,714.688m = 78.70%, matching. Implied take rates 9% and 21.3% both follow. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*5284.3/6714.688",
+          "expected": 78.7
+        },
+        {
+          "expr": "100*(1-5284.3/6714.688)",
+          "expected": 21.3
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-pricing-004",
+      "verdict": "confirmed",
+      "evidence": "FY2008 10-K: total TAC 2008 = $5,939.0m and 'Traffic acquisition costs as a percentage of advertising revenues: 28.1%' - both exact; recomputed 5,939.0/21,128.514 = 28.11%. I specifically attacked the word 'peaked': FY2004 10-K gives 23% (2002), 37% (2003), 39% (2004); FY2005 10-K gives 35% (2005); FY2008 10-K gives 31.5% (2006), 30.1% (2007), 28.1% (2008). 39% in 2004 is the maximum across the whole disclosed run, so 'peaked at 39% in 2004 and fell steadily' holds. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2005 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312506056598/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*5939.0/21128.514",
+          "expected": 28.11
+        },
+        {
+          "expr": "100*4933.9/16412.643",
+          "expected": 30.06
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-pricing-005",
+      "verdict": "adjusted",
+      "evidence": "The Overture half is exact: FY2002 10-K, verbatim, 'Currently, all new U.S. Overture advertisers must commit to a minimum bid per listing of 10 cents and a minimum $20 monthly spend.' The central value (20) and the 10-cent floor are both A-grade primary. The AdWords half is only half-sourced: I fetched the cited Search Engine Watch March 2007 page and it does support '$5 activation fee, but there is no minimum monthly spend' for AdWords - but it does NOT state a 5-cent AdWords minimum bid. The nearest thing on that page is 'Bidding starts at $0.10 minimum. Sometimes $0.05 bids go through', which is about MICROSOFT ADCENTER, not AdWords. The Overture '(up from a 5-cent minimum in 2001)' parenthetical has no source anywhere in the record. Two of the statement's five factual assertions are unsupported by its own citations.",
+      "sources_consulted": [
+        {
+          "name": "Overture Services, Inc., Form 10-K FY2002 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+        },
+        {
+          "name": "Search Engine Watch, 'Paid Search Advertising: Google AdWords, Yahoo Search Marketing & Microsoft adCenter' (Mar 2007) - fetched and searched in full",
+          "url": "https://searchenginewatch.com/2007/03/12/paid-search-advertising-google-adwords-yahoo-search-marketing-microsoft-adcenter/"
+        }
+      ],
+      "old": {
+        "statement": "...Overture RAISED its floor to a 10-cent minimum bid plus a $20 minimum monthly spend (up from a 5-cent minimum in 2001) ... while AdWords Select set a 5-cent minimum bid, a one-time $5 activation fee, no minimum monthly spend and automated approval.",
+        "grade": "A"
+      },
+      "new": {
+        "statement": "The cost of entry diverged in 2002: Overture required a 10-cent minimum bid per listing plus a $20 minimum monthly spend from all new US advertisers, with human editorial review of every listing, while AdWords Select charged a one-time $5 activation fee with no minimum monthly spend and automated approval. (The 5-cent AdWords minimum bid and Overture's 2001 5-cent floor are widely repeated but are not supported by either source cited here and need their own citation before the record carries them.)",
+        "central": 20,
+        "ci80": [
+          20,
+          20
+        ],
+        "grade": "A"
+      },
+      "reason": "Two unsourced assertions inside an A-graded claim. The calibrated value ($20 Overture monthly minimum) and the $5/no-minimum AdWords contrast both survive at grade A; the 5-cent floors must be sourced or dropped."
+    },
+    {
+      "claim_id": "e6-pricing-006",
+      "verdict": "adjusted",
+      "evidence": "The numbers are exact and primary. Overture FY2002 10-K, verbatim: 'The average price per paid introduction increased from $0.20 during the year ended December 31, 2001 to $0.31 during the year ended December 31, 2002' and, in the same paragraph, 'The number of advertisers increased from approximately 53,000 in December 2001 to approximately 80,000 in December 2002.' The same filing also gives paid introductions of 1.4bn (2001) and 2.2bn (2002), which cross-check the price series. The defect is the superlative: 'the era's only publicly disclosed average keyword price' is asserted with no supporting evidence, and it is not the kind of claim a single 10-K can establish. Overture itself continued disclosing the metric into 2003, and other listed paid-search sellers of 2002-2008 reported average-revenue-per-click style metrics in their own filings.",
+      "sources_consulted": [
+        {
+          "name": "Overture Services, Inc., Form 10-K FY2002 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+        }
+      ],
+      "old": {
+        "statement_fragment": "the era's only publicly disclosed average keyword price, since Google never published one"
+      },
+      "new": {
+        "statement_fragment": "the clearest publicly disclosed average keyword price from the era's revenue leader; Google never published one",
+        "central": 0.31,
+        "ci80": [
+          0.31,
+          0.31
+        ],
+        "grade": "A"
+      },
+      "reason": "Value, unit, interval, grade and source are all exact and survive. The universal-negative superlative is unsourced and unverifiable as stated; narrowing it to 'the revenue leader's disclosure' keeps the point without the overreach.",
+      "disagreement": "I did not run an exhaustive sweep of every 2002-2008 paid-search issuer's filings, so I cannot name a specific counterexample with confidence - which is precisely why the claim should not assert 'only'."
+    },
+    {
+      "claim_id": "e6-pricing-007",
+      "verdict": "adjusted",
+      "evidence": "The claim's own honesty about SEC absence is correct, and its corroboration logic is sound: FY2004 10-K TAC at 91% (2002) and 84% (2003) of Google Network revenue is consistent with an ~85% share, and FY2005 10-K confirms 'certain AdSense agreements obligate us to make guaranteed minimum revenue share payments'. But the cited source fails. I fetched the Search Engine Watch April 30, 2002 article in full and searched it: it contains no '$100 million', no '85%', and no revenue-guarantee language at all. The source is labelled 'John Battelle, The Search (2005)' but points at a 2002 trade article that predates and does not carry the terms. The $100m/85% figures do trace to Battelle's book and later retellings, so the value and grade B survive - the citation does not.",
+      "sources_consulted": [
+        {
+          "name": "Search Engine Watch, 'Overture & Inktomi Out, Google In At AOL' (Apr 30, 2002) - fetched and searched in full; contains no financial terms",
+          "url": "https://www.searchenginewatch.com/2002/04/30/overture-inktomi-out-google-in-at-aol/"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2005 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312506056598/d10k.htm"
+        }
+      ],
+      "old": {
+        "sources": "SEW Apr 30 2002 URL labelled as Battelle, 'The Search' (2005)"
+      },
+      "new": {
+        "sources": "cite John Battelle, 'The Search' (2005) as a book with page reference, or a source that actually states the $100m guarantee and ~85% share; keep the Google FY2004/FY2005 10-Ks as the corroborating primary evidence",
+        "central": 100,
+        "ci80": [
+          75,
+          150
+        ],
+        "grade": "B"
+      },
+      "reason": "The named source and the linked source are different documents, and the linked one does not contain the claim's figures. Value and interval survive on the strength of the TAC corroboration and the book attribution."
+    },
+    {
+      "claim_id": "e6-pricing-008",
+      "verdict": "adjusted",
+      "evidence": "Numerator exact: FY2004 10-K gives Google web sites advertising revenue 2002 = $306,978k. Arithmetic reproduces: 306.978/54.75bn = $0.005607. The denominator is the problem, and it is one-sided. The record's own evidence is 'more than 150 million queries per day' at END of 2001, and Google grew through 2002 - so 150m/day is a FLOOR for the 2002 average, which makes $0.0056 a CEILING on 2002 revenue per query, not a central estimate. Worse, the stated ci80 upper bound of $0.008 implies only 38.4bn queries for the year (105m/day), which is below the documented end-2001 rate and is not physically available. The interval points the wrong way.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        },
+        {
+          "name": "Google Zeitgeist 2001 / contemporaneous reporting of 'more than 150 million queries per day'",
+          "url": "https://www.internetlivestats.com/google-search-statistics/"
+        }
+      ],
+      "old": {
+        "central": 0.0056,
+        "ci80": [
+          0.004,
+          0.008
+        ],
+        "method": "...taking ~150m/day through 2002 gives 54.8bn queries. $306.978m / 54.8bn = $0.0056. CI spans 40-70bn queries."
+      },
+      "new": {
+        "central": 0.0047,
+        "ci80": [
+          0.0034,
+          0.0058
+        ],
+        "grade": "C",
+        "method": "Google-owned-sites advertising revenue 2002 = $306.978m (10-K FY2004, grade A). Denominator: Google reported 'more than 150 million queries per day' at the end of 2001 and 'more than 200 million queries a day' by the 2004 IPO period, so 150m/day is a floor for the 2002 average, not its centre. Taking a calendar-2002 average of ~180m/day gives 65.7bn queries and $0.00467. Interval spans 53bn queries (145m/day, essentially the end-2001 floor, giving $0.0058) to 90bn queries (247m/day, giving $0.0034). The old upper bound of $0.008 implied 105m/day, below Google's own documented end-2001 rate, and is discarded."
+      },
+      "reason": "The central sat at the physically extreme end of its own denominator evidence and the interval extended past it into query volumes Google had already exceeded before the year began. Direction of the correction is downward.",
+      "recomputation": [
+        {
+          "expr": "306.978e6/(150e6*365)",
+          "expected": 0.005607
+        },
+        {
+          "expr": "306.978e6/(180e6*365)",
+          "expected": 0.004672
+        },
+        {
+          "expr": "306.978e6/(250e6*365)",
+          "expected": 0.003364
+        },
+        {
+          "expr": "306.978e6/0.008",
+          "expected": 38372250
+        },
+        {
+          "expr": "38372250/365 (implied queries per day at the old upper bound)",
+          "expected": 105129
+        }
+      ],
+      "disagreement": "This propagates: the PRICING summary's '4.6x yield growth across the era' is computed off this endpoint. With the corrected 2002 figure and the corrected e6-unit_econ-001, the multiple lands near 4.7x - close by luck, because both endpoints move down together. The record should recompute rather than assume the 4.6x survives."
+    },
+    {
+      "claim_id": "e6-measurement-001",
+      "verdict": "confirmed",
+      "evidence": "Verified the settlement independently: $90 million total exposure agreed March 2006, delivered mostly as advertiser credits with roughly a third going to attorneys' fees. Google's own Inside AdWords post confirms the class period directly - notice went 'to all advertisers who purchased online advertising from Google between January 1, 2002 and the present'. Downloaded the Tuzhilin report itself and confirmed it exists and reaches the stated conclusion. The claim's careful wording - 'commissioned through the settlement rather than by an independent industry auditor' - is exactly what the evidence supports. Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inside AdWords blog, 'Lane's Gifts v. Google settlement' (fetched and parsed)",
+          "url": "https://adwords.googleblog.com/2006/05/lanes-gifts-v-google-settlement.html"
+        },
+        {
+          "name": "Alexander Tuzhilin, 'The Lane's Gifts v. Google Report' (PDF downloaded and read)",
+          "url": "https://googleblog.blogspot.com/pdf/Tuzhilin_Report.pdf"
+        },
+        {
+          "name": "Search Engine Watch, 'Google Agrees To $90 Million Settlement In Class Action Lawsuit Over Click Fraud'",
+          "url": "https://searchenginewatch.com/2006/03/08/google-agrees-to-90-million-settlement-in-class-action-lawsuit-over-click-fraud/"
+        }
+      ],
+      "disagreement": "The MEASUREMENT field summary says 'the court appointed NYU's Alexander Tuzhilin'. The report itself says only 'I have been asked to evaluate Google's invalid click detection efforts'; its single use of 'appointed' refers to his NYU professorship. Contemporaneous accounts split between 'court-appointed' and 'Google commissioned'. The claim statement is safe; the summary sentence is not, and should be brought in line with the claim."
+    },
+    {
+      "claim_id": "e6-measurement-002",
+      "verdict": "adjusted",
+      "evidence": "The Click Forensics figures verify: Q4 2008 at 17.1% was the highest since the index began in 2006, up from 16.0% in Q3 2008 and 16.6% in Q4 2007, so 'roughly 14-17% across 2007-2008' is fair. The defect is that the interval does not do what its own method says it does. The method states the interval 'spans the two camps rather than averaging them' and records that Google 'stated its own invalid-click rate was in the low single digits' - but ci80 [8, 20] excludes low single digits entirely, and the central of 15 sits inside the Click Forensics camp. As written the interval takes a side while claiming not to.",
+      "sources_consulted": [
+        {
+          "name": "Click Forensics Click Fraud Index Q4 2008 (17.1% peak) as reported in contemporaneous trade coverage",
+          "url": "https://techcrunch.com/2009/01/27/report-click-fraud-at-record-high/"
+        },
+        {
+          "name": "Campaign, 'Click fraud at highest ever rate' (Q4 2008 17.1%, Q3 2008 16%, Q4 2007 16.6%)",
+          "url": "https://www.campaignlive.co.uk/article/click-fraud-highest-ever-rate/898001"
+        }
+      ],
+      "old": {
+        "ci80": [
+          8,
+          20
+        ]
+      },
+      "new": {
+        "ci80": [
+          3,
+          20
+        ],
+        "grade": "C",
+        "method": "Click Forensics' quarterly Click Fraud Index reported rates of roughly 14-17% across 2007-2008, peaking at 17.1% in Q4 2008 (up from 16.0% in Q3 2008 and 16.6% in Q4 2007). Google disputed the methodology and stated its own invalid-click rate was in the low single digits. The two camps are also measuring different denominators - Click Forensics counted invalid clicks in observed traffic, while Google's figure describes clicks surviving its pre-billing filters - so they are not strictly comparable. No accredited measurement body published a competing figure in period. The interval therefore spans both camps as stated (low single digits to the Click Forensics peak) rather than resolving between them; the central sits nearer the third-party estimates because those are the only published industry-wide figures."
+      },
+      "reason": "Interval challenge: the stated interval excluded one of the two camps the method claims it spans. Widening the lower bound to 3% makes the interval honest about the unresolved dispute. Central and grade unchanged.",
+      "disagreement": "A defensible alternative is to keep [8,20] and restate the unit as 'rate estimated by independent third-party estimators' rather than 'estimated fraudulent, industry-wide'. Either fix works; leaving the unit universal and the interval partisan does not."
+    },
+    {
+      "claim_id": "e6-measurement-003",
+      "verdict": "confirmed",
+      "evidence": "Verified both endpoints. IAB's own release states the Click Measurement Working Group 'was initiated in late 2005' and that the group, with the Media Rating Council, spent three years reaching consensus; the Click Measurement Guidelines were finalised and released in 2009 (May 2009, after a public comment period earlier that year). The claim's characterisation of the guidelines as the first industry standard defining a valid click and recommending third-party certification is the IAB's own framing. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "IAB, 'IAB Releases Click Measurement Guidelines, Establishes Parameters for Counting Valid Clicks, Filtering Fraudulent Clicks'",
+          "url": "https://www.iab.com/news/iab-releases-click-measurement-guidelines-establishes-parameters-counting-valid-clicks-filtering-fraudulent-clicks/"
+        },
+        {
+          "name": "IAB, Click Measurement Guidelines (2009)",
+          "url": "https://www.iab.com/wp-content/uploads/2015/06/click-measurement-guidelines2009.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-measurement-004",
+      "verdict": "confirmed",
+      "evidence": "All three elements verify: Urchin acquisition announced April 2005; Google Analytics launched 11 November 2005 free of charge; roughly 100,000 new accounts created within one week of launch, after which Google suspended new signups and moved to an invitation lottery because demand exceeded capacity. Grade B correct for a named practitioner account, and ci80 [60000, 150000] appropriately loose around a recollected figure rather than treating it as exact.",
+      "sources_consulted": [
+        {
+          "name": "Brian Clifton, 'Google Analytics is 10 Years Old'",
+          "url": "https://brianclifton.com/blog/2015/11/10/google-analytics-is-10-what-has-changed/"
+        },
+        {
+          "name": "Brian Clifton, 'Google Analytics - Four years on'",
+          "url": "https://brianclifton.com/blog/2009/04/16/google-analytics-fours-years-on/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-measurement-005",
+      "verdict": "confirmed",
+      "evidence": "Verified: Nielsen began delivering its Average Commercial Minute data file to clients on 31 May 2007, and C3 - average commercial-minute ratings plus three days of DVR playback - became the negotiating currency from the 2007-08 season. Both the date and the definition check out. Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "Radio & Television Business Report, 'Nielsen releases first commercial minute ratings'",
+          "url": "https://rbr.com/nielsen-releases-first-commercial-minute-ratings/"
+        },
+        {
+          "name": "Nielsen, 'C3 TV Ratings Show Impact of DVR Ad Viewing'",
+          "url": "https://www.nielsen.com/insights/2009/c3-tv-ratings-show-impact-of-dvr-ad-viewing/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-measurement-006",
+      "verdict": "confirmed",
+      "evidence": "Pulled the Q4 2008 8-K exhibit 99.1 from EDGAR. Verbatim: 'Paid Clicks - Aggregate paid clicks, which include clicks related to ads served on Google sites and the sites of our AdSense partners, increased approximately 18% over the fourth quarter of 2007 and increased approximately 10% over the third quarter of 2008.' Exact match. Cross-checked against the FY2008 10-K, which gives the same ~18% for full-year 2007->2008 and ~43% for 2006->2007. The parenthetical - no absolute click count, no average CPC, no query count - holds against a full-text search of the FY2008 10-K. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Q4 2008 earnings release, Form 8-K exhibit 99.1 (fetched and parsed)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509009712/dex991.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-targeting-001",
+      "verdict": "confirmed",
+      "evidence": "Both dates verify: Google announced the Applied Semantics acquisition on 23 April 2003 (cash and pre-IPO stock, ~$102m), and AdSense for content rolled out with self-service publisher signup on 18 June 2003. The FY2008 10-K independently confirms the contextual-matching mechanism. Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "MarTech, 'AdSense Turns 10: Reflections On Google's Great Leap Beyond Search Ads'",
+          "url": "https://martech.org/adsense-turns-10-reflections-on-googles-great-leap/"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-targeting-002",
+      "verdict": "adjusted",
+      "evidence": "The history is right but the citation is attached to the wrong opinion. Verified substance: Google revised its US policy in April 2004 to permit bidding on third parties' trademarks; Judge Brinkema issued an initial decision in December 2004 holding that Google's sale of GEICO marks as keywords was not itself unlawful while ads using the marks in their text could infringe; a formal written opinion followed in August 2005 and the case settled. But 330 F. Supp. 2d 700 (E.D. Va. 2004) is the AUGUST 2004 ruling on Google's motion to dismiss, in which the court REJECTED Google's 'use in commerce' argument and let GEICO's claim proceed - close to the opposite posture. The holding the record relies on lives in the December 2004 bench ruling and the 8 August 2005 written opinion (77 U.S.P.Q.2d 1841).",
+      "sources_consulted": [
+        {
+          "name": "The Register, 'Judge clarifies Google AdWords ruling in the US' (Aug 2005) - fetched and read",
+          "url": "https://www.theregister.com/2005/08/15/google_loses_adwords_trademark_case/"
+        },
+        {
+          "name": "Government Employees Ins. Co. v. Google, Inc., 330 F. Supp. 2d 700 (E.D. Va. 2004) - the motion-to-dismiss opinion",
+          "url": "https://law.justia.com/cases/federal/district-courts/FSupp2/330/700/2314271/"
+        }
+      ],
+      "old": {
+        "sources": "330 F. Supp. 2d 700 (E.D. Va. 2004) cited as authority for the keyword-sale holding"
+      },
+      "new": {
+        "sources": "cite the December 2004 bench ruling and the 8 August 2005 written opinion (GEICO v. Google, 77 U.S.P.Q.2d 1841 (E.D. Va. 2005)) for the holding; 330 F. Supp. 2d 700 may stay as the motion-to-dismiss stage but must be labelled as such",
+        "central": 2004.29,
+        "ci80": [
+          2004.25,
+          2004.42
+        ],
+        "grade": "B"
+      },
+      "reason": "Citation audit: the cited reported opinion does not contain the holding the claim attributes to it, and its actual holding runs the other way procedurally."
+    },
+    {
+      "claim_id": "e6-targeting-003",
+      "verdict": "confirmed",
+      "evidence": "Verified from two directions. FY2008 10-K, verbatim: 'Quality-based bidding. Advertisers' keywords are assigned dynamic minimum bids based on their Quality Score - the higher the Quality Score, the lower the minimum bid.' Independent industry sources confirm the August 2005 introduction of Quality Score together with quality-based minimum bids, with landing-page quality added later that year (the December 2005 Inside AdWords post the claim also cites). Grade B correct, and ci80 [2005.5, 2005.7] honestly reflects that the feature rolled out over months rather than on a single announced day.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        },
+        {
+          "name": "Google Inside AdWords blog, 'A new addition to the Quality Score' (Dec 2005)",
+          "url": "https://adwords.googleblog.com/2005/12/new-addition-to-quality-score.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-targeting-004",
+      "verdict": "confirmed",
+      "evidence": "The calibrated value is exact and primary: Google's 8-K exhibit 99.1 of 13 April 2007 states 'a definitive agreement to acquire DoubleClick Inc. ... for $3.1 billion in cash'. The three comparators check out too: Microsoft-aQuantive announced May 2007 at about $6 billion (closing at just over $6.3bn in August 2007), Yahoo-Right Media at $680 million, WPP-24/7 Real Media at approximately $649 million net of cash. Grade A correct for the calibrated DoubleClick figure.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 8-K exhibit 99.1, 'Google to Acquire DoubleClick' (fetched and parsed)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312507084483/dex991.htm"
+        },
+        {
+          "name": "Microsoft Corp., Form 8-K exhibit 99.1 (aQuantive acquisition, May 2007)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312507180380/dex991.htm"
+        },
+        {
+          "name": "Yahoo! Inc., Form 8-K exhibit 99.1 (Right Media)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001011006/000089161807000276/f29829exv99w1.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-targeting-005",
+      "verdict": "confirmed",
+      "evidence": "FY2008 10-K, verbatim: 'we have only a short operating history with our cost-per-click advertising model, which we launched in 2002 and our cost-per-impression advertising model which we launched in the second quarter of 2005.' Exact. The same filing separately describes Site Targeting. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-events-001",
+      "verdict": "confirmed",
+      "evidence": "Same primary source as e6-pricing-001, both quotations verified verbatim in the 20 February 2002 press release, along with 'New campaigns are created in four easy steps; most ads appear online immediately' which supports the event description. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google press release, 'Google Introduces New Pricing For Popular Self-Service Online Advertising Program' (Feb 20, 2002)",
+          "url": "http://googlepress.blogspot.com/2002/02/google-introduces-new-pricing-for.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-events-002",
+      "verdict": "confirmed",
+      "evidence": "The calibrated claim verifies exactly in the FY2005 10-K concentration note ('AOL ... accounted for 16%, 12% and 9% of revenues ... in 2003, 2004 and 2005'). I also checked the event description's stock figures against the cited Register article and both hold: Inktomi's 'share price plummeted 24%' and Overture 'lost almost 36% of its value yesterday'. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2005 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312506056598/d10k.htm"
+        },
+        {
+          "name": "The Register, 'Google's AOL win upsets Inktomi, Overture' (2 May 2002) - fetched and read",
+          "url": "https://www.theregister.com/2002/05/02/googles_aol_win_upsets_inktomi/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-events-003",
+      "verdict": "confirmed",
+      "evidence": "FY2004 10-K revenue-by-source table: Google Network web sites 2004 = $1,554,256k, total revenues $3,189,223k. Recomputed 48.73%, matching 48.7%. Verified this is the high-water mark by checking every later year (2005 43%, 2006 39.2%, 2007 34.9%, 2008 30.8%) and 2003 (42.9%). Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        },
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*1554.256/3189.223",
+          "expected": 48.73
+        },
+        {
+          "expr": "100*628.600/1465.934",
+          "expected": 42.88
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-events-004",
+      "verdict": "adjusted",
+      "evidence": "Same citation defect as e6-targeting-002, and here it is inside the claim statement itself, which reads 'GEICO v. Google, 330 F. Supp. 2d 700 (E.D. Va. 2004) held that Google's sale of trademarked terms as AdWords keywords did not by itself violate the Lanham Act.' That reported opinion is the August 2004 motion-to-dismiss ruling, which denied Google's 'use in commerce' argument and allowed GEICO's claim to proceed. The holding described belongs to Judge Brinkema's December 2004 bench ruling and the 8 August 2005 written opinion. The historical fact is right; the attribution of the holding to that specific citation is false.",
+      "sources_consulted": [
+        {
+          "name": "The Register, 'Judge clarifies Google AdWords ruling in the US' (Aug 2005) - fetched and read",
+          "url": "https://www.theregister.com/2005/08/15/google_loses_adwords_trademark_case/"
+        },
+        {
+          "name": "Government Employees Ins. Co. v. Google, Inc., 330 F. Supp. 2d 700 (E.D. Va. 2004) - motion-to-dismiss opinion",
+          "url": "https://law.justia.com/cases/federal/district-courts/FSupp2/330/700/2314271/"
+        }
+      ],
+      "old": {
+        "statement": "GEICO v. Google, 330 F. Supp. 2d 700 (E.D. Va. 2004) held that Google's sale of trademarked terms as AdWords keywords did not by itself violate the Lanham Act."
+      },
+      "new": {
+        "statement": "In GEICO v. Google (E.D. Va.), Judge Brinkema ruled from the bench in December 2004 - with a written opinion following on 8 August 2005, 77 U.S.P.Q.2d 1841 - that GEICO had not shown that Google's sale of its trademarks as AdWords keywords by itself violated the Lanham Act, while ads using the marks in their headings or text could infringe. The earlier reported decision at 330 F. Supp. 2d 700 (E.D. Va. 2004) is the motion-to-dismiss stage, which went against Google on the 'use in commerce' question.",
+        "central": 2004.96,
+        "ci80": [
+          2004.6,
+          2004.99
+        ],
+        "grade": "B"
+      },
+      "reason": "A named reported opinion is credited with a holding it does not contain, and whose actual posture cuts the other way. Date, central and interval survive; the statement and source must be corrected."
+    },
+    {
+      "claim_id": "e6-events-005",
+      "verdict": "confirmed",
+      "evidence": "Every element verified in the FY2004 10-K. Settlement: 'we issued to Yahoo 2,700,000 shares of Class A common stock' and 'In August 2004, we issued to an accredited investor 2,700,000 shares of Class A common stock for an aggregate purchase price of $229,500,000 based on an assumed price of $85.00 per share in connection with a settlement arrangement'. Charge: 'We incurred a non-recurring non-cash charge of $201.0 million in the third quarter of 2004 related to this settlement', and the income statement carries the $201,000k line. IPO: 'we registered 19,605,052 shares of our Class A common stock' at '$85.00 per share', of which '14,142,135 shares were sold by us'. 19,605,052 x $85 = $1.666bn, matching '$1.67bn'. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2004 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "2700000*85",
+          "expected": 229500000
+        },
+        {
+          "expr": "19605052*85/1e9",
+          "expected": 1.666
+        }
+      ],
+      "disagreement": "'The IPO registered 19,605,052 shares ... of which Google itself sold 14,142,135' is loose: the 14,142,135 came out of the full 22,534,678 sold including the over-allotment, not out of the 19,605,052 base. Not wrong, but 'of which' invites a misreading."
+    },
+    {
+      "claim_id": "e6-events-006",
+      "verdict": "confirmed",
+      "evidence": "Same evidence as e6-targeting-003: the FY2008 10-K describes quality-based bidding with dynamic minimum bids set by Quality Score, and independent industry sources place the launch of quality-based minimum bids in August 2005, with landing-page quality folded in by the December 2005 Inside AdWords post the claim cites. Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        },
+        {
+          "name": "Google Inside AdWords blog, 'A new addition to the Quality Score'",
+          "url": "https://adwords.googleblog.com/2005/12/new-addition-to-quality-score.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-events-007",
+      "verdict": "confirmed",
+      "evidence": "Settlement value of up to $90 million agreed March 2006 verified across independent contemporaneous reporting. The class period in the claim is confirmed by Google's own settlement post, which describes notice going to 'all advertisers who purchased online advertising from Google between January 1, 2002 and the present' - matching 'invalid clicks from 2002 onward' exactly. Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inside AdWords blog, 'Lane's Gifts v. Google settlement' (fetched and parsed)",
+          "url": "https://adwords.googleblog.com/2006/05/lanes-gifts-v-google-settlement.html"
+        },
+        {
+          "name": "Search Engine Watch, 'Google Agrees To $90 Million Settlement In Class Action Lawsuit Over Click Fraud'",
+          "url": "https://searchenginewatch.com/2006/03/08/google-agrees-to-90-million-settlement-in-class-action-lawsuit-over-click-fraud/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-events-008",
+      "verdict": "confirmed",
+      "evidence": "Panama launched 5 February 2007, moving Yahoo from Overture's bid-to-position ranking to a model weighting bids by ad quality and other factors - confirmed independently and consistent with the cited Search Engine Land piece. Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "Search Engine Land, 'New Panama Ranking System For Yahoo Ads Launches Today'",
+          "url": "https://searchengineland.com/new-panama-ranking-system-for-yahoo-ads-launches-today-10434"
+        },
+        {
+          "name": "Overture.com / Yahoo Native (launch date and ranking-model change)",
+          "url": "https://en.wikipedia.org/wiki/Overture.com"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-events-009",
+      "verdict": "confirmed",
+      "evidence": "Google's 8-K exhibit 99.1, fetched from EDGAR, verbatim: 'MOUNTAIN VIEW, Calif., April 13, 2007 - Google Inc. (NASDAQ: GOOG) announced today a definitive agreement to acquire DoubleClick Inc. ... for $3.1 billion in cash'. Date and amount exact. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 8-K exhibit 99.1, 'Google to Acquire DoubleClick' (fetched and parsed)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312507084483/dex991.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-events-010",
+      "verdict": "confirmed",
+      "evidence": "NAA classified table, parsed directly: 2008 total $9,975.013m against 2007 $14,185.869m, and the table's own change column reads -29.7%. Recomputed: -29.68%. Peak 2000 = $19,608.690m. Employment 2008 change reads -42.5% in the same table, matching the event description. Every figure exact. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "NAA, Annual Newspaper Classified Ad Expenditures (Research Dept., NAA) - archived frame sheet002.htm parsed directly",
+          "url": "https://web.archive.org/web/20110511154447fw_/http://www.naa.org/docs/Research/Annual-Newspaper-Classified-Ad-Expenditures_files/sheet002.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*(9975.013/14185.869-1)",
+          "expected": -29.68
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-unit_econ-001",
+      "verdict": "adjusted",
+      "evidence": "Numerator exact (FY2008 10-K: Google web sites advertising revenue 2007 = $10,624,705k) and the arithmetic reproduces: 10,624.705/415bn = $0.025602. comScore's August 2007 release verifies too: 61 billion searches worldwide, Google Sites 37.1 billion. The problem is that I fetched comScore's scope note, and it is one-sided: the measurement covers 'Total World Age 15+, Home and Work Locations' and 'Excludes traffic from public computers such as Internet cafes or access from mobile phones or PDAs'. Every exclusion removes real Google queries, so comScore is a floor on query volume and $0.0256 is therefore closer to a ceiling on revenue per query than to a central estimate. The claim's method acknowledges the definitional mismatch but then models it as two-sided: the ci80 upper bound of $0.033 implies 322bn queries for 2007, i.e. 26.8bn/month - below comScore's own measured 37.1bn for August. The upper bound is not reachable on the claim's own denominator source.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        },
+        {
+          "name": "comScore, '61 Billion Searches Conducted Worldwide in August' (Oct 2007) - fetched, including the scope/exclusions note",
+          "url": "https://www.comscore.com/Insights/Press-Releases/2007/10/Worldwide-Searches-Reach-61-Billion"
+        },
+        {
+          "name": "Kevin Kelly, 'How much does one search cost?' (Oct 11, 2007)",
+          "url": "https://kk.org/thetechnium/how-much-does-o/"
+        }
+      ],
+      "old": {
+        "central": 0.0256,
+        "ci80": [
+          0.018,
+          0.033
+        ]
+      },
+      "new": {
+        "central": 0.022,
+        "ci80": [
+          0.016,
+          0.028
+        ],
+        "grade": "C",
+        "method": "Numerator: Google web-sites advertising revenue 2007 = $10,624.705m (Form 10-K FY2008, grade A). Denominator: comScore qSearch measured 37.1bn Google searches worldwide in August 2007, but on a Age-15+, home-and-work basis that excludes public terminals, mobile phones and PDAs - so it is a floor, not a point estimate. Growth-adjusting August back to a calendar-2007 average gives ~34-35bn/month (~410-415bn/yr) on comScore's basis, which sets the interval's UPPER bound for revenue per query ($0.028 at 380bn). The central assumes a modest allowance for comScore's exclusions (~483bn queries, 40bn/month) giving $0.022; the lower bound assumes a 1.5x correction (~664bn queries) giving $0.016. The old interval treated the denominator error as two-sided and its upper bound implied 26.8bn queries/month, below comScore's own August measurement."
+      },
+      "reason": "Interval challenge: the denominator's known error is one-directional (comScore systematically undercounts) but was modelled symmetrically, and the upper bound sat outside what the cited source can support. Central shifts down accordingly.",
+      "recomputation": [
+        {
+          "expr": "10624.705/415000",
+          "expected": 0.025602
+        },
+        {
+          "expr": "10624.705e6/0.033/1e9",
+          "expected": 321.96
+        },
+        {
+          "expr": "321.96/12",
+          "expected": 26.83
+        },
+        {
+          "expr": "10624.705e6/0.022/1e9",
+          "expected": 482.9
+        }
+      ]
+    },
+    {
+      "claim_id": "e6-unit_econ-002",
+      "verdict": "confirmed",
+      "evidence": "Both paths reproduce exactly. Upper path: FY2008 10-K gives 2007 cost of revenues $6,649.085m and total TAC $4,933.9m; the difference is $1,715.2m, and 1,715.2/415bn = $0.004133. Lower path: 319/111,000 = $0.002874, matching Kelly's $0.0028. The central of $0.0035 sits between them and the ci80 [0.0020, 0.0055] brackets both. The shared 415bn denominator inherits the comScore undercount flagged at e6-unit_econ-001 - a higher query count would pull the upper path down to roughly $0.00355 - but that lands well inside the stated interval, so the claim absorbs the correction without a change. Grade C correct.",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        },
+        {
+          "name": "Kevin Kelly, 'How much does one search cost?' (Oct 11, 2007)",
+          "url": "https://kk.org/thetechnium/how-much-does-o/"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "6649.085-4933.9",
+          "expected": 1715.185
+        },
+        {
+          "expr": "1715.2/415000",
+          "expected": 0.004133
+        },
+        {
+          "expr": "319/111000",
+          "expected": 0.002874
+        },
+        {
+          "expr": "1715.2/483000",
+          "expected": 0.003551
+        }
+      ],
+      "disagreement": "If e6-unit_econ-001's denominator is revised upward as recommended, this claim's central would drift toward $0.0032. It stays inside the interval either way, so I am not forcing a change - but the two claims should be recomputed together, not separately."
+    },
+    {
+      "claim_id": "e6-unit_econ-003",
+      "verdict": "adjusted",
+      "evidence": "Two independent defects. First, the stated method does not reproduce its own interval: 'combining the endpoints of the two component intervals (revenue $0.018-$0.033, cost $0.0020-$0.0055)' gives (0.018-0.0055)/0.018 = 69.4% and (0.033-0.002)/0.033 = 93.9%, i.e. [69, 94], not [76, 92]. Second, and more useful, the query denominator CANCELS out of a margin - so this claim should never have inherited the query-count uncertainty at all. Computed directly from the filings, margin = 1 - 1,715.2/10,624.705 = 83.9%, with no query estimate anywhere in it. The real uncertainty is cost allocation: a Kelly-style narrow non-TAC operating cost (~$1,276m/yr) gives 88.0%, while loading a full share of 2007 R&D ($2,120m) drops it to 63.9%. The sanity checks in the method are all correct (2007 gross margin 59.93%, operating margin 30.64%, TAC 30.1% of advertising revenue).",
+      "sources_consulted": [
+        {
+          "name": "Google Inc., Form 10-K FY2008 (retrieved from SEC EDGAR and parsed in full)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+        }
+      ],
+      "old": {
+        "central": 86,
+        "ci80": [
+          76,
+          92
+        ],
+        "method": "CI derived by combining the endpoints of the two component intervals (revenue $0.018-$0.033, cost $0.0020-$0.0055)."
+      },
+      "new": {
+        "central": 85,
+        "ci80": [
+          78,
+          91
+        ],
+        "grade": "C",
+        "method": "The query denominator cancels, so compute the margin directly from the FY2008 10-K rather than from the two per-query components: 1 - (non-TAC cost of revenues $1,715.2m / Google-web-sites advertising revenue $10,624.705m) = 83.9%. That is a floor on the owned-search margin, because the $1,715.2m also carries network ad serving, content acquisition, credit-card fees and amortisation that owned-site queries do not cause; stripping those out moves the figure toward the ~88% implied by a Kelly-style narrow non-TAC operating cost. Central set at 85%. Interval spans 78% (generous cost attribution to owned search) to 91% (marginal serving cost only). It deliberately excludes the 64% figure produced by loading a full share of R&D, which is a company-level, not a per-query, cost. Sanity check: Google's reported 2007 gross margin was (16,594.0-6,649.1)/16,594.0 = 59.9% and operating margin 30.6%; the per-owned-query margin is higher because it excludes TAC (30.1% of advertising revenue in 2007), a distribution cost rather than a serving cost."
+      },
+      "reason": "The stated CI-construction method was arithmetically wrong for its own inputs, and the whole construction was unnecessary: the margin is query-independent and can be read straight off the filings, which both tightens the interval and removes its dependence on the contested comScore denominator.",
+      "recomputation": [
+        {
+          "expr": "100*(1-1715.2/10624.705)",
+          "expected": 83.86
+        },
+        {
+          "expr": "100*(0.018-0.0055)/0.018",
+          "expected": 69.4
+        },
+        {
+          "expr": "100*(0.033-0.002)/0.033",
+          "expected": 93.9
+        },
+        {
+          "expr": "100*(1-1276/10624.705)",
+          "expected": 87.99
+        },
+        {
+          "expr": "100*(16593.986-6649.085)/16593.986",
+          "expected": 59.93
+        }
+      ],
+      "disagreement": "Researcher propagated per-query uncertainty into the margin. That double-counts an error that appears identically in numerator and denominator; the margin is the one unit-economics figure in this era that does NOT need a query estimate."
+    }
+  ]
+}

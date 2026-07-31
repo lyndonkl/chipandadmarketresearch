@@ -422,41 +422,125 @@ def r3_coverage():
             bad("r3-acq-01", f"claim {cid} has {n} verdicts", "verdicts.json")
 
 
-def r3_verdicts():
-    vd = _verdicts()
-    if vd is None:
-        return
-    live = _all_claim_ids()
-    for v in vd.get("verdicts", []):
-        cid = v.get("claim_id")
-        if v.get("verdict") == "adjusted":
-            for k in ("old", "new", "reason"):
-                if k not in v:
-                    bad("r3-val-01", f"adjusted claim {cid} missing '{k}'", "verdicts.json")
-            if isinstance(v.get("new"), dict):
-                check_claim(v["new"], "r3-val-01", f"verdicts.json:{cid}")
-        if v.get("verdict") == "rejected" and cid in live and not v.get("replaced_by"):
-            bad("r3-val-01", f"rejected claim {cid} still present in records with no replacement", "verdicts.json")
+def _dataset_object_ids(ds):
+    """IDs of non-claim dataset objects a verdict may legitimately target.
+
+    The dataset verifier attacks more than calibrated claims: concordance
+    entries, series metadata and individual series points. Those carry
+    'kind:key' ids rather than the claim-ID convention.
+    """
+    ids = set()
+    if not ds:
+        return ids
+    for c in ds.get("concordance", []):
+        if c.get("id"):
+            ids.add(f"concordance:{c['id']}")
+    for sk, sv in ds.get("series", {}).items():
+        ids.add(f"stitch:{sk}")
+        ids.add(f"series:{sk}")
+        for p in sv.get("points", []):
+            ids.add(f"{sk}:{p.get('year')}")
+            ids.add(f"{sk.replace('_', '-')}:{p.get('year')}")
+    for key in ("bridge", "cross_checks", "reconciliation"):
+        ids.add(key)
+    return ids
 
 
-def r3_applied():
-    vd = _verdicts()
-    if vd is None:
-        return
-    current = {}
+# Fields whose values can be compared mechanically between a verdict delta and
+# the record. Everything else in a delta is prose, provenance or a directive.
+_COMPARABLE_FIELDS = ("central", "ci80", "grade", "unit")
+
+
+def _current_claims():
+    """Claim ID -> the claim object as it now stands in the records/dataset."""
+    cur = {}
     for path in ERA_FILES:
         era = load(path)
         if era is None:
             continue
         for c, _ in iter_claims(era):
             if c.get("id"):
-                current[c["id"]] = c
+                cur[c["id"]] = c
+    ds = _adspend()
+    if ds:
+        for c in ds.get("claims", []):
+            if c.get("id"):
+                cur[c["id"]] = c
+    return cur
+
+
+def r3_verdicts():
+    """Adjusted verdicts carry a DELTA in `new` (only the fields that changed).
+
+    So validate the RESULT — the claim as it now stands in the record — rather
+    than the delta in isolation. That is strictly stronger: it checks the
+    adjustment was applied AND that what it produced is still rigor-valid.
+    """
+    vd = _verdicts()
+    if vd is None:
+        return
+    live = _all_claim_ids()
+    cur = _current_claims()
+    dsobjs = _dataset_object_ids(_adspend())
     for v in vd.get("verdicts", []):
-        if v.get("verdict") == "adjusted" and isinstance(v.get("new"), dict):
-            cid = v.get("claim_id")
-            cur = current.get(cid)
-            if cur and cur.get("central") != v["new"].get("central"):
-                bad("r3-rdy-01", f"claim {cid}: record central {cur.get('central')} does not match adjusted value {v['new'].get('central')}", "verdicts.json")
+        cid = v.get("claim_id")
+        if v.get("verdict") == "adjusted":
+            for k in ("old", "new", "reason"):
+                if k not in v:
+                    bad("r3-val-01", f"adjusted claim {cid} missing '{k}'", "verdicts.json")
+            if not isinstance(v.get("new"), dict) or not v["new"]:
+                bad("r3-val-01", f"adjusted claim {cid} has an empty or non-object 'new'", "verdicts.json")
+                continue
+            if cid in dsobjs:
+                continue  # dataset object, not a calibrated claim
+            resulting = cur.get(cid)
+            if resulting is None:
+                bad("r3-val-01", f"adjusted claim {cid} is absent from the records", "verdicts.json")
+                continue
+            check_claim(resulting, "r3-val-01", f"post-adjustment:{cid}")
+        if v.get("verdict") == "rejected" and cid in live and not v.get("replaced_by"):
+            bad("r3-val-01", f"rejected claim {cid} still present in records with no replacement", "verdicts.json")
+
+
+def r3_applied():
+    """Every field the verdict changed must actually be changed in the record.
+
+    `new` is a delta, so compare only the keys it carries. A key present in the
+    delta but unchanged in the record means the adjustment was never applied.
+    """
+    vd = _verdicts()
+    if vd is None:
+        return
+    current = _current_claims()
+    dsobjs = _dataset_object_ids(_adspend())
+    for v in vd.get("verdicts", []):
+        if v.get("verdict") != "adjusted" or not isinstance(v.get("new"), dict):
+            continue
+        cid = v.get("claim_id")
+        if cid in dsobjs:
+            continue  # dataset object, verified in its own series/concordance checks
+        cur = current.get(cid)
+        if cur is None:
+            bad("r3-rdy-01", f"adjusted claim {cid} not found in records", "verdicts.json")
+            continue
+        for key in _COMPARABLE_FIELDS:
+            if key not in v["new"]:
+                continue
+            want, got = v["new"][key], cur.get(key)
+            if isinstance(want, (int, float)) and isinstance(got, (int, float)):
+                if abs(float(got) - float(want)) > 1e-9:
+                    bad("r3-rdy-01", f"claim {cid}: record {key}={got} does not match adjusted {key}={want}", "verdicts.json")
+            elif got != want:
+                bad("r3-rdy-01", f"claim {cid}: record {key}={got} does not match adjusted {key}={want}", "verdicts.json")
+        # as_of is schema-constrained; a verdict proposing a non-ISO value is a
+        # finding in the verdict, not an unapplied adjustment.
+        if "as_of" in v["new"]:
+            want = str(v["new"]["as_of"])
+            if not DATE_RE.match(want):
+                bad("r3-rdy-01", f"claim {cid}: verdict proposes a schema-invalid as_of '{want}' "
+                                 f"(ranges belong in statement/method)", "verdicts.json")
+            elif str(cur.get("as_of")) != want:
+                bad("r3-rdy-01", f"claim {cid}: record as_of={cur.get('as_of')} does not match adjusted as_of={want}", "verdicts.json")
 
 
 # ---------- R4 ----------

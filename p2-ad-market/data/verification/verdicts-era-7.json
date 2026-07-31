@@ -1,0 +1,1618 @@
+{
+  "verdicts": [
+    {
+      "claim_id": "e7-scale-001",
+      "verdict": "adjusted",
+      "evidence": "Independent check of both denominators. MAGNA's June 2025 update is confirmed at US $398B (= $104B traditional media owner + $294B digital pure-play). EMARKETER's $422B is NOT a straight forecast: it is the best-case scenario in 'US Ad Spending 2025', which EMARKETER itself says 'has become unlikely'. Two further problems the record does not disclose: (a) $405B is described elsewhere in this record as the 'midpoint' of 398 and 422, but that midpoint is 410; (b) both series measure media-owner ad revenue and exclude direct mail, which matters because sibling claims add direct mail into pools measured against this denominator.",
+      "sources_consulted": [
+        {
+          "name": "MAGNA Advertising Forecast June 2025 update, as reported (US $398B = $104B traditional + $294B digital pure-play; global $979B)",
+          "url": "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/"
+        },
+        {
+          "name": "EMARKETER, 'US Ad Spending 2025' — the $422B figure is the best-case scenario, which EMARKETER states 'has become unlikely'",
+          "url": "https://www.emarketer.com/content/us-ad-spending-2025"
+        }
+      ],
+      "old": {
+        "central": 405,
+        "ci80": [
+          390,
+          425
+        ],
+        "statement": "Total US advertising spend in 2025 was about $405B; MAGNA reports $398B of media-owner ad revenue and eMarketer reports $422B of total media ad spending on a broader definition."
+      },
+      "new": {
+        "central": 405,
+        "ci80": [
+          390,
+          422
+        ],
+        "statement": "Total US advertising spend in 2025 was about $405B on a media-owner-revenue basis that excludes direct mail; MAGNA reports $398B and EMARKETER's broader total-media definition reaches $422B only under its best-case scenario, which EMARKETER states has become unlikely."
+      },
+      "reason": "Upper bound 425 exceeded even EMARKETER's disavowed best case; the 'midpoint' derivation used downstream is arithmetically wrong (410, not 405); the direct-mail exclusion needed stating because four sibling claims lean on this denominator.",
+      "recomputation": [
+        {
+          "expr": "(398+422)/2",
+          "expected": 410
+        },
+        {
+          "expr": "405 stated as midpoint",
+          "expected": 410
+        }
+      ],
+      "disagreement": "The researcher treated $422B as a published EMARKETER forecast of equal standing to MAGNA's $398B. Read in context it is a scenario EMARKETER disclaimed, so it should not carry equal weight in setting the top of the interval."
+    },
+    {
+      "claim_id": "e7-scale-002",
+      "verdict": "adjusted",
+      "evidence": "Denominator verified: BEA 2025 nominal GDP is $30.762T. 405/30762 = 1.317%, so the stated 1.32% is arithmetically right for the numerator used. The problem is the comparison, not the ratio: the Coen/McCann series that produces the 2.0% (2007) and 2.3-2.4% (2000) reference points INCLUDED direct mail and other categories that MAGNA's media-owner definition excludes. The record's method flags non-commensurability in words but the interval propagates numerator uncertainty only, so it does not carry the definitional gap. Adding back US direct mail (~$37B) puts the 2025 figure near 1.44% on a Coen-like basis, outside the stated interval.",
+      "sources_consulted": [
+        {
+          "name": "US Bureau of Economic Analysis — 2025 nominal GDP $30.762T (2024: $29.298T)",
+          "url": "https://www.bea.gov/data/gdp/gross-domestic-product"
+        },
+        {
+          "name": "MAGNA Advertising Forecast June 2025 update, as reported (US $398B = $104B traditional + $294B digital pure-play; global $979B)",
+          "url": "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/"
+        },
+        {
+          "name": "Winterberry Group via WhatTheyThink — US direct mail spend $37.3B in 2024 (+2.6%); postage is roughly half the cost of a direct mail ad",
+          "url": "https://whattheythink.com/articles/123330-direct-mails-373b-resurgence-selling-value-over-volume-2025/"
+        }
+      ],
+      "old": {
+        "central": 1.32,
+        "ci80": [
+          1.24,
+          1.42
+        ]
+      },
+      "new": {
+        "central": 1.32,
+        "ci80": [
+          1.24,
+          1.48
+        ]
+      },
+      "reason": "Interval widened at the top to cover a Coen-comparable numerator (adding back direct mail), which is the basis the claim's own historical comparison uses.",
+      "recomputation": [
+        {
+          "expr": "405/30762*100",
+          "expected": 1.3166
+        },
+        {
+          "expr": "(405+37.3)/30762*100",
+          "expected": 1.4378
+        },
+        {
+          "expr": "279.6/14474*100 (Coen 2007)",
+          "expected": 1.9317
+        }
+      ],
+      "disagreement": "The record treats the fall from 2.0% to 1.32% as mostly real with a definitional caveat. On my reading roughly a third of the apparent fall is the definitional change alone."
+    },
+    {
+      "claim_id": "e7-scale-003",
+      "verdict": "confirmed",
+      "evidence": "Both endpoints verified independently. MAGNA June 2025: global $979B (+4.9%). WPP Media 'This Year Next Year' December 2025: $1.14T, +8.8% excluding US political. Central 1050 and interval [960,1160] contain both published figures and the claim states the gap rather than averaging it away.",
+      "sources_consulted": [
+        {
+          "name": "MAGNA Advertising Forecast June 2025 update, as reported (US $398B = $104B traditional + $294B digital pure-play; global $979B)",
+          "url": "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/"
+        },
+        {
+          "name": "WPP Media, 'This Year Next Year' December 2025 — global ad revenue $1.14T in 2025, +8.8% excluding US political",
+          "url": "https://www.wppmedia.com/news/campaigns-report-this-year-next-year-december-2025"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-scale-004",
+      "verdict": "confirmed",
+      "evidence": "Verified against the primary PDF, historical data table: 'Total 2008 $23,448' with 11% Y/Y growth. Exact.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-scale-005",
+      "verdict": "confirmed",
+      "evidence": "Verified against the primary PDF p.25: 'Programmatic advertising revenues reached $162.4 billion in 2025, growing $27.6 billion (20.5% YoY)... non-programmatic placements (excluding search) declined 13.9% but still totalled $18.0 billion.' The 90% derivation is also internally sound: 162.4+18.0 = 180.4 = total internet revenue 294.593 less search 114.2, so the two IAB series do partition non-search digital.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "162.4/(162.4+18.0)*100",
+          "expected": 90.02
+        },
+        {
+          "expr": "294.593-114.2",
+          "expected": 180.393
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-scale-006",
+      "verdict": "adjusted",
+      "evidence": "The residual does not close. Three independent problems. (1) The four SCALE pools sum to $409B against a $405B total, because the residual nets local down to $165B while the sibling local claim reports BIA's gross $169B. (2) Direct mail is treated inconsistently: MAGNA's $398B and EMARKETER's $422B both exclude direct mail, yet BIA's $169B local total explicitly includes direct mail as one of its 16 media types and the national direct-response pool adds a further ~$30B of direct mail. Direct mail is therefore outside the denominator and double-counted across two pools. (3) The bottom-up cross-check is not the independent confirmation it appears to be: its largest line, 'national linear TV ~$55B', is close to the whole US TV market (MAGNA puts ALL US traditional media owner revenue at $104B), so national linear TV alone cannot plausibly be $55B. Correcting direct mail alone lifts the residual to roughly $125B.",
+      "sources_consulted": [
+        {
+          "name": "MAGNA Advertising Forecast June 2025 update, as reported (US $398B = $104B traditional + $294B digital pure-play; global $979B)",
+          "url": "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/"
+        },
+        {
+          "name": "BIA Advisory Services, '2025 Forecast Update: $169 Billion in U.S. Local Advertising' (Aug 2025) — $169B, -2.4%; digital 53.7% / $90.4B; traditional 46.3% / $77.8B; direct mail is one of the 16 included media types",
+          "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+        },
+        {
+          "name": "Winterberry Group via WhatTheyThink — US direct mail spend $37.3B in 2024 (+2.6%); postage is roughly half the cost of a direct mail ad",
+          "url": "https://whattheythink.com/articles/123330-direct-mails-373b-resurgence-selling-value-over-volume-2025/"
+        },
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "old": {
+        "central": 95,
+        "ci80": [
+          70,
+          130
+        ],
+        "method": "Residual of the $405B US total after subtracting local/retail ($165B), national direct response ($130B) and classified ($15B). Cross-checked bottom-up from national linear TV (~$55B after PwC's reported 13.4% 2025 decline), national CTV/streaming brand (~$15B), national brand digital display and video (~$15B), consumer magazines (~$5B) and national OOH (~$6B), which sums to ~$96B."
+      },
+      "new": {
+        "central": 95,
+        "ci80": [
+          70,
+          150
+        ],
+        "method": "Residual of the $405B US media-owner total after subtracting local/retail, national direct response and classified. NOTE (verifier): the denominator excludes direct mail while BIA's local total includes it and the direct-response pool adds ~$30B of it, so the residual is mechanically depressed; removing direct mail consistently raises the residual to roughly $125B. The four pools as published sum to $409B, not $405B. The bottom-up cross-check is not independent: its 'national linear TV ~$55B' line is implausible against MAGNA's $104B for all US traditional media."
+      },
+      "reason": "Interval widened upward to cover the direct-mail-consistent residual; method corrected to disclose the $4B pool overlap, the direct-mail asymmetry and the overstated bottom-up TV line.",
+      "recomputation": [
+        {
+          "expr": "95+169+15+130",
+          "expected": 409
+        },
+        {
+          "expr": "405-165-130-15",
+          "expected": 95
+        },
+        {
+          "expr": "405-165-100-15 (DR ex direct mail)",
+          "expected": 125
+        },
+        {
+          "expr": "55+15+15+5+6",
+          "expected": 96
+        }
+      ],
+      "disagreement": "The record reports that the residual and bottom-up paths 'agree within 2%' and treats that as corroboration. Since the bottom-up path's largest component looks overstated by $15-20B, I read the agreement as coincidental rather than confirmatory."
+    },
+    {
+      "claim_id": "e7-scale-007",
+      "verdict": "confirmed",
+      "evidence": "Every figure verified against the BIA press release itself: 2025 US local advertising $169B, -2.4% year over year, digital 53.7% / $90.4B against traditional 46.3% / $77.8B, revised down from the March 2025 projection of $171.4B. Grade B is right for a commercial forecaster. Recorded for downstream use: BIA's universe includes direct mail and local political, so it is not definitionally nested inside MAGNA's media-owner total.",
+      "sources_consulted": [
+        {
+          "name": "BIA Advisory Services, '2025 Forecast Update: $169 Billion in U.S. Local Advertising' (Aug 2025) — $169B, -2.4%; digital 53.7% / $90.4B; traditional 46.3% / $77.8B; direct mail is one of the 16 included media types",
+          "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-scale-008",
+      "verdict": "confirmed",
+      "evidence": "The load-bearing component verified in the primary PDF: 'Other formats, which include classified and directories and lead generation, total $12.5 billion in revenues with a YoY growth of 6.9%. This equates to a 4.2% share' (p.21, and endnote 39 defines Other exactly as claimed). The two ~$1B print add-backs are unaudited trade estimates, which is what grade C plus the [10,30] interval is for; the method's statement of why the upper bound is high (marketplace and job-board listing revenue nobody counts as advertising) is the honest treatment.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "12.5/294.593*100",
+          "expected": 4.243
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-scale-009",
+      "verdict": "adjusted",
+      "evidence": "Path (a) contains an arithmetic slip and a category error. Two-thirds of $294.6B is $196.4B, not the $194B the method uses; carried through, the chain gives 196.4 - 90.4 + 30 = $136B, not $134B. More seriously, the ~$30B of direct mail added in this path is outside the $405B denominator entirely (MAGNA and EMARKETER both measure media-owner ad revenue and exclude direct mail), and the local-bought share of direct mail is already inside BIA's $169B local pool, so it is counted twice across the two pools. Winterberry's $37.3B is also not media revenue on the same basis: Winterberry reports postage is roughly half the cost of a direct mail ad. Excluding direct mail, path (a) lands at $104B, which the record itself computes as an intermediate.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        },
+        {
+          "name": "BIA Advisory Services, '2025 Forecast Update: $169 Billion in U.S. Local Advertising' (Aug 2025) — $169B, -2.4%; digital 53.7% / $90.4B; traditional 46.3% / $77.8B; direct mail is one of the 16 included media types",
+          "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+        },
+        {
+          "name": "Winterberry Group via WhatTheyThink — US direct mail spend $37.3B in 2024 (+2.6%); postage is roughly half the cost of a direct mail ad",
+          "url": "https://whattheythink.com/articles/123330-direct-mails-373b-resurgence-selling-value-over-volume-2025/"
+        },
+        {
+          "name": "MAGNA Advertising Forecast June 2025 update, as reported (US $398B = $104B traditional + $294B digital pure-play; global $979B)",
+          "url": "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/"
+        }
+      ],
+      "old": {
+        "central": 130,
+        "ci80": [
+          100,
+          165
+        ],
+        "method": "Path (a): two-thirds of $294.6B US digital is performance-priced ($194B); remove local digital ($90.4B, BIA) to isolate national ($104B); add the national share of direct mail (~$30B of $37.3B) = $134B. Path (b): search $114.2B + commerce media $63.4B + ~70% of social $117.7B + direct mail $37.3B, less the local-bought portion (~$90B) and the brand-bought portion of social and video (~$75B) = ~$132B. Central rounds the two paths to $130B; the interval is wide because no published US series splits brand from direct response."
+      },
+      "new": {
+        "central": 130,
+        "ci80": [
+          95,
+          165
+        ],
+        "method": "Path (a): two-thirds of $294.6B US digital is performance-priced ($196.4B); remove local digital ($90.4B, BIA) to isolate national ($106B); direct mail is then EXCLUDED, because the $405B denominator excludes it and BIA's local pool already contains the local-bought portion. That gives ~$106B. Path (b): search $114.2B + commerce media $63.4B + ~70% of social $117.7B, less the local-bought portion (~$90B) and the brand-bought portion of social and video (~$75B) = ~$102B. Including national direct mail on a media-comparable basis (roughly half of the ~$30B national share, the non-postage part) would add ~$15B. Interval spans the direct-mail-in and direct-mail-out treatments."
+      },
+      "reason": "Arithmetic corrected (196.4 not 194); direct mail removed from a pool measured against a denominator that excludes it; lower bound dropped to cover the ex-direct-mail result.",
+      "recomputation": [
+        {
+          "expr": "294.6*2/3",
+          "expected": 196.4
+        },
+        {
+          "expr": "294.6*2/3-90.4",
+          "expected": 106.0
+        },
+        {
+          "expr": "294.6*2/3-90.4+30",
+          "expected": 136.0
+        },
+        {
+          "expr": "114.2+63.4+82.39+37.3",
+          "expected": 297.29
+        }
+      ],
+      "disagreement": "The record says the two paths 'agree within 2%'. They agree because both add the same ~$30-37B of direct mail; strip that shared input and the agreement is on a quantity the denominator does not measure."
+    },
+    {
+      "claim_id": "e7-buyers-005",
+      "verdict": "adjusted",
+      "evidence": "Same defect as e7-scale-006, expressed as a percentage. The residual subtracts a $165B local figure while the sibling local claim publishes $169B, and the direct-response pool it subtracts contains ~$30B of direct mail that the $405B denominator excludes. Correcting direct mail alone moves national brand share to roughly 31%, at the very top of the stated interval; correcting local as well pushes it past it.",
+      "sources_consulted": [
+        {
+          "name": "MAGNA Advertising Forecast June 2025 update, as reported (US $398B = $104B traditional + $294B digital pure-play; global $979B)",
+          "url": "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/"
+        },
+        {
+          "name": "BIA Advisory Services, '2025 Forecast Update: $169 Billion in U.S. Local Advertising' (Aug 2025) — $169B, -2.4%; digital 53.7% / $90.4B; traditional 46.3% / $77.8B; direct mail is one of the 16 included media types",
+          "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+        },
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        },
+        {
+          "name": "Winterberry Group via WhatTheyThink — US direct mail spend $37.3B in 2024 (+2.6%); postage is roughly half the cost of a direct mail ad",
+          "url": "https://whattheythink.com/articles/123330-direct-mails-373b-resurgence-selling-value-over-volume-2025/"
+        }
+      ],
+      "old": {
+        "central": 23,
+        "ci80": [
+          17,
+          32
+        ],
+        "method": "Residual method. Start from a US total of $405B (Magna $398B / eMarketer $422B, e7-scale-001). Subtract local/retail ($165B, from BIA's $169B US local total net of local classified), classified/listings ($15B, e7-scale-008) and national direct-response ($130B, e7-buyers-008). Residual = $95B = 23%. Bottom-up cross-check: national linear TV ~$55B + national CTV/streaming brand ~$15B + national digital brand display/video ~$15B + magazines ~$5B + national OOH ~$6B = ~$96B. The two paths agree within 2%."
+      },
+      "new": {
+        "central": 23,
+        "ci80": [
+          17,
+          38
+        ],
+        "method": "Residual method against a US total of $405B. NOTE (verifier): the denominator excludes direct mail while the subtracted local and direct-response pools both include it, which mechanically depresses the residual; on a direct-mail-consistent basis the residual is roughly 31%. The bottom-up cross-check's 'national linear TV ~$55B' line is implausible against MAGNA's $104B total for all US traditional media, so the two paths are not independent."
+      },
+      "reason": "Interval widened upward to cover the direct-mail-consistent residual; method corrected.",
+      "recomputation": [
+        {
+          "expr": "(405-165-100-15)/405*100",
+          "expected": 30.86
+        },
+        {
+          "expr": "95/405*100",
+          "expected": 23.46
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-buyers-006",
+      "verdict": "adjusted",
+      "evidence": "BIA's $169B is verified exactly, including the 53.7% / $90.4B digital split. The ratio is the problem. BIA's local universe includes direct mail (confirmed: direct mail is one of BIA's forecast channels, +1.6% in 2025) and local political; MAGNA's and EMARKETER's US totals are media-owner ad revenue and exclude direct mail. Dividing BIA's numerator by that denominator therefore counts dollars in the numerator that the denominator never contained, inflating the local share. The method flags 'not definitionally identical' but widens symmetrically, whereas the bias runs one way.",
+      "sources_consulted": [
+        {
+          "name": "BIA Advisory Services, '2025 Forecast Update: $169 Billion in U.S. Local Advertising' (Aug 2025) — $169B, -2.4%; digital 53.7% / $90.4B; traditional 46.3% / $77.8B; direct mail is one of the 16 included media types",
+          "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+        },
+        {
+          "name": "MAGNA Advertising Forecast June 2025 update, as reported (US $398B = $104B traditional + $294B digital pure-play; global $979B)",
+          "url": "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/"
+        },
+        {
+          "name": "EMARKETER, 'US Ad Spending 2025' — the $422B figure is the best-case scenario, which EMARKETER states 'has become unlikely'",
+          "url": "https://www.emarketer.com/content/us-ad-spending-2025"
+        }
+      ],
+      "old": {
+        "central": 41,
+        "ci80": [
+          36,
+          46
+        ],
+        "method": "BIA Advisory Services' US local advertising total for 2025 ($169B, August 2025 revision) divided by the US all-media total of $405B (e7-scale-001). BIA's local definition includes local political and local direct-response, and its universe is not definitionally identical to Magna's media-owner revenue, so the interval is widened to cover the $171B (Aug 2024 forecast) and eMarketer-denominator variants."
+      },
+      "new": {
+        "central": 41,
+        "ci80": [
+          33,
+          46
+        ],
+        "method": "BIA's $169B US local total for 2025 divided by the $405B US all-media total. NOTE (verifier): the mismatch is one-directional, not symmetric - BIA's numerator includes direct mail and local political, which the MAGNA/EMARKETER denominator excludes. Net of local direct mail the local share falls toward the mid-30s, so the interval is extended downward rather than around the central."
+      },
+      "reason": "Interval extended downward because the known definitional mismatch biases the ratio upward only.",
+      "recomputation": [
+        {
+          "expr": "169/405*100",
+          "expected": 41.73
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-buyers-007",
+      "verdict": "confirmed",
+      "evidence": "Verified against the primary PDF: 'Other' is $12.5B, 4.2% of US internet ad revenue, and endnote 39 defines it as 'classified and directories and lead generation' - exactly the definition the claim relies on. The C grade, the method and the deliberately wide [2,8] interval covering uncounted marketplace listing revenue are all appropriately stated.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-buyers-008",
+      "verdict": "adjusted",
+      "evidence": "Identical defect to e7-scale-009, in percentage form: path (a) miscomputes two-thirds of $294.6B as $194B (it is $196.4B), and both paths add direct mail that sits outside the $405B denominator and is partly double-counted inside BIA's local pool. Winterberry's $37.3B also includes postage (about half the cost of a direct mail ad), so it is not comparable to media-owner revenue.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        },
+        {
+          "name": "BIA Advisory Services, '2025 Forecast Update: $169 Billion in U.S. Local Advertising' (Aug 2025) — $169B, -2.4%; digital 53.7% / $90.4B; traditional 46.3% / $77.8B; direct mail is one of the 16 included media types",
+          "url": "https://www.bia.com/press-releases/bia-2025-forecast-update-169-billion-in-u-s-local-advertising-and-2-4-year-over-year-decline/"
+        },
+        {
+          "name": "Winterberry Group via WhatTheyThink — US direct mail spend $37.3B in 2024 (+2.6%); postage is roughly half the cost of a direct mail ad",
+          "url": "https://whattheythink.com/articles/123330-direct-mails-373b-resurgence-selling-value-over-volume-2025/"
+        },
+        {
+          "name": "MAGNA Advertising Forecast June 2025 update, as reported (US $398B = $104B traditional + $294B digital pure-play; global $979B)",
+          "url": "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/"
+        }
+      ],
+      "old": {
+        "central": 32,
+        "ci80": [
+          25,
+          41
+        ],
+        "method": "Two paths. (a) Take digital at $294.6B (IAB/PwC 2025), assume two-thirds is performance-priced ($194B), subtract local digital ($90.4B, BIA) to isolate the national share ($104B), then add the national share of direct mail (~$30B of the $37.3B total) = $134B = 33%. (b) Bottom-up: search $114.2B + commerce media $63.4B + ~70% of social $117.7B ($82B) + direct mail $37B = $297B gross, of which the local-bought portion (~$90B) and the brand-bought portion of social/video (~$75B) are removed = ~$132B. Paths agree within 2%. The wide interval reflects that no published US series splits brand from direct response."
+      },
+      "new": {
+        "central": 32,
+        "ci80": [
+          23,
+          41
+        ],
+        "method": "Two paths, both computed WITHOUT direct mail, because the $405B denominator excludes it and BIA's local pool already carries the local-bought portion. (a) two-thirds of $294.6B digital = $196.4B performance-priced, less local digital $90.4B = $106B national. (b) search $114.2B + commerce media $63.4B + ~70% of social $117.7B, less local-bought (~$90B) and brand-bought social/video (~$75B) = ~$102B. Adding the media-comparable (non-postage) part of national direct mail would add ~$15B. The interval spans both treatments."
+      },
+      "reason": "Arithmetic corrected and direct mail removed from a share measured against a denominator that excludes it; lower bound dropped accordingly.",
+      "recomputation": [
+        {
+          "expr": "(294.6*2/3-90.4+30)/405*100",
+          "expected": 33.58
+        },
+        {
+          "expr": "(294.6*2/3-90.4)/405*100",
+          "expected": 26.17
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-pricing-001",
+      "verdict": "adjusted",
+      "evidence": "Every number verified verbatim against the opinion I downloaded. FOF para 255: 'Google's pre-launch experiments indicated that rGSP would increase CPCs for top slot ads on non-navigational queries by 5.91% on PCs and tablets and 4.85% on mobile phones with a long-term \"stickage factor\" of 40-50%. Experiments showed that a 5.74% revenue gain persisted two months after launch.' The substance is exact and grade A is right. The calibration object is malformed: central 5.91 sits ON the upper bound, and the lower bound 4.85 is not uncertainty about the PC/tablet figure at all - it is a different platform's point estimate. An 80% interval built that way asserts an 80% chance the PC/tablet figure is at or below its own point estimate.",
+      "sources_consulted": [
+        {
+          "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+        }
+      ],
+      "old": {
+        "ci80": [
+          4.85,
+          5.91
+        ]
+      },
+      "new": {
+        "ci80": [
+          5.5,
+          6.3
+        ]
+      },
+      "reason": "Interval rebuilt around the PC/tablet quantity the central actually measures; the mobile figure (4.85%) belongs in the statement, which already carries it, not as an interval bound."
+    },
+    {
+      "claim_id": "e7-pricing-002",
+      "verdict": "confirmed",
+      "evidence": "Verified verbatim in the downloaded opinion. FOF para 254: 'When it was replaced by rGSP, format pricing had risen to make up about 20% of Google's text ads revenue, measured per thousand queries... See UPX512 at .002 (format pricing comprised about 20% of Google's RPM).' The +15% launch detail is also there (UPX36 at 064: 'We've launched things at 15% and heard nothing') as is the ~50% long-run stickage. Grade A appropriate for a court's findings of fact.",
+      "sources_consulted": [
+        {
+          "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-pricing-003",
+      "verdict": "adjusted",
+      "evidence": "The testimony says something weaker than the claim. Coverage of Dischler's 2023-09-18 testimony reports that Google tweaked auctions to hit revenue targets 'sometimes increasing ad prices by as much as 5%', and that he allowed it was 'possible' prices went up 10% in some instances. The claim converts a reported ceiling ('as much as 5%') into an average ('about 5% on average'), which is a materially stronger assertion, and attaches the 10% to 'some queries' where the testimony is about some instances. The non-disclosure to advertisers is supported.",
+      "sources_consulted": [
+        {
+          "name": "Bloomberg / Search Engine Land coverage of Jerry Dischler's 2023-09-18 testimony — tunings raise prices 'by as much as 5%'; Dischler allowed it was 'possible' prices rose 10% in some instances",
+          "url": "https://searchengineland.com/google-quietly-increases-ad-prices-targets-432155"
+        }
+      ],
+      "old": {
+        "central": 5,
+        "ci80": [
+          3,
+          10
+        ],
+        "statement": "Google adjusted search ad auction and reserve prices by about 5% on average - and by as much as 10% on some queries - to meet quarterly revenue targets, without disclosing the changes to advertisers."
+      },
+      "new": {
+        "central": 5,
+        "ci80": [
+          2,
+          10
+        ],
+        "statement": "Google adjusted search ad auction and reserve prices to meet quarterly revenue targets without disclosing the changes to advertisers; its VP of ads testified the 'tunings' raised prices by as much as about 5%, and allowed that a 10% increase was possible in some instances."
+      },
+      "reason": "'5% on average' overstates testimony that reports 5% as a ceiling; interval extended downward accordingly.",
+      "disagreement": "The researcher read 'as much as 5%' as a typical magnitude. Read literally it bounds the effect from above, which implies a lower average, not a 5% one."
+    },
+    {
+      "claim_id": "e7-pricing-004",
+      "verdict": "confirmed",
+      "evidence": "All three figures verified: publishers received 51% of advertiser spend; the unknown delta averaged 15% of spend and represented about a third of supply-chain costs; only 12% of impressions (31 million of 267 million) were matched end to end, across 15 advertisers, 12 agencies, 5 DSPs, 6 SSPs and 12 publishers. Grade B correct for a trade-body study.",
+      "sources_consulted": [
+        {
+          "name": "ISBA / AOP / PwC Programmatic Supply Chain Transparency Study (2020), via Digital Content Next — publishers received 51%; 15% unknown delta; 12% (31M of 267M) impressions traced end to end",
+          "url": "https://digitalcontentnext.org/blog/2020/05/08/new-isba-research-challenges-the-programmatic-supply-chain/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-pricing-005",
+      "verdict": "confirmed",
+      "evidence": "Verified: '$0.36 of every dollar that enters a DSP reaches a consumer'; the open-web programmatic pool is ~$88B of which 25% ($22B) is waste; $10B of that accrues to made-for-advertising sites, and the June 2023 first look put MFA at ~15% of ad spend, which is the figure the claim uses and which the cited Marketing Dive piece carries. Study base: 21 marketers, 12 supply-chain companies, $123M of spend, 35.5B impressions, Sept 2022 - Jan 2023.",
+      "sources_consulted": [
+        {
+          "name": "ANA, Programmatic Media Supply Chain Transparency Study (Dec 2023) — $0.36 of every DSP dollar reaches a consumer; $88B open-web pool, 25% ($22B) waste; $10B to MFA",
+          "url": "https://www.adslot.com/wp-content/uploads/2023/12/ana-programmatic-media-supply-chain-transparency-study.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "22/88*100",
+          "expected": 25.0
+        },
+        {
+          "expr": "10/88*100",
+          "expected": 11.36
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-pricing-006",
+      "verdict": "confirmed",
+      "evidence": "Split verification. Google's own June 2020 post supports 'publishers kept over 69 percent of the revenue' but names only DV360's 15% standard rate - it does NOT itself disclose the 14/13/18 breakdown. AdExchanger, which the record also cites, does: Google Ads ~14 cents, DV360 ~13 cents, Google Ad Manager ~18 cents, publishers 69 cents. The parenthetical is therefore sourced, just not to the first source listed. The arithmetic closes on the DV360 path (13+18=31, leaving 69). The DOJ's 'at least 35 cents' and AdX's 20% take rate since 2009 are correctly attributed as allegations. Noting for the record that central 31 sits on the lower interval bound and that 31% and 35% measure different universes (Google-stack-only trades vs open-web display), but the substance holds.",
+      "sources_consulted": [
+        {
+          "name": "Google, 'How our display buying platforms share revenue with publishers' (June 2020) — 'publishers kept over 69 percent'; only DV360's 15% standard rate is named in the post itself",
+          "url": "https://blog.google/products/admanager/display-buying-share-revenue-publishers/"
+        },
+        {
+          "name": "AdExchanger, 'Google Opens Its Black Box And Shares Fees Across DV360, Google Ads And Google Ad Manager' — publishers 69%; Google Ads ~14%, DV360 ~13%, Google Ad Manager ~18%",
+          "url": "https://www.adexchanger.com/platforms/google-opens-its-black-box-and-shares-fees-across-dv360-google-ads-and-google-ad-manager/"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100-13-18",
+          "expected": 69
+        },
+        {
+          "expr": "100-14-18",
+          "expected": 68
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-pricing-007",
+      "verdict": "confirmed",
+      "evidence": "Verified against the FY2025 10-K itself, which I downloaded from EDGAR. Monetization Metrics table: 'Google Search & other: Paid clicks change 6%, Cost-per-click change 7%'. Exact on both numbers, and the metrics are still disclosed (a live risk for this claim, since Alphabet's quarterly release no longer carries them). Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Alphabet Inc., Form 10-K FY2025 (retrieved from SEC EDGAR by the verifier; revenues-by-type, TAC and monetization-metrics tables read directly)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
+        },
+        {
+          "name": "Alphabet Inc., Q4 2025 earnings release (Exhibit 99.1)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000012/googexhibit991q42025.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-pricing-008",
+      "verdict": "confirmed",
+      "evidence": "Verified in Meta's Q4/FY2025 results: full-year ad impressions +12% and average price per ad +9% year over year. Exact on both. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Meta Platforms, Fourth Quarter and Full Year 2025 Results — advertising revenue $196.18B (2024: $160.63B); ad impressions +12%; average price per ad +9%",
+          "url": "https://www.prnewswire.com/news-releases/meta-reports-fourth-quarter-and-full-year-2025-results-302673127.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-sellers-001",
+      "verdict": "confirmed",
+      "evidence": "Verified against the primary PDF, revenue concentration page: 'Since 2024, the top 10 companies have grown their market share by 3.4%, reaching 84.1%. Meanwhile, companies ranked 11 to 25, along with the remaining players, now hold 8.3% and 7.5%.' The five-year chart shows 78.6% for 2021. All four numbers exact.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-sellers-002",
+      "verdict": "confirmed",
+      "evidence": "Verified to the dollar against the FY2025 10-K revenues-by-type table: Google Search & other $224,532M; YouTube ads $40,367M; Google Network $29,792M; Google advertising $294,691M; 2024 comparative $264,590M. Independently cross-checked by summing the four quarterly releases, which reproduces $294,690-691M. Grade A and the degenerate interval are both correct for a filed figure.",
+      "sources_consulted": [
+        {
+          "name": "Alphabet Inc., Form 10-K FY2025 (retrieved from SEC EDGAR by the verifier; revenues-by-type, TAC and monetization-metrics tables read directly)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
+        },
+        {
+          "name": "Alphabet Inc., Q4 2025 earnings release (Exhibit 99.1)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000012/googexhibit991q42025.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "224532+40367+29792",
+          "expected": 294691
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-sellers-003",
+      "verdict": "confirmed",
+      "evidence": "Meta verified in the FY2025 results: advertising revenue $196.18B against $160.63B in 2024, +22%. Amazon verified from the quarterly advertising-services line: 13.9 + 15.7 + 17.7 + 21.3 = ~$68.6B against $56.2B in 2024, +22%. Both growth rates recompute.",
+      "sources_consulted": [
+        {
+          "name": "Meta Platforms, Fourth Quarter and Full Year 2025 Results — advertising revenue $196.18B (2024: $160.63B); ad impressions +12%; average price per ad +9%",
+          "url": "https://www.prnewswire.com/news-releases/meta-reports-fourth-quarter-and-full-year-2025-results-302673127.html"
+        },
+        {
+          "name": "Amazon Q4 2025 results, as reported — advertising services revenue ~$68.6B FY2025 (Q1 13.9 + Q2 15.7 + Q3 17.7 + Q4 21.3)",
+          "url": "https://finance.yahoo.com/news/amazon-annual-ad-revenue-passes-102500284.html"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "(196.18/160.63-1)*100",
+          "expected": 22.13
+        },
+        {
+          "expr": "(68.63/56.22-1)*100",
+          "expected": 22.07
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-sellers-004",
+      "verdict": "adjusted",
+      "evidence": "The claim's own primary source contradicts it. EMARKETER's 'Triopoly market share dip' piece puts the three companies at 71.9% of US DIGITAL ad spend in 2025 (down from 73.9% in 2020) and at about 59% of US TOTAL ad spend (up from 47%). The claim's 60.8% is close to the total-ad-spend figure but is labelled as the digital figure, and the stated interval [56,65] excludes the source's actual digital number by a wide margin. The per-company splits 25.6/21.3/13.9 appear in neither cited source. The narrative direction survives - within digital the combined share is slipping - but only once the quantity is named correctly.",
+      "sources_consulted": [
+        {
+          "name": "EMARKETER, 'The Triopoly's market share dip exposes new digital trends' (July 2025) — 71.9% of US digital ad spend in 2025 (from 73.9% in 2020); ~59% of US total ad spend (from 47%)",
+          "url": "https://www.emarketer.com/content/triopoly-s-market-share-dip-exposes-new-digital-trends"
+        }
+      ],
+      "old": {
+        "central": 60.8,
+        "ci80": [
+          56,
+          65
+        ],
+        "statement": "Google, Meta and Amazon together took roughly 61% of US digital ad spending in 2025 (Google 25.6%, Meta 21.3%, Amazon 13.9%), a combined share that has begun to slip as retail media and CTV entrants grow."
+      },
+      "new": {
+        "central": 71.9,
+        "ci80": [
+          69,
+          75
+        ],
+        "statement": "Google, Meta and Amazon together took about 71.9% of US digital ad spending in 2025, down from 73.9% in 2020 as retail media and CTV entrants grew, even as their share of US total advertising spend rose to roughly 59% from 47% over the same period.",
+        "unit": "percent of US digital ad spending held by the triopoly, 2025"
+      },
+      "reason": "Central and interval described the triopoly's share of total US ad spend while labelling it as the digital share; the cited source's digital figure (71.9%) fell outside the stated interval entirely. Unsourced per-company splits removed.",
+      "recomputation": [
+        {
+          "expr": "25.6+21.3+13.9",
+          "expected": 60.8
+        }
+      ],
+      "disagreement": "The researcher read 60.8% as a digital share. On the cited source's own numbers 60.8% can only be a total-ad-spend share; the digital share is 71.9%."
+    },
+    {
+      "claim_id": "e7-sellers-005",
+      "verdict": "confirmed",
+      "evidence": "Verified verbatim in the downloaded opinion. FOF para 23: query share 'had increased from 80% to 89.2% by 2020'. FOF para 24: 'Google's share of search queries on mobile devices was even higher at 94.9% in 2020'. Conclusions of law: 'In 2020, its market share in the text ads market was 88%, having grown steadily from 80% in 2016.' The claim's 'up from 80% in 2016' attaches to the text-ads market, which is exactly what the opinion says at that point - a distinction worth flagging because the identical 80% figure also appears as the 2009 query share.",
+      "sources_consulted": [
+        {
+          "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-sellers-006",
+      "verdict": "confirmed",
+      "evidence": "Verified against the FY2025 10-K: 'TAC $54,900 / $59,926' for 2024/2025, and in the same section 'The TAC rate decreased from 20.7% to 20.3% from 2024 to 2025'. Both the dollar figure and the rate are the company's own disclosed numbers, not a derived ratio. The $26.3B 2021 search default revenue share is verified verbatim in the opinion. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Alphabet Inc., Form 10-K FY2025 (retrieved from SEC EDGAR by the verifier; revenues-by-type, TAC and monetization-metrics tables read directly)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
+        },
+        {
+          "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "59926/294691*100",
+          "expected": 20.335
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-sellers-007",
+      "verdict": "adjusted",
+      "evidence": "Split result. The headline $60.32B for US retail media in 2025 is confirmed, and the commerce media cross-check is verified directly in the IAB PDF ('Commerce media advertising revenues increased by $9.7 billion to $63.4 billion in 2025, representing 18.0% year-over-year growth'). The Amazon share is not: EMARKETER publishes 'more than 75%', and analyst estimates cluster at 75-77%. 79.7% is above every figure I could source, and 79.7% of $60.32B implies $48.1B for Amazon's US retail media alone.",
+      "sources_consulted": [
+        {
+          "name": "EMARKETER retail media forecasts — US retail media $60.32B in 2025; Amazon 'more than 75%' of US retail media ad spend",
+          "url": "https://www.emarketer.com/content/amazon-retail-media-ad-revenues-will-pass-60-billion-2025"
+        },
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "old": {
+        "statement": "US retail media ad spend reached $60.32B in 2025 with Amazon taking about 79.7% of it; commerce media measured on IAB/PwC's definition was $63.4B, up 18.0% year on year."
+      },
+      "new": {
+        "statement": "US retail media ad spend reached $60.32B in 2025 with Amazon taking more than 75% of it (analyst estimates cluster at 75-77%); commerce media measured on IAB/PwC's definition was $63.4B, up 18.0% year on year."
+      },
+      "reason": "The 79.7% Amazon share sub-claim is not supported by the cited forecaster, which publishes 'more than 75%'.",
+      "recomputation": [
+        {
+          "expr": "60.32*0.797",
+          "expected": 48.075
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-medium-001",
+      "verdict": "confirmed",
+      "evidence": "All three figures verified in the primary PDF's historical table: Total 2008 $23,448M, Total 2009 $22,661M at -3%, Total 2025 $294,593M. The 12.6x multiple recomputes and 2009 is indeed the only annual decline in the table across 2008-2025.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "294593/23448",
+          "expected": 12.564
+        },
+        {
+          "expr": "(22661/23448-1)*100",
+          "expected": -3.356
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-medium-002",
+      "verdict": "adjusted",
+      "evidence": "The ratio is a Frankenstein: IAB's numerator over a blended MAGNA/EMARKETER denominator produces a figure no publisher reports, and it excludes a credible published figure. Checked each source on its own internally consistent basis instead. MAGNA's own June 2025 US split is $294B digital pure-play out of $398B, i.e. 73.9%. EMARKETER's own basis is higher still - it published a chart headlined 'Digital Advertising Will Surpass an 80% Share of Total Ad Spend for the First Time in 2025'. The stated interval [68,76] therefore excludes EMARKETER's published share entirely, and the central 72 sits below both internally consistent estimates.",
+      "sources_consulted": [
+        {
+          "name": "MAGNA Advertising Forecast June 2025 update, as reported (US $398B = $104B traditional + $294B digital pure-play; global $979B)",
+          "url": "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/"
+        },
+        {
+          "name": "EMARKETER chart, 'Digital Advertising Will Surpass an 80% Share of Total Ad Spend for the First Time in 2025'",
+          "url": "https://www.emarketer.com/chart/c/351856/digital-advertising-will-surpass-80-share-of-total-ad-spend-first-time-2025-billions-us-digital-ad-spending-change-of-total-media-ad-spending-2022-2028"
+        },
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "old": {
+        "central": 72,
+        "ci80": [
+          68,
+          76
+        ],
+        "method": "IAB/PwC US internet ad revenue of $294.593B divided by the US all-media total. Denominator is uncertain: MAGNA puts 2025 US media-owner ad revenue at $398B (giving 74%) and eMarketer at $422B (giving 70%). Central uses the $405B midpoint denominator; the interval spans both published denominators."
+      },
+      "new": {
+        "central": 74,
+        "ci80": [
+          72,
+          82
+        ],
+        "method": "Computed on each source's own internally consistent pair rather than by mixing numerators and denominators. MAGNA June 2025: US digital pure-play $294B of a $398B total = 73.9%. EMARKETER: digital surpasses an 80% share of total media ad spend in 2025. IAB/PwC's $294.593B numerator is near-identical to MAGNA's digital figure, so 74% is the well-anchored central; the interval reaches 82% to contain EMARKETER's published share."
+      },
+      "reason": "Interval excluded EMARKETER's published >80% digital share; central was produced by dividing one publisher's numerator by another's denominator.",
+      "recomputation": [
+        {
+          "expr": "294/398*100 (MAGNA internally consistent)",
+          "expected": 73.87
+        },
+        {
+          "expr": "294.593/405*100 (mixed)",
+          "expected": 72.74
+        }
+      ],
+      "disagreement": "The researcher treated the mixed ratio as the best estimate and the two publishers' totals as the only uncertainty. I treat the numerator-denominator mismatch as the larger error and prefer each publisher's self-consistent pair."
+    },
+    {
+      "claim_id": "e7-medium-003",
+      "verdict": "rejected",
+      "evidence": "The cited source contradicts the claim. EMARKETER's 'Two in three US digital ad dollars went to mobile in 2024' reports mobile at 65.8% of US digital in 2024 and states mobile's share has stabilised at roughly two-thirds of digital spend through 2028 - it forecasts no jump to 72%. The 72% figure traces only to SQ Magazine, an SEO statistics aggregator, which does not meet grade B ('credible named reporting with a track record'). A 6.2-point one-year jump against a source that explicitly forecasts stability is not a sourcing gap, it is a contradiction. I also note that 72 is the same number this record uses for digital's share of total US ad spend in e7-medium-002, which is consistent with a transcription error rather than a finding.",
+      "sources_consulted": [
+        {
+          "name": "EMARKETER, 'Two in three US digital ad dollars went to mobile in 2024' — mobile 65.8% of US digital in 2024, ~two-thirds through 2028",
+          "url": "https://www.emarketer.com/content/two-three-us-digital-ad-dollars-went-mobile-2024"
+        }
+      ],
+      "replaced_by": "Mobile placements took about 66% of US digital ad spending in 2025 (65.8% in 2024), a share EMARKETER forecasts will stay near two-thirds through 2028. central 66, ci80 [63,70], unit 'percent of US digital ad spend delivered on mobile', grade B, source: EMARKETER, 'Two in three US digital ad dollars went to mobile in 2024', as_of 2025."
+    },
+    {
+      "claim_id": "e7-medium-004",
+      "verdict": "confirmed",
+      "evidence": "All five format figures verified in the primary PDF, pp.21-22: search $114.2B at 38.8% share, display $81.6B, digital video $78.0B, digital audio $8.4B, other $12.5B at 4.2% share. Endnote 39 confirms 'Other includes classified and directories and lead generation', exactly as the claim states. The formats sum to $294.7B against the $294.593B total, which the report itself flags as rounding.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "114.2+81.6+78.0+8.4+12.5",
+          "expected": 294.7
+        },
+        {
+          "expr": "114.2/294.593*100",
+          "expected": 38.765
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-medium-005",
+      "verdict": "adjusted",
+      "evidence": "The dollar figure is confirmed - EMARKETER puts US CTV ad spend at $33.35B in 2025 (+15.8%). The share is wrong on every available basis. Against IAB's $294.593B US internet ad revenue it is 11.3%; against EMARKETER's own digital denominator the same forecaster reports CTV at about 8.1% of total digital by 2026. 9.6% matches neither and is not derivable from the cited pair.",
+      "sources_consulted": [
+        {
+          "name": "EMARKETER, US TV and Connected TV Ad Spending Forecasts H2 2025 — CTV $33.35B in 2025 (+15.8%); CTV ~8.1% of total digital by 2026",
+          "url": "https://www.emarketer.com/content/us-tv-connected-tv-ad-spending-forecasts-h2-2025"
+        },
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "old": {
+        "statement": "US connected-TV ad spend reached about $33.35B in 2025, roughly 9.6% of US digital ad spend, and is forecast to pass traditional TV advertising around 2028."
+      },
+      "new": {
+        "statement": "US connected-TV ad spend reached about $33.35B in 2025 (+15.8%), roughly 11% of US internet ad revenue on IAB/PwC's base (about 8% of total digital on EMARKETER's own base), and is forecast to pass traditional TV advertising later this decade."
+      },
+      "reason": "The 9.6%-of-digital sub-claim is not derivable from either cited series; the two credible bases give 11.3% and ~8%.",
+      "recomputation": [
+        {
+          "expr": "33.35/294.593*100",
+          "expected": 11.32
+        }
+      ],
+      "disagreement": "I could not source the 2028 crossover year specifically; the forecaster's public materials support the direction but I am not treating the year as verified."
+    },
+    {
+      "claim_id": "e7-medium-006",
+      "verdict": "confirmed",
+      "evidence": "Confirmed as what it claims to be: a grade C estimate whose method openly states that no official US directory-advertising series survives the era and that the Coen/McCann series ends in 2007. The 93% decline recomputes from the stated endpoints. Flagging without changing the verdict that both sources are marketing-vendor blogs with no primary data behind them - weak even for C - and that the wide [0.7,2.0] interval is doing the necessary work.",
+      "sources_consulted": [
+        {
+          "name": "Vendasta, 'Yellow Pages evolution'",
+          "url": "https://www.vendasta.com/blog/yellow-pages-evolution/"
+        },
+        {
+          "name": "IAB / PwC FY2025 report — confirms no directory series is carried in the modern measured-media data",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "(14.7-1.1)/14.7*100",
+          "expected": 92.52
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-medium-007",
+      "verdict": "confirmed",
+      "evidence": "Verified in the primary PDF, p.23 and its 2015-2025 chart: podcast advertising revenue $2,862.2M in 2025 at 17.6% YoY growth, with the series starting at $105.7M in 2015. Both endpoints and the growth rate exact.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-creators-001",
+      "verdict": "confirmed",
+      "evidence": "Verified against Omnicom's own 8-K exhibit: the acquisition of Interpublic completed on November 26, 2025, creating a company with 'pro forma combined revenue in excess of $25 billion', with legacy Omnicom holders at ~60.6% and legacy IPG holders at ~39.4% fully diluted. Date, characterisation and the >$25B floor all check out, and grade A is right for a company filing.",
+      "sources_consulted": [
+        {
+          "name": "Omnicom Group Inc., 'Omnicom Completes Acquisition of Interpublic Group' (2025-11-26) — 'pro forma combined revenue in excess of $25 billion'",
+          "url": "https://www.sec.gov/Archives/edgar/data/29989/000119312525300788/d24786dex991.htm"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-creators-002",
+      "verdict": "confirmed",
+      "evidence": "Verified: 82% of ANA members had an in-house agency in 2023, up from 78% in 2018, and 54% handle media planning and/or buying in-house. The ANA runs this study every five years since 2008 and predicts penetration peaking at 85-90%. Grade B is right - it is a member survey (n=162), not a census.",
+      "sources_consulted": [
+        {
+          "name": "ANA, 'The Continued Rise of the In-House Agency: 2023 Edition' — 82% (2023) vs 78% (2018); 54% handle media planning and/or buying",
+          "url": "https://www.ana.net/content/show/id/79185"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-creators-003",
+      "verdict": "adjusted",
+      "evidence": "The numbers are real but the citation and the grade are not. The $37B (2025) and $44B (2026) figures come from IAB's '2025 Creator Economy Ad Spend & Strategy Report' (November 2025), a survey of 450+ US advertisers - a projection, not measured revenue. The IAB/PwC report cited in the record carries only the $44B 2026 figure, not the $37B. Grade A is reserved for official filings and statistics; a trade-association survey projection is grade B. I also found the two IAB documents disagree on the growth comparison the claim makes: the Creator Economy report says creator spend is growing 'nearly 4x faster than the media industry's overall growth' (+26% YoY, from $29.5B in 2024), while the IAB/PwC report says 'twice the rate of the broader advertising market'.",
+      "sources_consulted": [
+        {
+          "name": "IAB, '2025 Creator Economy Ad Spend & Strategy Report' (Nov 2025; survey of 450+ US advertisers) — US creator ad spend projected $37B in 2025 (+26%), $44B in 2026, 'nearly 4x faster' than overall media growth",
+          "url": "https://www.iab.com/news/creator-economy-ad-spend-to-reach-37-billion-in-2025-growing-4x-faster-than-total-media-industry-according-to-iab/"
+        },
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "old": {
+        "grade": "A",
+        "sources": [
+          {
+            "name": "IAB / PwC, Internet Advertising Revenue Report, Full-Year 2025 (April 2026), pp.13-14",
+            "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+          }
+        ]
+      },
+      "new": {
+        "grade": "B",
+        "sources": [
+          {
+            "name": "IAB, '2025 Creator Economy Ad Spend & Strategy Report' (Nov 2025; survey of 450+ US advertisers): US creator ad spend $37B in 2025 (+26%), $44B projected 2026",
+            "url": "https://www.iab.com/news/creator-economy-ad-spend-to-reach-37-billion-in-2025-growing-4x-faster-than-total-media-industry-according-to-iab/"
+          },
+          {
+            "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025, p.14 (carries the $44B 2026 projection and the 'twice the rate' comparison)",
+            "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+          }
+        ]
+      },
+      "reason": "Grade A unsupportable for a survey-based projection; the cited document does not contain the central value.",
+      "disagreement": "The record says creator spend grows at 'roughly twice' the market rate, following IAB/PwC. IAB's own creator report says nearly 4x. Both are IAB; the record should carry the conflict rather than pick one silently."
+    },
+    {
+      "claim_id": "e7-creators-004",
+      "verdict": "adjusted",
+      "evidence": "The cited Meta newsroom page does not contain either figure. I read it: it carries the $550B economic-activity and 3.4M-jobs claims and 'more than 2 million American businesses advertising monthly', and nothing about generative-AI ad volumes. The substance traces instead to Meta's Q4 2024 earnings cycle, where the framing is that within a month of launching its first gen-AI ad tools in 2024, more than a million advertisers used them to create more than 15 million ads; by Q1 2025 Meta reported more than 4 million advertisers using at least one gen-AI ad tool. The as_of of 2025-05 is therefore also wrong.",
+      "sources_consulted": [
+        {
+          "name": "Meta Newsroom (May 2025) — carries 'more than 2 million American businesses advertising monthly'; does NOT carry a 10 million advertiser count or the 15 million AI-ads figure",
+          "url": "https://about.fb.com/news/2025/05/over-half-trillion-dollars-3-million-us-jobs-linked-metas-ai-driven-ads-technologies/"
+        },
+        {
+          "name": "Marketing Dive, 'Meta's AI tools attract more advertisers' (Q4 2024 earnings) — >1M advertisers used gen-AI tools to create >15M ads within a month of launch in 2024; >4M advertisers using gen-AI offerings",
+          "url": "https://www.marketingdive.com/news/meta-platforms-q4-2024-earnings-report-generative-ai-advertising-deepseek/738735/"
+        }
+      ],
+      "old": {
+        "as_of": "2025-05",
+        "sources": [
+          {
+            "name": "Meta Newsroom, 'Over Half a Trillion Dollars, 3.4 Million U.S. Jobs Linked to Meta's AI-Driven Ads Technologies' (May 2025)",
+            "url": "https://about.fb.com/news/2025/05/over-half-trillion-dollars-3-million-us-jobs-linked-metas-ai-driven-ads-technologies/"
+          }
+        ],
+        "statement": "More than one million advertisers used Meta's generative-AI creative tools to produce over 15 million ads in a single month during 2025."
+      },
+      "new": {
+        "as_of": "2025-01",
+        "statement": "Within a month of launching its first generative-AI ad creative tools in 2024, more than one million advertisers had used them to produce over 15 million ads; by Q1 2025 Meta reported more than four million advertisers using at least one generative-AI ad tool.",
+        "sources": [
+          {
+            "name": "Marketing Dive, 'Meta's AI tools attract more advertisers as tech enters defining year' (Meta Q4 2024 earnings)",
+            "url": "https://www.marketingdive.com/news/meta-platforms-q4-2024-earnings-report-generative-ai-advertising-deepseek/738735/"
+          }
+        ]
+      },
+      "reason": "Cited source does not contain the claimed figures; date and framing corrected to the disclosure they actually come from."
+    },
+    {
+      "claim_id": "e7-buyers-001",
+      "verdict": "adjusted",
+      "evidence": "Split result on a single citation. The cited Meta newsroom page does support 'more than 2 million American businesses advertising monthly' - I read the page and that phrase is there. It does not contain the 10 million advertiser figure, which is the claim's central value. That figure is a long-standing Meta statement repeated across secondary roundups rather than anything on the cited URL, and it is expressed as a floor ('more than 10 million'), so a lower interval bound of 9 sits below the company's own floor.",
+      "sources_consulted": [
+        {
+          "name": "Meta Newsroom (May 2025) — carries 'more than 2 million American businesses advertising monthly'; does NOT carry a 10 million advertiser count or the 15 million AI-ads figure",
+          "url": "https://about.fb.com/news/2025/05/over-half-trillion-dollars-3-million-us-jobs-linked-metas-ai-driven-ads-technologies/"
+        }
+      ],
+      "old": {
+        "ci80": [
+          9,
+          12
+        ],
+        "sources": [
+          {
+            "name": "Meta Newsroom / company statements, cited in Meta advertising statistics roundups (2025)",
+            "url": "https://about.fb.com/news/2025/05/over-half-trillion-dollars-3-million-us-jobs-linked-metas-ai-driven-ads-technologies/"
+          }
+        ]
+      },
+      "new": {
+        "ci80": [
+          10,
+          13
+        ],
+        "sources": [
+          {
+            "name": "Meta Newsroom (May 2025) — supports 'more than 2 million American businesses advertising monthly'",
+            "url": "https://about.fb.com/news/2025/05/over-half-trillion-dollars-3-million-us-jobs-linked-metas-ai-driven-ads-technologies/"
+          },
+          {
+            "name": "Meta company statements as repeated across 2025-26 reporting: 'more than 10 million active advertisers' (no primary Meta filing or newsroom post located that states this in 2025)",
+            "url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Fourth-Quarter-and-Full-Year-2025-Results/default.aspx"
+          }
+        ]
+      },
+      "reason": "Interval floor raised to match the 'more than 10 million' framing; sources annotated to show which figure each actually supports.",
+      "disagreement": "I could not locate a 2025 primary Meta statement of the 10 million figure. It may be a stale number carried forward from earlier company communications; the record should say so rather than cite a page that does not contain it."
+    },
+    {
+      "claim_id": "e7-buyers-002",
+      "verdict": "confirmed",
+      "evidence": "Verified: AdImpact's final count for the 2023-24 cycle was $11.1B, the first cycle above $10B, against $9.08B for the 2020 cycle and $8.9B for 2022. Corroborating detail also checks out (51% of spend in the final eight weeks; 13 states took $7.4B; presidential race $3.2B). Grade B correct for a commercial tracking firm.",
+      "sources_consulted": [
+        {
+          "name": "AdImpact final 2023-24 cycle count, via TV Tech — $11.1B, against $9.08B in the 2020 cycle",
+          "url": "https://www.tvtechnology.com/news/political-ad-spend-for-the-2024-election-cycle-hit-a-record-usd11-1-billion"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-buyers-003",
+      "verdict": "adjusted",
+      "evidence": "I read the cited source. The 60%/71% figures come from Fluency's own survey of 'more than 170 advertisers' - a vendor's self-selected respondent panel. The claim generalises that to '71% of Google advertisers globally', a population numbering in the millions, and the same source is the only basis for the 'roughly 75% in the US' figure. That is not grade B reporting; it is a small vendor survey presented as a population statistic, and it needs a method statement and a much wider interval.",
+      "sources_consulted": [
+        {
+          "name": "Fluency, '2026 Trends and Performance Benchmarks' — the 60%/71% Performance Max figures come from the vendor's own survey of 'more than 170 advertisers'",
+          "url": "https://www.fluency.inc/blog/2026-trends-and-performance-benchmarks-google-ads-meta-ads"
+        }
+      ],
+      "old": {
+        "grade": "B",
+        "ci80": [
+          62,
+          78
+        ],
+        "statement": "About 71% of Google advertisers globally (roughly 75% in the US) ran Performance Max campaigns in 2025, up from about 60% in 2024."
+      },
+      "new": {
+        "grade": "C",
+        "ci80": [
+          50,
+          85
+        ],
+        "statement": "In a vendor survey of more than 170 advertisers, 71% reported running Performance Max campaigns in 2025 (about 75% of US respondents), up from 60% in 2024; no population-level figure for Google's full advertiser base is published.",
+        "method": "Single-source vendor survey (Fluency, n>170, self-selected platform customers) generalised in the original claim to all Google advertisers. No independent population estimate exists; the interval is widened to reflect that a managed-platform panel over-represents sophisticated advertisers, who adopt automated campaign types earlier than the long tail."
+      },
+      "reason": "Grade B unsupportable for a vendor's own 170-respondent survey stated as a global population share; interval widened and the population restated."
+    },
+    {
+      "claim_id": "e7-buyers-004",
+      "verdict": "confirmed",
+      "evidence": "Both halves verified. Winterberry: US direct mail spend $37.3B in 2024, +2.6%, reversing 2023's double-digit decline though still below $41.9B in 2022. USPS: Marketing Mail 99B pieces in FY2008, 59B in FY2023, 56.8B in FY2025. Recording one definitional fact for downstream use, since sibling claims depend on it: Winterberry's direct mail figure is total spend including postage and production - Winterberry states postage alone is roughly half the cost of a direct mail ad - so it is not comparable to media-owner ad revenue.",
+      "sources_consulted": [
+        {
+          "name": "Winterberry Group via WhatTheyThink — US direct mail spend $37.3B in 2024 (+2.6%); postage is roughly half the cost of a direct mail ad",
+          "url": "https://whattheythink.com/articles/123330-direct-mails-373b-resurgence-selling-value-over-volume-2025/"
+        },
+        {
+          "name": "USPS OIG / PRC financial reporting — Marketing Mail 99B pieces FY2008, 59B FY2023, 56.8B FY2025",
+          "url": "https://www.uspsoig.gov/reports/white-papers/analysis-historical-mail-volume-trends"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-measurement-001",
+      "verdict": "confirmed",
+      "evidence": "Verified: Facebook agreed in October 2019 to pay $40M to settle the advertiser class action over inflated video metrics, with at least $28M going to advertisers pro rata and up to $12M to counsel. The mechanism and magnitude are as claimed - the policy of not counting views under three seconds raised average watch time, and plaintiffs alleged inflation of up to 900%. Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "Variety / Ad Age / Hollywood Reporter (Oct 2019) — $40M settlement; sub-three-second exclusion alleged to inflate average watch time by up to 900%",
+          "url": "https://variety.com/2019/digital/news/facebook-settlement-video-advertising-lawsuit-40-million-1203361133/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-measurement-002",
+      "verdict": "adjusted",
+      "evidence": "The central and the interval come from two different studies. The $468M is a VAB estimate of the national ad revenue lost over twelve months, derived from a 1% undercount. The $350M-$700M range in the cited TV Tech piece is a separate VAB analysis of Nielsen's out-of-home viewing error covering September 2020 to December 2021 - a different defect over a different window. Using one as the central and the other as the interval fuses two quantities, and it places the lower bound below a figure VAB framed as 'at least' $468M. The MRC dates check out, with one omission: the April 17 2023 reinstatement covered the national TV service only; the local market TV service remained suspended, as did dTVR, DAR and Nielsen ONE.",
+      "sources_consulted": [
+        {
+          "name": "Ad Age / Inside Radio / TV Tech coverage of the VAB analyses — the $468M figure is a 12-month national-revenue estimate from a 1% undercount; the $350M-$700M range is a separate VAB study of the out-of-home viewing error (Sept 2020-Dec 2021)",
+          "url": "https://www.tvtechnology.com/news/vab-nielsen-undercount-cost-networks-dollar350m-to-dollar700m"
+        },
+        {
+          "name": "MRC, 'MRC Reinstates Accreditation of Nielsen National Television Service' (2023-04-17) — national TV reinstated; local market TV service remained suspended",
+          "url": "https://mediaratingcouncil.org/sites/default/files/News/Accreditation-Matters/041723_Nielsen_Natl_Statement_Final.pdf"
+        }
+      ],
+      "old": {
+        "ci80": [
+          350,
+          700
+        ],
+        "statement": "The Media Rating Council suspended Nielsen's national and local TV accreditation in September 2021 after finding pandemic-era undercounts of 2-6% among adults 18-49; the VAB estimated the undercount cost networks at least $468M of national ad revenue over twelve months, and accreditation was not restored until April 2023."
+      },
+      "new": {
+        "ci80": [
+          468,
+          700
+        ],
+        "statement": "The Media Rating Council suspended Nielsen's national and local TV accreditation in September 2021 after finding pandemic-era undercounts of 2-6% among adults 18-49; the VAB estimated the undercount cost networks at least $468M of national ad revenue over twelve months, and a separate VAB analysis of Nielsen's out-of-home viewing error put losses at $350M-$700M between September 2020 and December 2021. National TV accreditation was reinstated on 2023-04-17; the local market TV service remained suspended."
+      },
+      "reason": "Interval was built from a different VAB study than the central and dipped below a figure sourced as a floor; the reinstatement scope was overstated.",
+      "disagreement": "The researcher treated $350M-$700M as uncertainty around $468M. They are estimates of two distinct measurement failures and should be reported side by side, not merged."
+    },
+    {
+      "claim_id": "e7-measurement-003",
+      "verdict": "adjusted",
+      "evidence": "The attribution is wrong, and I could check it because I extracted the PDF. The bot passage on p.15 reads: 'AI-driven bots now account for a substantial portion of global web traffic - over 50%, with nearly 40% classified as malicious - complicating attribution, audience modeling, and campaign optimization.' Its footnote is 33, which resolves to Imperva's 2025 Bad Bot Report. Footnote 34 - IAB State of Data 2026 - belongs to the $26B misallocation sentence, i.e. to the sibling claim e7-measurement-005. The record swapped them. The underlying Imperva measurement is also of automated traffic generally, not specifically AI-driven bots; 'AI-driven' is IAB's characterisation, and it describes 2024 traffic, not 2026.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        },
+        {
+          "name": "Imperva, 2025 Bad Bot Report — the actual underlying source for the >50% bot traffic / ~40% malicious figures (IAB/PwC FY2025 footnote 33)",
+          "url": "https://www.imperva.com/resources/resource-library/reports/2025-bad-bot-report/"
+        }
+      ],
+      "old": {
+        "sources": [
+          {
+            "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025, p.15 (measurement trends, citing IAB State of Data 2026)",
+            "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+          }
+        ],
+        "as_of": "2026-04",
+        "statement": "By 2026 the IAB reported that AI-driven bots account for over 50% of global web traffic, with nearly 40% classified as malicious, complicating attribution, audience modelling and campaign optimisation."
+      },
+      "new": {
+        "as_of": "2025",
+        "statement": "IAB/PwC's Full-Year 2025 report, citing Imperva's 2025 Bad Bot Report, states that bots account for over 50% of global web traffic with nearly 40% classified as malicious, complicating attribution, audience modelling and campaign optimisation.",
+        "sources": [
+          {
+            "name": "Imperva, 2025 Bad Bot Report (the underlying measurement; IAB/PwC FY2025 footnote 33)",
+            "url": "https://www.imperva.com/resources/resource-library/reports/2025-bad-bot-report/"
+          },
+          {
+            "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025, p.15",
+            "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+          }
+        ]
+      },
+      "reason": "Source misattributed to IAB State of Data 2026 (that footnote belongs to the $26B claim); underlying primary is Imperva, and the traffic year is 2024-25, not 2026."
+    },
+    {
+      "claim_id": "e7-measurement-004",
+      "verdict": "confirmed",
+      "evidence": "Verified against Pew directly: users clicked a traditional search result on 8% of visits where an AI summary appeared against 15% where none did, and clicked a source inside the summary on just 1% of such visits. Base: 900 US adults, 68,879 Google searches, of which 12,593 produced an AI summary, browsing data for March 1-31 2025. Every element of the claim checks out, and the record's inclusion of Google's dispute is the right treatment.",
+      "sources_consulted": [
+        {
+          "name": "Pew Research Center (2025-07-22) — 8% click with AI summary vs 15% without; 1% clicked a source in the summary; n=900 US adults, 68,879 searches, March 1-31 2025",
+          "url": "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-measurement-005",
+      "verdict": "adjusted",
+      "evidence": "The figure is verified in the PDF and correctly attributed - footnote 34 is IAB State of Data 2026 - but the interval contradicts the source's own framing. The text reads 'AI-driven measurement improvements could help unlock more than $26 billion in media investment in the next 1 to 2 years'. $26B is a floor, so an 80% interval running down to $18B places substantial probability below a bound the source treats as a minimum.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ],
+      "old": {
+        "ci80": [
+          18,
+          35
+        ]
+      },
+      "new": {
+        "ci80": [
+          26,
+          45
+        ]
+      },
+      "reason": "Source states 'more than $26 billion'; the interval must not extend below a stated floor."
+    },
+    {
+      "claim_id": "e7-targeting-001",
+      "verdict": "confirmed",
+      "evidence": "Verified: Meta's CFO told investors on 2022-02-02 that Apple's App Tracking Transparency would be a 2022 revenue headwind 'on the order of $10 billion', and Lotame's independent estimate of Meta's 2022 ATT loss was $12.8B. Central at the company's own figure with the interval reaching the third-party estimate is the right construction. Grade B correct - it is a company forecast, not a filed result.",
+      "sources_consulted": [
+        {
+          "name": "CNBC, 'Facebook says Apple iOS privacy change will result in $10 billion revenue hit this year' (2022-02-02)",
+          "url": "https://www.cnbc.com/2022/02/02/facebook-says-apple-ios-privacy-change-will-cost-10-billion-this-year.html"
+        },
+        {
+          "name": "Lotame estimate of $12.8B via CDP Institute",
+          "url": "https://www.cdpinstitute.org/news/apple-att-will-cost-meta-12-8-billion-in-revenue-in-2022/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-targeting-002",
+      "verdict": "confirmed",
+      "evidence": "The series checks out on the Adjust/AppsFlyer measurement: global ATT opt-in began at about 16% at the May 2021 launch and rose to roughly 25% by mid-2022, with gaming apps around 30%. The [16,32] interval is honestly wide. Recording a live conflict rather than adjusting for it: Flurry's parallel dashboard measured materially lower US opt-in in the launch period, and by Q1 2024 AppsFlyer reported global opt-in near 50%. The measurement disagreement across vendors is larger than this interval, but the interval covers the claim's own mid-2022 target quantity.",
+      "sources_consulted": [
+        {
+          "name": "Adjust / AppsFlyer ATT opt-in series as compiled — 16% at May 2021 launch rising to ~25% by mid-2022, gaming ~30%",
+          "url": "https://www.businessofapps.com/data/att-opt-in-rates/"
+        },
+        {
+          "name": "Flurry ATT opt-in dashboard — materially lower US opt-in rates in the launch period than the Adjust/AppsFlyer series",
+          "url": "https://www.flurry.com/blog/att-opt-in-rate-monthly-updates/"
+        }
+      ],
+      "disagreement": "Vendor panels disagree sharply on ATT opt-in, particularly at launch and particularly for the US specifically versus global. The claim's central is defensible on the Adjust/AppsFlyer series but should not be read as a settled number."
+    },
+    {
+      "claim_id": "e7-targeting-003",
+      "verdict": "confirmed",
+      "evidence": "Verified: Wang, Jiang & Yang (JMR 2024) study a single ad publisher's 3.7 billion impressions across 6,000 creatives and find modest negative effects - the published abstract states roughly a 6% reduction in advertiser bid prices and the resulting revenue per click, consistent with the claim's 5.7%. Goldberg, Johnson & Shriver's separate study of ~10% falls in recorded page views and revenue for EU users is correctly represented as the higher estimate. The claim's framing - 'modest and contested' with an interval spanning both - is exactly right, and is the honest treatment of two credible studies that disagree.",
+      "sources_consulted": [
+        {
+          "name": "Wang, Jiang & Yang, 'The Early Impact of GDPR Compliance on Display Advertising', Journal of Marketing Research (2024) — abstract reports ~6% reduction in bid prices and resulting revenue per click",
+          "url": "https://journals.sagepub.com/doi/abs/10.1177/00222437231171848"
+        },
+        {
+          "name": "Goldberg, Johnson & Shriver, 'The Impact of the GDPR on Content Providers' (WEIS 2020)",
+          "url": "https://weis2020.econinfosec.org/wp-content/uploads/sites/8/2020/06/weis20-final43.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-targeting-004",
+      "verdict": "confirmed",
+      "evidence": "Verified: Google disclosed AI Overviews at more than 2 billion monthly users as of July 2025, across 200+ countries and 40 languages, alongside AI Mode at 100M monthly users in the US and India. The monetisation-parity statement is Google's own, made by its chief business officer, and the claim attributes it as a company statement rather than as a measured fact - which is the correct handling for a self-reported figure. Grade B correct.",
+      "sources_consulted": [
+        {
+          "name": "TechCrunch, 'Google's AI Overviews have 2B monthly users, AI Mode 100M in the US and India' (2025-07-23)",
+          "url": "https://techcrunch.com/2025/07/23/googles-ai-overviews-have-2b-monthly-users-ai-mode-100m-in-the-us-and-india"
+        },
+        {
+          "name": "Digiday, 'Google's AI Overviews reach over 2 billion monthly users'",
+          "url": "https://digiday.com/media/googles-ai-overviews-reach-over-2-billion-monthly-users/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-targeting-005",
+      "verdict": "adjusted",
+      "evidence": "The $60B is real but the sourcing is wrong twice over. It comes from Meta's Q3 2025 earnings call on 2025-10-29, where Zuckerberg said the annual revenue run rate for Meta's end-to-end AI-powered ad solutions including the Advantage+ suite had surpassed $60 billion - not from the Q4 2025 call, and not from Fluency, whose article I read and which does not mention it at all. The as_of of 2026-01 is therefore wrong by a quarter. One substantive caveat the claim should carry: a run rate measured at the end of Q3 2025 is being divided by full-year 2025 revenue to get '30%', which mixes an annualised instantaneous rate with a twelve-month actual.",
+      "sources_consulted": [
+        {
+          "name": "Meta Q3 2025 earnings call (Zuckerberg, 2025-10-29) — end-to-end AI-powered ad solutions incl. Advantage+ surpassed a $60B annual revenue run rate",
+          "url": "https://s21.q4cdn.com/399680738/files/doc_financials/2025/q3/META-Q3-2025-Earnings-Call-Transcript.pdf"
+        },
+        {
+          "name": "Fluency, '2026 Trends and Performance Benchmarks' — the 60%/71% Performance Max figures come from the vendor's own survey of 'more than 170 advertisers'",
+          "url": "https://www.fluency.inc/blog/2026-trends-and-performance-benchmarks-google-ads-meta-ads"
+        },
+        {
+          "name": "Meta Platforms, Fourth Quarter and Full Year 2025 Results — advertising revenue $196.18B (2024: $160.63B); ad impressions +12%; average price per ad +9%",
+          "url": "https://www.prnewswire.com/news-releases/meta-reports-fourth-quarter-and-full-year-2025-results-302673127.html"
+        }
+      ],
+      "old": {
+        "as_of": "2026-01",
+        "sources": [
+          {
+            "name": "Meta Platforms Q4 2025 earnings call, reported in Fluency, '2026 Trends and Performance Benchmarks for Google Ads and Meta Ads'",
+            "url": "https://www.fluency.inc/blog/2026-trends-and-performance-benchmarks-google-ads-meta-ads"
+          }
+        ],
+        "statement": "Meta's automated, model-driven ad products (the Advantage+ family) were running at roughly a $60B annualised revenue rate by 2025 - about 30% of Meta's total ad revenue placed without an advertiser choosing an audience."
+      },
+      "new": {
+        "as_of": "2025-10",
+        "statement": "Meta disclosed on its Q3 2025 earnings call that its end-to-end AI-powered ad solutions, including the Advantage+ family, had surpassed a $60B annualised revenue run rate - equivalent to roughly 30% of Meta's 2025 advertising revenue, though the run rate is an instantaneous annualisation rather than a twelve-month actual.",
+        "sources": [
+          {
+            "name": "Meta Q3 2025 earnings call transcript (Zuckerberg, 2025-10-29)",
+            "url": "https://s21.q4cdn.com/399680738/files/doc_financials/2025/q3/META-Q3-2025-Earnings-Call-Transcript.pdf"
+          },
+          {
+            "name": "Marketing Dive, 'Meta's AI bets supercharge marketing efficiency — and costs'",
+            "url": "https://www.marketingdive.com/news/meta-ai-bets-supercharge-marketing-efficiency-costs/804238/"
+          }
+        ]
+      },
+      "reason": "Cited source does not contain the figure and names the wrong earnings call; as_of corrected from 2026-01 to 2025-10.",
+      "recomputation": [
+        {
+          "expr": "60/196.18*100",
+          "expected": 30.58
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-events-001",
+      "verdict": "confirmed",
+      "evidence": "Verified: the FTC cleared the deal on 2007-12-20, the European Commission cleared it on 2008-03-11, and Google announced completion of the $3.1B DoubleClick acquisition the same day. Both the price and the same-day sequencing check out.",
+      "sources_consulted": [
+        {
+          "name": "InformationWeek / Seattle Times (2008-03-11) — Google closed the $3.1B DoubleClick acquisition the same day the European Commission cleared it",
+          "url": "https://www.informationweek.com/it-sectors/google-finalizes-3-1-billion-doubleclick-acquisition"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-events-002",
+      "verdict": "confirmed",
+      "evidence": "Verified in the primary PDF's historical table: Total 2009 $22,661M at -3% Y/Y, and it is the only annual decline across 2008-2025 in that table. The DoubleClick Ad Exchange launch announcement of 2009-09-18 is correctly dated for the real-time-bidding pairing.",
+      "sources_consulted": [
+        {
+          "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-events-006",
+      "verdict": "confirmed",
+      "evidence": "Duplicate of e7-targeting-001 and verified on the same evidence: Meta's CFO told investors on 2022-02-02 the ATT headwind would be 'on the order of $10 billion' in 2022. Consistent with its sibling claim in central, interval, grade and as_of, so no cross-record contradiction.",
+      "sources_consulted": [
+        {
+          "name": "CNBC (2022-02-02)",
+          "url": "https://www.cnbc.com/2022/02/02/facebook-says-apple-ios-privacy-change-will-cost-10-billion-this-year.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-events-007",
+      "verdict": "confirmed",
+      "evidence": "Duplicate of e7-pricing-002 and verified verbatim in the downloaded opinion at FOF para 254 and its citation to UPX512 at .002. Central, interval, grade and as_of match the sibling claim exactly, so the two are consistent.",
+      "sources_consulted": [
+        {
+          "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-events-008",
+      "verdict": "confirmed",
+      "evidence": "Duplicate of e7-measurement-004 and verified against Pew directly: 8% of AI-summary visits produced a result click against 15% without. Consistent with the sibling claim in every calibration field.",
+      "sources_consulted": [
+        {
+          "name": "Pew Research Center (2025-07-22) — 8% click with AI summary vs 15% without; 1% clicked a source in the summary; n=900 US adults, 68,879 searches, March 1-31 2025",
+          "url": "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-events-009",
+      "verdict": "confirmed",
+      "evidence": "Verified verbatim in the downloaded opinion, which states it twice: 'In 2021, Google paid out a total of $26.3 billion in revenue share under these contracts' and 'In 2021, Google spent $26.3 billion' on defaults. Grade A appropriate.",
+      "sources_consulted": [
+        {
+          "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-unit_econ-001",
+      "verdict": "adjusted",
+      "evidence": "The method and the central disagree with each other. Running the record's own steps: $224,532M with a 13% haircut is $195.3B, and $195.3B / 5.3T queries = $0.0368. The method itself writes '$195B / 5.3T = $0.037'. The claim then states 4.0 cents. That is an 8% overstatement of the record's own derivation, and it is not neutral - the comparison series in e7-unit_econ-007 divides inference cost by this number to produce its headline '120% in 2023, 0.5% in 2026'. On the derived 3.7 cents those become 130% and 0.59%. Both inputs verify: the 10-K's $224,532M, and Google's 'more than 5 trillion searches annually' disclosure of March 2025 (Google Internal Data, Jan 2025), against 'more than 2 trillion' in 2016.",
+      "sources_consulted": [
+        {
+          "name": "Alphabet Inc., Form 10-K FY2025 (retrieved from SEC EDGAR by the verifier; revenues-by-type, TAC and monetization-metrics tables read directly)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
+        },
+        {
+          "name": "Google blog 'AI, personalization and the future of shopping' (2025-03-03) — 'more than 5 trillion searches on Google annually' (Google Internal Data, Jan 2025); prior public figure 'more than 2 trillion' (2016)",
+          "url": "https://blog.google/products/ads-commerce/ai-personalization-and-the-future-of-shopping/"
+        }
+      ],
+      "old": {
+        "central": 0.04
+      },
+      "new": {
+        "central": 0.037
+      },
+      "reason": "Central was rounded up to one significant figure away from the method's own result (0.0368); the rounding propagates into the comparison series' headline ratios.",
+      "recomputation": [
+        {
+          "expr": "224532*0.87/5.3e3",
+          "expected": 36.85
+        },
+        {
+          "expr": "224.532e9/5.0e12",
+          "expected": 0.0449
+        },
+        {
+          "expr": "224.532e9*0.85/5.6e12",
+          "expected": 0.0341
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-unit_econ-002",
+      "verdict": "adjusted",
+      "evidence": "The cost figures are verified verbatim in the opinion - FOF para 52 ('In 2020, Google spent $8.4 billion to operate its search engine (excluding revenue share payments)') and FOF para 55 ('In 2020, Google spent $11.1 billion to operate its search ads business') - and the query interpolation is arithmetically sound: (5/2)^(1/9) - 1 = 10.72% annual growth, giving 3.005T queries in 2020. The defect is temporal. The statement's comparison sets a 2020 operating cost of 0.65 cents against a distribution cost derived from FY2025 TAC, five years apart, and presents the gap as a fact about one system at one time. The conclusion survives a like-for-like test - the opinion's $26.3B of 2021 search default revenue share over roughly 3.3T queries is about 0.8 cents, still above 0.65 - but the claim should make its years explicit rather than let a five-year gap do the work.",
+      "sources_consulted": [
+        {
+          "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024) — PDF downloaded and text-extracted by the verifier",
+          "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+        },
+        {
+          "name": "Alphabet Inc., Form 10-K FY2025 (retrieved from SEC EDGAR by the verifier; revenues-by-type, TAC and monetization-metrics tables read directly)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
+        },
+        {
+          "name": "Google blog 'AI, personalization and the future of shopping' (2025-03-03) — 'more than 5 trillion searches on Google annually' (Google Internal Data, Jan 2025); prior public figure 'more than 2 trillion' (2016)",
+          "url": "https://blog.google/products/ads-commerce/ai-personalization-and-the-future-of-shopping/"
+        }
+      ],
+      "old": {
+        "statement": "The direct cost of operating Google's search engine and its search ads business worked out to roughly 0.65 cents per query, while the distribution payments Google made to be the default cost roughly 0.9 cents per query - Google pays more per query to be found than it spends answering it."
+      },
+      "new": {
+        "statement": "In 2020 the direct cost of operating Google's search engine and its search ads business worked out to roughly 0.65 cents per query ($19.5B over ~3.0T queries), while the search default payments the court found for 2021 ($26.3B over ~3.3T queries) worked out to roughly 0.8 cents - Google paid more per query to be found than it spent answering it. On FY2025 figures the distribution cost per query is about 0.8-0.9 cents."
+      },
+      "reason": "Central comparison mixed 2020 operating costs with FY2025 TAC; restated with matched years, which preserves the conclusion.",
+      "recomputation": [
+        {
+          "expr": "19.5e9/3.0e12",
+          "expected": 0.0065
+        },
+        {
+          "expr": "(5/2)**(1/9)-1",
+          "expected": 0.10717
+        },
+        {
+          "expr": "2*((5/2)**(1/9))**4",
+          "expected": 3.0053
+        },
+        {
+          "expr": "26.3e9/3.3e12",
+          "expected": 0.00797
+        },
+        {
+          "expr": "224.532*0.203/5.3e3",
+          "expected": 0.0086
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-unit_econ-003",
+      "verdict": "confirmed",
+      "evidence": "Verified to the dollar against the FY2025 10-K: segment table gives Google Services operating income $139,404M (2024: $121,263M) and the revenues-by-type table gives Google Services total $342,721M (2024: $304,930M). 139,404/342,721 = 40.68%, so 40.7% is right. TAC of $59.9B is also confirmed in the same filing. Grade A and the degenerate interval are both correct for a filed figure.",
+      "sources_consulted": [
+        {
+          "name": "Alphabet Inc., Form 10-K FY2025 (retrieved from SEC EDGAR by the verifier; revenues-by-type, TAC and monetization-metrics tables read directly)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "139404/342721*100",
+          "expected": 40.676
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-unit_econ-004",
+      "verdict": "confirmed",
+      "evidence": "Arithmetic reproduces exactly on the stated definition and prices: (1000/1e6 x $30) + (300/1e6 x $60) = $0.030 + $0.018 = $0.048, and GPT-4's launch list price was indeed $0.03 per 1K prompt and $0.06 per 1K completion tokens. The method's disclosure that list price and marginal serving cost differ by roughly 10x - and that it does not attempt to bridge them - is the right treatment for a grade C series point.",
+      "sources_consulted": [
+        {
+          "name": "OpenAI, 'GPT-4 API general availability' (2023-07-06); GPT-4 list price $0.03/1K prompt, $0.06/1K completion",
+          "url": "https://openai.com/index/gpt-4-api-general-availability/"
+        },
+        {
+          "name": "SemiAnalysis, 'The Inference Cost Of Search Disruption'",
+          "url": "https://newsletter.semianalysis.com/p/the-inference-cost-of-search-disruption"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "1000/1e6*30 + 300/1e6*60",
+          "expected": 0.048
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-unit_econ-005",
+      "verdict": "adjusted",
+      "evidence": "The cost arithmetic is exact - GPT-4o mini at $0.15/$0.60 per million gives $0.00015 + $0.00018 = $0.00033, the upper bound at GPT-4o's $5/$15 gives $0.0095, and 0.048/0.00033 = 145.5x. The elapsed time is wrong. The prior series point carries as_of 2023-07 and its method states GPT-4's price was 'unchanged at its July 2023 general availability'; July 2023 to July 2024 is twelve months, not sixteen. Sixteen months only works from GPT-4's March 2023 launch, which is not the anchor the record uses.",
+      "sources_consulted": [
+        {
+          "name": "OpenAI, GPT-4o mini pricing announcement (July 2024)",
+          "url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/"
+        },
+        {
+          "name": "Epoch AI, 'LLM inference prices have fallen rapidly but unequally across tasks'",
+          "url": "https://epoch.ai/data-insights/llm-inference-price-trends"
+        }
+      ],
+      "old": {
+        "statement": "By July 2024 the same answer cost about 0.033 cents at the cheapest GPT-4-class model, a roughly 145-fold fall in sixteen months."
+      },
+      "new": {
+        "statement": "By July 2024 the same answer cost about 0.033 cents at the cheapest GPT-4-class model, a roughly 145-fold fall in twelve months."
+      },
+      "reason": "Elapsed time inconsistent with the series' own as_of dates (2023-07 to 2024-07 is twelve months).",
+      "recomputation": [
+        {
+          "expr": "1000/1e6*0.15 + 300/1e6*0.60",
+          "expected": 0.00033
+        },
+        {
+          "expr": "0.048/0.00033",
+          "expected": 145.45
+        },
+        {
+          "expr": "1000/1e6*5 + 300/1e6*15",
+          "expected": 0.0095
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-unit_econ-006",
+      "verdict": "confirmed",
+      "evidence": "Arithmetic reproduces exactly: Gemini 2.0 Flash at $0.10/$0.40 per million gives $0.0001 + $0.00012 = $0.00022, and the GPT-5 upper bound at $1.25/$10 gives $0.00425. Flagging without changing the verdict that 'cheapest capable tier' is contestable - Gemini 2.0 Flash-Lite at $0.075/$0.30 computes to $0.000165 and cheaper nano tiers existed in 2025 - but the stated lower bound of $0.00015 already covers them, which is the interval doing its job.",
+      "sources_consulted": [
+        {
+          "name": "Google AI for Developers, Gemini API pricing",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing"
+        },
+        {
+          "name": "Epoch AI, 'LLM inference prices have fallen rapidly but unequally across tasks'",
+          "url": "https://epoch.ai/data-insights/llm-inference-price-trends"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "1000/1e6*0.10 + 300/1e6*0.40",
+          "expected": 0.00022
+        },
+        {
+          "expr": "1000/1e6*1.25 + 300/1e6*10",
+          "expected": 0.00425
+        },
+        {
+          "expr": "1000/1e6*0.075 + 300/1e6*0.30",
+          "expected": 0.000165
+        }
+      ]
+    },
+    {
+      "claim_id": "e7-unit_econ-007",
+      "verdict": "adjusted",
+      "evidence": "Token arithmetic is exact ($0.00022 at $0.10/$0.40; GPT-5.2 upper bound at $1.75/$14 gives $0.00595), and the method's caveat about reasoning models emitting far more than 300 output tokens is the honest disclosure this series needs. The directional conclusion handed to P3 is what fails: it divides by the 4.0-cent revenue-per-query figure from e7-unit_econ-001, which that claim's own method derives as 3.7 cents. Recomputed on 3.7 cents, 2023 inference cost is about 130% of a query's ad revenue, not 120%, and the 2026 floor is about 0.59%, not 0.5%.",
+      "sources_consulted": [
+        {
+          "name": "Google AI for Developers, Gemini API pricing",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing"
+        },
+        {
+          "name": "pricepertoken.com, GPT-5.2 API pricing 2026",
+          "url": "https://pricepertoken.com/pricing-page/model/openai-gpt-5.2"
+        }
+      ],
+      "old": {
+        "method": "Same 1,000-in / 300-out standard answer. Cheapest generally available capable tier at the 2026-06-30 freeze is Gemini 2.5 Flash-Lite at $0.10/$0.40 per million tokens, unchanged from the 2025 floor: $0.00022. Upper bound uses 2026 frontier list pricing (GPT-5.2 at roughly $1.75/$14 per million = $0.00595). The material caveat is that reasoning models generate several thousand output tokens per answer rather than 300, so a like-for-like 'answer' at the frontier now costs 10-30x this figure; the fixed-token definition is held constant across the series so the four points remain comparable. Directional conclusion for P3: the floor cost of one machine-written answer is now roughly 0.5% of the advertising revenue of one search query, against roughly 120% of it in 2023."
+      },
+      "new": {
+        "method": "Same 1,000-in / 300-out standard answer. Cheapest generally available capable tier at the 2026-06-30 freeze is Gemini 2.5 Flash-Lite at $0.10/$0.40 per million tokens, unchanged from the 2025 floor: $0.00022. Upper bound uses 2026 frontier list pricing (GPT-5.2 at roughly $1.75/$14 per million = $0.00595). The material caveat is that reasoning models generate several thousand output tokens per answer rather than 300, so a like-for-like answer at the frontier now costs 10-30x this figure; the fixed-token definition is held constant across the series so the four points remain comparable. Directional conclusion for P3, computed against the corrected 3.7 cents of ad revenue per query (e7-unit_econ-001): the floor cost of one machine-written answer is now roughly 0.6% of the advertising revenue of one search query, against roughly 130% of it in 2023."
+      },
+      "reason": "Headline ratios were computed against a revenue-per-query central (4.0 cents) that overstates that claim's own derivation (3.7 cents).",
+      "recomputation": [
+        {
+          "expr": "1000/1e6*1.75 + 300/1e6*14",
+          "expected": 0.00595
+        },
+        {
+          "expr": "0.048/0.037*100",
+          "expected": 129.73
+        },
+        {
+          "expr": "0.00022/0.037*100",
+          "expected": 0.5946
+        },
+        {
+          "expr": "0.048/0.04*100",
+          "expected": 120.0
+        }
+      ]
+    }
+  ]
+}

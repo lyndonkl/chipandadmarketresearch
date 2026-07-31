@@ -1,0 +1,552 @@
+{
+  "era": 1,
+  "verified_on": "2026-07-30",
+  "method_note": "Primary sources retrieved and read directly: HSUS Colonial Times to 1970 chapter T (image-only PDF, rendered at 400-900 dpi and read visually, pages 5, 22, 23, 24), US Census of Manufactures 1919 Printing and Publishing bulletin (Tables 12 and 19, rendered and read visually to resolve OCR ambiguity), Galbi CS Ad Dataset .xls (sheet 'estimates 1900-34', read with xlrd), Horsky & Zeithammer full text, 1926 Encyclopaedia Britannica 'Advertising' full text, USPS 'Advertising Mail: A Brief History' full text, MeasuringWorth nominal GDP series. All arithmetic re-derived.",
+  "verdicts": [
+    {
+      "claim_id": "e1-scale-001",
+      "verdict": "confirmed",
+      "evidence": "Read HSUS series T 444 directly off the source page (p. 857, chapter T, rendered at 700 dpi): 1867 = 50. The source note on p. 855 reads 'T 444-471. Volume of advertising, by medium, 1867-1970. Source: Printers' Ink Publications, New York, N.Y., 1867-1934, Printers' Ink Advertisers' Annual, 1955 edition... The data were prepared by Robert J. Coen of McCann-Erickson, Inc.... The data include the cost of preparation.' The record's attribution and its total-outlay characterisation are exact. Grade B (industry estimate carried in an official compendium, not an official statistic) is the honest grade and the record did not inflate it to A. The 'earliest quantitative benchmark' superlative survived a hunt for earlier estimates: nothing pre-1867 surfaced.",
+      "sources_consulted": [
+        {"name": "HSUS Colonial Times to 1970, Part 2, chapter T, p. 857 (series T 444) and p. 855 (source note)", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"}
+      ],
+      "disagreement": "Reading the full pre-1935 T 444 column revealed that it takes only a handful of distinct values (1,302 appears for 1914, 1915 and 1933; 1,627 for 1917, 1932 and 1934; 2,282 for 1919, 1921 and 1931). The series is heavily rounded and interpolated, not annual measurement. This strengthens rather than weakens the record's wide intervals, but the era file should say so."
+    },
+    {
+      "claim_id": "e1-scale-002",
+      "verdict": "confirmed",
+      "evidence": "HSUS series T 444 read directly: 1880 = 200. Exact match.",
+      "sources_consulted": [{"name": "HSUS chapter T, p. 857, series T 444", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"}]
+    },
+    {
+      "claim_id": "e1-scale-003",
+      "verdict": "confirmed",
+      "evidence": "HSUS series T 444 read directly: 1890 = 360. Exact match.",
+      "sources_consulted": [{"name": "HSUS chapter T, p. 857, series T 444", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"}]
+    },
+    {
+      "claim_id": "e1-scale-004",
+      "verdict": "confirmed",
+      "evidence": "Both lineages verified against primaries, not against each other. HSUS T 444 read off the page: 1900 = 542. Galbi CS Ad Dataset sheet 'estimates 1900-34' row for 1900 gives Coen total = 450, with the sheet's own source line: 'Coen total for 1900 to 1918 is from Robert Coen, \"Spending Spree,\" p. 126, Advertising Age Special Issue: The Advertising Century (1999).' The record carries both and widens rather than averaging, which is the correct handling of a 20 percent lineage conflict.",
+      "sources_consulted": [
+        {"name": "HSUS chapter T, p. 857, series T 444", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"},
+        {"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34'", "url": "http://www.galbithink.org/cs-ad-dataset.xls"}
+      ],
+      "recomputation": [{"expr": "542/450 - 1", "expected": 0.2044}]
+    },
+    {
+      "claim_id": "e1-scale-005",
+      "verdict": "confirmed",
+      "evidence": "HSUS T 444 1909 = 1,142 read off the page; Galbi sheet 'estimates 1900-34' Coen total 1909 = 1000. Both exact.",
+      "sources_consulted": [
+        {"name": "HSUS chapter T, p. 857, series T 444", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"},
+        {"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34'", "url": "http://www.galbithink.org/cs-ad-dataset.xls"}
+      ]
+    },
+    {
+      "claim_id": "e1-scale-006",
+      "verdict": "confirmed",
+      "evidence": "HSUS T 444 1914 = 1,302 read off the page; Galbi sheet Coen total 1914 = 1100. Both exact.",
+      "sources_consulted": [
+        {"name": "HSUS chapter T, p. 857, series T 444", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"},
+        {"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34'", "url": "http://www.galbithink.org/cs-ad-dataset.xls"}
+      ]
+    },
+    {
+      "claim_id": "e1-scale-007",
+      "verdict": "confirmed",
+      "evidence": "HSUS T 444 1917 = 1,627 read off the page; Galbi sheet Coen total 1917 = 1380. Both exact. The adjacent years also read out as the record's boundary note states them (1916 = 1,468; 1918 = 1,468; 1919 = 2,282), so 1917 is a local peak in the HSUS lineage.",
+      "sources_consulted": [
+        {"name": "HSUS chapter T, p. 857, series T 444", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"},
+        {"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34'", "url": "http://www.galbithink.org/cs-ad-dataset.xls"}
+      ]
+    },
+    {
+      "claim_id": "e1-scale-008",
+      "verdict": "confirmed",
+      "evidence": "Census of Manufactures 1919, Printing and Publishing bulletin, Table 12, p. 13, read from a 900 dpi render. 1914 column: Newspapers and periodicals total $419,209,701 = subscriptions and sales $163,577,090 + advertising $255,632,611. The figure is exact and internally consistent with every other cell in the column. A grade is correct: this is an official enumeration.",
+      "sources_consulted": [{"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"}],
+      "recomputation": [{"expr": "163577090 + 255632611", "expected": 419209701}]
+    },
+    {
+      "claim_id": "e1-scale-009",
+      "verdict": "confirmed",
+      "evidence": "Every ratio in the method re-derived from the MeasuringWorth nominal GDP series pulled independently (1867 8,465; 1880 10,592; 1900 21,197; 1909 32,540; 1914 36,831 - all exact matches to the record's denominators). 1100/36831 = 2.99%, 1302/36831 = 3.54%, so central 3.3 with ci80 [2.6, 4.0] is honest and wide enough for a reconstructed numerator over a reconstructed denominator. Back-years also check: 1867 0.59%, 1880 1.89%, 1900 2.12-2.56%, 1909 3.07-3.51%.",
+      "sources_consulted": [{"name": "MeasuringWorth, 'What Was the US GDP Then?' nominal GDP series", "url": "https://www.measuringworth.com/datasets/usgdp/"}],
+      "recomputation": [
+        {"expr": "1100/36831*100", "expected": 2.987},
+        {"expr": "1302/36831*100", "expected": 3.535},
+        {"expr": "50/8465*100", "expected": 0.591},
+        {"expr": "200/10592*100", "expected": 1.888}
+      ]
+    },
+    {
+      "claim_id": "e1-scale-010",
+      "verdict": "confirmed",
+      "evidence": "Opened the Galbi .xls and found the constant 1.51870771642571 in cell H7 of sheet 'estimates 1900-34', exactly as the record states. Reverse-engineered its construction: it is the mean of the only two years where Coen's newspaper figure and the Census newspaper receipts both exist - 1935 (761/500 = 1.5220) and 1937 (870/574.1 = 1.51542). (1.5220 + 1.51542)/2 = 1.5187077164257. Central 1.52 is right and ci80 [1.35, 1.75] is appropriately wider than the two-point spread.",
+      "sources_consulted": [
+        {"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34'", "url": "http://www.galbithink.org/cs-ad-dataset.xls"},
+        {"name": "Galbi, 'U.S. advertising expenditure data', purple motes", "url": "https://www.purplemotes.net/2008/09/14/us-advertising-expenditure-data/"}
+      ],
+      "recomputation": [{"expr": "(761/500 + 870/574.1)/2", "expected": 1.5187077164257}],
+      "disagreement": "The record's as_of is '1935'. The factor is derived from 1935 and 1937 jointly. More importantly, the factor rests on exactly two observations, both from the mid-1930s, and Galbi applies it mechanically to every earlier year; the era file should not let downstream claims treat it as a measured wedge for 1914."
+    },
+    {
+      "claim_id": "e1-scale-011",
+      "verdict": "adjusted",
+      "evidence": "The bottom-up build double-counts the receipts-to-outlay wedge twice over. (1) The ANPA $55m national newspaper figure is already an expenditure measure, not a Census receipts measure: for 1919 Galbi's sheet carries Census newspaper receipts 373.5 against ANPA national+local 500, with Coen-basis outlay at 567.2, so ANPA sits above receipts and needs at most a 1.13 uplift, not 1.52. The record's own e1-scale-012 treats the companion ANPA figure ($220m local) as outlay and does NOT scale it - the two claims handle the same ANPA table inconsistently. (2) Galbi does not scale Census 'other periodicals' at all (1919: Census 154.8, est. 154.8), yet the record scales $71.6m by 1.52. (3) HSUS's own source note for T 444 states 'The data include the cost of preparation', so the 1.52 factor is already preparation-inclusive; the method then adds preparation a second time to move $210m to $250-270m. Removing the double counts: unscaled 55 + 71.6 + 25 = $151.6m (12.6% of $1,200m); most generous defensible scaling 62 + 108.7 + 25 = $196m (16.3%). Nothing in the build reaches 22%.",
+      "old": {"central": 22, "ci80": [14, 32]},
+      "new": {"central": 16, "unit": "percent of total US advertising outlay", "ci80": [11, 23], "grade": "C", "method": "Bottom-up on the 1914 benchmark of $1,100-1,302m. Components on a consistent expenditure basis: ANPA national newspaper space $55m (already an expenditure measure; at most a 1.13 uplift to Coen basis, giving $55-62m); Census non-newspaper periodicals $71.6m receipts, taken 70-100 percent national and left unscaled to $109m scaled, giving $50-109m; national outdoor and streetcar $15-40m. Total $150-211m against $1,100-1,302m = 11.5-19.2 percent. Preparation is NOT added separately because the Coen/HSUS total-outlay basis already includes it (HSUS chapter T source note for T 444-471).", "as_of": "1914"},
+      "reason": "The receipts-to-outlay wedge is applied to figures that are already on or near an outlay basis, and preparation is then added a second time on top of a preparation-inclusive factor. The stated interval was also skewed high: its lower bound of 14 sits above several defensible computations of the same build.",
+      "sources_consulted": [
+        {"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34' (ANPA national/local vs Census newspapers vs est. newspapers)", "url": "http://www.galbithink.org/cs-ad-dataset.xls"},
+        {"name": "HSUS chapter T, p. 855, source note for series T 444-471", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"},
+        {"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"}
+      ],
+      "recomputation": [
+        {"expr": "(55 + 71.6 + 25)/1200*100", "expected": 12.63},
+        {"expr": "(55*1.13 + 71.585505*1.51870771642571 + 25)/1200*100", "expected": 16.33},
+        {"expr": "(55*1.51870771642571 + 71.585505*1.51870771642571 + 25)/1200*100", "expected": 18.1}
+      ],
+      "disagreement": "The researcher read the 1.52 factor as a receipts-to-outlay converter that leaves preparation still to be added. The HSUS source note says the opposite: preparation is inside the Coen total that generates the factor."
+    },
+    {
+      "claim_id": "e1-scale-012",
+      "verdict": "confirmed",
+      "evidence": "Arithmetic re-derived and it holds: ANPA 1915 local incl. classified $220m less ~12 percent classified leaves ~$190m local display, plus $40-70m of local outdoor, bill posting, directories and window display = $230-260m, which the record widens to $230-310m; over $1,200m that is 19.2-25.8 percent, so central 23 with ci80 [16, 32] is honest. Critically, this claim treats the ANPA figure as already-outlay and does not scale it, which is the correct handling (verified against Galbi's 1919 row: Census newspaper receipts 373.5 vs ANPA national+local 500).",
+      "sources_consulted": [
+        {"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34' (Borden 1942 App. Table 1 p. 888, ANPA Bureau of Advertising)", "url": "http://www.galbithink.org/cs-ad-dataset.xls"}
+      ],
+      "recomputation": [{"expr": "230/1200*100", "expected": 19.17}, {"expr": "310/1200*100", "expected": 25.83}],
+      "disagreement": "If the classified share is widened upward as e1-buyers-007 now requires, local display falls to about $180m and the central drifts to roughly 22. That is inside the stated interval, so no change is forced, but the two claims are coupled."
+    },
+    {
+      "claim_id": "e1-scale-013",
+      "verdict": "confirmed",
+      "evidence": "Every step re-derived. 12 percent of Census 1914 newspaper advertising receipts ($184,047,106) = $22.1m, matching the stated 'about $22 million'; scaled by 1.51870771642571 = $33.5m outlay, matching the stated 'about $33m'; over $1,200m = 2.79 percent, so 'roughly 3 percent' holds. The ci80 [1.5, 6] comfortably spans the full 7-18 percent classified band across both benchmark totals (my computed span is 1.5 to 4.6 percent), so the interval is conservative rather than narrow, and it also absorbs the wider classified band this run assigns to e1-buyers-007 (20 percent gives 4.7 percent).",
+      "sources_consulted": [
+        {"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"},
+        {"name": "HSUS chapter T, p. 857, series T 485-486", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"}
+      ],
+      "recomputation": [
+        {"expr": "184.047106*0.12", "expected": 22.086},
+        {"expr": "184.047106*0.12*1.51870771642571/1200*100", "expected": 2.795},
+        {"expr": "184.047106*0.20*1.51870771642571/1200*100", "expected": 4.658}
+      ],
+      "disagreement": "The statement says 'about $35 million' while the method computes $33m; a trivial internal mismatch, worth tidying."
+    },
+    {
+      "claim_id": "e1-scale-014",
+      "verdict": "adjusted",
+      "evidence": "The load-bearing step - interpolating $300m of 1920 direct mail back to '$200-250m' for 1914 - fails three independent cross-checks. (1) Share of total: $300m against Coen's 1920 total of $2,480m is 12.1 percent, against HSUS T 444's $2,935m it is 10.2 percent; applying either share to 1914 gives about $133m, not $200-250m. (2) Price level: the CPI roughly doubled 1914-1920, so $300m of 1920 direct mail is about $150m at 1914 prices for the same real volume, and real volume grew over the period, so the 1914 nominal figure must sit well under $150m on that route. (3) Upper bound from the next observed year: I read HSUS series T 464 off p. 857 and direct mail in 1935 was $282m against a T 444 total of $1,690m, i.e. 16.7 percent - a Depression-elevated share. The defensible 1914 band is therefore roughly 10-17 percent of total, or $120-190m, not $200-250m. Rebuilding the record's own components with that: 120-190 (direct mail) + 30-45 (mail-order keyed print) + 30-50 (patent medicine keyed press) + 40-70 (premiums, samples, novelties) = $220-355m, or 18.3-29.6 percent of $1,200m. Central lands near 24, not 32, and the superlative fails: at 24 percent direct response is statistically indistinguishable from local retail at 23 percent.",
+      "old": {"central": 32, "ci80": [20, 45], "statement": "Direct-response money ... was roughly 32 percent of total US advertising outlay at the 1914 benchmark, the single largest money type in the era."},
+      "new": {"statement": "Direct-response money - catalogues, direct mail, and keyed print advertising bought by mail-order houses and patent-medicine makers - was roughly 24 percent of total US advertising outlay at the 1914 benchmark, comparable in size to local retail and the largest or joint-largest money type in the era.", "central": 24, "unit": "percent of total US advertising outlay", "ci80": [17, 34], "grade": "C", "method": "Direct mail and catalogues put at about $300m in 1920 (1926 Britannica). Back-cast three ways rather than one: direct mail was 10.2-12.1 percent of the 1920 total (Coen $2,480m / HSUS $2,935m) and 16.7 percent of the 1935 total (HSUS T 464 $282m over T 444 $1,690m), and the price level roughly doubled 1914-1920; the resulting 1914 band is $120-190m. Add mail-order houses' keyed print space $30-45m, patent-medicine keyed press $30-50m, and premiums, samples and novelties $40-70m. Total $220-355m against $1,100-1,302m. The superlative is dropped: at this level direct response and local retail are within the noise of each other.", "as_of": "1914"},
+      "reason": "The 1920-to-1914 back-cast was done on an assumed mail-volume growth path with no cross-check; three independent cross-checks (share of total in 1920, share of total in 1935, and the 1914-1920 price level) all put 1914 direct mail at $120-190m rather than $200-250m. The 'single largest money type' superlative does not survive the corrected magnitude.",
+      "sources_consulted": [
+        {"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource): 'Figures obtained in 1920 estimated the total approximate amount spent in direct-mail advertising to be $300,000,000'", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"},
+        {"name": "HSUS chapter T, p. 857, series T 464 (direct mail) and T 444 (total)", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"},
+        {"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34'", "url": "http://www.galbithink.org/cs-ad-dataset.xls"}
+      ],
+      "recomputation": [
+        {"expr": "300/2480*100", "expected": 12.1},
+        {"expr": "300/2935*100", "expected": 10.22},
+        {"expr": "300/2480*1100", "expected": 133.06},
+        {"expr": "282/1690*100", "expected": 16.69},
+        {"expr": "220/1200*100", "expected": 18.33},
+        {"expr": "355/1200*100", "expected": 29.58}
+      ],
+      "disagreement": "CROSS-CLAIM CONSEQUENCE for the orchestrator: with e1-scale-011 at 16 and this claim at 24, the four money types sum to 16+23+3+24 = 66 percent, leaving a 34 percent unallocated residual, not the 20 percent the method note asserts. A 34 percent residual is defensible on this deliberately broad total-outlay basis (preparation cost alone can be 15-20 percent of it, and the basis also carries window display, premiums, house organs, institutional and political money), but the era file's stated arithmetic - 'the four money types plus an unallocated residual of roughly 20 percent ... sum to the total' - must be restated."
+    },
+    {
+      "claim_id": "e1-pricing-001",
+      "verdict": "adjusted",
+      "evidence": "The 10-50 percent range is confirmed verbatim from the primary cited paper: Horsky & Zeithammer, p. 6, 'the commissions varied between 10% and 50%'. The second cited source does not support the claim as a US statement. The 1926 Britannica's 50 percent line is US and does support the ceiling ('The agent contracted for a certain amount of space with a publication and then sold it for whatever he could, receiving sometimes as high as 50% of the cost of the space as his commission'), but its only 10 percent figure is British and from the 1920s, not the pre-standardisation US floor: 'The policy of the Association of British Advertising Agents was directed to ... make the minimum agency remuneration 10%'. Value and interval stand on Horsky & Zeithammer alone; the citation needs qualifying so a downstream reader does not treat Britannica as corroborating the floor.",
+      "old": {"sources": [{"name": "Horsky & Zeithammer, 'The Rise of 15%'"}, {"name": "1926 Encyclopaedia Britannica, 'Advertising'"}]},
+      "new": {"central": 25, "unit": "percent of space price", "ci80": [10, 50], "grade": "B", "sources": [{"name": "Horsky & Zeithammer, 'The Rise of 15%: Emergence and Persistence of Commissions in Advertising', p. 6 ('the commissions varied between 10% and 50%')", "url": "https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/8/1090/files/2023/02/the_rise_of-15_emergence_and_persistence_of_commissions_in_advertising.pdf"}, {"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource) - corroborates the 50 percent ceiling for early US agents only; its 10 percent figure is a 1920s British minimum, not a US floor", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"}], "as_of": "1880"},
+      "reason": "Second cited source mis-scoped: its 10 percent figure is British and from the 1920s, so it does not corroborate the US pre-standardisation floor as the citation implies.",
+      "sources_consulted": [
+        {"name": "Horsky & Zeithammer, 'The Rise of 15%' (full text)", "url": "https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/8/1090/files/2023/02/the_rise_of-15_emergence_and_persistence_of_commissions_in_advertising.pdf"},
+        {"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource, full text)", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"}
+      ]
+    },
+    {
+      "claim_id": "e1-pricing-002",
+      "verdict": "confirmed",
+      "evidence": "Both quoted phrases verified verbatim in the source PDF: 'This rate varied, experimentally in the beginning, but eventually stabilized at 15% by early 1890s' and 'By the 1890s, the open contract with 15% commission became standard practice in the advertising industry.' The 1893 as_of is separately supported in the same paper: 'As early as 1893 the American Newspaper Association adopted a resolution stating that commissions would be paid only to recognized advertising agents and not to advertisers.'",
+      "sources_consulted": [{"name": "Horsky & Zeithammer, 'The Rise of 15%', pp. 8-9", "url": "https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/8/1090/files/2023/02/the_rise_of-15_emergence_and_persistence_of_commissions_in_advertising.pdf"}]
+    },
+    {
+      "claim_id": "e1-pricing-003",
+      "verdict": "confirmed",
+      "evidence": "The rate is confirmed from a source that quotes the Journal's own announcement: 'In fact, this very issue announces that the advertising rate is being raised to $2.00 per agate line or $28 per inch of advertising' (1887). The $500,000 annual advertising revenue by 1897 is separately corroborated. Note that the arithmetic is internally consistent - 14 agate lines to the column inch at $2.00 gives $28 - which is a good sign the two figures come from the same rate card rather than being assembled.",
+      "sources_consulted": [
+        {"name": "Collecting Old Magazines, 'The Ladies Home Journal develops under Louisa Knapp Curtis and Edward W. Bok' (quotes the 1887 issue)", "url": "https://collectingoldmagazines.com/magazines/ladies-home-journal/"},
+        {"name": "Encyclopedia.com, 'The Ladies' Home Journal and Practical Housekeeper'", "url": "https://www.encyclopedia.com/history/news-wires-white-papers-and-books/ladies-home-journal-and-practical-housekeeper"}
+      ],
+      "recomputation": [{"expr": "2.00*14", "expected": 28}],
+      "disagreement": "I initially could not retrieve the $500,000 figure from the cited Encyclopedia.com page and the page also carries a '$500,000' capitalisation figure for Curtis Publishing in 1891, which is a live conflation hazard. The advertising-revenue reading is corroborated elsewhere, so the claim stands, but the era file should cite the sentence rather than the page."
+    },
+    {
+      "claim_id": "e1-pricing-004",
+      "verdict": "adjusted",
+      "evidence": "The 15 percent value is solid and is not in dispute: Horsky & Zeithammer quote Haase (1934, p. 3) that the uniform rate agents set was '15%', and separately establish that 15 percent was customary from the early 1890s and enforced by publisher recognition from 1893. What fails is the scope clause 'the only intermediary cut in the chain'. The cited evidence (Haase 1934) is explicitly about the 1918 rate - 'namely 15%, is one which we said to reflect costs of doing business in 1918' - which is inside era 2 by the record's own boundary note, and it says nothing about exclusivity. The record's own boundary note (4) concedes the industry-wide standardisation is a 1918 act; asserting an exclusive 1917 take rate on 1918 evidence over-reaches. Newspaper special representatives, who sold national space on behalf of publishers and were paid by publishers, were an established second intermediary layer by 1917; I could not source a rate for them within this run, which is precisely why the exclusivity clause should not be asserted.",
+      "old": {"statement": "The agency layer's take rate at the end of the era was 15 percent of gross billings, the only intermediary cut in the chain; publishers retained the remaining 85 percent of the card price."},
+      "new": {"statement": "The agency layer's customary take rate at the end of the era was 15 percent of gross billings, and publishers retained the remaining 85 percent of the card price. Fifteen percent was customary from the early 1890s and enforced from 1893 by publisher recognition; its industry-wide standardisation by the 4As is a 1918 act (era 2). The agency commission was the principal but not demonstrably the only intermediary cut: publishers also paid national special representatives, whose rate is not established here.", "central": 15, "unit": "percent of gross billings taken by the intermediary", "ci80": [15, 15], "grade": "B", "as_of": "1917"},
+      "reason": "The exclusivity clause ('the only intermediary cut in the chain') is unsupported by the cited source, and the cited Haase evidence is dated 1918, one year outside the claim's as_of and inside era 2 by the record's own boundary rule. Value and interval unchanged.",
+      "sources_consulted": [{"name": "Horsky & Zeithammer, 'The Rise of 15%', p. 9 (quoting Haase 1934, pp. 3 and 27)", "url": "https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/8/1090/files/2023/02/the_rise_of-15_emergence_and_persistence_of_commissions_in_advertising.pdf"}],
+      "disagreement": "The researcher treats the 15 percent as fully in place and exclusive at 1917; the sources support 'customary and enforced' at 1917 and 'standardised' at 1918, and are silent on exclusivity."
+    },
+    {
+      "claim_id": "e1-medium-001",
+      "verdict": "adjusted",
+      "evidence": "Both figures are wrong, and the record's own arithmetic proves it before any external check: $184,147,100 + $71,585,595 = $255,732,695, which contradicts the $255,632,611 the record asserts in e1-scale-008, by $100,084. I resolved it against the primary. Census of Manufactures 1919, Table 12, p. 13, read at 900 dpi: newspapers advertising 1914 = $184,047,106 and periodicals other than newspapers advertising 1914 = $71,585,505. These reconcile exactly in three directions: 184,047,106 + 71,585,505 = 255,632,611 (the stated advertising total); 99,541,860 + 184,047,106 = 283,588,966 (the stated newspapers total); 99,541,860 + 64,035,230 = 163,577,090 (the stated subscriptions total). Galbi's spreadsheet, tabulating Borden's copy of the same census, independently rounds these to 184.0 and 71.6, not 184.1. The whole 1909 column is self-consistent on the same reading, which validates the digit resolution.",
+      "old": {"statement": "US newspapers took $184,147,100 of advertising receipts in 1914; all other periodicals took $71,585,595.", "central": 184.1, "ci80": [184.1, 184.1]},
+      "new": {"statement": "US newspapers took $184,047,106 of advertising receipts in 1914; all other periodicals took $71,585,505.", "central": 184.0, "unit": "USD millions (current), newspaper advertising receipts", "ci80": [184.0, 184.0], "grade": "A", "as_of": "1914"},
+      "reason": "Transcription errors in both figures. The stated pair does not sum to the record's own A-grade 1914 advertising total; the primary census table read at high resolution gives $184,047,106 and $71,585,505, which reconcile exactly with every other cell in the column.",
+      "sources_consulted": [
+        {"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12, p. 13", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"},
+        {"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34' (Census via Borden 1942 Table 1 p. 48: 1914 newspapers 184.0, other periodicals 71.6)", "url": "http://www.galbithink.org/cs-ad-dataset.xls"}
+      ],
+      "recomputation": [
+        {"expr": "184147100 + 71585595", "expected": 255732695},
+        {"expr": "184047106 + 71585505", "expected": 255632611},
+        {"expr": "99541860 + 184047106", "expected": 283588966}
+      ],
+      "disagreement": "The researcher read a zero as a one and a zero as a nine off a degraded scan and did not run the sum against their own e1-scale-008 total, which would have caught it."
+    },
+    {
+      "claim_id": "e1-medium-002",
+      "verdict": "confirmed",
+      "evidence": "Re-derived from the corrected primary figures: 184,047,106 / 255,632,611 = 71.997 percent. The stated 72 percent and ci80 [71, 73] hold exactly. Grade A is correct.",
+      "sources_consulted": [{"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12, p. 13", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"}],
+      "recomputation": [{"expr": "184047106/255632611*100", "expected": 71.997}],
+      "disagreement": "The parenthetical '$184.1m of $255.6m' should read '$184.0m of $255.6m' once e1-medium-001 is corrected. The percentage is unaffected."
+    },
+    {
+      "claim_id": "e1-medium-003",
+      "verdict": "confirmed",
+      "evidence": "Verbatim from the cited USPS document: 'Between 1880 and 1930, third-class mail volume soared. From an estimated 301 million pieces mailed in 1880, third-class mail volume grew to more than 6 billion pieces in 1930.' Exact match on both endpoints. Note that the cited URL is live but rejects default curl user agents with a 404; it resolves correctly with a browser user agent, so it is not a dead link.",
+      "sources_consulted": [{"name": "USPS, 'Advertising Mail: A Brief History' (retrieved with browser user agent)", "url": "https://about.usps.com/who/profile/history/pdf/advertising-mail-history.pdf"}]
+    },
+    {
+      "claim_id": "e1-medium-004",
+      "verdict": "confirmed",
+      "evidence": "USPS document, verbatim: 'by 1874 his catalog had grown to 72 pages; by 1897, it was nearly 1,000 pages and Ward had annual sales of around $7 million.' The 3 million catalogues by 1904 is independently corroborated ('By 1904, the company distributed three million catalogs that weighed four pounds each'). Both halves stand.",
+      "sources_consulted": [
+        {"name": "USPS, 'Advertising Mail: A Brief History'", "url": "https://about.usps.com/who/profile/history/pdf/advertising-mail-history.pdf"},
+        {"name": "EBSCO Research Starters, 'Montgomery Ward Launches a Mail-Order Business'", "url": "https://www.ebsco.com/research-starters/history/montgomery-ward-launches-mail-order-business"}
+      ]
+    },
+    {
+      "claim_id": "e1-medium-005",
+      "verdict": "confirmed",
+      "evidence": "Every number in the method re-derived and correct: 255.632611/1302 = 19.63 percent (record: 19.6), 255.632611/1100 = 23.24 percent (record: 23.2), and scaling by 1.51870771642571 gives 29.8-35.3 percent (record: 'about 30-35 percent'). Central 21 with ci80 [17, 27] spans the unscaled range honestly.",
+      "sources_consulted": [
+        {"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"},
+        {"name": "HSUS chapter T, p. 857, series T 444", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"}
+      ],
+      "recomputation": [
+        {"expr": "255.632611/1302*100", "expected": 19.63},
+        {"expr": "255.632611/1100*100", "expected": 23.24},
+        {"expr": "255.632611*1.51870771642571/1302*100", "expected": 29.82},
+        {"expr": "255.632611*1.51870771642571/1100*100", "expected": 35.29}
+      ],
+      "disagreement": "FRAMING HAZARD for downstream prose. The 21 percent central is a publisher-receipts numerator over an advertiser-outlay denominator, and the method itself says the like-for-like figure is 30-35 percent. A reader will take 'print was 21 percent of advertising in 1914' as a market-share statement, which is false. The claim's own trailing clause is the only thing preventing the misread, and any chart or sentence built on this number must carry it."
+    },
+    {
+      "claim_id": "e1-sellers-001",
+      "verdict": "confirmed",
+      "evidence": "Census of Manufactures 1919, Table 19, p. 19, read directly: 'All classes: Number ... 1914 = 22,754' and 'Aggregate circulation per issue ... 1914 = 205,594,907'. Both exact, both from an official enumeration, so grade A and the zero-width interval are correct. The era summary's '2,580 dailies' also checks out in the same table.",
+      "sources_consulted": [{"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 19, p. 19", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"}]
+    },
+    {
+      "claim_id": "e1-sellers-002",
+      "verdict": "confirmed",
+      "evidence": "Census Table 19 read directly: 1914 = 205,594,907, 1909 = 164,463,040. The table prints its own per-cent-of-increase for 1909-1914 as 25.0, which matches my recomputation of 25.01 percent. Grade A correct.",
+      "sources_consulted": [{"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 19, p. 19", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"}],
+      "recomputation": [{"expr": "205594907/164463040*100 - 100", "expected": 25.0098}]
+    },
+    {
+      "claim_id": "e1-sellers-003",
+      "verdict": "confirmed",
+      "evidence": "Re-derived from the corrected primary figures: 184,047,106 / (184,047,106 + 99,541,860) = 64.899 percent. The stated 64.9 and ci80 [64, 66] hold. Independent corroboration of the direction of travel: Horsky & Zeithammer n.3 reports (from Pope 1983) that circulation was 34 percent of newspaper revenue by 1919, i.e. advertising 66 percent, and the 1919 census column gives 373,501,890/566,321,409 = 65.95 percent - the two agree to within a tenth of a point, which validates the Pope series against the census.",
+      "sources_consulted": [
+        {"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12, p. 13", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"},
+        {"name": "Horsky & Zeithammer, 'The Rise of 15%', n.3", "url": "https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/8/1090/files/2023/02/the_rise_of-15_emergence_and_persistence_of_commissions_in_advertising.pdf"}
+      ],
+      "recomputation": [{"expr": "184047106/(184047106+99541860)*100", "expected": 64.899}],
+      "disagreement": "The parenthetical should read '$184.0 million', not '$184.1 million' (see e1-medium-001). The 64.9 percent value is unaffected."
+    },
+    {
+      "claim_id": "e1-sellers-004",
+      "verdict": "confirmed",
+      "evidence": "Traced to the cited footnote and read verbatim: Horsky & Zeithammer n.3, 'In 1879 56% of newspaper revenue came from circulation sales. By 1919 this percentage decreased to 34%, and the remainder two thirds of newspaper revenues was generated from advertising (Pope 1983).' 100 - 56 = 44 percent advertising in 1879, so the derivation is sound. The same footnote's 1919 figure validates against the census to within 0.05 points (see e1-sellers-003), which is strong evidence the Pope series is reliable at the 1879 end too. The 'roughly twenty points across the era' framing checks: 64.9 - 44 = 20.9.",
+      "sources_consulted": [
+        {"name": "Horsky & Zeithammer, 'The Rise of 15%', n.3 (citing Pope 1983)", "url": "https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/8/1090/files/2023/02/the_rise_of-15_emergence_and_persistence_of_commissions_in_advertising.pdf"},
+        {"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12 (1919 column, for the cross-check)", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"}
+      ],
+      "recomputation": [{"expr": "100-56", "expected": 44}, {"expr": "373501890/566321409*100", "expected": 65.95}]
+    },
+    {
+      "claim_id": "e1-sellers-005",
+      "verdict": "confirmed",
+      "evidence": "The cited source carries both halves: the October 1893 cut to ten cents, and 'Advertising revenues alone averaged $25,000 to $35,000 per issue and more.' Central 30,000 with ci80 [25000, 35000] matches the stated range.",
+      "sources_consulted": [{"name": "Encyclopedia.com, 'Munsey's Magazine'", "url": "https://www.encyclopedia.com/media/encyclopedias-almanacs-transcripts-and-maps/munseys-magazine"}],
+      "disagreement": "The source says '$25,000 to $35,000 per issue and more', so $35,000 is a soft rather than hard ceiling and the interval truncates the upper tail. Also, the source gives the range for a 'turn-of-the-century' period rather than pinning it to the record's as_of of 1897; Munsey's circulation was 500,000 in 1895 and 700,000 in 1897, so the 1897 assignment is plausible but not stated."
+    },
+    {
+      "claim_id": "e1-sellers-006",
+      "verdict": "adjusted",
+      "evidence": "The first half is well attested: by 1905 Collier's Street Railways Advertising Company sold card space in about 21,000 streetcars across 35 states, with one variant putting it at over 22,000 streetcars in 35 states plus Canada and Mexico - both inside the stated ci80 [16000, 26000]. The second half does not survive. I could not source 'over three-quarters of the US streetcar-card market' anywhere, and the cited page does not contain it: a direct read of streetcaradvertisinghistory.com/home/learn-more returned neither the streetcar count nor any market-share figure. A competing summary puts Collier's pre-Depression peak at about 5,000 streetcars in 150 cities, which is irreconcilable with the 21,000 figure and signals that the market-share literature here is unreliable. The share clause should be dropped or carried as an explicitly unsourced characterisation.",
+      "old": {"statement": "Barron Collier's Street Railways Advertising Company sold card space inside about 21,000 streetcars across 35 states by 1905 and eventually controlled over three-quarters of the US streetcar-card market.", "sources": [{"name": "Streetcar Advertising History (Woodson J. Savage III), 'Learn More'", "url": "https://www.streetcaradvertisinghistory.com/home/learn-more"}]},
+      "new": {"statement": "Barron Collier's Street Railways Advertising Company sold card space inside about 21,000 streetcars across 35 states by 1905, consolidating the leading streetcar advertising firms into a single selling unit and building the largest streetcar advertising business in the country. No sourced figure for its market share was found.", "central": 21000, "unit": "streetcars under contract", "ci80": [16000, 26000], "grade": "B", "sources": [{"name": "Streetcar Advertising History (Woodson J. Savage III), '1905 Streetcar Advertising Map'", "url": "https://www.streetcaradvertisinghistory.com/home/learn-more/1905-streetcar-advertising-map"}, {"name": "American National Biography, 'Collier, Barron Gift (1873-1939), advertising entrepreneur and capitalist'", "url": "https://www.anb.org/view/10.1093/anb/9780198606697.001.0001/anb-9780198606697-e-1000308"}], "as_of": "1905"},
+      "reason": "The 'over three-quarters of the US streetcar-card market' clause is not in the cited source and could not be sourced anywhere; the cited landing page does not carry the streetcar count either, so the citation needs redirecting to the sub-page that does.",
+      "sources_consulted": [
+        {"name": "Streetcar Advertising History, 'Learn More' (checked, does not contain either figure)", "url": "https://www.streetcaradvertisinghistory.com/home/learn-more"},
+        {"name": "Streetcar Advertising History, '1905 Streetcar Advertising Map'", "url": "https://www.streetcaradvertisinghistory.com/home/learn-more/1905-streetcar-advertising-map"}
+      ]
+    },
+    {
+      "claim_id": "e1-creators-001",
+      "verdict": "adjusted",
+      "evidence": "The 25 percent is doubly confirmed and the claim's substance is sound. Horsky & Zeithammer, p. 5: 'The first such agent was Volney B. Palmer in Philadelphia in 1842 (Oswega Palladium, 1846). Palmer considered himself a \"newspaper agent\" working on behalf of many newspapers that generally compensated him with 25 percent of the revenue he generated.' The Pennsylvania Center for the Book text reads 'Palmer was able to charge publishers a commission (widely believed to be on a 25 per cent basis)'. But the cited URL is dead: pabook2.libraries.psu.edu no longer resolves at all (DNS failure, not a 404). The live successor is pabook.libraries.psu.edu. Separately, the founding-year field is now a three-way conflict, not the two-way one the record's event note describes: Penn State says 1841, Horsky & Zeithammer say 1842 from an 1846 newspaper notice, and the 1926 Britannica says 'The first advertising agency was established in Philadelphia in 1840 by Volney B. Palmer.'",
+      "old": {"sources": [{"name": "Pennsylvania Center for the Book, 'First Advertising Agency'", "url": "http://pabook2.libraries.psu.edu/palitmap/AdCo.html"}], "as_of": "1841"},
+      "new": {"statement": "Volney B. Palmer, the first or among the first US advertising agents, was paid by publishers at a commission widely reported as about 25 percent of the space price he sold. Sources date his agency to 1840 (1926 Britannica), 1841 (Pennsylvania Center for the Book) or 1842 (Horsky & Zeithammer, from an 1846 newspaper notice).", "central": 25, "unit": "percent of space price", "ci80": [20, 30], "grade": "B", "sources": [{"name": "Pennsylvania Center for the Book, 'Business Revolution: The Ad Agency' (live successor page; cites Donald R. Holland and Hower 1939)", "url": "https://pabook.libraries.psu.edu/literary-cultural-heritage-map-pa/feature-articles/business-revolution-ad-agency"}, {"name": "Horsky & Zeithammer, 'The Rise of 15%', p. 5", "url": "https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/8/1090/files/2023/02/the_rise_of-15_emergence_and_persistence_of_commissions_in_advertising.pdf"}], "as_of": "1841-1842"},
+      "reason": "Cited URL is dead at the DNS level and must be replaced with the live Penn State page. The flat 'the first US advertising agent' superlative is hedged in the record's own event note but asserted here, and the founding year is a three-way not two-way conflict once the 1926 Britannica's 1840 is counted.",
+      "sources_consulted": [
+        {"name": "Pennsylvania Center for the Book, 'Business Revolution: The Ad Agency'", "url": "https://pabook.libraries.psu.edu/literary-cultural-heritage-map-pa/feature-articles/business-revolution-ad-agency"},
+        {"name": "Horsky & Zeithammer, 'The Rise of 15%'", "url": "https://bpb-us-e2.wpmucdn.com/sites.utdallas.edu/dist/8/1090/files/2023/02/the_rise_of-15_emergence_and_persistence_of_commissions_in_advertising.pdf"},
+        {"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource)", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"}
+      ]
+    },
+    {
+      "claim_id": "e1-creators-002",
+      "verdict": "adjusted",
+      "evidence": "The substance holds verbatim on the live successor page: 'by 1849 \"The American Newspaper Subscription and Advertising Agency of Volney B. Palmer, Esq., claimed to be the sole representative of 1,300 of the estimated 2,000 newspapers published\"'. The record's grade C, its explicit self-report flag, and its downward-widened interval are all the right treatment. Only the URL fails: pabook2.libraries.psu.edu no longer resolves. The live page also names its own underlying sources (Donald R. Holland's Palmer study, Hower 1939, M'Elroy's Philadelphia Directory 1842 and 1849), which is worth carrying.",
+      "old": {"sources": [{"name": "Pennsylvania Center for the Book, 'First Advertising Agency'", "url": "http://pabook2.libraries.psu.edu/palitmap/AdCo.html"}]},
+      "new": {"statement": "Palmer's agency claimed in 1849 to be the sole representative of 1,300 of the roughly 2,000 newspapers then published in the United States. This is a self-reported claim from the agency's own advertising.", "central": 1300, "unit": "newspapers represented", "ci80": [700, 1400], "grade": "C", "method": "Self-reported agency claim carried in the Pennsylvania Center for the Book account, which sources it to Donald R. Holland's study of Palmer and to M'Elroy's Philadelphia Directory (1849); no independent verification found, so the interval is widened downward to allow substantial puffery while keeping the reported figure as the upper bound.", "sources": [{"name": "Pennsylvania Center for the Book, 'Business Revolution: The Ad Agency'", "url": "https://pabook.libraries.psu.edu/literary-cultural-heritage-map-pa/feature-articles/business-revolution-ad-agency"}], "as_of": "1849"},
+      "reason": "Cited URL is dead at the DNS level; replaced with the live Penn State page carrying the identical quotation, and the method note now records the underlying sources that page names.",
+      "sources_consulted": [{"name": "Pennsylvania Center for the Book, 'Business Revolution: The Ad Agency'", "url": "https://pabook.libraries.psu.edu/literary-cultural-heritage-map-pa/feature-articles/business-revolution-ad-agency"}]
+    },
+    {
+      "claim_id": "e1-creators-003",
+      "verdict": "confirmed",
+      "evidence": "Opened the Galbi .xls and read the N.W. Ayer gross receipts column in sheet 'estimates 1900-34' directly: 1913 = 10.41, 1917 = 18.58. The sheet's own source line reads 'N.W. Ayer, gross receipts: from Hower, Ralph M., History of an Advertising Agency (Cambridge: Harvard University Press, 1939) Table 15, p. 536', matching the record's citation exactly. The intervening years (1914 10.91, 1915 11.6, 1916 15.26) form a coherent series, which is a good sign the two endpoints are not transcription slips.",
+      "sources_consulted": [{"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34' (Hower 1939 Table 15, p. 536)", "url": "http://www.galbithink.org/cs-ad-dataset.xls"}]
+    },
+    {
+      "claim_id": "e1-creators-004",
+      "verdict": "confirmed",
+      "evidence": "Both divisions re-derived: 18.58/1627 = 1.142 percent and 18.58/1380 = 1.346 percent, exactly the 1.14 and 1.35 the method states. Central 1.2 with ci80 [0.9, 1.7] spans them with room for the 'gross receipts vs billings' ambiguity the method flags. Sanity check on the concept: if $18.58m were commission income rather than billings, implied billings of about $124m would be 7.6-9 percent of the national total for a single agency, which no account of 1917 supports - so the billings reading is the right one and the claim's fragmentation conclusion holds.",
+      "sources_consulted": [
+        {"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34' (Hower 1939 Table 15)", "url": "http://www.galbithink.org/cs-ad-dataset.xls"},
+        {"name": "HSUS chapter T, p. 857, series T 444", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"}
+      ],
+      "recomputation": [{"expr": "18.58/1627*100", "expected": 1.142}, {"expr": "18.58/1380*100", "expected": 1.346}]
+    },
+    {
+      "claim_id": "e1-creators-005",
+      "verdict": "adjusted",
+      "evidence": "The value is confirmed against the organisation's own founding record: 'On June 4th, 1917, at City Hall in St. Louis, Missouri, prominent advertising executives came together from all over the U.S. and established the American Association of Advertising Agencies with 111 charter member agencies.' Date, city and count all exact. The 1926 Britannica independently corroborates the founding year ('In 1917 the American Association of Advertising Agencies was organised'). The defect is the citation: a B-grade claim resting solely on Wikipedia does not meet the rigor spec's 'credible named reporting with a track record', and the 4As' own record is both stronger and freely available.",
+      "old": {"sources": [{"name": "Wikipedia, 'American Association of Advertising Agencies'", "url": "https://en.wikipedia.org/wiki/American_Association_of_Advertising_Agencies"}]},
+      "new": {"statement": "The American Association of Advertising Agencies was founded on 4 June 1917 at City Hall in St. Louis with 111 charter member agencies, drawn from five regional groups.", "central": 111, "unit": "charter member agencies", "ci80": [111, 111], "grade": "B", "sources": [{"name": "4As, '4As Founded' (association's own founding record)", "url": "https://www.aaaa.org/blog/timeline-event/founds-4as/"}, {"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource) - corroborates the 1917 founding", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"}], "as_of": "1917-06-04"},
+      "reason": "Sole source was Wikipedia, which does not merit grade B under the rigor spec. Replaced with the 4As' own founding record, which carries the identical date, city and count, plus independent 1926 corroboration of the year.",
+      "sources_consulted": [
+        {"name": "4As, '4As Founded'", "url": "https://www.aaaa.org/blog/timeline-event/founds-4as/"},
+        {"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource)", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"}
+      ],
+      "disagreement": "The 'five regional groups' detail is repeated widely but I did not find it in the 4As' own account within this run. It is a low-stakes rider on a confirmed count; flagging rather than striking it."
+    },
+    {
+      "claim_id": "e1-buyers-001",
+      "verdict": "adjusted",
+      "evidence": "The figure is confirmed on substance and verbatim: 'N. W. Ayer's accounts show that patent medicine was their most lucrative commodity category, carrying 26 percent of their total revenue in 1878, and their second-most lucrative commodity in 1900, carrying 15 percent.' But the cited source does not say it. I read the cited Hagley page directly and it contains no mention of N. W. Ayer and none of the revenue figures; it is a general exhibit on patent-medicine advertising and branding. The Hagley patent-medicine landing page likewise carries neither. The sentence traces to the New York Academy of Medicine Center for History's 'Books, Health and History' blog.",
+      "old": {"sources": [{"name": "Hagley Museum and Library, 'Advertising and Branding - Patent Medicine'", "url": "https://www.hagley.org/research/digital-exhibits/advertising-and-branding"}]},
+      "new": {"central": 26, "unit": "percent of agency revenue", "ci80": [24, 28], "grade": "B", "sources": [{"name": "New York Academy of Medicine, Center for History, 'Books, Health and History' (N. W. Ayer's accounts: patent medicine 26 percent of total revenue, 1878)", "url": "https://nyamcenterforhistory.org/tag/advertisements/"}], "as_of": "1878"},
+      "reason": "Cited source does not contain the claim. Verified the cited Hagley page directly: no mention of N. W. Ayer and no revenue percentages. Citation redirected to the source that actually carries the sentence.",
+      "sources_consulted": [
+        {"name": "Hagley Museum and Library, 'Advertising and Branding' (checked, does not contain the claim)", "url": "https://www.hagley.org/research/digital-exhibits/advertising-and-branding"},
+        {"name": "Hagley Museum and Library, 'Patent Medicine' (checked, does not contain the claim)", "url": "https://www.hagley.org/research/digital-exhibits/patent-medicine"},
+        {"name": "New York Academy of Medicine, 'Books, Health and History'", "url": "https://nyamcenterforhistory.org/tag/advertisements/"}
+      ],
+      "disagreement": "The replacement source is itself a museum blog reporting from Ayer's accounts without a page citation. Grade B is retained on the strength of the institution, but the underlying primary is almost certainly Hower (1939) on the Ayer records, and the era file would be stronger citing it."
+    },
+    {
+      "claim_id": "e1-buyers-002",
+      "verdict": "adjusted",
+      "evidence": "Same sentence, same verification, same citation failure as e1-buyers-001: the 15 percent second-place figure for 1900 is confirmed verbatim from the NYAM Center for History text, and the cited Hagley page contains neither it nor any reference to N. W. Ayer.",
+      "old": {"sources": [{"name": "Hagley Museum and Library, 'Advertising and Branding - Patent Medicine'", "url": "https://www.hagley.org/research/digital-exhibits/advertising-and-branding"}]},
+      "new": {"central": 15, "unit": "percent of agency revenue", "ci80": [13, 17], "grade": "B", "sources": [{"name": "New York Academy of Medicine, Center for History, 'Books, Health and History' (N. W. Ayer's accounts: patent medicine second-most lucrative at 15 percent, 1900)", "url": "https://nyamcenterforhistory.org/tag/advertisements/"}], "as_of": "1900"},
+      "reason": "Cited source does not contain the claim; citation redirected to the source that does.",
+      "sources_consulted": [
+        {"name": "Hagley Museum and Library, 'Advertising and Branding' (checked, does not contain the claim)", "url": "https://www.hagley.org/research/digital-exhibits/advertising-and-branding"},
+        {"name": "New York Academy of Medicine, 'Books, Health and History'", "url": "https://nyamcenterforhistory.org/tag/advertisements/"}
+      ]
+    },
+    {
+      "claim_id": "e1-buyers-003",
+      "verdict": "confirmed",
+      "evidence": "Confirmed independently of the cited source: Sears surpassed Montgomery Ward in sales for the first time in 1900 with $10 million against Ward's $8.7 million. The USPS history corroborates the timing from a different direction - it places Ward at about $7 million in 1897 and says 'Ward's success was matched by Sears, which overtook Ward in sales just three years later', i.e. 1900. Two independent routes to the same year.",
+      "sources_consulted": [
+        {"name": "WTTW Chicago Stories, 'The Rise and Fall of Chicago's Mail Order Giants'", "url": "https://www.wttw.com/chicago-stories/rise-and-fall-of-the-mail-order-giants/the-rise-and-fall-of-chicagos-mail-order-giants"},
+        {"name": "USPS, 'Advertising Mail: A Brief History'", "url": "https://about.usps.com/who/profile/history/pdf/advertising-mail-history.pdf"}
+      ]
+    },
+    {
+      "claim_id": "e1-buyers-004",
+      "verdict": "adjusted",
+      "evidence": "The statement's framing is refuted even though the number may be right. Multiple independent accounts put Sears' annual sales at roughly $50 million by 1907, with one giving $49 million in 1906 falling to $47 million in the 1907 depression. Sears was therefore already well above $40.8 million before 1908, and 1908 was a post-Panic decline year, not a high-water mark. 'Reached about $40.8 million by 1908' asserts a rising trajectory that the surrounding evidence contradicts. The $40.8m figure for 1908 itself is not contradicted by anything I found - it is consistent with a sharp post-Panic drop - so the value stands with its interval, but the framing must change and the conflict must be recorded rather than smoothed.",
+      "old": {"statement": "Sears, Roebuck's annual sales reached about $40.8 million by 1908, making mail order one of the largest single advertising-driven businesses in the country."},
+      "new": {"statement": "Sears, Roebuck's annual sales were about $40.8 million in 1908, down from roughly $47-50 million in 1906-07 after the Panic of 1907, making mail order one of the largest single advertising-driven businesses in the country.", "central": 40.8, "unit": "USD millions (current), annual sales", "ci80": [36, 45], "grade": "B", "sources": [{"name": "WTTW Chicago Stories, 'The Rise and Fall of Chicago's Mail Order Giants'", "url": "https://www.wttw.com/chicago-stories/rise-and-fall-of-the-mail-order-giants/the-rise-and-fall-of-chicagos-mail-order-giants"}, {"name": "History.com, 'Sears - Stores, Business & Roebuck' (Sears sales roughly $50 million by 1907; $49m in 1906 falling to $47m in the 1907 depression)", "url": "https://www.history.com/articles/history-of-sears"}], "as_of": "1908"},
+      "reason": "The 'reached ... by 1908' framing implies 1908 was a peak. Independent sources put Sears at roughly $47-50 million in 1906-07, so 1908 was a decline year. Value and interval unchanged; the statement is corrected and the conflict recorded.",
+      "sources_consulted": [
+        {"name": "History.com, 'Sears - Stores, Business & Roebuck'", "url": "https://www.history.com/articles/history-of-sears"},
+        {"name": "FundingUniverse, 'History of Sears, Roebuck and Co.' (checked; carries no annual sales figures for 1895-1915)", "url": "https://www.fundinguniverse.com/company-histories/sears-roebuck-and-co-history/"}
+      ],
+      "disagreement": "I could not independently confirm the exact $40.8m for 1908 within this run; the figure rests on the single cited source. It is retained because it is consistent with the well-attested post-Panic decline from roughly $50m, but it is the weakest number in the BUYERS field."
+    },
+    {
+      "claim_id": "e1-buyers-005",
+      "verdict": "confirmed",
+      "evidence": "Read directly out of the Galbi .xls: sheet 'estimates 1900-34', 1915 row, 'newspapers national advertising' = 55.0. The sheet's own source line reads 'Newspapers national and local advertising: Borden, The Economic Effects of Advertising (1942), App. Table 1, p. 888, source cited as Bureau of Advertising, American Newspaper Publishers' Association, Expenditures of National Advertisers in Newspapers, 1915-1938' - matching the record's citation exactly. The 20 percent derivation is exact: 55/(55+220) = 20.0 percent. The series continues coherently (1916 75/300, 1917 80/320, 1919 150/350), so 1915 is not an isolated figure.",
+      "sources_consulted": [{"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34' (Borden 1942 App. Table 1 p. 888, ANPA Bureau of Advertising)", "url": "http://www.galbithink.org/cs-ad-dataset.xls"}],
+      "recomputation": [{"expr": "55/(55+220)*100", "expected": 20.0}]
+    },
+    {
+      "claim_id": "e1-buyers-006",
+      "verdict": "confirmed",
+      "evidence": "Same primary read: 1915 'newspapers local advertising (inc. classifieds)' = 220.0. The 'four times' claim is exact, not approximate: 220/55 = 4.0.",
+      "sources_consulted": [{"name": "Galbi, CS Ad Dataset .xls, sheet 'estimates 1900-34' (Borden 1942 App. Table 1 p. 888, ANPA)", "url": "http://www.galbithink.org/cs-ad-dataset.xls"}],
+      "recomputation": [{"expr": "220/55", "expected": 4.0}]
+    },
+    {
+      "claim_id": "e1-buyers-007",
+      "verdict": "adjusted",
+      "evidence": "I read HSUS series T 485-486 off p. 857 directly and it starts in 1928, not 1936 as the method's framing implies, so more evidence was available than the method used. Every anchor the method cites checks out (1936 265,475/1,380,121 = 19.24 percent; 1938 20.81; 1940 20.72). But the fuller series undercuts the argument used to push 1914 down. Classified's share of 52-city linage was 19.19 percent in 1928, 18.21 in 1929, 18.07 in 1930, 18.51 in 1933, 19.24 in 1936, 20.81 in 1938 - i.e. it sat in a tight 18-21 percent band while total linage collapsed 44 percent from 1929 to 1933. A share that stable through the worst demand shock of the century is weak support for 'the classified boom is a 1920s phenomenon, so the pre-WWI share is materially lower'; that remains an assumption with no evidence behind it. The stated ci80 upper bound of 18 sits below every single observation in the only series that exists (minimum 18.07). Under an honest interval test, the band must at least admit the possibility that 1914 was at the 1928-40 level.",
+      "old": {"central": 12, "ci80": [7, 18]},
+      "new": {"central": 13, "unit": "percent of US newspaper advertising receipts", "ci80": [7, 21], "grade": "C", "method": "No dollar series for classified exists before 1928. Anchored on the earliest measured split: classified was 18-21 percent of newspaper linage in 52 cities across every year of 1928-1941 (Historical Statistics series T 485-486: 1928 345,835/1,802,482 = 19.2%; 1930 18.1%; 1933 18.5%; 1936 19.2%; 1938 20.8%; 1940 20.7%), a band that held through a 44 percent collapse in total linage. Classified is argued to be a smaller share pre-WWI because help-wanted, autos and real estate classified grew in the 1920s, and because the claim is about revenue rather than linage; but neither argument is evidenced, so the interval's upper bound is set at the observed 1928-40 level rather than below it. Cross-check: a 7-21 percent band on the Census 1914 newspaper receipts of $184.0m gives $13-39m, inside the ANPA 'local incl. classified' envelope of $220m for 1915.", "as_of": "1914"},
+      "reason": "The stated interval's upper bound of 18 excluded every observation in the only measured series (18.07-20.81 percent across 1928-1941), and the 'materially lower pre-WWI' argument that justified pushing the central down is contradicted by the share's stability through the Depression. Widened upward and the central nudged to 13.",
+      "sources_consulted": [
+        {"name": "HSUS chapter T, p. 857, series T 485-491 (Newspaper advertising - linage for 52 cities, 1928 to 1970), read at 400 dpi", "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"},
+        {"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"}
+      ],
+      "recomputation": [
+        {"expr": "345835/1802482*100", "expected": 19.19},
+        {"expr": "298950/1654246*100", "expected": 18.07},
+        {"expr": "197262/1065515*100", "expected": 18.51},
+        {"expr": "265475/1380121*100", "expected": 19.24},
+        {"expr": "255012/1225166*100", "expected": 20.81}
+      ],
+      "disagreement": "The researcher reads the 1928-41 linage share as an upper bound that 1914 must sit well below. I read it as a stable band with no evidence either way about 1914, which argues for a wider interval rather than a lower central. The linage-versus-revenue distinction cuts in the researcher's favour but is not quantified in the record; if it were sourced, a lower central would be defensible."
+    },
+    {
+      "claim_id": "e1-buyers-008",
+      "verdict": "confirmed",
+      "evidence": "Verbatim from the cited source, retrieved and read in full: 'Figures obtained in 1920 estimated the total approximate amount spent in direct-mail advertising to be $300,000,000; in 1926 the amount was greater, probably much greater.' Central 300 with ci80 [200, 400] is honest for what is an unattributed contemporary industry estimate.",
+      "sources_consulted": [{"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource, full text)", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"}],
+      "disagreement": "Grade B is borderline. The source is a credible encyclopaedia but the figure is an unsourced estimate ('figures obtained in 1920 estimated'), with no collecting body named. The wide interval compensates. The material risk is not this claim but e1-scale-014, which back-casts this single number six years and builds a money-type share on it."
+    },
+    {
+      "claim_id": "e1-measurement-001",
+      "verdict": "confirmed",
+      "evidence": "Confirmed independently of Wikipedia: the 1869 first edition of Rowell's American Newspaper Directory listed 5,778 American papers with estimated circulations. The 1926 Britannica independently corroborates the directory's function and its estimated-circulation character: 'About 1870 the only facts generally available regarding circulation were the statements in George P. Rowell's Directory ... Mr. Rowell added a gold mark to the name of the publication if the publisher made an affidavit concerning his circulation.'",
+      "sources_consulted": [
+        {"name": "Online Books Page / Library of Congress, Geo. P. Rowell and Co.'s American Newspaper Directory holdings", "url": "https://www.loc.gov/item/sn82007064/"},
+        {"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource)", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"}
+      ],
+      "disagreement": "COMPARABILITY CAVEAT that also feeds e1-targeting-001: the directory's full title covers 'the United States and Territories, and the Dominion of Canada, and British Colonies of North America'. Whether 5,778 is US-only or includes British North America is not settled by the sources I reached. If it includes Canada, the US-only 1869 count is lower."
+    },
+    {
+      "claim_id": "e1-measurement-002",
+      "verdict": "confirmed",
+      "evidence": "Every element of the claim is independently corroborated: 'In 1914, two other organizations began measuring circulations: the Advertising Audit Association, which was made up of publishers, and the Bureau of Verified Circulations, an organization whose board was dominated by advertisers. The two groups met in May 1914 and merged to become the Audit Bureau of Circulations', founded in Chicago, and described as the world's first circulation auditing organization. The 1926 Britannica corroborates the year and the enforcement design contemporaneously: 'In 1914 there was organised the Audit Bureau of Circulations ... the publisher became subject to suspension and expulsion from the bureau.'",
+      "sources_consulted": [
+        {"name": "Ad Age Encyclopedia, 'Audit Bureau of Circulations'", "url": "https://adage.com/article/adage-encyclopedia/audit-bureau-circulations/98511"},
+        {"name": "History of Information, 'The Audit Bureau of Circulation, the First Circulation Auditing Organization, is Founded'", "url": "https://historyofinformation.com/detail.php?entryid=682"},
+        {"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource)", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"}
+      ],
+      "disagreement": "CITATION DEFECT worth fixing even though the claim stands: the first cited source, AAM's 'Who We Are', does not support the claim as written. I read it directly and it says 'Founded in 1914 by the Association of National Advertisers as the Audit Bureau of Circulations' - attributing the founding to the ANA alone, naming no city, describing no merger, and making no world-first claim. It actively contradicts the tripartite-merger account. The second cited source carries the claim; the AAM citation should be dropped or replaced with the Ad Age encyclopedia entry."
+    },
+    {
+      "claim_id": "e1-measurement-003",
+      "verdict": "confirmed",
+      "evidence": "Verbatim from the cited source, all four counts and both cadences: 'Up to Jan. 1926, 184 general magazines and periodicals were members of the bureau, 72 farm publications, 240 business publications and 925 newspapers' and 'The bureau operates by requiring from its publisher members a so-called publisher's statement every six months. The bureau itself makes an audited report once a year.' Nothing in the claim is unsupported.",
+      "sources_consulted": [{"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource, full text)", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"}],
+      "disagreement": "Convention inconsistency, not an error: the record gives exactly-reported counts zero-width intervals elsewhere (111 charter members, 5,778 papers, 22,754 publications) but gives this one [900, 950]. Either convention is defensible; the file should pick one."
+    },
+    {
+      "claim_id": "e1-measurement-004",
+      "verdict": "confirmed",
+      "evidence": "Re-derived from the primary: 205,594,907/164,463,040 - 1 = 25.0098 percent. The census table prints its own 1909-1914 per-cent-of-increase as 25.0, so the record's figure matches the source's own computation as well as mine. Grade A and the zero-width interval are correct. The claim's comparison also holds: publications grew 22,141 to 22,754 (2.8 percent) while circulation grew 25.0 percent.",
+      "sources_consulted": [{"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 19, p. 19", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"}],
+      "recomputation": [{"expr": "205594907/164463040*100-100", "expected": 25.0098}, {"expr": "22754/22141*100-100", "expected": 2.769}]
+    },
+    {
+      "claim_id": "e1-targeting-001",
+      "verdict": "confirmed",
+      "evidence": "Arithmetic exact: 22,754/5,778 = 3.938, matching the stated 3.94, and 'fourfold' is a fair rounding. Both endpoints are independently confirmed elsewhere in this batch (e1-measurement-001 and e1-sellers-001).",
+      "sources_consulted": [
+        {"name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 19", "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"},
+        {"name": "Library of Congress, Geo. P. Rowell and Co.'s American Newspaper Directory", "url": "https://www.loc.gov/item/sn82007064/"}
+      ],
+      "recomputation": [{"expr": "22754/5778", "expected": 3.9380}],
+      "disagreement": "The ratio is not apples-to-apples and the ci80 [3.5, 4.3] is doing quiet work to cover that. The numerator is a Census enumeration of US newspapers AND periodicals; the denominator is a commercial directory's listing whose title covers the US, Canada and British North America. If 5,778 includes British North America, the true US-to-US growth ratio is higher than 3.94. The interval absorbs this, but the era file should say which comparison it is making."
+    },
+    {
+      "claim_id": "e1-targeting-002",
+      "verdict": "confirmed",
+      "evidence": "Confirmed independently of the cited source: 'By 1904, the company distributed three million catalogs that weighed four pounds each.' Central 3.0 million with ci80 [2.5, 3.5] is appropriate. Scale plausibility corroborated from a different direction by the USPS history, which records a Chicago mail order firm mailing 'a record-breaking 6,000,000 catalogs in 1909' - so 3 million for Ward in 1904 sits sensibly on that trajectory.",
+      "sources_consulted": [
+        {"name": "EBSCO Research Starters, 'Montgomery Ward Launches a Mail-Order Business'", "url": "https://www.ebsco.com/research-starters/history/montgomery-ward-launches-mail-order-business"},
+        {"name": "USPS, 'Advertising Mail: A Brief History'", "url": "https://about.usps.com/who/profile/history/pdf/advertising-mail-history.pdf"}
+      ]
+    },
+    {
+      "claim_id": "e1-targeting-003",
+      "verdict": "confirmed",
+      "evidence": "Verbatim from the cited source, both halves in one sentence: 'Parcel Post electrified the mail order industry: Sears filled five times as many orders in 1913 as it did the year before and, after five years of Parcel Post, its revenues had doubled.' The 1 January 1913 Parcel Post start date is also confirmed in the same document. Central 5 with ci80 [3, 6] is appropriately humble for a single-source multiple.",
+      "sources_consulted": [{"name": "USPS, 'Advertising Mail: A Brief History'", "url": "https://about.usps.com/who/profile/history/pdf/advertising-mail-history.pdf"}]
+    },
+    {
+      "claim_id": "e1-events-001",
+      "verdict": "confirmed",
+      "evidence": "The penny price and the 3 September 1833 launch are not in dispute. On circulation, the derivation checks: the Sun claimed 5,000 by January 1834 and that figure had tripled by mid-1835, giving roughly 15,000 within about two years of launch - which is exactly the claim's central and its as_of. The ci80 [8000, 20000] is honest for a self-claimed circulation in the pre-audit era, and is consistent with the record's own MEASUREMENT field, which is built on the premise that nobody counted circulation honestly before ABC.",
+      "sources_consulted": [
+        {"name": "Britannica, 'Penny press'", "url": "https://www.britannica.com/topic/penny-press"},
+        {"name": "The Founding of the Penny Press (ERIC ED360650)", "url": "https://files.eric.ed.gov/fulltext/ED360650.pdf"}
+      ]
+    },
+    {
+      "claim_id": "e1-events-002",
+      "verdict": "confirmed",
+      "evidence": "Confirmed from multiple independent accounts: Ward issued his first mail order catalogue on 18 August 1872, a single sheet listing 163 items, mailed to members of the Grange. The zero-width interval is right for an exactly reported count.",
+      "sources_consulted": [
+        {"name": "Chicago History Museum, 'Montgomery Ward's First Catalog'", "url": "https://www.chicagohistory.org/montgomery-ward/"},
+        {"name": "History of Information, 'Montgomery Ward Issues the First Mail Order Catalogue for the General Public'", "url": "https://www.historyofinformation.com/detail.php?id=3714"}
+      ],
+      "disagreement": "Citation defect: I read the cited USPS document in full and it says 'produced his first single-page catalog and mailed it to members of the Grange' but never gives the 163 figure. The count must rest on the second citation or on one of the sources above."
+    },
+    {
+      "claim_id": "e1-events-003",
+      "verdict": "adjusted",
+      "evidence": "Two defects, one of them the kind the record itself normally catches. First, the cited source does not contain the claim: I read the Encyclopedia.com Munsey's article and it gives Munsey's own circulation path (40,000 before the price cut, 100,000 in late 1893, 500,000 in 1895, 700,000 in 1897) and nothing about a 250,000-to-750,000 magazine-buying public. Second, and more important, the figure is Frank A. Munsey's own estimate - the standard formulation is 'Frank A. Munsey estimated that between 1893 and 1899 the ten-cent magazine increased the magazine-buying public from 250,000 to 750,000 persons.' That makes it a self-interested claim by the man whose business case it justifies, structurally identical to Palmer's self-reported 1,300 newspapers, which the record correctly graded C with a widened interval and an explicit self-report flag. The same treatment is owed here.",
+      "old": {"statement": "The ten-cent magazine grew the US magazine-buying public from about 250,000 to about 750,000 people between 1893 and 1899.", "ci80": [600000, 900000], "grade": "B", "sources": [{"name": "Encyclopedia.com, 'Munsey's Magazine'", "url": "https://www.encyclopedia.com/media/encyclopedias-almanacs-transcripts-and-maps/munseys-magazine"}]},
+      "new": {"statement": "Frank A. Munsey estimated that the ten-cent magazine grew the US magazine-buying public from about 250,000 to about 750,000 people between 1893 and 1899. This is the estimate of an interested party - the publisher who created the ten-cent magazine - and no independent measurement of the magazine-buying public exists for these years.", "central": 750000, "unit": "magazine buyers", "ci80": [450000, 950000], "grade": "C", "method": "Self-reported estimate by Frank A. Munsey, carried in the standard magazine histories. No independent enumeration exists; the interval is widened downward to allow for the promotional interest of the estimator, in the same way the record treats Palmer's self-reported newspaper count. Corroborating order of magnitude: Munsey's own circulation reached 500,000 by 1895 and 700,000 by 1897, so a total ten-cent magazine public of several hundred thousand to roughly a million is plausible.", "sources": [{"name": "Britannica, 'History of publishing: The 19th century and the start of mass circulation'", "url": "https://www.britannica.com/topic/publishing/The-19th-century-and-the-start-of-mass-circulation"}, {"name": "Encyclopedia.com, 'Munsey's Magazine' (for the corroborating Munsey's circulation path)", "url": "https://www.encyclopedia.com/media/encyclopedias-almanacs-transcripts-and-maps/munseys-magazine"}], "as_of": "1899"},
+      "reason": "The cited source does not contain the figure, and the figure is the self-interested estimate of Frank Munsey rather than a measurement. The record's own convention for self-reported claims (see e1-creators-002) is grade C with an explicit flag and a widened interval; applying it here.",
+      "sources_consulted": [
+        {"name": "Encyclopedia.com, 'Munsey's Magazine' (checked; does not contain the 250,000-750,000 figure)", "url": "https://www.encyclopedia.com/media/encyclopedias-almanacs-transcripts-and-maps/munseys-magazine"},
+        {"name": "Britannica, 'History of publishing: The 19th century and the start of mass circulation'", "url": "https://www.britannica.com/topic/publishing/The-19th-century-and-the-start-of-mass-circulation"}
+      ],
+      "disagreement": "The researcher treated this as a reported historical fact at grade B. It is a publisher's promotional estimate, and the record applies a stricter standard to the structurally identical Palmer self-report."
+    },
+    {
+      "claim_id": "e1-events-004",
+      "verdict": "confirmed",
+      "evidence": "Verbatim from the cited source, retrieved and read in full: 'Up to Nov. 1921 this statute had been adopted in 22 states in substantially the form in which it was originally prepared by counsel for Printers' Ink, and in 15 states in modified form.' Both counts and the November 1921 cutoff are exact. The zero-width interval is correct for an exactly reported count. The surrounding event description also checks out against the same source on the 1911 drafting and the Associated Advertising Clubs' vigilance committees.",
+      "sources_consulted": [
+        {"name": "1926 Encyclopaedia Britannica, 'Advertising' (Wikisource, full text)", "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"},
+        {"name": "Hoofnagle, 'On the Printers' Ink Model Statute' (UC Berkeley Law)", "url": "https://hoofnagle.berkeley.edu/2014/09/24/on-the-printers-ink-model-statute/"}
+      ]
+    }
+  ]
+}

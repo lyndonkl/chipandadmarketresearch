@@ -1,0 +1,919 @@
+{
+  "era": 5,
+  "record": "p2-ad-market/data/eras/era-5.json",
+  "verifier_run": "2026-07-30",
+  "claims_in_batch": 68,
+  "counts": { "confirmed": 52, "adjusted": 16, "rejected": 0, "unverified": 0 },
+  "verdicts": [
+    {
+      "claim_id": "e5-scale-001",
+      "verdict": "confirmed",
+      "evidence": "Pulled the Coen/McCann table off galbithink.org directly (parsed the HTML table rows, not the prose): the 1994 row reads Total Ad Spending 153,024 (USD millions), GDP 7,072.2, ads 2.2% of GDP. Matches central 153.024 exactly. The project's own independently built adspend.json carries the same 153,024 for coen_mce/total/1994.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, Coen Structured Advertising Expenditure Dataset (CS Ad Dataset), table row 1994", "url": "https://www.galbithink.org/ad-spending.htm" }
+      ],
+      "recomputation": [{ "expr": "coen_total_1994", "expected": 153024 }]
+    },
+    {
+      "claim_id": "e5-scale-002",
+      "verdict": "adjusted",
+      "evidence": "The VALUE is right: Galbi's parsed table gives 2000 = 247,472 (USD millions). But the statement's superlative is refuted by the claim's own cited sources. Galbi's series covers 1919-2007 and shows ads/GDP at 2.8% (1920), 3.0% (1922), 2.8-2.9% (1923-1929) against 2.5% in 2000. Silk & Berndt (the co-cited source on the GDP point) say their MCE and IRS series 'both begin in 1960' and separately note advertising's share of National Income 'declined from a peak of more than four percent in the 1920's'. So 2000 is the peak of the post-1960 series only, not 'the century's peak'. The phrase 'peak in real terms relative to GDP' is also a category error - a GDP share is already a real ratio.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, ads-as-%-of-GDP column 1919-2007", "url": "https://www.galbithink.org/ad-spending.htm" },
+        { "name": "Silk & Berndt, NBER WP 28161, section III.3 and III.4", "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf" },
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed p.13 (McCann 2001 estimate $237B)", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ],
+      "old": { "statement": "Total US measured advertising expenditure in 2000 - the era's and the century's peak in real terms relative to GDP." },
+      "new": {
+        "statement": "Total US measured advertising expenditure in 2000. It is the peak of the post-1960 series both as a nominal total and as a share of GDP, but not of the century: Galbi's rendering of Coen back to 1919 puts ads at 2.8-3.0% of GDP through the 1920s against 2.5% in 2000, and Silk & Berndt note advertising's share of National Income peaked above 4% in the 1920s.",
+        "central": 247.472,
+        "unit": "USD billions",
+        "ci80": [240, 255],
+        "grade": "B"
+      },
+      "reason": "Central value confirmed; the '20th-century peak' superlative is contradicted by the claim's own two cited sources.",
+      "recomputation": [{ "expr": "247472/9817000*100", "expected": 2.52 }],
+      "disagreement": "The researcher read Silk & Berndt's 'the series both peak in 2000' as a statement about the whole historical record; the sentence immediately before it scopes the series to 1960 onward."
+    },
+    {
+      "claim_id": "e5-scale-003",
+      "verdict": "adjusted",
+      "evidence": "The central is right: 231,287/247,472 - 1 = -6.54%. The CI honestly spans CMR's 'nearly 10.0 percent' (verified verbatim on printed p.6 of the IAB/PwC report) to Coen's -6.5%. What fails is the 'six down years in seventy' count and the source that supposedly backs it. Counting year-on-year declines in the Coen total series as published by Galbi gives eleven declines over 1919-2007: 1921, 1930, 1931, 1932, 1933, 1938, 1942, 1961, 1991, 2001, 2007. Over any plausible 'last seventy years' window ending in 2001 the count is five (1938, 1942, 1961, 1991, 2001) or seven (adding 1932-33), never six - and the record's own parenthetical names only four others, i.e. five in total. The Ad Age URL cited for the decline list returns HTTP 404, and its source-name parenthetical includes 2007, which an article slugged 'CMR: ad spending set to grow slightly' could not have contained.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, total series 1919-2007 (decline years computed from the raw table)", "url": "https://www.galbithink.org/ad-spending.htm" },
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed p.6 (CMR: all-media down nearly 10.0%)", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" },
+        { "name": "Ad Age, 'CMR: Ad spending set to grow slightly' - DEAD LINK (HTTP 404)", "url": "https://adage.com/article/news/cmr-ad-spending-set-grow-slightly/52952" }
+      ],
+      "old": {
+        "statement": "... Either way 2001 was one of only six down years in seventy.",
+        "sources_include": "Ad Age / Coen, list of US ad-spend decline years (1938, 1942, 1961, 1991, 2001, 2007)"
+      },
+      "new": {
+        "statement": "Year-on-year change in total US measured advertising expenditure in 2001, to $231.287B. Coen's series gives -6.5%; CMR, on a narrower measured-media base, reported the all-media decline at nearly -10%. Either way 2001 was only the fifth annual decline in the Coen series since 1934 (1938, 1942, 1961, 1991, 2001); across the full 1919-2007 series there are eleven, the others clustered in 1921 and 1930-1933.",
+        "central": -6.5,
+        "unit": "percent change year on year",
+        "ci80": [-10.0, -4.5],
+        "grade": "B",
+        "sources_action": "drop the dead Ad Age citation; the decline count is computable from the Galbi/Coen series already cited"
+      },
+      "reason": "Central and interval survive; the 'six down years in seventy' count is wrong on the record's own primary series, is internally inconsistent with the claim's own parenthetical (which lists five), and its supporting citation is a dead link.",
+      "recomputation": [
+        { "expr": "(231287/247472-1)*100", "expected": -6.54 },
+        { "expr": "count_of_declines(coen_total,1919,2007)", "expected": 11 },
+        { "expr": "count_of_declines(coen_total,1935,2001)", "expected": 5 }
+      ]
+    },
+    {
+      "claim_id": "e5-scale-004",
+      "verdict": "adjusted",
+      "evidence": "The three values in the statement all check out: Silk & Berndt WP 28161 says verbatim 'The series both peak in in 2000 (shares of 2.3 percent and 2.4 percent for MCE$BN and IRS$BN in total GDP, respectively)', and Galbi's table gives 2.5% for 2000 (247,472/9,817,000 = 2.52%). Against current BEA GDP of ~$10,251B the ratio is 2.41%, so central 2.4 and ci80 [2.3, 2.5] are honest. But 'the peak of the whole series' is false. The sentence directly preceding the Silk & Berndt quote reads 'Our 1960-2007 time series for IRS$BN and MCE$BN shares of total GDP both begin in 1960'. And the co-cited Galbi series, which starts in 1919, shows 2.8% (1920), 3.0% (1922), 2.8-2.9% (1923-1929).",
+      "sources_consulted": [
+        { "name": "Silk & Berndt, NBER WP 28161, section III.3 (series begin 1960) and III.4 (1920s National Income peak above 4%)", "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf" },
+        { "name": "Douglas Galbi, CS Ad Dataset, ads-as-%-of-GDP column 1919-1929 and 2000", "url": "https://www.galbithink.org/ad-spending.htm" }
+      ],
+      "old": { "statement": "US advertising expenditure as a share of nominal GDP in 2000, the peak of the whole series. ..." },
+      "new": {
+        "statement": "US advertising expenditure as a share of nominal GDP in 2000 - the peak of the post-1960 series, not of the whole record. Silk & Berndt, whose MCE and IRS series both begin in 1960, put the 2000 shares at 2.3% (MCE) and 2.4% (IRS); Galbi's rendering of Coen gives 2.5%. Galbi's series back to 1919 shows higher shares through the 1920s (2.8% in 1920, 3.0% in 1922, 2.8-2.9% in 1923-1929), and Silk & Berndt separately record advertising's share of National Income peaking above 4% in the 1920s. The share fell below 2% after 2000 and did not return.",
+        "central": 2.4,
+        "unit": "percent of nominal US GDP",
+        "ci80": [2.3, 2.5],
+        "grade": "B"
+      },
+      "reason": "Value and interval confirmed; the 'peak of the whole series' framing is refuted by both cited sources.",
+      "recomputation": [
+        { "expr": "247472/9817000*100", "expected": 2.52 },
+        { "expr": "247.472/10250.9*100", "expected": 2.41 }
+      ],
+      "disagreement": "This is the single most load-bearing narrative error in the record: the SCALE summary builds 'the high-water mark of advertising intensity in the American economy' on it, and boundary_notes hands era 6 'a peak share never regained'. The post-2000 half of that is true; the historical-peak half is not."
+    },
+    {
+      "claim_id": "e5-scale-005",
+      "verdict": "adjusted",
+      "evidence": "Both values are confirmed from the primary PDF: the June 2002 IAB/PwC report's historical trend table (printed p.7) shows Total 2000 = $8,225M, and the Coen 'internet' sheet records the later IAB restatement at $8,087M. Choosing 8.087 as central is defensible. The problem is the interval. On the stated basis (IAB/PwC seller revenue) the only two published figures are 8.087 and 8.225; a lower bound of 7.0 corresponds to no published figure at all. It does not reach Coen's 6.507 either - and the record's own boundary_notes forbid mixing the two bases inside one line. The interval is also inconsistent with the sibling claim e5-scale-006, which gives 2001 a ±2% band on the same survey.",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed p.7 annual trend table (Total 2000 $8,225)", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" },
+        { "name": "Douglas Galbi, CS Ad Dataset, internet sheet", "url": "https://www.galbithink.org/ad-spending.htm" }
+      ],
+      "old": { "ci80": [7.0, 8.3] },
+      "new": { "ci80": [8.0, 8.3], "central": 8.087, "grade": "B" },
+      "reason": "The interval's lower bound is unsupported by any published figure on the claim's own stated basis, and is 8x wider than the interval the record gives the same survey one year later.",
+      "recomputation": [{ "expr": "8225-8087", "expected": 138 }]
+    },
+    {
+      "claim_id": "e5-scale-006",
+      "verdict": "confirmed",
+      "evidence": "Read straight off the primary PDF. Printed p.6: 'Full-year revenues for 2001 totaled $7.2 billion, $1.0 billion or 12.3 percent lower than full-year revenues for 2000.' Printed p.7 quarterly table: 1Q01 $1,893, 2Q01 $1,868, 3Q01 $1,792, 4Q01 $1,658 - four consecutive declines - against the 4Q00 peak of $2,162. Printed p.4 confirms 'the fourth consecutive quarterly decrease since the fourth quarter of 2000'. Central 7.134 is the later IAB restatement; ci80 [7.0, 7.3] contains both 7.134 and the as-reported 7.210.",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed pp.4-7", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ],
+      "recomputation": [
+        { "expr": "(7210/8225-1)*100", "expected": -12.34 },
+        { "expr": "(7134/8087-1)*100", "expected": -11.78 }
+      ]
+    },
+    {
+      "claim_id": "e5-scale-007",
+      "verdict": "confirmed",
+      "evidence": "IAB press release of 25 March 1997 gives FY1996 $267M with Q1 $29.9M, Q2 $51.9M, Q3 $75.6M, Q4 $109.5M, and verbatim: 'The largest categories were: computing products (38%), consumer-related (20%), new media (17%), telecom (9%) and business services (6%).' Independently corroborated by the 2001 full-year report's historical table (1Q96 $30, 2Q96 $52, 3Q96 $76, 4Q96 $110, Total 1996 $267). Minor citation slip: the second source points to printed p.6 but the annual/quarterly trend table sits on printed p.7.",
+      "sources_consulted": [
+        { "name": "IAB press release, 1996 Advertising Revenue Reporting Program Results, 25 March 1997", "url": "https://www.iab.com/news/internet-advertising-bureau-announces-1996-advertising-revenue-reporting-program-results/" },
+        { "name": "IAB/PwC 2001 Full-Year Results, printed p.7 historical trend table", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ],
+      "recomputation": [{ "expr": "29.9+51.9+75.6+109.5", "expected": 266.9 }]
+    },
+    {
+      "claim_id": "e5-scale-008",
+      "verdict": "confirmed",
+      "evidence": "Attacked this as the weakest number in the batch and it holds up as an honest grade-C reconstruction. The Forrester $37M anchor is verified in the cited source ('a report from Forrester Research pegged the online ad spend at $37 million'). The IAB's own Q1 1996 of $29.9M is verified from the IAB press release and does cap 1995 well below $120M. The '1996 was roughly five times 1995' route is arithmetically checkable (267/5 = 53.4). The grade C, the method field, and the wide ci80 [25, 80] are all schema-correct and the interval comfortably covers every anchor.",
+      "sources_consulted": [
+        { "name": "AdPushup, 'The History of Online Advertising' (Forrester $37M for 1995)", "url": "https://www.adpushup.com/blog/the-history-of-online-advertising/" },
+        { "name": "IAB press release, 1996 results (Q1 1996 = $29.9M; FY1996 = $267M)", "url": "https://www.iab.com/news/internet-advertising-bureau-announces-1996-advertising-revenue-reporting-program-results/" }
+      ],
+      "recomputation": [
+        { "expr": "267/5", "expected": 53.4 },
+        { "expr": "(37+55)/2", "expected": 46 }
+      ],
+      "disagreement": "The method's second anchor - 'contemporaneous Jupiter Communications estimates ... nearer $55M' - carries no citation, and the central of 45 rests on it. Only the $37M is documented. If the pipeline wants the central sourced end-to-end it should either find the Jupiter cite or move central toward 40. The interval is wide enough that this does not change any downstream use."
+    },
+    {
+      "claim_id": "e5-scale-009",
+      "verdict": "adjusted",
+      "evidence": "Neither cited source could be opened independently (Campaign returns HTTP 403 to non-browser clients; WARC is paywalled), so the $339B Zenith forecast is not directly re-verifiable by me. Indirect corroboration is decent: contemporaneous trade reporting has worldwide adspend growing almost 7% to $370B in 2004, which walks back through 2003 (~$346B), 2002 (~$330B) and 2001 (~$322B) to roughly $330B in 2000 - consistent with central 335. What is provably wrong is the method's floor. It argues 'the US Coen total alone, which does include [direct mail and directories], was $247.5B in 2000, so a global figure below $300B would be implausible on a comparable basis.' That inference is invalid: Zenith's 'major media' measure excludes direct mail and directories, so the comparable US figure is roughly $150B, not $247.5B. The claim's unit says 'major-media' while its floor is justified on an all-media basis.",
+      "sources_consulted": [
+        { "name": "Campaign, 'Zenith sees decline in global spend' - HTTP 403, not independently readable", "url": "https://www.campaignlive.co.uk/article/zenith-sees-decline-global-spend/21551" },
+        { "name": "WARC global adspend by region - paywalled", "url": "https://www.warc.com/content/paywall/article/warc-curated-datapoints/global-advertising-expenditure-by-region/en-gb/117747" },
+        { "name": "Visual Capitalist / trade reporting on global adspend trajectory to $370B in 2004", "url": "https://www.visualcapitalist.com/evolution-global-advertising-spend-1980-2020/" }
+      ],
+      "old": { "method_fragment": "the US Coen total alone, which does include them, was $247.5B in 2000, so a global figure below $300B would be implausible on a comparable basis" },
+      "new": {
+        "central": 335,
+        "unit": "USD billions (worldwide major-media ad spend, Zenith basis: excludes direct mail and directories)",
+        "ci80": [300, 380],
+        "grade": "C",
+        "method_fragment": "The lower bound is NOT justifiable from the US Coen total, which is an all-media measure including direct mail and directories and is not comparable to Zenith's major-media basis (the comparable US major-media figure for 2000 is roughly $150B). The bound instead reflects the spread between Zenith's ex-ante $339B forecast and the weaker outturn implied by the WARC-recorded -3.1% global decline in 2001."
+      },
+      "reason": "Central and interval survive on indirect corroboration, but the grade-C method field contains a demonstrably invalid inference that mixes two incompatible measurement bases inside one claim.",
+      "disagreement": "Flagging a verification gap rather than a factual dispute: the Zenith $339B figure rests on a source I could not open. If era 6 or the dataset layer leans on this number, it needs a readable source."
+    },
+    {
+      "claim_id": "e5-scale-010",
+      "verdict": "confirmed",
+      "evidence": "Rebuilt the decomposition from scratch against the Coen detail in the project's own adspend.json (Total National 151,664; Total Local 95,808; direct mail 44,591; Yellow Pages national 2,093 / local 11,135; newspapers national 7,229 / local 41,821) and it reproduces exactly: 151,664 - 44,591 - 2,093 - 822.5 - 575.75 = 103,581.75, i.e. 41.86% of 247,472, rounding to 41.9. Also stress-tested the one assumption that could break the whole split - that NAA's $19.6B newspaper classified sits inside Coen's LOCAL newspaper line rather than straddling national. NAA 2000 splits $48.7B into national $7.7B + retail $21.4B + classified $19.6B; Coen splits newspapers into national $7.229B + local $41.821B. NAA retail + classified = $41.0B against Coen local $41.821B, and NAA national $7.7B against Coen national $7.229B. The reassignment is legitimate and does not double-count. Silk & Berndt WP 28161 confirms verbatim that MCE treats 'business magazines, direct mail, and the internet ... as exclusively national', so subtracting direct mail from the national total is sound.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, 2000 national/local and by-medium detail", "url": "https://www.galbithink.org/ad-spending.htm" },
+        { "name": "Silk & Berndt, NBER WP 28161 (MCE national/local treatment)", "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf" },
+        { "name": "NAA 2000 newspaper detail via MediaPost", "url": "https://www.mediapost.com/publications/article/11138/ad-spending-in-newspapers-hit-487-billion-in-200.html" }
+      ],
+      "recomputation": [
+        { "expr": "151664-44591-2093-0.10*8225-0.07*8225", "expected": 103581.75 },
+        { "expr": "103581.75/247472*100", "expected": 41.86 },
+        { "expr": "7229+41821", "expected": 49050 },
+        { "expr": "7.7+21.4+19.6", "expected": 48.7 }
+      ]
+    },
+    {
+      "claim_id": "e5-scale-011",
+      "verdict": "confirmed",
+      "evidence": "95,808 - 19,600 = 76,208; 76,208/247,472 = 30.795%, rounding to 30.8. The Coen local composition given in the sibling claim's method (local newspapers 41,821 + local spot TV 13,542 + local radio 14,847 + local Yellow Pages 11,135 + local cable 3,690 + local out-of-home 3,108 + local misc 7,665 = 95,808) sums exactly, and the local newspaper and local Yellow Pages figures match adspend.json.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, 2000 local detail", "url": "https://www.galbithink.org/ad-spending.htm" },
+        { "name": "NAA classified via MediaPost", "url": "https://www.mediapost.com/publications/article/11138/ad-spending-in-newspapers-hit-487-billion-in-200.html" }
+      ],
+      "recomputation": [
+        { "expr": "95808-19600", "expected": 76208 },
+        { "expr": "76208/247472*100", "expected": 30.795 },
+        { "expr": "41821+13542+14847+11135+3690+3108+7665", "expected": 95808 }
+      ]
+    },
+    {
+      "claim_id": "e5-scale-012",
+      "verdict": "confirmed",
+      "evidence": "NAA classified $19.6B for 2000 verified verbatim from the MediaPost/NAA report ('Classified: $19.6 billion, up 5.1%'), with the sub-splits recruitment $8.7B (+8.6%), automotive $5B (+2.3%), real estate $3.2B (+1.6%), other $2.7B (+4.1%) all matching. Online classified = 7% of IAB FY2000 $8,225M = $575.75M, verified from the IAB pie chart on printed p.10. Total 20,175.75 / 247,472 = 8.153%, rounding to 8.2.",
+      "sources_consulted": [
+        { "name": "NAA 2000 newspaper data via MediaPost", "url": "https://www.mediapost.com/publications/article/11138/ad-spending-in-newspapers-hit-487-billion-in-200.html" },
+        { "name": "IAB/PwC 2001 Full-Year Results, printed p.10 (classifieds 7% of FY2000)", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ],
+      "recomputation": [
+        { "expr": "19600+0.07*8225", "expected": 20175.75 },
+        { "expr": "20175.75/247472*100", "expected": 8.153 }
+      ]
+    },
+    {
+      "claim_id": "e5-scale-013",
+      "verdict": "confirmed",
+      "evidence": "44,591 + 2,093 + 0.10*8,225 = 47,506.5; /247,472 = 19.197%, rounding to 19.2. Performance-priced share of 10% for FY2000 verified from the IAB pricing-model pie on printed p.8 ('Twelve percent of 2001 revenues were priced on a performance basis ... up from 10 percent reported for the year 2000'). The four pools sum to 247,472 exactly. The claim is explicit that this is a floor because direct-response TV and print are not separable in Coen, and the asymmetric upper CI bound reflects that honestly.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, 2000 direct mail and Yellow Pages", "url": "https://www.galbithink.org/ad-spending.htm" },
+        { "name": "IAB/PwC 2001 Full-Year Results, printed p.8 pricing-model split", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ],
+      "recomputation": [
+        { "expr": "44591+2093+0.10*8225", "expected": 47506.5 },
+        { "expr": "103581.75+76208+20175.75+47506.5", "expected": 247472 },
+        { "expr": "20175.75+47506.5", "expected": 67682.25 }
+      ]
+    },
+    {
+      "claim_id": "e5-buyers-001",
+      "verdict": "adjusted",
+      "evidence": "This is the batch's clearest factual break. I pulled the cited document from EDGAR - Yahoo's Q3 1998 Form 10-Q - and it says: 'Approximately 1,950 customers advertised on Yahoo! online media properties during the quarter ended September 30, 1998 as compared to approximately 1,200 during the third quarter of 1997.' It contains no 4,300, no 2,900 and no 700. I then went to the correct primary document, Yahoo's FY1998 Form 10-K (accession 0001047469-99-007460), which states twice: 'Approximately 3,800 customers advertised on the Company's online media properties during 1998 as compared to approximately 2,600 and 700 in 1997 and 1996, respectively.' So the true 1998 figure is 3,800, not 4,300, and the 1997 comparator is 2,600, not 2,900. The stated ci80 [4200, 4400] excludes the true value.",
+      "sources_consulted": [
+        { "name": "Yahoo! Inc., Form 10-K for FY1998, Item 1 and MD&A, SEC EDGAR", "url": "https://www.sec.gov/Archives/edgar/data/1011006/0001047469-99-007460.txt" },
+        { "name": "Yahoo! Inc., Form 10-Q Q3 1998 (the document actually cited; says 1,950 for the quarter)", "url": "https://www.sec.gov/Archives/edgar/data/0001011006/000104746998040804/0001047469-98-040804.txt" }
+      ],
+      "old": {
+        "statement": "Advertising customers on Yahoo's online properties in 1998 (up from ~2,900 in 1997 and ~700 in 1996) ...",
+        "central": 4300,
+        "ci80": [4200, 4400],
+        "sources": [{ "name": "Yahoo! Inc., Form 10-Q (FY1998), SEC EDGAR", "url": "https://www.sec.gov/Archives/edgar/data/0001011006/000104746998040804/0001047469-98-040804.txt" }]
+      },
+      "new": {
+        "statement": "Advertising customers on Yahoo's online properties in 1998 (up from approximately 2,600 in 1997 and 700 in 1996) - the biggest web seller's entire advertiser base was in the low thousands. In the single quarter ended 30 September 1998 the count was about 1,950.",
+        "central": 3800,
+        "unit": "advertising customers",
+        "ci80": [3700, 3900],
+        "grade": "A",
+        "sources": [{ "name": "Yahoo! Inc., Form 10-K for FY1998, Item 1 Business and MD&A, SEC EDGAR", "url": "https://www.sec.gov/Archives/edgar/data/1011006/0001047469-99-007460.txt" }]
+      },
+      "reason": "The cited source does not contain the claimed figures; the correct primary source gives 3,800 (1998) and 2,600 (1997), both outside the stated interval.",
+      "disagreement": "The claim's narrative point - that the largest web seller had an advertiser base in the low thousands against Overture's 53,000 - is not weakened by the correction. It is strengthened: 3,800 against 53,000 is a 14x gap, not 12x."
+    },
+    {
+      "claim_id": "e5-buyers-002",
+      "verdict": "confirmed",
+      "evidence": "Overture FY2001 10-K, Item 1, verbatim: 'During December 2001, the Overture marketplace had approximately 53,000 paying advertisers.' The self-serve terms are confirmed in the same filing: 'Advertisers must currently commit to a minimum initial payment of $25 or $50. In addition, since March 1, 2001 every new advertiser is required to spend a minimum of $20 per month and every keyword ... require a minimum bid of five cents.'",
+      "sources_consulted": [
+        { "name": "Overture Services, Inc., Form 10-K for FY2001, Item 1 Business, SEC EDGAR", "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm" }
+      ]
+    },
+    {
+      "claim_id": "e5-buyers-003",
+      "verdict": "adjusted",
+      "evidence": "Pulled the press release verbatim. The sentence is: 'Since the beta debut of AdWords earlier this month, the program has seen widespread adoption by approximately 350 businesses and advertising agencies worldwide.' The release is dated 23 October 2000 and announces 'the immediate availability of AdWords'. So the ~350 advertisers accumulated during the beta in the weeks BEFORE the 23 October general-availability announcement, not 'within roughly a month of its 23 October 2000 launch'. The count itself is right.",
+      "sources_consulted": [
+        { "name": "Google press release, 'Google Launches Self-Service Advertising Program', 23 October 2000 (full text)", "url": "http://googlepress.blogspot.com/2000/10/google-launches-self-service.html" }
+      ],
+      "old": { "statement": "Businesses and agencies signed to Google AdWords within roughly a month of its 23 October 2000 launch." },
+      "new": {
+        "statement": "Businesses and agencies that had adopted Google AdWords as of its 23 October 2000 general-availability announcement, accumulated during the beta that debuted earlier that same month.",
+        "central": 350,
+        "unit": "advertisers",
+        "ci80": [300, 400],
+        "grade": "B"
+      },
+      "reason": "Value confirmed; the timing in the statement runs the wrong way against the cited press release.",
+      "disagreement": "Small but load-bearing for the era-5/era-6 handoff: it means AdWords had a live advertiser base before the announced launch date, which slightly moves the 'sixteen months of CPM pricing' clock the record hands to era 6."
+    },
+    {
+      "claim_id": "e5-buyers-004",
+      "verdict": "confirmed",
+      "evidence": "DoubleClick FY2000 10-K, verbatim: 'DoubleClick Media generated revenues of $253.8 million in 2000, an increase of over 100% from 1999. The proportion of revenues from traditional advertisers grew to over 55% in the fourth quarter of 2000.' The claim's inference - that dot-com advertisers had been the majority of network demand before that quarter - follows from 'grew to over 55%' and is stated as an inference, not as filed fact. The asymmetric ci80 [55, 62] correctly treats 55 as a floor.",
+      "sources_consulted": [
+        { "name": "DoubleClick Inc., Form 10-K for FY2000, Item 1 Business, SEC EDGAR", "url": "https://www.sec.gov/Archives/edgar/data/1049480/000095011701000490/0000950117-01-000490-0001.txt" }
+      ]
+    },
+    {
+      "claim_id": "e5-buyers-005",
+      "verdict": "confirmed",
+      "evidence": "IAB/PwC printed p.11, full-year bar chart: consumer 30% (2001) vs 31% (2000), computing 18%/18%, media 12%/8%, financial services 12%/14%, business services 9%/9%. Consumer sub-categories full-year 2001: retail 50%, music 12%. All match the claim.",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed p.11", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ]
+    },
+    {
+      "claim_id": "e5-buyers-010",
+      "verdict": "confirmed",
+      "evidence": "Same decomposition as e5-scale-010, verified independently against adspend.json's Coen detail and the NBER paper's statement that MCE treats direct mail, business magazines and internet as exclusively national. 151,664 - 44,591 - 2,093 - 822.5 - 575.75 = 103,581.75, i.e. $103.6B. The FY2000 IAB advertiser mix quoted in the statement (consumer 31%, computing 18%, financial 14%, business services 9%, media 8%) matches the IAB bar chart on printed p.11. The ci80 [95, 112] maps consistently onto e5-scale-010's [38, 45] percent band.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, 2000 national/local detail", "url": "https://www.galbithink.org/ad-spending.htm" },
+        { "name": "Silk & Berndt, NBER WP 28161 (direct mail / business magazines / internet exclusively national)", "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf" },
+        { "name": "IAB/PwC 2001 Full-Year Results, printed p.11", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ],
+      "recomputation": [
+        { "expr": "95/247472*1000*100", "expected": 38.4 },
+        { "expr": "112/247.472*100", "expected": 45.3 }
+      ]
+    },
+    {
+      "claim_id": "e5-buyers-011",
+      "verdict": "confirmed",
+      "evidence": "95.808 - 19.6 = 76.208. Local composition verified against adspend.json (local newspapers 41,821; local Yellow Pages 11,135). The NAA cross-check confirms the classified pool sits inside Coen's local newspaper line rather than straddling national, so the subtraction does not double-count. ci80 [70, 82] maps to e5-scale-011's [28, 33] percent band.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, 2000 local detail", "url": "https://www.galbithink.org/ad-spending.htm" },
+        { "name": "NAA 2000 newspaper detail via MediaPost", "url": "https://www.mediapost.com/publications/article/11138/ad-spending-in-newspapers-hit-487-billion-in-200.html" }
+      ]
+    },
+    {
+      "claim_id": "e5-buyers-012",
+      "verdict": "confirmed",
+      "evidence": "19.6 + 0.575.75 = 20.176, rounding to 20.2. Online share 0.576/20.176 = 2.85%, matching the claim's 'about 2.9%'. Classifieds 7% of FY2000 and 16% of FY2001 both verified from the IAB format pies on printed p.10, and the report's executive summary says verbatim 'classifieds more than doubled from 7 percent of total revenues in 2000 to 16 percent of 2001 total revenues.' NAA sub-splits all verified.",
+      "sources_consulted": [
+        { "name": "NAA 2000 data via MediaPost", "url": "https://www.mediapost.com/publications/article/11138/ad-spending-in-newspapers-hit-487-billion-in-200.html" },
+        { "name": "IAB/PwC 2001 Full-Year Results, printed pp.3 and 10", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ],
+      "recomputation": [{ "expr": "0.57575/20.17575*100", "expected": 2.85 }]
+    },
+    {
+      "claim_id": "e5-buyers-013",
+      "verdict": "confirmed",
+      "evidence": "44.591 + 2.093 + 0.8225 = 47.507. Overture's FY2000 revenue of $103.052M verified from the 10-K Selected Financial Data. The 10-K's own benchmarking is verified verbatim and is the strongest single piece of evidence in the record for the era's thesis: 'According to the Direct Marketing Association, direct mail receives approximately 1.7 million responses on approximately 10.7 million pieces read per day. According to data from the Yellow Pages Publishers Association, yellow pages advertisers receive approximately 25 million to 30 million phone calls on approximately 30 million to 40 million references per day.'",
+      "sources_consulted": [
+        { "name": "Overture Services, Inc., Form 10-K for FY2001, Item 1 and Selected Financial Data", "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm" },
+        { "name": "Douglas Galbi, CS Ad Dataset, 2000 direct mail and Yellow Pages", "url": "https://www.galbithink.org/ad-spending.htm" }
+      ]
+    },
+    {
+      "claim_id": "e5-sellers-001",
+      "verdict": "confirmed",
+      "evidence": "IAB/PwC printed p.7 and executive summary: 'the 10 leading companies accounted for 77 percent of total 2001 fourth quarter revenues, up from 71 percent reported for the same period in 2000. The 25 and 50 leading ad sellers accounted for 91 percent and 98 percent of 2001 fourth quarter revenues, respectively.'",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed pp.3 and 7", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ]
+    },
+    {
+      "claim_id": "e5-sellers-002",
+      "verdict": "confirmed",
+      "evidence": "Yahoo FY2001 10-K, Selected Financial Data: net revenues $717,422 (2001) and $1,110,178 (2000); net income (loss) $(92,788) and $70,776. Revenue table by service group: marketing services $538,771 (75%) and $968,274 (87%). Marketing services 'decreased by $429.5 million, or 44%'. Total revenue fall 2000 to 2001 is 35.4%. Every figure in the statement checks.",
+      "sources_consulted": [
+        { "name": "Yahoo! Inc., Form 10-K for FY2001, Item 6 and Results of Operations, SEC EDGAR", "url": "https://www.sec.gov/Archives/edgar/data/1011006/000091205702010181/a2073074z10-k.htm" }
+      ],
+      "recomputation": [
+        { "expr": "(717422/1110178-1)*100", "expected": -35.4 },
+        { "expr": "(538771/968274-1)*100", "expected": -44.4 }
+      ]
+    },
+    {
+      "claim_id": "e5-sellers-003",
+      "verdict": "confirmed",
+      "evidence": "DoubleClick FY2000 10-K segment table: Media $253,827, Technology $203,391, Data $72,355, intersegment elimination $(23,962), Total $505,611. Matches the claim line for line.",
+      "sources_consulted": [
+        { "name": "DoubleClick Inc., Form 10-K for FY2000, segment data, SEC EDGAR", "url": "https://www.sec.gov/Archives/edgar/data/1049480/000095011701000490/0000950117-01-000490-0001.txt" }
+      ],
+      "recomputation": [{ "expr": "253827+203391+72355-23962", "expected": 505611 }]
+    },
+    {
+      "claim_id": "e5-sellers-004",
+      "verdict": "confirmed",
+      "evidence": "DoubleClick FY2000 10-K MD&A, verbatim: 'DoubleClick Media gross margin was 25.3% for the year ended December 31, 2000 and 39.8% for the year ended December 31, 1999 ... Excluding this one-time charge, gross margin would have been 32.6% ... DoubleClick Media gross margin was 39.8% for 1999 and 21.2% for 1998.' The claim's characterisation of the cost base is properly hedged: the filing defines cost of Media revenues as 'service fees paid to Web publishers for impressions delivered on our worldwide DoubleClick networks and the costs of ad delivery, and technology support provided by DoubleClick TechSolutions' - so it is mostly, not purely, publisher payout, and the claim says 'mostly'.",
+      "sources_consulted": [
+        { "name": "DoubleClick Inc., Form 10-K for FY2000, MD&A, SEC EDGAR", "url": "https://www.sec.gov/Archives/edgar/data/1049480/000095011701000490/0000950117-01-000490-0001.txt" }
+      ],
+      "recomputation": [{ "expr": "100-25.3", "expected": 74.7 }]
+    },
+    {
+      "claim_id": "e5-sellers-005",
+      "verdict": "confirmed",
+      "evidence": "Overture FY2001 10-K: traffic acquisition $162,072k on revenue $288,133k = 56.25%; 2000 $66,433k on $103,052k = 64.47%; Q4 2001 $51,911k on $101,188k = 51.30%. The affiliate mix is verified verbatim for the QUARTER, which is what the statement claims: 'Of Overture's total traffic for the three months ended December 31, 2001, more than 95% came from affiliates as follows: approximately 40% came from our portal affiliates ... approximately 25% came from the browsers ... and approximately 35% came from other affiliates.' Worth noting for era 6: the FULL-YEAR 2001 split in the same filing is 35/20/45, so the record's 40/25/35 must stay labelled as Q4.",
+      "sources_consulted": [
+        { "name": "Overture Services, Inc., Form 10-K for FY2001, MD&A and Item 1", "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm" }
+      ],
+      "recomputation": [
+        { "expr": "162072/288133*100", "expected": 56.25 },
+        { "expr": "66433/103052*100", "expected": 64.47 },
+        { "expr": "51911/101188*100", "expected": 51.3 }
+      ]
+    },
+    {
+      "claim_id": "e5-sellers-006",
+      "verdict": "confirmed",
+      "evidence": "IAB/PwC printed p.12 publisher-content-genre pies: full-year 2000 search engines 36%, classifieds 11%; full-year 2001 search engines 28%, classifieds 15%. Matches exactly.",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed p.12", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ]
+    },
+    {
+      "claim_id": "e5-medium-001",
+      "verdict": "confirmed",
+      "evidence": "Coen 2000: newspapers 49,050, broadcast TV 44,802, direct mail 44,591 - all three match the claim. I then tested the superlative rather than taking it: computing the maximum medium for every year 1994-2000 from the Coen series gives newspapers in all seven years (34,356 / 36,317 / 38,402 / 41,670 / 44,292 / 46,648 / 49,050), with the runner-up switching between broadcast TV and direct mail. The claim holds. NAA's independent $48.67B for 2000 sits inside ci80 [48.5, 49.5].",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, by-medium series 1994-2001", "url": "https://www.galbithink.org/ad-spending.htm" },
+        { "name": "NAA total newspaper ad spend 2000 via MediaPost", "url": "https://www.mediapost.com/publications/article/11138/ad-spending-in-newspapers-hit-487-billion-in-200.html" }
+      ]
+    },
+    {
+      "claim_id": "e5-medium-002",
+      "verdict": "confirmed",
+      "evidence": "Coen 2001: direct mail 44,725 against newspapers 44,255 - the crossover is real and it is the first year it happens in the series. 2002 confirms it holds: direct mail 46,067 against newspapers 44,031. The contemporaneous McCann/CMR estimates on IAB printed p.13 independently rank direct mail $46.2B ahead of newspapers $45.1B for 2001, so both the final and the contemporaneous vintage agree on the ordering. ci80 [44.0, 46.5] covers both vintages.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, 2001-2002 by-medium", "url": "https://www.galbithink.org/ad-spending.htm" },
+        { "name": "IAB/PwC 2001 Full-Year Results, printed p.13 all-media bar chart", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ],
+      "recomputation": [{ "expr": "44725-44255", "expected": 470 }]
+    },
+    {
+      "claim_id": "e5-medium-003",
+      "verdict": "confirmed",
+      "evidence": "Coen Yellow Pages 2000: local 11,135 + national 2,093 = 13,228, matching the claim exactly; 1994 = 9,825, matching. I also tested the trailing assertion that the category 'did not peak until the mid-2000s': the Coen series runs 13,228 (2000), 13,592, 13,776, 13,896, 14,002, 14,229, 14,393 (2006), 14,250 (2007) - so the peak is 2006. 'Mid-2000s' is a shade early but the substantive point, that the directory pool kept growing straight through the web's arrival, is exactly right.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, Yellow Pages 1994-2007", "url": "https://www.galbithink.org/ad-spending.htm" }
+      ],
+      "recomputation": [{ "expr": "11135+2093", "expected": 13228 }]
+    },
+    {
+      "claim_id": "e5-medium-004",
+      "verdict": "adjusted",
+      "evidence": "Every input checks out but the output is constructed in a way the record's own rules forbid. The three bases are: Coen internet over Coen total = 6,507/247,472 = 2.63%; IAB revenue over Coen total = 8,225/247,472 = 3.32% (or 3.27% on the restated 8,087); and the IAB's own published figure, verified verbatim on printed p.13 as 'approximately 3.7 percent in 2000'. The stated central of 3.1 is none of these three and is not their mean either (which is 3.22). It happens to equal the IAB's figure for 2001, which invites confusion. Two further problems: the claim carries grade B with no method field, but it is a triangulation across three incompatible bases, which the rigor spec puts at grade C with a required method; and the record's own boundary_notes say Coen and IAB 'must never be mixed inside one line', which the 3.3 construction does without declaring it.",
+      "sources_consulted": [
+        { "name": "IAB/PwC 2001 Full-Year Results, printed p.13 ('approximately 3.1 percent of total U.S. ad spending in 2001, down from approximately 3.7 percent in 2000')", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" },
+        { "name": "Douglas Galbi, CS Ad Dataset (internet 6,507; total 247,472 for 2000)", "url": "https://www.galbithink.org/ad-spending.htm" }
+      ],
+      "old": { "central": 3.1, "ci80": [2.6, 3.7], "grade": "B", "method": null },
+      "new": {
+        "central": 3.3,
+        "unit": "percent of total US ad spend",
+        "ci80": [2.6, 3.7],
+        "grade": "C",
+        "method": "Basis must be declared, not blended. Central 3.3 = IAB/PwC seller revenue for 2000 ($8.225B as reported; $8.087B restated) over the Coen/McCann grand total ($247.472B), which is the numerator and denominator the rest of this record actually uses. Lower bound 2.6 is the single-series Coen construction (6,507/247,472 = 2.63%), the only same-basis figure available. Upper bound 3.7 is the IAB's own published share, which implies a denominator near $222B rather than Coen's $247.5B. The three are not averaged; the interval spans them."
+      },
+      "reason": "The central was a midpoint of three mutually incompatible bases rather than a figure on any declared basis, and a triangulated figure was carrying grade B with no method field.",
+      "recomputation": [
+        { "expr": "6507/247472*100", "expected": 2.629 },
+        { "expr": "8225/247472*100", "expected": 3.324 },
+        { "expr": "(2.629+3.324+3.7)/3", "expected": 3.218 }
+      ],
+      "disagreement": "A defensible alternative is central 2.6 on the strict single-series Coen basis. I chose 3.3 because the record uses IAB revenue for its internet line everywhere else, so 2.6 would contradict e5-scale-005. Either is honest; 3.1 is neither."
+    },
+    {
+      "claim_id": "e5-medium-005",
+      "verdict": "confirmed",
+      "evidence": "NAA data via MediaPost, verified figure by figure: total newspaper $48.7B (+5.1%), classified $19.6B (+5.1%), recruitment $8.7B (+8.6%), automotive $5B (+2.3%), real estate $3.2B (+1.6%), all other $2.7B (+4.1%). Classified as a share of newspaper revenue = 19.6/48.7 = 40.25%, matching 'about 40%'. The components also reconcile: national $7.7B + retail $21.4B + classified $19.6B = $48.7B.",
+      "sources_consulted": [
+        { "name": "NAA data via MediaPost/Online Media Daily", "url": "https://www.mediapost.com/publications/article/11138/ad-spending-in-newspapers-hit-487-billion-in-200.html" },
+        { "name": "Poynter (NAA series)", "url": "https://www.poynter.org/reporting-editing/2010/classified-ad-revenue-down-70-percent-in-10-years-with-one-bright-spot/" }
+      ],
+      "recomputation": [
+        { "expr": "19.6/48.7*100", "expected": 40.25 },
+        { "expr": "8.7+5.0+3.2+2.7", "expected": 19.6 }
+      ]
+    },
+    {
+      "claim_id": "e5-medium-006",
+      "verdict": "confirmed",
+      "evidence": "Coen 1999 carries both categories: billboards 1,725 and out of home 4,780. 4,780/1,725 = 2.771, matching central 2.77 and the stated 177% jump. Billboards has no 2000 entry, confirming it was dropped. This is consistent with the adjudicated context ('~3x expenditure') and with the record's boundary_notes ('roughly 2.8x'). Good catch on the record's part - this is exactly the kind of definitional break that manufactures a false trend if spliced.",
+      "sources_consulted": [
+        { "name": "Douglas Galbi, CS Ad Dataset, billboards and out-of-home 1999-2000", "url": "https://www.galbithink.org/ad-spending.htm" }
+      ],
+      "recomputation": [{ "expr": "4780/1725", "expected": 2.771 }]
+    },
+    {
+      "claim_id": "e5-creators-001",
+      "verdict": "confirmed",
+      "evidence": "HBS WP 11-039, verbatim: 'as late as 1982, seventy-one percent of the largest U.S. national advertisers surveyed utilized commission-based compensation ... Over the ensuing decade, that share eroded slowly to sixty-one percent in 1994, while labor fee-based compensation grew steadily from eight percent in 1982 to thirty-one percent in 1994 ... as of 2003, only ten percent of large national advertisers reported relying on commissions.' Every number in the claim matches. Consistent with the adjudicated era-4/era-5 boundary (61% in 1994).",
+      "sources_consulted": [
+        { "name": "Silk, Berndt & Kim, HBS Working Paper 11-039, pp.4-5", "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf" }
+      ]
+    },
+    {
+      "claim_id": "e5-creators-002",
+      "verdict": "confirmed",
+      "evidence": "HBS WP 11-039, verbatim: 'the decline (from 70 to 59 percent) in the share of agency income derived from media commissions and markups on purchases of advertising materials and services accompanied by the increase (from 30 to 41 percent) that occurred between 1992 and 1997 in the shares of income from fees, public relations services, and \"other sources\".' Grade A is defensible: the underlying series is the US Census of Service Industries, merely tabulated by the paper.",
+      "sources_consulted": [
+        { "name": "US Census of Service Industries as tabulated in HBS WP 11-039, Appendix Table A1", "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf" }
+      ]
+    },
+    {
+      "claim_id": "e5-creators-003",
+      "verdict": "confirmed",
+      "evidence": "HBS WP 11-039, verbatim: 'the decreases in the commission rate received on media billings and the markup charged on purchases of advertising materials and services from 14 and 16 percent in 1977 to 11 and 12 percent in 1997, respectively.' Confirms both the 11% central and the 14% (1977) comparator.",
+      "sources_consulted": [
+        { "name": "US Census of Service Industries as tabulated in HBS WP 11-039, p.5", "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf" }
+      ]
+    },
+    {
+      "claim_id": "e5-creators-004",
+      "verdict": "confirmed",
+      "evidence": "The cited source states 'a third-quarter loss of $437 million, compared with a profit of $9 million, a year earlier' and 'sales were $369 million, 20 percent less than the prior quarter'. Chapter 11 on 13 April 2001 and Chapter 7 on 1 May 2001 both confirmed.",
+      "sources_consulted": [
+        { "name": "Wikipedia, 'MarchFirst'", "url": "https://en.wikipedia.org/wiki/MarchFirst" },
+        { "name": "Accountancy Age, 'MarchFirst files for bankruptcy', 16 April 2001", "url": "https://accountancyage.com/2001/04/16/marchfirst-files-for-bankruptcy/" }
+      ],
+      "disagreement": "The statement's '~2,100 jobs (about 30% of staff) from November 2000' is not what the cited source says. It records 1,500 laid off in the four months to March 2001 and a further 1,700 announced on 2 April 2001. The central value ($437M) and the bankruptcy dates are unaffected, but the layoff figure should either be re-sourced or restated. Separately: leading with Wikipedia on a grade-B claim is the weakest citation posture in the batch; the Accountancy Age co-citation is what carries it."
+    },
+    {
+      "claim_id": "e5-creators-005",
+      "verdict": "confirmed",
+      "evidence": "IAB press release of 10 December 1996, verbatim: 'The Internet Advertising Bureau and CASIE, two trade organizations which together represent the sellers, buyers and creators of advertising on the Internet, today announced the first voluntary industry standards for Web banner advertising', identifying eight most commonly accepted banner sizes. Date, issuers and count all confirmed. Note: the release as published does not itself enumerate the eight dimensions, so the '468x60 full banner' detail in the statement is not carried by this citation - it is uncontroversial but should be attributed elsewhere if challenged.",
+      "sources_consulted": [
+        { "name": "IAB press release, 10 December 1996", "url": "https://www.iab.com/news/voluntary-guidelines-banner-advertising-process-exploring-future-internet-advertising-forms-announced-industry-groups/" }
+      ]
+    },
+    {
+      "claim_id": "e5-pricing-001",
+      "verdict": "confirmed",
+      "evidence": "IAB/PwC printed p.8, full-year 2000 pie: CPM or Impression 43%, Hybrid 47%, Performance 10% (sums to 100). Full-year 2001: CPM 48%, Hybrid 40%, Performance 12%. The report's own text confirms: 'Forty percent of 2001 revenues were priced on a hybrid basis ... down from 47 percent reported for all of 2000. Twelve percent of 2001 revenues were priced on a performance basis ... up from 10 percent reported for the year 2000.' One definitional note the pipeline should carry forward: the report says the CPM/impression bucket 'includes sponsorships', so 'pure CPM' here means non-hybrid, not banner-only.",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed p.8", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ],
+      "recomputation": [{ "expr": "43+47+10", "expected": 100 }]
+    },
+    {
+      "claim_id": "e5-pricing-002",
+      "verdict": "confirmed",
+      "evidence": "IAB/PwC printed p.10, full-year 2000 pie: banners 48%, sponsorships 28%, classifieds 7%, referrals 4%, interstitials 4%, e-mail 3%, other 3%, rich media 2%, keyword search 1% (sums to 100). Full-year 2001: banners 36%, sponsorships 26%, classifieds 16%, slotting fees 8%, keyword search 4%, e-mail 3%, interstitials 3%, referrals 2%, rich media 2% (sums to 100). The report text confirms: 'On a full-year basis, banners accounted for 36 percent of revenues in 2001, down considerably from the 48 percent reported for the full year of 2000.' Every transition in the statement matches.",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed p.10", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ],
+      "recomputation": [{ "expr": "48+28+7+4+4+3+3+2+1", "expected": 100 }]
+    },
+    {
+      "claim_id": "e5-pricing-003",
+      "verdict": "adjusted",
+      "evidence": "Both citations fail their audit. (1) I fetched the cited encyclopedia.com URL in full and searched the text: it contains the AdRelevance impression counts, the 0.3% CTR, the Amazon 6.1bn figure and the DoubleClick Select reach, but NO CPM rate data of any kind - no $25, no $30, no 'per thousand' rate. Independent search does surface the exact sentence ('the average cost of a full banner ad in the fourth quarter of 2000 fell to $25 per thousand impressions (CPM), a relatively modest decline of $5 from the $30 mean banner CPM in the second half of 1999') attributed to encyclopedia.com, so the figure exists in that publisher's corpus - but not at the URL cited, and the underlying AdRelevance report is not locatable. (2) The ClickZ article is described in the source name as giving 'Dec 1997 average CPM $37.21'. It does not. It reports an average gross web ad rate of $36.63 for MARCH 1998, 'a decrease of 6% during the past 12 months'. The statement's 'mid-1998 rate cards averaged about $40' is not supported by it either, and 'By 2001 the consensus effective banner CPM was nearer $10' carries no source at all.",
+      "sources_consulted": [
+        { "name": "Encyclopedia.com / Gale Encyclopedia of E-Commerce, 'Advertising, Online' and 'Banner Ads' - full text fetched, no CPM rate data present", "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/economics-terms-and-concepts/internet" },
+        { "name": "ClickZ, 'AdKnowledge: Web Advertising CPMs Down 6%' (March 1998 average $36.63, down 6% year on year)", "url": "https://www.clickz.com/adknowledge-web-advertising-cpms-down-6/57412/" }
+      ],
+      "old": {
+        "central": 25,
+        "ci80": [20, 32],
+        "grade": "B",
+        "source_name_fragment": "AdKnowledge Online Advertising Report data (Dec 1997 average CPM $37.21)"
+      },
+      "new": {
+        "statement": "Average rate-card cost of a full banner ad in Q4 2000, down from a $30 mean in the second half of 1999. For comparison, AdKnowledge's Online Advertising Report put the average gross web ad rate at $36.63 in March 1998, down 6% year on year.",
+        "central": 25,
+        "unit": "USD per thousand impressions (rate card)",
+        "ci80": [15, 35],
+        "grade": "C",
+        "method": "Single-source figure relayed by a tertiary reference work (Gale Encyclopedia of E-Commerce) citing AdRelevance/Jupiter Media Metrix; the underlying AdRelevance release was not locatable and the cited encyclopedia URL does not contain it. Interval widened to reflect that the number cannot be traced to a primary measurement and that rate cards varied by an order of magnitude across site tiers.",
+        "source_name_fragment": "ClickZ, 'AdKnowledge: Web Advertising CPMs Down 6%' (March 1998 average gross rate $36.63, -6% year on year)"
+      },
+      "reason": "One cited source does not contain the claimed figure at the cited location; the other is misdescribed by both date and value. A number that cannot be traced to a primary measurement cannot hold grade B with a +/-25% interval.",
+      "disagreement": "I am not rejecting this: the $25 figure does exist in the publisher's corpus with an AdRelevance attribution, and it is consistent with the record's own unit-economics story (an effective ~$7 CPM against a ~$25 rate card implies the ~75% realised discount DoubleClick's MD&A describes). But it is a grade-C number, not a grade-B one."
+    },
+    {
+      "claim_id": "e5-pricing-004",
+      "verdict": "confirmed",
+      "evidence": "Overture FY2001 10-K, worldwide average price per paid introduction table: $0.23 (Dec 2001), 0.21, 0.19, 0.16, 0.17, 0.21, 0.21, 0.19, 0.17, 0.14, 0.11, 0.08 (Mar 1999). The mechanism is verbatim as quoted in the claim: 'the search results appear on the page ranked in descending order of bid price, with the highest bidder's listing appearing first. Each advertiser pays Overture the amount of its bid whenever a consumer or business clicks' - after 'editorial approval'. The five-cent minimum is confirmed: 'every keyword ... require a minimum bid of five cents'. Internal consistency check: 442M x $0.23 = $101.7M against reported Q4 revenue of $101.188M, a 0.5% gap fully explained by the filing's note that banner, Full Serve and Full Serve Advantage were 'less than 1%' of 2001 revenue.",
+      "sources_consulted": [
+        { "name": "Overture Services, Inc., Form 10-K for FY2001, Items 1 and 7", "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm" }
+      ],
+      "recomputation": [{ "expr": "442*0.23", "expected": 101.66 }],
+      "disagreement": "One label to tighten downstream: the 10-K calls this the WORLDWIDE average price per paid introduction, not a US figure. Same for e5-targeting-004's 442 million."
+    },
+    {
+      "claim_id": "e5-pricing-005",
+      "verdict": "confirmed",
+      "evidence": "Google press release of 23 October 2000, verbatim on pricing: '$15 or 1.5 cents an impression, $12 or 1.2 cents an impression, and $10 or 1 cent an impression, for the top, middle, and bottom ad unit positions'. The release also confirms the claim's framing that AdWords 'is an extension of Google's premium sponsorship program announced in August' and that it was a self-serve fixed-rate product, with no auction language anywhere. Consistent with the adjudicated context that the auction arrives with AdWords Select in February 2002.",
+      "sources_consulted": [
+        { "name": "Google press release, 'Google Launches Self-Service Advertising Program', 23 October 2000 (full text)", "url": "http://googlepress.blogspot.com/2000/10/google-launches-self-service.html" }
+      ]
+    },
+    {
+      "claim_id": "e5-pricing-006",
+      "verdict": "confirmed",
+      "evidence": "Overture FY2001 10-K income statement: traffic acquisition $162,072k and search serving $20,962k on revenue $288,133k, giving 56.25% and 7.28%. Prior year: $66,433k on $103,052k = 64.47%. The claim's reading - that distribution, not technology, was the dominant cost of a click - follows directly from the 8x gap between the two lines.",
+      "sources_consulted": [
+        { "name": "Overture Services, Inc., Form 10-K for FY2001, MD&A", "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm" }
+      ],
+      "recomputation": [
+        { "expr": "162072/288133*100", "expected": 56.25 },
+        { "expr": "20962/288133*100", "expected": 7.28 }
+      ]
+    },
+    {
+      "claim_id": "e5-pricing-007",
+      "verdict": "confirmed",
+      "evidence": "IAB/PwC printed p.9, verbatim: 'Cash deals accounted for 89 percent of total 2001 revenues, down from 93 percent reported for the year 2000 ... Barter or trade deals accounted for 13 percent of revenues in the fourth quarter of 2001, up sharply from 7 percent reported in the fourth quarter of 2000.' The full-year pies give barter 10% (2001) and 6% (2000), with packaged deals 1% in both years. Every figure in the claim matches.",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed p.9", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ]
+    },
+    {
+      "claim_id": "e5-pricing-008",
+      "verdict": "adjusted",
+      "evidence": "I pulled the Excite S-3 from EDGAR and read the passage. It says: 'The Company entered into agreements with Netscape in April 1996 pursuant to which the Company's Excite and McKinley brands were each one of the five \"Premier Providers\" on Netscape's \"Net Search\" page for a one year period in exchange for which the Company was required to make payments TOTALING $10.0 million in cash and advertising services over the term of the agreements.' So $5.0M per slot is a derived even split of a bundled $10.0M across two like slots - a reasonable allocation, but an allocation, not a filed figure. The March 1997 half of the statement is wrong: 'In March 1997, the Company entered into new agreements with Netscape ... whereby the Excite brand will be one of four \"Premier Providers\" AND the Company's WebCrawler brand will be one of several \"Marquee Providers\" ... Under the terms of these new agreements, the Company is committed to make minimum aggregate payments of $8.25 million.' The $8.25M is an aggregate across a Premier slot AND a Marquee slot, not the price of 'one of four slots'. The Premier slot alone therefore cost less than $8.25M, so the claim's upper CI bound over-attributes.",
+      "sources_consulted": [
+        { "name": "Excite Inc., Form S-3 (1997), 'Dependence on Netscape and AOL', SEC EDGAR", "url": "https://www.sec.gov/Archives/edgar/data/0001007297/000089161897001963/0000891618-97-001963.txt" }
+      ],
+      "old": {
+        "statement": "Price Excite paid Netscape for each of two 'Premier Provider' search-placement slots under its 1996 agreements; the March 1997 renewal committed a minimum $8.25M in cash and advertising over one year for one of four slots.",
+        "central": 5.0,
+        "ci80": [5.0, 8.25],
+        "grade": "A"
+      },
+      "new": {
+        "statement": "Implied annual price of one Netscape 'Premier Provider' search-placement slot. Excite's April 1996 agreements put its Excite and McKinley brands in two of the five Premier Provider slots on Netscape's Net Search page for payments totalling $10.0M in cash and advertising over one year. The March 1997 renewal committed minimum aggregate payments of $8.25M covering BOTH one of four Premier Provider slots (Excite) and a Marquee Provider slot (WebCrawler), so the Premier slot alone cost less than $8.25M. Portal anchor tenancy was the era's sponsorship contract - fixed fee for guaranteed placement, priced like a magazine cover position, not per impression.",
+        "central": 5.0,
+        "unit": "USD millions per placement slot per year",
+        "ci80": [4.0, 8.25],
+        "grade": "C",
+        "method": "Allocation of bundled contractual payments disclosed in an SEC filing. April 1996: $10.0M total across two like Premier Provider slots, split evenly, gives $5.0M. March 1997: $8.25M minimum aggregate across one Premier and one Marquee slot bounds the Premier slot from above; no disclosure separates them, so the lower bound is set below the 1996 even split to allow for the Marquee slot absorbing part of the $8.25M."
+      },
+      "reason": "The $8.25M is misattributed to a single Premier Provider slot when the filing states it covers two different arrangements; and $5.0M per slot is a derived allocation, not a filed figure, so grade A overstates the source.",
+      "disagreement": "The researcher read 'these new agreements' as referring only to the Premier Provider arrangement. The filing's own sentence structure and the plural 'agreements' put the Marquee Provider arrangement inside the same $8.25M commitment."
+    },
+    {
+      "claim_id": "e5-measurement-001",
+      "verdict": "confirmed",
+      "evidence": "Overture FY2001 10-K, Item 1, verbatim: 'This approach, which is called impression-based advertising, inefficiently exploits the Internet's direct marketing potential, resulting in what we believe are low consumer clickthrough rates of approximately 0.3%, as reported by eMarketer.' The corroborating 0.3% / B2B 0.5% pairing is verified in the cited encyclopedia text: 'By mid-2000, click-through rates had fallen to .3 percent, with business-to-business advertisers reporting average click-through rates around .5 percent.' ci80 [0.25, 0.55] spans both. Grade B is correctly conservative: an SEC filing is grade-A material, but the figure inside it is an eMarketer estimate the filer is relaying, not a filed statistic. The record's decision to anchor the CTR claim here rather than on the HotWired 44% legend is exactly right under the adjudicated context.",
+      "sources_consulted": [
+        { "name": "Overture Services, Inc., Form 10-K for FY2001, Item 1", "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm" },
+        { "name": "Encyclopedia.com / Gale Encyclopedia of E-Commerce, 'Banner Ads'", "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/economics-terms-and-concepts/internet" }
+      ]
+    },
+    {
+      "claim_id": "e5-measurement-002",
+      "verdict": "confirmed",
+      "evidence": "Verified verbatim in the cited source: 'there was a record number of online ad impressions - more than 172 billion - in the fourth quarter of that year, according to a report by AdRelevance, a subsidiary of Jupiter Media Metrix. Online ad impressions in December 2000 rose 21 percent over November to reach more than 65 billion ads viewed.' The Amazon detail is also confirmed: 'The most heavily advertised company, Amazon.com purchased 6.1 billion impressions in the fourth quarter of 2000.' Note that 172bn and 65bn are both stated as 'more than', which the asymmetric ci80 [160, 200] handles sensibly.",
+      "sources_consulted": [
+        { "name": "Encyclopedia.com / Gale Encyclopedia of E-Commerce, 'Advertising, Online'", "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/economics-terms-and-concepts/internet" }
+      ],
+      "disagreement": "The chain is tertiary: a Gale reference work relaying an AdRelevance/Jupiter Media Metrix report I could not locate. I am holding grade B because the underlying measurement house is named and the figure is a measurement rather than a company self-claim, but the pipeline should know this number has no primary behind it - and it is the dominant input to the unit-economics denominator."
+    },
+    {
+      "claim_id": "e5-measurement-003",
+      "verdict": "confirmed",
+      "evidence": "DoubleClick FY2000 10-K, verbatim: 'Our DART ad serving technology served 621 billion ads worldwide in 2000' and 'We currently serve ads for over 2,000 clients worldwide, and in December 2000 delivered approximately 63 billion targeted advertisements to Internet users worldwide.' All three figures in the claim confirmed from the filing.",
+      "sources_consulted": [
+        { "name": "DoubleClick Inc., Form 10-K for FY2000, Item 1 Business", "url": "https://www.sec.gov/Archives/edgar/data/1049480/000095011701000490/0000950117-01-000490-0001.txt" }
+      ]
+    },
+    {
+      "claim_id": "e5-measurement-004",
+      "verdict": "confirmed",
+      "evidence": "The Crain chapter confirms both statistics: only 16 percent of marketers reported satisfaction with online ad measurement capabilities, and two-thirds of companies surveyed by the ANA identified insufficient information as a significant obstacle. It also confirms 'more than 400 business leaders attended' in Cincinnati, organised by P&G. The claim is unusually well constructed in that it carries the attendance conflict (Ad Age ~200 invited vs Crain 400+ participating) inside the statement rather than picking one silently.",
+      "sources_consulted": [
+        { "name": "Matthew Crain, 'Profit over Privacy', ch. 5", "url": "https://manifold.umn.edu/read/profit-over-privacy/section/d5ec9237-ab6a-4a11-aeca-a1d357dfc3b0" },
+        { "name": "Ad Age, 'Five years after FAST summit'", "url": "https://adage.com/article/focus-design/years-fast-summit/49329" }
+      ]
+    },
+    {
+      "claim_id": "e5-measurement-005",
+      "verdict": "confirmed",
+      "evidence": "Yahoo FY2001 10-K, verbatim: 'we delivered an average of approximately 1.32 billion page views per day in December 2001 compared to 900 million page views per day in December 2000 and an average of approximately 470 million page views per day in December 1999. Yahoo! Japan ... accounted for an average of approximately 196 million page views per day in December 2001, 116 million page views per day in December 2000 and 39 million page views per day in December 1999.' The 116 million Yahoo! Japan figure in the statement is confirmed exactly. The claim's editorial point - counted and reported by the seller with no external audit - is fair; this sits in the cost-of-revenues discussion, not in an audited schedule.",
+      "sources_consulted": [
+        { "name": "Yahoo! Inc., Form 10-K for FY2001, MD&A cost of revenues", "url": "https://www.sec.gov/Archives/edgar/data/1011006/000091205702010181/a2073074z10-k.htm" }
+      ]
+    },
+    {
+      "claim_id": "e5-measurement-006",
+      "verdict": "confirmed",
+      "evidence": "IAB/PwC printed p.9, verbatim: 'Cash deals accounted for 89 percent of total 2001 revenues, down from 93 percent reported for the year 2000.' Both figures confirmed. The claim's interpretive point about barter being booked at nominal rate-card values is an inference, clearly flagged as such rather than attributed to the report.",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed p.9", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ]
+    },
+    {
+      "claim_id": "e5-targeting-001",
+      "verdict": "confirmed",
+      "evidence": "The DoubleClick privacy litigation opinion describes Abacus as maintaining 'a database of names, addresses, telephone numbers, retail purchasing habits and other personal information on approximately ninety percent of American households'. The 90% figure is confirmed. The EPIC complaint gives the complementary hard count - 'As of December 31, 1998, the Abacus database contained over 88 million detailed buyer profiles compiled from records of over 2 billion catalog purchasing transactions' - and independently confirms the event date the record uses: 'On November 23, 1999, DoubleClick completed its acquisition of Abacus.' Grade B is conservative for a federal court opinion; A would also be defensible.",
+      "sources_consulted": [
+        { "name": "In re DoubleClick Inc. Privacy Litigation, 154 F. Supp. 2d 497 (S.D.N.Y. 2001)", "url": "https://law.justia.com/cases/federal/district-courts/FSupp2/154/497/2429654/" },
+        { "name": "EPIC complaint to the FTC concerning DoubleClick Inc., 10 February 2000 (full PDF text extracted)", "url": "https://epic.org/wp-content/uploads/privacy/internet/ftc/DCLK_complaint.pdf" }
+      ]
+    },
+    {
+      "claim_id": "e5-targeting-002",
+      "verdict": "adjusted",
+      "evidence": "The figures are present in the cited source but the source qualifies them in a way the claim drops. Verbatim: 'DoubleClick CLAIMED its Select Network reached 48 percent of the U.S. Internet audience' - a company self-report, not a Jupiter measurement. The comparators are similarly qualified: Engage's 'integrated network of more than 4,700 Web sites reaches more than half of the U.S. Internet market, ACCORDING TO THE COMPANY'; only ValueClick's is measured, 'According to Jupiter Media Metrix, the ValueClick network reached more than 30 percent of the U.S. Internet population in early 2001'. The claim's source name attributes all of it to 'Jupiter Media Metrix network reach data', which is true only of the ValueClick figure. The 'as of April 2001' date is also inferred: April 2001 appears in an adjacent sentence about the DoubleClick Network representing ~1,500 publishers, not about Select's reach.",
+      "sources_consulted": [
+        { "name": "Encyclopedia.com / Gale Encyclopedia of E-Commerce, 'Advertising, Online' (full text fetched and searched)", "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/economics-terms-and-concepts/internet" }
+      ],
+      "old": {
+        "statement": "Reach of the DoubleClick Select network across the US internet audience as of April 2001; the Engage network claimed more than half and ValueClick more than 30%. ...",
+        "ci80": [44, 52],
+        "grade": "B",
+        "source_name": "Jupiter Media Metrix network reach data as reported in Encyclopedia.com, 'Internet Advertising'"
+      },
+      "new": {
+        "statement": "DoubleClick's own claimed reach for its Select network across the US internet audience, reported around early-to-mid 2001. Engage likewise claimed more than half of the US internet market for its 4,700-site network; ValueClick's 'more than 30%' is the only one of the three measured by a third party (Jupiter Media Metrix, early 2001). Network reach, not publisher relationships, was what made cookie-based targeting economically meaningful.",
+        "central": 48,
+        "unit": "percent of the US internet audience (company-claimed)",
+        "ci80": [40, 55],
+        "grade": "C",
+        "method": "Single tertiary source (Gale Encyclopedia of E-Commerce) relaying a company self-reported reach figure with no stated measurement methodology and no date attached to the reach number itself. Interval widened to reflect that self-reported network reach in this period was routinely inflated by duplicate-audience counting.",
+        "source_name": "Encyclopedia.com / Gale Encyclopedia of E-Commerce, 'Advertising, Online' (DoubleClick self-claim; ValueClick figure attributed to Jupiter Media Metrix)"
+      },
+      "reason": "A company-claimed marketing figure relayed by a tertiary reference work was carrying grade B with a +/-4pt interval and a source attribution (Jupiter Media Metrix) that belongs to a different number in the same passage.",
+      "disagreement": "The researcher treated all three reach figures as Jupiter data. The source text attributes only ValueClick's to Jupiter and explicitly marks the other two as company claims."
+    },
+    {
+      "claim_id": "e5-targeting-003",
+      "verdict": "confirmed",
+      "evidence": "IAB/PwC printed p.10: keyword search 1% of full-year 2000 revenues, 4% of full-year 2001, and 6% of Q4 2001. The report text confirms the Q4 movement: 'keyword searches accounted for 6 percent of 2001 fourth-quarter revenues, a 4 percent increase from the fourth quarter of 2000' (i.e. 2% in Q4 2000). The claim's framing - that the intent-targeted format was 1% of the market at the top of the boom and grew while everything else shrank - is exactly what the data shows.",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed p.10", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" }
+      ]
+    },
+    {
+      "claim_id": "e5-targeting-004",
+      "verdict": "confirmed",
+      "evidence": "Overture FY2001 10-K, Item 1: 'The Overture marketplace had approximately 442 million paid introductions in the fourth quarter of 2001', and the twelve-quarter table gives 442 (Dec 2001), 338, 327, 318, 228 (Dec 2000), 114, 93, 88, 73, 54, 31, 15 (Mar 1999). The ~53,000 advertiser count is confirmed in the same item.",
+      "sources_consulted": [
+        { "name": "Overture Services, Inc., Form 10-K for FY2001, Item 1 Business", "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm" }
+      ],
+      "disagreement": "As with e5-pricing-004, the filing labels this WORLDWIDE, not US. The label should travel with the number into era 6."
+    },
+    {
+      "claim_id": "e5-targeting-005",
+      "verdict": "confirmed",
+      "evidence": "Overture FY2001 10-K, Item 1, verbatim: 'We estimate that through users searching on the Internet for products, services and information services, there are approximately 60 million to 70 million commercial leads on approximately 170 million to 180 million searches per day.' Central 65 with ci80 [60, 70] is exactly the filed range. The comparison set is confirmed in the immediately preceding sentences (DMA: 1.7M responses on 10.7M pieces read per day; YPPA: 25-30M calls on 30-40M references per day), and the filing frames it as 'we believe that in the U.S., search provides more leads than direct mail or yellow pages'. This is the single strongest primary-source support in the record for the era's central argument that search was aimed at the directory and mail pool rather than at TV brand budgets.",
+      "sources_consulted": [
+        { "name": "Overture Services, Inc., Form 10-K for FY2001, Item 1 Business", "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm" }
+      ]
+    },
+    {
+      "claim_id": "e5-events-001",
+      "verdict": "confirmed",
+      "evidence": "Digiday's oral history confirms twelve brands live simultaneously in October 1994 (AT&T, MCI, Volvo, Club Med, 1-800-Collect, Sprint, IBM, Zima among them) and carries the misnomer quote verbatim: 'The phrase \"first banner ad\" is a misnomer because HotWired simultaneously published ads in October 1994 from 12 different brands.' It also corroborates the record's de-legending: participants recall roughly 15 percent click-through, not the folkloric 44 percent, and the $10,000-a-month pricing set by analogy to a print page. ci80 [12, 14] honestly spans the competing Fast Company count. The record's handling here is exactly what the adjudicated context asks for - the event is kept and datable, the superlative and the 44% are labelled legend and kept out of the claim.",
+      "sources_consulted": [
+        { "name": "Digiday, 'The beginning of a giant industry: an oral history of the first banner ad'", "url": "https://digiday.com/media/history-of-the-banner-ad/" }
+      ]
+    },
+    {
+      "claim_id": "e5-events-002",
+      "verdict": "confirmed",
+      "evidence": "IAB press release of 10 December 1996 confirms eight banner sizes announced jointly by the Internet Advertising Bureau and CASIE as 'the first voluntary industry standards for Web banner advertising'. Date, count and issuers all match. Duplicate of e5-creators-005 and consistent with it.",
+      "sources_consulted": [
+        { "name": "IAB press release, 10 December 1996", "url": "https://www.iab.com/news/voluntary-guidelines-banner-advertising-process-exploring-future-internet-advertising-forms-announced-industry-groups/" }
+      ]
+    },
+    {
+      "claim_id": "e5-events-003",
+      "verdict": "confirmed",
+      "evidence": "Overture FY2001 10-K Selected Financial Data, revenue in thousands: 2001 $288,133; 2000 $103,052; 1999 $26,809; 1998 $822; 1997 (inception period) $22. The 1998 central of $0.822M and the whole ladder quoted in the statement are confirmed exactly. The event description's mechanism claims are confirmed from Item 1 of the same filing (bid-ranked descending, winner pays own bid, human editorial review), which is what makes the era-5/era-6 handoff clean: era 6 inherits quality weighting and next-price billing, not the auction itself.",
+      "sources_consulted": [
+        { "name": "Overture Services, Inc., Form 10-K for FY2001, Selected Financial Data and Item 1", "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm" }
+      ]
+    },
+    {
+      "claim_id": "e5-events-006",
+      "verdict": "adjusted",
+      "evidence": "The interval is honest but a source is misdescribed. The claim's statement says 'History.com and most accounts $165B'. History.com actually says: 'America Online Inc. announces plans to acquire Time Warner Inc. for some $182 billion in stock and debt. The result was a $350 billion mega-corporation, AOL Time Warner.' So the source cited for $165B gives $182B. ABC News' $162B is correctly attributed. The central of $165B is the most widely reported announced equity value and is defensible, and ci80 [160, 185] genuinely spans the $162B / $165B / $182B spread rather than averaging it - which is the right handling of a definitional conflict.",
+      "sources_consulted": [
+        { "name": "History.com, 'AOL-Time Warner merger announced, January 10, 2000' ($182B in stock and debt; $350B combined)", "url": "https://www.history.com/this-day-in-history/january-10/aol-time-warner-formed" },
+        { "name": "ABC News, 'AOL Buys Time Warner for $162 billion'", "url": "https://abcnews.com/Business/Decade/aol-buys-time-warner-162-billion/story?id=9279138" }
+      ],
+      "old": { "statement_fragment": "ABC News reports $162B, History.com and most accounts $165B, and some report $182B in stock and debt for a combined entity valued near $350B." },
+      "new": {
+        "statement_fragment": "ABC News reports $162B; History.com reports $182B in stock and debt for a combined entity valued near $350B; $165B is the figure most commonly cited in retrospective accounts for the announced equity value.",
+        "central": 165,
+        "unit": "USD billions",
+        "ci80": [160, 185],
+        "grade": "B"
+      },
+      "reason": "The cited History.com page gives $182B, not the $165B attributed to it. Central and interval stand.",
+      "disagreement": "Minor, but it matters for a claim whose whole point is that the figure is definition-dependent: if the record is going to name which source says what, the attributions have to be right."
+    },
+    {
+      "claim_id": "e5-events-007",
+      "verdict": "adjusted",
+      "evidence": "The claim's own first-listed source contradicts its central value. Wikipedia's 'Dot-com commercials during Super Bowl XXXIV' states there were '14 advertisements from 14 different dot-com companies', that 'five companies that were founded before the dot-com bubble also ran tech-related ads, and 2 before game ads, for a total of 21 different dot-com ads', that these amounted to 'nearly 20% of the 61 spots available', and that each company 'paid an average of $2.2 million per spot' for '$44 million in advertising'. So the defensible counts are 14 (pure dot-com companies with in-game spots) or 21 (all dot-com/tech ads including pre-bubble firms and pre-game). The stated central of 17 is neither, and ci80 [16, 19] excludes both. The 'nearly half of the 36 sponsors' framing in the event description is also contradicted: the source says 61 spots available and nearly 20%. The '17 / 36 sponsors' formulation does circulate widely in secondary retrospectives, but I could not trace it to any primary or contemporaneous source. The $2.2M average per 30-second spot is independently corroborated and holds.",
+      "sources_consulted": [
+        { "name": "Wikipedia, 'Dot-com commercials during Super Bowl XXXIV' (14 companies, 21 total dot-com ads, 61 spots available, $2.2M average, $44M total)", "url": "https://en.wikipedia.org/wiki/Dot-com_commercials_during_Super_Bowl_XXXIV" },
+        { "name": "Benzinga, '14 Dot-Com Companies Had Super Bowl Commercials In 2000'", "url": "https://www.benzinga.com/general/sports/25/02/43542456/14-dot-com-companies-had-super-bowl-commercials-in-2000-heres-how-many-still-exist-today" },
+        { "name": "Fast Company, '20 years ago, the dot-coms took over the Super Bowl' - HTTP 403, not independently readable", "url": "https://www.fastcompany.com/90453258/20-years-ago-the-dot-coms-took-over-the-super-bowl" }
+      ],
+      "old": {
+        "statement": "Internet-company advertisers in Super Bowl XXXIV, 30 January 2000, at an average of roughly $2.2M per 30-second spot.",
+        "central": 17,
+        "ci80": [16, 19],
+        "event_desc_fragment": "a record 17 advertisements from internet companies - nearly half of the 36 sponsors"
+      },
+      "new": {
+        "statement": "Dot-com companies running in-game advertisements in Super Bowl XXXIV, 30 January 2000, at an average of roughly $2.2M per 30-second spot. Counts vary by definition: 14 pure dot-com companies ran in-game spots; including five pre-bubble companies running tech-related ads and two pre-game ads gives 21 dot-com ads in total, close to 20% of the 61 spots available, for about $44M of advertising.",
+        "central": 14,
+        "unit": "dot-com advertisers (in-game spots)",
+        "ci80": [14, 21],
+        "grade": "B",
+        "event_desc_fragment": "a record number of internet-company advertisements - 14 dot-com companies in-game, 21 dot-com ads all told, close to 20% of the 61 spots available"
+      },
+      "reason": "Central 17 and interval [16,19] exclude both figures given by the claim's own primary citation; the '36 sponsors' denominator is contradicted by the same source's '61 spots available'.",
+      "disagreement": "The researcher used the widely circulated '17 of 36 sponsors' formulation, which I could not trace to any primary source, over the count in the source actually cited. The narrative point - that the dot-com boom was funded by venture capital being spent on television - is untouched by the correction; $44M of dot-com money on one broadcast makes it either way."
+    },
+    {
+      "claim_id": "e5-events-008",
+      "verdict": "adjusted",
+      "evidence": "The central ($15 top-position CPM) is confirmed verbatim from the press release, along with $12 middle and $10 bottom. What fails is the advertiser-count timing in the statement. The release reads: 'Since the beta debut of AdWords earlier this month, the program has seen widespread adoption by approximately 350 businesses and advertising agencies worldwide.' The 350 accumulated during the beta BEFORE the 23 October 2000 general-availability announcement, not 'in the first month' after it. Same defect as e5-buyers-003.",
+      "sources_consulted": [
+        { "name": "Google press release, 'Google Launches Self-Service Advertising Program', 23 October 2000 (full text)", "url": "http://googlepress.blogspot.com/2000/10/google-launches-self-service.html" }
+      ],
+      "old": { "statement": "Top-position CPM at the AdWords launch of 23 October 2000 ($12 middle, $10 bottom), with roughly 350 advertisers signed in the first month." },
+      "new": {
+        "statement": "Top-position CPM at the AdWords general-availability announcement of 23 October 2000 ($12 middle, $10 bottom), by which point roughly 350 businesses and agencies worldwide had already adopted the product during its beta earlier that month.",
+        "central": 15,
+        "unit": "USD per thousand impressions",
+        "ci80": [15, 15],
+        "grade": "B"
+      },
+      "reason": "Price confirmed exactly; the advertiser-count timing runs backwards against the cited press release.",
+      "recomputation": [{ "expr": "15/1000", "expected": 0.015 }]
+    },
+    {
+      "claim_id": "e5-events-010",
+      "verdict": "confirmed",
+      "evidence": "IAB/PwC printed p.6, verbatim: 'Full-year revenues for 2001 totaled $7.2 billion, $1.0 billion or 12.3 percent lower than full-year revenues for 2000.' The quarterly table gives Total 2001 growth of -12%. As-reported gives -12.34%, the restated series gives -11.78%; ci80 [-12.5, -11.5] contains both. The paired -6.5% fall in total US measured ad spend is confirmed independently from Coen (see e5-scale-003).",
+      "sources_consulted": [
+        { "name": "IAB/PwC Internet Advertising Revenue Report, 2001 Full-Year Results, printed pp.6-7", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" },
+        { "name": "IAB press release, Q4 2001 results", "url": "https://www.iab.com/news/internet-advertising-revenue-totaled-1-7-billion-q4-2001/" }
+      ],
+      "recomputation": [
+        { "expr": "(7210/8225-1)*100", "expected": -12.34 },
+        { "expr": "(7134/8087-1)*100", "expected": -11.78 }
+      ],
+      "disagreement": "The event description repeats the 'one of only six down years in seventy' error corrected under e5-scale-003 and should be updated with it."
+    },
+    {
+      "claim_id": "e5-unit_econ-001",
+      "verdict": "adjusted",
+      "evidence": "The headline number survives my attack. Numerator: (48% banners + 28% sponsorships) x $8,225M = $6,251M, both shares verified from the IAB format pie on printed p.10. Denominator triangulation: AdRelevance's 172bn Q4 at 28-30% of the year implies 573-614bn (the record says 575-615, fine); DoubleClick's 621bn worldwide DART ads verified from the 10-K; the 0.6-1.5tn band with a 0.9tn central is a reasonable reading. $6,251M / 0.9tn = $0.00694, i.e. a $6.9 CPM, matching central 0.007 and sitting inside ci80 [0.004, 0.011] (the band's endpoints correspond exactly to 1.5tn and 0.6tn). The DoubleClick unsold-inventory quotation is verbatim. What is wrong is the Yahoo cross-check inside the method field. It states 'an estimated 237 billion ex-Japan page views for 2000 (interpolated from 470M/day in Dec 1999 and 900M/day in Dec 2000, less Yahoo Japan's 39M and 116M)'. Performing that stated interpolation gives ((470-39)+(900-116))/2 x 365 = 221.7bn, not 237bn. The researcher's own working notes use 222bn and $4.37, so the record diverges from its own notes by 7%.",
+      "sources_consulted": [
+        { "name": "IAB/PwC 2001 Full-Year Results, printed pp.7 and 10 (revenue and format split)", "url": "https://www.iab.com/wp-content/uploads/2015/05/resources_adrevenue_pdf_IAB_PWC_2001Q4.pdf" },
+        { "name": "DoubleClick Inc., Form 10-K for FY2000 (621bn DART ads; unsold-inventory dilution language)", "url": "https://www.sec.gov/Archives/edgar/data/1049480/000095011701000490/0000950117-01-000490-0001.txt" },
+        { "name": "Yahoo! Inc., Form 10-K for FY2001 (page views per day incl. Yahoo! Japan; marketing services $968.274M)", "url": "https://www.sec.gov/Archives/edgar/data/1011006/000091205702010181/a2073074z10-k.htm" },
+        { "name": "Encyclopedia.com / Gale Encyclopedia of E-Commerce (AdRelevance 172bn Q4 2000)", "url": "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/economics-terms-and-concepts/internet" }
+      ],
+      "old": { "method_fragment": "Cross-check: Yahoo's marketing-services revenue of $968.3M over an estimated 237 billion ex-Japan page views for 2000 gives $4.08 per thousand page views, in the same band." },
+      "new": {
+        "central": 0.007,
+        "unit": "USD per delivered ad impression",
+        "ci80": [0.004, 0.011],
+        "grade": "C",
+        "method_fragment": "Cross-check: Yahoo's marketing-services revenue of $968.3M over an estimated 222 billion ex-Japan page views for 2000 (linear interpolation between 431M/day ex-Japan in December 1999 and 784M/day ex-Japan in December 2000) gives $4.37 per thousand page views, in the same band."
+      },
+      "reason": "The method's Yahoo denominator does not follow from the interpolation the method itself describes, and disagrees with the researcher's own working notes. Central and interval unaffected.",
+      "recomputation": [
+        { "expr": "(0.48+0.28)*8225", "expected": 6251 },
+        { "expr": "6251e6/0.9e12*1000", "expected": 6.95 },
+        { "expr": "((470-39)+(900-116))/2*365/1000", "expected": 221.7 },
+        { "expr": "968.274/221.7", "expected": 4.37 }
+      ]
+    },
+    {
+      "claim_id": "e5-unit_econ-002",
+      "verdict": "adjusted",
+      "evidence": "The audited anchors are confirmed. DoubleClick TechSolutions FY2000 revenue $203.391M at 71.6% gross margin implies cost of revenue $57.76M over 621bn ads = $0.093 per thousand, matching the record. Yahoo FY2000 cost of revenues $149.744M is confirmed from the income statement, and the filing's definition of that line (production and usage of the network - third-party content fees, connection charges, equipment depreciation) matches the claim's description. The same denominator error as e5-unit_econ-001 flows through: with the correct ~222bn ex-Japan page views the Yahoo content-and-bandwidth cost is $0.675 per thousand, not $0.63, and the portal-scale sum is $0.77 per thousand, not $0.72. Central 0.0009 ($0.90 per thousand) and ci80 [0.0004, 0.0025] are unaffected - the correction actually moves the bottom-up figure slightly closer to the stated central, which strengthens the claim.",
+      "sources_consulted": [
+        { "name": "DoubleClick Inc., Form 10-K for FY2000 (TechSolutions revenue $203.4M, gross margin 71.6%, 621bn ads)", "url": "https://www.sec.gov/Archives/edgar/data/1049480/000095011701000490/0000950117-01-000490-0001.txt" },
+        { "name": "Yahoo! Inc., Form 10-K for FY2001 (cost of revenues $149.744M in 2000; sales and marketing 38% of 2000 revenue)", "url": "https://www.sec.gov/Archives/edgar/data/1011006/000091205702010181/a2073074z10-k.htm" }
+      ],
+      "old": { "method_fragment": "against an estimated 237 billion ex-Japan page views for 2000 ... = $0.63 per thousand page views. Sum at portal scale ~$0.72 per thousand impressions" },
+      "new": {
+        "central": 0.0009,
+        "unit": "USD per delivered ad impression",
+        "ci80": [0.0004, 0.0025],
+        "grade": "C",
+        "method_fragment": "against an estimated 222 billion ex-Japan page views for 2000 (linear interpolation between 431M/day ex-Japan in December 1999 and 784M/day ex-Japan in December 2000) = $0.675 per thousand page views. Sum at portal scale ~$0.77 per thousand impressions",
+        "statement_fragment": "about $0.68 per thousand page views at Yahoo"
+      },
+      "reason": "Same interpolation error as e5-unit_econ-001 propagating into the cost build. Central and interval unaffected.",
+      "recomputation": [
+        { "expr": "0.284*203.391", "expected": 57.76 },
+        { "expr": "57.76e6/621e9*1000", "expected": 0.093 },
+        { "expr": "149.744/221.7", "expected": 0.675 },
+        { "expr": "0.675+0.093", "expected": 0.768 }
+      ]
+    },
+    {
+      "claim_id": "e5-unit_econ-003",
+      "verdict": "confirmed",
+      "evidence": "Yahoo FY2000: (1,110.178 - 149.744)/1,110.178 = 86.51%, matching the stated 86.5%. FY2001: (717.422 - 157.001)/717.422 = 78.12%, matching 78.1%. Net loss $92.788M in 2001 and sales and marketing at 38% of 2000 revenue both confirmed from the filing. The bottom-up cross-check reproduces: (0.0070 - 0.0009)/0.0070 = 87.1%. DoubleClick Media's 25.3% gross margin is confirmed from its 10-K, and setting central at 85% rather than Yahoo's 86.5% to blend in network-intermediated share is a defensible choice, with ci80 [70, 90] carrying that mix honestly. The claim's real contribution is the qualifier it insists on - print-beating gross margin alongside catastrophic operating results - and both halves of that are supported by the audited accounts.",
+      "sources_consulted": [
+        { "name": "Yahoo! Inc., Form 10-K for FY2001, Consolidated Statements of Operations", "url": "https://www.sec.gov/Archives/edgar/data/1011006/000091205702010181/a2073074z10-k.htm" },
+        { "name": "DoubleClick Inc., Form 10-K for FY2000, MD&A (Media gross margin 25.3%)", "url": "https://www.sec.gov/Archives/edgar/data/1049480/000095011701000490/0000950117-01-000490-0001.txt" }
+      ],
+      "recomputation": [
+        { "expr": "(1110.178-149.744)/1110.178*100", "expected": 86.51 },
+        { "expr": "(717.422-157.001)/717.422*100", "expected": 78.12 },
+        { "expr": "(0.0070-0.0009)/0.0070*100", "expected": 87.14 }
+      ]
+    }
+  ],
+  "record_level_findings": [
+    {
+      "location": "fields.SCALE.summary",
+      "issue": "Two sentences inherit corrections. 'Advertising's share of GDP peaked in 2000 ... which makes 2000 the high-water mark of advertising intensity in the American economy' is refuted by the record's own Galbi source (1920s at 2.8-3.0%) and by Silk & Berndt (National Income share above 4% in the 1920s). And 'one of only six down years in seventy (the others being 1938, 1942, 1961 and 1991)' is both wrong on the Coen series and internally inconsistent, since the parenthetical names four others, i.e. five in total.",
+      "see": ["e5-scale-002", "e5-scale-003", "e5-scale-004"]
+    },
+    {
+      "location": "boundary_notes",
+      "issue": "'having peaked at $247.472B in 2000 at roughly 2.4% of GDP - a peak share never regained' needs a post-1960 qualifier on 'peak'. The 'never regained since' half is correct and should be kept, because era 6's reallocation-not-expansion framing depends on it.",
+      "see": ["e5-scale-004"]
+    },
+    {
+      "location": "events[9].desc (2001-12-31)",
+      "issue": "Repeats 'one of only six down years in seventy'.",
+      "see": ["e5-scale-003"]
+    },
+    {
+      "location": "events[8] (2001-10-01, Excite@Home)",
+      "issue": "No calibration claim attached, so outside the scored batch, but the date is worth checking: Excite@Home announced the Chapter 11 filing and the $307M AT&T asset sale on 28 September 2001, and GoTo.com's rename to Overture Services took effect 8 October 2001. The AT&T figure and the rename month are both correct.",
+      "see": []
+    },
+    {
+      "location": "fields.TARGETING / fields.MEASUREMENT / fields.PRICING - encyclopedia.com dependency",
+      "issue": "Five claims (e5-pricing-003, e5-measurement-001, e5-measurement-002, e5-targeting-002, e5-unit_econ-001) lean on one tertiary reference work, the Gale Encyclopedia of E-Commerce. Only e5-measurement-001 has independent primary backing (the Overture 10-K). e5-measurement-002's 172bn is the dominant input to the unit-economics denominator and has no primary behind it.",
+      "see": ["e5-pricing-003", "e5-measurement-002", "e5-targeting-002"]
+    },
+    {
+      "location": "citation audit",
+      "issue": "All 37 distinct cited URLs were liveness-checked. One is dead: https://adage.com/article/news/cmr-ad-spending-set-grow-slightly/52952 returns HTTP 404 (cited by e5-scale-003). Five return HTTP 403 to non-browser clients but are live pages (campaignlive x2, fastcompany x2, law.justia.com); the Justia content was verified by other means, the Campaign Zenith article was not.",
+      "see": ["e5-scale-003", "e5-scale-009"]
+    },
+    {
+      "location": "adjudicated-context compliance",
+      "issue": "Checked and clean. AdWords is treated throughout as an October 2000 fixed-CPM product with the auction handed to era 6; Overture leads paid search with FY2001 $288.133M against Google's $86.4M; radio is never claimed as the top medium (Coen 2001 radio $17.861B against newspapers $44.255B); Out of Home replaces Billboards at 2.77x on the 1999 overlap; the Overture patent settlement is left to era 6; and the Wanamaker quote is absent while the HotWired superlative and the 44% CTR are explicitly labelled legend and kept out of the claims.",
+      "see": []
+    }
+  ]
+}

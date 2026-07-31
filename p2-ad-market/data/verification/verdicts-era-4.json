@@ -1,0 +1,1443 @@
+{
+  "verdicts": [
+    {
+      "claim_id": "e4-scale-001",
+      "verdict": "confirmed",
+      "evidence": "Downloaded the Coen workbook and parsed the 'CS ad dataset' sheet directly rather than relying on the record's reading. Grand Total 1976 = 33,300.0 exactly. Cross-checked against the workbook's own 'revisions' sheet, where Historical Statistics, Coen-2000 and Coen-2003 all print 33,300 for 1976 with zero revision, and against Galbi's published table (33,300). Also verified that Coen's 1976 nine-category partition sums to 33,300.0 with zero residual.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Douglas Galbi, 'U.S. Annual Advertising Spending Since 1919' (total, four-media, GDP, ads as % of GDP)",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "sum of Coen 1976 media lines (billboards 383 + business papers 1035 + direct mail 4786 + farm 86 + magazines 1789 + misc 6552 + newspapers 9618 + radio 2330 + television 6721)",
+          "expected": 33300
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-scale-002",
+      "verdict": "confirmed",
+      "evidence": "Coen Grand Total 1993 = 140,956.0 exactly in the primary workbook; the 1993 ten-category partition sums to 140,956.0 with zero residual. Ratio and CAGR recomputed and both round to the stated values.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Douglas Galbi, 'U.S. Annual Advertising Spending Since 1919' (total, four-media, GDP, ads as % of GDP)",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "140956/33300",
+          "expected": 4.2329
+        },
+        {
+          "expr": "((140956/33300)**(1/17)-1)*100",
+          "expected": 8.8582
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-scale-003",
+      "verdict": "adjusted",
+      "evidence": "The central value and interval survive. Galbi's table (the record's own first source) prints 1.8% for 1976, 2.3% for each of 1986, 1987, 1988 and 1989, and 2.1% for 1993 - exactly the plateau the claim describes; I recomputed each from the underlying total and GDP columns. The failure is in the last sentence. Galbi's vintage of the same Coen/McCann totals gives 2.5% for 2000 (247,472 / 9,817.0), not 2.3%. The 2.3% figure comes from Silk & Berndt's MCE$BN construction in NBER WP 28161 ('The series both peak in 2000 (shares of 2.3 percent and 2.4 percent for MCE$BN and IRS$BN in total GDP, respectively)'), which is not the same series arithmetic as Galbi's digitisation. Calling it 'the same McCann series' is wrong, and it understates the claim's own point.",
+      "sources_consulted": [
+        {
+          "name": "Douglas Galbi, 'U.S. Annual Advertising Spending Since 1919' (total, four-media, GDP, ads as % of GDP)",
+          "url": "https://www.galbithink.org/ad-spending.htm"
+        },
+        {
+          "name": "Silk & Berndt, 'Aggregate Advertising Expenditure in the US Economy', NBER WP 28161 (PDF read directly)",
+          "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "old": {
+        "statement": "US advertising spend rose from about 1.8% of GDP in 1976 to a 2.3% plateau in 1986-89, easing to about 2.1% in 1993. The same McCann series peaks at 2.3% in 2000 and the IRS series at 2.4%, so era 4 is the climb, not the summit."
+      },
+      "new": {
+        "statement": "US advertising spend rose from about 1.8% of GDP in 1976 to a 2.3% plateau in 1986-89, easing to about 2.1% in 1993. Era 4 is the climb, not the summit: Galbi's vintage of the Coen/McCann totals peaks at 2.5% of GDP in 2000, and Silk & Berndt's separately constructed MCE and IRS series peak in the same year at 2.3% and 2.4%. The two readings of 'the McCann series' differ by two tenths of a point and are carried separately rather than merged.",
+        "central": 2.1,
+        "unit": "percent of GDP",
+        "ci80": [
+          2.0,
+          2.3
+        ],
+        "grade": "B",
+        "sources": [
+          {
+            "name": "Douglas Galbi, 'U.S. Annual Advertising Spending Since 1919' (total, four-media, GDP, ads as % of GDP)",
+            "url": "https://www.galbithink.org/ad-spending.htm"
+          },
+          {
+            "name": "Silk & Berndt, 'Aggregate Advertising Expenditure in the US Economy', NBER WP 28161 (PDF read directly)",
+            "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+          }
+        ],
+        "as_of": "1993"
+      },
+      "reason": "The clause 'the same McCann series peaks at 2.3% in 2000' contradicts the claim's own primary source, which puts 2000 at 2.5%. Value, interval and grade are unchanged; the statement is corrected and the two constructions are separated.",
+      "recomputation": [
+        {
+          "expr": "100*247472/1000/9817.0",
+          "expected": 2.521
+        },
+        {
+          "expr": "100*140956/1000/6657.4",
+          "expected": 2.117
+        },
+        {
+          "expr": "100*110270/1000/4739.5",
+          "expected": 2.327
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-scale-004",
+      "verdict": "confirmed",
+      "evidence": "Recomputed from the primary workbook: 1990 = 129,968.0, 1991 = 128,352.0, change -1.2434%. I then swept the entire 1919-2007 Grand Total series for every year-on-year nominal decline: 1921, 1930, 1931, 1932, 1933, 1938, 1942, 1961, 1991, 2001, 2007. The decline immediately preceding 1991 is 1961 (-0.836%), and 1991 is the only decline inside 1976-1993. Both halves of the claim hold.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*(128352/129968-1)",
+          "expected": -1.2434
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-scale-005",
+      "verdict": "adjusted",
+      "evidence": "I attacked this as the weakest-sourced number in the record and it survived. The cited URL is now dead in three ways: mediatel.co.uk 307-redirects to adwantedconnected.com, which 301-redirects to the-media-leader.com, and the article path enters an infinite auth-redirect loop; a Wayback CDX query for the URL returns no captures at all. However the page's indexed text is still recoverable and carries the figures with corroborating detail the record did not quote: '$202bn in 1990 (up 6.8% from 1989, or 1.6% in real terms). The top ten countries account for 86.2% of this expenditure' and 'The five major media combined with direct mail and sales promotion are $267bn in 1990, and will be $326bn by 1993.' The compiler is Zenith, not Mediatel. I independently recomputed the US cross-check from the Coen workbook: newspapers 32,281 + magazines 6,803 + radio 8,726 + broadcast TV 26,616 + cable 2,631 + billboards 1,084 = 78,141, giving a US share of 38.7%.",
+      "sources_consulted": [
+        {
+          "name": "Zenith, Advertising Expenditure Forecasts (December 1990), reported in Mediatel Newsline, 'Advertising Expenditure Forecasts - 1990', 12 Dec 1990. Body now behind an auth redirect (mediatel.co.uk -> adwantedconnected.com -> the-media-leader.com) and NOT captured in the Wayback Machine; figures recovered from the search-engine index of the page: $202bn five major media (+6.8% on 1989, +1.6% real), top ten countries 86.2%, $267bn including direct mail and sales promotion, $326bn by 1993.",
+          "url": "https://mediatel.co.uk/newsline/1990/12/12/advertising-expenditure-forecasts-1990"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "old": {
+        "sources": [
+          {
+            "name": "Mediatel Newsline, 'Advertising Expenditure Forecasts - 1990', 12 December 1990 (article body behind an auth wall; indexed text only - see notes)",
+            "url": "https://mediatel.co.uk/newsline/1990/12/12/advertising-expenditure-forecasts-1990"
+          },
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset, workbook (US five-media cross-check)",
+            "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+          }
+        ]
+      },
+      "new": {
+        "statement": "World advertising expenditure in 1990 was about $202B across the five major media (up 6.8% on 1989, 1.6% in real terms, with the top ten countries taking 86.2%), or about $267B including direct mail and sales promotion; US five-media spend of $78.1B implies a US share near 39%.",
+        "central": 202,
+        "unit": "billion USD (current)",
+        "ci80": [
+          180,
+          230
+        ],
+        "grade": "B",
+        "sources": [
+          {
+            "name": "Zenith, Advertising Expenditure Forecasts (December 1990), reported in Mediatel Newsline, 'Advertising Expenditure Forecasts - 1990', 12 Dec 1990. Body now behind an auth redirect (mediatel.co.uk -> adwantedconnected.com -> the-media-leader.com) and NOT captured in the Wayback Machine; figures recovered from the search-engine index of the page: $202bn five major media (+6.8% on 1989, +1.6% real), top ten countries 86.2%, $267bn including direct mail and sales promotion, $326bn by 1993.",
+            "url": "https://mediatel.co.uk/newsline/1990/12/12/advertising-expenditure-forecasts-1990"
+          },
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+            "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+          }
+        ],
+        "as_of": "1990"
+      },
+      "reason": "Source field was wrong: it credits Mediatel as the origin of a Zenith forecast, and describes the body as merely 'behind an auth wall' when the page is in fact unreachable by any route and absent from the Wayback Machine. Values confirmed against the indexed text; the source entry now names the compiler and records the retrieval status so a later reader does not waste the eight routes again.",
+      "recomputation": [
+        {
+          "expr": "32281+6803+8726+26616+2631+1084",
+          "expected": 78141
+        },
+        {
+          "expr": "100*78141/202000",
+          "expected": 38.68
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-scale-006",
+      "verdict": "confirmed",
+      "evidence": "Confirmed from a source the record did not use: the Coen workbook's own 'revisions' sheet, which prints 1990 as 129,590 in the Coen-2000 and Coen-2003 vintages and 129,968 in Coen-2008a, with the ratio 0.0029168917 recorded in the sheet itself. That is an independent confirmation of the DMA-2001-vs-2009 comparison the claim makes. The same sheet shows the 1991-1994 revisions are larger (0.61%, 0.83%, 1.01%, 0.89%), so 0.29% is a conservative marker of vintage drift rather than a cherry-picked large one.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*(129968/129590-1)",
+          "expected": 0.2917
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-scale-007",
+      "verdict": "confirmed",
+      "evidence": "Coen 'Total National' 1993 = 81,867.0 and 1976 = 18,355.0 in the primary workbook. Ratio recomputed.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "81867/18355",
+          "expected": 4.4602
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-scale-008",
+      "verdict": "confirmed",
+      "evidence": "Coen 'Total Local' 1993 = 59,089.0 and 1976 = 14,945.0 in the primary workbook. Ratio recomputed. National + local identity holds: 81,867 + 59,089 = 140,956 = Grand Total.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "81867+59089",
+          "expected": 140956
+        },
+        {
+          "expr": "59089/14945",
+          "expected": 3.9538
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-scale-009",
+      "verdict": "adjusted",
+      "evidence": "The record says the NAA series 'could not be retrieved from any archive' after 'eight retrieval routes'. That is false and I refuted it directly: the era-4 notes record trying the slugs 'Annual-All-Categories' and 'Annual-Classified', but the page that carries the split is 'Annual-Newspaper-Ad-Expenditures.htm', and I pulled it live from the Wayback Machine in one request (HTTP 200, 88,300 bytes). It gives 1993 as national $3,853 / retail $16,859 / classified $11,157 / total $31,869, and 2000 as classified $19,608 of $48,670. The record's triangulated $11.2B is within 0.4% of the published figure and its assumed 35% share is right to one decimal - the estimate was good, but it is no longer an estimate, so the grade-C triangulation and the +/-14% interval both have to go.",
+      "sources_consulted": [
+        {
+          "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' (Research Dept., 3/11), national/retail/classified split, retrieved live from the Internet Archive",
+          "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "old": {
+        "central": 11200,
+        "unit": "million USD (current)",
+        "ci80": [
+          9600,
+          12800
+        ],
+        "grade": "C",
+        "method": "Coen's 1993 newspaper total ($32,025M) multiplied by an estimated 35% classified share ... The NAA's own annual classified series for 1976-1993 could not be retrieved from any archive - see the notes file section 5 for the routes attempted.",
+        "sources": [
+          "Coen workbook",
+          "AEI Carpe Diem",
+          "MinnPost"
+        ]
+      },
+      "new": {
+        "statement": "US newspaper classified advertising was $11,157M in 1993 - 35.0% of newspaper advertising revenue and 7.9% of all measured US advertising spend. The figure is the Newspaper Association of America's own published national/retail/classified split (national $3,853M + retail $16,859M + classified $11,157M = print total $31,869M), which runs unbroken from 1950 and sits within 0.5% of Coen's newspaper total for 1993. Classified rose from $2,608M in 1976 across the era and kept climbing to its documented $19,608M peak in 2000.",
+        "central": 11157,
+        "unit": "million USD (current)",
+        "ci80": [
+          10930,
+          11380
+        ],
+        "grade": "B",
+        "sources": [
+          {
+            "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' (Research Dept., 3/11), national/retail/classified split, retrieved live from the Internet Archive",
+            "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+          },
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+            "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+          }
+        ],
+        "as_of": "1993"
+      },
+      "reason": "The blocking premise of the grade-C method - that no period NAA series exists - is false. The direct published figure replaces the triangulation, the interval narrows to publication tolerance, the grade rises C -> B (NAA is a named trade compiler, not an official statistic, so not A), and the AEI/MinnPost secondary citations for the 2000 peak are superseded by the primary series that contains it.",
+      "recomputation": [
+        {
+          "expr": "3853+16859+11157",
+          "expected": 31869
+        },
+        {
+          "expr": "100*11157/31869",
+          "expected": 35.009
+        },
+        {
+          "expr": "100*11157/140956",
+          "expected": 7.915
+        },
+        {
+          "expr": "100*11157/59089",
+          "expected": 18.882
+        }
+      ],
+      "disagreement": "The record and I read the same evidence gap differently: it concluded the series was unreachable after eight routes; I reached it on the first, because the classified column lives on the general 'Annual Newspaper Ad Expenditures' page rather than a classified-specific slug. This is a search-string failure, not a source-availability failure, and the same page also supplies era 5's 2000 peak and era 3's 1950-1975 back-series."
+    },
+    {
+      "claim_id": "e4-buyers-006",
+      "verdict": "adjusted",
+      "evidence": "The record says the NAA series 'could not be retrieved from any archive' after 'eight retrieval routes'. That is false and I refuted it directly: the era-4 notes record trying the slugs 'Annual-All-Categories' and 'Annual-Classified', but the page that carries the split is 'Annual-Newspaper-Ad-Expenditures.htm', and I pulled it live from the Wayback Machine in one request (HTTP 200, 88,300 bytes). It gives 1993 as national $3,853 / retail $16,859 / classified $11,157 / total $31,869, and 2000 as classified $19,608 of $48,670. The record's triangulated $11.2B is within 0.4% of the published figure and its assumed 35% share is right to one decimal - the estimate was good, but it is no longer an estimate, so the grade-C triangulation and the +/-14% interval both have to go.",
+      "sources_consulted": [
+        {
+          "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' (Research Dept., 3/11), national/retail/classified split, retrieved live from the Internet Archive",
+          "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "old": {
+        "central": 11200,
+        "unit": "million USD (current)",
+        "ci80": [
+          9600,
+          12800
+        ],
+        "grade": "C",
+        "method": "Coen's 1993 US newspaper advertising total ($32,025M) multiplied by an estimated classified share of 35% ... No period NAA series was reachable - see the notes file for the eight retrieval routes tried.",
+        "sources": [
+          "Coen workbook",
+          "AEI Carpe Diem"
+        ]
+      },
+      "new": {
+        "statement": "Classified advertisers - individuals and small businesses buying by the line, self-serve, with no agency and no commission - spent $11,157M in US newspapers in 1993 on the Newspaper Association of America's own published classified line: 7.9% of all measured US advertising and 18.9% of all local money. The same NAA series puts classified at $2,608M in 1976, so the buyer class roughly quadrupled across the era.",
+        "central": 11157,
+        "unit": "million USD (current)",
+        "ci80": [
+          10930,
+          11380
+        ],
+        "grade": "B",
+        "sources": [
+          {
+            "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' (Research Dept., 3/11), national/retail/classified split, retrieved live from the Internet Archive",
+            "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+          },
+          {
+            "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+            "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+          }
+        ],
+        "as_of": "1993"
+      },
+      "reason": "Same defect as e4-scale-009 and must move with it: the NAA classified series is retrievable, so the triangulation, the wide interval and the C grade are all replaced by the published figure. 'Roughly 8%' and 'about a fifth' both survive as 7.9% and 18.9%.",
+      "recomputation": [
+        {
+          "expr": "3853+16859+11157",
+          "expected": 31869
+        },
+        {
+          "expr": "100*11157/31869",
+          "expected": 35.009
+        },
+        {
+          "expr": "100*11157/140956",
+          "expected": 7.915
+        },
+        {
+          "expr": "100*11157/59089",
+          "expected": 18.882
+        }
+      ],
+      "disagreement": "Structural note for the orchestrator, not a defect in this claim: the four money types in this record are not a partition. national_brand (58.1%) + local_retail (41.9%) = 100% of Coen's binary split, while classified (7.9%) and direct_response (22.0%) are cross-cutting slices that sit inside both. The BUYERS summary says so; a downstream chart that stacks all four will double-count."
+    },
+    {
+      "claim_id": "e4-scale-010",
+      "verdict": "confirmed",
+      "evidence": "Grade C with a stated method, and the method's one measurable anchor checks out exactly: Statistical Abstract 1995 table 930 (Publishers Information Bureau, magazine advertising by product) gives 'Mail orders/direct response' at $719M in 1993 and $328M in 1985, as the method asserts. Coen's 1993 direct mail line is $27,266M in the primary workbook. The interval's lower bound (28,000) implies at least $734M of non-mail direct response, which the PIB magazine line alone already exceeds, so the floor is safe; the upper bound implies $8.7B, which is generous but not absurd for DRTV, infomercial time, direct-response space and toll-free response across all other media. 31,000/140,956 = 22.0% as stated.",
+      "sources_consulted": [
+        {
+          "name": "Statistical Abstract of the United States 1995, Communications chapter (tables 913, 924, 925, 930), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/communic.pdf"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "27266+3734",
+          "expected": 31000
+        },
+        {
+          "expr": "100*31000/140956",
+          "expected": 21.99
+        }
+      ],
+      "disagreement": "The step the method calls 'applying a similar direct-response intensity to newspapers, radio, television remnant and infomercial time' is not shown and is not reproducible from the cited sources. The interval is wide enough to absorb it and the grade is correctly C, so the claim stands - but this is the least reconstructible number in the record and should not be quoted without its interval."
+    },
+    {
+      "claim_id": "e4-buyers-001",
+      "verdict": "confirmed",
+      "evidence": "Recomputed from the primary Coen workbook rather than the record's reading: Total National 1993 = 81,867 of Grand Total 140,956 = 58.080%; 1976 = 18,355 of 33,300 = 55.120%. Grade B is correct - this is Coen's own national/local classification in a trade compilation, not an official statistic, and the record says so.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*81867/140956",
+          "expected": 58.08
+        },
+        {
+          "expr": "100*18355/33300",
+          "expected": 55.12
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-buyers-002",
+      "verdict": "confirmed",
+      "evidence": "Total Local 1993 = 59,089 of 140,956 = 41.920%; 1976 = 14,945 of 33,300 = 44.880%. Complement of e4-buyers-001 to the decimal.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*59089/140956",
+          "expected": 41.92
+        },
+        {
+          "expr": "100*14945/33300",
+          "expected": 44.88
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-buyers-003",
+      "verdict": "confirmed",
+      "evidence": "I rebuilt the national-television aggregate from Coen's own sub-lines to try to break it: Broadcast TV Network 10,209 + Broadcast TV Spot (nat'l) 7,800 + Broadcast TV Syndication 1,576 + Cable Networks 3,295 = 22,880, exactly as claimed, against direct mail 27,266. Direct mail is 33.305% of the 81,867 national total. The caveat the claim attaches - that Coen books direct mail as wholly national and includes postage and production - is independently confirmed by NBER WP 28161, which states that 'business magazines, direct mail, and the internet were treated as exclusively national'.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Silk & Berndt, 'Aggregate Advertising Expenditure in the US Economy', NBER WP 28161 (PDF read directly)",
+          "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "10209+7800+1576+3295",
+          "expected": 22880
+        },
+        {
+          "expr": "100*27266/81867",
+          "expected": 33.305
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-buyers-004",
+      "verdict": "confirmed",
+      "evidence": "The 44.9% for 1992 from Donnelley Marketing's 15th Annual Survey of Promotional Practices is recoverable independently of the record's citations and reproduces the same specific figure and survey edition. The interval [40, 50] is honest for a single trade survey. One citation caveat: the Springer article body (Marketing Letters, BF00640801) is behind an IdP redirect and could not be read, and the second source - Buzzell, Quelch & Salmon, HBR March 1990 - predates the 1992 survey and can only support the 'overtook media advertising during the 1980s' half of the sentence, not the 44.9% itself. The claim's wording already splits the two assertions that way, so no adjustment is warranted.",
+      "sources_consulted": [
+        {
+          "name": "Donnelley Marketing, 15th Annual Survey of Promotional Practices (1992), as cited in Marketing Letters (body paywalled; figure recovered from the indexed text)",
+          "url": "https://link.springer.com/article/10.1007/BF00640801"
+        },
+        {
+          "name": "Buzzell, Quelch & Salmon, 'The Costly Bargain of Trade Promotion', Harvard Business Review, March 1990",
+          "url": "https://hbr.org/1990/03/the-costly-bargain-of-trade-promotion"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-buyers-008",
+      "verdict": "confirmed",
+      "evidence": "Recomputed from the primary workbook: newspapers Local 28,405 of 32,025 = 88.696%; Yellow Pages Local 8,287 of 9,517 = 87.076%. Both round to the stated figures and both intervals contain them.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*28405/32025",
+          "expected": 88.696
+        },
+        {
+          "expr": "100*8287/9517",
+          "expected": 87.076
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-buyers-007",
+      "verdict": "confirmed",
+      "evidence": "Same construction as e4-scale-010 and verified the same way: the PIB magazine 'Mail orders/direct response' anchor of $719M in 1993 is confirmed in Statistical Abstract 1995 table 930, and the Coen direct mail line of $27,266M is confirmed in the primary workbook. Grade C with a stated method is the right calibration; the FCC's June 1984 order that the method invokes as the origin of legal infomercial time is separately confirmed (UPI, 27 June 1984).",
+      "sources_consulted": [
+        {
+          "name": "Statistical Abstract of the United States 1995, Communications chapter (tables 913, 924, 925, 930), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/communic.pdf"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*31000/140956",
+          "expected": 21.99
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-sellers-001",
+      "verdict": "adjusted",
+      "evidence": "The 61% is correctly transcribed from Forbes/Adgate ('the audience share of ABC, CBS and NBC was at 61% and dropping annually' for 1988-89, with 'Cable's audience share had grown to 20%'). But the claim's OWN second source contradicts it: Encyclopedia.com says the networks' combined prime-time share 'declined from 90 percent to 70 percent over the course of the decade', putting roughly 70% at the end of the 1980s. Nielsen's published 1988-89 season household shares point the same way (NBC 26 + ABC 21 + CBS 21 = 68). The stated interval [59, 63] excludes both. Separately, 'over 90% in the mid-1970s' overstates Encyclopedia.com, which says 'approximately 90%'.",
+      "sources_consulted": [
+        {
+          "name": "Brad Adgate, 'The Rise And Fall Of Cable Television', Forbes (citing NCTA/Nielsen)",
+          "url": "https://www.forbes.com/sites/bradadgate/2020/11/02/the-rise-and-fall-of-cable-television/"
+        },
+        {
+          "name": "Encyclopedia.com, 'Prime Time Audiences Gain More Choices, 1980s-2000s'",
+          "url": "https://www.encyclopedia.com/arts/news-wires-white-papers-and-books/prime-time-audiences-gain-more-choices-1980s-2000s"
+        }
+      ],
+      "old": {
+        "statement": "The combined ABC/CBS/NBC prime-time audience share was 61% in the 1988-89 season, down from over 90% in the mid-1970s, while cable's share had grown to 20%.",
+        "ci80": [
+          59,
+          63
+        ]
+      },
+      "new": {
+        "statement": "The combined ABC/CBS/NBC prime-time audience share fell from about 90% in the mid-1970s to somewhere between 61% and 70% by the 1988-89 season, while cable's share reached 20%. The two cited sources disagree: Forbes (citing NCTA) reports 61% for that season; Encyclopedia.com puts the end-of-decade figure near 70%, consistent with summing Nielsen's published 1988-89 season household shares (26 + 21 + 21 = 68). The lower figure is carried as the central and the interval spans both rather than resolving them.",
+        "central": 61,
+        "unit": "percent share of prime-time audience",
+        "ci80": [
+          60,
+          70
+        ],
+        "grade": "B",
+        "sources": [
+          {
+            "name": "Brad Adgate, 'The Rise And Fall Of Cable Television', Forbes (citing NCTA/Nielsen)",
+            "url": "https://www.forbes.com/sites/bradadgate/2020/11/02/the-rise-and-fall-of-cable-television/"
+          },
+          {
+            "name": "Encyclopedia.com, 'Prime Time Audiences Gain More Choices, 1980s-2000s'",
+            "url": "https://www.encyclopedia.com/arts/news-wires-white-papers-and-books/prime-time-audiences-gain-more-choices-1980s-2000s"
+          }
+        ],
+        "as_of": "1989"
+      },
+      "reason": "Interval failure: [59, 63] excludes a credible published figure carried by the claim's own second citation. Interval widened asymmetrically upward and the central left at the sourced 61 rather than moved to a midpoint, because averaging two disagreeing tabulations would invent a number neither source reports. 'Over 90%' softened to 'about 90%' to match what the source says.",
+      "recomputation": [
+        {
+          "expr": "26+21+21",
+          "expected": 68
+        }
+      ],
+      "disagreement": "The record read Forbes as settling the question; I read the two cited sources as disagreeing by roughly nine points, most likely because 'share' is being computed on different bases (households using television vs all households, prime-time vs all-day). The era's narrative - a fall from about 90% to roughly 60-70% while cable took 20% - is unaffected by which reading is right, so this is a calibration fix, not a story change."
+    },
+    {
+      "claim_id": "e4-sellers-002",
+      "verdict": "confirmed",
+      "evidence": "Forbes/Adgate, citing NCTA: 'From 1980 to 1990, the number of cable networks grew from 28 to 79, fragmenting the TV landscape.' Both endpoints as claimed. Interval [72, 86] is appropriately loose for a trade count whose inclusion rule (what counts as a national network) is not published.",
+      "sources_consulted": [
+        {
+          "name": "Brad Adgate, 'The Rise And Fall Of Cable Television', Forbes (citing NCTA/Nielsen)",
+          "url": "https://www.forbes.com/sites/bradadgate/2020/11/02/the-rise-and-fall-of-cable-television/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-sellers-003",
+      "verdict": "confirmed",
+      "evidence": "Read the primary table directly. Statistical Abstract 1995 table 913 (Census Bureau, Annual Survey of Communication Services 1993, SIC 4841): 1993 revenue $26,881M, advertising $2,633M, basic service $13,609M, and the table's own percent-distribution column prints 9.8 and 50.6 for 1993. Recomputation matches to three decimals. Grade A is correct - this is an official Census survey.",
+      "sources_consulted": [
+        {
+          "name": "Statistical Abstract of the United States 1995, Communications chapter (tables 913, 924, 925, 930), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/communic.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*2633/26881",
+          "expected": 9.795
+        },
+        {
+          "expr": "100*13609/26881",
+          "expected": 50.627
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-sellers-004",
+      "verdict": "confirmed",
+      "evidence": "All four figures recomputed from the primary Coen workbook: Yellow Pages 9,517 (Local 8,287 = 87.076%), radio 9,457, magazines 7,357. The ordering claim holds: Yellow Pages exceeds both. Grade B correct for Coen.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*8287/9517",
+          "expected": 87.076
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-sellers-005",
+      "verdict": "confirmed",
+      "evidence": "Read Statistical Abstract 1995 table 924 directly: third-class mail revenue FY1993 = $9,817M with bulk rate $9,553M and single-piece $264M (9,553 + 264 = 9,817), FY1980 = $2,412M. Ratio 4.070. Source line is 'U.S. Postal Service, Annual Report of the Postmaster General and Comprehensive Statement on Postal Operations', so grade A is correct.",
+      "sources_consulted": [
+        {
+          "name": "Statistical Abstract of the United States 1995, Communications chapter (tables 913, 924, 925, 930), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/communic.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "9553+264",
+          "expected": 9817
+        },
+        {
+          "expr": "9817/2412",
+          "expected": 4.0701
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-sellers-006",
+      "verdict": "confirmed",
+      "evidence": "Newspapers 32,025 of 140,956 = 22.720%; broadcast TV 28,020. Both exact in the primary workbook. I also verified the second citation, which the record describes rather than quotes: the Coen workbook does contain an 'naa comparison' sheet, and it shows NAA print newspapers against Coen at ratios of 1.000 for every year 1976-1989 and 0.995-0.999 for 1990-1993 - i.e. inside 1% across the overlap, as claimed.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' (Research Dept., 3/11), national/retail/classified split, retrieved live from the Internet Archive",
+          "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*32025/140956",
+          "expected": 22.72
+        }
+      ],
+      "disagreement": "'Largest single US advertising medium in 1993' is true only under Coen's own partition, in which broadcast TV and cable are separate line items from 1990. Summed as one medium, television is 28,020 + 4,451 = 32,471, which is ahead of newspapers' 32,025 - which is precisely what e4-medium-002 asserts for 1992 onward. The two claims are not contradictory but a reader meeting e4-sellers-006 alone will be misled. Recommend the statement carry the same parenthetical caveat e4-medium-002 carries."
+    },
+    {
+      "claim_id": "e4-medium-001",
+      "verdict": "confirmed",
+      "evidence": "Recomputed from the primary workbook: 9,618/33,300 = 28.883%; 32,025/140,956 = 22.720%; 32,025/9,618 = 3.330x. All three as stated.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*9618/33300",
+          "expected": 28.883
+        },
+        {
+          "expr": "100*32025/140956",
+          "expected": 22.72
+        },
+        {
+          "expr": "32025/9618",
+          "expected": 3.3297
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-medium-002",
+      "verdict": "confirmed",
+      "evidence": "I attacked the 'first' by scanning the whole series rather than trusting the stated year. Building total television as Coen's single 'Television' line for 1935-1989 (verified as broadcast + cable: in 1980, 11,416 + 72 = 11,488) and as Broadcast TV + Cable for 1990-2007, then comparing against newspapers for every year 1949-2007, the first year total TV exceeds newspapers is 1992 - no earlier crossing exists. Values: 1992 TV 27,249 + 3,830 = 31,079 vs newspapers 30,737; 1993 broadcast alone 28,020 vs newspapers 32,025. Shares 20.183% (1976) and 23.036% (1993).",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "27249+3830",
+          "expected": 31079
+        },
+        {
+          "expr": "100*6721/33300",
+          "expected": 20.183
+        },
+        {
+          "expr": "100*(28020+4451)/140956",
+          "expected": 23.036
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-medium-003",
+      "verdict": "confirmed",
+      "evidence": "Recomputed: 4,786/33,300 = 14.372% (1976), 27,266/140,956 = 19.344% (1993). I tested the 'rising every single year' assertion against all eighteen values 1976-1993 and it is strictly monotonic, including through 1991 when the total fell. 'Largest single national medium' also holds: 27,266 against national broadcast TV 19,585 and national newspapers 3,620.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*4786/33300",
+          "expected": 14.372
+        },
+        {
+          "expr": "100*27266/140956",
+          "expected": 19.344
+        },
+        {
+          "expr": "10209+7800+1576",
+          "expected": 19585
+        }
+      ],
+      "disagreement": "'Third-largest medium ... for the whole era' holds only if Coen's residual 'Miscellaneous' bucket is excluded, which is defensible since it is a bucket rather than a medium - but it was larger than direct mail from 1976 ($6,552M vs $4,786M) until 1980, when direct mail passed it ($7,596M vs $7,559M). Direct mail was the third-largest NAMED medium for the whole era and the third-largest Coen line item only from 1980."
+    },
+    {
+      "claim_id": "e4-medium-004",
+      "verdict": "confirmed",
+      "evidence": "Cable 1980 rebuilt from sub-lines: Cable Networks 60 + Spot (local) 12 = 72, matching the stated total; 1993 Cable Networks 3,295 + Spot (local) 1,156 = 4,451. Shares 0.134% and 3.158%; growth 61.82x, which the claim rounds to 62x.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "60+12",
+          "expected": 72
+        },
+        {
+          "expr": "3295+1156",
+          "expected": 4451
+        },
+        {
+          "expr": "4451/72",
+          "expected": 61.819
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-medium-005",
+      "verdict": "confirmed",
+      "evidence": "Yellow Pages 2,900 (1980, the first year the category appears in Coen - I confirmed no Yellow Pages row exists for 1979 or earlier) to 9,517 (1993) = 3.282x, 6.752% of measured spend. Ordering claims all hold: 9,517 > radio 9,457 > magazines 7,357, and 9,517/4,451 = 2.14x cable.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "9517/2900",
+          "expected": 3.2817
+        },
+        {
+          "expr": "100*9517/140956",
+          "expected": 6.752
+        },
+        {
+          "expr": "9517/4451",
+          "expected": 2.1382
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-medium-006",
+      "verdict": "confirmed",
+      "evidence": "Radio 9,457/140,956 = 6.709% (1993) and 2,330/33,300 = 6.997% (1976). Consistent with the adjudicated project constraint: across 1976-1993 radio never approaches the top of the Coen medium table, peaking at seventh of ten line items.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*9457/140956",
+          "expected": 6.709
+        },
+        {
+          "expr": "100*2330/33300",
+          "expected": 6.997
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-medium-007",
+      "verdict": "confirmed",
+      "evidence": "Read Statistical Abstract 1995 table 925 directly (source line: U.S. Postal Service, Annual Report of the Postmaster General). Third-class pieces FY1980 = 30,381M of 106,311M total = 28.578%; FY1993 = 65,773M of 171,220M = 38.414%. The table's own per-capita rows print 133 for 1980 and 253 for 1993, exactly as claimed. Grade A correct.",
+      "sources_consulted": [
+        {
+          "name": "Statistical Abstract of the United States 1995, Communications chapter (tables 913, 924, 925, 930), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/communic.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*30381/106311",
+          "expected": 28.578
+        },
+        {
+          "expr": "100*65773/171220",
+          "expected": 38.414
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-creators-001",
+      "verdict": "confirmed",
+      "evidence": "Confirmed twice over. HBS WP 11-039 Table A1 prints 8,089 (1977) and 13,879 (1992) establishments with payroll for SIC 7311. Independently, Statistical Abstract 1995 table 1315 (1992 Census of Service Industries) gives 13.9 thousand establishments with payroll for SIC 7311, matching to the rounding. Growth 71.6%, which the claim states as 'about 70%'.",
+      "sources_consulted": [
+        {
+          "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services', HBS WP 11-039, Appendix A Tables A1/A2 (PDF read directly)",
+          "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+        },
+        {
+          "name": "Statistical Abstract of the United States 1995, Domestic Trade chapter (tables 1315, 1316, 1317), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/domtrade.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*(13879/8089-1)",
+          "expected": 71.579
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-creators-002",
+      "verdict": "confirmed",
+      "evidence": "HBS Table A1: Total Agency Billings 15,453.080 (1977) and 69,586.730 (1992), current $ millions. Ratio 4.503, stated as 4.5x. Grade A is defensible - the underlying data is the Economic Census, reproduced rather than recomputed.",
+      "sources_consulted": [
+        {
+          "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services', HBS WP 11-039, Appendix A Tables A1/A2 (PDF read directly)",
+          "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "69586.73/15453.08",
+          "expected": 4.5031
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-creators-003",
+      "verdict": "confirmed",
+      "evidence": "HBS Table A1: Total Agency Income 3,168.560 (1977) and 13,607.846 (1992). I broke the single-source dependency: Statistical Abstract 1995 table 1315 independently gives SIC 7311 receipts of $13,608M for establishments with payroll in 1992 - the same number from the Census publication rather than the working paper.",
+      "sources_consulted": [
+        {
+          "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services', HBS WP 11-039, Appendix A Tables A1/A2 (PDF read directly)",
+          "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+        },
+        {
+          "name": "Statistical Abstract of the United States 1995, Domestic Trade chapter (tables 1315, 1316, 1317), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/domtrade.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-creators-004",
+      "verdict": "adjusted",
+      "evidence": "The 127,000 is correctly transcribed: Statistical Abstract 1995 table 1316 (source line 'U.S. Bureau of the Census, County Business Patterns') gives SIC 7311 employees of 137 thousand in 1990 and 127 thousand in 1992. But table 1315 in the same volume - the 1992 Census of Service Industries - gives 132 thousand paid employees for SIC 7311 in the same year. Two Census products, same industry, same year, 4% apart, and the stated interval [124000, 130000] excludes the higher one.",
+      "sources_consulted": [
+        {
+          "name": "Statistical Abstract of the United States 1995, Domestic Trade chapter (tables 1315, 1316, 1317), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/domtrade.pdf"
+        }
+      ],
+      "old": {
+        "ci80": [
+          124000,
+          130000
+        ]
+      },
+      "new": {
+        "statement": "US advertising-agency employment was about 127,000 in 1992, down from 137,000 in 1990 - the industry shed staff through the 1990-91 recession while its establishment count kept rising. County Business Patterns gives 127,000; the 1992 Census of Service Industries gives 132,000 paid employees for the same industry and year.",
+        "central": 127000,
+        "unit": "employees",
+        "ci80": [
+          125000,
+          133000
+        ],
+        "grade": "A",
+        "sources": [
+          {
+            "name": "US Census Bureau, County Business Patterns, via Statistical Abstract of the United States 1995, table 1316",
+            "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/domtrade.pdf"
+          },
+          {
+            "name": "US Census Bureau, 1992 Census of Service Industries, via Statistical Abstract of the United States 1995, table 1315 (132,000 paid employees, SIC 7311)",
+            "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/domtrade.pdf"
+          }
+        ],
+        "as_of": "1992"
+      },
+      "reason": "Interval too narrow: it excludes a credible official figure for the same quantity published in the same volume. Central kept at the CBP value the claim cites; interval widened to span both Census products and the second source added so the spread is visible rather than hidden.",
+      "disagreement": "The record treated CBP as the single authority; I read the volume as carrying two official employment counts that differ by 5,000 because of different reference-period and coverage rules. The directional point (employment down 1990-1992 while establishments rose) survives on either series."
+    },
+    {
+      "claim_id": "e4-creators-005",
+      "verdict": "confirmed",
+      "evidence": "Read directly from Statistical Abstract 1995. Table 1317 (Service Annual Survey, taxable firms) gives SIC 7331 receipts of $3.8B in 1985 and $8.3B in 1993. Table 1316 (County Business Patterns) gives 3.9 thousand establishments and 81 thousand employees for SIC 7331 in 1992, and table 1315 independently gives 3.9 thousand establishments with payroll. Every figure in the claim checks out. Note the two bases differ - table 1315 puts 1992 receipts for payroll establishments at $6,434M against table 1317's $7.3B for all taxable firms - but the claim uses the 1317 series consistently at both ends, so the 3.8 -> 8.3 comparison is like-for-like.",
+      "sources_consulted": [
+        {
+          "name": "Statistical Abstract of the United States 1995, Domestic Trade chapter (tables 1315, 1316, 1317), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/domtrade.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "8.3/3.8",
+          "expected": 2.1842
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-creators-006",
+      "verdict": "confirmed",
+      "evidence": "HBS Table A1, share of total agency income from media commissions: 58.55 (1977), 59.42 (1982), 61.30 (1987), 54.17 (1992), 45.95 (1997). Fees for Services 1992 = 24.56. Every figure in the claim matches the table, including the 58.6 rounding of 58.55. The claim's framing - that the commission share of agency INCOME fell while the commission RATE on billings did not - is exactly what the table shows and is the non-obvious point.",
+      "sources_consulted": [
+        {
+          "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services', HBS WP 11-039, Appendix A Tables A1/A2 (PDF read directly)",
+          "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-creators-007",
+      "verdict": "confirmed",
+      "evidence": "$450M confirmed independently of the cited source: the deal was $400M cash up front plus $50M over two years, giving Saatchi combined billings of over $7.2 billion and moving it past Omnicom - the largest advertising acquisition to that date. Ad Age's Maurice Saatchi career chronology independently dates it to May 1986, matching the claim's month.",
+      "sources_consulted": [
+        {
+          "name": "Ad Age, Maurice Saatchi career chronology ('agency buys Ted Bates Worldwide, May 1986')",
+          "url": "https://adage.com/article/news/maurice-saatchi-chart-photo-birth-date-june-21-1946-career-highlights-staffer-haymarket-publishing-1967-70-founded-saatchi-saatchi-brother-charles-1970-named-chairman-march-1985-agency-buys-ted-bates-worldwide-1986-ousted-chairman-dec/84047/"
+        },
+        {
+          "name": "Encyclopedia.com, 'Saatchi & Saatchi' / 'Bates Worldwide Inc' (International Directory of Company Histories)",
+          "url": "https://www.encyclopedia.com/books/politics-and-business-magazines/saatchi-saatchi"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-creators-008",
+      "verdict": "adjusted",
+      "evidence": "The claimed source conflict does not exist. FundingUniverse - the only external source cited - says $566 million, not $550 million. The second 'source' is the project's own planning file, and I grepped planning/unknown-unknowns-probe.json and the whole planning/ tree: it contains no mention of JWT, J. Walter Thompson, or 566. So the $550M figure has no traceable provenance anywhere, external or internal, and the interval was widened to straddle a number nobody published. The contemporaneous record is clean and arithmetically closed: WPP offered $55.50 a share in cash for JWT's 10.2 million shares and JWT accepted on 26 June 1987; 55.50 x 10.2 = 566.1. The earlier hostile tender was worth about $460M, which is the likeliest origin of the loose lower figures in circulation.",
+      "sources_consulted": [
+        {
+          "name": "FundingUniverse, 'History of WPP Group plc'",
+          "url": "https://www.fundinguniverse.com/company-histories/wpp-group-plc-history/"
+        },
+        {
+          "name": "Washington Post, 'JWT Agrees to Sweetened WPP Offer', 27 June 1987 ($55.50 a share for 10.2M shares)",
+          "url": "https://www.washingtonpost.com/archive/business/1987/06/27/jwt-agrees-to-sweetened-wpp-offer/b6da869b-6d1d-4c6e-9ca0-2b6ce3f5524b/"
+        },
+        {
+          "name": "Ad Age, '75 Biggest Events': WPP buying JWT ($566 million, accepted 26 June 1987; initial hostile tender ~$460M)",
+          "url": "https://adage.com/article/75-years-of-ideas/historic-moments-wpp-buying-jwt/102643"
+        }
+      ],
+      "old": {
+        "statement": "WPP acquired J. Walter Thompson in 1987; the price is reported at both $550M and $566M, so the interval is widened rather than resolved.",
+        "central": 558,
+        "ci80": [
+          545,
+          575
+        ],
+        "sources": [
+          "FundingUniverse",
+          "Unknown-unknowns probe seed note citing $566M (P2 planning/unknown-unknowns-probe.json)"
+        ]
+      },
+      "new": {
+        "statement": "WPP acquired the JWT Group for $566M in June 1987 - $55.50 a share in cash for 10.2 million shares, agreed 26 June 1987 after an opening hostile tender worth about $460M. It was the first successful hostile takeover in the advertising business.",
+        "central": 566,
+        "unit": "million USD",
+        "ci80": [
+          563,
+          570
+        ],
+        "grade": "B",
+        "sources": [
+          {
+            "name": "FundingUniverse, 'History of WPP Group plc'",
+            "url": "https://www.fundinguniverse.com/company-histories/wpp-group-plc-history/"
+          },
+          {
+            "name": "Washington Post, 'JWT Agrees to Sweetened WPP Offer', 27 June 1987 ($55.50 a share for 10.2M shares)",
+            "url": "https://www.washingtonpost.com/archive/business/1987/06/27/jwt-agrees-to-sweetened-wpp-offer/b6da869b-6d1d-4c6e-9ca0-2b6ce3f5524b/"
+          },
+          {
+            "name": "Ad Age, '75 Biggest Events': WPP buying JWT ($566 million, accepted 26 June 1987; initial hostile tender ~$460M)",
+            "url": "https://adage.com/article/75-years-of-ideas/historic-moments-wpp-buying-jwt/102643"
+          }
+        ],
+        "as_of": "1987-06"
+      },
+      "reason": "Manufactured disagreement plus a citation defect. The cited source says 566; the second citation points at an internal planning file that does not contain the figure. Central moves from an average of a real number and a phantom to the number every retrievable source reports, the interval narrows to share-count rounding, and the internal-file citation is replaced by contemporaneous reporting.",
+      "recomputation": [
+        {
+          "expr": "55.50*10.2",
+          "expected": 566.1
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-creators-009",
+      "verdict": "adjusted",
+      "evidence": "Same defect, smaller. FundingUniverse - the sole cited source - says $864 million, not $862M, so the claim's 'reported as $862M and $864M' is not supported by its own citation and the central of 863 is an average of a sourced figure and an unsourced one. Contemporaneous UPI (16 May 1989) headlines the deal at $864 million, at $54 a share in cash.",
+      "sources_consulted": [
+        {
+          "name": "FundingUniverse, 'History of WPP Group plc'",
+          "url": "https://www.fundinguniverse.com/company-histories/wpp-group-plc-history/"
+        },
+        {
+          "name": "UPI Archives, 'WPP to buy Ogilvy for $864 million', 16 May 1989",
+          "url": "https://www.upi.com/Archives/1989/05/16/WPP-to-buy-Ogilvy-for-864-million/4520611294400/"
+        }
+      ],
+      "old": {
+        "statement": "WPP acquired The Ogilvy Group in 1989 for about $863M (reported as $862M and $864M), completing the era's holding-company land grab.",
+        "central": 863,
+        "ci80": [
+          855,
+          870
+        ],
+        "sources": [
+          "FundingUniverse"
+        ]
+      },
+      "new": {
+        "statement": "WPP acquired The Ogilvy Group in 1989 for $864M ($54 a share in cash, announced 16 May 1989) - then the largest sum ever paid for an advertising agency, completing the era's holding-company land grab.",
+        "central": 864,
+        "unit": "million USD",
+        "ci80": [
+          860,
+          868
+        ],
+        "grade": "B",
+        "sources": [
+          {
+            "name": "FundingUniverse, 'History of WPP Group plc'",
+            "url": "https://www.fundinguniverse.com/company-histories/wpp-group-plc-history/"
+          },
+          {
+            "name": "UPI Archives, 'WPP to buy Ogilvy for $864 million', 16 May 1989",
+            "url": "https://www.upi.com/Archives/1989/05/16/WPP-to-buy-Ogilvy-for-864-million/4520611294400/"
+          }
+        ],
+        "as_of": "1989-05"
+      },
+      "reason": "Central was an average across a documented figure and an undocumented variant. Moved to the figure the cited source and the contemporaneous wire both report, interval narrowed accordingly, and a primary-dated source added."
+    },
+    {
+      "claim_id": "e4-pricing-001",
+      "verdict": "confirmed",
+      "evidence": "Read HBS Table A1 directly. 'Media Commissions as a % of Media Billings': 14.13 (1977), 13.92 (1982), 14.16 (1987), 13.18 (1992), 10.98 (1997). Every one of the five figures matches to the decimal. This is the record's most counter-intuitive claim - that the 15% commission survived the 1980s - and it is the best-sourced one; the HBS text independently makes the same point, noting the commission rate fell 'from 14 ... in 1977 to 11 ... in 1997'. Grade A defensible: underlying data is the Economic Census, reproduced not recomputed.",
+      "sources_consulted": [
+        {
+          "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services', HBS WP 11-039, Appendix A Tables A1/A2 (PDF read directly)",
+          "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-pricing-002",
+      "verdict": "confirmed",
+      "evidence": "Verbatim from HBS WP 11-039: 'as late as 1982, seventy-one percent of the largest U.S. national advertisers surveyed utilized commission-based compensation (Beals 2007). Over the ensuing decade, that share eroded slowly to sixty-one percent in 1994, while labor fee-based compensation grew steadily from eight percent in 1982 to thirty-one percent in 1994.' All four numbers match. Grade B is the right call and the record made it correctly: this is an ANA trade-association survey reported in an academic paper, not an official statistic, so it must not sit at A alongside the Census rows in the same field.",
+      "sources_consulted": [
+        {
+          "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services', HBS WP 11-039, Appendix A Tables A1/A2 (PDF read directly)",
+          "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-pricing-003",
+      "verdict": "confirmed",
+      "evidence": "Both inputs read directly from HBS Table A2: Media Unit Cost Index 58.0 (1977) and 149.9 (1992); GDP Implicit Price Deflator 37.751 and 76.533. Recomputed the deflation independently: (149.9/58.0)/(76.533/37.751) = 2.58448/2.02733 = 1.27483, i.e. +27.48% real, which the claim states as 27.5%. The two component figures in the statement also check: +158.4% nominal index and +102.7% deflator. Grade C with a stated method is exactly right for a derived figure.",
+      "sources_consulted": [
+        {
+          "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services', HBS WP 11-039, Appendix A Tables A1/A2 (PDF read directly)",
+          "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "((149.9/58.0)/(76.533/37.751)-1)*100",
+          "expected": 27.483
+        },
+        {
+          "expr": "(149.9/58.0-1)*100",
+          "expected": 158.45
+        },
+        {
+          "expr": "(76.533/37.751-1)*100",
+          "expected": 102.73
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-pricing-004",
+      "verdict": "confirmed",
+      "evidence": "All four inputs read directly from Statistical Abstract 1995 (revenue from table 924, pieces from table 925) and the division redone: 2,412/30,381 = 7.939 cents FY1980; 9,817/65,773 = 14.926 cents FY1993; +88.0%. Grade C with method is correct - the per-piece rate is computed, not published. One honest caveat the method already implies: third-class revenue includes $264M of single-piece-rate mail in FY1993, so this is a blended average rather than the bulk rate alone (bulk-only gives 9,553/65,773 = 14.5 cents, still inside the stated interval).",
+      "sources_consulted": [
+        {
+          "name": "Statistical Abstract of the United States 1995, Communications chapter (tables 913, 924, 925, 930), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/communic.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*2412/30381",
+          "expected": 7.9392
+        },
+        {
+          "expr": "100*9817/65773",
+          "expected": 14.9256
+        },
+        {
+          "expr": "100*((9817/65773)/(2412/30381)-1)",
+          "expected": 87.999
+        },
+        {
+          "expr": "100*9553/65773",
+          "expected": 14.525
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-pricing-005",
+      "verdict": "confirmed",
+      "evidence": "Every figure confirmed verbatim in the cited industry encyclopedia: response lists '$50 to $80 per thousand', compiled lists '$25 to $30 per thousand', business lists '$35 to $40 per thousand names', production 'at least 40 cents per piece', and 'Most direct mail marketers considered a 2 or 3 percent response rate to be successful.' Central 65 with interval [50, 80] is the honest representation of a quoted card-rate range rather than a point estimate.",
+      "sources_consulted": [
+        {
+          "name": "Encyclopedia of American Industries, 'SIC 7331 Direct Mail Advertising Services'",
+          "url": "https://www.referenceforbusiness.com/industries/Service/Direct-Mail-Advertising-Services.html"
+        }
+      ],
+      "disagreement": "The source also carries a '$7 per thousand' consumer-list floor and dates the 40-cents-a-piece production figure to nearer the end of the 1990s than 1993. Neither breaks the claim, which is explicitly about response-list card rates in the early 1990s, but the as_of of 1993 is doing some work on the production component."
+    },
+    {
+      "claim_id": "e4-pricing-006",
+      "verdict": "confirmed",
+      "evidence": "9,817/27,266 = 36.004%. Both inputs verified in their primaries (USPS third-class revenue in Statistical Abstract table 924; Coen direct mail in the workbook). Grade C with method is right, and the fiscal-vs-calendar caveat in the method is real. The underlying point - that Coen's direct-mail line bundles distribution and production that no other media line carries - is independently confirmed by NBER WP 28161's account of the MCE series.",
+      "sources_consulted": [
+        {
+          "name": "Statistical Abstract of the United States 1995, Communications chapter (tables 913, 924, 925, 930), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/communic.pdf"
+        },
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Silk & Berndt, 'Aggregate Advertising Expenditure in the US Economy', NBER WP 28161 (PDF read directly)",
+          "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*9817/27266",
+          "expected": 36.0045
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-measurement-001",
+      "verdict": "confirmed",
+      "evidence": "Retrieved the full text of the cited article rather than relying on the citation. It says: 'These new ``People Meters,'' developed by the A.C. Nielsen Company and put in place at the beginning of this year's TV season, are telling ABC, CBS, and NBC something they vigorously dispute: that 10 percent fewer people are watching their prime-time shows' and 'CBS and ABC both lost 13 percent during prime time' and NBC 'lost 4 percent of its audience during prime-time hours'. All three figures verbatim. The article also confirms the September adoption date used elsewhere in the record: 'People Meters were adopted as the official system in September'.",
+      "sources_consulted": [
+        {
+          "name": "Christian Science Monitor, Kerry Elizabeth Knobelsdorff, 'For TV networks, `People Meter' is a profit eater', 6 Jan 1988 (full text retrieved)",
+          "url": "https://www.csmonitor.com/1988/0106/fmeter.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-measurement-002",
+      "verdict": "confirmed",
+      "evidence": "Verbatim in the article: 'The bottom seems to have fallen out of Saturday morning cartoons as well, a spot that pulls in about $150 million in advertising for the three networks. Nielsen's new system clocks at least 20 percent, and possibly 50 percent, fewer children tuning in.' Both the $150M and the 20-50% range are the source's own; the claim reproduces them without inflation.",
+      "sources_consulted": [
+        {
+          "name": "Christian Science Monitor, Kerry Elizabeth Knobelsdorff, 'For TV networks, `People Meter' is a profit eater', 6 Jan 1988 (full text retrieved)",
+          "url": "https://www.csmonitor.com/1988/0106/fmeter.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-measurement-003",
+      "verdict": "confirmed",
+      "evidence": "Verbatim: 'They claim only 26 percent of the population have pay cable, while 33 percent of the People Meter households have it.' The claim correctly attributes this to the networks rather than presenting it as fact, which matters because the same article carries Nielsen's rebuttal from John Dimling: 'about 31 percent have pay cable' in the sample against 28-30 percent nationally. The stated interval [31, 35] contains Nielsen's counter-figure, so the calibration already absorbs the dispute.",
+      "sources_consulted": [
+        {
+          "name": "Christian Science Monitor, Kerry Elizabeth Knobelsdorff, 'For TV networks, `People Meter' is a profit eater', 6 Jan 1988 (full text retrieved)",
+          "url": "https://www.csmonitor.com/1988/0106/fmeter.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-measurement-004",
+      "verdict": "confirmed",
+      "evidence": "Confirmed against the cited company history: 'In January 1980, IRI launched BehaviorScan'; 'Marion, Indiana, and Pittsfield, Massachusetts, were chosen as the initial test markets'; 'IRI provided scanners free of charge to 15 supermarkets in those two towns'; '2,000 households in each town were recruited to participate.' Every element of the claim - two towns, 15 stores across both, 2,000 households per town - is exact, including the distinction between per-town households and across-town stores that is easy to garble. The claim's '1979-80' is a fair rendering of a January 1980 launch by a firm founded in 1979.",
+      "sources_consulted": [
+        {
+          "name": "Encyclopedia.com, 'Information Resources, Inc.' (International Directory of Company Histories)",
+          "url": "https://www.encyclopedia.com/books/politics-and-business-magazines/information-resources-inc"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-measurement-005",
+      "verdict": "confirmed",
+      "evidence": "Both sides verified in their primaries. Coen 1980: direct mail 7,596 of 53,570 = 14.180%, which the claim states as 14.2%. NBER WP 28161 states of the Magna MG8 series that 'Direct Mail ZSHDM has lost a third of the 12 per cent share it realized in 1980' - the 12% figure the claim carries. The same paper independently confirms both explanations the record offers: the MCE series was 'typically based on information about current list prices (such as those stated on media vendors' rate cards) rather than actual transaction prices', and 'business magazines, direct mail, and the internet were treated as exclusively national'.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        },
+        {
+          "name": "Silk & Berndt, 'Aggregate Advertising Expenditure in the US Economy', NBER WP 28161 (PDF read directly)",
+          "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*7596/53570",
+          "expected": 14.18
+        }
+      ],
+      "disagreement": "The central of 13.1 is an unweighted midpoint of two disagreeing series (12.0 and 14.2). Normally that would be averaging a conflict away; here it survives because the claim is explicitly ABOUT the disagreement, states both figures in its own text, and sets the interval to span them. Downstream consumers must not quote 13.1 as a measurement - it is a convention, and only the interval is meaningful."
+    },
+    {
+      "claim_id": "e4-targeting-001",
+      "verdict": "confirmed",
+      "evidence": "Confirmed independently of the record's sources: 'One of the first tasks Robbin completed at Claritas was the massive job of reallocating tabulated 1970 census data from its given administrative and political geographies to all 36,000 five-digit ZIP Code areas' and the system classified US ZIPs, census tracts, enumeration districts and block groups 'into forty categories'. All three components - 40 clusters, ~36,000 five-digit ZIPs, 1970 census reallocation - check out. The ci80 of [40, 40] is correct for a definitional count rather than an estimate.",
+      "sources_consulted": [
+        {
+          "name": "Griffith, 'When the New Magic was New: The Claritas Corporation and the Clustering of America', IEEE Annals of the History of Computing",
+          "url": "https://ieeexplore.ieee.org/document/9927132/"
+        },
+        {
+          "name": "'Overview of Geodemography' (Robbin's 1970-census ZIP reallocation to ~36,000 ZIPs and the 1974 forty-category classification)",
+          "url": "http://www.cmtamt.com/page11.html"
+        },
+        {
+          "name": "Customer First Thinking, 'Lifestyle Segmentation: An Interview with Jan Kestle' (Robbin founded Claritas 1974 to commercialise the 40-segment cluster model)",
+          "url": "https://www.customerfirstthinking.ca/lifestyle-segmentation-an-interview-with-jan-kestle-founder-and-ceo-environics-analytics/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-targeting-002",
+      "verdict": "adjusted",
+      "evidence": "Two problems. First, a grade failure: the source carrying the 1978 central is Grokipedia, an automatically generated encyclopedia with no editorial track record, which does not meet the rigor spec's grade-B bar of 'credible named reporting with a track record'. Strip it and nothing supports 1978. Second, the central then sits at the far edge of its own interval while the strongest surviving source - the peer-reviewed IEEE Annals article the claim itself cites for '(system built 1974)' - points at the other edge. Independent sources agree with 1974: 'Jonathan Robbin started up the company Claritas in 1974 for purposes of commercializing his cluster segmentation model which identified 40 distinct lifestyle segments' and 'A major technical innovation produced in 1974 by Robbin for Claritas was a system of classification of all U.S. ZIP's ... into forty categories.' I checked Wikipedia's 'Claritas Prizm' as a possible independent 1978 attestation: it gives no founding or launch year at all.",
+      "sources_consulted": [
+        {
+          "name": "Griffith, 'When the New Magic was New: The Claritas Corporation and the Clustering of America', IEEE Annals of the History of Computing",
+          "url": "https://ieeexplore.ieee.org/document/9927132/"
+        },
+        {
+          "name": "'Overview of Geodemography' (Robbin's 1970-census ZIP reallocation to ~36,000 ZIPs and the 1974 forty-category classification)",
+          "url": "http://www.cmtamt.com/page11.html"
+        },
+        {
+          "name": "Customer First Thinking, 'Lifestyle Segmentation: An Interview with Jan Kestle' (Robbin founded Claritas 1974 to commercialise the 40-segment cluster model)",
+          "url": "https://www.customerfirstthinking.ca/lifestyle-segmentation-an-interview-with-jan-kestle-founder-and-ceo-environics-analytics/"
+        }
+      ],
+      "old": {
+        "statement": "PRIZM's commercial launch year is contested: secondary sources give 1974, 1976 and 1978, with Claritas itself founded in 1971 or 1974. The record uses 1978 as the central launch year with the interval running back to 1974 rather than picking a winner.",
+        "central": 1978,
+        "ci80": [
+          1974,
+          1978
+        ],
+        "sources": [
+          "Grokipedia, 'Claritas Prizm' (launch 1978, 40 clusters)",
+          "Griffith, IEEE Annals"
+        ]
+      },
+      "new": {
+        "statement": "PRIZM's launch year is contested. The strongest source - Griffith's peer-reviewed history in IEEE Annals - dates the system to 1974, and independent accounts agree that Robbin founded Claritas in 1974 to commercialise the forty-cluster model and produced the ZIP classification the same year. Later commercial-launch dates of 1976 and 1978 circulate in secondary accounts, so the interval runs forward to 1978 rather than resolving them.",
+        "central": 1974,
+        "unit": "year of commercial launch",
+        "ci80": [
+          1974,
+          1978
+        ],
+        "grade": "B",
+        "sources": [
+          {
+            "name": "Griffith, 'When the New Magic was New: The Claritas Corporation and the Clustering of America', IEEE Annals of the History of Computing",
+            "url": "https://ieeexplore.ieee.org/document/9927132/"
+          },
+          {
+            "name": "'Overview of Geodemography' (Robbin's 1970-census ZIP reallocation to ~36,000 ZIPs and the 1974 forty-category classification)",
+            "url": "http://www.cmtamt.com/page11.html"
+          },
+          {
+            "name": "Customer First Thinking, 'Lifestyle Segmentation: An Interview with Jan Kestle' (Robbin founded Claritas 1974 to commercialise the 40-segment cluster model)",
+            "url": "https://www.customerfirstthinking.ca/lifestyle-segmentation-an-interview-with-jan-kestle-founder-and-ceo-environics-analytics/"
+          }
+        ],
+        "as_of": "1974"
+      },
+      "reason": "Source fails the grade-B definition and was the only support for the stated central. Central moved to the year the peer-reviewed source and two independent accounts give; interval unchanged so the contested later dates stay visible; as_of moved to match the new central.",
+      "disagreement": "The record read the date spread as genuinely unresolvable and defaulted to the latest value. I read the spread as weighted: one peer-reviewed history plus two corroborating trade accounts at 1974, against secondary encyclopedia entries at 1976/1978, one of which is machine-generated. Widening is right; defaulting to the weakest end is not."
+    },
+    {
+      "claim_id": "e4-targeting-003",
+      "verdict": "confirmed",
+      "evidence": "Read Statistical Abstract 1995 table 925 directly: the per-capita panel prints third-class mail at 133 pieces in 1980 and 253 in 1993 - published figures, not derived, so grade A is correct and the tight interval is justified. The household extrapolation also holds: 253 x ~2.63 persons per US household in 1993 is about 665, which the claim rounds to 'roughly 660'.",
+      "sources_consulted": [
+        {
+          "name": "Statistical Abstract of the United States 1995, Communications chapter (tables 913, 924, 925, 930), PDF read directly",
+          "url": "https://www2.census.gov/library/publications/1995/compendia/statab/115ed/tables/communic.pdf"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "253*2.63",
+          "expected": 665.4
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-targeting-004",
+      "verdict": "confirmed",
+      "evidence": "Both halves verbatim in the cited source: 'Most direct mail marketers considered a 2 or 3 percent response rate to be successful' and 'up to 98 percent of the people who receive unsolicited mail reject the offers'. The '98 out of 100' framing is the source's own arithmetic, not the record's. Interval [1, 3] is appropriately wide for a rule of thumb.",
+      "sources_consulted": [
+        {
+          "name": "Encyclopedia of American Industries, 'SIC 7331 Direct Mail Advertising Services'",
+          "url": "https://www.referenceforbusiness.com/industries/Service/Direct-Mail-Advertising-Services.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-targeting-005",
+      "verdict": "confirmed",
+      "evidence": "Same NCTA count as e4-sellers-002, confirmed in Forbes/Adgate: 'From 1980 to 1990, the number of cable networks grew from 28 to 79'. The claim's framing figure of 3 national broadcast channels in 1976 is consistent with the era record elsewhere (Fox does not launch until October 1986). Central, interval and grade are identical to e4-sellers-002, as they should be for the same underlying count.",
+      "sources_consulted": [
+        {
+          "name": "Brad Adgate, 'The Rise And Fall Of Cable Television', Forbes (citing NCTA/Nielsen)",
+          "url": "https://www.forbes.com/sites/bradadgate/2020/11/02/the-rise-and-fall-of-cable-television/"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-events-001",
+      "verdict": "confirmed",
+      "evidence": "Yellow Pages 2,900 (1980) to 9,517 (1993) in the primary Coen workbook, 3.282x, stated as 3.3x. I confirmed 1980 really is the first year the category appears - there is no Yellow Pages row for 1979 or earlier, which is why the record's boundary note forbids attributing a pre-1980 directory figure. The surrounding event narrative also holds: the 1984 AT&T divestiture is correctly dated and the RBOC directory handover is well established.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "9517/2900",
+          "expected": 3.2817
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-events-002",
+      "verdict": "confirmed",
+      "evidence": "Same figure and same evidence as e4-creators-007: $450M ($400M cash plus $50M over two years), May 1986, combined billings over $7.2B, described in the sources as the largest acquisition in advertising history to that point. Central, interval and grade are consistent between the two claim objects, which is what a cross-check should find.",
+      "sources_consulted": [
+        {
+          "name": "Ad Age, Maurice Saatchi career chronology ('agency buys Ted Bates Worldwide, May 1986')",
+          "url": "https://adage.com/article/news/maurice-saatchi-chart-photo-birth-date-june-21-1946-career-highlights-staffer-haymarket-publishing-1967-70-founded-saatchi-saatchi-brother-charles-1970-named-chairman-march-1985-agency-buys-ted-bates-worldwide-1986-ousted-chairman-dec/84047/"
+        },
+        {
+          "name": "Encyclopedia.com, 'Saatchi & Saatchi' (International Directory of Company Histories)",
+          "url": "https://www.encyclopedia.com/books/politics-and-business-magazines/saatchi-saatchi"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-events-003",
+      "verdict": "confirmed",
+      "evidence": "Identical to e4-measurement-001 and verified from the retrieved full text of the Christian Science Monitor article: 10 percent overall, CBS and ABC 13 percent each. Central 10, interval [8, 13] and grade B are consistent across both claim objects. The event date of 1987-09 matches the article's 'People Meters were adopted as the official system in September'.",
+      "sources_consulted": [
+        {
+          "name": "Christian Science Monitor, Kerry Elizabeth Knobelsdorff, 'For TV networks, `People Meter' is a profit eater', 6 Jan 1988 (full text retrieved)",
+          "url": "https://www.csmonitor.com/1988/0106/fmeter.html"
+        }
+      ]
+    },
+    {
+      "claim_id": "e4-events-004",
+      "verdict": "confirmed",
+      "evidence": "Identical to e4-scale-004 and verified the same way from the primary workbook: 129,968 to 128,352 = -1.2434%, and a full-series sweep confirms 1961 as the prior nominal decline. The event narrative's supporting detail also checks: newspapers fell 32,281 to 30,409 in 1991 while direct mail (23,370 to 24,460), Yellow Pages (8,926 to 9,182) and cable (2,631 to 3,145) all rose.",
+      "sources_consulted": [
+        {
+          "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14), sheet 'CS ad dataset', downloaded and parsed directly",
+          "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+        }
+      ],
+      "recomputation": [
+        {
+          "expr": "100*(128352/129968-1)",
+          "expected": -1.2434
+        }
+      ]
+    }
+  ]
+}
