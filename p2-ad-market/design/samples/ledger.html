@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  THE LEDGER — P2 design bake-off sample.
+  Single self-contained file. No external requests of any kind. Opens from file://.
+
+  TYPEFACES. The real build uses three variable faces, subset and preloaded:
+    · Source Serif 4 — the sheet. Body prose AND every figure, one family, using
+      its lining / old-style / tabular figure sets and true small caps.
+      Here: a system serif stack.
+    · Archivo — the chrome. Column heads, form labels, stamps, basis chips.
+      Always uppercase, letterspaced 0.06–0.10em, 10–12px. Here: a system grotesque.
+    · IBM Plex Mono — the machine. Arithmetic, claim IDs, computed rules.
+      Here: a system mono stack.
+  Old-style figures are requested through font-variant-numeric and will fall back
+  silently on most systems. The spec forbids that device from being load-bearing,
+  so grade is ALWAYS carried twice more: by hatch pitch and by a printed letter.
+
+  EVERY NUMBER on this page is read at runtime out of the DATA block in the
+  script, which is copied verbatim from samples/sample-data.json. No figure is
+  typed into the prose by hand and none is invented.
+-->
+<title>THE LEDGER — The Attention Economy</title>
+
+<style>
+/* ============================================================== TOKENS === */
+:root{
+  --stock:#F7F4EC;      /* the sheet */
+  --desk:#E6E0D2;       /* the surface behind the sheet */
+  --iron:#20211C;       /* ink — 15:1 on stock */
+  --rule:#C9C2B0;       /* hairlines. 1px at all sizes. never thicker, never coloured */
+  --edge:#D8D1C0;       /* the bound edge of the sheet */
+  --auditor:#2F5D7C;    /* an independent count — 6.4:1 */
+  --seller:#A96C14;     /* the interested party's own number — graphics only */
+  --seller-ink:#7E4F0C; /* seller hue for text — 6.3:1 */
+  --redink:#B3372B;     /* corrections, losses, stamps, does-not-balance — 5.5:1 */
+  --unassigned:#8C8578; /* residuals and refusals — graphics only, 3.3:1 */
+  --pencil:#6E6A5F;     /* the auditor's hand — marginalia, captions — 4.9:1 */
+  --wash:#EFE7D0;       /* interval band fill, hatch ground, shaded overlap */
+
+  --serif:"Iowan Old Style","Source Serif 4",Charter,"Charter",Georgia,"Times New Roman",serif;
+  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+
+  --post:220ms cubic-bezier(.2,.8,.25,1);   /* POST — a figure enters its cell */
+  --tally:600ms cubic-bezier(.16,1,.3,1);   /* TALLY — the table-to-chart morph */
+  --sheetw:1040px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; background:var(--desk); color:var(--iron);
+  font-family:var(--serif); font-size:17px; line-height:1.55;
+  font-variant-numeric:lining-nums; text-rendering:optimizeLegibility;}
+
+/* var() is not resolved inside SVG presentation attributes, so the attribute
+   value is used as a hook and the real stack is applied here.               */
+svg text[font-family="var(--sans)"]{font-family:var(--sans)}
+svg text[font-family="var(--serif)"]{font-family:var(--serif)}
+
+/* ============================================================ THE SHEET == */
+.leaf{display:grid; grid-template-columns:minmax(0,var(--sheetw)) 236px;
+  justify-content:center; column-gap:26px}
+.col{background:var(--stock); border-left:2px solid var(--edge);
+  border-right:1px solid var(--rule); padding:0 56px}
+.marg{padding-top:40px}
+.leaf:last-of-type .col{padding-bottom:60px}
+
+.note{font-style:italic; color:var(--pencil); font-size:15px; line-height:1.5;
+  margin:0 0 22px; padding-left:12px; border-left:1px solid var(--rule)}
+.note b{font-style:normal; font-weight:600; color:var(--iron)}
+.card{background:var(--stock); border:1px solid var(--rule); padding:14px 15px;
+  font-size:14px; line-height:1.5; margin:0 0 22px}
+.card .num{font-size:14px}
+
+/* =============================================================== CHROME == */
+.chr,.colhead,.stamp,.chip,.tok,.pullbtn,.shufbtn,.capbar b{
+  font-family:var(--sans); text-transform:uppercase; letter-spacing:.085em;
+  font-weight:600; font-size:10.5px; line-height:1.4}
+.chr{color:var(--pencil)}
+.rule{border:0; border-top:1px solid var(--rule); margin:0}
+.mono{font-family:var(--mono); font-size:12px; letter-spacing:-.01em}
+
+.hdr{display:flex; justify-content:space-between; align-items:flex-start;
+  padding:32px 0 10px; gap:20px; flex-wrap:wrap}
+.hdr .r{text-align:right}
+table.hook svg{display:block; width:100%; max-width:272px; height:auto}
+.claim svg,.hero svg{height:auto}
+
+/* ============================================================= OPENING === */
+.opening .col{min-height:100vh; display:flex; flex-direction:column; padding-bottom:0}
+h1{font-family:var(--serif); font-weight:300; font-size:76px; line-height:.95;
+  margin:42px 0 0; letter-spacing:-.012em}
+.dek{font-style:italic; font-size:22px; line-height:1.35; color:var(--pencil);
+  max-width:46ch; margin:20px 0 0}
+.hookwrap{margin:auto 0}
+#openmarg{display:flex; flex-direction:column; justify-content:center; padding-bottom:120px}
+
+table.hook{border-collapse:collapse; width:100%; margin-top:22px; table-layout:fixed}
+table.hook th{padding:0 0 6px; vertical-align:bottom}
+table.hook td{padding:11px 0; border-top:1px solid var(--rule); vertical-align:middle}
+table.hook tr:first-child td{border-top:1px solid var(--iron)}
+table.hook tr:last-child td{border-bottom:1px solid var(--iron)}
+.num{font-variant-numeric:tabular-nums lining-nums; text-align:right;
+  white-space:nowrap; font-size:19px}
+.num--est{font-variant-numeric:tabular-nums oldstyle-nums}  /* our own estimate */
+.yr{font-variant-numeric:tabular-nums lining-nums; font-size:16px; color:var(--pencil)}
+
+.foldwrap{margin-top:auto}
+.crop{margin-top:24px; height:52px; overflow:hidden}
+.begin{display:flex; justify-content:space-between; align-items:center;
+  padding:9px 0 11px; border-top:1px solid var(--rule)}
+
+/* ============================================================ SECTIONS === */
+.sec{padding-top:50px}
+h2{font-family:var(--serif); font-weight:400; font-size:34px; line-height:1.12;
+  margin:12px 0 0; letter-spacing:-.008em}
+h3{font-family:var(--sans); text-transform:uppercase; letter-spacing:.09em;
+  font-size:11px; font-weight:700; margin:36px 0 8px; color:var(--iron)}
+p{max-width:62ch; margin:14px 0}
+p.lede{font-size:19px}
+p.chr{max-width:none}
+
+/* ============================================================== STAMPS === */
+.stamp{display:inline-block; color:var(--redink); border:1.5px solid var(--redink);
+  padding:3px 7px 2px; border-radius:1px; transform:rotate(-.4deg);
+  filter:url(#inkbleed); background:transparent; white-space:nowrap}
+.stamp--in{animation:stampin 230ms cubic-bezier(.2,.8,.25,1) both}
+@keyframes stampin{
+  0%{transform:scale(1.06) rotate(-.4deg); opacity:0}
+  60%{transform:scale(1) rotate(-.4deg); opacity:1}
+  100%{transform:scale(1) rotate(-.4deg)}}
+
+/* ============================================================== GRADES === */
+.gr{display:inline-flex; align-items:center; gap:5px; vertical-align:-1px}
+.gr i{width:15px; height:10px; display:inline-block; border:1px solid var(--rule)}
+.gr-A i{background:var(--wash)}
+.gr-B i{background:repeating-linear-gradient(45deg,var(--unassigned) 0 .7px,transparent .7px 6px),var(--wash)}
+.gr-C i{background:repeating-linear-gradient(45deg,var(--unassigned) 0 .7px,transparent .7px 3px),var(--wash)}
+.gr span{font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:.08em}
+
+/* ========================================================= THE COLUMN ==== */
+.colwrap{overflow-x:auto; margin-top:12px}
+table.ledger{border-collapse:collapse; width:100%; min-width:900px}
+table.ledger th{text-align:left; padding:0 0 8px; vertical-align:bottom}
+table.ledger td{padding:8px 0; border-top:1px solid var(--rule); vertical-align:middle}
+table.ledger tr.void td{padding:11px 0; background:
+  repeating-linear-gradient(45deg,var(--unassigned) 0 .8px,transparent .8px 4px),var(--wash)}
+.colhead{color:var(--pencil); display:block; margin-bottom:5px}
+.colhead b{display:block; color:var(--iron); font-size:11px; letter-spacing:.09em}
+.figcell{position:relative; --pull:0; border-right:1px solid var(--rule)}
+table.ledger th{border-right:1px solid var(--rule)}
+table.ledger th:first-child,table.ledger tr.void td{border-right:0}
+.figcell .v{display:inline-block; width:86px; text-align:right;
+  font-variant-numeric:tabular-nums lining-nums; font-size:15px; white-space:nowrap}
+.figcell .v.est{font-variant-numeric:tabular-nums oldstyle-nums; color:var(--pencil)}
+/* the cell's baseline rule IS the bar. one element, two representations,
+   and the numerals never move.                                            */
+.figcell .bar{position:absolute; left:0; bottom:2px; height:2px;
+  width:calc(86px + var(--pull) * var(--ext) * 1px);
+  opacity:calc(.28 + .72 * var(--pull)); transition:width var(--tally),opacity var(--tally)}
+.figcell.empty{background:var(--wash)}
+.pullstrip{position:absolute; right:0; top:0; width:14px; height:100%;
+  cursor:ew-resize; border-left:1px dotted var(--rule)}
+.pullbtn{background:none; border:1px solid var(--rule); color:var(--pencil);
+  padding:3px 6px; cursor:pointer; border-radius:1px; font-size:9.5px}
+.pullbtn[aria-pressed="true"]{border-color:var(--auditor); color:var(--auditor)}
+.pullbtn:focus-visible,.shufbtn:focus-visible{outline:2px solid var(--auditor); outline-offset:2px}
+
+/* =========================================================== REGISTER ==== */
+.regwrap{overflow-x:auto; margin-top:14px}
+table.reg{border-collapse:collapse; width:100%; min-width:900px}
+table.reg th{text-align:left; padding:0 14px 8px 0; vertical-align:bottom}
+table.reg td{padding:9px 14px 9px 0; border-top:1px solid var(--rule);
+  vertical-align:top; font-size:14.5px; line-height:1.35}
+.tok{display:inline-block; color:var(--iron); white-space:nowrap}
+.tok--seller{color:var(--redink)}
+.dist{display:flex; gap:2px}
+.dist i{width:12px; height:13px; display:block; border:1px solid var(--rule)}
+
+/* ========================================================= UNCERTAINTY === */
+.claim{border-top:1px solid var(--rule); padding:13px 0}
+.claim:last-of-type{border-bottom:1px solid var(--rule)}
+.claim .s{max-width:72ch; margin:0 0 8px; font-size:15.5px}
+.hero{background:var(--stock); border:1px solid var(--iron); padding:22px 24px; margin-top:14px}
+
+/* ============================================================= UNRULED === */
+.pools{margin-top:14px; overflow-x:auto}
+.shufbtn{background:var(--stock); border:1px solid var(--unassigned);
+  color:var(--pencil); padding:6px 10px; cursor:pointer; border-radius:1px}
+.shufnote{font-style:italic; color:var(--pencil); font-size:15px}
+.flash{animation:flash 1.2s ease-out both}
+@keyframes flash{0%{background:var(--wash)}100%{background:transparent}}
+table.pairs{border-collapse:collapse; margin-top:8px; font-size:13.5px}
+table.pairs td{border-top:1px solid var(--rule); padding:6px 12px 6px 0; vertical-align:middle;
+  white-space:nowrap}
+table.pairs tr.blankrow td{height:32px; background:var(--wash)}
+
+/* ============================================================= CAPTION === */
+.capbar{background:var(--iron); color:var(--stock)}
+.capbar .inner{max-width:var(--sheetw); margin:0 auto; padding:22px 56px;
+  font-size:14px; line-height:1.75}
+.capbar b{color:var(--stock); margin-right:9px}
+.capbar span{color:#CFC8B7}
+
+/* ============================================================== MOBILE === */
+/* below 1330 the desk margin has no room, so the sheet becomes one column and
+   the marginalia fall in underneath, still ruled, still in the auditor's hand */
+@media (max-width:1330px){
+  .leaf{display:block}
+  .col{max-width:var(--sheetw); margin:0 auto}
+  .marg{max-width:var(--sheetw); margin:0 auto; padding:4px 56px 30px;
+    background:var(--stock); border-left:2px solid var(--edge);
+    border-right:1px solid var(--rule); display:block}
+  .card{background:var(--wash)}
+  #openmarg{padding-bottom:30px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .col,.marg{padding-left:20px; padding-right:20px; border-left-width:0; border-right-width:0}
+  h1{font-size:40px}
+  .dek{font-size:18px}
+  h2{font-size:25px}
+  .capbar .inner{padding:20px}
+  .num{font-size:15px}
+  .hdr{flex-direction:column; gap:4px; padding-top:22px}
+  .hdr .r{text-align:left}
+  .hidesmall{display:none}
+  .hero{padding:16px}
+  /* the ruler's own labels are unreadable once the column is this narrow, so
+     they go and the numerals carry the values instead */
+  #rangehead svg{display:none}
+  .pullbtn{padding:8px 10px}      /* 48px touch target once line-height counts */
+  .gr-B i{background:repeating-linear-gradient(45deg,var(--unassigned) 0 .8px,transparent .8px 8px),var(--wash)}
+  .gr-C i{background:repeating-linear-gradient(45deg,var(--unassigned) 0 .8px,transparent .8px 5px),var(--wash)}
+}
+
+/* ====================================================== REDUCED MOTION === */
+/* Not a shrug. The whole rigor layer is static by design, so a reader with
+   motion off loses nothing epistemic. What motion carried was WHICH THING
+   CHANGED, and that is re-encoded here as a 1.2s wash highlight on exactly
+   the elements that changed, plus a printed statement of the change.       */
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important}
+  .flash{animation-duration:1.2s !important}   /* the alternative encoding */
+  .stamp{transform:none; filter:none; border-width:2px}
+  .rm-only{display:block !important}
+}
+.rm-only{display:none}
+</style>
+
+<!-- one shared ink-bleed filter. at most six stamps on screen. off under reduced motion -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="inkbleed" x="-6%" y="-20%" width="112%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="0.8"
+      xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <!-- grade is hatch pitch: A solid wash, B 6px, C 3px. plus a printed letter. -->
+  <pattern id="hA" width="6" height="6" patternUnits="userSpaceOnUse">
+    <rect width="6" height="6" fill="#EFE7D0"/></pattern>
+  <pattern id="hB" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <rect width="6" height="6" fill="#EFE7D0"/>
+    <line x1="0" y1="0" x2="0" y2="6" stroke="#8C8578" stroke-width="1"/></pattern>
+  <pattern id="hC" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <rect width="3" height="3" fill="#EFE7D0"/>
+    <line x1="0" y1="0" x2="0" y2="3" stroke="#8C8578" stroke-width="1"/></pattern>
+  <pattern id="hVoid" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <rect width="4" height="4" fill="#F7F4EC"/>
+    <line x1="0" y1="0" x2="0" y2="4" stroke="#8C8578" stroke-width="1.1"/></pattern>
+  <pattern id="hOverlap" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+    <rect width="5" height="5" fill="#EFE7D0"/>
+    <line x1="0" y1="0" x2="0" y2="5" stroke="#A96C14" stroke-width="1"/></pattern>
+</defs></svg>
+
+
+<!-- ===================================================================== 1 -->
+<!-- THE FIRST SCREEN                                                        -->
+<section class="leaf opening">
+  <div class="col">
+
+    <div class="hdr">
+      <div class="chr">United States &middot; Advertising &middot; 1840s &mdash; 2026</div>
+      <div class="chr r">
+        Source &middot; frozen P2 data layer<br>
+        Sheet 1 of 5 &nbsp;<span class="stamp stamp--in" id="gradestamp">&nbsp;</span>
+      </div>
+    </div>
+    <hr class="rule">
+
+    <h1>The Attention Economy</h1>
+    <p class="dek">One hundred and eighty years of putting a price on a stranger&rsquo;s
+      attention.</p>
+
+    <div class="hookwrap">
+      <div class="chr">Three entries out of the whole record</div>
+      <table class="hook" id="hook">
+        <thead><tr>
+          <th class="chr" style="width:12%">Year</th>
+          <th class="chr" style="width:24%; text-align:right">US total</th>
+          <th class="chr" style="width:36%" id="rangehead">80% range</th>
+          <th class="chr" style="width:28%">Basis &middot; grade</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="foldwrap">
+      <div class="crop" id="crop" aria-hidden="true"></div>
+      <div class="begin">
+        <span class="chr">Begin &nbsp;&#8964;</span>
+        <span class="chr hidesmall">The Spine &middot; US total &middot; 1867 &mdash; 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <aside class="marg" id="openmarg">
+    <p class="note">Every number here says how sure it is.</p>
+    <p class="note">A wide, scratchy range means we are guessing. A short one with a heavy tick
+      means somebody filed it. A range with no tick at all has no single value worth printing.</p>
+    <p class="note">Our own estimates are set in figures that dip below the line. Filed figures
+      sit on it. That is a hint and never the only signal: the hatch and the printed letter say
+      the same thing again.</p>
+  </aside>
+</section>
+
+
+<!-- ===================================================================== 2 -->
+<!-- THE SIGNATURE CHART — THE SPINE                                         -->
+<section class="leaf">
+  <div class="col sec">
+    <div class="chr">Sheet 2 &middot; The Spine</div>
+    <h2>What the market spent, 1867 to 2025</h2>
+    <p class="lede">Two compilers measured this market. They did not measure the same thing. One
+      counted what advertisers were charged. The other counted what media owners were paid. So
+      they are drawn as two rails, and the space between them is drawn as an object with a name.
+      Nothing on this sheet is spliced.</p>
+
+    <div class="colwrap"><div id="spine"></div></div>
+
+    <h3>The same figures, exactly. Pull a rule to see them as bars.</h3>
+    <p style="margin-top:0">A column of figures and a bar chart are the same thing at two speeds.
+      Grab the right edge of any money column below and pull it, or press its button. The
+      cell&rsquo;s baseline rule extends into a bar. The numerals never move. Nothing is created
+      or destroyed; a rule is extended.</p>
+    <div class="colwrap"><table class="ledger" id="column"></table></div>
+    <p class="chr" style="margin-top:10px">Bars run 0 to $398,000m &middot; one scale for all
+      four columns &middot; linear, from zero &middot; a ruled cell left blank is a period with
+      nothing filed, not a zero</p>
+  </div>
+
+  <aside class="marg">
+    <div class="card" id="wedgecard"></div>
+    <p class="note"><b>Why it starts at 1867.</b> The record says it plainly: &ldquo;Before 1867
+      there is no estimate of any kind, so 1840&ndash;1866 is a hole, not a low number.&rdquo;</p>
+    <p class="note"><b>Nine years, not a line.</b> The marks on the left plate are nine separate
+      guesses, made later, from different papers. Joining them would invent 42 years of readings
+      that nobody ever took.</p>
+    <p class="note"><b>On a phone.</b> The sheet is wider than the screen, so it slides sideways
+      inside its own frame. The four figure columns stay. The drag becomes a tap on the column
+      head. Nothing is dropped.</p>
+  </aside>
+</section>
+
+
+<!-- ===================================================================== 3 -->
+<!-- THREAD 1 — THE AUDIT REGISTER                                           -->
+<section class="leaf">
+  <div class="col sec">
+    <div class="chr">Sheet 3 &middot; Thread 1 &middot; The Audit Register</div>
+    <h2>Who counted, and who paid the counter</h2>
+    <p class="lede">For eighty-two years this market ran on one rule. Somebody other than the
+      seller counted the audience. The rule was never written down. It held from 1914, and it
+      broke inside 1994&ndash;2001, the era the record calls The Impression.</p>
+    <p>Read the two right-hand columns straight down. They do not describe the counting. They
+      describe the money that paid for it, and how far that money sat from the party being
+      counted.</p>
+
+    <div class="regwrap"><table class="reg" id="register"></table></div>
+
+    <p class="chr" style="margin-top:14px">Distance from the seller &middot; 5 the buyer paid
+      &middot; 4 both sides paid together &middot; 3 a broker or a rival seller paid &middot;
+      2 a vendor sold the count to both sides &middot; 1 the seller paid, or the seller was the
+      counter</p>
+    <p>The last row is not a return. The Media Rating Council still audits the counter for
+      television. It never audited the search count. The record is blunt about that era:
+      &ldquo;there was no Media Rating Council accreditation of search click counting during the
+      era.&rdquo;</p>
+  </div>
+
+  <aside class="marg">
+    <p class="note"><b>Why order, not colour.</b> Who paid is not a set of labels. It is a
+      distance. Seven flat colours would hide that, because no colour is further along than
+      another. A row of filled cells cannot hide it: the row gets shorter as the money that paid
+      the counter moves closer to the thing being counted. It also survives grey printing and
+      colour blindness.</p>
+    <p class="note"><b>Era 5, in the record&rsquo;s own words.</b> &ldquo;This is the first era
+      in which the seller counted the audience with its own instrument and the buyer had no
+      third-party audit to appeal to.&rdquo;</p>
+  </aside>
+</section>
+
+
+<!-- ===================================================================== 4 -->
+<!-- THE UNCERTAINTY GRAMMAR                                                 -->
+<section class="leaf">
+  <div class="col sec">
+    <div class="chr">Sheet 4 &middot; The Uncertainty Grammar</div>
+    <h2>How wide is wide</h2>
+    <p class="lede">Every calibrated figure is drawn as a hairline spanning its 80% range, with a
+      heavier tick marking the middle. A tick is a reading on a ruler. It is not a dot, because a
+      dot claims a spot.</p>
+
+    <h3>Grade is the pitch of the hatch, and a printed letter as well</h3>
+    <div id="ladder"></div>
+    <p class="chr" style="margin-top:10px">A filed or audited &middot; B one compiler, or a
+      well-sourced reconstruction &middot; C our own construction</p>
+
+    <h3>The suppression rule, run in code and not by taste</h3>
+    <p class="mono" style="margin:0">if ((hi &minus; lo) / central &gt; 0.60) &rarr; remove the central mark</p>
+    <p>When the range is wider than 60% of the middle value, a central mark is a lie the drawing
+      would be telling on the data&rsquo;s behalf. So the code takes it out. What is left is a
+      span. It says the honest thing, which is that we know the width and not the place. Because
+      the rule is mechanical, no one can quietly switch it off for a cleaner chart.</p>
+
+    <div class="hero" id="hero"></div>
+
+    <h3>Five more, drawn the same way</h3>
+    <p style="margin-top:0">Units differ, so each row carries its own scale and prints both ends.
+      Not one of these has a central mark. Every one of the 24 wide claims in the file fails the
+      rule.</p>
+    <div id="widelist"></div>
+  </div>
+
+  <aside class="marg">
+    <p class="note"><b>Nothing here moves.</b> Confidence is carried by a static span, a static
+      hatch and a printed letter. A reader who turns motion off, prints the sheet or screenshots
+      it gets the same encoding, not a fallback.</p>
+    <p class="note"><b>Counted, not felt.</b> The grade mark in the page header is a count of the
+      records drawn on these five sheets. Reliability should be a number, not a mood.</p>
+  </aside>
+</section>
+
+
+<!-- ===================================================================== 5 -->
+<!-- THE UNRANKED PANEL — THE UNRULED BLOCK                                  -->
+<section class="leaf">
+  <div class="col sec">
+    <div class="chr">Sheet 5 &middot; The Unruled Block</div>
+    <h2>Four pools. Three of them cannot be put in order.</h2>
+    <p class="lede">This sheet has one convention and it is worth learning once. A ruled,
+      numbered row is a place in an order. An unruled row inside a brace is a member of a set.
+      Ruled means ranked. Unruled means we do not know.</p>
+
+    <div class="pools" id="pools"></div>
+
+    <div style="display:flex; gap:16px; align-items:center; margin-top:14px; flex-wrap:wrap">
+      <button class="shufbtn" id="shuffle" type="button">Touch the brace &middot; shuffle the three</button>
+      <span class="shufnote" id="shufnote">The vertical order carries no information. Prove it.</span>
+    </div>
+
+    <h3>What the evidence settles, and what it does not</h3>
+    <div style="display:flex; gap:38px; flex-wrap:wrap">
+      <div>
+        <div class="chr">Pairs that cannot be ordered</div>
+        <table class="pairs" id="unranked"></table>
+      </div>
+      <div>
+        <div class="chr">Pairs that can</div>
+        <table class="pairs" id="ranked"></table>
+      </div>
+    </div>
+
+    <p style="margin-top:22px">Classified can be placed because its range touches none of the
+      others. The three above it all overlap, and every overlap is shaded on the sheet. Where two
+      spans share ground, neither one is bigger.</p>
+    <p>There is a second reason, and the file states it in capitals. Of the four pools, three
+      carry the verdicts <span class="chr">no source</span>,
+      <span class="chr">pool not sourced</span> and
+      <span class="chr">not sourced as a money type</span>. Only classified is
+      <span class="chr">sourced for 2008&ndash;2021 at grade A on three independent legs</span>.
+      The one pool we can rank is the one somebody counted.</p>
+  </div>
+
+  <aside class="marg">
+    <p class="note"><b>Why not a stacked bar.</b> A stack asks the eye to judge the length of a
+      block that does not start at zero, which is close to the least accurate reading it does.
+      Worse, a stack asserts a full order, and the evidence refuses one.</p>
+    <p class="note"><b>Why alphabetical.</b> Any order taken from the numbers would be read as a
+      ranking. Alphabetical is visibly not about the numbers, so it cannot be mistaken for a
+      finding.</p>
+    <p class="note rm-only"><b>Motion is off, so the shuffle changed form.</b> The three rows
+      still swap places. They swap at once and stay lit for a moment, so you can see which rows
+      moved and check that nothing else did.</p>
+  </aside>
+</section>
+
+
+<!-- ===================================================================== 6 -->
+<footer class="capbar">
+  <div class="inner">
+    <b>THE LEDGER</b><span>&mdash; a market&rsquo;s books, kept in public. Every chart is a
+      column of figures you can still read, and every figure says how sure it is.</span><br>
+    <b>SACRIFICES</b><span>spectacle, and the skimmer &mdash; there is no cinematic opener, and
+      the feel of a century flowing past is traded for figures you can check.</span><br>
+    <b>FIRST FIVE SECONDS</b><span>this is an archive, it is about money, it runs from the 1840s
+      to 2026, and every number on it states its own confidence.</span><br>
+    <b>ON A PHONE</b><span>the sheet becomes one column, which is its native form; wide sheets
+      slide sideways in their own frame, the drag becomes a tap, hatch pitch doubles, and nothing
+      is dropped.</span>
+  </div>
+</footer>
+
+
+<script>
+/* ========================================================================= */
+/* DATA — copied verbatim from samples/sample-data.json.                      */
+/* rails: [year, central, ci80_low, ci80_high, grade]                        */
+/* ========================================================================= */
+const COEN = [[1919,1930,1640.5,2316,'B'],[1920,2480,2108,2976,'B'],[1921,1930,1640.5,2316,'B'],[1922,2200,1870,2640,'B'],[1923,2400,2040,2880,'B'],[1924,2480,2108,2976,'B'],[1925,2600,2210,3120,'B'],[1926,2700,2295,3240,'B'],[1927,2720,2312,3264,'B'],[1928,2760,2346,3312,'B'],[1929,2850,2422.5,3420,'B'],[1930,2450,2082.5,2940,'B'],[1931,2100,1785,2520,'B'],[1932,1620,1377,1944,'B'],[1933,1325,1126.25,1590,'B'],[1934,1650,1402.5,1980,'B'],[1935,1720,1651.2,1788.8,'B'],[1936,1930,1852.8,2007.2,'B'],[1937,2100,2016,2184,'B'],[1938,1930,1852.8,2007.2,'B'],[1939,2010,1929.6,2090.4,'B'],[1940,2110,2025.6,2194.4,'B'],[1941,2250,2160,2340,'B'],[1942,2160,2073.6,2246.4,'B'],[1943,2490,2390.4,2589.6,'B'],[1944,2700,2592,2808,'B'],[1945,2840,2726.4,2953.6,'B'],[1946,3340,3273.2,3406.8,'B'],[1947,4260,4174.8,4345.2,'B'],[1948,4870,4772.6,4967.4,'B'],[1949,5210,5105.8,5314.2,'B'],[1950,5700,5586,5814,'B'],[1951,6420,6291.6,6548.4,'B'],[1952,7140,6997.2,7282.8,'B'],[1953,7740,7585.2,7894.8,'B'],[1954,8150,7987,8313,'B'],[1955,9150,8967,9333,'B'],[1956,9910,9711.8,10108.2,'B'],[1957,10270,10064.6,10475.4,'B'],[1958,10310,10103.8,10516.2,'B'],[1959,11270,11044.6,11495.4,'B'],[1960,11960,11720.8,12199.2,'B'],[1961,11860,11622.8,12097.2,'B'],[1962,12430,12181.4,12678.6,'B'],[1963,13100,12838,13362,'B'],[1964,14150,13867,14433,'B'],[1965,15250,14945,15555,'B'],[1966,16630,16297.4,16962.6,'B'],[1967,16870,16532.6,17207.4,'B'],[1968,18090,17728.2,18451.8,'B'],[1969,19420,19031.6,19808.4,'B'],[1970,19550,19159,19941,'B'],[1971,20700,20286,21114,'B'],[1972,23210,22745.8,23674.2,'B'],[1973,24980,24480.4,25479.6,'B'],[1974,26620,26087.6,27152.4,'B'],[1975,27900,27342,28458,'B'],[1976,33300,32634,33966,'B'],[1977,37440,36691.2,38188.8,'B'],[1978,43330,42463.4,44196.6,'B'],[1979,48780,47804.4,49755.6,'B'],[1980,53570,52498.6,54641.4,'B'],[1981,60460,59250.8,61669.2,'B'],[1982,66670,65336.6,68003.4,'B'],[1983,76000,74480,77520,'B'],[1984,88010,86249.8,89770.2,'B'],[1985,94900,93002,96798,'B'],[1986,102370,100322.6,104417.4,'B'],[1987,110270,108064.6,112475.4,'B'],[1988,118750,116375,121125,'B'],[1989,124770,122274.6,127265.4,'B'],[1990,129968,127368.64,132567.36,'B'],[1991,128352,125784.96,130919.04,'B'],[1992,133750,131075,136425,'B'],[1993,140956,138136.88,143775.12,'B'],[1994,153024,149963.52,156084.48,'B'],[1995,162930,159671.4,166188.6,'B'],[1996,175230,171725.4,178734.6,'B'],[1997,187529,183778.42,191279.58,'B'],[1998,206697,202563.06,210830.94,'B'],[1999,222308,217861.84,226754.16,'B'],[2000,247472,242522.56,252421.44,'B'],[2001,231287,226661.26,235912.74,'B'],[2002,236875,232137.5,241612.5,'B'],[2003,245477,240567.46,250386.54,'B'],[2004,263766,258490.68,269041.32,'B'],[2005,271074,265652.52,276495.48,'B'],[2006,281653,276019.94,287286.06,'B'],[2007,279612,274019.76,285204.24,'B']];
+
+const MAGNA = [[1980,41021,40600,41440,'B'],[2018,232906,230600,235200,'B'],[2021,278000,270000,286000,'B'],[2022,325000,315000,335000,'B'],[2023,338000,332000,344000,'B'],[2024,380000,374000,386000,'B'],[2025,398000,388000,408000,'B']];
+
+const BENCH = [[1867,50,30,80,'B'],[1880,200,140,280,'B'],[1890,360,260,480,'B'],[1900,495,400,600,'C'],[1904,785,700,900,'C'],[1909,1070,880,1270,'C'],[1914,1200,990,1450,'C'],[1917,1500,1250,1800,'C'],[1918,1355,1150,1600,'C']];
+
+const BRIDGE = [[1980,41021,37575.95,43322.86,'C'],[1981,46465.17,42562.9,49072.52,'C'],[1982,51617.96,47282.95,54514.46,'C'],[1983,59288.23,54309.05,62615.14,'C'],[1984,68561.03,62803.1,72408.28,'C'],[1985,74556.39,68294.95,78740.06,'C'],[1986,80808.78,74022.25,85343.3,'C'],[1987,87153.97,79834.55,92044.54,'C'],[1988,93867.54,85984.3,99134.84,'C'],[1989,98594.41,90314.2,104126.96,'C'],[1990,102477.8,93871.45,108228.26,'C'],[1991,100897.54,92423.9,106559.32,'C'],[1992,105052.81,96230.2,110947.76,'C'],[1993,110593.48,101305.55,116799.34,'C'],[1994,120420.26,110307.05,127177.54,'C'],[1995,128451.49,117663.8,135659.44,'C'],[1996,138381.27,126759.65,146146.42,'C'],[1997,148271.14,135818.95,156591.26,'C'],[1998,161925.64,148326.7,171011.96,'C'],[1999,177543.62,162633.05,187506.34,'C'],[2000,196771.26,180245.9,207812.92,'C'],[2001,184113.37,168651.05,194444.74,'C'],[2002,188644.45,172801.6,199230.08,'C'],[2003,195886.02,179435,206878,'C'],[2004,211402.86,193648.7,223265.56,'C'],[2005,218982.19,200591.5,231270.2,'C'],[2006,230048.68,210728.6,242957.68,'C'],[2007,230864.34,211475.75,243819.1,'C']];
+
+/* concordance entry "coen-magna-basis", magnitude block */
+const WEDGE = {raw_level_break_pct_1980:-23.43, like_for_like_wedge_pct_1980:-7.21,
+               scope_share_of_break_pct:69.2};
+
+/* thread1_measurement — the claim records used on sheet 3, verbatim */
+const M = {
+ rowell:{id:'e1-measurement-001',central:5778,ci80:[5778,5778],grade:'B'},
+ abc:{id:'e1-measurement-003',central:925,ci80:[900,950],grade:'B'},
+ cab:{id:'e2-measurement-001',central:33045,ci80:[33045,33045],grade:'B'},
+ hooper:{id:'e2-measurement-004',central:16,ci80:[16,16],grade:'B'},
+ nri:{id:'e2-measurement-005',central:800,ci80:[800,800],grade:'B'},
+ panel:{id:'e3-measurement-002',central:1200,ci80:[1100,1300],grade:'B'},
+ brc:{id:'e3-measurement-004',central:1964,ci80:[1963,1964],grade:'B'},
+ pmeter:{id:'e4-measurement-001',central:10,ci80:[8,13],grade:'B',
+   unit:'percent drop in measured prime-time audience'},
+ dart:{id:'e5-measurement-003',central:621,ci80:[615,625],grade:'A',
+   unit:'billion ads served worldwide'},
+ iabstd:{id:'e6-measurement-003',central:2009,ci80:[2009,2009],grade:'A'},
+ ga:{id:'e6-measurement-004',central:100000,ci80:[60000,150000],grade:'B'},
+ mrc:{id:'e7-measurement-002',central:468,ci80:[468,700],grade:'B'},
+ clickfraud:{id:'e6-measurement-002',central:15,ci80:[3,20],grade:'C',
+   unit:'% of paid clicks estimated fraudulent, industry-wide, 2007-2008'}
+};
+
+/* wide_ci_claims — all 24 fail the 60% rule. six are drawn here. */
+const WIDE = [
+ {id:'e1-scale-017',central:37.8,ci80:[5,55],grade:'C',unit:'percent of total US advertising outlay',
+  s:'The four money-type pools account for 62.2 percent of the 1914 benchmark, leaving 37.8 percent — about $454 million — unattributed.'},
+ {id:'e1-scale-011',central:22.0,ci80:[11,46],grade:'C',unit:'percent of total US advertising outlay',
+  s:'National brand advertising was about 22 percent of total US advertising outlay at the 1914 benchmark, roughly $264 million of $1,200 million.'},
+ {id:'e1-buyers-008',central:192,ci80:[96,360],grade:'C',unit:'USD millions (current), 1914 benchmark',
+  s:'Direct-response buyers — mail-order houses, patent-medicine makers and every advertiser working a keyed reply — spent about $192 million in 1914.'},
+ {id:'e1-pricing-001',central:25,ci80:[10,50],grade:'B',unit:'percent of space price',
+  s:'Before standardisation, the commission an agent received on advertising space varied between about 10 and 50 percent of the space price.'},
+ {id:'e2-medium-003',central:3.9,ci80:[3.5,11.0],grade:'B',unit:'percent of US ad spend taken by radio, 1932',
+  s:'Radio was 3.9 percent of all US advertising in 1932 on the Coen series. Broadcast-history sources report “nearly 11 percent” for the same year on a narrower base.'},
+ {id:'e3-targeting-003',central:2600,ci80:[1500,4500],grade:'C',unit:'distinct purchasable broadcast audience segments',
+  s:'Broadcast targeting precision at the end of the era was of the order of 2,600 distinct purchasable audience segments.'}
+];
+
+/* era7_pools, era7_unranked, era7_ranked */
+const POOLS = [
+ {pool:'national_brand', label:'National brand', pct:36.6, usd_bn:145.7, ci80:[25.0,47.0], grade:'C',
+  verdict:'NO SOURCE'},
+ {pool:'direct_response',label:'Direct response',pct:38.0, usd_bn:151.2, ci80:[29.5,47.0], grade:'C',
+  verdict:'POOL NOT SOURCED; ONE INPUT SOURCED AT GRADE A'},
+ {pool:'local_retail',   label:'Local retail',   pct:23.5, usd_bn:93.5,  ci80:[15.0,31.0], grade:'C',
+  verdict:'NOT SOURCED AS A MONEY TYPE'},
+ {pool:'classified',     label:'Classified',     pct:2.5,  usd_bn:9.95,  ci80:[1.4,6.8],   grade:'C',
+  verdict:'SOURCED FOR 2008-2021 AT GRADE A ON THREE INDEPENDENT LEGS'}
+];
+/* the pool's central value is its share, so the suppression rule reads it
+   under the same name as every other record on the page */
+POOLS.forEach(p=>{ p.central=p.pct; });
+const UNRANKED = [['national_brand','direct_response'],['national_brand','local_retail'],
+                  ['direct_response','local_retail']];
+const RANKED   = [['local_retail','classified'],['national_brand','classified'],
+                  ['direct_response','classified'],null];
+
+/* era names and spans, from thread1_measurement */
+const ERAS = [[1,'The Middlemen','1840s-1917'],[2,'Sponsorship','1918-1949'],
+              [3,'The Spot Market','1950-1975'],[4,'Segmentation','1976-1993'],
+              [5,'The Impression','1994-2001'],[6,'The Auction','2002-2008'],
+              [7,'The Machine Market','2008-2026']];
+
+/* ========================================================================= */
+/* HELPERS                                                                   */
+/* ========================================================================= */
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const SVGNS = 'http://www.w3.org/2000/svg';
+const fmt  = n => Math.round(n).toLocaleString('en-US');
+const fmtN = n => Number.isInteger(n) ? n.toLocaleString('en-US')
+                                      : n.toLocaleString('en-US',{maximumFractionDigits:2});
+const at = (rail,yr) => rail.find(p => p[0]===yr) || null;
+
+/* THE SUPPRESSION RULE. One function. Used everywhere. Never overridden. */
+const ratio    = r => (r[3]-r[2]) / Math.abs(r[1]);
+const suppress = r => ratio(r) > 0.60;
+const ratioC    = c => (c.ci80[1]-c.ci80[0]) / Math.abs(c.central);
+const suppressC = c => ratioC(c) > 0.60;
+
+function el(tag,attrs,txt){
+  const n=document.createElementNS(SVGNS,tag);
+  for(const k in attrs) n.setAttribute(k,attrs[k]);
+  if(txt!=null) n.textContent=txt;
+  return n;
+}
+const gradeChip = g => '<span class="gr gr-'+g+'"><i></i><span>'+g+'</span></span>';
+
+/* ========================================================================= */
+/* THE GRADE STAMP — rigor as a count, not a mood                            */
+/* ========================================================================= */
+(function(){
+  const all=[];
+  [COEN,MAGNA,BENCH,BRIDGE].forEach(r=>r.forEach(p=>all.push(p[4])));
+  Object.keys(M).forEach(k=>all.push(M[k].grade));
+  WIDE.forEach(c=>all.push(c.grade));
+  POOLS.forEach(p=>all.push(p.grade));
+  const c={A:0,B:0,C:0}; all.forEach(g=>c[g]++);
+  const s=document.getElementById('gradestamp');
+  s.textContent='A '+c.A+' · B '+c.B+' · C '+c.C;
+  s.title='Grades of the '+all.length+' records drawn on these five sheets.';
+})();
+
+/* ========================================================================= */
+/* 1. THE HOOK — three ledger entries, POSTed at 120ms stagger               */
+/* ========================================================================= */
+(function(){
+  const rows=[
+    {r:at(BENCH,1867), basis:'Benchmark year · our estimate', est:true},
+    {r:at(BENCH,1914), basis:'Benchmark year · our estimate', est:true},
+    {r:at(MAGNA,2025), basis:'Media-owner revenue · filed',   est:false}
+  ];
+  const LO=25, HI=520000, W=272;                     /* one shared log money scale */
+  const px = v => (Math.log10(v)-Math.log10(LO))/(Math.log10(HI)-Math.log10(LO))*W;
+  const TICKS=[100,1000,10000,100000];
+
+  /* the ruler these three readings are taken on, printed once in the head */
+  let rh='<svg width="'+W+'" height="20" viewBox="0 0 '+W+' 20" aria-hidden="true" style="display:block">'+
+    '<line x1="0" y1="15" x2="'+W+'" y2="15" stroke="#C9C2B0"/>';
+  TICKS.forEach(t=>{ rh+='<line x1="'+px(t)+'" y1="11" x2="'+px(t)+'" y2="15" stroke="#C9C2B0"/>'+
+    '<text x="'+px(t)+'" y="8" text-anchor="middle" font-family="var(--sans)" font-size="8.5" '+
+    'letter-spacing=".05em" fill="#6E6A5F">'+fmt(t)+'</text>'; });
+  document.getElementById('rangehead').innerHTML='80% range, on one log ruler &middot; $m'+rh+'</svg>';
+
+  const tb=document.querySelector('#hook tbody');
+  rows.forEach((row,i)=>{
+    const [yr,v,lo,hi,g]=row.r, sup=suppress(row.r);
+    let s='<svg width="'+W+'" height="20" viewBox="0 0 '+W+' 20" role="img" aria-label="'+
+      'eighty percent range '+fmt(lo)+' to '+fmt(hi)+' million dollars'+
+      (sup?', drawn with no central value':', central '+fmt(v))+'">'+
+      '<line x1="0" y1="10" x2="'+W+'" y2="10" stroke="#C9C2B0" stroke-dasharray="1 3"/>';
+    TICKS.forEach(t=>{ s+='<line x1="'+px(t)+'" y1="7" x2="'+px(t)+'" y2="13" stroke="#C9C2B0"/>'; });
+    s+='<rect x="'+px(lo)+'" y="5" width="'+Math.max(px(hi)-px(lo),1.5)+'" height="10" fill="url(#h'+g+')" stroke="#C9C2B0"/>'+
+      '<line x1="'+px(lo)+'" y1="3" x2="'+px(lo)+'" y2="17" stroke="#20211C"/>'+
+      '<line x1="'+px(hi)+'" y1="3" x2="'+px(hi)+'" y2="17" stroke="#20211C"/>'+
+      '<line x1="'+px(lo)+'" y1="10" x2="'+px(hi)+'" y2="10" stroke="#20211C"/>'+
+      (sup?'':'<line x1="'+px(v)+'" y1="1" x2="'+px(v)+'" y2="19" stroke="#20211C" stroke-width="3.2"/>')+
+      '</svg>';
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td class="yr">'+yr+'</td>'+
+      '<td class="num'+(row.est?' num--est':'')+'">$'+fmt(v)+'m</td>'+
+      '<td>'+s+'</td>'+
+      '<td><span class="chr">'+row.basis+'</span> '+gradeChip(g)+
+      (sup?'<br><span class="chr" style="color:#B3372B">No central value</span>':'')+'</td>';
+    if(!REDUCED){ tr.style.opacity=0; }
+    tb.appendChild(tr);
+    if(!REDUCED) setTimeout(()=>{tr.style.transition='opacity var(--post)'; tr.style.opacity=1;},300+i*120);
+  });
+})();
+
+/* ========================================================================= */
+/* 2. THE SPINE                                                              */
+/* ========================================================================= */
+const GEO={w:928,h:452,top:64,bot:364,plate0:58,plate1:224,gut0:224,gut1:252,main0:252,main1:900};
+const YLO=25, YHI=520000;
+const yv = v => GEO.bot - (Math.log10(v)-Math.log10(YLO))/(Math.log10(YHI)-Math.log10(YLO))*(GEO.bot-GEO.top);
+const xp = yr => GEO.plate0 + (yr-1867)*((GEO.plate1-GEO.plate0)/51);
+const xm = yr => GEO.main0  + (yr-1919)*((GEO.main1-GEO.main0)/106);
+
+function txt(x,y,t,o){
+  o=o||{};
+  return el('text',{x:x,y:y,'text-anchor':o.a||'start','font-family':o.f||'var(--sans)',
+    'font-size':o.s||9.5,'letter-spacing':o.ls||'.06em','font-weight':o.w||400,
+    'font-style':o.i?'italic':'normal',fill:o.c||'#6E6A5F'},t);
+}
+
+function buildSpine(){
+  const s=el('svg',{viewBox:'0 0 '+GEO.w+' '+GEO.h,width:'100%',role:'img',
+    'aria-label':'US total advertising spend, 1867 to 2025. Nine unconnected benchmark years to '+
+    '1918 sit on a separate plate, cut off by a basis gutter. An advertiser-billings rail runs '+
+    '1919 to 2007. A media-owner revenue rail appears as three separate filings: one year in '+
+    '1980, one in 2018, then 2021 to 2025. Our own restatement is drawn as a hatched grade C '+
+    'band. The years 2008 to 2020 are drawn as a marked block with no series in it.'});
+  s.setAttribute('style','display:block; min-width:860px');
+
+  /* the plate and the gutter are a different colour of paper */
+  s.appendChild(el('rect',{x:GEO.plate0,y:0,width:GEO.plate1-GEO.plate0,height:GEO.h,fill:'#E6E0D2'}));
+  s.appendChild(el('rect',{x:GEO.gut0,y:0,width:GEO.gut1-GEO.gut0,height:GEO.h,fill:'#E6E0D2'}));
+  s.appendChild(el('line',{x1:GEO.plate0,y1:34,x2:GEO.main1,y2:34,stroke:'#20211C'}));
+  s.appendChild(txt(GEO.plate0,26,'PLATE · 1867—1918',{s:10,ls:'.09em'}));
+  s.appendChild(txt(GEO.main0,26,'SHEET · 1919—2025 · TWO RAILS, NEVER JOINED',{s:10,ls:'.09em'}));
+  s.appendChild(txt(GEO.main1,26,'$ MILLIONS · LOG SCALE',{s:10,ls:'.09em',a:'end'}));
+
+  /* the gutter. nothing is ever drawn across it. */
+  s.appendChild(el('line',{x1:GEO.gut0,y1:34,x2:GEO.gut0,y2:GEO.bot,stroke:'#C9C2B0'}));
+  s.appendChild(el('line',{x1:GEO.gut1,y1:34,x2:GEO.gut1,y2:GEO.bot,stroke:'#C9C2B0'}));
+  const gy=GEO.top+14, gx=GEO.gut0+18;
+  const g=txt(gx,gy,'DIFFERENT BASIS · 1918 / 1919',{s:9.5,ls:'.14em',w:700});
+  g.setAttribute('transform','rotate(90 '+gx+' '+gy+')');
+  s.appendChild(g);
+
+  /* y ruler */
+  [100,1000,10000,100000].forEach(v=>{
+    s.appendChild(el('line',{x1:GEO.plate0,y1:yv(v),x2:GEO.main1,y2:yv(v),
+      stroke:'#C9C2B0','stroke-dasharray':'1 3'}));
+    s.appendChild(txt(GEO.plate0-6,yv(v)+3.5,fmt(v),{a:'end'}));
+  });
+
+  /* the plate: decade rules, and nine benchmarks that are never joined */
+  for(let d=1870; d<=1910; d+=10){
+    s.appendChild(el('line',{x1:xp(d),y1:GEO.top,x2:xp(d),y2:GEO.bot,stroke:'#D8D1C0'}));
+    s.appendChild(txt(xp(d),GEO.bot+14,String(d),{a:'middle',s:9}));
+  }
+  BENCH.forEach(r=>{
+    const [yr,v,lo,hi,gr]=r, x=xp(yr), sup=suppress(r);
+    s.appendChild(el('rect',{x:x-3.5,y:yv(hi),width:7,height:Math.max(yv(lo)-yv(hi),1),
+      fill:'url(#h'+gr+')',stroke:'#C9C2B0','stroke-width':.5}));
+    s.appendChild(el('line',{x1:x,y1:yv(lo),x2:x,y2:yv(hi),stroke:'#20211C'}));
+    s.appendChild(el('line',{x1:x-4,y1:yv(lo),x2:x+4,y2:yv(lo),stroke:'#20211C'}));
+    s.appendChild(el('line',{x1:x-4,y1:yv(hi),x2:x+4,y2:yv(hi),stroke:'#20211C'}));
+    if(!sup) s.appendChild(el('line',{x1:x-5,y1:yv(v),x2:x+5,y2:yv(v),stroke:'#20211C','stroke-width':2.6}));
+  });
+  s.appendChild(txt(GEO.plate0,GEO.bot-8,'NOT A SERIES',{s:9,w:700}));
+  s.appendChild(txt(GEO.plate0,GEO.bot-19,'NINE SEPARATE YEARS',{s:9,w:700}));
+
+  /* the void: absence drawn as a positive object */
+  const v0=xm(2007.5), v1=xm(2020.5);
+  s.appendChild(el('rect',{x:v0,y:GEO.top,width:v1-v0,height:GEO.bot-GEO.top,
+    fill:'url(#hVoid)',stroke:'#8C8578'}));
+  const vx=(v0+v1)/2, vy=GEO.top+130;
+  const vt=txt(vx,vy,'NO SERIES · 2008—2020',{a:'middle',s:10.5,ls:'.14em',w:700});
+  vt.setAttribute('transform','rotate(-90 '+vx+' '+vy+')');
+  s.appendChild(vt);
+  s.appendChild(txt(vx,GEO.bot-27,'ONE ENTRY',{a:'middle',s:9,c:'#7E4F0C',w:700}));
+  s.appendChild(txt(vx,GEO.bot-15,'FILED · 2018',{a:'middle',s:9,c:'#7E4F0C',w:700}));
+
+  /* rail 1: Coen / McCann-Erickson, advertiser billings, 1919-2007 */
+  const bandPath=(rail,xf)=>'M'+rail.map(r=>xf(r[0]).toFixed(1)+','+yv(r[3]).toFixed(1)).join(' L')+
+    ' L'+rail.slice().reverse().map(r=>xf(r[0]).toFixed(1)+','+yv(r[2]).toFixed(1)).join(' L')+' Z';
+  const linePath=(rail,xf)=>'M'+rail.map(r=>xf(r[0]).toFixed(1)+','+yv(r[1]).toFixed(1)).join(' L');
+
+  s.appendChild(el('path',{d:bandPath(COEN,xm),fill:'#2F5D7C','fill-opacity':.16}));
+  const coenLine=el('path',{d:linePath(COEN,xm),fill:'none',stroke:'#2F5D7C','stroke-width':1.6});
+  s.appendChild(coenLine);
+
+  /* our construction, visibly not something a compiler published */
+  s.appendChild(el('path',{d:bandPath(BRIDGE,xm),fill:'url(#hC)',stroke:'#8C8578','stroke-width':.6}));
+  s.appendChild(el('path',{d:linePath(BRIDGE,xm),fill:'none',stroke:'#8C8578',
+    'stroke-width':1.4,'stroke-dasharray':'5 3'}));
+
+  /* rail 2: MAGNA, media-owner revenue. three separate filings, never joined */
+  const mag=MAGNA.filter(r=>r[0]>=2021);
+  s.appendChild(el('path',{d:bandPath(mag,xm),fill:'#A96C14','fill-opacity':.22}));
+  s.appendChild(el('path',{d:linePath(mag,xm),fill:'none',stroke:'#A96C14','stroke-width':1.6}));
+  [at(MAGNA,1980),at(MAGNA,2018)].forEach(r=>{
+    const x=xm(r[0]);
+    /* the 2018 entry sits inside the block with no series, so it is given its
+       own clear ground and stays readable through the hatch */
+    if(r[0]===2018) s.appendChild(el('rect',{x:x-9,y:yv(r[3])-4,width:18,
+      height:(yv(r[2])-yv(r[3]))+8,fill:'#F7F4EC'}));
+    s.appendChild(el('line',{x1:x,y1:yv(r[2]),x2:x,y2:yv(r[3]),stroke:'#A96C14','stroke-width':1.4}));
+    s.appendChild(el('line',{x1:x-8,y1:yv(r[1]),x2:x+8,y2:yv(r[1]),stroke:'#A96C14','stroke-width':2.8}));
+  });
+  s.appendChild(txt(GEO.main1,yv(398000)-10,'NET RAIL · 2021—2025',{a:'end',s:10,w:700,c:'#7E4F0C'}));
+
+  /* the key, printed in the empty lower-left of the sheet */
+  const kx=GEO.main0+8, ky=GEO.bot-58;
+  const key=[
+    ['#2F5D7C','solid','GROSS RAIL — what advertisers were charged · 1919–2007 · grade B'],
+    ['#8C8578','dash', 'OUR CONSTRUCTION — the gross rail restated · all grade C · not a second measurement'],
+    ['#A96C14','solid','NET RAIL — what media owners were paid · three separate filings · grade B']
+  ];
+  key.forEach((k,i)=>{
+    const y=ky+i*15;
+    const ln=el('line',{x1:kx,y1:y-3.5,x2:kx+22,y2:y-3.5,stroke:k[0],'stroke-width':2});
+    if(k[1]==='dash') ln.setAttribute('stroke-dasharray','5 3');
+    s.appendChild(ln);
+    s.appendChild(txt(kx+28,y,k[2],{s:9.5,c:'#20211C'}));
+  });
+
+  /* 1980: both compilers filed. the distance between them is the object. */
+  const c80=at(COEN,1980), m80=at(MAGNA,1980), x80=xm(1980);
+  const yc=yv(c80[1]), ym=yv(m80[1]);
+  s.appendChild(el('rect',{x:x80-11,y:yc,width:22,height:ym-yc,fill:'url(#hOverlap)',
+    stroke:'#7E4F0C','stroke-width':1}));
+  s.appendChild(el('line',{x1:x80-44,y1:yc,x2:x80+18,y2:yc,stroke:'#20211C'}));
+  s.appendChild(el('line',{x1:x80-44,y1:ym,x2:x80+18,y2:ym,stroke:'#20211C'}));
+  s.appendChild(el('line',{x1:x80-44,y1:(yc+ym)/2,x2:x80-62,y2:yc-16,stroke:'#20211C','stroke-width':.8}));
+  s.appendChild(txt(x80-66,yc-18,'THE INTERMEDIARY’S CUT · 23.4% APART',
+    {a:'end',s:10.5,ls:'.05em',w:700,c:'#20211C'}));
+  s.appendChild(txt(x80-66,yc-6,'$'+fmt(c80[1])+'m gross · $'+fmt(m80[1])+'m net',
+    {a:'end',s:11.5,f:'var(--serif)',i:1,ls:'0'}));
+
+  /* x ruler */
+  [1919,1930,1940,1950,1960,1970,1980,1990,2000,2010,2020,2025].forEach(yr=>{
+    s.appendChild(el('line',{x1:xm(yr),y1:GEO.bot,x2:xm(yr),y2:GEO.bot+4,stroke:'#C9C2B0'}));
+    s.appendChild(txt(xm(yr),GEO.bot+14,String(yr),{a:'middle',s:9}));
+  });
+  s.appendChild(el('line',{x1:GEO.plate0,y1:GEO.bot,x2:GEO.main1,y2:GEO.bot,stroke:'#20211C'}));
+
+  /* the era strip. eras 6 and 7 both claim 2008, so that boundary is doubled. */
+  const ey=GEO.bot+22;
+  s.appendChild(el('line',{x1:GEO.plate0,y1:ey,x2:GEO.main1,y2:ey,stroke:'#C9C2B0'}));
+  const eraX=[[GEO.plate0,GEO.plate1],[xm(1919),xm(1949)],[xm(1950),xm(1975)],[xm(1976),xm(1993)],
+              [xm(1994),xm(2001)],[xm(2002),xm(2008)],[xm(2008),GEO.main1]];
+  eraX.forEach((seg,i)=>{
+    s.appendChild(el('line',{x1:seg[0],y1:ey,x2:seg[0],y2:ey+11,stroke:'#C9C2B0'}));
+    s.appendChild(txt((seg[0]+seg[1])/2,ey+10,String(ERAS[i][0]),{a:'middle',s:9.5}));
+  });
+  s.appendChild(txt(GEO.plate0,ey+26,
+    ERAS.slice(0,4).map(e=>e[0]+' '+e[1].toUpperCase()+' '+e[2]).join('   ·   '),{s:8.5}));
+  s.appendChild(txt(GEO.plate0,ey+37,
+    ERAS.slice(4).map(e=>e[0]+' '+e[1].toUpperCase()+' '+e[2]).join('   ·   '),{s:8.5}));
+
+  document.getElementById('spine').appendChild(s);
+
+  /* RULE — a hairline draws along its length at about 1,400px/s */
+  if(!REDUCED){
+    const L=coenLine.getTotalLength();
+    coenLine.style.strokeDasharray=L;
+    coenLine.style.strokeDashoffset=L;
+    coenLine.style.transition='stroke-dashoffset '+Math.round(L/1.4)+'ms linear';
+    requestAnimationFrame(()=>{coenLine.style.strokeDashoffset=0;});
+  }
+}
+buildSpine();
+
+/* the first screen's fold is literally the top of that sheet */
+(function(){
+  const c=document.querySelector('#spine svg').cloneNode(true);
+  c.setAttribute('viewBox','0 0 '+GEO.w+' 52');
+  c.setAttribute('width','100%');
+  c.setAttribute('style','display:block; min-width:860px');
+  c.setAttribute('aria-hidden','true');
+  c.removeAttribute('role');
+  c.removeAttribute('aria-label');
+  document.getElementById('crop').appendChild(c);
+})();
+
+/* the wedge card: the 1980 gap decomposed, at its own linear scale */
+(function(){
+  const c=at(COEN,1980)[1], m=at(MAGNA,1980)[1], W=176;
+  const bar=(v,col)=>'<svg width="'+W+'" height="13" style="display:block"><rect x="0" y="3" '+
+    'width="'+(v/c*W).toFixed(1)+'" height="8" fill="'+col+'"/></svg>';
+  document.getElementById('wedgecard').innerHTML=
+    '<div class="chr" style="color:#20211C">The gap at 1980, at its own scale</div>'+
+    '<div style="margin-top:9px"><span class="chr">Gross · advertiser billings</span>'+
+    bar(c,'#2F5D7C')+'<span class="num">$'+fmt(c)+'m</span></div>'+
+    '<div style="margin-top:7px"><span class="chr">Net · media-owner revenue</span>'+
+    bar(m,'#A96C14')+'<span class="num">$'+fmt(m)+'m</span></div>'+
+    '<p style="margin:10px 0 0">They are '+Math.abs(WEDGE.raw_level_break_pct_1980)+'% apart. '+
+    WEDGE.scope_share_of_break_pct+'% of that break is scope: the two counts cover different '+
+    'media. The rest, '+Math.abs(WEDGE.like_for_like_wedge_pct_1980)+' points, is the price '+
+    'basis — list price against what the seller banked. All of it rests on one overlap '+
+    'year, so treat it as a reading, not a law.</p>';
+})();
+
+/* ========================================================================= */
+/* 3. THE COLUMN — the source table, with PULL THE RULE                      */
+/* ========================================================================= */
+(function(){
+  const BARMAX=398000, BARW=120, RULE0=86;
+  const cols=[
+    {head:'Benchmark', sub:'Sparse years only',    rail:BENCH, est:true,  col:'#6E6A5F'},
+    {head:'Gross rail',sub:'Advertiser billings',  rail:COEN,  est:false, col:'#2F5D7C'},
+    {head:'Our bridge',sub:'Restated by us',       rail:BRIDGE,est:true,  col:'#8C8578'},
+    {head:'Net rail',  sub:'Media-owner revenue',  rail:MAGNA, est:false, col:'#A96C14'}
+  ];
+  const rows=[1867,1914,1918,'GUT',1919,1950,1975,1980,2000,2007,'VOID',2018,2021,2025];
+  const t=document.getElementById('column');
+
+  let h='<thead><tr><th class="chr" style="width:54px">Year</th>';
+  cols.forEach((c,i)=>{
+    h+='<th style="width:'+(RULE0+BARW+18)+'px"><span class="colhead"><b>'+c.head+'</b>'+c.sub+
+       '</span><button class="pullbtn" data-col="'+i+'" aria-pressed="false" aria-label="'+
+       'Pull the rule on the '+c.head+' column. Arrow keys also work.">&#8677;&nbsp;Pull</button></th>';
+  });
+  h+='</tr></thead><tbody>';
+
+  rows.forEach(yr=>{
+    if(yr==='GUT'){
+      h+='<tr><td colspan="5" style="background:#E6E0D2; padding:8px 0; text-align:center">'+
+         '<span class="chr">Different basis · the benchmark years measure promotional '+
+         'outlay, the rails measure media</span></td></tr>'; return;
+    }
+    if(yr==='VOID'){
+      h+='<tr class="void"><td colspan="5" style="text-align:center">'+
+         '<span class="chr" style="background:#F7F4EC; padding:4px 9px">2008 — 2020 · '+
+         'no series · the rows exist, nothing was entered</span></td></tr>'; return;
+    }
+    h+='<tr><td class="yr">'+yr+'</td>';
+    cols.forEach((c,i)=>{
+      const r=at(c.rail,yr);
+      if(!r){ h+='<td class="figcell empty"></td>'; return; }
+      h+='<td class="figcell" style="--ext:'+((r[1]/BARMAX)*BARW).toFixed(1)+'">'+
+         '<span class="v'+(c.est?' est':'')+'">'+fmt(r[1])+'</span>'+
+         '<span class="bar" style="background:'+c.col+'"></span>'+
+         '<span class="pullstrip" data-col="'+i+'"></span></td>';
+    });
+    h+='</tr>';
+  });
+  document.getElementById('column').innerHTML=h+'</tbody>';
+
+  /* authored default: the gross column is out, the rest are in, so a reader
+     meets both states at once and discovers the gesture by retracting one   */
+  const pulls=[0,1,0,0];
+  const cells=i=>Array.from(t.querySelectorAll('tbody tr')).map(tr=>{
+    const td=tr.querySelectorAll('td'); return td.length>=5 ? td[i+1] : null;
+  }).filter(Boolean);
+
+  function apply(i,live){
+    cells(i).forEach(td=>{
+      if(live) td.style.transition='none'; else td.style.transition='';
+      td.style.setProperty('--pull',pulls[i]);
+    });
+    const b=t.querySelector('.pullbtn[data-col="'+i+'"]');
+    if(b) b.setAttribute('aria-pressed', pulls[i]>0.5?'true':'false');
+    if(REDUCED && !live) cells(i).forEach(td=>{
+      td.classList.remove('flash'); void td.offsetWidth; td.classList.add('flash');
+    });
+  }
+  cols.forEach((c,i)=>apply(i));
+
+  t.addEventListener('click',e=>{
+    const b=e.target.closest('.pullbtn'); if(!b) return;
+    const i=+b.dataset.col; pulls[i]=pulls[i]>0.5?0:1; apply(i);
+  });
+  t.addEventListener('keydown',e=>{
+    const b=e.target.closest('.pullbtn'); if(!b) return;
+    const i=+b.dataset.col;
+    if(e.key==='ArrowRight'){ pulls[i]=1; apply(i); e.preventDefault(); }
+    if(e.key==='ArrowLeft'){  pulls[i]=0; apply(i); e.preventDefault(); }
+  });
+  let drag=null;
+  t.addEventListener('pointerdown',e=>{
+    const strip=e.target.closest('.pullstrip'); if(!strip) return;
+    const i=+strip.dataset.col;
+    drag={i:i,x:e.clientX,start:pulls[i]};
+    strip.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+  t.addEventListener('pointermove',e=>{
+    if(!drag) return;
+    pulls[drag.i]=Math.min(1,Math.max(0,drag.start+(e.clientX-drag.x)/160));
+    apply(drag.i,true);
+  });
+  t.addEventListener('pointerup',()=>{
+    if(!drag) return;
+    pulls[drag.i]=pulls[drag.i]>0.5?1:0;
+    apply(drag.i);
+    drag=null;
+  });
+})();
+
+/* ========================================================================= */
+/* 4. THE AUDIT REGISTER                                                     */
+/* ========================================================================= */
+(function(){
+  /* the funder scale is ORDINAL — distance from the party being counted.
+     length carries the order; the cool-to-warm ramp reinforces it.          */
+  const RAMP={5:'#2F5D7C',4:'#4E7C96',3:'#8C8578',2:'#A96C14',1:'#7E4F0C'};
+  const rows=[
+   {yr:1869,era:1,inst:'Rowell’s American Newspaper Directory',
+    what:'Circulation, as the directory’s own compiler estimated it',
+    who:'A broker',d:3,c:M.rowell,fig:'5,778 papers listed'},
+   {yr:1914,era:1,inst:'Audit Bureau of Circulations',
+    what:'Circulation, audited, and filed every six months',
+    who:'Both sides',d:4,c:M.abc,fig:'925 member newspapers by 1926'},
+   {yr:1930,era:2,inst:'Cooperative Analysis of Broadcasting',
+    what:'Radio listening, asked by telephone the next day',
+    who:'The buyer',d:5,c:M.cab,fig:'$33,045 in its first year'},
+   {yr:1934,era:2,inst:'Clark-Hooper',
+    what:'Radio listening, asked while the show was on',
+    who:'A rival seller',d:3,c:M.hooper,fig:'16 cities'},
+   {yr:1942,era:2,inst:'Nielsen Radio Index',
+    what:'Sets, by a meter fitted in the home',
+    who:'A vendor',d:2,c:M.nri,fig:'800 metered homes'},
+   {yr:1950,era:3,inst:'Nielsen buys Hooper',
+    what:'The national count, with no rival left',
+    who:'A vendor',d:2,c:M.panel,fig:'1,200 metered households'},
+   {yr:1964,era:3,inst:'Broadcast Rating Council',
+    what:'Nothing. It audited the counters.',
+    who:'Both sides',d:4,c:M.brc,fig:'Founded 1964'},
+   {yr:1987,era:4,inst:'Nielsen people meters',
+    what:'People, not sets',
+    who:'A vendor',d:2,c:M.pmeter,fig:'Measured prime time fell 10%'},
+   {yr:2000,era:5,inst:'The ad server (DoubleClick DART)',
+    what:'The seller’s own delivery log. The log was the invoice.',
+    who:'The seller',d:1,c:M.dart,fig:'621 billion ads served'},
+   {yr:2002,era:6,inst:'The search seller’s own log',
+    what:'The impression, the auction, the valid click, and the bill',
+    who:'The seller',d:1,c:M.iabstd,fig:'First industry click standard: 2009'},
+   {yr:2005,era:6,inst:'Google Analytics',
+    what:'The buyer’s own results, on a free tool from the seller',
+    who:'The seller',d:1,c:M.ga,fig:'About 100,000 accounts in week one'},
+   {yr:2021,era:7,inst:'Media Rating Council',
+    what:'It suspended Nielsen’s accreditation',
+    who:'Both sides',d:4,c:M.mrc,fig:'Undercount worth at least $468M'}
+  ];
+  let h='<thead><tr>'+
+    '<th class="chr" style="width:52px">Year</th>'+
+    '<th class="chr" style="width:206px">Who counted</th>'+
+    '<th class="chr" style="width:236px">What was counted</th>'+
+    '<th class="chr" style="width:106px">Paid by</th>'+
+    '<th class="chr" style="width:88px">Distance<br>from the seller</th>'+
+    '<th class="chr">Figure on the record</th></tr></thead><tbody>';
+  rows.forEach(r=>{
+    let cells='';
+    for(let k=1;k<=5;k++) cells+='<i style="'+(k<=r.d?'background:'+RAMP[r.d]+';border-color:'+RAMP[r.d]:'')+'"></i>';
+    const sup=suppressC(r.c);
+    const rng=(r.c.ci80[0]===r.c.ci80[1])?fmtN(r.c.central)+' exactly'
+              :fmtN(r.c.ci80[0])+'–'+fmtN(r.c.ci80[1]);
+    h+='<tr><td class="yr">'+r.yr+'</td>'+
+      '<td><b style="font-weight:600">'+r.inst+'</b><br>'+
+      '<span class="chr">Era '+r.era+' · '+ERAS[r.era-1][1]+'</span></td>'+
+      '<td>'+r.what+'</td>'+
+      '<td><span class="tok'+(r.d===1?' tok--seller':'')+'">'+r.who+'</span></td>'+
+      '<td><span class="dist" role="img" aria-label="distance '+r.d+' of 5">'+cells+'</span></td>'+
+      '<td>'+r.fig+'<br><span class="chr">80% '+rng+'</span> '+gradeChip(r.c.grade)+
+      (sup?' <span class="chr" style="color:#B3372B">No central value</span>':'')+
+      '<br><span class="mono" style="color:#6E6A5F; font-size:10.5px">'+r.c.id+'</span>'+
+      '</td></tr>';
+    if(r.yr===1987){
+      h+='<tr><td colspan="6" style="border-top:2px solid #B3372B; padding:13px 0 11px">'+
+         '<span class="stamp">Rule broken</span> <span class="chr">&nbsp;Somebody else counted, '+
+         '1914 to 1987 · below this rule the counter and the seller are the same party'+
+         '</span></td></tr>';
+    }
+  });
+  document.getElementById('register').innerHTML=h+'</tbody>';
+})();
+
+/* ========================================================================= */
+/* 5. THE UNCERTAINTY GRAMMAR                                                */
+/* ========================================================================= */
+function spanSVG(c,o){
+  o=o||{};
+  const W=o.w||420, H=o.h||30, PAD=10;
+  const lo=c.ci80[0], hi=c.ci80[1];
+  const dmin=(o.min!=null?o.min:0), dmax=(o.max!=null?o.max:hi*1.08);
+  const px=v=>PAD+((v-dmin)/(dmax-dmin))*(W-2*PAD);
+  const sup=suppressC(c);
+  let s='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" style="max-width:100%" '+
+    'role="img" aria-label="eighty percent range '+fmtN(lo)+' to '+fmtN(hi)+
+    (sup?', drawn as a span with no central value':', central '+fmtN(c.central))+'">'+
+    '<line x1="'+PAD+'" y1="'+(H-3)+'" x2="'+(W-PAD)+'" y2="'+(H-3)+'" stroke="#C9C2B0"/>'+
+    '<rect x="'+px(lo)+'" y="'+(H/2-9)+'" width="'+Math.max(px(hi)-px(lo),2)+'" height="18" '+
+      'fill="url(#h'+c.grade+')" stroke="#C9C2B0"/>'+
+    '<line x1="'+px(lo)+'" y1="'+(H/2-11)+'" x2="'+px(lo)+'" y2="'+(H/2+11)+'" stroke="#20211C" stroke-width="1.2"/>'+
+    '<line x1="'+px(hi)+'" y1="'+(H/2-11)+'" x2="'+px(hi)+'" y2="'+(H/2+11)+'" stroke="#20211C" stroke-width="1.2"/>'+
+    '<line x1="'+px(lo)+'" y1="'+(H/2)+'" x2="'+px(hi)+'" y2="'+(H/2)+'" stroke="#20211C"/>';
+  if(!sup) s+='<line x1="'+px(c.central)+'" y1="'+(H/2-12)+'" x2="'+px(c.central)+'" y2="'+
+    (H/2+12)+'" stroke="#20211C" stroke-width="3.4"/>';
+  if(o.ends){
+    s+='<text x="'+px(lo)+'" y="'+(H-8)+'" text-anchor="middle" font-family="var(--sans)" '+
+       'font-size="10" letter-spacing=".05em" fill="#20211C">'+fmtN(lo)+'</text>';
+    s+='<text x="'+px(hi)+'" y="'+(H-8)+'" text-anchor="middle" font-family="var(--sans)" '+
+       'font-size="10" letter-spacing=".05em" fill="#20211C">'+fmtN(hi)+'</text>';
+    s+='<text x="'+((px(lo)+px(hi))/2)+'" y="'+(H-8)+'" text-anchor="middle" '+
+       'font-family="var(--sans)" font-size="10" letter-spacing=".09em" fill="#B3372B">'+
+       'NO CENTRAL MARK · SPAN ONLY</text>';
+  }
+  return s+'</svg>';
+}
+
+(function(){
+  const ladder=[
+    {c:M.dart,      t:'Ads delivered by one ad server in 2000, in billions', g:'Filed and checkable'},
+    {c:M.pmeter,    t:'The drop in measured prime-time audience in 1987, in percent', g:'One compiler'},
+    {c:M.clickfraud,t:'Invalid clicks across the industry, 2007 to 2008, in percent', g:'Our own construction'}
+  ];
+  let h='';
+  ladder.forEach(r=>{
+    const sup=suppressC(r.c);
+    h+='<div class="claim"><p class="s">'+r.t+'</p>'+
+       '<div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap">'+
+       spanSVG(r.c,{w:360,min:0,max:r.c.ci80[1]*1.1})+
+       '<div><span class="num" style="font-size:16px">'+fmtN(r.c.ci80[0])+' – '+fmtN(r.c.ci80[1])+
+       '</span> '+gradeChip(r.c.grade)+' <span class="chr">'+r.g+'</span><br>'+
+       '<span class="mono" style="color:#6E6A5F">width / central = '+(ratioC(r.c)*100).toFixed(1)+
+       '% → '+(sup?'central mark removed':'central mark kept')+'</span></div></div></div>';
+  });
+  document.getElementById('ladder').innerHTML=h;
+
+  /* the hero: a real wide claim, span only, no central mark anywhere */
+  const hc=WIDE[0];
+  document.getElementById('hero').innerHTML=
+    '<div class="chr" style="color:#20211C">The widest kind of claim on the page</div>'+
+    '<p class="s" style="font-size:18px; max-width:58ch; margin:8px 0 12px">'+hc.s+'</p>'+
+    spanSVG(hc,{w:600,h:52,min:0,max:60,ends:true})+
+    '<p class="mono" style="margin:10px 0 0">'+hc.id+' &nbsp; ('+fmtN(hc.ci80[1])+' − '+
+    fmtN(hc.ci80[0])+') / '+fmtN(hc.central)+' = '+(ratioC(hc)*100).toFixed(1)+'% &gt; 60% &nbsp; '+
+    gradeChip(hc.grade)+'</p>'+
+    '<p class="chr" style="margin:4px 0 0">'+hc.unit+'</p>'+
+    '<p style="margin:10px 0 0; max-width:60ch">A middle value would read as an answer. It is not '+
+    'one. The span is the answer, and it says that somewhere between 5 and 55 percent of the 1914 '+
+    'market cannot be put in any pool at all.</p>';
+
+  let w='';
+  WIDE.slice(1).forEach(c=>{
+    w+='<div class="claim"><p class="s">'+c.s+'</p>'+
+       '<div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap">'+
+       spanSVG(c,{w:380,min:0,max:c.ci80[1]*1.08})+
+       '<div><span class="num" style="font-size:15px">'+fmtN(c.ci80[0])+' – '+fmtN(c.ci80[1])+
+       '</span> '+gradeChip(c.grade)+' <span class="chr">'+c.unit+'</span><br>'+
+       '<span class="mono" style="color:#6E6A5F">'+c.id+' · width / central = '+
+       (ratioC(c)*100).toFixed(1)+'% · no central mark</span></div></div></div>';
+  });
+  document.getElementById('widelist').innerHTML=w;
+})();
+
+/* ========================================================================= */
+/* 6. THE UNRULED BLOCK                                                      */
+/* ========================================================================= */
+(function(){
+  const W=880, ROW=52, PAD=196, SMAX=50, RGT=116;
+  const TOP=42;                                   /* first braced row band starts here */
+  const px=v=>PAD+(v/SMAX)*(W-PAD-RGT);
+  const rowY=i=>TOP+i*ROW+ROW/2;
+  const byKey=k=>POOLS.find(p=>p.pool===k);
+  /* alphabetical. a visibly non-informative order, so it cannot be read as
+     a finding. */
+  let three=['direct_response','local_retail','national_brand'];
+  const host=document.getElementById('pools');
+
+  function span(p,y,ranked){
+    const sup=suppressC(p);
+    let s='<rect x="'+px(p.ci80[0])+'" y="'+(y-8)+'" width="'+
+      Math.max(px(p.ci80[1])-px(p.ci80[0]),2)+'" height="16" fill="url(#h'+p.grade+')" stroke="#C9C2B0"/>';
+    /* the shared ground, shaded inside this row only */
+    (p.shared||[]).forEach(o=>{
+      s+='<rect x="'+px(o[0])+'" y="'+(y-8)+'" width="'+(px(o[1])-px(o[0]))+
+         '" height="16" fill="url(#hOverlap)" opacity=".5"/>';
+    });
+    s+='<line x1="'+px(p.ci80[0])+'" y1="'+(y-11)+'" x2="'+px(p.ci80[0])+'" y2="'+(y+11)+'" stroke="#20211C" stroke-width="1.2"/>'+
+      '<line x1="'+px(p.ci80[1])+'" y1="'+(y-11)+'" x2="'+px(p.ci80[1])+'" y2="'+(y+11)+'" stroke="#20211C" stroke-width="1.2"/>'+
+      '<line x1="'+px(p.ci80[0])+'" y1="'+y+'" x2="'+px(p.ci80[1])+'" y2="'+y+'" stroke="#20211C"/>';
+    if(!sup) s+='<line x1="'+px(p.pct)+'" y1="'+(y-13)+'" x2="'+px(p.pct)+'" y2="'+(y+13)+
+      '" stroke="#20211C" stroke-width="3.4"/>';
+    s+='<text x="26" y="'+(y-2)+'" font-family="var(--serif)" font-size="15" fill="#20211C">'+
+      (ranked?'<tspan font-family="var(--sans)" font-size="10" letter-spacing=".06em" fill="#6E6A5F">4. </tspan>':'')+
+      p.label+'</text>';
+    s+='<text x="26" y="'+(y+14)+'" font-family="var(--sans)" font-size="9" letter-spacing=".06em" '+
+      'fill="#6E6A5F">$'+fmtN(p.usd_bn)+'BN · GRADE '+p.grade+(ranked?' · RANKED':'')+'</text>';
+    s+='<text x="'+(px(p.ci80[1])+9)+'" y="'+(y+4)+'" font-family="var(--sans)" font-size="9.5" '+
+      'letter-spacing=".05em" fill="'+(sup?'#B3372B':'#6E6A5F')+'">'+fmtN(p.ci80[0])+'–'+
+      fmtN(p.ci80[1])+(sup?' · NO CENTRAL':'')+'</text>';
+    return s;
+  }
+
+  function draw(flash){
+    const ry=TOP+ROW*3+4, H=ry+ROW+42;
+    /* work out, for each of the three, which stretches it shares with another */
+    POOLS.forEach(p=>{p.shared=[];});
+    for(let i=0;i<3;i++) for(let j=i+1;j<3;j++){
+      const A=byKey(three[i]), B=byKey(three[j]);
+      const lo=Math.max(A.ci80[0],B.ci80[0]), hi=Math.min(A.ci80[1],B.ci80[1]);
+      if(hi>lo){ A.shared.push([lo,hi]); B.shared.push([lo,hi]); }
+    }
+    let s='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" style="max-width:100%; min-width:'+W+'px" '+
+      'role="img" aria-label="Four money pools for era 7 drawn as ranges on one share-of-market '+
+      'scale. Three of them sit inside a brace marked order not established, with no row rules '+
+      'and no row numbers. Classified sits below a rule and is numbered four, because its place '+
+      'against all three is settled.">';
+    s+='<text x="0" y="10" font-family="var(--sans)" font-size="9.5" letter-spacing=".08em" '+
+       'fill="#6E6A5F">SHARE OF US ADVERTISING · ERA 7 · 2008—2026</text>';
+    for(let v=0; v<=SMAX; v+=10){
+      s+='<line x1="'+px(v)+'" y1="30" x2="'+px(v)+'" y2="'+(ry+ROW-8)+'" stroke="#C9C2B0" stroke-dasharray="1 3"/>'+
+         '<text x="'+px(v)+'" y="24" text-anchor="middle" font-family="var(--sans)" font-size="9.5" '+
+         'letter-spacing=".06em" fill="#6E6A5F">'+v+'%</text>';
+    }
+    /* dotted verticals tie the shared stretches across the braced rows */
+    const edges={};
+    byKey(three[0]).shared.concat(byKey(three[1]).shared,byKey(three[2]).shared)
+      .forEach(o=>{edges[o[0]]=1; edges[o[1]]=1;});
+    Object.keys(edges).forEach(v=>{
+      s+='<line x1="'+px(+v)+'" y1="'+(TOP+4)+'" x2="'+px(+v)+'" y2="'+(TOP+ROW*3-8)+
+         '" stroke="#A96C14" stroke-width=".8" stroke-dasharray="2 3"/>';
+    });
+
+    /* the brace. enclosure groups without implying a sequence. */
+    const bt=TOP+2, bb=TOP+ROW*3-10, bx=16, bm=(bt+bb)/2;
+    s+='<path d="M'+bx+' '+bt+' q-9 0 -9 9 L'+(bx-9)+' '+(bm-9)+' q0 9 -9 9 q9 0 9 9 L'+
+       (bx-9)+' '+(bb-9)+' q0 9 9 9" fill="none" stroke="#8C8578" stroke-width="1.4"/>';
+    s+='<text x="0" y="'+(TOP-6)+'" font-family="var(--sans)" font-size="9.5" font-weight="700" '+
+       'letter-spacing=".12em" fill="#6E6A5F">ALPHABETICAL · ORDER NOT ESTABLISHED · NO ROW RULES · NO ROW NUMBERS</text>';
+
+    three.forEach((k,i)=>{ s+=span(byKey(k),rowY(i),false); });
+
+    /* the rule, then the only row that can carry a number */
+    s+='<line x1="0" y1="'+ry+'" x2="'+W+'" y2="'+ry+'" stroke="#20211C"/>';
+    s+=span(byKey('classified'),ry+ROW/2,true);
+    s+='<text x="0" y="'+(H-8)+'" font-family="var(--sans)" font-size="9" letter-spacing=".06em" '+
+       'fill="#6E6A5F">RULED AND NUMBERED = A PLACE IN AN ORDER · UNRULED INSIDE THE BRACE = '+
+       'A MEMBER OF A SET · SHADED = GROUND TWO SPANS SHARE, SO NEITHER IS BIGGER</text>';
+    host.innerHTML=s+'</svg>';
+    if(flash){ host.classList.remove('flash'); void host.offsetWidth; host.classList.add('flash'); }
+  }
+  draw(false);
+
+  document.getElementById('shuffle').addEventListener('click',()=>{
+    let n;
+    do{ n=three.slice().sort(()=>Math.random()-0.5); } while(n.join()===three.join());
+    three=n;
+    draw(true);
+    document.getElementById('shufnote').textContent=
+      'Nothing changed. No figure moved, no span changed length, and no overlap opened or closed.';
+  });
+
+  /* the pair tables. era7_ranked carries a null fourth entry, and a ruled
+     blank row is the honest way to draw an ordering that does not exist.    */
+  const nm=k=>byKey(k).label;
+  let u='<tbody>';
+  UNRANKED.forEach(p=>{ u+='<tr><td>'+nm(p[0])+'</td><td class="chr">cannot be ordered against</td><td>'+
+    nm(p[1])+'</td></tr>'; });
+  document.getElementById('unranked').innerHTML=u+'</tbody>';
+
+  let r='<tbody>';
+  RANKED.forEach(p=>{
+    if(p===null){ r+='<tr class="blankrow"><td colspan="3"><span class="chr">4. no fourth '+
+      'ordering exists · the row is ruled and left empty</span></td></tr>'; return; }
+    r+='<tr><td>'+nm(p[0])+'</td><td class="chr">is larger than</td><td>'+nm(p[1])+'</td></tr>';
+  });
+  document.getElementById('ranked').innerHTML=r+'</tbody>';
+})();
+</script>

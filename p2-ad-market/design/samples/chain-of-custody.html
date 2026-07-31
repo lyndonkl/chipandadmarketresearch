@@ -1,0 +1,1225 @@
+<!doctype html>
+<html lang="en" data-motion="full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE CHAIN OF CUSTODY — P2 sample page</title>
+<!--
+  DESIGN DIRECTION: "THE CHAIN OF CUSTODY" (architect-proposals.json, proposal 5 of 5).
+  Every number on this page is read from p2-ad-market/design/samples/sample-data.json
+  and embedded verbatim in the <script> block at the foot of this file.
+
+  TYPEFACES — the real build uses three faces, all self-hosted WOFF2, no CDN:
+    * Archivo (variable)      -> institution names, headlines, all in-chart numerals
+                                 (tabular lining figures). Institution names set in
+                                 Archivo Expanded SemiBold, uppercase, +0.06em.
+    * Newsreader (variable)   -> body prose, 19px/1.62 desktop, measure capped 68ch.
+    * IBM Plex Mono           -> rigor chrome only: CI bounds, grades, claim ids,
+                                 source names, basis labels.
+  This mockup makes no network requests, so each is approximated by a system stack
+  below. Where "Expanded" is called for, letter-spacing stands in for the real width axis.
+
+  CONTRAST NOTE: the spec token Zinc #838A93 measures 2.95:1 on Foolscap #F0EDE6,
+  which fails WCAG AA for text. Rules, ticks and hatching keep the exact spec hex.
+  Text uses a darkened sibling, #5A6068 (5.4:1). Stated rather than silently fudged.
+-->
+<style>
+/* ---------- TOKENS ---------- */
+:root{
+  /* palette, exact hex from the proposal */
+  --foolscap:#F0EDE6;
+  --graphite:#15181D;
+  --zinc:#838A93;          /* rules, ticks, hatch only */
+  --zinc-text:#5A6068;     /* darkened sibling for text, AA on Foolscap */
+  --c0:#8A4B08;            /* custody 0 — the seller's own hand */
+  --c1:#E0972A;            /* custody 1 — a vendor the seller pays */
+  --c2:#A9A79E;            /* custody 2 — an industry body, both sides */
+  --c3:#7FC3D2;            /* custody 3 — a vendor selling to both */
+  --c4:#3AA6BD;            /* custody 4 — the buyer's hand */
+  --c5:#17596B;            /* custody 5 — a rival's hand */
+  --redline:#C6432B;       /* single use: a price that moved because the instrument moved */
+
+  /* type — see the comment above for the real faces */
+  --f-display:-apple-system,BlinkMacSystemFont,"Segoe UI Variable Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; /* stands in for Archivo */
+  --f-body:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;                        /* stands in for Newsreader */
+  --f-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace;                                    /* stands in for IBM Plex Mono */
+
+  --lane:34px;             /* the era-lane pitch; the ground rules sit on it */
+  --edge:48px;
+  --dur-settle:520ms;
+  --dur-value:720ms;
+  --dur-handoff:400ms;
+  --ease-settle:cubic-bezier(.16,1,.3,1);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  padding:0 0 96px;
+  background:var(--foolscap);
+  /* the ground is a ledger, not a plotting grid: horizontal rules only, at the lane pitch */
+  background-image:repeating-linear-gradient(to bottom,
+      rgba(131,138,147,.08) 0 1px, transparent 1px var(--lane));
+  color:var(--graphite);
+  font-family:var(--f-body);
+  font-size:19px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{margin:0;font-weight:600}
+p{margin:0 0 1.05em}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--edge)}
+.measure{max-width:68ch}
+
+/* rigor chrome: if a piece of text names WHERE a number came from, it is mono */
+.mono{font-family:var(--f-mono);font-size:12px;line-height:1.5;letter-spacing:.02em;color:var(--zinc-text)}
+.mono.up{text-transform:uppercase;letter-spacing:.14em;font-size:11.5px}
+.num{font-family:var(--f-display);font-variant-numeric:tabular-lining;font-feature-settings:"tnum" 1,"lnum" 1}
+.inst{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+/* ---------- CHROME ---------- */
+.chrome{
+  position:sticky;top:0;z-index:40;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  padding:14px var(--edge) 12px;
+  background:linear-gradient(var(--foolscap) 78%,rgba(240,237,230,0));
+}
+.chrome .eyebrow{flex:1 1 auto}
+.mtoggle{
+  font-family:var(--f-mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--zinc-text);background:transparent;border:1px solid var(--zinc);
+  padding:6px 10px;cursor:pointer;border-radius:0;
+}
+.mtoggle:focus-visible,.seamtick:focus-visible,.poolhit:focus-visible,.switch button:focus-visible{
+  outline:2px solid var(--graphite);outline-offset:2px;
+}
+.mtoggle b{font-weight:600;color:var(--graphite)}
+
+/* ---------- HERO ---------- */
+.hero{padding:26px 0 40px}
+.hero-grid{display:grid;grid-template-columns:640px 1fr;gap:64px;align-items:start}
+.hero h1{
+  font-family:var(--f-body);font-size:44px;line-height:1.18;font-weight:600;
+  margin:0 0 34px;letter-spacing:-.005em;
+}
+.hero h1 span{display:block}
+.hero .lede{font-size:20px;line-height:1.5;color:#15181Dc7;margin:0}
+.hero-marks{padding-top:8px}
+
+/* ---------- SECTIONS ---------- */
+section{padding:56px 0 8px;scroll-margin-top:80px}
+.sec-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.sec-head h2{
+  font-family:var(--f-display);font-size:13px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.16em;
+}
+.sec-head .rule{flex:1 1 60px;height:1px;background:var(--zinc);opacity:.5;align-self:center}
+.dek{font-size:28px;line-height:1.28;font-weight:600;margin:0 0 16px;max-width:30ch}
+.note{font-size:17px;line-height:1.55}
+
+.figure{margin:26px 0 0;position:relative}
+.figure svg{display:block;width:100%;height:auto}
+.scrollframe{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+.scrollframe>svg{min-width:960px}
+figcaption{margin-top:14px}
+
+/* ---------- SEAM CARD ---------- */
+.seamcard{
+  margin-top:18px;border:1px solid var(--graphite);background:var(--foolscap);
+  padding:16px 18px;max-width:900px;
+}
+.seamcard[hidden]{display:none}
+.seamcard h4{margin:0 0 6px;font-family:var(--f-display);font-size:15px;letter-spacing:.02em}
+.seamcard .body{font-size:16px;line-height:1.5;margin:8px 0 10px;max-width:78ch}
+.seamcard dl{display:flex;flex-wrap:wrap;gap:4px 26px;margin:0}
+.seamcard dt{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--zinc-text)}
+.seamcard dd{margin:0 0 0 8px;font-family:var(--f-display);font-size:14px;font-variant-numeric:tabular-lining}
+.seamcard .pair{display:flex;align-items:baseline}
+.seamcard .abridged{font-family:var(--f-mono);font-size:11px;color:var(--zinc-text);margin-top:10px}
+
+/* ---------- LEGEND / REGISTER ---------- */
+.register{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:0;
+  border-top:1px solid var(--graphite);border-bottom:1px solid var(--graphite);
+  margin:22px 0 4px;
+}
+.register div{padding:10px 12px 12px;border-right:1px solid rgba(131,138,147,.45)}
+.register div:last-child{border-right:0}
+.register .sw{height:10px;margin-bottom:8px;border:1px solid var(--graphite)}
+.register .rung{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;color:var(--zinc-text)}
+.register .who{font-family:var(--f-display);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;line-height:1.3;margin-top:2px}
+
+/* ---------- DOCKED CUSTODY RAIL ---------- */
+.rail{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:linear-gradient(rgba(240,237,230,0),var(--foolscap) 52%);
+  padding:12px 0 0;pointer-events:none;
+}
+.rail .lab{
+  display:flex;justify-content:center;gap:12px;align-items:baseline;
+  font-family:var(--f-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--zinc-text);margin-bottom:5px;
+}
+.rail .lab b{color:var(--graphite);font-weight:600;font-family:var(--f-display);letter-spacing:.06em}
+.rail .bar{display:flex;height:4px;width:100%}
+.rail .bar i{flex:1 1 0;transition:opacity var(--dur-handoff) ease-in-out}
+.rail .prog{height:2px;background:var(--graphite);width:0}
+
+/* ---------- SWITCH (THE SECOND INSTRUMENT) ---------- */
+.switchgrid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:26px}
+.switch{border:1px solid var(--graphite);padding:18px 20px 20px;background:var(--foolscap)}
+.switch .promise{
+  font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.13em;
+  color:var(--graphite);border-bottom:1px solid var(--zinc);padding-bottom:8px;margin-bottom:14px;
+}
+.switch .ctl{display:flex;border:1px solid var(--graphite);width:fit-content;margin-bottom:16px}
+.switch button{
+  font-family:var(--f-display);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;
+  padding:9px 14px;border:0;background:transparent;color:var(--zinc-text);cursor:pointer;
+}
+.switch button+button{border-left:1px solid var(--graphite)}
+.switch button[aria-pressed="true"]{background:var(--graphite);color:var(--foolscap)}
+.switch .rmnote{display:none}
+
+/* ---------- UNRANKED PANEL ---------- */
+.verdict{
+  margin-top:18px;border:1px solid var(--graphite);padding:15px 18px;max-width:900px;background:var(--foolscap);
+}
+.verdict[hidden]{display:none}
+.verdict h4{font-family:var(--f-display);font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px}
+.verdict p{font-size:16px;line-height:1.5;margin:0 0 8px;max-width:78ch}
+
+/* ---------- CAPTION BAR ---------- */
+.captionbar{
+  border-top:2px solid var(--graphite);margin-top:64px;padding:22px 0 8px;
+}
+.captionbar dl{margin:0;display:grid;grid-template-columns:180px 1fr;gap:9px 22px}
+.captionbar dt{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--zinc-text);padding-top:4px}
+.captionbar dd{margin:0;font-size:17px;line-height:1.5}
+.captionbar .name{font-family:var(--f-display);font-size:21px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;margin:0 0 14px}
+
+.mobilenote{border:1px dashed var(--zinc);padding:14px 16px;margin-top:26px;max-width:900px}
+.mobilenote h4{font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--zinc-text);margin:0 0 6px}
+.mobilenote p{font-size:16px;line-height:1.5;margin:0 0 6px}
+
+/* ---------- SVG SHARED ---------- */
+svg text{font-family:var(--f-display);fill:var(--graphite)}
+.t-mono{font-family:var(--f-mono);font-size:11px;fill:var(--zinc-text);letter-spacing:.02em}
+.t-mono-up{font-family:var(--f-mono);font-size:10.5px;fill:var(--zinc-text);letter-spacing:.13em;text-transform:uppercase}
+.t-inst{font-family:var(--f-display);font-size:12px;font-weight:600;letter-spacing:.06em;fill:var(--graphite)}
+.t-anno{font-family:var(--f-body);font-size:14.5px;fill:var(--graphite)}
+.t-num{font-family:var(--f-display);font-weight:600;font-variant-numeric:tabular-lining;fill:var(--graphite)}
+.seamtick{cursor:pointer}
+.seamtick rect.hit{fill:transparent}
+.poolhit{cursor:pointer}
+
+/* ---------- MOTION ---------- */
+@keyframes sway{
+  0%{transform:translateX(0)}
+  18%{transform:translateX(calc(var(--amp) * 1px))}
+  42%{transform:translateX(calc(var(--amp) * -0.55px))}
+  66%{transform:translateX(calc(var(--amp) * 0.24px))}
+  86%{transform:translateX(calc(var(--amp) * -0.08px))}
+  100%{transform:translateX(0)}
+}
+.sway{animation:sway 900ms var(--ease-settle) both}
+.swayband{opacity:0}
+
+.rmghost{opacity:0}
+html[data-motion="reduced"] .sway{animation:none !important}
+html[data-motion="reduced"] .swayband{opacity:1;transition:opacity 120ms linear}
+html[data-motion="reduced"] .rmghost{opacity:1}
+html[data-motion="reduced"] .switch .rmnote{display:block}
+html[data-motion="reduced"] *{transition-duration:120ms !important;animation-duration:120ms !important}
+.switch .rmnote{margin-top:10px;line-height:1.5}
+@media (prefers-reduced-motion:reduce){
+  .sway{animation:none !important}
+  .swayband{opacity:1}
+  .rmghost{opacity:1}
+  *{transition-duration:120ms !important}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1180px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .switchgrid{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  :root{--edge:20px}
+  body{font-size:17px;line-height:1.6}
+  .hero h1{font-size:31px}
+  .hero .lede{font-size:18px}
+  .dek{font-size:22px}
+  .captionbar dl{grid-template-columns:1fr;gap:2px 0}
+  .captionbar dt{padding-top:10px}
+  .register{grid-template-columns:1fr 1fr}
+  .register div{border-bottom:1px solid rgba(131,138,147,.45)}
+}
+</style>
+</head>
+<body>
+
+<!-- shared SVG defs: hatches and materials, referenced document-wide by url(#id) -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <pattern id="hVoid" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#838A93" stroke-width="1.7" opacity=".30"/>
+    </pattern>
+    <pattern id="hVoidDense" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#838A93" stroke-width="1.6" opacity=".42"/>
+    </pattern>
+    <pattern id="hRed" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="7" stroke="#C6432B" stroke-width="2.2" opacity=".55"/>
+    </pattern>
+    <pattern id="hWedge" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#15181D" stroke-width="1.3" opacity=".55"/>
+    </pattern>
+    <marker id="arw" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0.5,0.7 L7,4 L0.5,7.3" fill="none" stroke="#15181D" stroke-width="1.2"/>
+    </marker>
+    <marker id="arwZ" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0.5,0.7 L7,4 L0.5,7.3" fill="none" stroke="#838A93" stroke-width="1.2"/>
+    </marker>
+  </defs>
+</svg>
+
+<header class="chrome">
+  <div class="eyebrow mono up">P2 &middot; THE ATTENTION ECONOMY &middot; 1840s&ndash;2026</div>
+  <button class="mtoggle" id="mtoggle" aria-pressed="false">Motion: <b id="mstate">full</b></button>
+</header>
+
+<!-- ============================ 1. FIRST SCREEN ============================ -->
+<main>
+<section class="hero wrap" data-year="1914 &rarr; 2002" data-rung="2,0">
+  <div class="hero-grid">
+    <div>
+      <h1>
+        <span>In 1914, someone finally counted the newspapers.</span>
+        <span>In 2002, the seller started counting itself.</span>
+      </h1>
+      <p class="lede">This is 180 years of who held the pen.</p>
+    </div>
+    <div class="hero-marks">
+      <svg id="heroSvg" viewBox="0 0 612 500" role="img"
+           aria-label="Two custody marks. The 1914 mark is a short span from 990 million to 1.45 billion dollars with a central tick at 1.2 billion. The 2007 mark is a long span from 3 percent to 20 percent with no central tick at all.">
+      </svg>
+    </div>
+  </div>
+</section>
+<!-- ============================ 2. THE DOCKET ============================ -->
+<section class="wrap" id="docket" data-year="1867 &rarr; 2025" data-rung="">
+  <div class="sec-head">
+    <h2>The Docket &middot; Register A, B and C</h2><span class="rule"></span>
+    <span class="mono up">US total advertising, 1867&ndash;2025</span>
+  </div>
+  <p class="dek">Nobody ever counted this market end to end.</p>
+  <div class="measure note">
+    <p>What exists is a handful of counts. Each was made by a different body, on a different
+    basis, in a different run of years. So the counters are drawn first, at the top, and the
+    money second. Where two counters cover the same year, both are drawn and the gap between
+    them is given a name. Where nobody counted, the gap is drawn as an object, not as blank paper.</p>
+    <p class="mono">EACH STEP UP THE MONEY AXIS IS TEN TIMES THE ONE BELOW IT. THE TIME AXIS IS STRICTLY LINEAR, 1840&ndash;2026, AND IS NEVER BROKEN OR COMPRESSED.</p>
+  </div>
+
+  <figure class="figure">
+    <div class="scrollframe">
+      <svg id="docketSvg" viewBox="0 0 1344 940" role="img"
+        aria-label="Three stacked registers on one 1840 to 2026 time axis. Register A shows four compiler rails and where each one covers. Register B shows the money on a logarithmic dollar axis: nine unjoined benchmark stones for 1867 to 1918, the Coen ribbon 1919 to 2007, our hatched bridge 1980 to 2007, seven MAGNA stones, a hatched void block for 1840 to 1866 and another for 2008 to 2020, and a labelled wedge at 1980 where the two compilers disagree by 23.43 percent. Register C is a strip of 19 seam ticks.">
+      </svg>
+    </div>
+    <figcaption>
+      <p class="mono up">Register C &middot; tap any seam tick to pin its card. One at a time.</p>
+      <p class="note measure" style="margin-top:8px">MAGNA licenses its series, so this sample holds
+      seven of its points rather than the run of years. The hatch on its rail is what we are not
+      allowed to see, and it is drawn rather than left blank.</p>
+      <div class="seamcard" id="seamCard" hidden aria-live="polite"></div>
+    </figcaption>
+  </figure>
+
+  <div class="measure note" style="margin-top:26px">
+    <p><b>Reading rule.</b> Two different materials are never joined. The Coen ribbon is a filled
+    band. MAGNA is a row of stones. Our own bridge is a dashed outline with nothing inside it.
+    You cannot chain them into one line by eye, which is the point: they are not one line.</p>
+  </div>
+</section>
+<!-- ==================== 3. THREAD 1 — THE COUNTING DISCIPLINE ==================== -->
+<section class="wrap" id="thread1" data-year="1869 &rarr; 2026" data-rung="2,3,4,5">
+  <div class="sec-head">
+    <h2>Thread 1 &middot; Who counted, and who paid the counter</h2><span class="rule"></span>
+    <span class="mono up">The paired lifeline</span>
+  </div>
+  <p class="dek">The colour is not a category. It is a distance.</p>
+  <div class="measure note">
+    <p>For most of this history the seller was not allowed to count the audience. Somebody else
+    did, and that somebody was paid by a named party. Who paid kept changing.</p>
+    <p>The bottom track is a ladder. Rung 0 is the seller counting itself. Rung 5 is a rival
+    medium paying for the count, hoping to prove the seller wrong. The rung is drawn twice over,
+    once as a height and once as a colour, so the order survives a grey screen or a colour-blind
+    reader. Each counter on the top track is tied down to the rung of whoever paid it.</p>
+  </div>
+
+  <div class="register" id="registerLegend" aria-label="The custody ladder: six rungs, ordered by distance from the seller"></div>
+
+  <figure class="figure">
+    <div class="scrollframe">
+      <svg id="lifeSvg" viewBox="0 0 1344 560" role="img"
+        aria-label="A two-track diagram on the same 1840 to 2026 axis. The top track holds seven counting institutions as lifelines: Rowell's Directory from 1869, the Audit Bureau of Circulations from 1914, the Cooperative Analysis of Broadcasting from 1930, Hooper from 1934, Nielsen from 1942, the Broadcast Rating Council from 1964, and the ad server and Google's own log from 1994. The bottom track is a six-rung ladder of who paid, ordered by distance from the seller. Vertical ties join each counter to its rung. From 1994 the two tracks converge and from 2002 they run as a single doubled line at rung zero.">
+      </svg>
+    </div>
+    <figcaption style="margin-top:12px">
+      <p class="mono up">A feathered end means this sample does not record when the body stopped &middot;
+      Era 5 is The Impression, 1994&ndash;2001 &middot; Era 6 is The Auction, 2002&ndash;2008</p>
+      <p class="note measure" style="margin-top:8px">Nielsen bought Hooper in March 1950 &mdash; the arrow
+      on Hooper&rsquo;s end is that purchase &mdash; and after it no serious national rival existed.
+      From 1994 the two tracks close, and from 2002 they are one line.
+      The counter and the seller are the same company. A reader who takes nothing else from this
+      picture takes away that two lines became one.</p>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ==================== 3b. THE SECOND INSTRUMENT ==================== -->
+<section class="wrap" id="instrument" data-year="1987 &middot; 2021" data-rung="3">
+  <div class="sec-head">
+    <h2>The second instrument</h2><span class="rule"></span>
+    <span class="mono up">Two positions &middot; same object &middot; 34 years apart</span>
+  </div>
+  <p class="dek">Change the instrument. The world holds still. The price moves.</p>
+  <div class="measure note">
+    <p>These two switches are the same object. Each one swaps the tool used to count a
+    television audience, and nothing else. The viewing is the same viewing. Flip it and watch
+    what happens to money that was already sold.</p>
+  </div>
+  <div class="switchgrid" id="switchGrid"></div>
+</section>
+<!-- ==================== 4. THE UNCERTAINTY GRAMMAR ==================== -->
+<section class="wrap" id="grammar" data-year="2007&ndash;2008" data-rung="0">
+  <div class="sec-head">
+    <h2>The custody mark</h2><span class="rule"></span>
+    <span class="mono up">One glyph, used everywhere a number appears</span>
+  </div>
+  <p class="dek">When the range is wider than the estimate, we take the estimate away.</p>
+  <div class="measure note">
+    <p>Every number here is drawn as a span, not a dot. The span is the 80&nbsp;percent range.
+    A tick inside it marks the middle estimate. A notch says who counted. The line style says how
+    good the sourcing is: A, B or C.</p>
+    <p>If the range is wider than the middle estimate itself, the tick comes off. A printed
+    middle is something a reader stands on, and here there is nothing to stand on. Removing it is
+    the only reliable fix.</p>
+  </div>
+
+  <figure class="figure">
+    <div class="scrollframe">
+      <svg id="grammarSvg" viewBox="0 0 1344 480" role="img"
+        aria-label="Three panels. The first is an anatomy diagram of the custody mark, naming the span, the central tick, the custody notch and the grade texture. The second draws the click-fraud claim as a span from 3 to 20 percent with no central tick. The third shows three grade specimens: grade A, grade B and grade C.">
+      </svg>
+    </div>
+  </figure>
+  <div class="measure note" style="margin-top:20px">
+    <p><b>Grade and width are two different things.</b> The 1914 total on the first screen is
+    graded C, so it is drawn dashed. It still keeps its tick, because its range is 38&nbsp;percent
+    of its middle, not more. Sourcing rides on the line style. Doubt rides on the length. Neither
+    one is allowed to stand in for the other.</p>
+  </div>
+</section>
+
+<!-- ==================== 5. THE UNRANKED FIELD ==================== -->
+<section class="wrap" id="unranked" data-year="2025" data-rung="">
+  <div class="sec-head">
+    <h2>The unranked field</h2><span class="rule"></span>
+    <span class="mono up">Era 7 &middot; four pools of money</span>
+  </div>
+  <p class="dek">Three of these four cannot be put in order.</p>
+  <div class="measure note">
+    <p>These are the four kinds of money in the market today. Their ranges overlap, so any one
+    of the top three could be the largest. The record settles only one comparison: classified is
+    the smallest, and its range does not touch any of the others.</p>
+    <p>So the three that cannot be ranked carry no middle mark. Classified keeps its tick. The
+    difference between a span with a tick and a span without one is the whole finding. And the
+    spans are not sorted &mdash; they sit in the order this essay met them, which the axis says out loud.</p>
+  </div>
+
+  <figure class="figure">
+    <div class="scrollframe">
+      <svg id="poolSvg" viewBox="0 0 1240 480" role="img"
+        aria-label="Four spans on one shared percentage axis, unsorted. National brand runs 25 to 47 percent, direct response 29.5 to 47, local retail 15 to 31, all three with no central mark. Classified runs 1.4 to 6.8 percent and keeps a central tick at 2.5. A translucent band from 29.5 to 31 percent marks where all three big spans coexist. Below, a ruler shows the four pools summing to 100.6 percent with the overshoot drawn as a tail block.">
+      </svg>
+    </div>
+    <figcaption>
+      <p class="mono up">Tap any span to see what it can and cannot be ranked against.</p>
+      <div class="verdict" id="poolVerdict" hidden aria-live="polite"></div>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ==================== 6. CAPTION BAR ==================== -->
+<section class="wrap">
+  <div class="mobilenote">
+    <h4>Mobile reduction, stated honestly</h4>
+    <p>At 390&nbsp;px the real build rotates the time axis to vertical, because 186 years across a
+    phone gives about two pixels a year and every era becomes unreadable. Time then runs down the
+    screen and the scroll gesture does the panning. This mockup only hints at that: the wide
+    figures scroll sideways inside their own frame, and the prose reflows.</p>
+    <p>Dropped on a phone: hover, side-by-side comparison, and the full label gutter. Never
+    dropped: every span, every grade, every void block, every custody rung and every &ldquo;cannot be
+    ranked&rdquo; verdict. If something has to go it is an interaction, not a caveat.</p>
+  </div>
+
+  <div class="captionbar">
+    <p class="name">The Chain of Custody</p>
+    <dl>
+      <dt>Direction</dt>
+      <dd>Every number is testimony taken by a named institution with an interest, so the page draws whose hands it passed through and treats a break in the chain as the story.</dd>
+      <dt>It sacrifices</dt>
+      <dd>The shareable poster, and speed to a headline. Refusing to splice means no single frame says &ldquo;here is 180 years of advertising.&rdquo; A reader who asks how big the market is gets two rulers and a question before a number.</dd>
+      <dt>First five seconds</dt>
+      <dd>Two spans of wildly different length &mdash; one short with a mark in the middle, one enormous with nothing in the middle at all &mdash; and a coloured strip along the bottom that names what the colours mean.</dd>
+    </dl>
+  </div>
+</section>
+</main>
+
+<!-- the custody rail: permanent legend and progress bar in one. The progress bar is the argument. -->
+<div class="rail" aria-hidden="true">
+  <div class="lab"><span>Who counted</span><b id="railYear">1914 &rarr; 2002</b></div>
+  <div class="bar" id="railBar"></div>
+  <div class="prog" id="railProg"></div>
+</div>
+
+<script>
+/* =====================================================================
+   DATA — every value below is copied from sample-data.json unchanged.
+   Rail points are [year, central, ci80low, ci80high, grade].
+   ===================================================================== */
+const COEN=[
+[1919,1930,1640.5,2316,"B"],[1920,2480,2108,2976,"B"],[1921,1930,1640.5,2316,"B"],[1922,2200,1870,2640,"B"],[1923,2400,2040,2880,"B"],
+[1924,2480,2108,2976,"B"],[1925,2600,2210,3120,"B"],[1926,2700,2295,3240,"B"],[1927,2720,2312,3264,"B"],[1928,2760,2346,3312,"B"],
+[1929,2850,2422.5,3420,"B"],[1930,2450,2082.5,2940,"B"],[1931,2100,1785,2520,"B"],[1932,1620,1377,1944,"B"],[1933,1325,1126.25,1590,"B"],
+[1934,1650,1402.5,1980,"B"],[1935,1720,1651.2,1788.8,"B"],[1936,1930,1852.8,2007.2,"B"],[1937,2100,2016,2184,"B"],
+[1938,1930,1852.8,2007.2,"B"],[1939,2010,1929.6,2090.4,"B"],[1940,2110,2025.6,2194.4,"B"],[1941,2250,2160,2340,"B"],
+[1942,2160,2073.6,2246.4,"B"],[1943,2490,2390.4,2589.6,"B"],[1944,2700,2592,2808,"B"],[1945,2840,2726.4,2953.6,"B"],
+[1946,3340,3273.2,3406.8,"B"],[1947,4260,4174.8,4345.2,"B"],[1948,4870,4772.6,4967.4,"B"],[1949,5210,5105.8,5314.2,"B"],
+[1950,5700,5586,5814,"B"],[1951,6420,6291.6,6548.4,"B"],[1952,7140,6997.2,7282.8,"B"],[1953,7740,7585.2,7894.8,"B"],
+[1954,8150,7987,8313,"B"],[1955,9150,8967,9333,"B"],[1956,9910,9711.8,10108.2,"B"],[1957,10270,10064.6,10475.4,"B"],
+[1958,10310,10103.8,10516.2,"B"],[1959,11270,11044.6,11495.4,"B"],[1960,11960,11720.8,12199.2,"B"],[1961,11860,11622.8,12097.2,"B"],
+[1962,12430,12181.4,12678.6,"B"],[1963,13100,12838,13362,"B"],[1964,14150,13867,14433,"B"],[1965,15250,14945,15555,"B"],
+[1966,16630,16297.4,16962.6,"B"],[1967,16870,16532.6,17207.4,"B"],[1968,18090,17728.2,18451.8,"B"],[1969,19420,19031.6,19808.4,"B"],
+[1970,19550,19159,19941,"B"],[1971,20700,20286,21114,"B"],[1972,23210,22745.8,23674.2,"B"],[1973,24980,24480.4,25479.6,"B"],
+[1974,26620,26087.6,27152.4,"B"],[1975,27900,27342,28458,"B"],[1976,33300,32634,33966,"B"],[1977,37440,36691.2,38188.8,"B"],
+[1978,43330,42463.4,44196.6,"B"],[1979,48780,47804.4,49755.6,"B"],[1980,53570,52498.6,54641.4,"B"],[1981,60460,59250.8,61669.2,"B"],
+[1982,66670,65336.6,68003.4,"B"],[1983,76000,74480,77520,"B"],[1984,88010,86249.8,89770.2,"B"],[1985,94900,93002,96798,"B"],
+[1986,102370,100323,104417,"B"],[1987,110270,108065,112475,"B"],[1988,118750,116375,121125,"B"],[1989,124770,122275,127265,"B"],
+[1990,129968,127369,132567,"B"],[1991,128352,125785,130919,"B"],[1992,133750,131075,136425,"B"],[1993,140956,138137,143775,"B"],
+[1994,153024,149964,156084,"B"],[1995,162930,159671,166189,"B"],[1996,175230,171725,178735,"B"],[1997,187529,183778,191280,"B"],
+[1998,206697,202563,210831,"B"],[1999,222308,217862,226754,"B"],[2000,247472,242523,252421,"B"],[2001,231287,226661,235913,"B"],
+[2002,236875,232138,241612,"B"],[2003,245477,240567,250387,"B"],[2004,263766,258491,269041,"B"],[2005,271074,265653,276495,"B"],
+[2006,281653,276020,287286,"B"],[2007,279612,274020,285204,"B"]
+];
+const MAGNA=[
+[1980,41021,40600,41440,"B"],[2018,232906,230600,235200,"B"],[2021,278000,270000,286000,"B"],[2022,325000,315000,335000,"B"],
+[2023,338000,332000,344000,"B"],[2024,380000,374000,386000,"B"],[2025,398000,388000,408000,"B"]
+];
+const BENCH=[
+[1867,50,30,80,"B"],[1880,200,140,280,"B"],[1890,360,260,480,"B"],[1900,495,400,600,"C"],[1904,785,700,900,"C"],[1909,1070,880,1270,"C"],
+[1914,1200,990,1450,"C"],[1917,1500,1250,1800,"C"],[1918,1355,1150,1600,"C"]
+];
+const BRIDGE=[
+[1980,41021,37575.9,43322.9,"C"],[1981,46465.2,42562.9,49072.5,"C"],[1982,51618,47282.9,54514.5,"C"],[1983,59288.2,54309.1,62615.1,"C"],
+[1984,68561,62803.1,72408.3,"C"],[1985,74556.4,68294.9,78740.1,"C"],[1986,80808.8,74022.2,85343.3,"C"],[1987,87154,79834.6,92044.5,"C"],
+[1988,93867.5,85984.3,99134.8,"C"],[1989,98594.4,90314.2,104127,"C"],[1990,102478,93871.4,108228,"C"],[1991,100898,92423.9,106559,"C"],
+[1992,105053,96230.2,110948,"C"],[1993,110593,101306,116799,"C"],[1994,120420,110307,127178,"C"],[1995,128451,117664,135659,"C"],
+[1996,138381,126760,146146,"C"],[1997,148271,135819,156591,"C"],[1998,161926,148327,171012,"C"],[1999,177544,162633,187506,"C"],
+[2000,196771,180246,207813,"C"],[2001,184113,168651,194445,"C"],[2002,188644,172802,199230,"C"],[2003,195886,179435,206878,"C"],
+[2004,211403,193649,223266,"C"],[2005,218982,200592,231270,"C"],[2006,230049,210729,242958,"C"],[2007,230864,211476,243819,"C"]
+];
+const SEAMS=[{"id":"coen-magna-basis","a":"coen_mce","b":"magna","y":[1980,2007],"note":"Different objects under the same headline. Coen measures advertiser billings bottom-up at list (rate-card) prices across eleven media including business papers and a ~20%-of-total 'miscellaneous' bucket. MAGNA's MG8 measures media-supplier revenue top-down across eight media with no miscellaneous and no business papers. 1980 is the only year both compilers publish: MCE $53,570m vs MG8 $41,021m. Re","m":{"raw_level_break_pct_1980":-23.43,"like_for_like_wedge_pct_1980":-7.21,"scope_share_of_break_pct":69.2}},{"id":"coen-iab-internet","a":"coen_mce","b":"iab_pwc","y":[1997,2007],"note":"Both carry a line called 'internet'. Coen's is an advertiser-billings estimate that the dataset's own curator calls a serious underestimate from 2004; IAB/PwC's is a seller-reported revenue survey. The gap widens every year of the overlap. Any chart that stacks Coen's media partition must keep Coen's internet line, or the partition stops summing to Coen's total.","m":{"coen_over_iab_1997":0.662,"coen_over_iab_2000":0.805,"coen_over_iab_2007":0.497,"dollar_gap_2007_musd":10677}},{"id":"coen-ooh-2000","a":"coen_mce","b":"coen_mce","y":[1999,2000],"note":"Category rename with a scope change. 'Billboards' is a partition member 1935-1999; 'Out of Home' replaces it from 1999 (published for both bases in 1999) and carries transit, street furniture, place-based and other formats. Reading the two as one series manufactures a 177% jump in 2000.","m":{"ooh_1999_musd":4780,"billboards_1999_musd":1725,"ratio":2.771}},{"id":"coen-tv-split-1990","a":"coen_mce","b":"coen_mce","y":[1989,1990],"note":"One published 'Television' line becomes two published lines, 'Broadcast TV' and 'Cable', in 1990. Coen's own scheme-2 sub-categories let the split be pushed back to 1980 exactly (they sum to the Television line); before 1980 no cable line exists at all. This dataset carries the 1980-1989 broadcast/cable pair as constructed grade-C points.","m":{"television_1989_musd":27459,"constructed_broadcast_1989_musd":25364,"constructed_cable_1989_musd":2095,"cable_share_1989_pct":7.63,"identity_residual_musd":0}},{"id":"coen-vintage-revision","a":"coen_mce","b":"coen_mce","y":[1919,2003],"note":"The same year has different values in different vintages of the same series. Against the Printers'-Ink-lineage figures printed in Historical Statistics (T 444), the Coen-2000 vintage revised the 1920s down by 15-18%; 1932-1945 moves by under 2%; and the 1999 total was revised UP 3.3% between the 2000 and 2003 vintages. The 1920s revision is large enough to change the ad/GDP story for that decade.","m":{"1919_pct":-15.43,"1923_pct":-18.23,"1929_pct":-16.81,"mean_1919_1929_pct":-16.17,"1999_revision_2000_to_2003_pct":3.29,"1998_revision_pct":2.53}},{"id":"coen-medium-detail-1935","a":"coen_mce","b":"coen_mce","y":[1919,1935],"note":"By-medium detail does not exist before 1935. For 1919-1934 the published partition is three lines: newspapers, other periodicals, and 'other' -- and the CS Ad Dataset's finer categories for those years are part Coen, part other sources, part the curator's own estimates. Radio's own line begins in 1935, thirteen years after commercial radio advertising began.","m":{"other_share_of_1919_total_pct":62.6,"other_share_of_1934_total_pct":41.9,"miscellaneous_share_of_1935_total_pct":19.9}},{"id":"coen-category-lifecycle","a":"coen_mce","b":"coen_mce","y":[1980,1990],"note":"Partition members appear and disappear mid-series. Yellow Pages appears in 1980 at $2,900m with no restatement of earlier years (it was previously inside miscellaneous, which drops by a comparable amount in the same year). Farm Publications ($212m) and the magazine sub-categories are dropped after 1989. A stacked chart must show these as entries and exits, not as growth and collapse.","m":{"yellow_pages_1980_musd":2900,"miscellaneous_1979_musd":9633,"miscellaneous_1980_musd":7559,"miscellaneous_step_musd":-2074,"farm_publications_1989_musd":212}},{"id":"coen-naa-newspapers","a":"coen_mce","b":"naa_newspaper","y":[1950,2007],"note":"Coen's newspaper line IS the NAA publisher survey, unadjusted, for 1950-1989 (identical to the dollar in 36 of 40 years). From 1990 Coen adjusts it: he runs up to 0.86% ABOVE NAA in the mid-to-late 1990s and about 0.2% below it in the 2000s. The two are therefore not independent -- NAA cannot validate Coen's newspaper line, it only supplies the national / retail / classified split Coen does not pu","m":{"identical_years_1950_1989":36,"max_coen_over_naa_pct":0.86,"year_of_max":1996,"coen_over_naa_2000_pct":0.78,"coen_over_naa_2007_pct":-0.18}},{"id":"coen-census-receipts","a":"coen_mce","b":"census_manufactures","y":[1919,1937],"note":"The Census enumerates what publishers RECEIVED; Coen estimates what advertisers SPENT. The wedge is agency commission, production and the difference between list and net. The CS Ad Dataset applies a 1.5187 factor to Census newspaper receipts to build its pre-1935 newspaper estimates, so for those years the Coen newspaper line is a scaled Census figure rather than an independent measurement.","m":{"coen_over_census_newspapers_factor":1.5187,"census_newspapers_1935_musd":500.0,"coen_newspapers_1935_musd":761.0,"implied_factor_1935":1.522}},{"id":"coen-irs-levels","a":"coen_mce","b":"irs_soi","y":[2005,2007],"note":"Advertiser billings (Coen) against the advertising deduction on corporate tax returns (IRS). Silk & Berndt report r = 0.998 between them over 1960-2007. In the three overlap years available here Coen runs 0.8% to 7.1% above IRS. IRS is used only as a cross-check and is never stitched.","m":{"divergence_2005_pct":7.06,"divergence_2006_pct":1.68,"divergence_2007_pct":0.79,"silk_berndt_correlation_1960_2007":0.998}},{"id":"magna-irs-divergence","a":"magna","b":"irs_soi","y":[2018,2022],"note":"After the Coen series ends the two rails diverge hard and in one direction: the IRS deduction keeps growing faster than media-owner revenue. In 2022 the IRS advertising deduction is $473bn against a MAGNA US media-owner revenue of about $325bn -- a 31% gap, well past the 15% tolerance. This is a measurement finding, not an error: the tax line absorbs promotion, agency and martech spend that never ","m":{"gap_2018_pct":-34.2,"gap_2021_pct":-33.5,"gap_2022_pct":-31.3,"gap_2007_pct_note":"removed - MAGNA has no 2007 observation in this dataset; +0.79% is the Coen-vs-IRS gap and belongs to concordance coen-irs-levels. The MG8-basis 2007 gap, taken from this dataset's own bridge, is -16.78%.","bridge_basis_gap_2007_pct":-16.78}},{"id":"magna-basis-change","a":"magna","b":"magna","y":[2018,2025],"note":"MAGNA's own basis appears to change inside its own series. Silk & Berndt describe MG8 as eight media INCLUDING direct mail, with a 2018 US value of $232.9bn. MAGNA's public 2020s splits are digital pure players plus traditional media owners, with no direct-mail line visible. UNRESOLVED: the methodology document and the annual series are licensed and were not read for this build, so the size of the","m":{"status":"unquantified","mg8_2018_musd":232906,"us_direct_mail_scale_for_reference_musd":60225,"bound":"if direct mail left the basis, the modern MAGNA US total understates the MG8 basis by roughly 10-15% of total"}},{"id":"magna-iab-digital","a":"magna","b":"iab_pwc","y":[2025,2025],"note":"MAGNA's 2025 digital-pure-player revenue ($294bn) and the IAB/PwC internet total ($294.593bn) are the same number to within 0.2%. Treat MAGNA's digital line as the IAB series carried through, not as an independent estimate: adding them, or using one to check the other, double-counts.","m":{"magna_dpp_2025_musd":294000,"iab_2025_musd":294593,"difference_pct":-0.2}},{"id":"iab-vintage","a":"iab_pwc","b":"iab_pwc","y":[2011,2016],"note":"IAB restates. This dataset uses one vintage throughout -- the FY2025 report's historical table -- so that year-on-year changes are not vintage artefacts. Earlier vintages print 2015 as $59,550m and 2016 as $72,521m (FY2015 edition of April 2016, FY2016 edition of April 2017 and FY2017 edition of May 2018 all agree); the FY2025 vintage prints $59,551m and $72,640m. The largest restatement inside th","m":{"max_restatement_pct":0.16,"years_affected":[2011,2012,2015,2016]}},{"id":"benchmarks-vintage","a":"benchmarks_pre1919","b":"benchmarks_pre1919","y":[1900,1918],"note":"Two retrospective vintages of the pre-1919 record disagree systematically: the Printers' Ink figures in HSUS T 444 run 9-20% above Coen's 1999 revision of the same years, with no consistent gradient (1904 +9.5%, 1909 +14.2%, 1917 +17.9%, 1900 +20.4%). Points here take the midpoint with a CI spanning both. Before 1867 there is no estimate of any kind, so 1840-1866 is a hole, not a low number.","m":{"t444_over_coen99_1900_pct":20.4,"t444_over_coen99_1909_pct":14.2,"t444_over_coen99_1917_pct":17.9,"no_data_years":[1840,1866]}},{"id":"bridge-vs-coen","a":"bridge_mce_mg8","b":"coen_mce","y":[1980,2007],"note":"The bridge ribbon is the Coen ribbon restated onto MAGNA's basis. It is derived FROM coen_mce and is not an independent measurement: never sum the two, never treat their agreement as corroboration.","m":{"bridge_over_coen_1980_pct":-23.4,"bridge_over_coen_2007_pct":-17.4}},{"id":"bridge-vs-magna","a":"bridge_mce_mg8","b":"magna","y":[1980,1980],"note":"At 1980 the bridge reproduces MAGNA's published MG8 value by construction (the wedge is calibrated there), so 1980 is an identity, not a test. The bridge's only out-of-sample test is 2007, against GroupM's independently published US measured-media total.","m":{"bridge_1980_musd":41021.0,"magna_1980_musd":41021,"residual_musd":0.0}},{"id":"naa-internal-sum","a":"naa_newspaper","b":"naa_newspaper","y":[1956,1957],"note":"The NAA table does not add up in two of its 61 years: national + retail + classified overshoots the printed print total by $14m in 1956 and falls $30m short in 1957, and the printed year-on-year percentages for those rows are inconsistent with the printed dollars. Four further years (1991, 1996, 2005, 2006) differ by $1m from rounding. The published values are carried unaltered and the residual is","m":{"residual_1956_musd":14.0,"residual_1957_musd":-30.0,"residual_1956_pct":0.43,"residual_1957_pct":-0.92,"rounding_only_years":[1991,1996,2005,2006],"years_affected":2,"years_checked":61}},{"id":"naa-online-2003","a":"naa_newspaper","b":"iab_pwc","y":[2003,2010],"note":"NAA's newspaper online revenue is a subset of the IAB internet total, and from 2003 NAA reports print and online separately. Adding NAA's combined total to the IAB internet line double-counts newspaper digital revenue -- $3,166m of it in 2007.","m":{"newspaper_online_2007_musd":3166,"share_of_iab_2007_pct":14.9}}];
+const POOLS=[{"pool":"national_brand","pct":36.6,"usd_bn":145.7,"ci80":[25.0,47.0],"grade":"C","source_verdict":"NO SOURCE. No compiler publishes a US national-brand advertising figure for any year after 2007. Partial free evidence exists only for 2008-2010 (Cens"},{"pool":"direct_response","pct":38.0,"usd_bn":151.2,"ci80":[29.5,47.0],"grade":"C","source_verdict":"POOL NOT SOURCED; ONE INPUT SOURCED AT GRADE A. IAB/PwC's 'Revenues by pricing model' exhibit publishes the performance-priced share of US digital ann"},{"pool":"local_retail","pct":23.5,"usd_bn":93.5,"ci80":[15.0,31.0],"grade":"C","source_verdict":"NOT SOURCED AS A MONEY TYPE. BIA's $169bn US local advertising total measures a different object: BIA's own published definition is all media selling "},{"pool":"classified","pct":2.5,"usd_bn":9.95,"ci80":[1.4,6.8],"grade":"C","source_verdict":"SOURCED FOR 2008-2021 AT GRADE A ON THREE INDEPENDENT LEGS - the hunt's main finding, which overturns the record's note that no modern source publishe"}];
+const UNRANKED=[["national_brand","direct_response"],["national_brand","local_retail"],["direct_response","local_retail"]];
+const RANKED=[["local_retail","classified"],["national_brand","classified"],["direct_response","classified"]];
+const CLAIM={"e1-measurement-001":{"s":"Rowell's American Newspaper Directory, first issued in 1869, listed 5,778 American papers with estimated circulations, the first attempt at a common currency for buying space.","central":5778,"ci80":[5778,5778],"grade":"B","unit":"newspapers listed","era":1},"e1-measurement-002":{"s":"The Audit Bureau of Circulations was founded in 1914 in Chicago through the merger of the publisher-led Advertising Audit Association and the advertiser-led Bureau of Verified Circulations, and was the world's first circulation au","central":1914,"ci80":[1914,1914],"grade":"B","unit":"year founded","era":1},"e1-measurement-003":{"s":"Within a dozen years of founding, ABC membership covered 925 newspapers, 184 general magazines and periodicals, 240 business publications and 72 farm publications (January 1926), with publisher statements filed every six months an","central":925,"ci80":[900,950],"grade":"B","unit":"member newspapers","era":1},"e2-measurement-001":{"s":"The Cooperative Analysis of Broadcasting earned $33,045 in its first year from 49 advertiser subscribers paying $70 a month ($60 for ANA members) - the first national audience-ratings business.","central":33045,"ci80":[33045,33045],"grade":"B","unit":"US$ of CAB first-year subscription revenue, 1930","era":2},"e2-measurement-004":{"s":"Clark-Hooper's first syndicated coincidental survey covered 16 cities in autumn 1934 and was financed by a group of magazine publishers who believed the CAB overstated network radio's audience.","central":16,"ci80":[16,16],"grade":"B","unit":"cities in the first Clark-Hooper coincidental survey, autumn","era":2},"e2-measurement-005":{"s":"The Nielsen Radio Index went commercial in December 1942 with 800 metered homes covering roughly 25 percent of US households, and had 47 subscribers by 1945.","central":800,"ci80":[800,800],"grade":"B","unit":"metered homes in the Nielsen Radio Index at commercial launc","era":2},"e2-measurement-006":{"s":"By April 1949 the Nielsen Radio Index covered 97 percent of US homes, producing the first genuinely projectable national audience estimates.","central":97,"ci80":[95,98],"grade":"B","unit":"percent of US homes covered by the Nielsen Radio Index sampl","era":2},"e3-measurement-001":{"s":"Nielsen acquired C. E. Hooper's national radio and television ratings business in March 1950, the transaction that gave one private firm the national broadcast audience currency for the whole era.","central":1950,"ci80":[1950,1950],"grade":"B","unit":"year Nielsen acquired Hooper's national ratings business","era":3},"e3-measurement-002":{"s":"The national metered panel behind every network television price in this era was about 1,200 households - roughly one metered home for every 54,000 US television homes in 1973.","central":1200,"ci80":[1100,1300],"grade":"B","unit":"metered households in the Nielsen national television panel","era":3},"e3-measurement-003":{"s":"The Storage Instantaneous Audimeter, introduced in September 1973, cut national ratings turnaround to about 36 hours from the one to two weeks the previous system needed - the era's decisive measurement-speed change.","central":36,"ci80":[24,48],"grade":"B","unit":"hours to produce national television ratings","era":3},"e3-measurement-004":{"s":"The Harris hearings on broadcast ratings ran from 5 March 1963 to 23 September 1964 and produced the industry-funded Broadcast Rating Council in 1964. Its first minimum standards are reported to have taken effect on 31 March 1964 ","central":1964,"ci80":[1963,1964],"grade":"B","unit":"year the Broadcast Rating Council was founded","era":3},"e4-measurement-001":{"s":"Nielsen's people meters, which became the national television currency in September 1987, measured about 10% fewer people watching network prime time than the previous method: CBS and ABC each down 13%, NBC down 4%.","central":10,"ci80":[8,13],"grade":"B","unit":"percent drop in measured prime-time audience","era":4},"e4-measurement-002":{"s":"People meters showed the Saturday-morning children's audience down by at least 20% and possibly 50%, against roughly $150M of annual children's advertising revenue across the three networks - a measurement change that repriced an ","central":150,"ci80":[130,175],"grade":"B","unit":"million USD of network children's ad revenue at stake","era":4},"e4-measurement-003":{"s":"The networks challenged the people-meter panel's composition: 33% of people-meter households took pay cable against 26% of the US population, a sample skew the networks argued was worth several ratings points.","central":33,"ci80":[31,35],"grade":"B","unit":"percent of people-meter households with pay cable","era":4},"e5-measurement-003":{"s":"Advertisements delivered worldwide by DoubleClick's DART ad server in 2000, across more than 2,000 clients; December 2000 alone was about 63 billion. The ad server, owned by the sell side, was the era's system of record.","central":621,"ci80":[615,625],"grade":"A","unit":"billion ads served worldwide","era":5},"e6-measurement-002":{"s":"Independent click-fraud estimators put industry-wide invalid-click rates in the mid-teens during the era — Click Forensics reported roughly 14-17% of ad clicks as fraudulent in 2007-2008 — against Google's own materially lower int","central":15,"ci80":[3,20],"grade":"C","unit":"% of paid clicks estimated fraudulent, industry-wide, 2007-2","era":6},"e6-measurement-003":{"s":"No independent audit standard for search click counting existed during the era: the IAB Click Measurement Working Group was initiated in late 2005 and the Click Measurement Guidelines — the first industry standard defining a valid","central":2009,"ci80":[2009,2009],"grade":"A","unit":"year the IAB Click Measurement Guidelines were released (wor","era":6},"e6-measurement-004":{"s":"Google made web analytics free and proprietary: it acquired Urchin in April 2005 and launched Google Analytics on 11 November 2005 at no charge, signing up roughly 100,000 accounts in the first week — the seller supplying the buye","central":100000,"ci80":[60000,150000],"grade":"B","unit":"Google Analytics accounts created in the first week after th","era":6},"e6-measurement-005":{"s":"Television's pricing currency changed inside the era: Nielsen first delivered commercial-minute ratings on 31 May 2007, and from the 2007-08 season US national TV advertising was negotiated on C3 — average commercial-minute rating","central":2007.41,"ci80":[2007.41,2007.41],"grade":"B","unit":"year (2007-05-31), first availability of Nielsen commercial ","era":6},"e7-measurement-002":{"s":"The Media Rating Council suspended Nielsen's national and local TV accreditation in September 2021 after finding pandemic-era undercounts of 2-6% among adults 18-49; the VAB estimated the undercount cost networks at least $468M of","central":468,"ci80":[468,700],"grade":"B","unit":"USD millions of national TV ad revenue attributed to the Nie","era":7}};
+const ERAS=[{"era":1,"name":"The Middlemen","years":"1840s-1917"},{"era":2,"name":"Sponsorship","years":"1918-1949"},{"era":3,"name":"The Spot Market","years":"1950-1975"},{"era":4,"name":"Segmentation","years":"1976-1993"},{"era":5,"name":"The Impression","years":"1994-2001"},{"era":6,"name":"The Auction","years":"2002-2008"},{"era":7,"name":"The Machine Market","years":"2008-2026"}];
+
+/* =====================================================================
+   HELPERS
+   ===================================================================== */
+const S=(o)=>Object.entries(o).map(([k,v])=>k+'="'+v+'"').join(' ');
+const esc=(s)=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fmt=(n)=>n.toLocaleString('en-US',{maximumFractionDigits:4}); /* never round a source value away */
+const CUST=['#8A4B08','#E0972A','#A9A79E','#7FC3D2','#3AA6BD','#17596B'];
+const CUSTNAME=['The seller’s own hand','A vendor the seller pays','An industry body, both sides',
+                'A vendor selling to both','The buyer’s hand','A rival’s hand'];
+/* short forms for the tight in-chart gutter */
+const CUSTSHORT=['THE SELLER ITSELF','A VENDOR THE SELLER PAYS','AN INDUSTRY BODY',
+                 'A VENDOR SELLING TO BOTH','THE BUYER','A RIVAL MEDIUM'];
+const GRAPHITE='#15181D', ZINC='#838A93', ZINCT='#5A6068', FOOLSCAP='#F0EDE6', REDLINE='#C6432B';
+
+/* the shared time axis, used by BOTH the docket and the lifeline */
+const XL=240, XR=1310, Y0=1840, Y1=2026;
+const X=(y)=>XL+(y-Y0)*((XR-XL)/(Y1-Y0));
+
+/* the money axis: log dollars in millions. Each gridline is ten times the one below. */
+const BT=235, BB=775, LMIN=Math.log10(25), LMAX=Math.log10(500000);
+const Y=(v)=>BT+(LMAX-Math.log10(v))/(LMAX-LMIN)*(BB-BT);
+
+/* a mark's span is drawn; the tick only survives if the range is at most 60% of the central */
+const tickAllowed=(c,lo,hi)=>c>0 && (hi-lo)/c<=0.6;
+/* ---------------------------------------------------------------------
+   THE CUSTODY MARK — one composite glyph, used everywhere a number appears.
+   span = the 80% range · tick = the central · notch = who counted · texture = grade
+   --------------------------------------------------------------------- */
+function feather(x,dir,cy,h,fill){        /* grade C ends fade out: the tails are ours */
+  let o='';
+  for(let i=0;i<5;i++){
+    const w=2.2, xx = dir>0 ? x-(i+1)*w : x+i*w;
+    o+=`<rect x="${xx.toFixed(1)}" y="${cy-h/2}" width="${w+0.4}" height="${h}" fill="${fill}" opacity="${(0.82-i*0.16).toFixed(2)}"/>`;
+  }
+  return o;
+}
+function custodyMark(o){
+  const {x0,x1,cy,fill,grade}=o, h=o.h||13, c=o.central, xc=o.xc;
+  let s='<g>';
+  if(grade==='C'){
+    s+=`<rect x="${x0+9}" y="${cy-h/2}" width="${Math.max(0,x1-x0-18)}" height="${h}" fill="${fill}" opacity=".9"/>`;
+    s+=feather(x1-9,-1,cy,h,fill)+feather(x0+9,1,cy,h,fill);
+    s+=`<rect x="${x0}" y="${cy-h/2}" width="${x1-x0}" height="${h}" fill="none" stroke="${GRAPHITE}" stroke-width="1.2" stroke-dasharray="5 4"/>`;
+  }else{
+    s+=`<rect x="${x0}" y="${cy-h/2}" width="${x1-x0}" height="${h}" fill="${fill}" stroke="${GRAPHITE}" stroke-width="1.1"/>`;
+    const cw = grade==='A' ? 3.2 : 1.4;   /* A square end-caps, B open end-caps */
+    s+=`<rect x="${x0-cw/2}" y="${cy-h/2-4}" width="${cw}" height="${h+8}" fill="${GRAPHITE}"/>`;
+    s+=`<rect x="${x1-cw/2}" y="${cy-h/2-4}" width="${cw}" height="${h+8}" fill="${GRAPHITE}"/>`;
+  }
+  if(o.tick && xc!==undefined) s+=`<rect x="${xc-1.1}" y="${cy-h/2-6}" width="2.2" height="${h+12}" fill="${GRAPHITE}"/>`;
+  if(o.rung!==undefined && o.rung!==null){  /* the custody notch: offset from the span = who counted */
+    const dy=(2.5-o.rung)*6, ny=cy-dy, nx=o.notchX!==undefined?o.notchX:(x0+x1)/2;
+    s+=`<path d="M${nx-5},${ny+(dy>0?6:-6)} L${nx},${ny} L${nx+5},${ny+(dy>0?6:-6)} Z" fill="${CUST[o.rung]}" stroke="${GRAPHITE}" stroke-width="1"/>`;
+    s+=`<line x1="${nx}" y1="${ny}" x2="${nx}" y2="${cy}" stroke="${GRAPHITE}" stroke-width=".8" opacity=".55"/>`;
+  }
+  return s+'</g>';
+}
+
+/* ---------------------------------------------------------------------
+   1. FIRST SCREEN — two marks, and the teaching payload of the page
+   --------------------------------------------------------------------- */
+(function heroRender(){
+  const b14=BENCH.find(p=>p[0]===1914);                  /* [1914,1200,990,1450,'C'] */
+  const cf =CLAIM['e6-measurement-002'];                 /* click fraud: 15, [3,20], C */
+  const X0=52, X1a=372, X1b=592;
+  let s='';
+
+  /* upper mark — US advertising, 1914 */
+  const cy1=140, f1=(b14[1]-b14[2])/(b14[3]-b14[2]), xc1=X0+f1*(X1a-X0);
+  s+=`<text class="t-mono-up" x="${X1a}" y="74" text-anchor="end">Rung 2 &middot; both sides paid for the count</text>`;
+  s+=`<text class="t-num" x="${xc1}" y="112" text-anchor="middle" font-size="30">$1.2 bn</text>`;
+  s+=custodyMark({x0:X0,x1:X1a,cy:cy1,fill:CUST[2],grade:b14[4],tick:tickAllowed(b14[1],b14[2],b14[3]),xc:xc1,rung:2,notchX:X1a-34});
+  s+=`<text class="t-mono" x="${X0}" y="${cy1+30}">$0.99bn</text>`;
+  s+=`<text class="t-mono" x="${X1a}" y="${cy1+30}" text-anchor="end">$1.45bn</text>`;
+  ['US advertising in 1914. The Audit Bureau of','Circulations was founded that year. Somebody','outside the trade did the counting.']
+    .forEach((t,i)=>{s+=`<text class="t-anno" x="${X0}" y="${cy1+60+i*22}">${t}</text>`});
+
+  /* lower mark — a claim whose range is wider than its central: SPAN ONLY, no tick */
+  const cy2=380;
+  s+=`<text class="t-mono-up" x="${X0}" y="314">Rung 0 &middot; the seller paid, and the seller counted</text>`;
+  s+=`<text class="t-num" x="${(X0+X1b)/2}" y="352" text-anchor="middle" font-size="24" fill="${ZINCT}">&mdash; no middle we can defend &mdash;</text>`;
+  s+=`<g class="sway" style="--amp:6">`;
+  s+=custodyMark({x0:X0,x1:X1b,cy:cy2,fill:CUST[0],grade:cf.grade,tick:false,rung:0,notchX:X0+40});
+  s+=`<rect class="swayband" x="${X0}" y="${cy2-9}" width="${X1b-X0}" height="18" fill="url(#hVoidDense)"/>`;
+  s+=`</g>`;
+  s+=`<text class="t-mono" x="${X0}" y="${cy2+30}">3%</text>`;
+  s+=`<text class="t-mono" x="${X1b}" y="${cy2+30}" text-anchor="end">20%</text>`;
+  ['Paid clicks judged fake in 2007&ndash;2008. The seller','ran the auction and held the only log. No outside','body audited any of it while it was happening.']
+    .forEach((t,i)=>{s+=`<text class="t-anno" x="${X0}" y="${cy2+60+i*22}">${t}</text>`});
+
+  /* the bracket between them */
+  s+=`<path d="M34,${cy1} L24,${cy1} L24,${cy2} L34,${cy2}" fill="none" stroke="${ZINC}" stroke-width="1"/>`;
+  s+=`<text class="t-mono-up" transform="translate(17,${(cy1+cy2)/2}) rotate(-90)" text-anchor="middle">88 years</text>`;
+  document.getElementById('heroSvg').innerHTML=s;
+})();
+
+/* ---------------------------------------------------------------------
+   THE CUSTODY LADDER — the ordinal legend, and the docked rail
+   --------------------------------------------------------------------- */
+(function legendRender(){
+  document.getElementById('registerLegend').innerHTML=CUST.map((c,i)=>
+    `<div><div class="sw" style="background:${c}"></div>
+     <div class="rung">RUNG ${i}</div><div class="who">${CUSTNAME[i]}</div></div>`).join('')
+    +`<div><div class="sw" style="background:transparent;background-image:repeating-linear-gradient(45deg,${ZINC} 0 2px,transparent 2px 6px)"></div>
+      <div class="rung">NO RUNG</div><div class="who">Nobody counted</div></div>`;
+  document.getElementById('railBar').innerHTML=
+    CUST.map((c,i)=>`<i data-rung="${i}" style="background:${c}"></i>`).join('')
+    +`<i data-rung="void" style="background-image:repeating-linear-gradient(45deg,${ZINC} 0 2px,transparent 2px 6px)"></i>`;
+})();
+/* ---------------------------------------------------------------------
+   2. THE DOCKET — three registers, one 1840–2026 axis.
+      Rule: ONE COMPILER, ONE MATERIAL. Two materials are never joined.
+   --------------------------------------------------------------------- */
+(function docketRender(){
+  const G=[];
+  const txt=(x,y,t,cls,anchor,extra)=>`<text class="${cls}" x="${x}" y="${y}"${anchor?' text-anchor="'+anchor+'"':''}${extra||''}>${t}</text>`;
+
+  /* ---- REGISTER A : the compilers' rails ---- */
+  G.push(txt(240,40,'Register A &middot; the compilers &mdash; who counted, where, and on what basis','t-mono-up'));
+  const rails=[
+    {y:64, name:'Benchmarks, pre-1919', s1:'1867&ndash;1918 &middot; 9 SPARSE YEARS', s2:'NOBODY COUNTED AT THE TIME', a:1867,b:1918, mat:'void'},
+    {y:104,name:'Coen / McCann-Erickson', s1:'1919&ndash;2007 &middot; ADVERTISER BILLINGS', s2:'AT LIST PRICE &middot; FREE &middot; DEAD', a:1919,b:2007, mat:'fill', rung:4},
+    {y:144,name:'MAGNA', s1:'1980&ndash;2025 &middot; MEDIA-OWNER', s2:'REVENUE &middot; LICENSED', a:1980,b:2025, mat:'fill', rung:4, gaps:[[1981,2017],[2019,2020]]},
+    {y:184,name:'Our bridge', s1:'1980&ndash;2007 &middot; OUR CONSTRUCTION', s2:'EVERY POINT GRADE C', a:1980,b:2007, mat:'ghost'}
+  ];
+  rails.forEach(r=>{
+    const x0=X(r.a), x1=X(r.b), h=14, y=r.y-h/2;
+    if(r.mat==='void')
+      G.push(`<rect x="${x0}" y="${y}" width="${x1-x0}" height="${h}" fill="url(#hVoid)" stroke="${ZINC}" stroke-width="1" stroke-dasharray="4 3"/>`);
+    else if(r.mat==='ghost')
+      G.push(`<rect x="${x0}" y="${y}" width="${x1-x0}" height="${h}" fill="${FOOLSCAP}" stroke="${ZINC}" stroke-width="2" stroke-dasharray="6 4"/>`);
+    else{
+      G.push(`<rect x="${x0}" y="${y}" width="${x1-x0}" height="${h}" fill="${CUST[r.rung]}" stroke="${GRAPHITE}" stroke-width="1"/>`);
+      (r.gaps||[]).forEach(g=>{      /* licensed years: we are not allowed to see them, so they are drawn as void */
+        G.push(`<rect x="${X(g[0])}" y="${y}" width="${X(g[1])-X(g[0])}" height="${h}" fill="${FOOLSCAP}" opacity=".9"/>`);
+        G.push(`<rect x="${X(g[0])}" y="${y}" width="${X(g[1])-X(g[0])}" height="${h}" fill="url(#hVoidDense)"/>`);
+      });
+    }
+    G.push(txt(228,r.y+1,r.name,'t-inst','end'));
+    G.push(txt(228,r.y+15,r.s1,'t-mono','end'));
+    G.push(txt(228,r.y+27,r.s2,'t-mono','end'));
+  });
+  /* Coen dies at 2007, and the reader sees the rail stop before any line stops */
+  G.push(`<rect x="${X(2007)-1.6}" y="${104-11}" width="3.2" height="22" fill="${GRAPHITE}"/>`);
+  G.push(txt(X(2007)+7,101,'SERIES ENDS','t-mono'));
+  G.push(txt(X(2007)+7,113,'2007','t-mono'));
+  /* MAGNA's 2025 digital line IS the sellers' own number — a hand off, drawn as one */
+  G.push(`<path d="M${X(2025)-5},${144+16} L${X(2025)},${144+9} L${X(2025)+5},${144+16} Z" fill="${CUST[0]}" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  G.push(txt(X(2025)-8,166,'2025: ITS DIGITAL LINE IS THE SELLERS’ OWN NUMBER','t-mono','end'));
+  G.push(`<line x1="240" y1="214" x2="${XR}" y2="214" stroke="${ZINC}" stroke-width="1" opacity=".55"/>`);
+
+  /* ---- REGISTER B : the money ---- */
+  G.push(txt(240,228,'Register B &middot; the money &mdash; each gridline is ten times the one below it','t-mono-up'));
+  [100,1000,10000,100000].forEach((v,i)=>{
+    G.push(`<line x1="240" y1="${Y(v)}" x2="${XR}" y2="${Y(v)}" stroke="${ZINC}" stroke-width="1" opacity=".3" stroke-dasharray="2 4"/>`);
+    G.push(txt(232,Y(v)+4,['$100m','$1bn','$10bn','$100bn'][i],'t-mono','end'));
+  });
+
+  /* void 1: before 1867 there is no estimate of any kind — a hole, not a low number */
+  G.push(`<rect x="${X(1840)}" y="${BT}" width="${X(1867)-X(1840)}" height="${BB-BT}" fill="url(#hVoid)"/>`);
+  G.push(txt(0,0,'No estimate of any kind &middot; 1840&ndash;1866','t-mono-up',null,
+    ` transform="translate(${(X(1840)+X(1867))/2+4},${(BT+BB)/2}) rotate(-90)" text-anchor="middle"`));
+
+  /* the nine benchmark stones: heavy rectangles, height = the 80% range, NEVER joined */
+  BENCH.forEach(p=>{
+    const x=X(p[0]), yTop=Y(p[3]), yBot=Y(p[2]), h=Math.max(6,yBot-yTop);
+    G.push(`<rect x="${x-3}" y="${yTop}" width="6" height="${h}" fill="${FOOLSCAP}" stroke="${GRAPHITE}" stroke-width="1.3"${p[4]==='C'?' stroke-dasharray="4 3"':''}/>`);
+    G.push(`<rect x="${x-5}" y="${Y(p[1])-0.7}" width="10" height="1.4" fill="${GRAPHITE}"/>`);
+  });
+
+  /* the Coen ribbon: a filled band whose thickness IS the 80% range */
+  const ribbon=(rows,fill,op,line)=>{
+    let up='M', dn='';
+    rows.forEach((p,i)=>{up+=(i?'L':'')+X(p[0]).toFixed(1)+','+Y(p[3]).toFixed(1)+' '});
+    for(let i=rows.length-1;i>=0;i--){dn+='L'+X(rows[i][0]).toFixed(1)+','+Y(rows[i][2]).toFixed(1)+' '}
+    let s=`<path d="${up+dn}Z" fill="${fill}" opacity="${op}"/>`;
+    if(line) s+=`<path d="${rows.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join(' ')}" fill="none" stroke="${GRAPHITE}" stroke-width="1.4"/>`;
+    return s;
+  };
+  G.push(ribbon(COEN,CUST[4],0.62,true));
+
+  /* our bridge: GHOST material — ground fill, dashed zinc outline, nothing a compiler published */
+  let bup='M',bdn='';
+  BRIDGE.forEach((p,i)=>{bup+=(i?'L':'')+X(p[0]).toFixed(1)+','+Y(p[3]).toFixed(1)+' '});
+  for(let i=BRIDGE.length-1;i>=0;i--){bdn+='L'+X(BRIDGE[i][0]).toFixed(1)+','+Y(BRIDGE[i][2]).toFixed(1)+' '}
+  G.push(`<path d="${bup+bdn}Z" fill="${FOOLSCAP}" opacity=".92" stroke="${ZINC}" stroke-width="2" stroke-dasharray="6 4"/>`);
+  G.push(`<line x1="1120" y1="464" x2="1156" y2="306" stroke="${ZINC}" stroke-width="1" marker-end="url(#arwZ)"/>`);
+  G.push(txt(1044,478,'Our bridge &mdash; ours, not a compiler&rsquo;s','t-mono-up'));
+
+  /* void 2: no rail at all from 2008 to 2020 */
+  G.push(`<rect x="${X(2008)}" y="${BT}" width="${X(2020)-X(2008)}" height="${BB-BT}" fill="url(#hVoidDense)" stroke="${ZINC}" stroke-width="1" stroke-dasharray="3 3"/>`);
+  G.push(txt(0,0,'No rail &middot; 2008&ndash;2020','t-mono-up',null,
+    ` transform="translate(${(X(2008)+X(2020))/2+5},${(BT+BB)/2}) rotate(-90)" text-anchor="middle"`));
+
+  /* MAGNA: seven stones. Consecutive years are NOT joined, because six of them are not consecutive. */
+  MAGNA.forEach(p=>{
+    const x=X(p[0]), yTop=Y(p[3]), yBot=Y(p[2]), h=Math.max(7,yBot-yTop);
+    if(p[0]===2018) G.push(`<rect x="${x-16}" y="${yTop-9}" width="32" height="${h+18}" fill="${FOOLSCAP}"/>`);
+    G.push(`<rect x="${x-2.2}" y="${yTop}" width="4.4" height="${h}" fill="${CUST[4]}" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  });
+  G.push(txt(X(2018)-13,Y(232906)-16,'ONE POINT, 2018','t-mono','end'));
+
+  /* THE WEDGE — the vertical distance between two rulers, drawn as an object with a name */
+  const yC=Y(53570), yM=Y(41021);
+  G.push(`<rect x="${X(1980)-8}" y="${yC}" width="16" height="${yM-yC}" fill="url(#hWedge)" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  G.push(`<path d="M${X(1980)-16},${yC} L${X(1980)+16},${yC} M${X(1980)-16},${yM} L${X(1980)+16},${yM}" stroke="${GRAPHITE}" stroke-width="1.4"/>`);
+  G.push(`<line x1="${X(1980)-16}" y1="${(yC+yM)/2}" x2="1012" y2="330" stroke="${GRAPHITE}" stroke-width="1" marker-start="url(#arw)"/>`);
+  G.push(`<rect x="688" y="252" width="324" height="92" fill="${FOOLSCAP}" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  G.push(txt(700,270,'The wedge, 1980','t-mono-up'));
+  ['Both compilers publish 1980, and only 1980.',
+   'Coen says $53,570m. MAGNA says $41,021m.',
+   'The break is 23.43%. Like for like it is 7.21%.',
+   '69.2% of the break is scope, not measurement.']
+   .forEach((t,i)=>G.push(txt(700,288+i*17,t,'t-anno',null,' font-size="13.5"')));
+
+  /* the interval narrows when somebody starts counting properly */
+  G.push(`<line x1="${X(1935)}" y1="${Y(1651)+8}" x2="700" y2="588" stroke="${GRAPHITE}" stroke-width="1" marker-start="url(#arw)"/>`);
+  G.push(txt(700,584,'1935 &mdash; the band tightens','t-mono-up'));
+  ['This is the year the by-medium detail begins.',
+   'Before it, 62.6% of the 1919 total sat in one',
+   'bucket called “other”. The width of this band is',
+   'not decoration. It is how much we know.']
+   .forEach((t,i)=>G.push(txt(700,604+i*17,t,'t-anno',null,' font-size="13.5"')));
+
+  /* the benchmark bracket */
+  G.push(txt(402,436,'Nine benchmark years, 1867&ndash;1918','t-mono-up'));
+  ['Height is the 80% range, not a value. They are never',
+   'joined, because they are not a series. Two later',
+   'vintages of these same years disagree by 9 to 20%.']
+   .forEach((t,i)=>G.push(txt(402,458+i*20,t,'t-anno',null,' font-size="13.5"')));
+  G.push(`<path d="M${X(1867)},528 L${X(1867)},520 L${X(1918)},520 L${X(1918)},528" fill="none" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  G.push(`<line x1="${(X(1867)+X(1918))/2}" y1="520" x2="${(X(1867)+X(1918))/2}" y2="512" stroke="${GRAPHITE}" stroke-width="1"/>`);
+
+  /* Coen ends, and the MAGNA note */
+  G.push(`<line x1="1170" y1="424" x2="${X(2007)-4}" y2="278" stroke="${GRAPHITE}" stroke-width="1" marker-end="url(#arw)"/>`);
+  G.push(txt(1044,428,'The free record stops here','t-mono-up'));
+  G.push(`<line x1="1290" y1="628" x2="1290" y2="296" stroke="${GRAPHITE}" stroke-width="1" marker-end="url(#arw)"/>`);
+  G.push(txt(1010,648,'MAGNA &mdash; seven points, not a line','t-mono-up'));
+  ['1980, 2018, then 2021 to 2025. Its series is',
+   'licensed, so nothing in between is in the free',
+   'record, and nothing in between is drawn.']
+   .forEach((t,i)=>G.push(txt(1010,668+i*17,t,'t-anno',null,' font-size="13.5"')));
+
+  /* the x axis */
+  G.push(`<line x1="240" y1="${BB}" x2="${XR}" y2="${BB}" stroke="${GRAPHITE}" stroke-width="1.2"/>`);
+  for(let y=1840;y<=2020;y+=20){
+    G.push(`<line x1="${X(y)}" y1="${BB}" x2="${X(y)}" y2="${BB+7}" stroke="${GRAPHITE}" stroke-width="1"/>`);
+    if(y<=2000) G.push(txt(X(y),BB+23,y,'t-mono','middle'));
+  }
+  G.push(txt(XR,BB+23,'2026','t-mono','end'));
+
+  /* ---- REGISTER C : the seams ---- */
+  G.push(txt(240,812,'Register C &middot; the seams &mdash; 19 places where two counts do not mean the same thing','t-mono-up'));
+  G.push(`<line x1="240" y1="900" x2="${XR}" y2="900" stroke="${ZINC}" stroke-width="1"/>`);
+  const lanes=[[],[],[]], laneY=[868,846,824];
+  const ordered=SEAMS.map((s,i)=>({s,i,x:X(s.y[0])})).sort((a,b)=>a.x-b.x);
+  ordered.forEach(o=>{
+    let L=0; while(L<3 && lanes[L].length && o.x-lanes[L][lanes[L].length-1] < 16) L++;
+    if(L>2)L=2; lanes[L].push(o.x); o.lane=L;
+    G.push(`<g class="seamtick" data-seam="${o.i}" tabindex="0" role="button" aria-label="Seam ${o.s.id}">
+      <rect class="hit" x="${o.x-8}" y="${laneY[o.lane]-10}" width="16" height="${900-laneY[o.lane]+12}"/>
+      <line x1="${o.x}" y1="900" x2="${o.x}" y2="${laneY[o.lane]}" stroke="${GRAPHITE}" stroke-width="1"/>
+      <rect x="${o.x-4.5}" y="${laneY[o.lane]-9}" width="9" height="9" fill="${FOOLSCAP}" stroke="${GRAPHITE}" stroke-width="1.4"/>
+    </g>`);
+  });
+  G.push('<g id="seamRule"></g>');
+  document.getElementById('docketSvg').innerHTML=G.join('');
+})();
+
+/* ---- seam cards: tap to pin, one at a time. The tick becomes a rule through the money. ---- */
+(function seamWire(){
+  const svg=document.getElementById('docketSvg'), card=document.getElementById('seamCard');
+  const NAMES={coen_mce:'Coen / McCann-Erickson',magna:'MAGNA',iab_pwc:'IAB / PwC',irs_soi:'IRS Statistics of Income',
+    naa_newspaper:'Newspaper Association of America',census_manufactures:'Census of Manufactures',
+    benchmarks_pre1919:'Pre-1919 benchmarks',bridge_mce_mg8:'Our bridge'};
+  let pinned=null;
+  function pin(i){
+    const s=SEAMS[i], rule=document.getElementById('seamRule');
+    if(pinned===i){card.hidden=true;rule.innerHTML='';pinned=null;svg.querySelectorAll('.seamtick rect:not(.hit)').forEach(r=>r.setAttribute('fill',FOOLSCAP));return}
+    pinned=i;
+    svg.querySelectorAll('.seamtick').forEach((g,k)=>{
+      g.querySelector('rect:not(.hit)').setAttribute('fill', k===i?GRAPHITE:FOOLSCAP);
+    });
+    rule.innerHTML=`<line x1="${X(s.y[0])}" y1="${BT}" x2="${X(s.y[0])}" y2="900" stroke="${GRAPHITE}" stroke-width="1.2" stroke-dasharray="3 3"/>`;
+    const mags=Object.entries(s.m).filter(([k,v])=>typeof v==='number')
+      .map(([k,v])=>`<div class="pair"><dt>${esc(k.replace(/_/g,' '))}</dt><dd>${fmt(v)}</dd></div>`).join('');
+    card.innerHTML=`<h4>${esc(NAMES[s.a]||s.a)} &nbsp;&times;&nbsp; ${esc(NAMES[s.b]||s.b)} &nbsp;<span class="mono">${s.y[0]}&ndash;${s.y[1]}</span></h4>
+      <p class="body">${esc(s.note)}&hellip;</p><dl>${mags}</dl>
+      <p class="abridged">CLAIM ID ${esc(s.id)} &middot; NOTE ABRIDGED IN THIS SAMPLE FILE</p>`;
+    card.hidden=false;
+  }
+  svg.addEventListener('click',e=>{const g=e.target.closest('.seamtick'); if(g) pin(+g.dataset.seam)});
+  svg.addEventListener('keydown',e=>{
+    const g=e.target.closest('.seamtick');
+    if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pin(+g.dataset.seam)}
+  });
+})();
+/* ---------------------------------------------------------------------
+   3. THREAD 1 — the paired lifeline. Counters on top, who paid them below.
+      The rung is drawn twice: once as height, once as colour.
+   --------------------------------------------------------------------- */
+(function lifeRender(){
+  const G=[];
+  const txt=(x,y,t,cls,anchor,extra)=>`<text class="${cls}" x="${x}" y="${y}"${anchor?' text-anchor="'+anchor+'"':''}${extra||''}>${t}</text>`;
+  const RUNGY=[330,358,386,414,442,470];
+  const bar=(x0,x1,y,h,fill,stroke)=>`<rect x="${x0}" y="${y-h/2}" width="${Math.max(1,x1-x0)}" height="${h}" fill="${fill}" stroke="${stroke||GRAPHITE}" stroke-width="1"/>`;
+  const fade=(x0,x1,y,h,fill)=>{           /* a feathered end: this sample does not say when it stopped */
+    let s='',n=7,w=(x1-x0)/n;
+    for(let i=0;i<n;i++) s+=`<rect x="${x0+i*w}" y="${y-h/2}" width="${w+0.5}" height="${h}" fill="${fill}" opacity="${(0.85-i*0.12).toFixed(2)}"/>`;
+    return s;
+  };
+
+  /* the era ruler — seven eras, named for how the market priced itself */
+  G.push(`<line x1="${XL}" y1="30" x2="${XR}" y2="30" stroke="${ZINC}" stroke-width="1"/>`);
+  const starts=ERAS.map(e=>parseInt(e.years.match(/\d{4}/)[0],10));
+  ERAS.forEach((e,i)=>{
+    const x0=X(starts[i]), x1=i<6?X(starts[i+1]):XR;
+    G.push(`<line x1="${x0}" y1="24" x2="${x0}" y2="36" stroke="${ZINC}" stroke-width="1"/>`);
+    G.push(txt(x0+5,20,(x1-x0>145? e.era+' &nbsp;'+e.name.toUpperCase() : e.era),'t-mono-up'));
+  });
+
+  /* ---- top track: the counters ---- */
+  const rows=[
+    {y:58, name:'Rowell’s American Newspaper Directory', a:1869,solid:1890,end:1902, rung:null},
+    {y:92, name:'The Audit Bureau of Circulations',      a:1914,solid:1926,end:1938, rung:2},
+    {y:126,name:'Cooperative Analysis of Broadcasting',  a:1930,solid:1937,end:1952, rung:4},
+    {y:160,name:'Hooper',                                a:1934,hard:1950,           rung:5},
+    {y:194,name:'Nielsen',                               a:1942,hard:2026,           rung:3},
+    {y:228,name:'Broadcast Rating Council',              a:1964,solid:1975,end:1988, rung:2},
+    {y:264,name:'The ad server, then Google’s own log',  a:1994,hard:2026,           rung:0, merge:true}
+  ];
+  rows.forEach(r=>{
+    const col = r.rung===null ? ZINC : CUST[r.rung];
+    if(r.merge){
+      /* two lines approach, then become one line. Topology, not annotation. */
+      G.push(bar(X(1994),X(1999),r.y,9,col));
+      G.push(`<path d="M${X(1999)},${r.y-4.5} L${X(2002)},${RUNGY[0]-4.5} L${X(2002)},${RUNGY[0]+4.5} L${X(1999)},${r.y+4.5} Z" fill="${col}" stroke="${GRAPHITE}" stroke-width="1"/>`);
+    }else if(r.hard){
+      G.push(bar(X(r.a),X(r.hard),r.y,9,col));
+      G.push(`<rect x="${X(r.hard)-1.6}" y="${r.y-8}" width="3.2" height="16" fill="${GRAPHITE}"/>`);
+    }else{
+      G.push(bar(X(r.a),X(r.solid),r.y,9,col));
+      G.push(fade(X(r.solid),X(r.end),r.y,9,col));
+    }
+    const inline = r.a>1975 || r.name==='Nielsen';
+    G.push(txt(inline?X(r.a)-10:X(r.a), inline&&r.name==='Nielsen'?r.y+4:r.y-11, r.name,'t-inst', inline?'end':'start'));
+  });
+  /* the CAB hand off: the networks are let in as subscribers in 1937 */
+  G.push(bar(X(1937),X(1945),126,9,CUST[2]));
+  G.push(fade(X(1945),X(1952),126,9,CUST[2]));
+  /* Hooper is bought. The line does not fade, it is acquired. */
+  G.push(`<line x1="${X(1950)}" y1="168" x2="${X(1950)}" y2="188" stroke="${GRAPHITE}" stroke-width="1.2" marker-end="url(#arw)"/>`);
+
+  /* milestones on Nielsen's line */
+  const dia=(x,y,fill)=>`<path d="M${x},${y-6} L${x+6},${y} L${x},${y+6} L${x-6},${y} Z" fill="${fill}" stroke="${GRAPHITE}" stroke-width="1"/>`;
+  [[1949,'97% OF US HOMES',210],[1973,'RATINGS IN 36 HOURS',167],[1987,'PEOPLE METERS',181],[2007,'COMMERCIAL-MINUTE RATINGS',167]]
+    .forEach(([y,l,ly])=>{G.push(dia(X(y),194,CUST[3])); G.push(txt(X(y),ly,l,'t-mono','middle'))});
+  G.push(dia(X(2021),194,CUST[2]));
+  G.push(txt(XR,151,'2021: ITS ACCREDITATION IS PULLED','t-mono','end'));
+
+  /* ---- the tie, and the bottom track: who paid ---- */
+  G.push(`<line x1="${XL}" y1="300" x2="${XR}" y2="300" stroke="${ZINC}" stroke-width="1" opacity=".5"/>`);
+  G.push(txt(240,294,'Who paid the counter','t-mono-up'));
+  RUNGY.forEach((y,i)=>{
+    G.push(`<line x1="240" y1="${y}" x2="${XR}" y2="${y}" stroke="${ZINC}" stroke-width="1" opacity=".22" stroke-dasharray="2 5"/>`);
+    G.push(txt(228,y+4,'RUNG '+i+' &middot; '+CUSTSHORT[i],'t-mono','end'));
+  });
+  const tie=(x,yTop,rung)=>`<line x1="${x}" y1="${yTop}" x2="${x}" y2="${RUNGY[rung]}" stroke="${CUST[rung]}" stroke-width="2.4"/>`;
+  /* ABC */ G.push(tie(X(1914),97,2)); G.push(bar(X(1914),X(1938),RUNGY[2],7,CUST[2]));
+  /* CAB  */ G.push(tie(X(1930),131,4)); G.push(bar(X(1930),X(1937),RUNGY[4],7,CUST[4]));
+  G.push(txt(X(1930)+4,RUNGY[4]+22,'ADVERTISERS, $70 A MONTH. 49 OF THEM, $33,045 IN YEAR ONE.','t-mono'));
+  /* CAB hand off 1937 → rung 2 : the static connector is always drawn, so the change survives reduced motion */
+  G.push(`<line x1="${X(1937)}" y1="${RUNGY[4]}" x2="${X(1937)}" y2="${RUNGY[2]}" stroke="${GRAPHITE}" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arw)"/>`);
+  G.push(txt(X(1937)-6,RUNGY[3]+4,'HAND OFF 1937','t-mono','end'));
+  G.push(bar(X(1937),X(1952),RUNGY[2],7,CUST[2]));
+  /* Hooper */ G.push(tie(X(1934),165,5)); G.push(bar(X(1934),X(1950),RUNGY[5],7,CUST[5]));
+  G.push(txt(X(1934)+4,RUNGY[5]+20,'MAGAZINE PUBLISHERS WHO THOUGHT RADIO WAS OVERSTATED','t-mono'));
+  /* Nielsen */ G.push(tie(X(1942),199,3)); G.push(bar(X(1942),XR,RUNGY[3],7,CUST[3]));
+  G.push(txt(X(1944),RUNGY[3]+18,'SOLD BY SUBSCRIPTION TO BOTH SIDES','t-mono'));
+  /* BRC */ G.push(tie(X(1964),233,2)); G.push(bar(X(1964),X(1988),RUNGY[2],7,CUST[2]));
+  /* Rowell: the rung is not settled, and the drawing says so rather than picking one */
+  G.push(`<rect x="${X(1869)-4}" y="${RUNGY[1]}" width="8" height="${RUNGY[4]-RUNGY[1]}" fill="url(#hVoid)" stroke="${ZINC}" stroke-width="1" stroke-dasharray="3 3"/>`);
+  G.push(`<line x1="${X(1869)}" y1="63" x2="${X(1869)}" y2="${RUNGY[1]}" stroke="${ZINC}" stroke-width="1.6" stroke-dasharray="4 4"/>`);
+  G.push(txt(X(1869)+12,RUNGY[2]+4,'RUNG NOT SETTLED','t-mono'));
+  G.push(txt(X(1869)+12,RUNGY[2]+18,'HE SOLD THE COUNT AND HE MADE IT','t-mono'));
+  /* the sellers' own trade body writes the click rule, seven years late */
+  G.push(dia(X(2009),RUNGY[1],CUST[1]));
+  G.push(txt(X(2009)-10,RUNGY[1]-2,'2009: THE SELLERS’ OWN TRADE BODY WRITES THE CLICK RULE','t-mono','end'));
+  G.push(txt(X(2009)-10,RUNGY[1]+12,'SEVEN YEARS AFTER THE AUCTION STARTED','t-mono','end'));
+  /* MRC */ G.push(dia(X(2021),RUNGY[2],CUST[2]));
+  G.push(txt(X(2021)-10,RUNGY[2]+18,'2021: THE MEDIA RATING COUNCIL','t-mono','end'));
+
+  /* THE MERGE */
+  G.push(`<rect x="${X(2002)}" y="${RUNGY[0]-4.5}" width="${XR-X(2002)}" height="9" fill="${CUST[0]}" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  G.push(bar(X(1994),X(2002),RUNGY[0],7,CUST[0]));
+  G.push(`<path d="M${XR-150},${RUNGY[0]-10} L${X(2002)+14},${RUNGY[0]-10}" stroke="${GRAPHITE}" stroke-width="1" marker-end="url(#arw)"/>`);
+  G.push(txt(XR,RUNGY[0]-18,'Two lines become one line','t-mono-up','end'));
+  document.getElementById('lifeSvg').innerHTML=G.join('');
+})();
+/* ---------------------------------------------------------------------
+   3b. THE SECOND INSTRUMENT — one object, two positions, two payloads.
+   --------------------------------------------------------------------- */
+(function switchRender(){
+  const pm=CLAIM['e4-measurement-001'], kid=CLAIM['e4-measurement-002'], nl=CLAIM['e7-measurement-002'];
+  const txt=(x,y,t,cls,anchor,extra)=>`<text class="${cls}" x="${x}" y="${y}"${anchor?' text-anchor="'+anchor+'"':''}${extra||''}>${t}</text>`;
+
+  /* --- 1987 --- */
+  const IY=(i)=>220-(i-80)*7.2;              /* index scale, 80 to 105 */
+  let a=[];
+  a.push(`<line x1="52" y1="${IY(100)}" x2="500" y2="${IY(100)}" stroke="${ZINC}" stroke-width="1" stroke-dasharray="3 3"/>`);
+  a.push(txt(62,IY(100)-8,'WHAT WAS SOLD, INDEX 100','t-mono'));
+  a.push(`<line x1="52" y1="220" x2="470" y2="220" stroke="${GRAPHITE}" stroke-width="1.2"/>`);
+  a.push(`<rect class="rmghost" x="62" y="${IY(100)}" width="118" height="${220-IY(100)}" fill="none" stroke="${ZINC}" stroke-width="1.4" stroke-dasharray="5 4"/>`);
+  a.push(`<rect id="s87bar" x="62" y="${IY(100)}" width="118" height="${220-IY(100)}" fill="${CUST[3]}" stroke="${GRAPHITE}" stroke-width="1" style="transition:y var(--dur-value) var(--ease-settle),height var(--dur-value) var(--ease-settle)"/>`);
+  a.push(`<g id="s87drop" opacity="0" style="transition:opacity var(--dur-settle) ease">
+    <rect x="62" y="${IY(100)}" width="118" height="${IY(90)-IY(100)}" fill="url(#hRed)" stroke="${REDLINE}" stroke-width="1.2"/>
+    <rect x="186" y="${IY(92)}" width="9" height="${IY(87)-IY(92)}" fill="url(#hRed)" stroke="${REDLINE}" stroke-width="1"/>
+    <rect x="182" y="${IY(90)-1}" width="17" height="2" fill="${GRAPHITE}"/>
+    ${txt(204,IY(90)-3,'&minus;10% MEASURED AUDIENCE','t-mono')}
+    ${txt(204,IY(90)+12,'80% RANGE: &minus;8% TO &minus;13%','t-mono')}
+    ${txt(204,IY(87)+26,'CBS &minus;13% &nbsp; ABC &minus;13% &nbsp; NBC &minus;4%','t-mono')}
+  </g>`);
+  a.push(txt(62,246,'MEASURED PRIME-TIME NETWORK AUDIENCE, INDEXED TO THE OLD METHOD','t-mono'));
+
+  /* --- 2021 --- */
+  const PX=(p)=>60+p/8*400, DX=(v)=>60+v/800*400;
+  let b=[];
+  b.push(`<line x1="60" y1="96" x2="460" y2="96" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  [0,2,4,6,8].forEach(p=>b.push(txt(PX(p),114,p+'%','t-mono','middle')));
+  b.push(txt(60,62,'HOW FAR THE COUNT FELL SHORT, ADULTS 18&ndash;49','t-mono-up'));
+  b.push(`<g id="s21a" opacity="0" style="transition:opacity var(--dur-settle) ease">
+    <rect x="${PX(2)}" y="72" width="${PX(6)-PX(2)}" height="16" fill="url(#hRed)" stroke="${REDLINE}" stroke-width="1.2"/></g>`);
+  b.push(`<g id="s21z" style="transition:opacity var(--dur-settle) ease">
+    ${txt(PX(0)+6,84,'NOTHING RECORDED. THE COUNT IS THE COUNT.','t-mono')}</g>`);
+  b.push(`<line x1="60" y1="196" x2="460" y2="196" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  [0,200,400,600,800].forEach(v=>b.push(txt(DX(v),214,'$'+v+'M','t-mono','middle')));
+  b.push(txt(60,162,'TV REVENUE PUT AT RISK','t-mono-up'));
+  b.push(`<g id="s21b" opacity="0" style="transition:opacity var(--dur-settle) ease">
+    <rect x="${DX(468)}" y="172" width="${DX(700)-DX(468)}" height="16" fill="url(#hRed)" stroke="${REDLINE}" stroke-width="1.2" stroke-dasharray="5 4"/>
+    <rect x="${DX(468)-1.1}" y="166" width="2.2" height="28" fill="${GRAPHITE}"/>
+    ${txt(DX(468)+4,160,'$468M &mdash; AND THAT IS THE FLOOR','t-mono')}
+    ${txt(DX(700)+6,190,'$700M','t-mono')}</g>`);
+  b.push(txt(60,246,'THE TICK SITS AT THE LOW END. THIS IS A FLOOR, NOT A MIDDLE.','t-mono'));
+
+  document.getElementById('switchGrid').innerHTML=`
+    <div class="switch">
+      <div class="promise">Nothing about the world changes when you flip this.</div>
+      <div class="ctl" role="group" aria-label="1987 instrument">
+        <button data-sw="87" data-pos="0" aria-pressed="true">Household diary</button>
+        <button data-sw="87" data-pos="1" aria-pressed="false">People meter</button>
+      </div>
+      <svg viewBox="0 0 520 262" role="img" aria-label="A bar showing measured prime-time network audience. Under the household diary it stands at 100. Under the people meter it falls about 10 percent, with an 80 percent range of 8 to 13 percent, drawn as a hatched red block.">${a.join('')}</svg>
+      <p class="note" style="margin-top:14px">September 1987. Nielsen swapped the tool. The viewing did not change,
+      but about $150M of network children&rsquo;s advertising was suddenly priced off a smaller number
+      &mdash; and the networks owed make-goods worth more than the time they had sold.
+      <span class="mono">80% RANGE $130M&ndash;$175M &middot; GRADE B</span></p>
+      <p class="rmnote mono">MOTION IS OFF, SO BOTH POSITIONS ARE DRAWN AT ONCE: THE DASHED OUTLINE IS THE OLD INSTRUMENT, THE SOLID BAR IS THE NEW ONE.</p>
+    </div>
+    <div class="switch">
+      <div class="promise">Nothing about the world changes when you flip this. Thirty-four years later.</div>
+      <div class="ctl" role="group" aria-label="2021 instrument">
+        <button data-sw="21" data-pos="0" aria-pressed="true">Nielsen before</button>
+        <button data-sw="21" data-pos="1" aria-pressed="false">Nielsen after</button>
+      </div>
+      <svg viewBox="0 0 520 262" role="img" aria-label="Two spans. The first shows the undercount running from 2 to 6 percent. The second shows the revenue at risk, a span from 468 to 700 million dollars with its tick at the low end.">${b.join('')}</svg>
+      <p class="note" style="margin-top:14px">September 2021. The Media Rating Council pulled Nielsen&rsquo;s accreditation after
+      finding the pandemic-era count ran 2 to 6 percent short. Same shape as 1987. By now you know the shape before you read the labels.
+      <span class="mono">GRADE B</span></p>
+      <p class="rmnote mono">MOTION IS OFF, SO BOTH POSITIONS ARE DRAWN AT ONCE AND THE BUTTONS ONLY HIGHLIGHT WHICH ONE YOU ARE READING.</p>
+    </div>`;
+
+  function set(sw,pos){
+    document.querySelectorAll(`[data-sw="${sw}"]`).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.pos===pos)));
+    const reduced=document.documentElement.dataset.motion==='reduced';
+    if(sw==='87'){
+      /* with motion off both positions are drawn at once: the dashed ghost is the old
+         instrument, the solid bar the new one, and the hatched block is the difference */
+      const at90 = reduced ? true : !!pos, bar=document.getElementById('s87bar');
+      bar.setAttribute('y',String(at90?IY(90):IY(100)));
+      bar.setAttribute('height',String(220-(at90?IY(90):IY(100))));
+      document.getElementById('s87drop').setAttribute('opacity',(pos||reduced)?'1':'0');
+    }else{
+      document.getElementById('s21a').setAttribute('opacity',(pos||reduced)?'1':'0');
+      document.getElementById('s21b').setAttribute('opacity',(pos||reduced)?'1':'0');
+      document.getElementById('s21z').setAttribute('opacity',(pos||reduced)?'0':'1');
+    }
+  }
+  document.getElementById('switchGrid').addEventListener('click',e=>{
+    const b=e.target.closest('button[data-sw]'); if(b) set(b.dataset.sw,+b.dataset.pos);
+  });
+  window.__resetSwitches=()=>{['87','21'].forEach(s=>{
+    const on=document.querySelector(`[data-sw="${s}"][aria-pressed="true"]`);
+    set(s,on?+on.dataset.pos:0);
+  })};
+  set('87',0); set('21',0);
+})();
+
+/* ---------------------------------------------------------------------
+   4. THE UNCERTAINTY GRAMMAR
+   --------------------------------------------------------------------- */
+(function grammarRender(){
+  const G=[];
+  const txt=(x,y,t,cls,anchor,extra)=>`<text class="${cls}" x="${x}" y="${y}"${anchor?' text-anchor="'+anchor+'"':''}${extra||''}>${t}</text>`;
+  [462,916].forEach(x=>G.push(`<line x1="${x}" y1="34" x2="${x}" y2="446" stroke="${ZINC}" stroke-width="1" opacity=".5"/>`));
+
+  /* --- panel 1: anatomy --- */
+  G.push(txt(40,52,'The custody mark, at hero size','t-mono-up'));
+  G.push(custodyMark({x0:80,x1:380,cy:170,h:22,fill:CUST[2],grade:'B',tick:true,xc:215,rung:2,notchX:320}));
+  G.push(`<line x1="320" y1="158" x2="320" y2="104" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  G.push(txt(324,100,'THE NOTCH &mdash; WHO COUNTED','t-mono'));
+  G.push(txt(324,86,'ON THE SPAN = ARM’S LENGTH','t-mono'));
+  G.push(`<line x1="215" y1="153" x2="215" y2="132" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  G.push(txt(219,128,'THE TICK &mdash; THE MIDDLE ESTIMATE','t-mono'));
+  G.push(`<path d="M80,192 L80,200 L380,200 L380,192" fill="none" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  G.push(txt(80,220,'THE SPAN &mdash; THE 80% RANGE','t-mono'));
+  G.push(`<line x1="380" y1="184" x2="380" y2="248" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  G.push(txt(440,262,'THE LINE STYLE &mdash; THE GRADE','t-mono','end'));
+  ['Nothing here is drawn as a dot. A dot claims a','precision the record does not have.']
+    .forEach((t,i)=>G.push(txt(80,300+i*20,t,'t-anno')));
+
+  /* --- panel 2: the span-only rule --- */
+  const cf=CLAIM['e6-measurement-002'];
+  const PX=(p)=>500+p/25*380;
+  G.push(txt(490,52,'When the range beats the estimate','t-mono-up'));
+  G.push(`<g class="sway" style="--amp:8">`);
+  G.push(custodyMark({x0:PX(3),x1:PX(20),cy:150,h:22,fill:CUST[0],grade:cf.grade,tick:false,rung:0,notchX:PX(5)}));
+  G.push(`<rect class="swayband" x="${PX(3)}" y="139" width="${PX(20)-PX(3)}" height="24" fill="url(#hVoidDense)"/>`);
+  G.push(`</g>`);
+  G.push(txt(PX(3),184,'3%','t-mono'));
+  G.push(txt(PX(20),184,'20%','t-mono','end'));
+  G.push(txt((PX(3)+PX(20))/2,118,'&mdash; no middle we can defend &mdash;','t-num','middle',` font-size="19" fill="${ZINCT}"`));
+  G.push(`<line x1="500" y1="210" x2="880" y2="210" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  [0,5,10,15,20,25].forEach(p=>G.push(txt(PX(p),228,p+'%','t-mono','middle')));
+  ['Paid clicks judged fake, 2007&ndash;2008. The range runs','from 3% to 20%, which is wider than the middle',
+   'estimate this dataset carries. So the tick comes off.','A printed middle is something a reader stands on,',
+   'and here there is nothing to stand on.']
+   .forEach((t,i)=>G.push(txt(500,272+i*21,t,'t-anno')));
+  G.push(txt(500,400,'CLAIM e6-measurement-002 &middot; GRADE C &middot; SPAN ONLY','t-mono'));
+
+  /* --- panel 3: the three grades, each drawn as a share of its own middle --- */
+  const specs=[
+    {cy:118,id:'e5-measurement-003',label:'Ads served by one ad server, 2000',unit:'billion',rung:0},
+    {cy:230,id:'e4-measurement-001',label:'Prime-time audience drop, 1987',unit:'%',rung:3},
+    {cy:342,id:'e6-measurement-002',label:'Paid clicks judged fake, 2007&ndash;08',unit:'%',rung:0}
+  ];
+  G.push(txt(944,52,'A, B and C &mdash; grade is texture, never colour','t-mono-up'));
+  const K=110, ZX=1010;
+  specs.forEach(sp=>{
+    const c=CLAIM[sp.id], lo=ZX+c.ci80[0]/c.central*K, hi=ZX+c.ci80[1]/c.central*K;
+    G.push(txt(944,sp.cy-34,'GRADE '+c.grade,'t-mono'));
+    G.push(txt(944,sp.cy-20,sp.label,'t-anno',null,' font-size="13"'));
+    G.push(`<line x1="${ZX}" y1="${sp.cy+26}" x2="${ZX+K}" y2="${sp.cy+26}" stroke="${ZINC}" stroke-width="1"/>`);
+    G.push(`<path d="M${ZX},${sp.cy+22} L${ZX},${sp.cy+30} M${ZX+K},${sp.cy+22} L${ZX+K},${sp.cy+30}" stroke="${ZINC}" stroke-width="1"/>`);
+    G.push(custodyMark({x0:Math.max(ZX-4,lo),x1:hi,cy:sp.cy,h:16,fill:CUST[sp.rung],grade:c.grade,
+      tick:tickAllowed(c.central,c.ci80[0],c.ci80[1]),xc:ZX+K,rung:null}));
+    G.push(txt(hi+8,sp.cy+5,c.ci80[0]+'&ndash;'+c.ci80[1]+' '+sp.unit,'t-mono'));
+  });
+  G.push(txt(1010,398,'THE GREY BAR IS ZERO TO EACH MARK’S OWN MIDDLE','t-mono'));
+  G.push(txt(1010,412,'GRADE C RUNS LONGER THAN ITS OWN MIDDLE','t-mono'));
+  document.getElementById('grammarSvg').innerHTML=G.join('');
+})();
+
+/* ---------------------------------------------------------------------
+   5. THE UNRANKED FIELD — four quantities, three of which cannot be ordered.
+      No stack. No sort. No ranked list. The unrankedness is drawn, not captioned.
+   --------------------------------------------------------------------- */
+(function poolRender(){
+  const G=[], PX=(p)=>120+p/50*980;
+  const txt=(x,y,t,cls,anchor,extra)=>`<text class="${cls}" x="${x}" y="${y}"${anchor?' text-anchor="'+anchor+'"':''}${extra||''}>${t}</text>`;
+  const NICE={national_brand:'National brand',direct_response:'Direct response',local_retail:'Local retail',classified:'Classified'};
+  const unrankedSet=new Set(UNRANKED.flat());
+  const ROW={}; POOLS.forEach((p,i)=>ROW[p.pool]=110+i*65);
+
+  /* the wash: where all three unrankable spans coexist */
+  const wlo=Math.max(...POOLS.filter(p=>unrankedSet.has(p.pool)).map(p=>p.ci80[0]));
+  const whi=Math.min(...POOLS.filter(p=>unrankedSet.has(p.pool)).map(p=>p.ci80[1]));
+  const wys=POOLS.filter(p=>unrankedSet.has(p.pool)).map(p=>ROW[p.pool]);
+  const wy0=Math.min(...wys)-34, wy1=Math.max(...wys)+30;
+  G.push(`<rect x="${PX(wlo)}" y="${wy0}" width="${PX(whi)-PX(wlo)}" height="${wy1-wy0}" fill="${CUST[2]}" opacity=".38"/>`);
+  G.push(`<rect x="${PX(wlo)}" y="${wy0}" width="${PX(whi)-PX(wlo)}" height="${wy1-wy0}" fill="none" stroke="${GRAPHITE}" stroke-width="1" stroke-dasharray="4 3"/>`);
+  G.push(txt(PX(whi)+10,68,'Any of these three could be the largest','t-mono-up'));
+  G.push(txt(PX(whi)+10,54,wlo+'% &ndash; '+whi+'%: ALL THREE SPANS COVER THIS','t-mono'));
+
+  POOLS.forEach(p=>{
+    const y=ROW[p.pool], un=unrankedSet.has(p.pool);
+    G.push(`<g class="poolhit" data-pool="${p.pool}" tabindex="0" role="button" aria-label="${NICE[p.pool]}, ${p.ci80[0]} to ${p.ci80[1]} percent">`);
+    G.push(`<rect x="110" y="${y-30}" width="1000" height="56" fill="transparent"/>`);
+    G.push(custodyMark({x0:PX(p.ci80[0]),x1:PX(p.ci80[1]),cy:y,h:22,fill:un?CUST[2]:CUST[3],
+      grade:p.grade,tick:!un,xc:PX(p.pct),rung:null}));
+    G.push(txt(PX(p.ci80[0]),y-22,NICE[p.pool],'t-inst'));
+    G.push(txt(PX(p.ci80[0]),y+32,p.ci80[0]+'%','t-mono'));
+    G.push(txt(PX(p.ci80[1]),y+32,p.ci80[1]+'%','t-mono','end'));
+    if(un) G.push(txt(PX(p.ci80[1])+12,y+5,'NO MIDDLE MARK','t-mono'));
+    else G.push(txt(PX(p.ci80[1])+12,y+5,p.pct+'% &middot; $'+p.usd_bn+'bn &mdash; RANKED SMALLEST; ITS RANGE TOUCHES NO OTHER','t-mono'));
+    G.push('</g>');
+  });
+  G.push('<g id="poolMark"></g>');
+
+  /* the axis says out loud that it is not sorted */
+  G.push(`<line x1="120" y1="358" x2="1100" y2="358" stroke="${GRAPHITE}" stroke-width="1.2"/>`);
+  for(let p=0;p<=50;p+=10){
+    G.push(`<line x1="${PX(p)}" y1="358" x2="${PX(p)}" y2="365" stroke="${GRAPHITE}" stroke-width="1"/>`);
+    G.push(txt(PX(p),380,p+'%','t-mono','middle'));
+  }
+  G.push(txt(120,402,'Share of the 2025 US market &middot; ordered as this essay met them, not by size &middot; all four are grade C','t-mono-up'));
+
+  /* the overshoot, drawn rather than shaved */
+  const total=POOLS.reduce((s,p)=>s+p.pct,0), OX=(p)=>120+p*9;
+  G.push(`<rect x="${OX(0)}" y="430" width="${OX(100)-OX(0)}" height="14" fill="none" stroke="${GRAPHITE}" stroke-width="1"/>`);
+  G.push(`<rect x="${OX(100)}" y="430" width="${OX(total)-OX(100)}" height="14" fill="url(#hRed)" stroke="${REDLINE}" stroke-width="1"/>`);
+  G.push(`<line x1="${OX(total)+3}" y1="437" x2="${OX(total)+40}" y2="437" stroke="${GRAPHITE}" stroke-width="1" marker-start="url(#arw)"/>`);
+  G.push(txt(OX(total)+46,441,'the overshoot','t-mono'));
+  G.push(txt(120,464,'Our four pools add to '+total.toFixed(1)+'%. We draw the overshoot instead of shaving it.','t-mono'));
+  document.getElementById('poolSvg').innerHTML=G.join('');
+
+  /* tapping a span shows what it can and cannot be ranked against */
+  const svg=document.getElementById('poolSvg'), card=document.getElementById('poolVerdict');
+  let open=null;
+  function show(pool){
+    if(open===pool){card.hidden=true;document.getElementById('poolMark').innerHTML='';open=null;return}
+    open=pool;
+    const p=POOLS.find(q=>q.pool===pool);
+    const cant=UNRANKED.filter(u=>u.includes(pool)).map(u=>NICE[u.find(x=>x!==pool)]);
+    const can =RANKED.filter(u=>u.includes(pool)).map(u=>NICE[u.find(x=>x!==pool)]);
+    let m='';
+    (cant.length?UNRANKED.filter(u=>u.includes(pool)):[]).forEach(u=>{
+      const o=POOLS.find(q=>q.pool===u.find(x=>x!==pool));
+      m+=`<line x1="${PX(Math.max(p.ci80[0],o.ci80[0]))}" y1="${ROW[pool]}" x2="${PX(Math.max(p.ci80[0],o.ci80[0]))}" y2="${ROW[o.pool]}" stroke="${GRAPHITE}" stroke-width="1.4" stroke-dasharray="3 3"/>`;
+    });
+    document.getElementById('poolMark').innerHTML=m;
+    card.innerHTML=`<h4>${NICE[pool]} &mdash; ${p.pct}% of the market, ${p.ci80[0]}% to ${p.ci80[1]}%</h4>
+      <p><b>Cannot be ranked against:</b> ${cant.length?esc(cant.join(', ')):'nothing &mdash; this one has a settled place'}.
+      <b>Ranked against:</b> ${can.length?esc(can.join(', ')):'nothing in the record'}.</p>
+      <p class="mono">SOURCE VERDICT: ${esc(p.source_verdict)}&hellip;</p>
+      <p class="mono">GRADE ${p.grade} &middot; VERDICT ABRIDGED IN THIS SAMPLE FILE</p>`;
+    card.hidden=false;
+  }
+  svg.addEventListener('click',e=>{const g=e.target.closest('.poolhit'); if(g) show(g.dataset.pool)});
+  svg.addEventListener('keydown',e=>{
+    const g=e.target.closest('.poolhit');
+    if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();show(g.dataset.pool)}
+  });
+})();
+
+/* ---------------------------------------------------------------------
+   CHROME: the motion toggle, and the rail that is legend and progress in one
+   --------------------------------------------------------------------- */
+(function chromeWire(){
+  const root=document.documentElement, btn=document.getElementById('mtoggle'), st=document.getElementById('mstate');
+  const mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function apply(m){
+    root.dataset.motion=m; st.textContent=m; btn.setAttribute('aria-pressed',String(m==='reduced'));
+    if(window.__resetSwitches) window.__resetSwitches();
+  }
+  apply(mq.matches?'reduced':'full');
+  mq.addEventListener?.('change',e=>apply(e.matches?'reduced':'full'));
+  btn.addEventListener('click',()=>apply(root.dataset.motion==='reduced'?'full':'reduced'));
+
+  /* SWAY fires once, on first reveal, and only for wide-range marks */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.style.animationPlayState='running';io.unobserve(e.target)}
+  }),{threshold:.4});
+  document.querySelectorAll('.sway').forEach(el=>{el.style.animationPlayState='paused';io.observe(el)});
+
+  /* the rail highlights the rung the reader is standing in, and prints the year */
+  const secs=[...document.querySelectorAll('section[data-year]')];
+  const railYear=document.getElementById('railYear'), prog=document.getElementById('railProg'),
+        segs=[...document.getElementById('railBar').children];
+  function tick(){
+    const h=window.innerHeight, mid=h*0.45;
+    let cur=secs[0]; if(!cur) return;
+    for(const s of secs){const r=s.getBoundingClientRect(); if(r.top<=mid) cur=s}
+    railYear.innerHTML=cur.dataset.year||'';
+    const on=(cur.dataset.rung||'').split(',').filter(Boolean);
+    segs.forEach(sg=>sg.style.opacity = on.length===0 ? '.55' : (on.includes(sg.dataset.rung)?'1':'.22'));
+    const d=document.documentElement;
+    prog.style.width=Math.min(100,Math.max(0,(d.scrollTop||document.body.scrollTop)/((d.scrollHeight-h)||1)*100))+'%';
+  }
+  addEventListener('scroll',tick,{passive:true}); addEventListener('resize',tick); tick();
+})();
+</script>
+</body>
+</html>

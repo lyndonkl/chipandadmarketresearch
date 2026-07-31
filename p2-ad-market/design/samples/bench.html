@@ -1,0 +1,1502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE BENCH — sample page, P2 The Attention Economy</title>
+<!--
+  DIRECTION: "The Bench" (architect-proposals.json).
+  One machine drawing, redrawn once per era. Organs sit at fixed screen positions.
+  One verb: CRANK. Set the input, turn the handle, read the output.
+  A machine drawing already expects tolerances, hatch and "not to scale" notes,
+  so the uncertainty lives inside the metaphor instead of apologising beside it.
+
+  TYPEFACES. Four faces, one job each. Real faces named; system stacks substituted
+  because this file makes no external requests.
+    Newsreader        -> body prose            -> Iowan Old Style / Palatino / Georgia
+    Martian Mono      -> every numeral, readouts -> ui-monospace, weight 600, tabular
+    IBM Plex Mono     -> data chrome, ids, CIs  -> ui-monospace, weight 400, 11-12px
+    Instrument Sans   -> architecture labels    -> Inter Tight / Helvetica Neue / system-ui
+  The two monos share a fallback stack here, so they are separated by weight,
+  size and tracking rather than by shape. In the real build they are two faces.
+
+  DATA. Every number on this page is read from sample-data.json in this folder.
+  Nothing is invented, interpolated or rounded to flatter. Where the file has no
+  value, the element is left out.
+
+  COLOUR AND CONTRAST. Palette hexes are taken verbatim from the proposal.
+  Zinc (3.01:1), brass (3.20:1) and cyan (2.46:1) on Bone are fine for line work
+  and fills but fail for text, so three darkened text-only tokens are derived
+  (--zinc-ink 4.65:1, --brass-ink 4.85:1, --cyan-ink 5.03:1). Every cyan fill
+  also carries an iron stroke so it clears 3:1 as a UI object.
+-->
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --ground:#F2EEE4;   /* Bone: engineering paper */
+  --ink:#15181D;      /* Graphite: all prose */
+  --zinc:#838A93;     /* Zinc: axes, ticks, rules */
+  --zinc-ink:#646B74; /* derived, text-safe */
+  --brass:#B07A2C;    /* Brass: MONEY, the advertiser's dollar */
+  --brass-ink:#8A5F20;/* derived, text-safe */
+  --cyan:#3AA6BD;     /* Cathode Cyan: THE COUNT */
+  --cyan-ink:#1F6E80; /* derived, text-safe */
+  --iron:#5B6570;     /* Iron: MECHANISM, the rule itself */
+  --rust:#A8442E;     /* Rust: THE TAKE, the intermediary's cut */
+  --stipple:#C9C2B4;  /* Stipple: DOCUMENTED ABSENCE */
+
+  --f-serif:'Iowan Old Style','Palatino Linotype','Book Antiqua',Palatino,Georgia,'Times New Roman',serif;
+  --f-mono:ui-monospace,'SF Mono','Cascadia Mono','Roboto Mono',Menlo,Consolas,monospace;
+  --f-arch:'Inter Tight',Inter,'Helvetica Neue',Helvetica,'Segoe UI',system-ui,Arial,sans-serif;
+
+  --settle:cubic-bezier(.16,1,.3,1);   /* SETTLE 700ms */
+  --crank:cubic-bezier(.34,0,.2,1);    /* CRANK  320ms + 40ms hold */
+  --sweep:cubic-bezier(.4,0,.6,1);     /* SWEEP  ~1400ms */
+  --pad:clamp(20px,6vw,96px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--f-serif);font-size:19px;line-height:1.65;
+  /* 22px engineering grid at ~4% graphite */
+  background-image:
+    repeating-linear-gradient(to right,rgba(21,24,29,.045) 0 1px,transparent 1px 22px),
+    repeating-linear-gradient(to bottom,rgba(21,24,29,.045) 0 1px,transparent 1px 22px);
+  overflow-x:hidden;
+}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--pad)}
+
+/* ---------- type roles ---------- */
+.arch{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;
+      font-size:11px;font-weight:600;color:var(--zinc-ink);line-height:1.4}
+.num{font-family:var(--f-mono);font-weight:600;letter-spacing:.02em;
+     font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.chrome{font-family:var(--f-mono);font-weight:400;font-size:12px;letter-spacing:.01em;
+        line-height:1.5;color:var(--zinc-ink);font-variant-numeric:tabular-nums}
+p{max-width:62ch;margin:0 0 1em}
+.sec-p{color:rgba(21,24,29,.86)}
+h2{font-family:var(--f-serif);font-weight:600;font-size:clamp(26px,3.2vw,38px);
+   line-height:1.18;margin:.1em 0 .5em;max-width:22ch}
+.lede{font-size:20px;line-height:1.6;max-width:60ch}
+
+/* ---------- section shell ---------- */
+section{padding:64px 0 8px;border-top:1px solid rgba(91,101,112,.28)}
+section:first-of-type{border-top:0;padding-top:0}
+.bayhead{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px}
+.bayhead .tag{border:1px solid var(--iron);padding:3px 7px 2px;color:var(--iron)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:980px){.two{grid-template-columns:1fr}}
+
+/* ---------- drawing frames ---------- */
+.board{border:1px solid var(--iron);background:rgba(255,255,255,.34);position:relative}
+.board svg{display:block;width:100%;height:auto}
+.scrollx{overflow-x:auto;overscroll-behavior-x:contain}
+.scrollx>svg{min-width:940px}
+.scrollx.sm>svg{min-width:470px}
+.swipe{display:none}
+@media (max-width:980px){.swipe{display:block;margin:6px 0 0}}
+.cap{margin:8px 0 0;max-width:74ch}
+
+/* ---------- first screen ---------- */
+#screen{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;
+        padding:32px 0 26px}
+#eyebrow{letter-spacing:.14em}
+#benchbox{margin:10px 0 0;max-width:1000px}
+#benchbox svg{display:block;width:100%;height:auto}
+h1{font-family:var(--f-serif);font-weight:600;font-size:clamp(30px,4.2vw,40px);
+   line-height:1.15;margin:22px 0 14px;max-width:26ch;letter-spacing:-.005em}
+#sub{max-width:62ch;color:rgba(21,24,29,.8);margin:0}
+#footline{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;
+          flex-wrap:wrap;margin-top:28px}
+#stats{font-size:13px;color:var(--zinc-ink);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+#stats .g{display:inline-flex;align-items:center;gap:5px}
+.swatch{width:15px;height:11px;border:1px solid var(--iron);display:inline-block;vertical-align:-1px}
+.gA{background:var(--iron)}
+.gB{background-image:repeating-linear-gradient(to bottom,var(--iron) 0 1px,transparent 1px 4px)}
+.gC{background-image:repeating-linear-gradient(45deg,var(--iron) 0 1px,transparent 1px 6px)}
+.gS{background-image:radial-gradient(var(--stipple) 40%,transparent 42%);background-size:4px 4px}
+#chev{display:flex;align-items:center;gap:8px;color:var(--zinc-ink)}
+#chev svg{width:13px;height:13px;flex:none}
+
+/* organ labels inside the bench drawing */
+.organ{cursor:default}
+.organ text{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;
+            font-size:11px;font-weight:600;fill:var(--zinc-ink)}
+button.organ{background:none;border:0;padding:0;font:inherit}
+#meterbtn{cursor:pointer;pointer-events:all}
+#meterbtn text{fill:var(--cyan-ink)}
+#meterbtn:hover rect[stroke],#meterbtn:focus-visible rect[stroke]{stroke:var(--ink)}
+#meterbtn:hover text,#meterbtn:focus-visible text{fill:var(--ink)}
+#meterbtn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.locked text{fill:var(--zinc)}
+.locked{cursor:not-allowed}
+#organlist{display:none}
+@media (max-width:720px){
+  #benchbox .organlabels{display:none}
+  #organlist{display:block;margin:14px 0 0;padding:0;list-style:none;
+             display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+  #organlist li{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;
+                font-size:11px;font-weight:600;color:var(--zinc-ink)}
+  #organlist li.live{color:var(--cyan-ink)}
+}
+
+/* ---------- controls: the CRANK ---------- */
+.rocker{display:inline-flex;border:1px solid var(--iron);background:var(--ground)}
+.rocker button{
+  font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;font-size:11px;
+  font-weight:600;color:var(--zinc-ink);background:none;border:0;padding:9px 13px;
+  cursor:pointer;min-height:40px;transition:background 320ms var(--crank),color 320ms var(--crank);
+}
+.rocker button+button{border-left:1px solid var(--iron)}
+.rocker button[aria-pressed="true"]{background:var(--iron);color:var(--ground)}
+.rocker button:focus-visible{outline:2px solid var(--ink);outline-offset:-4px}
+.rocker.flash button[aria-pressed="true"]{background:var(--ink)}
+.ctl{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
+.ctl .lbl{max-width:34ch}
+.locknote{display:inline-flex;gap:6px;align-items:center;color:var(--zinc)}
+
+/* CUT: definitional seams change with no transition at all */
+.cut{transition:none!important}
+
+/* ---------- readouts ---------- */
+.till{border:1px solid var(--iron);padding:14px 16px;background:rgba(255,255,255,.5)}
+.till dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline}
+.till dt{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;font-size:11px;
+         font-weight:600;color:var(--zinc-ink)}
+.till dd{margin:0;font-family:var(--f-mono);font-weight:600;font-size:15px;
+         font-variant-numeric:tabular-nums;color:var(--ink)}
+.big{font-size:30px!important;line-height:1.1}
+
+/* ---------- registers ---------- */
+table.reg{border-collapse:collapse;width:100%;font-family:var(--f-mono);font-size:12px;
+          font-variant-numeric:tabular-nums;color:var(--ink)}
+table.reg caption{text-align:left;font-family:var(--f-arch);text-transform:uppercase;
+  letter-spacing:.08em;font-size:11px;font-weight:600;color:var(--zinc-ink);padding-bottom:6px}
+table.reg th,table.reg td{border:1px solid rgba(91,101,112,.4);padding:6px 8px;text-align:left;
+                          vertical-align:top;overflow-wrap:anywhere}
+table.reg th{font-weight:600;color:var(--zinc-ink);font-size:11px;text-transform:uppercase;
+             letter-spacing:.06em}
+table.reg td.n{text-align:right;font-weight:600}
+
+/* ---------- caption bar ---------- */
+#capbar{border-top:1px solid var(--iron);margin-top:64px;padding:22px 0 60px}
+#capbar dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:6px 18px}
+#capbar dt{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;font-size:11px;
+           font-weight:600;color:var(--zinc-ink);padding-top:3px}
+#capbar dd{margin:0;font-size:16px;line-height:1.5;max-width:80ch}
+@media (max-width:620px){#capbar dl{grid-template-columns:1fr}}
+
+/* ---------- organ pull (peek strip) ---------- */
+#pull{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ground);
+  border-top:1.5px solid var(--iron);box-shadow:0 -8px 26px rgba(21,24,29,.13);
+  transform:translateY(101%);transition:transform 700ms var(--settle);
+  max-height:74svh;overflow:auto;
+}
+#pull.open{transform:translateY(0)}
+#pull .inner{padding:16px var(--pad) 22px}
+#pullhead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:10px}
+#pullclose{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;font-size:11px;
+  font-weight:600;background:none;border:1px solid var(--iron);color:var(--ink);
+  padding:8px 12px;cursor:pointer;min-height:40px}
+#pullclose:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+#cells{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
+@media (max-width:1080px){#cells{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:620px){#cells{grid-template-columns:1fr}}
+.cell{border:1px solid rgba(91,101,112,.5);padding:9px 10px 10px;background:rgba(255,255,255,.4)}
+.cell h4{margin:0 0 2px;font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.06em;
+         font-size:11px;font-weight:600;color:var(--ink)}
+.cell .yr{font-family:var(--f-mono);font-size:11px;color:var(--zinc-ink);display:block;margin-bottom:7px}
+.cell p{font-size:13px;line-height:1.42;margin:0 0 5px;font-family:var(--f-serif);max-width:none}
+.cell .who{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.06em;font-size:10px;
+           color:var(--zinc-ink);display:block}
+.cell svg{display:block;margin-top:7px}
+
+/* ---------- tolerance specimens ---------- */
+.spec{display:grid;grid-template-columns:118px 1fr;gap:10px 14px;align-items:center;
+      border-top:1px solid rgba(91,101,112,.3);padding:11px 0}
+.spec .name{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;font-size:11px;
+            font-weight:600;color:var(--ink)}
+.spec .why{font-size:14.5px;line-height:1.45;font-family:var(--f-serif);margin:0;max-width:52ch}
+.specfig{border:1px solid rgba(91,101,112,.4);background:rgba(255,255,255,.45)}
+
+/* TREMOR — only on claims where the 80% interval exceeds 60% of the central */
+@keyframes tremor{0%{transform:translateX(calc(var(--amp) * -.5px))}
+                  50%{transform:translateX(calc(var(--amp) * .5px))}
+                  100%{transform:translateX(calc(var(--amp) * -.5px))}}
+.tremor{animation:tremor 833ms ease-in-out infinite}
+.reduced-only{display:none}
+
+/* ---------- reduced motion: real alternative encodings, not a shrug ----------
+   The same rules are mirrored on :root[data-motion="reduce"], which the script
+   stamps on. Adding ?motion=reduce to the URL forces the state, so a reviewer
+   can see the fallback without changing their operating-system setting.       */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+                       transition-duration:.001ms!important}
+  .tremor{animation:none}
+  .reduced-only{display:inline}
+  .motion-only{display:none}
+  #pull{transition:none}
+}
+:root[data-motion="reduce"] *,
+:root[data-motion="reduce"] *::before,
+:root[data-motion="reduce"] *::after{animation-duration:.001ms!important;
+  animation-iteration-count:1!important;transition-duration:.001ms!important}
+:root[data-motion="reduce"] .tremor{animation:none}
+:root[data-motion="reduce"] .reduced-only{display:inline}
+:root[data-motion="reduce"] .motion-only{display:none}
+:root[data-motion="reduce"] #pull{transition:none}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ 1. FIRST SCREEN -->
+<div class="wrap">
+<section id="screen">
+  <div>
+    <div class="arch" id="eyebrow">P2 · The Attention Economy · 1840–2026</div>
+
+    <div id="benchbox">
+      <!-- THE BENCH. A patent diagram, not an illustration: spare, unshaded, all line.
+           Seven organs at seven fixed positions. Brass money is already moving through it. -->
+      <svg viewBox="0 0 960 400" role="img"
+           aria-label="A machine drawing of the bench. Money enters a hopper at the left marked INLET, passes a GATE, runs under a METER gauge, through a boxed RULE, past a TOLL valve that diverts some of it down into a cup, through a hinged DOOR, and out of a spout marked OUTLET.">
+        <defs>
+          <pattern id="hatchRust" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#A8442E" stroke-width="1.4"/>
+          </pattern>
+          <marker id="arrowIron" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#5B6570"/>
+          </marker>
+        </defs>
+
+        <!-- channel -->
+        <g stroke="#5B6570" fill="none" stroke-width="1.5">
+          <path d="M104 188 H906"/>
+          <path d="M104 214 H906"/>
+          <!-- hopper -->
+          <path d="M30 62 L176 62 L122 186 L104 186 L104 188"/>
+          <path d="M30 62 L84 186"/>
+          <path d="M84 186 L104 186"/>
+          <!-- gate: guide rails and a raised plate (open) -->
+          <path d="M200 96 V188 M200 214 V228 M222 96 V188 M222 214 V228"/>
+          <rect x="200" y="100" width="22" height="52" fill="none" stroke="#5B6570"/>
+          <path d="M211 152 V186" stroke-dasharray="3 3"/>
+          <!-- meter: gauge on a stem -->
+          <path d="M320 130 V188"/>
+          <circle cx="320" cy="90" r="40"/>
+          <path d="M292 106 A40 40 0 0 1 348 106" stroke="#838A93"/>
+          <g stroke="#838A93" stroke-width="1">
+            <path d="M295 74 l7 5 M320 62 v8 M345 74 l-7 5"/>
+          </g>
+          <path d="M320 90 L338 68" stroke="#3AA6BD" stroke-width="2"/>
+          <circle cx="320" cy="90" r="3" fill="#3AA6BD" stroke="none"/>
+          <!-- rule: the box that decides the price -->
+          <rect x="392" y="146" width="196" height="108"/>
+          <path d="M416 170 h60 M416 186 h44 M416 202 h72" stroke="#838A93" stroke-width="1"/>
+          <circle cx="546" cy="176" r="17"/>
+          <path d="M546 176 L560 164"/>
+          <path d="M546 193 V226 h-40" stroke-dasharray="4 3" stroke="#838A93"/>
+          <!-- toll: a valve with a tap into a cup -->
+          <path d="M646 176 L678 226 L678 176 L646 226 Z" fill="none"/>
+          <path d="M662 176 V150 M646 150 h32"/>
+          <path d="M662 214 V286"/>
+          <path d="M622 286 v66 h80 v-66"/>
+          <!-- door: a hinged leaf across the outlet path -->
+          <path d="M800 150 V188 M800 214 V252"/>
+          <path d="M800 168 L846 140"/>
+          <path d="M800 190 A44 44 0 0 1 838 168" stroke="#838A93" stroke-dasharray="3 3"/>
+          <!-- outlet spout -->
+          <path d="M906 188 L946 174 M906 214 L946 228"/>
+        </g>
+
+        <!-- the cup fill: rust, always hatched, always labelled -->
+        <rect id="cupfill" x="623" y="340" width="78" height="11" fill="url(#hatchRust)"/>
+
+        <!-- particles are painted here by script -->
+        <g id="flow"></g>
+        <!-- frozen-flow fallback (reduced motion) is painted here -->
+        <g id="frozen"></g>
+
+        <!-- organ labels: METER is live, the other six are rail-locked in this sample -->
+        <g class="organlabels">
+          <g class="organ locked" aria-disabled="true"><text x="30" y="46">Inlet</text></g>
+          <g class="organ locked" aria-disabled="true"><text x="196" y="86">Gate</text></g>
+          <g class="organ locked" aria-disabled="true"><text x="392" y="136">Rule</text></g>
+          <g class="organ locked" aria-disabled="true"><text x="622" y="140">Toll</text></g>
+          <g class="organ locked" aria-disabled="true"><text x="800" y="130">Door</text></g>
+          <g class="organ locked" aria-disabled="true"><text x="894" y="150">Outlet</text></g>
+          <g id="meterbtn" class="organ" role="button" tabindex="0"
+             aria-label="Meter. Open the meter organ across all seven eras.">
+            <rect x="278" y="18" width="96" height="24" fill="#F2EEE4" fill-opacity="0.01"/>
+            <rect x="278" y="18" width="96" height="24" fill="none" stroke="#3AA6BD"
+                  stroke-width="1" stroke-dasharray="3 3"/>
+            <text x="288" y="34">Meter ▸</text>
+          </g>
+        </g>
+      </svg>
+      <ol id="organlist">
+        <li>Inlet</li><li>Gate</li><li class="live">Meter — open</li><li>Rule</li>
+        <li>Toll</li><li>Door</li><li>Outlet</li>
+      </ol>
+    </div>
+
+    <h1>Since the 1840s, somebody has decided what a moment of your attention costs.</h1>
+    <p id="sub">They did not agree on the price. They did not even agree on what to count.
+      This is seven machines that set that price, and you can run all of them.</p>
+  </div>
+
+  <div id="footline">
+    <div id="stats" class="num">
+      <span>4 rails · 133 points · 19 seams · 63 claims</span>
+      <span class="g"><i class="swatch gA"></i>A 5</span>
+      <span class="g"><i class="swatch gB"></i>B 42</span>
+      <span class="g"><i class="swatch gC"></i>C 16</span>
+      <span class="g"><i class="swatch gS"></i>absent</span>
+    </div>
+    <div id="chev" class="arch">
+      <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1 L9 6 L3 11" fill="none" stroke="#5B6570" stroke-width="1.6"/></svg>
+      Era 1 · The Middlemen · 1840s–1917
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 2. SIGNATURE CHART -->
+<section id="rails">
+  <div class="bayhead">
+    <span class="arch tag">Scale</span>
+    <span class="arch">The rails board · US total advertising · 1867–2025</span>
+  </div>
+  <h2>Four rails cross this page. None of them measures the same thing.</h2>
+  <p class="lede sec-p">Coen counted what advertisers were <em>billed</em>, at list price.
+    MAGNA counts what media owners <em>took in</em>. Nineteen-eighty is the only year both
+    publish. They are 23.43% apart. That gap is not an event in the market. It is two rulers.</p>
+
+  <div class="ctl">
+    <span class="arch lbl">Basis — turn the handle. The label cuts; it does not fade.</span>
+    <div class="rocker" id="basisRocker">
+      <button type="button" data-basis="billings" aria-pressed="true">Advertiser billings</button>
+      <button type="button" data-basis="mg8" aria-pressed="false">Media-owner revenue</button>
+    </div>
+    <span class="num cut" id="basisReadout" style="font-size:13px">COEN MCE · billings at list price · 1919–2007</span>
+  </div>
+
+  <div class="board scrollx">
+    <svg id="railsvg" viewBox="0 0 1240 690" role="img"
+         aria-label="Log-scale chart of US total advertising, 1867 to 2025. Nine separate benchmark bars before 1919, never joined. A Coen ribbon from 1919 to 2007 whose thickness is its 80 percent interval, ending in a ragged cut edge. A hatched bridge band from 1980 to 2007 marked as our own construction, grade C. Seven MAGNA observations, joined only where the years are consecutive. A stippled void block from 2008 to 2020 marked no continuous rail."></svg>
+  </div>
+  <p class="chrome swipe">Swipe the drawing sideways →</p>
+
+  <div class="two" style="margin-top:22px">
+    <div>
+      <div class="board" style="padding:0">
+        <svg id="detailA" viewBox="0 0 700 340" role="img"
+             aria-label="Detail A at four times scale, drawn on a linear axis. Coen 1980 at 53,570 million dollars sits above MAGNA 1980 at 41,021 million dollars. A caliper between them reads 23.43 percent, split into a hatched segment for category scope and a thin segment for price basis."></svg>
+      </div>
+      <p class="chrome cap">Detail A is drawn on a straight axis, not a log one, because a 23%
+        gap is a small step on a log axis and a large fact about the record.</p>
+    </div>
+    <div>
+      <p class="sec-p">The main axis is logarithmic. Equal steps up it are equal
+        <em>multiples</em>, not equal dollars. That is the only way 1867 and 2025 fit on one
+        page. It also shrinks the 1980 gap to eleven pixels, so the gap gets its own detail
+        view above, at four times the scale.</p>
+      <p class="sec-p">Two rules run this drawing. A line is drawn only where a compiler
+        published consecutive annual values. And where nobody published anything, the page
+        draws the hole as an object with a name, not as white space.</p>
+      <table class="reg">
+        <caption>Rail register</caption>
+        <thead><tr><th>Rail</th><th>What it counts</th><th>Years</th><th class="n">Pts</th><th>Grade</th></tr></thead>
+        <tbody>
+          <tr><td>benchmarks<br>pre-1919</td><td>Retrospective benchmark years. Not a series.</td><td>1867–1918</td><td class="n">9</td><td>B 3 / C 6</td></tr>
+          <tr><td>coen_mce</td><td>Advertiser billings, bottom-up, at list price</td><td>1919–2007</td><td class="n">89</td><td>B 89</td></tr>
+          <tr><td>magna</td><td>Media-owner revenue, top-down</td><td>1980–2025</td><td class="n">7</td><td>B 7</td></tr>
+          <tr><td>bridge<br>mce→mg8</td><td>Our restatement of Coen onto MAGNA's basis</td><td>1980–2007</td><td class="n">28</td><td>C 28</td></tr>
+        </tbody>
+      </table>
+      <p class="chrome cap">The bridge is derived from Coen. It is not an independent
+        measurement. Never sum the two. Never read their agreement as corroboration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 3. THREAD 1 -->
+<section id="meter">
+  <div class="bayhead">
+    <span class="arch tag">Meter</span>
+    <span class="arch">Thread 1 · Who counted, and who paid the counter</span>
+  </div>
+  <h2>Somebody has to count the audience before anybody can price it.</h2>
+  <p class="lede sec-p">For eighty years that somebody was not the seller. The top half of this
+    strip names the counting instrument of the moment. The bottom half hangs the payer below
+    the line. The deeper the block, the further the payer sat from the seller of the
+    advertising. Watch the profile come back up at the end.</p>
+
+  <div class="board scrollx">
+    <svg id="metersvg" viewBox="0 0 1240 626" role="img"
+         aria-label="Two-track timeline from 1840 to 2026. Seven counting institutions in rows. Below the axis, the payer of each counter hangs at a depth ordered by distance from the seller: the seller itself at depth zero for 1840 to 1869, an independent vendor at depth two for Rowell, all sides together at depth five for the Audit Bureau of Circulations, the advertiser at depth four for the Cooperative Analysis of Broadcasting, a rival medium at depth three for Clark-Hooper, a vendor at depth two for Nielsen, and back to the seller itself at depth zero from 1994."></svg>
+  </div>
+  <p class="chrome swipe">Swipe the drawing sideways →</p>
+
+  <div class="two" style="margin-top:22px">
+    <div>
+      <div class="board" style="padding:16px 18px 18px">
+        <div class="arch" style="margin-bottom:4px">Detail B · 1987 · the same crank</div>
+        <p class="chrome" style="margin:0 0 12px">Nielsen swapped diaries for people meters as
+          the national television currency. Nothing about the audience changed. Only the
+          instrument did.</p>
+        <div class="ctl" style="margin-bottom:14px">
+          <div class="rocker" id="meterRocker">
+            <button type="button" data-inst="diary" aria-pressed="true">Diary</button>
+            <button type="button" data-inst="pm" aria-pressed="false">People meter</button>
+          </div>
+        </div>
+        <svg id="pmsvg" viewBox="0 0 460 210" role="img"
+             aria-label="Four bars indexed to diary equals 100. Switching to people meters moves all network prime time to 90, CBS to 87, ABC to 87 and NBC to 96."></svg>
+        <div class="till" style="margin-top:14px;border:0;padding:0;background:none">
+          <dl>
+            <dt>Measured prime time</dt><dd class="big num cut" id="pmOut">100</dd>
+            <dt>80% interval</dt><dd class="num chrome cut" id="pmCi" style="font-size:12px">no change under the old instrument</dd>
+          </dl>
+        </div>
+        <p class="sec-p" style="margin:12px 0 0;font-size:16px">Same viewing. Two instruments.
+          Two prices.</p>
+      </div>
+    </div>
+    <div>
+      <p class="sec-p">Read the bottom profile as one shape. In 1914 the counter moves as far
+        from the seller as it ever gets: the Audit Bureau of Circulations was funded by
+        publishers and advertisers together. It wanders for eighty years — an advertisers'
+        club, then a rival medium paying to prove the first count wrong, then a private firm
+        selling the count to both sides.</p>
+      <p class="sec-p">Then it collapses. From 1994 the ad server is the count, and the ad
+        server belongs to the seller. Google recorded the impression, ran the auction, decided
+        which click was valid and billed against its own log. The first industry standard for
+        counting a click was not published until 2009, after the era it was needed in.</p>
+      <table class="reg">
+        <caption>Payer ladder — an ordinal scale, not seven colours</caption>
+        <tbody>
+          <tr><td class="n">6</td><td>Nobody funds a count</td><td>—</td></tr>
+          <tr><td class="n">5</td><td>All sides together</td><td>ABC 1914 · Rating Council 1964</td></tr>
+          <tr><td class="n">4</td><td>The advertiser</td><td>CAB 1930</td></tr>
+          <tr><td class="n">3</td><td>A rival medium</td><td>Clark–Hooper 1934</td></tr>
+          <tr><td class="n">2</td><td>An independent vendor</td><td>Rowell 1869 · Nielsen 1942</td></tr>
+          <tr><td class="n">1</td><td>The seller's own trade group</td><td>—</td></tr>
+          <tr><td class="n">0</td><td>The seller itself</td><td>1840–1869 · 1994–2026</td></tr>
+        </tbody>
+      </table>
+      <p class="chrome cap">Two rungs carry nothing in this sample. They are still drawn,
+        because the scale exists whether or not a value lands on it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 4. UNCERTAINTY GRAMMAR -->
+<section id="tolerance">
+  <div class="bayhead">
+    <span class="arch tag">Tolerance</span>
+    <span class="arch">How this page draws what it does not know</span>
+  </div>
+  <h2>When the range is wider than the middle value, there is no middle value.</h2>
+  <p class="lede sec-p">Sixty per cent is the cut. If a claim's 80% interval is wider than 60%
+    of its central figure, this page will not draw a dot. It draws the span and nothing else.
+    That is not a style rule. The renderer throws an error if you ask it for a point.</p>
+
+  <div class="two">
+    <div>
+      <div class="board" style="padding:16px 18px 18px">
+        <div class="arch" style="margin-bottom:6px">Featured claim · e1-pricing-001 · grade B</div>
+        <p class="sec-p" style="font-size:16px;margin-bottom:12px">Before standardisation, the
+          commission an agent took on advertising space varied between about 10 and 50 per cent
+          of the space price.</p>
+        <div class="scrollx sm">
+        <svg id="wide1" viewBox="0 0 470 130" role="img"
+             aria-label="A span-only bar running from 10 to 50 percent of the space price, ticked at both ends, with no centre mark. Beside it, a crossed-out specimen of a dot with error bars."></svg>
+        </div>
+        <p class="chrome" style="margin:10px 0 0">
+          80% INTERVAL 10 – 50 · WIDTH = 1.60 × THE MIDDLE VALUE ·
+          <span class="motion-only">the mark will not hold still</span>
+          <span class="reduced-only">span shown hatched and bracketed</span>
+        </p>
+      </div>
+      <p class="chrome cap" id="throwline">Renderer guard: loading…</p>
+    </div>
+
+    <div>
+      <div class="arch" style="margin-bottom:2px">The four registers</div>
+      <div class="spec">
+        <div class="specfig"><svg viewBox="0 0 118 40" id="regWidth" aria-hidden="true"></svg></div>
+        <div><span class="name">Width</span>
+          <p class="why">A ribbon's thickness is its 80% interval. Thin means the record is
+            tight. Fat means it is not.</p></div>
+      </div>
+      <div class="spec">
+        <div class="specfig"><svg viewBox="0 0 118 40" id="regTex" aria-hidden="true"></svg></div>
+        <div><span class="name">Texture</span>
+          <p class="why">Source grade, coded twice. <b>A</b> solid: a primary record.
+            <b>B</b> ruled: a published compiler. <b>C</b> hatched: our own construction or a
+            reconstruction. In this sample: A 5, B 42, C 16.</p></div>
+      </div>
+      <div class="spec">
+        <div class="specfig"><svg viewBox="0 0 118 40" id="regTrem" aria-hidden="true"></svg></div>
+        <div><span class="name">Tremor</span>
+          <p class="why">Reserved for the widest claims only. The mark refuses to settle inside
+            its own interval. Turn motion off and the instability is printed as a number
+            instead.</p></div>
+      </div>
+      <div class="spec">
+        <div class="specfig"><svg viewBox="0 0 118 40" id="regStip" aria-hidden="true"></svg></div>
+        <div><span class="name">Stipple</span>
+          <p class="why">Documented absence. Never a fill, never white space. If a stretch of
+            years has no source, it gets a texture and a name.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:26px">
+    <div class="arch" style="margin-bottom:8px">Six more wide claims · each track carries its own scale · they are not comparable to each other</div>
+    <div class="board scrollx" style="padding:14px 16px">
+      <svg id="wideStrip" viewBox="0 0 1220 330" role="img"
+           aria-label="Six span-only tracks, one per claim, each on its own scale, each ticked at both ends with no centre mark."></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 5. UNRANKED PANEL -->
+<section id="unranked">
+  <div class="bayhead">
+    <span class="arch tag">Sorter</span>
+    <span class="arch">Era 7 · The Machine Market · 2008–2026</span>
+  </div>
+  <h2>Four pools of money. The record can place only one of them.</h2>
+  <p class="lede sec-p">Everything above the line outranks classified. That much the evidence
+    settles. Above the line, nothing is settled at all: national brand, direct response and
+    local retail cannot be ordered against each other in any pair. So the panel refuses to
+    order them. There is no vertical axis, no sort, and no centre mark on any bar.</p>
+
+  <div class="board scrollx">
+    <svg id="unrankedsvg" viewBox="0 0 1240 430" role="img"
+         aria-label="A share-of-market axis from 0 to 50 percent. Above a horizontal rule, three overlapping span bars for national brand 25 to 47, direct response 29.5 to 47 and local retail 15 to 31, with no vertical axis and no order. A crosshatched column marks 29.5 to 31 percent, the band inside all three. Below the rule, classified alone at 1.4 to 6.8 percent."></svg>
+  </div>
+  <p class="chrome swipe">Swipe the drawing sideways →</p>
+
+  <div class="two" style="margin-top:22px">
+    <div>
+      <p class="sec-p"><span class="motion-only">The three bars swap places every four
+        seconds, one swap at a time. The layout trembles because the order is unknown, in the
+        same way a mark trembles because its value is unknown.</span><span class="reduced-only">Motion
+        is off, so the order is fixed on screen. It is still not a ranking: the vertical axis
+        is struck out on the left of the panel, and the three unordered pairs are printed
+        below.</span></p>
+      <p class="sec-p">The one pool the record can place is the one pool with a real source.
+        Classified is sourced for 2008 to 2021 at grade A on three independent legs. The other
+        three are grade C, and one of them has no source at all.</p>
+      <p class="chrome" id="poolGuard">Renderer guard: loading…</p>
+    </div>
+    <div>
+      <table class="reg">
+        <caption>Printed, not drawn</caption>
+        <thead><tr><th>Pool</th><th class="n">Central</th><th class="n">US$bn</th><th>80% interval</th><th class="n">Span</th><th>Grade</th></tr></thead>
+        <tbody>
+          <tr><td>national brand</td><td class="n">36.6%</td><td class="n">145.7</td><td>25.0 – 47.0</td><td class="n">22.0</td><td>C</td></tr>
+          <tr><td>direct response</td><td class="n">38.0%</td><td class="n">151.2</td><td>29.5 – 47.0</td><td class="n">17.5</td><td>C</td></tr>
+          <tr><td>local retail</td><td class="n">23.5%</td><td class="n">93.5</td><td>15.0 – 31.0</td><td class="n">16.0</td><td>C</td></tr>
+          <tr><td>classified</td><td class="n">2.5%</td><td class="n">9.95</td><td>1.4 – 6.8</td><td class="n">5.4</td><td>C</td></tr>
+        </tbody>
+      </table>
+      <p class="chrome cap">These centrals are printed because the record contains them. They
+        are not drawn, because drawing them would assert an order the record does not support.
+        The two widest pools' centrals sit 1.4 points apart, on spans 22.0 and 17.5 points wide.</p>
+      <table class="reg" style="margin-top:14px">
+        <caption>Orderings</caption>
+        <tbody>
+          <tr><td>Established</td><td>local retail &gt; classified · national brand &gt; classified · direct response &gt; classified</td></tr>
+          <tr><td>Unranked</td><td>national brand ? direct response · national brand ? local retail · direct response ? local retail</td></tr>
+        </tbody>
+      </table>
+      <table class="reg" style="margin-top:14px">
+        <caption>Source verdicts, verbatim</caption>
+        <tbody>
+          <tr><td>national brand</td><td>NO SOURCE.</td></tr>
+          <tr><td>direct response</td><td>POOL NOT SOURCED; ONE INPUT SOURCED AT GRADE A.</td></tr>
+          <tr><td>local retail</td><td>NOT SOURCED AS A MONEY TYPE.</td></tr>
+          <tr><td>classified</td><td>SOURCED FOR 2008-2021 AT GRADE A ON THREE INDEPENDENT LEGS.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 6. CAPTION BAR -->
+<footer id="capbar">
+  <dl>
+    <dt>Direction</dt>
+    <dd><b>THE BENCH</b> — one machine drawing, redrawn once per era, with the organs always in
+      the same place. There is one verb: set the input, turn the handle, read the output.</dd>
+    <dt>Sacrifices</dt>
+    <dd>The feeling of a century on one line, and a learning cost paid up front: the reader must
+      meet the apparatus before it repays anything, and a reader who leaves early gets less than
+      a plain annotated chart would have given them.</dd>
+    <dt>First five seconds</dt>
+    <dd>A machine is running; money is moving through it; something is being skimmed off at a
+      valve; and the numbers here arrive in three grades of certainty.</dd>
+    <dt>At 390px</dt>
+    <dd>Honestly: on a phone this is a demonstration, on a desktop it is an instrument. The organ
+      labels leave the drawing and become a list beneath it. Every wide board scrolls sideways in
+      its own frame rather than shrinking to nothing. Hover is dropped entirely; every value
+      that would be a tooltip is printed on the page. The rockers stay — they are already
+      two-position stops, never free sliders.</dd>
+  </dl>
+</footer>
+</div>
+
+<!-- ============================================================ ORGAN PULL -->
+<aside id="pull" aria-hidden="true" aria-labelledby="pulltitle">
+  <div class="inner">
+    <div id="pullhead">
+      <div>
+        <div class="arch" id="pulltitle">Organ pull · Meter · all seven eras</div>
+        <div class="chrome">The same organ, lifted out of every bench and lined up. Your scroll
+          position is not lost.</div>
+      </div>
+      <button id="pullclose" type="button">Close</button>
+    </div>
+    <div id="cells"></div>
+  </div>
+</aside>
+
+<script>
+"use strict";
+/* =========================================================================
+   DATA — read from sample-data.json in this folder and embedded verbatim.
+   [year, central, ci80_low, ci80_high] in USD millions, current dollars.
+   ========================================================================= */
+const COEN=[
+ [1919,1930,1640.5,2316],[1920,2480,2108,2976],[1921,1930,1640.5,2316],[1922,2200,1870,2640],
+ [1923,2400,2040,2880],[1924,2480,2108,2976],[1925,2600,2210,3120],[1926,2700,2295,3240],
+ [1927,2720,2312,3264],[1928,2760,2346,3312],[1929,2850,2422.5,3420],[1930,2450,2082.5,2940],
+ [1931,2100,1785,2520],[1932,1620,1377,1944],[1933,1325,1126.25,1590],[1934,1650,1402.5,1980],
+ [1935,1720,1651.2,1788.8],[1936,1930,1852.8,2007.2],[1937,2100,2016,2184],[1938,1930,1852.8,2007.2],
+ [1939,2010,1929.6,2090.4],[1940,2110,2025.6,2194.4],[1941,2250,2160,2340],[1942,2160,2073.6,2246.4],
+ [1943,2490,2390.4,2589.6],[1944,2700,2592,2808],[1945,2840,2726.4,2953.6],[1946,3340,3273.2,3406.8],
+ [1947,4260,4174.8,4345.2],[1948,4870,4772.6,4967.4],[1949,5210,5105.8,5314.2],[1950,5700,5586,5814],
+ [1951,6420,6291.6,6548.4],[1952,7140,6997.2,7282.8],[1953,7740,7585.2,7894.8],[1954,8150,7987,8313],
+ [1955,9150,8967,9333],[1956,9910,9711.8,10108.2],[1957,10270,10064.6,10475.4],[1958,10310,10103.8,10516.2],
+ [1959,11270,11044.6,11495.4],[1960,11960,11720.8,12199.2],[1961,11860,11622.8,12097.2],[1962,12430,12181.4,12678.6],
+ [1963,13100,12838,13362],[1964,14150,13867,14433],[1965,15250,14945,15555],[1966,16630,16297.4,16962.6],
+ [1967,16870,16532.6,17207.4],[1968,18090,17728.2,18451.8],[1969,19420,19031.6,19808.4],[1970,19550,19159,19941],
+ [1971,20700,20286,21114],[1972,23210,22745.8,23674.2],[1973,24980,24480.4,25479.6],[1974,26620,26087.6,27152.4],
+ [1975,27900,27342,28458],[1976,33300,32634,33966],[1977,37440,36691.2,38188.8],[1978,43330,42463.4,44196.6],
+ [1979,48780,47804.4,49755.6],[1980,53570,52498.6,54641.4],[1981,60460,59250.8,61669.2],[1982,66670,65336.6,68003.4],
+ [1983,76000,74480,77520],[1984,88010,86249.8,89770.2],[1985,94900,93002,96798],[1986,102370,100322.6,104417.4],
+ [1987,110270,108064.6,112475.4],[1988,118750,116375,121125],[1989,124770,122274.6,127265.4],[1990,129968,127368.64,132567.36],
+ [1991,128352,125784.96,130919.04],[1992,133750,131075,136425],[1993,140956,138136.88,143775.12],[1994,153024,149963.52,156084.48],
+ [1995,162930,159671.4,166188.6],[1996,175230,171725.4,178734.6],[1997,187529,183778.42,191279.58],[1998,206697,202563.06,210830.94],
+ [1999,222308,217861.84,226754.16],[2000,247472,242522.56,252421.44],[2001,231287,226661.26,235912.74],[2002,236875,232137.5,241612.5],
+ [2003,245477,240567.46,250386.54],[2004,263766,258490.68,269041.32],[2005,271074,265652.52,276495.48],[2006,281653,276019.94,287286.06],
+ [2007,279612,274019.76,285204.24]
+];
+const MAGNA=[
+ [1980,41021,40600,41440],[2018,232906,230600,235200],[2021,278000,270000,286000],[2022,325000,315000,335000],
+ [2023,338000,332000,344000],[2024,380000,374000,386000],[2025,398000,388000,408000]
+];
+const BENCH9=[
+ [1867,50,30,80,"B"],[1880,200,140,280,"B"],[1890,360,260,480,"B"],[1900,495,400,600,"C"],
+ [1904,785,700,900,"C"],[1909,1070,880,1270,"C"],[1914,1200,990,1450,"C"],[1917,1500,1250,1800,"C"],
+ [1918,1355,1150,1600,"C"]
+];
+const BRIDGE=[
+ [1980,41021,37575.95,43322.86],[1981,46465.17,42562.9,49072.52],[1982,51617.96,47282.95,54514.46],[1983,59288.23,54309.05,62615.14],
+ [1984,68561.03,62803.1,72408.28],[1985,74556.39,68294.95,78740.06],[1986,80808.78,74022.25,85343.3],[1987,87153.97,79834.55,92044.54],
+ [1988,93867.54,85984.3,99134.84],[1989,98594.41,90314.2,104126.96],[1990,102477.8,93871.45,108228.26],[1991,100897.54,92423.9,106559.32],
+ [1992,105052.81,96230.2,110947.76],[1993,110593.48,101305.55,116799.34],[1994,120420.26,110307.05,127177.54],[1995,128451.49,117663.8,135659.44],
+ [1996,138381.27,126759.65,146146.42],[1997,148271.14,135818.95,156591.26],[1998,161925.64,148326.7,171011.96],[1999,177543.62,162633.05,187506.34],
+ [2000,196771.26,180245.9,207812.92],[2001,184113.37,168651.05,194444.74],[2002,188644.45,172801.6,199230.08],[2003,195886.02,179435,206878],
+ [2004,211402.86,193648.7,223265.56],[2005,218982.19,200591.5,231270.2],[2006,230048.68,210728.6,242957.68],[2007,230864.34,211475.75,243819.1]
+];
+/* concordance -> coen-magna-basis */
+const SEAM1980={break_pct:23.43, wedge_pts:7.21, scope_share_pct:69.2};
+/* era7_pools + era7_unranked + era7_ranked */
+const POOLS=[
+  {id:"national_brand", name:"national brand",  pct:36.6, bn:145.7, ci:[25.0,47.0], grade:"C"},
+  {id:"direct_response",name:"direct response", pct:38.0, bn:151.2, ci:[29.5,47.0], grade:"C"},
+  {id:"local_retail",   name:"local retail",    pct:23.5, bn:93.5,  ci:[15.0,31.0], grade:"C"},
+  {id:"classified",     name:"classified",      pct:2.5,  bn:9.95,  ci:[1.4,6.8],   grade:"C"}
+];
+const UNRANKED=[["national_brand","direct_response"],["national_brand","local_retail"],["direct_response","local_retail"]];
+/* wide_ci_claims used on this page */
+const WIDE=[
+  {id:"e1-pricing-001", central:25,  ci:[10,50],        grade:"B", unit:"% of the space price",
+   s:"The commission an agent took on space, before standardisation"},
+  {id:"e1-buyers-008",  central:192, ci:[96,360],       grade:"C", unit:"US$m, 1914",
+   s:"Direct-response spending at the 1914 benchmark"},
+  {id:"e1-scale-017",   central:37.8,ci:[5,55],         grade:"C", unit:"% of total US outlay",
+   s:"The 1914 benchmark left unattributed to any money pool"},
+  {id:"e2-medium-003",  central:3.9, ci:[3.5,11.0],     grade:"B", unit:"% of US ad spend, 1932",
+   s:"Radio's share in 1932, on two definitions of the market"},
+  {id:"e3-pricing-003", central:10,  ci:[5,20],         grade:"C", unit:"% commission",
+   s:"What a station rep firm took to sell local inventory"},
+  {id:"e3-targeting-003",central:2600,ci:[1500,4500],   grade:"C", unit:"segments",
+   s:"Distinct purchasable broadcast segments, end of era 3"},
+  {id:"e1-creators-004",central:1.2, ci:[0.9,1.7],      grade:"C", unit:"% of total US outlay",
+   s:"Ayer's share of all US advertising outlay in 1917"}
+];
+/* thread1_measurement -> the counting institution of the moment, and its payer.
+   depth = distance from the seller of the advertising. 0 = the seller itself. */
+const METERROWS=[
+  {y0:1840,y1:1869,depth:0,name:"The publisher's own figure",
+   note:"Publishers stated their own circulation. Advertisers had no way to test it."},
+  {y0:1869,y1:1914,depth:2,name:"Rowell's directory",
+   note:"5,778 US papers listed, 1869"},
+  {y0:1914,y1:1930,depth:5,name:"Audit Bureau of Circulations",
+   note:"Publishers and advertisers together. 925 member papers by 1926"},
+  {y0:1930,y1:1934,depth:4,name:"Cooperative Analysis of Broadcasting",
+   note:"$33,045 in year one from 49 advertiser subscribers at $70 a month"},
+  {y0:1934,y1:1942,depth:3,name:"Clark–Hooper",
+   note:"16 cities, autumn 1934, paid for by magazine publishers"},
+  {y0:1942,y1:1994,depth:2,name:"Nielsen",
+   note:"800 metered homes, December 1942"},
+  {y0:1994,y1:2026,depth:0,name:"The seller's own log",
+   note:"621 billion ads served by one ad server in 2000. Grade A."}
+];
+const PINS=[
+  {y:1912,t:"Mailing rate tied to a filing",row:0},
+  {y:1950,t:"Nielsen buys Hooper",row:1},
+  {y:1964,t:"Rating Council founded",row:0},
+  {y:1987,t:"People meters",row:2,crank:true},
+  {y:2009,t:"First click standard",row:0},
+  {y:2021,t:"MRC suspends Nielsen",row:1,anchor:"end"}
+];
+const ERAS=[
+  {n:1,name:"The Middlemen",yr:"1840s–1917",count:"The publisher, then Rowell's directory, then the Audit Bureau of Circulations from 1914.",pay:"The seller itself, then a vendor, then all sides together",depth:5,num:"5,778 papers listed, 1869"},
+  {n:2,name:"Sponsorship",yr:"1918–1949",count:"Radio had no circulation to audit, so the era invented one: recall surveys, then coincidental calls, then meters.",pay:"The advertiser, then a rival medium, then a vendor",depth:4,num:"$33,045 from 49 advertisers, 1930"},
+  {n:3,name:"The Spot Market",yr:"1950–1975",count:"Nielsen, alone. It bought Hooper's national business in March 1950 and had no national rival after that.",pay:"An independent vendor, selling to both sides",depth:2,num:"~1,200 metered households"},
+  {n:4,name:"Segmentation",yr:"1976–1993",count:"Nielsen people meters became the national currency in September 1987.",pay:"An independent vendor",depth:2,num:"−10% measured prime time"},
+  {n:5,name:"The Impression",yr:"1994–2001",count:"The ad server. Its log was the invoice, and the buyer had no third-party audit to appeal to.",pay:"The seller",depth:0,num:"621bn ads served, 2000"},
+  {n:6,name:"The Auction",yr:"2002–2008",count:"The seller recorded the impression, ran the auction, decided which click was valid and billed its own log.",pay:"The seller",depth:0,num:"no standard until 2009"},
+  {n:7,name:"The Machine Market",yr:"2008–2026",count:"Same company sells the inventory, counts the impressions and attributes the conversions.",pay:"The seller",depth:0,num:"$468m lost to one undercount, 2021"}
+];
+/* ordinal ramp for payer depth: pale at the seller, dark far from the seller */
+const RAMP=["#CFE2E8","#AFD2DC","#8CC0CE","#67ADC0","#4193AB","#2C7B92","#1D6076"];
+
+/* =========================================================================
+   HELPERS
+   ========================================================================= */
+const NS="http://www.w3.org/2000/svg";
+const REDUCE=window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          || /(^|[?&])motion=reduce/.test(location.search);
+if(REDUCE)document.documentElement.setAttribute("data-motion","reduce");
+function S(t,a){const e=document.createElementNS(NS,t);for(const k in a){if(a[k]!=null)e.setAttribute(k,a[k]);}return e;}
+function T(x,y,str,attrs){const e=S("text",Object.assign({x:x,y:y},attrs||{}));e.textContent=str;return e;}
+function arch(x,y,str,extra){return T(x,y,str,Object.assign({"font-family":"Inter Tight, Inter, Helvetica Neue, Helvetica, system-ui, Arial, sans-serif","font-size":11,"font-weight":600,"letter-spacing":"0.08em",fill:"#646B74"},extra||{}));}
+function chrome(x,y,str,extra){return T(x,y,str,Object.assign({"font-family":"ui-monospace, SF Mono, Menlo, Consolas, monospace","font-size":11,fill:"#646B74"},extra||{}));}
+function numT(x,y,str,extra){return T(x,y,str,Object.assign({"font-family":"ui-monospace, SF Mono, Menlo, Consolas, monospace","font-size":12,"font-weight":600,fill:"#15181D"},extra||{}));}
+function comma(n){return n.toLocaleString("en-US");}
+
+/* shared texture definitions */
+function defsBlock(){
+  const d=S("defs");
+  d.innerHTML=`
+  <pattern id="pC" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="#5B6570" stroke-width="1"/></pattern>
+  <pattern id="pCb" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="#B07A2C" stroke-width="1.1"/></pattern>
+  <pattern id="pB" width="4" height="4" patternUnits="userSpaceOnUse">
+    <line x1="0" y1="0.5" x2="4" y2="0.5" stroke="#5B6570" stroke-width="1"/></pattern>
+  <pattern id="pStip" width="5" height="5" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="1.1" fill="#C9C2B4"/>
+    <circle cx="4" cy="4" r="1.1" fill="#C9C2B4"/></pattern>
+  <pattern id="pXh" width="7" height="7" patternUnits="userSpaceOnUse">
+    <path d="M0 0 L7 7 M7 0 L0 7" stroke="#5B6570" stroke-width="0.9"/></pattern>
+  <marker id="capT" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+    <path d="M4 0 V8" stroke="#5B6570" stroke-width="1.4"/></marker>`;
+  return d;
+}
+
+/* =========================================================================
+   FIRST SCREEN — brass particles flowing through the bench
+   ========================================================================= */
+(function flow(){
+  const svg=document.querySelector("#benchbox svg");
+  const g=document.getElementById("flow");
+  const frozen=document.getElementById("frozen");
+  const cup=document.getElementById("cupfill");
+  const MAIN="M58 66 L92 176 L104 201 L944 201";
+  const TOLL="M58 66 L92 176 L104 201 L662 201 L662 336";
+  const pMain=S("path",{d:MAIN}), pToll=S("path",{d:TOLL});
+  svg.appendChild(pMain);svg.appendChild(pToll);
+  pMain.setAttribute("fill","none");pToll.setAttribute("fill","none");
+  pMain.style.visibility="hidden";pToll.style.visibility="hidden";
+  const lenM=pMain.getTotalLength(), lenT=pToll.getTotalLength();
+
+  if(REDUCE){
+    /* ALTERNATIVE ENCODING: flow frozen at even spacing, plus direction chevrons,
+       plus a printed note. The reader sees the same two routes and the same split. */
+    for(let i=0;i<26;i++){
+      const p=pMain.getPointAtLength(lenM*(i+0.5)/26);
+      frozen.appendChild(S("circle",{cx:p.x,cy:p.y+((i%3)-1)*3,r:3,fill:"#B07A2C","fill-opacity":".9"}));
+    }
+    for(let i=0;i<5;i++){
+      const p=pToll.getPointAtLength(lenT*(0.86+0.028*i));
+      frozen.appendChild(S("circle",{cx:p.x,cy:p.y,r:3,fill:"#B07A2C","fill-opacity":".9"}));
+    }
+    [260,470,760].forEach(function(x){
+      frozen.appendChild(S("path",{d:"M"+x+" 194 l9 7 l-9 7",fill:"none",stroke:"#5B6570","stroke-width":1.4}));
+    });
+    frozen.appendChild(S("path",{d:"M655 300 l7 9 l7 -9",fill:"none",stroke:"#5B6570","stroke-width":1.4}));
+    frozen.appendChild(chrome(104,332,"FLOW SHOWN FROZEN. CHEVRONS GIVE DIRECTION."));
+    cup.setAttribute("y","318");cup.setAttribute("height","33");
+  }else{
+    const N=44, SPEED=118; /* px per second */
+    const parts=[];
+    for(let i=0;i<N;i++){
+      const toll=(i%6===0);
+      parts.push({toll:toll,d:(toll?lenT:lenM)*Math.random(),dy:(Math.random()*7-3.5),
+                  el:g.appendChild(S("circle",{r:3,fill:"#B07A2C","fill-opacity":".92"}))});
+    }
+    let fill=8, last=performance.now();
+    (function tick(now){
+      const dt=Math.min(0.05,(now-last)/1000); last=now;
+      for(const q of parts){
+        q.d+=SPEED*dt;
+        const path=q.toll?pToll:pMain, L=q.toll?lenT:lenM;
+        if(q.d>L){
+          q.d=0;
+          if(q.toll&&fill<44){fill+=0.55;cup.setAttribute("y",String(351-fill));cup.setAttribute("height",String(fill));}
+        }
+        const p=path.getPointAtLength(q.d);
+        q.el.setAttribute("cx",p.x); q.el.setAttribute("cy",p.y+(q.d>150?q.dy:0));
+      }
+      requestAnimationFrame(tick);
+    })(last);
+  }
+})();
+
+/* =========================================================================
+   2. THE RAILS BOARD
+   ========================================================================= */
+const rails=(function(){
+  const svg=document.getElementById("railsvg");
+  svg.appendChild(defsBlock());
+  const X0=110,X1=1180,Y0=46,Y1=466,YA=1860,YB=2030,V0=30,V1=500000;
+  const lg=Math.log10, span=lg(V1)-lg(V0);
+  const x=function(y){return X0+(y-YA)/(YB-YA)*(X1-X0);};
+  const yv=function(v){return Y1-(lg(v)-lg(V0))/span*(Y1-Y0);};
+  const layer=function(){const l=S("g");svg.appendChild(l);return l;};
+  const gGrid=layer(),gVoid=layer(),gBridge=layer(),gCoen=layer(),gMagna=layer(),
+        gBench=layer(),gCal=layer(),gNote=layer(),gBlock=layer();
+
+  /* --- grid + axes --- */
+  [100,1000,10000,100000].forEach(function(v){
+    gGrid.appendChild(S("line",{x1:X0,x2:X1,y1:yv(v),y2:yv(v),stroke:"#838A93","stroke-width":.6,"stroke-opacity":.55}));
+    gGrid.appendChild(chrome(X0-8,yv(v)+4,v>=1000?("$"+(v/1000)+"bn"):("$"+v+"m"),{"text-anchor":"end"}));
+  });
+  gGrid.appendChild(S("line",{x1:X0,x2:X1,y1:Y1,y2:Y1,stroke:"#5B6570","stroke-width":1.2}));
+  for(let y=1870;y<=2020;y+=20){
+    gGrid.appendChild(S("line",{x1:x(y),x2:x(y),y1:Y1,y2:Y1+6,stroke:"#838A93","stroke-width":1}));
+    gGrid.appendChild(chrome(x(y),Y1+20,String(y),{"text-anchor":"middle"}));
+  }
+  gGrid.appendChild(arch(X0,Y0-16,"US TOTAL ADVERTISING · USD MILLIONS, CURRENT · Y AXIS LOGARITHMIC"));
+
+  /* --- the void: documented absence, drawn as an object with a name --- */
+  (function(){
+    const a=x(2008),b=x(2020);
+    gVoid.appendChild(S("rect",{x:a,y:Y0,width:b-a,height:Y1-Y0,fill:"url(#pStip)"}));
+    gVoid.appendChild(S("rect",{x:a,y:Y0,width:b-a,height:Y1-Y0,fill:"none",stroke:"#C9C2B4","stroke-width":1.2}));
+    const t=arch(a+(b-a)/2,Y0+240,"NO CONTINUOUS RAIL",{"text-anchor":"middle",fill:"#5B6570"});
+    t.setAttribute("transform","rotate(-90 "+(a+(b-a)/2)+" "+(Y0+240)+")");
+    gVoid.appendChild(t);
+    gVoid.appendChild(chrome(a+(b-a)/2,Y1-10,"2008–2020",{"text-anchor":"middle",fill:"#5B6570"}));
+  })();
+
+  /* --- ribbon builder: thickness IS the 80% interval (2px floor) --- */
+  function ribbon(rows,opts){
+    let up="",dn="";
+    rows.forEach(function(r,i){
+      const c=yv(r[1]);
+      let hi=yv(r[3]), lo=yv(r[2]);
+      if(lo-hi<2){hi=c-1;lo=c+1;}
+      up+=(i?"L":"M")+x(r[0])+" "+hi+" ";
+      dn=" L"+x(r[0])+" "+lo+" "+dn;
+    });
+    return S("path",Object.assign({d:up+dn+"Z"},opts));
+  }
+
+  /* --- bridge: our construction, all grade C, hatched, never a rail --- */
+  gBridge.appendChild(ribbon(BRIDGE,{fill:"url(#pC)","fill-opacity":".95",stroke:"#5B6570",
+    "stroke-width":1,"stroke-dasharray":"5 3"}));
+  /* a dashed construction line through the bridge centrals, so a band only six
+     pixels thick still reads as a drawn object rather than a smudge */
+  gBridge.appendChild(S("path",{d:BRIDGE.map(function(r,i){return (i?"L":"M")+x(r[0])+" "+yv(r[1]);}).join(" "),
+    fill:"none",stroke:"#5B6570","stroke-width":1.5,"stroke-dasharray":"9 5"}));
+
+  /* --- coen: brass ribbon, 1919-2007, ends in a ragged cut edge --- */
+  const coenBand=ribbon(COEN,{fill:"#B07A2C","fill-opacity":".62",stroke:"#8A5F20","stroke-width":.8});
+  gCoen.appendChild(coenBand);
+  (function(){
+    const xr=x(2007), top=yv(285204.24), bot=yv(274019.76);
+    let d="M"+xr+" "+(top-9);
+    for(let i=0;i<7;i++){d+=" l"+(i%2?-7:7)+" "+((bot-top+18)/7);}
+    gCoen.appendChild(S("path",{d:d,fill:"none",stroke:"#8A5F20","stroke-width":1.8}));
+  })();
+
+  /* --- magna: 7 published observations. Joined ONLY where years are consecutive. --- */
+  (function(){
+    const runs=[];let cur=[MAGNA[0]];
+    for(let i=1;i<MAGNA.length;i++){
+      if(MAGNA[i][0]===MAGNA[i-1][0]+1){cur.push(MAGNA[i]);}else{runs.push(cur);cur=[MAGNA[i]];}
+    }
+    runs.push(cur);
+    runs.forEach(function(run){
+      if(run.length>1){gMagna.appendChild(ribbon(run,{fill:"#5B6570","fill-opacity":".72",stroke:"#3E4650","stroke-width":.8}));}
+      run.forEach(function(r){
+        const cx=x(r[0]);
+        let hi=yv(r[3]),lo=yv(r[2]); if(lo-hi<6){const c=yv(r[1]);hi=c-3;lo=c+3;}
+        gMagna.appendChild(S("line",{x1:cx,x2:cx,y1:hi,y2:lo,stroke:"#3E4650","stroke-width":1.4}));
+        gMagna.appendChild(S("rect",{x:cx-2.6,y:yv(r[1])-2.6,width:5.2,height:5.2,fill:"#3E4650"}));
+      });
+    });
+  })();
+
+  /* --- benchmarks: nine separate estimates. Nothing joins them. --- */
+  BENCH9.forEach(function(r){
+    const cx=x(r[0]);
+    gBench.appendChild(S("line",{x1:cx,x2:cx,y1:yv(r[3]),y2:yv(r[2]),stroke:"#B07A2C","stroke-width":1.6}));
+    gBench.appendChild(S("line",{x1:cx-5,x2:cx+5,y1:yv(r[3]),y2:yv(r[3]),stroke:"#B07A2C","stroke-width":1.6}));
+    gBench.appendChild(S("line",{x1:cx-5,x2:cx+5,y1:yv(r[2]),y2:yv(r[2]),stroke:"#B07A2C","stroke-width":1.6}));
+    gBench.appendChild(S("line",{x1:cx-3,x2:cx+3,y1:yv(r[1]),y2:yv(r[1]),stroke:"#8A5F20","stroke-width":1}));
+  });
+
+  /* --- the caliper at 1980, and its detail-view callout --- */
+  (function(){
+    const cx=x(1980)+9, ytop=yv(53570), ybot=yv(41021), my=(ytop+ybot)/2;
+    gCal.appendChild(S("line",{x1:cx,x2:cx,y1:ytop,y2:ybot,stroke:"#5B6570","stroke-width":1.6}));
+    gCal.appendChild(S("line",{x1:cx-7,x2:cx+7,y1:ytop,y2:ytop,stroke:"#5B6570","stroke-width":1.6}));
+    gCal.appendChild(S("line",{x1:cx-7,x2:cx+7,y1:ybot,y2:ybot,stroke:"#5B6570","stroke-width":1.6}));
+    gCal.appendChild(S("circle",{cx:cx-2,cy:my,r:30,fill:"none",stroke:"#5B6570",
+      "stroke-width":1,"stroke-dasharray":"4 3"}));
+    gCal.appendChild(S("line",{x1:cx-30,x2:cx-124,y1:my-14,y2:my-60,stroke:"#5B6570","stroke-width":1}));
+    gCal.appendChild(arch(cx-128,my-62,"DETAIL A · 23.43% APART",{fill:"#15181D","text-anchor":"end"}));
+    gCal.appendChild(chrome(cx-128,my-48,"same year · same country · two rulers",{"text-anchor":"end"}));
+  })();
+
+  /* --- labels on the rails themselves: no legend lookup --- */
+  function plate(px0,py0,pw,ph){
+    gNote.appendChild(S("rect",{x:px0,y:py0,width:pw,height:ph,fill:"#F2EEE4","fill-opacity":".88"}));
+  }
+  gNote.appendChild(arch(x(1885),yv(3200)-8,"NINE BENCHMARK YEARS",{fill:"#8A5F20","text-anchor":"middle"}));
+  gNote.appendChild(chrome(x(1885),yv(3200)+6,"separate estimates. nothing joins them.",{"text-anchor":"middle",fill:"#8A5F20"}));
+  gNote.appendChild(arch(x(1930),yv(700),"COEN MCE · ADVERTISER BILLINGS",{fill:"#8A5F20"}));
+  gNote.appendChild(chrome(x(1930),yv(700)+14,"ribbon thickness = the 80% interval",{fill:"#8A5F20"}));
+  gNote.appendChild(S("line",{x1:x(1976),x2:x(1976),y1:yv(9000)-46,y2:yv(9000)-10,stroke:"#5B6570","stroke-width":1}));
+  gNote.appendChild(arch(x(2007)-10,yv(9000),"BRIDGE MCE→MG8 · OUR CONSTRUCTION · GRADE C",{fill:"#5B6570","text-anchor":"end"}));
+  gNote.appendChild(chrome(x(2007)-10,yv(9000)+14,"derived from Coen. not an independent measurement.",{fill:"#5B6570","text-anchor":"end"}));
+  plate(1004,90,234,50);
+  gNote.appendChild(S("line",{x1:x(2018),x2:x(2018),y1:90,y2:yv(232906)+5,stroke:"#3E4650","stroke-width":1}));
+  gNote.appendChild(arch(1234,104,"MAGNA MG8 · 7 OBSERVATIONS",{fill:"#3E4650","text-anchor":"end"}));
+  gNote.appendChild(chrome(1234,118,"joined only where the years run on",{fill:"#3E4650","text-anchor":"end"}));
+  gNote.appendChild(chrome(1234,132,"the 2018 mark stands alone in the void",{fill:"#3E4650","text-anchor":"end"}));
+  plate(856,146,178,32);
+  gNote.appendChild(S("line",{x1:1032,x2:x(2007)+5,y1:152,y2:yv(279612)+8,stroke:"#8A5F20","stroke-width":1}));
+  gNote.appendChild(arch(1030,160,"COEN STOPS HERE.",{fill:"#8A5F20","text-anchor":"end"}));
+  gNote.appendChild(chrome(1030,174,"no successor on this basis.",{fill:"#8A5F20","text-anchor":"end"}));
+
+  /* --- title block, bottom right, as an engineering drawing carries one --- */
+  (function(){
+    const bx=830,by=506,bw=350,bh=150;
+    gBlock.appendChild(S("rect",{x:bx,y:by,width:bw,height:bh,fill:"#F2EEE4",stroke:"#5B6570","stroke-width":1.2}));
+    const rows=[
+      ["DRAWING","US TOTAL ADVERTISING 1867–2025"],
+      ["SCALE","Y LOGARITHMIC · X LINEAR"],
+      ["UNITS","USD MILLIONS, CURRENT"],
+      ["RAILS","4 · 133 POINTS · GRADE B 99 / C 34"],
+      ["TOLERANCE","RIBBON THICKNESS = 80% INTERVAL, 2PX FLOOR"],
+      ["NOTE","NOTHING SPLICED. NOTHING INTERPOLATED."]
+    ];
+    rows.forEach(function(r,i){
+      const yy=by+22+i*22;
+      gBlock.appendChild(S("line",{x1:bx,x2:bx+bw,y1:yy-16,y2:yy-16,stroke:"#5B6570","stroke-width":.5,"stroke-opacity":.5}));
+      gBlock.appendChild(arch(bx+9,yy,r[0]));
+      gBlock.appendChild(chrome(bx+118,yy,r[1],{fill:"#15181D"}));
+    });
+    gBlock.appendChild(S("line",{x1:bx+110,x2:bx+110,y1:by,y2:by+bh,stroke:"#5B6570","stroke-width":.5,"stroke-opacity":.5}));
+  })();
+
+  /* --- forbidden specimen: what this page will not draw --- */
+  (function(){
+    const bx=136,by=506;
+    gBlock.appendChild(S("rect",{x:bx,y:by,width:300,height:124,fill:"#F2EEE4",stroke:"#5B6570","stroke-width":1}));
+    gBlock.appendChild(arch(bx+12,by+22,"SPECIMEN · NOT DRAWN ON THIS PAGE"));
+    gBlock.appendChild(S("path",{d:"M"+(bx+22)+" "+(by+64)+" C "+(bx+90)+" "+(by+52)+", "+(bx+150)+" "+(by+76)+", "+(bx+230)+" "+(by+44),
+      fill:"none",stroke:"#C9C2B4","stroke-width":2,"stroke-dasharray":"4 4"}));
+    gBlock.appendChild(S("path",{d:"M"+(bx+22)+" "+(by+80)+" L"+(bx+238)+" "+(by+34),stroke:"#A8442E","stroke-width":1.6}));
+    gBlock.appendChild(S("path",{d:"M"+(bx+22)+" "+(by+34)+" L"+(bx+238)+" "+(by+80),stroke:"#A8442E","stroke-width":1.6}));
+    gBlock.appendChild(chrome(bx+12,by+100,"a line joining nine benchmark years."));
+    gBlock.appendChild(chrome(bx+12,by+115,"you can draw it. nobody has the data to."));
+  })();
+
+  /* --- SWEEP: the rails draw left to right like a chart recorder --- */
+  const clip=S("clipPath",{id:"sweepClip"});
+  const clipRect=S("rect",{x:0,y:0,width:REDUCE?1240:0,height:690});
+  clip.appendChild(clipRect); svg.appendChild(clip);
+  [gBridge,gCoen,gMagna,gBench].forEach(function(l){l.setAttribute("clip-path","url(#sweepClip)");});
+  let swept=REDUCE;
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting&&!swept){
+        swept=true;const t0=performance.now();
+        /* SWEEP ~1400ms, chart-recorder pen. The timeout is a guard: if frames are
+           throttled (background tab, print), the rails must still end up drawn. */
+        setTimeout(function(){clipRect.setAttribute("width","1240");},1600);
+        (function step(t){
+          const k=Math.min(1,(t-t0)/1400);
+          clipRect.setAttribute("width",String(1240*(k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2)));
+          if(k<1)requestAnimationFrame(step);else clipRect.setAttribute("width","1240");
+        })(t0);
+      }
+    });
+  },{threshold:.2}).observe(svg);
+
+  /* --- CRANK + CUT: switching basis crosses a definitional seam --- */
+  function setBasis(b){
+    const billings=(b==="billings");
+    gCoen.setAttribute("opacity",billings?"1":"0.2");
+    gBridge.setAttribute("opacity",billings?"0.6":"1");
+    gMagna.setAttribute("opacity",billings?"0.62":"1");
+    const out=document.getElementById("basisReadout");
+    out.textContent=billings
+      ? "COEN MCE · billings at list price · 1919–2007"
+      : "MAGNA MG8 · media-owner revenue · 1980–2025 · bridge is ours, grade C";
+  }
+  return {setBasis:setBasis};
+})();
+
+/* basis rocker: CRANK's 40ms hold, then the label CUTs with no transition */
+(function(){
+  const r=document.getElementById("basisRocker");
+  r.addEventListener("click",function(ev){
+    const b=ev.target.closest("button"); if(!b)return;
+    [].forEach.call(r.querySelectorAll("button"),function(x){x.setAttribute("aria-pressed",String(x===b));});
+    if(REDUCE){ /* CRANK becomes a 200ms two-step highlight: input, then output */
+      r.classList.add("flash");
+      setTimeout(function(){r.classList.remove("flash");rails.setBasis(b.dataset.basis);},200);
+    }else{
+      setTimeout(function(){rails.setBasis(b.dataset.basis);},40);
+    }
+  });
+})();
+
+/* =========================================================================
+   DETAIL A — 1980, at four times scale, on a straight axis
+   ========================================================================= */
+(function(){
+  const svg=document.getElementById("detailA");
+  svg.appendChild(defsBlock());
+  const X0=110,X1=330,Y0=54,Y1=262,V0=35000,V1=58000,F={"font-size":12};
+  const y=function(v){return Y1-(v-V0)/(V1-V0)*(Y1-Y0);};
+  svg.appendChild(arch(16,26,"DETAIL A · 1980 · SCALE 4:1 · LINEAR AXIS",{"font-size":12}));
+  [35000,40000,45000,50000,55000].forEach(function(v){
+    svg.appendChild(S("line",{x1:X0,x2:X1,y1:y(v),y2:y(v),stroke:"#838A93","stroke-width":.6,"stroke-opacity":.5}));
+    svg.appendChild(chrome(X0-8,y(v)+4,"$"+comma(v)+"m",{"text-anchor":"end","font-size":12}));
+  });
+  /* bridge band at 1980 (grade C, hatched) — it swallows MAGNA by construction */
+  svg.appendChild(S("rect",{x:X0,y:y(43322.86),width:X1-X0,height:y(37575.95)-y(43322.86),
+    fill:"url(#pC)","fill-opacity":".85",stroke:"#5B6570","stroke-width":1,"stroke-dasharray":"5 3"}));
+  /* coen band */
+  svg.appendChild(S("rect",{x:X0,y:y(54641.4),width:X1-X0,height:y(52498.6)-y(54641.4),
+    fill:"#B07A2C","fill-opacity":".62",stroke:"#8A5F20","stroke-width":.8}));
+  /* magna band */
+  svg.appendChild(S("rect",{x:X0,y:y(41440),width:X1-X0,height:Math.max(3,y(40600)-y(41440)),
+    fill:"#5B6570","fill-opacity":".8",stroke:"#3E4650","stroke-width":.8}));
+  /* the caliper, decomposed into its two documented causes */
+  const cx=400, yt=y(53570), yb=y(41021), L=yb-yt, ySplit=yt+L*SEAM1980.scope_share_pct/100;
+  svg.appendChild(S("line",{x1:X0,x2:cx+10,y1:yt,y2:yt,stroke:"#5B6570","stroke-width":.8,"stroke-dasharray":"3 3"}));
+  svg.appendChild(S("line",{x1:X0,x2:cx+10,y1:yb,y2:yb,stroke:"#5B6570","stroke-width":.8,"stroke-dasharray":"3 3"}));
+  svg.appendChild(S("rect",{x:cx-7,y:yt,width:14,height:ySplit-yt,fill:"url(#pC)",stroke:"#5B6570","stroke-width":1}));
+  svg.appendChild(S("rect",{x:cx-3.5,y:ySplit,width:7,height:yb-ySplit,fill:"#5B6570",stroke:"#5B6570","stroke-width":1}));
+  svg.appendChild(S("line",{x1:cx-12,x2:cx+12,y1:yt,y2:yt,stroke:"#5B6570","stroke-width":1.8}));
+  svg.appendChild(S("line",{x1:cx-12,x2:cx+12,y1:yb,y2:yb,stroke:"#5B6570","stroke-width":1.8}));
+  /* rail values, on the rails */
+  svg.appendChild(numT(X0,y(54641.4)-9,"$53,570m",{"font-size":13}));
+  svg.appendChild(chrome(X0+80,y(54641.4)-9,"COEN · what advertisers were billed, at list price",F));
+  svg.appendChild(S("rect",{x:X0-2,y:y(40600)+10,width:344,height:17,fill:"#F2EEE4","fill-opacity":".92"}));
+  svg.appendChild(numT(X0,y(40600)+23,"$41,021m",{"font-size":13}));
+  svg.appendChild(chrome(X0+80,y(40600)+23,"MAGNA · what media owners took in",F));
+  svg.appendChild(chrome(X0,y(37575.95)+18,"the hatched band is our bridge: grade C, and calibrated to land here",F));
+  /* caliper labels */
+  svg.appendChild(chrome(cx+18,yt-4,"COEN 1980",F));
+  svg.appendChild(numT(cx+18,(yt+ySplit)/2-4,"16.22 pts",{"font-size":13}));
+  svg.appendChild(chrome(cx+18,(yt+ySplit)/2+10,"a different set of media",F));
+  svg.appendChild(chrome(cx+18,(yt+ySplit)/2+23,"counted · 69.2% of the break",F));
+  svg.appendChild(numT(cx+18,(ySplit+yb)/2-2,"7.21 pts",{"font-size":13}));
+  svg.appendChild(chrome(cx+18,(ySplit+yb)/2+12,"a different price basis",F));
+  svg.appendChild(chrome(cx+18,yb+14,"MAGNA 1980",F));
+  svg.appendChild(arch(16,306,"TOTAL BREAK 23.43% — NOT AN EVENT IN THE MARKET",{fill:"#15181D","font-size":12}));
+  svg.appendChild(chrome(16,324,"Landing on MAGNA here is an identity, not a test.",{"font-size":12}));
+})();
+
+/* =========================================================================
+   3. THE METER STRIP
+   ========================================================================= */
+(function(){
+  const svg=document.getElementById("metersvg");
+  svg.appendChild(defsBlock());
+  const GX=258,X1=1206,YA=1840,YB=2026,AX=292,RUNG=32;
+  const x=function(y){return GX+(y-YA)/(YB-YA)*(X1-GX);};
+  const dy=function(d){return AX+d*RUNG;};
+
+  svg.appendChild(arch(16,26,"WHO COUNTED — the instrument that set the price",{fill:"#15181D"}));
+  /* upper track: one row per counting institution, name in the left gutter,
+     so nothing has to collide and nothing needs a legend */
+  METERROWS.forEach(function(r,i){
+    const y=44+i*30, w=x(r.y1)-x(r.y0);
+    svg.appendChild(chrome(GX-10,y+15,r.name,{"text-anchor":"end",fill:"#15181D","font-size":11.5}));
+    svg.appendChild(S("rect",{x:x(r.y0),y:y,width:w,height:21,fill:RAMP[r.depth],stroke:"#5B6570","stroke-width":1}));
+    svg.appendChild(chrome(x(r.y0)+2,y-4,String(r.y0),{fill:"#646B74","font-size":9.5}));
+    /* place the note wherever it actually fits: inside, or in the wider gutter */
+    const CW=6.7, note=r.note, need=note.length*CW;
+    if(need<w-14){
+      svg.appendChild(chrome(x(r.y0)+7,y+14.5,note,{fill:"#15181D"}));
+    }else if(X1-x(r.y1)>x(r.y0)-GX){
+      svg.appendChild(S("line",{x1:x(r.y1),x2:x(r.y1)+10,y1:y+10.5,y2:y+10.5,stroke:"#838A93","stroke-width":1}));
+      svg.appendChild(chrome(x(r.y1)+14,y+14.5,note,{fill:"#15181D"}));
+    }else{
+      svg.appendChild(S("line",{x1:x(r.y0)-10,x2:x(r.y0),y1:y+10.5,y2:y+10.5,stroke:"#838A93","stroke-width":1}));
+      svg.appendChild(chrome(x(r.y0)-14,y+14.5,note,{fill:"#15181D","text-anchor":"end"}));
+    }
+  });
+
+  /* the axis */
+  svg.appendChild(S("line",{x1:GX,x2:X1,y1:AX,y2:AX,stroke:"#15181D","stroke-width":1.6}));
+  for(let y=1840;y<=2020;y+=20){
+    svg.appendChild(S("line",{x1:x(y),x2:x(y),y1:AX-5,y2:AX,stroke:"#838A93","stroke-width":1}));
+    svg.appendChild(chrome(x(y),AX-10,String(y),{"text-anchor":"middle"}));
+  }
+
+  /* depth ladder — an ordinal scale. Unused rungs are still drawn,
+     because the scale exists whether or not a value lands on it. */
+  const LADDER=["The seller itself","The seller's trade group","An independent vendor",
+                "A rival medium","The advertiser","All sides together","Nobody"];
+  svg.appendChild(arch(16,AX-30,"WHO PAID THE COUNTER",{fill:"#15181D"}));
+  svg.appendChild(chrome(16,AX-16,"deeper = further from the seller"));
+  LADDER.forEach(function(t,d){
+    svg.appendChild(S("line",{x1:GX-6,x2:X1,y1:dy(d),y2:dy(d),stroke:"#838A93","stroke-width":.6,"stroke-opacity":.45}));
+    svg.appendChild(chrome(GX-12,dy(d)+4,d+"  "+t,{"text-anchor":"end"}));
+  });
+
+  /* witness lines first, so the funder blocks paint over them */
+  const BAND=[dy(6)+62,dy(6)+82,dy(6)+106];
+  PINS.forEach(function(p){
+    svg.appendChild(S("line",{x1:x(p.y),x2:x(p.y),y1:AX,y2:BAND[p.row]-11,stroke:"#5B6570",
+      "stroke-width":.7,"stroke-dasharray":"2 3","stroke-opacity":.8}));
+  });
+
+  /* the funder profile: one continuous step figure, the whole thread in one shape */
+  METERROWS.forEach(function(r){
+    svg.appendChild(S("rect",{x:x(r.y0),y:AX,width:x(r.y1)-x(r.y0),height:Math.max(4,r.depth*RUNG),
+      fill:RAMP[r.depth],stroke:"#5B6570","stroke-width":1}));
+  });
+
+  svg.appendChild(chrome((x(1994)+x(2026))/2,AX+16,"flush against the axis: the counter IS the seller",
+    {"text-anchor":"middle",fill:"#1F6E80"}));
+
+  /* the eighty-year bracket */
+  (function(){
+    const a=x(1914),b=x(1994),yy=dy(6)+18;
+    svg.appendChild(S("path",{d:"M"+a+" "+(yy-8)+" V"+yy+" H"+b+" V"+(yy-8),fill:"none",stroke:"#15181D","stroke-width":1.4}));
+    svg.appendChild(S("rect",{x:(a+b)/2-160,y:yy+4,width:320,height:17,fill:"#F2EEE4","fill-opacity":".9"}));
+    svg.appendChild(arch((a+b)/2,yy+16,"EIGHTY YEARS. THE COUNTER WAS NOT THE SELLER.",{"text-anchor":"middle",fill:"#15181D"}));
+  })();
+
+  /* event pins */
+  PINS.forEach(function(p){
+    const px=x(p.y), band=BAND[p.row], anc=p.anchor||"middle", tx=(anc==="end")?1236:px;
+    svg.appendChild(S("path",{d:"M"+px+" "+AX+" l-4 -7 h8 z",fill:"#15181D"}));
+    svg.appendChild(chrome(tx,band,p.y+" · "+p.t,{"text-anchor":anc,fill:p.crank?"#15181D":"#646B74"}));
+    if(p.crank){svg.appendChild(chrome(tx,band+13,"▼ detail B below",{"text-anchor":anc,fill:"#1F6E80"}));}
+  });
+})();
+
+/* --- Detail B: the 1987 crank --- */
+(function(){
+  const svg=document.getElementById("pmsvg");
+  const BARS=[["All network prime time",100,90],["CBS",100,87],["ABC",100,87],["NBC",100,96]];
+  const X0=176,X1=440,Y0=18,H=30,GAP=14;
+  const px=function(v){return X0+v/110*(X1-X0);};
+  svg.appendChild(S("line",{x1:X0,x2:X0,y1:Y0-6,y2:Y0+BARS.length*(H+GAP),stroke:"#838A93","stroke-width":1}));
+  const rects=[],vals=[];
+  BARS.forEach(function(b,i){
+    const y=Y0+i*(H+GAP);
+    svg.appendChild(chrome(X0-10,y+H/2+4,b[0],{"text-anchor":"end",fill:"#15181D"}));
+    const r=S("rect",{x:X0,y:y+5,width:px(b[1])-X0,height:H-10,fill:"#3AA6BD","fill-opacity":".55",stroke:"#1F6E80","stroke-width":1});
+    r.style.transition=REDUCE?"none":"width 320ms cubic-bezier(.34,0,.2,1)";
+    svg.appendChild(r);rects.push(r);
+    const v=numT(px(b[1])+8,y+H/2+4,"100");svg.appendChild(v);vals.push(v);
+  });
+  svg.appendChild(chrome(X0,Y0+BARS.length*(H+GAP)+14,"INDEX · DIARY = 100"));
+  window.__setInst=function(pm){
+    BARS.forEach(function(b,i){
+      const v=pm?b[2]:b[1];
+      rects[i].setAttribute("width",String(px(v)-X0));
+      vals[i].textContent=String(v);
+      vals[i].setAttribute("x",String(px(v)+8));
+    });
+    const out=document.getElementById("pmOut"),ci=document.getElementById("pmCi");
+    out.textContent=pm?"90":"100";
+    ci.textContent=pm?"−10% · 80% interval −8% to −13% · grade B":"no change under the old instrument";
+  };
+  const r=document.getElementById("meterRocker");
+  r.addEventListener("click",function(ev){
+    const b=ev.target.closest("button"); if(!b)return;
+    [].forEach.call(r.querySelectorAll("button"),function(x){x.setAttribute("aria-pressed",String(x===b));});
+    if(REDUCE){r.classList.add("flash");setTimeout(function(){r.classList.remove("flash");window.__setInst(b.dataset.inst==="pm");},200);}
+    else{setTimeout(function(){window.__setInst(b.dataset.inst==="pm");},40);}
+  });
+})();
+
+/* =========================================================================
+   4. THE TOLERANCE BLOCK
+   =========================================================================
+   The 60% rule is enforced in code, not by guideline. Ask drawMark() for a
+   point on a wide claim and it throws; the caught message is printed below.  */
+function drawMark(claim,form){
+  const w=claim.ci[1]-claim.ci[0], ratio=w/Math.abs(claim.central);
+  if(form==="point"&&ratio>0.6){
+    throw new Error("drawPoint("+claim.id+") refused: ci_width/central = "+ratio.toFixed(3)
+      +" > 0.60. Use drawSpan(). A centre mark would name a number the record does not name.");
+  }
+  return {ratio:ratio,width:w};
+}
+try{ drawMark(WIDE[0],"point"); }
+catch(err){ document.getElementById("throwline").textContent="drawMark(\"e1-pricing-001\",\"point\") → "+err.message; }
+
+/* featured span, drawn span-only with tremor */
+(function(){
+  const svg=document.getElementById("wide1");
+  svg.appendChild(defsBlock());
+  const X0=24,X1=300,Y=44,V=60;
+  const px=function(v){return X0+v/V*(X1-X0);};
+  svg.appendChild(S("line",{x1:X0,x2:X1,y1:Y+34,y2:Y+34,stroke:"#838A93","stroke-width":1}));
+  [0,10,20,30,40,50,60].forEach(function(v){
+    svg.appendChild(S("line",{x1:px(v),x2:px(v),y1:Y+34,y2:Y+39,stroke:"#838A93","stroke-width":1}));
+    svg.appendChild(chrome(px(v),Y+52,String(v),{"text-anchor":"middle"}));
+  });
+  const g=S("g",{class:"tremor"});
+  const wpx=px(50)-px(10);
+  g.style.setProperty("--amp",String(Math.min(6,wpx)));
+  g.appendChild(S("rect",{x:px(10),y:Y-2,width:wpx,height:26,fill:"url(#pB)",stroke:"#5B6570","stroke-width":1.4}));
+  g.appendChild(S("line",{x1:px(10),x2:px(10),y1:Y-10,y2:Y+32,stroke:"#5B6570","stroke-width":2}));
+  g.appendChild(S("line",{x1:px(50),x2:px(50),y1:Y-10,y2:Y+32,stroke:"#5B6570","stroke-width":2}));
+  if(REDUCE){
+    g.appendChild(S("path",{d:"M"+(px(10)-9)+" "+(Y-10)+" h-5 v42 h5",fill:"none",stroke:"#15181D","stroke-width":1.4}));
+    g.appendChild(S("path",{d:"M"+(px(50)+9)+" "+(Y-10)+" h5 v42 h-5",fill:"none",stroke:"#15181D","stroke-width":1.4}));
+  }
+  svg.appendChild(g);
+  svg.appendChild(arch(X0,Y-18,"SPAN ONLY · NO CENTRE MARK",{fill:"#15181D"}));
+  /* the forbidden form, beside it, struck out */
+  const fx=344;
+  svg.appendChild(S("rect",{x:fx-16,y:Y-24,width:126,height:80,fill:"none",stroke:"#838A93","stroke-width":1,"stroke-dasharray":"3 3"}));
+  svg.appendChild(S("line",{x1:fx,x2:fx+92,y1:Y+12,y2:Y+12,stroke:"#C9C2B4","stroke-width":1.6}));
+  svg.appendChild(S("line",{x1:fx,x2:fx,y1:Y+5,y2:Y+19,stroke:"#C9C2B4","stroke-width":1.6}));
+  svg.appendChild(S("line",{x1:fx+92,x2:fx+92,y1:Y+5,y2:Y+19,stroke:"#C9C2B4","stroke-width":1.6}));
+  svg.appendChild(S("circle",{cx:fx+38,cy:Y+12,r:4.5,fill:"#C9C2B4"}));
+  svg.appendChild(S("path",{d:"M"+(fx-10)+" "+(Y-16)+" L"+(fx+104)+" "+(Y+48),stroke:"#A8442E","stroke-width":1.6}));
+  svg.appendChild(S("path",{d:"M"+(fx-10)+" "+(Y+48)+" L"+(fx+104)+" "+(Y-16),stroke:"#A8442E","stroke-width":1.6}));
+  svg.appendChild(chrome(fx-16,Y+68,"a dot with error bars"));
+})();
+
+/* the four registers, as specimens */
+(function(){
+  function fig(id,fn){const s=document.getElementById(id);s.appendChild(defsBlock());fn(s);}
+  fig("regWidth",function(s){
+    s.appendChild(S("path",{d:"M6 22 L40 18 L74 12 L112 9 L112 15 L74 20 L40 26 L6 30 Z",fill:"#B07A2C","fill-opacity":".62",stroke:"#8A5F20","stroke-width":.8}));
+  });
+  fig("regTex",function(s){
+    s.appendChild(S("rect",{x:6,y:10,width:30,height:20,fill:"#5B6570"}));
+    s.appendChild(S("rect",{x:44,y:10,width:30,height:20,fill:"url(#pB)",stroke:"#5B6570","stroke-width":.8}));
+    s.appendChild(S("rect",{x:82,y:10,width:30,height:20,fill:"url(#pC)",stroke:"#5B6570","stroke-width":.8}));
+    s.appendChild(chrome(21,8,"A",{"text-anchor":"middle"}));
+    s.appendChild(chrome(59,8,"B",{"text-anchor":"middle"}));
+    s.appendChild(chrome(97,8,"C",{"text-anchor":"middle"}));
+  });
+  fig("regTrem",function(s){
+    const g=S("g",{class:"tremor"});g.style.setProperty("--amp","6");
+    g.appendChild(S("rect",{x:20,y:12,width:78,height:16,fill:"url(#pC)",stroke:"#5B6570","stroke-width":1.2}));
+    g.appendChild(S("line",{x1:20,x2:20,y1:8,y2:32,stroke:"#5B6570","stroke-width":2}));
+    g.appendChild(S("line",{x1:98,x2:98,y1:8,y2:32,stroke:"#5B6570","stroke-width":2}));
+    s.appendChild(g);
+  });
+  fig("regStip",function(s){
+    s.appendChild(S("rect",{x:6,y:8,width:106,height:24,fill:"url(#pStip)",stroke:"#C9C2B4","stroke-width":1}));
+  });
+})();
+
+/* six more wide claims, each on its own scale */
+(function(){
+  const svg=document.getElementById("wideStrip");
+  svg.appendChild(defsBlock());
+  const items=WIDE.slice(1);
+  const X0=430,X1=990,ROW=44;
+  items.forEach(function(c,i){
+    const y=30+i*ROW;
+    const m=drawMark(c,"span");
+    const top=c.ci[1]*1.12;
+    const px=function(v){return X0+v/top*(X1-X0);};
+    svg.appendChild(chrome(16,y+4,c.s.length>62?c.s.slice(0,61)+"…":c.s,{fill:"#15181D","font-size":11.5}));
+    svg.appendChild(chrome(16,y+17,c.id+" · grade "+c.grade+" · "+c.unit,{"font-size":10}));
+    svg.appendChild(S("line",{x1:X0,x2:X1,y1:y+8,y2:y+8,stroke:"#838A93","stroke-width":.6,"stroke-opacity":.6}));
+    const g=S("g",{class:"tremor"});
+    g.style.setProperty("--amp",String(Math.min(6,px(c.ci[1])-px(c.ci[0]))));
+    g.appendChild(S("rect",{x:px(c.ci[0]),y:y-2,width:px(c.ci[1])-px(c.ci[0]),height:20,
+      fill:(c.grade==="B"?"url(#pB)":"url(#pC)"),stroke:"#5B6570","stroke-width":1.2}));
+    g.appendChild(S("line",{x1:px(c.ci[0]),x2:px(c.ci[0]),y1:y-7,y2:y+23,stroke:"#5B6570","stroke-width":2}));
+    g.appendChild(S("line",{x1:px(c.ci[1]),x2:px(c.ci[1]),y1:y-7,y2:y+23,stroke:"#5B6570","stroke-width":2}));
+    svg.appendChild(g);
+    svg.appendChild(numT(px(c.ci[0])-8,y+12,comma(c.ci[0]),{"text-anchor":"end","font-size":11}));
+    svg.appendChild(numT(px(c.ci[1])+8,y+12,comma(c.ci[1]),{"font-size":11}));
+    svg.appendChild(chrome(1060,y+12,"width = "+m.ratio.toFixed(2)+"× central",{fill:"#646B74"}));
+  });
+  svg.appendChild(chrome(16,30+items.length*ROW+10,
+    "No centre marks. Each track is its own scale; the tracks are not comparable to each other."));
+})();
+
+/* =========================================================================
+   5. THE UNRANKED FLOAT
+   =========================================================================
+   Enforced the same way as the tolerance rule: ask for a stack or a sorted
+   bar on an unranked set and the renderer throws.                          */
+function renderPools(pools,ordering,form){
+  if(ordering==="unranked"&&(form==="stack"||form==="sorted"||form==="list")){
+    throw new Error("renderPools(unranked, "+form+") refused: 3 of 4 pools are mutually "
+      +"unranked. A "+form+" asserts an order the record does not establish.");
+  }
+  return pools;
+}
+try{ renderPools(POOLS,"unranked","sorted"); }
+catch(err){ document.getElementById("poolGuard").textContent="renderPools(POOLS,\"unranked\",\"sorted\") → "+err.message; }
+
+(function(){
+  const svg=document.getElementById("unrankedsvg");
+  svg.appendChild(defsBlock());
+  const X0=214,X1=1180,AXY=372,MAX=50;
+  const px=function(v){return X0+v/MAX*(X1-X0);};
+  const free=POOLS.filter(function(p){return p.id!=="classified";});
+  const cls=POOLS.find(function(p){return p.id==="classified";});
+  const SLOTS=[70,132,194], BH=44, RULEY=284;
+
+  /* region A: a common region with no vertical axis at all */
+  svg.appendChild(S("rect",{x:X0-46,y:40,width:(X1-X0)+92,height:224,fill:"none",
+    stroke:"#838A93","stroke-width":1,"stroke-dasharray":"5 4"}));
+  svg.appendChild(arch(X0-46,32,"COMMON REGION · NO ORDER ESTABLISHED",{fill:"#15181D"}));
+
+  /* the struck-out vertical axis: the encoding this panel refuses to use */
+  svg.appendChild(S("line",{x1:X0-70,x2:X0-70,y1:56,y2:250,stroke:"#C9C2B4","stroke-width":2}));
+  svg.appendChild(S("path",{d:"M"+(X0-70)+" 56 l-5 8 h10 z",fill:"#C9C2B4"}));
+  svg.appendChild(S("path",{d:"M"+(X0-84)+" 68 L"+(X0-56)+" 240",stroke:"#A8442E","stroke-width":1.6}));
+  svg.appendChild(S("path",{d:"M"+(X0-84)+" 240 L"+(X0-56)+" 68",stroke:"#A8442E","stroke-width":1.6}));
+  const nv=arch(X0-92,150,"NO VERTICAL AXIS · TOP IS NOT FIRST",{"text-anchor":"middle",fill:"#15181D"});
+  nv.setAttribute("transform","rotate(-90 "+(X0-92)+" 150)");
+  svg.appendChild(nv);
+
+  /* the band that sits inside all three spans */
+  const lo=Math.max.apply(null,free.map(function(p){return p.ci[0];}));
+  const hi=Math.min.apply(null,free.map(function(p){return p.ci[1];}));
+  svg.appendChild(S("rect",{x:px(lo),y:52,width:px(hi)-px(lo),height:200,fill:"url(#pXh)","fill-opacity":".5"}));
+  svg.appendChild(S("rect",{x:px(lo),y:52,width:px(hi)-px(lo),height:200,fill:"none",stroke:"#5B6570","stroke-width":1}));
+  svg.appendChild(chrome(px(hi)+8,26,"inside all three:"));
+  svg.appendChild(numT(px(hi)+8,40,lo.toFixed(1)+" – "+hi.toFixed(1)+"%"));
+
+  /* three span bars, no centre marks, order randomised at render */
+  const order=free.map(function(_,i){return i;});
+  for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=order[i];order[i]=order[j];order[j]=t;}
+  const groups=free.map(function(p,i){
+    const g=S("g");
+    const w=px(p.ci[1])-px(p.ci[0]);
+    g.appendChild(S("rect",{x:px(p.ci[0]),y:0,width:w,height:BH,fill:"#B07A2C","fill-opacity":".26"}));
+    g.appendChild(S("rect",{x:px(p.ci[0]),y:0,width:w,height:BH,fill:"url(#pC)","fill-opacity":".32"}));
+    g.appendChild(S("rect",{x:px(p.ci[0]),y:0,width:w,height:BH,fill:"none",stroke:"#5B6570","stroke-width":1.3}));
+    g.appendChild(S("line",{x1:px(p.ci[0]),x2:px(p.ci[0]),y1:-6,y2:BH+6,stroke:"#5B6570","stroke-width":2.2}));
+    g.appendChild(S("line",{x1:px(p.ci[1]),x2:px(p.ci[1]),y1:-6,y2:BH+6,stroke:"#5B6570","stroke-width":2.2}));
+    g.appendChild(S("rect",{x:px(p.ci[0])+5,y:BH/2-13,width:150,height:30,fill:"#F2EEE4","fill-opacity":".78"}));
+    g.appendChild(chrome(px(p.ci[0])+9,BH/2-1,p.name,{fill:"#15181D","font-size":12.5}));
+    g.appendChild(chrome(px(p.ci[0])+9,BH/2+13,p.ci[0].toFixed(1)+" – "+p.ci[1].toFixed(1)+"% · grade "+p.grade));
+    g.style.transition=REDUCE?"none":"transform 700ms cubic-bezier(.16,1,.3,1)";
+    svg.appendChild(g);
+    return g;
+  });
+  function place(){order.forEach(function(slot,i){groups[i].setAttribute("transform","translate(0,"+SLOTS[slot]+")");});}
+  place();
+
+  /* the layout trembles because the ORDER is unknown, the way a mark trembles
+     because its VALUE is unknown. Same idea, one level up. */
+  if(!REDUCE){
+    setInterval(function(){
+      const i=Math.floor(Math.random()*3);const j=(i+1+Math.floor(Math.random()*2))%3;
+      const t=order[i];order[i]=order[j];order[j]=t;place();
+    },4000);
+  }
+
+  /* the rule: one boundary, two epistemic statements */
+  svg.appendChild(S("line",{x1:60,x2:X1,y1:RULEY,y2:RULEY,stroke:"#15181D","stroke-width":1.6}));
+  svg.appendChild(arch(60,RULEY-10,"EVERYTHING ABOVE THIS LINE OUTRANKS CLASSIFIED · 3 ESTABLISHED ORDERINGS",{fill:"#15181D"}));
+
+  /* region B: classified, alone, because its ordering is the only one settled */
+  const gc=S("g",{transform:"translate(0,"+(RULEY+18)+")"});
+  const w=px(cls.ci[1])-px(cls.ci[0]);
+  gc.appendChild(S("rect",{x:px(cls.ci[0]),y:0,width:w,height:BH,fill:"#B07A2C","fill-opacity":".26"}));
+  gc.appendChild(S("rect",{x:px(cls.ci[0]),y:0,width:w,height:BH,fill:"url(#pC)","fill-opacity":".5"}));
+  gc.appendChild(S("rect",{x:px(cls.ci[0]),y:0,width:w,height:BH,fill:"none",stroke:"#5B6570","stroke-width":1.3}));
+  gc.appendChild(S("line",{x1:px(cls.ci[0]),x2:px(cls.ci[0]),y1:-6,y2:BH+6,stroke:"#5B6570","stroke-width":2.2}));
+  gc.appendChild(S("line",{x1:px(cls.ci[1]),x2:px(cls.ci[1]),y1:-6,y2:BH+6,stroke:"#5B6570","stroke-width":2.2}));
+  gc.appendChild(chrome(px(cls.ci[1])+12,BH/2-1,"classified",{fill:"#15181D","font-size":12.5}));
+  gc.appendChild(chrome(px(cls.ci[1])+12,BH/2+13,cls.ci[0].toFixed(1)+" – "+cls.ci[1].toFixed(1)+"% · grade C · the only pool with a source"));
+  svg.appendChild(gc);
+  svg.appendChild(arch(60,RULEY+30,"THE ONLY ORDERING",{fill:"#15181D"}));
+  svg.appendChild(arch(60,RULEY+44,"THE EVIDENCE SUPPORTS",{fill:"#15181D"}));
+
+  /* axis */
+  const AY=RULEY+92;
+  svg.appendChild(S("line",{x1:X0,x2:X1,y1:AY,y2:AY,stroke:"#5B6570","stroke-width":1.2}));
+  for(let v=0;v<=50;v+=10){
+    svg.appendChild(S("line",{x1:px(v),x2:px(v),y1:AY,y2:AY+6,stroke:"#838A93","stroke-width":1}));
+    svg.appendChild(chrome(px(v),AY+20,v+"%",{"text-anchor":"middle"}));
+  }
+  svg.appendChild(arch(X0,AY+38,"SHARE OF THE US MARKET · 80% INTERVALS · NO CENTRE MARKS ANYWHERE ON THIS PANEL",{fill:"#15181D"}));
+})();
+
+/* =========================================================================
+   ORGAN PULL — the same organ, lifted out of all seven benches
+   ========================================================================= */
+(function(){
+  const pull=document.getElementById("pull"), cells=document.getElementById("cells"),
+        btn=document.getElementById("meterbtn"), close=document.getElementById("pullclose");
+  ERAS.forEach(function(e){
+    const d=document.createElement("div");d.className="cell";
+    d.innerHTML='<h4>'+e.n+'. '+e.name+'</h4><span class="yr">'+e.yr+'</span>'
+      +'<span class="who">Counted by</span><p>'+e.count+'</p>'
+      +'<span class="who">Paid by</span><p>'+e.pay+'</p>'
+      +'<span class="who">'+e.num+'</span>';
+    const s=document.createElementNS(NS,"svg");
+    s.setAttribute("viewBox","0 0 120 58");s.setAttribute("width","100%");s.setAttribute("height","48");
+    s.setAttribute("aria-hidden","true");
+    s.appendChild(S("line",{x1:0,x2:120,y1:6,y2:6,stroke:"#15181D","stroke-width":1.2}));
+    s.appendChild(S("rect",{x:0,y:6,width:120,height:Math.max(3,e.depth*6.4),fill:RAMP[e.depth],stroke:"#5B6570","stroke-width":.8}));
+    s.appendChild(chrome(0,54,"payer depth "+e.depth,{"font-size":10}));
+    d.appendChild(s);
+    cells.appendChild(d);
+  });
+  let opener=null;
+  function open(){opener=document.activeElement;pull.classList.add("open");pull.setAttribute("aria-hidden","false");close.focus();}
+  function shut(){pull.classList.remove("open");pull.setAttribute("aria-hidden","true");if(opener&&opener.focus)opener.focus();}
+  btn.addEventListener("click",open);
+  btn.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open();}});
+  close.addEventListener("click",shut);
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&pull.classList.contains("open"))shut();});
+  const li=document.querySelector("#organlist li.live");
+  if(li){li.style.cursor="pointer";li.addEventListener("click",open);}
+})();
+</script>
+</body>
+</html>
