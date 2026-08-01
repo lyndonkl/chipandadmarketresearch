@@ -1,0 +1,140 @@
+/* docs/p2/charts/chart-demo.css
+ *
+ * Page furniture for the two chart demo pages, and nothing else. Every colour,
+ * every type role and every rhythm comes from ../lib/tokens.css through its own
+ * custom properties. Nothing here restates a token value.
+ */
+
+body {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 var(--p2-gutter) 140px;
+}
+
+header.page { padding: 56px 0 22px; }
+
+h1 {
+  font-family: var(--p2-font-prose);
+  font-weight: 600;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.15;
+  margin: .2em 0 .4em;
+  max-width: 26ch;
+  letter-spacing: -.005em;
+}
+
+.p2-bank-title {
+  font-family: var(--p2-font-prose);
+  font-weight: 600;
+  font-size: clamp(21px, 2.4vw, 28px);
+  line-height: 1.2;
+  margin: .15em 0 .4em;
+  max-width: 30ch;
+}
+
+.p2-bank-lede {
+  font-size: 17.5px;
+  line-height: 1.6;
+  color: var(--p2-ink-2);
+  max-width: 74ch;
+  margin: 0 0 14px;
+}
+
+.p2-view { padding: 52px 0 8px; border-top: 1px solid var(--p2-rule-faint); }
+.p2-view:first-child { border-top: 0; padding-top: 8px; }
+
+/* ---- controls ---- */
+.p2-ctl {
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  margin: 16px 0 6px;
+}
+.p2-select {
+  font-family: var(--p2-font-chrome); font-size: 13px;
+  border: 1px solid var(--p2-iron); background: var(--p2-bone);
+  color: var(--p2-graphite); padding: 9px 10px; min-height: 40px;
+}
+.p2-select:focus-visible { outline: 2px solid var(--p2-focus); outline-offset: 2px; }
+
+/* ---- panels ---- */
+.p2-bank-total { margin: 8px 0 26px; }
+.p2-bank-total .p2-panel { max-width: 100%; }
+
+.p2-bank-grid {
+  display: grid;
+  gap: 18px 16px;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+}
+
+.p2-panel { margin: 0; }
+.p2-panel svg { display: block; width: 100%; height: auto; }
+
+.p2-panel-cap {
+  margin: 6px 0 0;
+  max-width: 62ch;
+  color: var(--p2-zinc-text);
+  font-size: 11px;
+  line-height: 1.45;
+}
+.p2-panel--total .p2-panel-cap { max-width: 96ch; }
+
+.p2-strip-body { overflow-x: auto; overscroll-behavior-x: contain; }
+.p2-strip-body > svg { min-width: 1100px; }
+.p2-cross-body { overflow-x: auto; overscroll-behavior-x: contain; }
+.p2-cross-body > svg { min-width: 900px; }
+
+/* ---- registers ---- */
+.p2-bank-foot { margin-top: 40px; display: grid; gap: 20px; }
+.p2-note-box {
+  border: 1px solid var(--p2-iron);
+  background: var(--p2-paper);
+  padding: 14px 16px 16px;
+}
+.p2-note-box > .p2-arch { margin-bottom: 8px; }
+.p2-note-box p { max-width: 88ch; margin: 0 0 10px; }
+
+.p2-kv {
+  display: grid; grid-template-columns: minmax(120px, max-content) 1fr;
+  gap: 6px 18px; margin: 0;
+}
+.p2-kv dt {
+  font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .06em;
+  font-size: 10px; font-weight: 600; color: var(--p2-zinc-text); padding-top: 3px;
+}
+.p2-kv dd {
+  margin: 0; font-family: var(--p2-font-prose); font-size: 15px; line-height: 1.5;
+  color: var(--p2-ink-2); max-width: 84ch;
+}
+
+table.p2-reg {
+  border-collapse: collapse; width: 100%;
+  font-family: var(--p2-font-chrome); font-size: 11.5px;
+  font-variant-numeric: tabular-nums; color: var(--p2-graphite);
+}
+table.p2-reg th, table.p2-reg td {
+  border: 1px solid var(--p2-rule-faint); padding: 5px 8px;
+  text-align: left; vertical-align: top; overflow-wrap: anywhere;
+}
+table.p2-reg th {
+  font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .06em;
+  font-size: 10px; color: var(--p2-zinc-text); font-weight: 600;
+}
+table.p2-reg td.n { text-align: right; }
+
+/* ---- the load banner ---- */
+#loadfail {
+  display: none; border: 2px solid var(--p2-rust); padding: 16px 18px; margin: 24px 0;
+  font-family: var(--p2-font-prose); font-size: 16px; line-height: 1.55;
+}
+#loadfail code {
+  font-family: var(--p2-font-chrome); font-size: 12.5px;
+  background: rgba(21, 24, 29, .06); padding: 1px 5px;
+}
+#loadfail pre {
+  font-family: var(--p2-font-chrome); font-size: 11.5px; white-space: pre-wrap;
+  color: var(--p2-rust); margin: 10px 0 0;
+}
+
+.p2-status {
+  font-family: var(--p2-font-chrome); font-size: 11.5px; color: var(--p2-zinc-text);
+  border-top: 1px solid var(--p2-rule-faint); padding-top: 8px; margin-top: 8px;
+}

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The small-multiple bank — P2 by-medium composition</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./chart-demo.css">
+</head>
+<body class="p2 p2-paper-ground">
+
+<header class="page">
+  <div class="p2-arch">P2 · The Attention Economy · team B2 · the chart system</div>
+  <h1>The small-multiple bank, and the one-year cross-section.</h1>
+  <p class="p2-prose p2-bank-lede">
+    Everything on this page is drawn from the frozen record at load. The panel set, the panel order,
+    the shared ceiling, the readability floor and every seam are computed, not typed, so a repair to
+    <span class="p2-chrome">adspend.json</span> moves the drawing with no edit here. Colour comes from
+    <span class="p2-chrome">../lib/tokens.js</span>, motion from
+    <span class="p2-chrome">../lib/motion.js</span>, and every rule that can be broken goes through
+    <span class="p2-chrome">../lib/guards.js</span>.
+  </p>
+  <div id="motiontoggle"></div>
+  <p class="p2-status" id="status">loading the frozen record…</p>
+</header>
+
+<div id="loadfail">
+  <b>This page could not read the frozen data.</b>
+  <p>Browsers block <code>fetch</code> on <code>file://</code> origins, and Chrome additionally
+    blocks <code>&lt;script type="module"&gt;</code> imports there. Serve the repository root over
+    http and open the page from the server:</p>
+  <p><code>cd /path/to/repo &amp;&amp; python3 -m http.server 8000</code><br>
+     then <code>http://localhost:8000/docs/p2/charts/small-multiples.demo.html</code></p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<main id="root"></main>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle, auditReducedCoverage } from '../lib/motion.js';
+import { auditPalette, verifyTokenParity } from '../lib/tokens.js';
+import { render } from './small-multiples.js';
+
+const status = document.getElementById('status');
+const fail = document.getElementById('loadfail');
+
+function die(err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent =
+    (err && err.stack) ? err.stack : String(err);
+  status.textContent = 'FAILED — see the box above.';
+  throw err;
+}
+
+try {
+  initMotion();
+  installMotionToggle(document.getElementById('motiontoggle'));
+
+  /* The library's own alarms, run on every page that imports it. */
+  verifyTokenParity();
+  auditPalette();
+  auditReducedCoverage();
+
+  await guards.loadFrozen();
+  const frozen = guards.snapshotFrozen();
+
+  const out = render(document.getElementById('root'), frozen, { mode: 'share' });
+  window.P2_BANK = out;
+
+  const p = out.plan;
+  status.textContent =
+    `frozen: ${Object.entries(guards.frozenStatus()).filter(([, v]) => v).map(([k]) => k).join(', ')} · ` +
+    `${p.allKeys.length} series in the record, ${p.selectedKeys.length} drawn · ` +
+    `${p.panelCount} panels (1 total + ${p.categories.length} categories + ${p.tail ? 1 : 0} tail) · ` +
+    `shared ceiling ${p.scaleTop}% · floor ${p.floorPct.toFixed(2)}% · ` +
+    `${p.seams.length} seams, ${p.windows.length} caveats, ${p.holes.length} documented holes · ` +
+    `partition checked in ${p.partitionCheck.length} years, max residual ` +
+    `${Math.max(...p.partitionCheck.map((r) => Math.abs(r.residual))).toFixed(3)} · ` +
+    `${p.spanOnlyCount} span-only marks · ${p.columnYears} years drawn as a column, ` +
+    `${p.spanPanelYears.length} as a span panel (${p.spanPanelYears.join(', ') || 'none'}) ` +
+    `because some member has no middle value`;
+} catch (err) {
+  die(err);
+}
+</script>
+</body>
+</html>

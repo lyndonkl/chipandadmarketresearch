@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P2 · the rail board — eight compilers, and where each one's record exists</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<style>
+  body { max-width: 1320px; margin: 0 auto; padding: 0 var(--p2-gutter) 160px; }
+  header { padding: 40px 0 18px; }
+  h1 { font-family: var(--p2-font-prose); font-weight: 600; font-size: clamp(26px,3.4vw,36px);
+       line-height: 1.15; margin: .2em 0 .4em; max-width: 26ch; letter-spacing: -.005em; }
+  h2 { font-family: var(--p2-font-prose); font-weight: 600; font-size: 24px; margin: 0 0 .3em; }
+  h3 { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .08em;
+       font-size: 11px; font-weight: 600; color: var(--p2-zinc-text); margin: 0 0 8px; }
+  p  { margin: 0 0 1em; max-width: 64ch; }
+  .lede { font-size: 19px; line-height: 1.6; color: var(--p2-ink-2); max-width: 62ch; }
+  section { padding: 42px 0 8px; border-top: 1px solid var(--p2-rule-faint); }
+  .bar { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; font-family: var(--p2-font-chrome); font-size: 12px;
+          font-variant-numeric: tabular-nums; color: var(--p2-graphite); }
+  th, td { border: 1px solid var(--p2-rule-faint); padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .06em;
+       font-size: 10px; color: var(--p2-zinc-text); font-weight: 600; }
+  td.n { text-align: right; }
+  .wrapx { overflow-x: auto; overscroll-behavior-x: contain; }
+  #fail { display: none; border: 2px solid var(--p2-rust); padding: 16px 18px; margin: 24px 0; }
+  #fail code { font-family: var(--p2-font-chrome); background: rgba(21,24,29,.06); padding: 1px 5px; }
+  .filler p { color: var(--p2-ink-3); }
+  .key { display: flex; gap: 22px; flex-wrap: wrap; align-items: center;
+         font-family: var(--p2-font-chrome); font-size: 11.5px; color: var(--p2-zinc-text); }
+  .key span { display: inline-flex; align-items: center; gap: 6px; }
+  .sw { width: 26px; height: 8px; border: 0; display: inline-block; }
+  .sw-solid { background: #5B6570; }
+  .sw-hatch { background-image: repeating-linear-gradient(45deg, #5B6570 0 1px, transparent 1px 5px); border: 1px dashed #5B6570; }
+  .sw-mark { background-image: repeating-linear-gradient(to right, #5B6570 0 1.5px, transparent 1.5px 9px); }
+  .sw-stip { background-image: radial-gradient(#C9C2B4 44%, transparent 46%); background-size: 5px 5px; }
+</style>
+</head>
+<body class="p2">
+
+<div id="board"></div>
+
+<header>
+  <h3>P2 · The Attention Economy · team B2</h3>
+  <h1>The rail board</h1>
+  <p class="lede">Eight compilers counted this market. This strip shows, for each one, the years it
+  actually published — and nothing else. It never scrolls away. Scroll down and watch it stay.</p>
+</header>
+
+<div id="fail">
+  <h2>The modules did not load.</h2>
+  <p>Chrome refuses <code>&lt;script type="module"&gt;</code> imports over <code>file://</code>, and
+  every browser refuses to <code>fetch</code> JSON from one. Serve the repository root over http:</p>
+  <p><code>cd /path/to/chipandadmarketresearch &amp;&amp; python3 -m http.server 8000</code><br>
+  then open <code>http://localhost:8000/docs/p2/charts/rail-board.demo.html</code></p>
+</div>
+
+<section>
+  <h3>Motion</h3>
+  <div class="bar" id="toggle"></div>
+  <div class="bar">
+    <button id="replay" class="p2-rocker" style="padding:9px 13px;font-family:var(--p2-font-label);
+      text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:600;cursor:pointer;
+      background:none;color:var(--p2-graphite);min-height:40px">Replay the sweep</button>
+  </div>
+  <p>The rails draw left to right with <b>SWEEP</b>. Switch to <i>Reduced</i> and replay: the reduced
+  half renders complete on the first frame, so the same eight tracks end up drawn. Nothing is lost —
+  the picture is the information and the travel is not.</p>
+</section>
+
+<section>
+  <h3>The key</h3>
+  <div class="key">
+    <span><i class="sw sw-solid"></i> published annual data</span>
+    <span><i class="sw sw-mark"></i> benchmark years only</span>
+    <span><i class="sw sw-hatch"></i> our construction, grade C</span>
+    <span><i class="sw sw-stip"></i> the compiler published nothing</span>
+  </div>
+</section>
+
+<section>
+  <h3>What the plan holds</h3>
+  <div class="wrapx"><table id="tracks"></table></div>
+</section>
+
+<section class="filler">
+  <h3>Scroll test</h3>
+  <p>Everything below is filler. The board above must stay pinned to the top of the viewport for all
+  of it, and its bands must stay aligned to the same 1840–2026 axis the value chart uses.</p>
+  <div id="filler"></div>
+</section>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle } from '../lib/motion.js';
+import { verifyTokenParity } from '../lib/tokens.js';
+import { renderRailBoard, CADENCE_LABEL } from './rail-board.js';
+
+initMotion();
+/* A token-parity failure means the CSS and the JS disagree about a colour, and
+   a colour that is one letter different is silent. It goes on the page, not
+   into a console nobody has open. */
+try { verifyTokenParity(); } catch (e) {
+  const box = document.getElementById('fail');
+  box.style.display = 'block';
+  box.insertAdjacentHTML('beforeend', `<p><b>tokens.css and tokens.js disagree:</b> ${e.message}</p>`);
+}
+
+await guards.loadFrozen({ only: ['adspend'] });
+
+/* the strip is position:sticky, so its parent must be the tall scrolling
+   element — here that is <body>, and the two nodes are moved to the front */
+const { plan, replay, strip, caption } = renderRailBoard(
+  document.body,
+  { adspend: guards.getFrozen('adspend') }
+);
+document.body.prepend(caption);
+document.body.prepend(strip);
+document.getElementById('board').remove();
+
+installMotionToggle(document.getElementById('toggle'));
+document.getElementById('replay').addEventListener('click', replay);
+
+/* the plan, as a table — the text-only path this drawing owes its reader */
+const t = document.getElementById('tracks');
+t.innerHTML =
+  '<thead><tr><th>series</th><th>compiler</th><th>role</th><th>state</th>' +
+  '<th class="n">points</th><th class="n">years</th><th>published</th><th class="n">own holes</th></tr></thead>' +
+  '<tbody>' + plan.tracks.map((k) =>
+    `<tr><td>${k.key}</td><td>${k.compiler}</td><td>${k.role}</td><td>${CADENCE_LABEL[k.cadence]}</td>` +
+    `<td class="n">${k.pointCount}</td><td class="n">${k.published.length}</td>` +
+    `<td>${k.runs.map((r) => r.years[0] === r.years[1] ? r.years[0] : `${r.years[0]}–${r.years[1]}`).join(', ')}</td>` +
+    `<td class="n">${k.gaps.length}</td></tr>`).join('') + '</tbody>';
+
+const filler = document.getElementById('filler');
+for (let i = 0; i < 24; i += 1) {
+  const p = document.createElement('p');
+  p.className = 'p2-prose';
+  p.textContent = 'Filler paragraph ' + (i + 1) + '. The board stays. The bands stay where the record put them.';
+  filler.appendChild(p);
+}
+
+</script>
+<script>
+  window.addEventListener('load', () => {
+    if (!document.querySelector('.p2-railboard__strip')) document.getElementById('fail').style.display = 'block';
+  });
+</script>
+</body>
+</html>

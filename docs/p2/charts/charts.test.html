@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE CHART LAYER — test bench, P2 The Attention Economy</title>
+<!--
+  docs/p2/charts/charts.test.html — team B2.
+
+  Every case is in ./charts.test.js, not in this page. The page only runs them
+  and prints the result, so the same cases run headless in a runner that
+  supplies a DOM. A test that can only be run one way is a test that stops
+  being run.
+
+  HOW TO OPEN IT
+  --------------
+  From the repo root:  python3 -m http.server 8000
+  then                 http://localhost:8000/docs/p2/charts/charts.test.html
+
+  Browsers refuse ES module imports and `fetch` over file://, so opening this
+  file straight off disk says so and stops. There is no fixture: these cases
+  are about what the four charts do to the WHOLE frozen record, and an excerpt
+  cannot tell you that the partition still sums to the published total in all
+  eighty-nine years.
+
+  WHAT THE THREE OUTCOMES MEAN
+  ----------------------------
+  refused   the case tried to make a chart lie and something threw. Good.
+  DRAWS     the case is supposed to succeed, and did. These are the rows that
+            say where the line is: a rejected claim IS drawable, a sealed plan
+            IS re-usable, and both forced-cut rows prove a branch runs.
+  LEAKED /  the case did not do what it must. Read the detail.
+  BROKE
+-->
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./chart-demo.css">
+<style>
+  body { max-width: 1180px; margin: 0 auto; padding: 0 var(--p2-gutter) 140px; }
+  header { padding: 40px 0 10px; }
+  h1 { font-family: var(--p2-font-prose); font-weight: 600; font-size: clamp(26px,3.4vw,36px);
+       line-height: 1.15; margin: .2em 0 .4em; max-width: 26ch; letter-spacing: -.005em; }
+  .lede { font-family: var(--p2-font-prose); font-size: 18px; line-height: 1.6;
+          color: var(--p2-ink-2); max-width: 64ch; margin: 0 0 20px; }
+  #tally { border: 1px solid var(--p2-iron); display: flex; flex-wrap: wrap; margin: 0 0 22px; }
+  #tally div { padding: 11px 16px 12px; border-right: 1px solid rgba(91,101,112,.4); min-width: 110px; }
+  #tally dt { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .08em;
+              font-size: 10px; font-weight: 600; color: var(--p2-zinc-text); margin: 0 0 3px; }
+  #tally dd { font-family: var(--p2-font-chrome); font-size: 21px; font-weight: 600;
+              font-variant-numeric: tabular-nums; margin: 0; }
+  h2 { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .08em;
+       font-size: 11px; font-weight: 600; color: var(--p2-graphite); margin: 30px 0 8px; }
+  .row { border: 1px solid var(--p2-rule-faint); padding: 10px 13px; margin: 0 0 7px; }
+  .row h3 { font-family: var(--p2-font-prose); font-weight: 600; font-size: 15px; margin: 0 0 3px; }
+  .row p { font-family: var(--p2-font-chrome); font-size: 11.5px; line-height: 1.5;
+           color: var(--p2-iron); margin: 3px 0 0; max-width: none; }
+  .tag { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .06em;
+         font-size: 10px; font-weight: 600; }
+  .ok { color: var(--p2-iron); }
+  .drew { color: var(--p2-brass-text); }
+  .bad { color: var(--p2-rust); }
+  #fail { display: none; border: 2px solid var(--p2-rust); padding: 16px 18px; margin: 24px 0; }
+  code { font-family: var(--p2-font-chrome); background: rgba(21,24,29,.06); padding: 1px 5px; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<header>
+  <div class="p2-arch">P2 · The Attention Economy · team B2 · the chart system</div>
+  <h1>The chart layer, and every way found so far to make it lie.</h1>
+  <p class="lede">
+    Each row below is an attempt to put a number on one of these four charts that the record does
+    not support. Most must be refused. The rows marked <b>DRAWS</b> are the ones that say where the
+    line actually is — a claim the record marks <i>rejected</i> is drawable, a sealed plan is
+    re-usable by a second view, and two rows move the span-only cut on purpose to run branches the
+    frozen record never reaches.
+  </p>
+</header>
+
+<div id="fail">
+  <b>This page could not read the frozen data.</b>
+  <p>Browsers block <code>fetch</code> on <code>file://</code> origins, and Chrome additionally
+    blocks <code>&lt;script type="module"&gt;</code> imports there. Serve the repository root over
+    http and open the page from the server:</p>
+  <p><code>cd /path/to/repo &amp;&amp; python3 -m http.server 8000</code><br>
+     then <code>http://localhost:8000/docs/p2/charts/charts.test.html</code></p>
+  <pre id="failmsg"></pre>
+</div>
+
+<dl id="tally"></dl>
+<main id="results"></main>
+
+<!-- Every chart the cases draw lands here, off screen. They are drawn for real:
+     a case that asserts something about an aria-label has to have one. -->
+<div id="stage" style="position:absolute; left:-99999px; top:0; width:1400px;" aria-hidden="true"></div>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion } from '../lib/motion.js';
+import { runChartTests } from './charts.test.js';
+
+const fail = document.getElementById('fail');
+try {
+  initMotion();
+  await guards.loadFrozen();
+  const frozen = guards.snapshotFrozen();
+
+  const rows = runChartTests({ frozen, host: document.getElementById('stage') });
+
+  const counts = {
+    refused: rows.filter((r) => r.outcome === 'pass' && r.expect === 'refused').length,
+    drew: rows.filter((r) => r.outcome === 'pass' && r.expect === 'draws').length,
+    bad: rows.filter((r) => r.outcome !== 'pass').length,
+  };
+  document.getElementById('tally').innerHTML =
+    `<div><dt>cases</dt><dd>${rows.length}</dd></div>` +
+    `<div><dt>refused</dt><dd class="ok">${counts.refused}</dd></div>` +
+    `<div><dt>drew, as intended</dt><dd class="drew">${counts.drew}</dd></div>` +
+    `<div><dt>not as expected</dt><dd class="${counts.bad ? 'bad' : 'ok'}">${counts.bad}</dd></div>` +
+    `<div><dt>span-only cut</dt><dd>${(guards.RULES.wideIntervalRatio * 100).toFixed(0)}%</dd></div>`;
+
+  const out = document.getElementById('results');
+  let group = null;
+  for (const row of rows) {
+    if (row.group !== group) {
+      group = row.group;
+      const h = document.createElement('h2');
+      h.textContent = group;
+      out.appendChild(h);
+    }
+    const box = document.createElement('div');
+    box.className = 'row';
+    const tag = row.outcome !== 'pass'
+      ? `<span class="tag bad">${row.outcome}</span>`
+      : row.expect === 'draws'
+        ? '<span class="tag drew">DRAWS</span>'
+        : '<span class="tag ok">refused</span>';
+    box.innerHTML = `<h3>${row.name}</h3>${tag}<p>${row.detail.replace(/</g, '&lt;')}</p>`;
+    out.appendChild(box);
+  }
+  document.title = counts.bad
+    ? `${counts.bad} NOT AS EXPECTED — the chart layer bench`
+    : `${rows.length} cases, all as expected — the chart layer bench`;
+} catch (error) {
+  fail.style.display = 'block';
+  document.getElementById('failmsg').textContent = (error && error.stack) || String(error);
+  throw error;
+}
+</script>
+</body>
+</html>

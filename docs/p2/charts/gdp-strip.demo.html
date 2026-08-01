@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The share-of-GDP strip — P2 the capture question</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./chart-demo.css">
+</head>
+<body class="p2 p2-paper-ground">
+
+<header class="page">
+  <div class="p2-arch">P2 · The Attention Economy · team B2 · the chart system</div>
+  <h1>The share-of-GDP strip.</h1>
+  <p class="p2-prose p2-bank-lede">
+    The chart most likely to mislead, so it is built to be argued with. Start on the window the
+    familiar version of this story is read from and 2000 is the highest reading on screen. Widen the
+    window and 1922 walks in above it. No number changes; only how far back the window reaches.
+    Every reading is a dated claim with its own interval, its own source grade and its own basis in
+    the record's own words. Nothing is joined into a line, because the record holds no annual series.
+  </p>
+  <div id="motiontoggle"></div>
+  <p class="p2-status" id="status">loading the frozen record…</p>
+</header>
+
+<div id="loadfail">
+  <b>This page could not read the frozen data.</b>
+  <p>Browsers block <code>fetch</code> on <code>file://</code> origins, and Chrome additionally
+    blocks <code>&lt;script type="module"&gt;</code> imports there. Serve the repository root over
+    http and open the page from the server:</p>
+  <p><code>cd /path/to/repo &amp;&amp; python3 -m http.server 8000</code><br>
+     then <code>http://localhost:8000/docs/p2/charts/gdp-strip.demo.html</code></p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<main id="root"></main>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle, auditReducedCoverage } from '../lib/motion.js';
+import { auditPalette, verifyTokenParity } from '../lib/tokens.js';
+import { render } from './gdp-strip.js';
+
+const status = document.getElementById('status');
+const fail = document.getElementById('loadfail');
+
+function die(err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent =
+    (err && err.stack) ? err.stack : String(err);
+  status.textContent = 'FAILED — see the box above.';
+  throw err;
+}
+
+try {
+  initMotion();
+  installMotionToggle(document.getElementById('motiontoggle'));
+  verifyTokenParity();
+  auditPalette();
+  auditReducedCoverage();
+
+  await guards.loadFrozen();
+  const frozen = guards.snapshotFrozen();
+
+  /* verdicts.json is NOT one of the six frozen files a guard may read. The strip
+   * prints the verifier's own sentences when it is supplied and says so plainly
+   * when it is not — it never quotes the ranking from memory. */
+  let verdicts = null;
+  try {
+    const res = await fetch(new URL('../../../p2-ad-market/data/verification/verdicts.json', import.meta.url));
+    if (res.ok) verdicts = await res.json();
+  } catch (_) { /* the strip handles its absence */ }
+
+  const out = render(document.getElementById('root'), frozen, { window: 'narrow', verdicts });
+  window.P2_STRIP = out;
+
+  const p = out.plan;
+  status.textContent =
+    `${p.readings.length} share-of-GDP readings in claims.json · ` +
+    `${p.spanOnlyCount} span-only · ` +
+    `${p.rails.length} total rails · ${p.seams.length} basis seams · ` +
+    `${p.overlap.length} years with more than one rail live · ` +
+    `${p.rejected.length} rejected claims on this question, ` +
+    `${p.verdictStamps.length} marks carrying a non-confirmed verdict · ` +
+    `verdicts.json ${verdicts ? 'loaded' : 'not supplied'} · ` +
+    `narrow window starts ${p.narrowFrom} (read from irs_soi.coverage)`;
+} catch (err) {
+  die(err);
+}
+</script>
+</body>
+</html>

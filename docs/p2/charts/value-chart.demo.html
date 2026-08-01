@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P2 · the value chart — the total, and the four rails that are not one line</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<style>
+  body { max-width: 1320px; margin: 0 auto; padding: 0 var(--p2-gutter) 160px; }
+  header { padding: 40px 0 18px; }
+  h1 { font-family: var(--p2-font-prose); font-weight: 600; font-size: clamp(26px,3.4vw,36px);
+       line-height: 1.15; margin: .2em 0 .4em; max-width: 26ch; letter-spacing: -.005em; }
+  h2 { font-family: var(--p2-font-prose); font-weight: 600; font-size: 24px; margin: 0 0 .3em; }
+  h3 { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .08em;
+       font-size: 11px; font-weight: 600; color: var(--p2-zinc-text); margin: 0 0 8px; }
+  p  { margin: 0 0 1em; max-width: 64ch; }
+  .lede { font-size: 19px; line-height: 1.6; color: var(--p2-ink-2); max-width: 62ch; }
+  section { padding: 42px 0 8px; border-top: 1px solid var(--p2-rule-faint); }
+  .bar { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; font-family: var(--p2-font-chrome); font-size: 12px;
+          font-variant-numeric: tabular-nums; color: var(--p2-graphite); }
+  th, td { border: 1px solid var(--p2-rule-faint); padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .06em;
+       font-size: 10px; color: var(--p2-zinc-text); font-weight: 600; }
+  td.n { text-align: right; }
+  .wrapx { overflow-x: auto; overscroll-behavior-x: contain; }
+  #fail { display: none; border: 2px solid var(--p2-rust); padding: 16px 18px; margin: 24px 0; }
+  #fail code, .attack code { font-family: var(--p2-font-chrome); background: rgba(21,24,29,.06); padding: 1px 5px; }
+  .attack { border: 1px solid var(--p2-rule-faint); padding: 12px 14px; margin: 0 0 10px; }
+  .attack h4 { margin: 0 0 4px; font-family: var(--p2-font-label); text-transform: uppercase;
+               letter-spacing: .06em; font-size: 11px; font-weight: 600; color: var(--p2-graphite); }
+  .attack .out { font-family: var(--p2-font-chrome); font-size: 11.5px; line-height: 1.5;
+                 color: var(--p2-iron); margin: 4px 0 0; }
+  .refused { color: var(--p2-iron); font-weight: 600; }
+  .leaked  { color: var(--p2-rust); font-weight: 600; }
+</style>
+</head>
+<body class="p2">
+
+<div id="board"></div>
+
+<header>
+  <h3>P2 · The Attention Economy · team B2</h3>
+  <h1>The value chart</h1>
+  <p class="lede">One hundred and eighty years of US advertising spend, in dollars of the day. It is
+  not one line, and the places where it stops are the argument.</p>
+</header>
+
+<div id="fail">
+  <h2>The modules did not load.</h2>
+  <p>Chrome refuses <code>&lt;script type="module"&gt;</code> imports over <code>file://</code>, and
+  every browser refuses to <code>fetch</code> JSON from one. Serve the repository root over http:</p>
+  <p><code>cd /path/to/chipandadmarketresearch &amp;&amp; python3 -m http.server 8000</code><br>
+  then open <code>http://localhost:8000/docs/p2/charts/value-chart.demo.html</code></p>
+</div>
+
+<section>
+  <h3>Motion</h3>
+  <div class="bar" id="toggle"></div>
+  <p>Values arrive with <b>SETTLE</b>. Switch to <i>Reduced</i> and reload: the reduced half
+  crossfades and leaves the origin ghost for three seconds, and every rail still ends at its
+  measured position.</p>
+</section>
+
+<section>
+  <h3>Every rail, and every segment the path builder made of it</h3>
+  <div class="wrapx"><table id="rails"></table></div>
+</section>
+
+<section>
+  <h3>Every named absence</h3>
+  <div class="wrapx"><table id="holes"></table></div>
+</section>
+
+<section>
+  <h3>The adversary's attempts</h3>
+  <p>Each of these is a way to make this chart say something false, and each one must fail. Most
+  fail by being refused. The first two fail differently and on purpose: a claim the record marks
+  <code>rejected</code> is drawn, because the record repaired its body in place and the sentence
+  on the chart <i>is</i> the correction — what cannot happen is drawing it with the verdict
+  invisible. Those two are marked <b>DRAWN, AND VISIBLE</b>, and the run fails if either one is
+  refused or arrives without a stamp.</p>
+  <p>These are the attacks on <i>this</i> chart and on the library under it. The whole chart layer’s
+  bench — the sealed plan, the midpoint, the record on the plan, the containers, and the two
+  branches the frozen record never reaches — is
+  <a href="./charts.test.html"><code>charts.test.html</code></a>.</p>
+  <div id="attacks"></div>
+</section>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle } from '../lib/motion.js';
+import { verifyTokenParity } from '../lib/tokens.js';
+import { renderRailBoard } from './rail-board.js';
+import { renderValueChart, planValueChart } from './value-chart.js';
+
+initMotion();
+/* A token-parity failure means the CSS and the JS disagree about a colour, and
+   a colour that is one letter different is silent. It goes on the page, not
+   into a console nobody has open. */
+try { verifyTokenParity(); } catch (e) {
+  const box = document.getElementById('fail');
+  box.style.display = 'block';
+  box.insertAdjacentHTML('beforeend', `<p><b>tokens.css and tokens.js disagree:</b> ${e.message}</p>`);
+}
+
+await guards.loadFrozen({ only: ['adspend', 'claims'] });
+const frozen = { adspend: guards.getFrozen('adspend'), claims: guards.getFrozen('claims') };
+
+/* the board is the legend for the chart below it, so the demo shows the pair.
+   Its parent must be the tall scrolling element, so it goes on <body>. */
+const board = renderRailBoard(document.body, frozen);
+document.body.prepend(board.caption);
+document.body.prepend(board.strip);
+document.getElementById('board').remove();
+
+const host = document.createElement('section');
+document.querySelector('header').after(host);
+const { plan } = renderValueChart(host, frozen, { annotate: ['e2-scale-004'] });
+
+installMotionToggle(document.getElementById('toggle'));
+
+const railTable = document.getElementById('rails');
+railTable.innerHTML =
+  '<thead><tr><th>rail</th><th>state</th><th class="n">totals</th><th>segments the path builder made</th>' +
+  '<th class="n">span-only marks</th><th>highest reading</th></tr></thead><tbody>' +
+  plan.rails.map((r) =>
+    `<tr><td>${r.key}</td><td>${r.cadence}</td><td class="n">${r.marks.length}</td>` +
+      `<td>${r.segments.map((s) => s.years[0] === s.years[1] ? s.years[0] : `${s.years[0]}–${s.years[1]}`).join(' · ')}</td>` +
+      `<td class="n">${r.spanOnly}</td>` +
+      `<td>${r.highest
+        ? `${r.highest.year} — ${r.highest.central.toLocaleString('en-US')}`
+        : 'no mark on this rail carries a middle value'}</td></tr>`).join('') +
+  plan.noTotal.map((s) =>
+    `<tr><td>${s.key}</td><td colspan="5">publishes no whole-market total — ${s.measures}</td></tr>`).join('') +
+  '</tbody>';
+
+const holeTable = document.getElementById('holes');
+holeTable.innerHTML =
+  '<thead><tr><th>years</th><th class="n">span</th><th>between</th><th>the record’s reason</th></tr></thead><tbody>' +
+  plan.named.map((a) =>
+    `<tr><td>${a.years[0]}–${a.years[1]}</td><td class="n">${a.span}</td>` +
+    `<td>${a.betweenYears[0]} → ${a.betweenYears[1]}</td><td>${a.reason}</td></tr>`).join('') +
+  '</tbody>';
+
+/* --- the adversary ---
+   Two of these are new since the verdict rule moved into ./claim-marks.js, and
+   they are the interesting ones: a rejected claim is no longer refused, because
+   the record REPAIRED ds-gdp-001 in place and its body is the correction. What
+   is refused is drawing it with the verdict invisible. So the first two entries
+   below must DRAW, and carry a stamp; the entries after them are the ways a
+   caller could try to draw one without the stamp, or without the guard. */
+const attacks = [
+  ['Draw a rejected claim whose body was repaired in place — must DRAW, stamped',
+    () => {
+      const p = planValueChart(frozen, { annotate: ['ds-gdp-001'] });
+      const stamp = p.verdictStamps.find((s) => s.id === 'ds-gdp-001');
+      if (!stamp) throw new Error('drawn with NO verdict stamp — the correction is invisible');
+      return `drawn, stamped "${stamp.verdict}"`;
+    }, 'draws'],
+  ['Draw the other rejected claim (it is a dollar level, not a GDP share)',
+    () => {
+      const p = planValueChart(frozen, { annotate: ['ds-total-001'] });
+      if (!p.verdictStamps.some((s) => s.id === 'ds-total-001')) {
+        throw new Error('drawn with NO verdict stamp');
+      }
+      return 'drawn, stamped "rejected"';
+    }, 'draws'],
+  ['Mark a non-confirmed claim with no verdict register to print it in',
+    async () => {
+      const cm = await import('./claim-marks.js');
+      const claim = guards.getFrozen('claims').claims.find((c) => c.id === 'ds-gdp-001');
+      cm.planClaimMark(claim, { year: 1922 });
+    }],
+  ['Put a central back onto a span-only mark',
+    () => {
+      const bench = plan.rails.find((r) => r.cadence === 'benchmark');
+      const span = bench.marks.find((m) => m.kind === 'span');
+      span.central = 999;
+    }],
+  ['Hand the renderer a plan the module did not build (options.plan)',
+    async () => {
+      const cm = await import('./claim-marks.js');
+      cm.openSealedPlan({ rails: [], annotations: [] }, 'the adversary');
+    }],
+  ['Swap a hand-built mark into a real plan and hand it back in',
+    async () => {
+      const cm = await import('./claim-marks.js');
+      const p = planValueChart(frozen, {});
+      p.rails[0].segments[0].marks[0] =
+        { id: 'forged', kind: 'point', lo: 1, hi: 2, ratio: 0.1, central: 1.5, year: 1919 };
+      cm.openSealedPlan(p, 'the adversary');
+    }],
+  ['Smuggle a central through planClaimMark\'s `extra` bag',
+    async () => {
+      const cm = await import('./claim-marks.js');
+      cm.planClaimMark({ id: 'z', central: 10, ci80: [1, 30] }, { extra: { central: 10 } });
+    }],
+  ['Draw a claim the record withholds permission to plot',
+    () => planValueChart(frozen, { annotate: ['e7-pricing-003'] })],
+  ['Put a central dot on a wide interval (benchmarks 1867, interval 100% of central)',
+    () => guards.drawMark({ id: 'benchmarks_pre1919@1867', central: 50, ci80: [30, 80] }, 'point')],
+  ['Splice Coen 2007 straight to MAGNA 2018', () => {
+    const a = guards.getFrozen('adspend');
+    guards.assertNoSplice([
+      ...a.series.coen_mce.points.filter((p) => p.medium === 'total' && p.year === 2007 && !p.money_type),
+      ...a.series.magna.points.filter((p) => p.medium === 'total' && p.year === 2018),
+    ], 'the adversary');
+  }],
+  ['Interpolate 2007 to 2018 with no gap list', () => {
+    const a = guards.getFrozen('adspend');
+    guards.assertNoInterpolation([
+      ...a.series.coen_mce.points.filter((p) => p.medium === 'total' && p.year === 2007 && !p.money_type),
+      ...a.series.magna.points.filter((p) => p.medium === 'total' && p.year === 2018),
+    ], undefined, 'the adversary');
+  }],
+  ['Switch the absence guard off with an empty gap list',
+    () => guards.buildPath([], { gaps: [] })],
+  ['Forge the declared-empty sentinel',
+    () => guards.buildPath([], { gaps: Object.assign([], { declaredEmpty: true }) })],
+  ['Guard the 2008–2020 hole with a decoy range',
+    () => guards.buildPath([], { gaps: [{ years: [3000, 3001], reason: 'a decoy' }] })],
+  ['Read only the five series the schema spec named',
+    () => guards.assertSeriesListComplete(
+      ['coen_mce', 'magna', 'iab_pwc', 'irs_soi', 'benchmarks_pre1919'], guards.getFrozen('adspend'), 'the adversary')],
+  ['Put as_of on the time axis',
+    () => guards.assertTimeField('as_of', 'the adversary')],
+  ['Paint a chart label in the zinc rule token',
+    async () => { const k = await import('./svg-kit.js'); k.text(null, { x: 0, y: 0, value: 'x', role: 'label', fill: '#838A93' }); }],
+];
+
+const out = document.getElementById('attacks');
+for (const [label, fn, expect] of attacks) {
+  const box = document.createElement('div');
+  box.className = 'attack';
+  let verdict, detail;
+  try {
+    const note = await fn();
+    verdict = expect === 'draws'
+      ? `<span class="refused">DRAWN, AND VISIBLE</span>`
+      : '<span class="leaked">LEAKED — nothing refused it</span>';
+    detail = typeof note === 'string' ? note : '';
+  } catch (e) {
+    verdict = expect === 'draws'
+      ? '<span class="leaked">REFUSED — but this one is supposed to draw</span>'
+      : '<span class="refused">REFUSED</span>';
+    detail = String(e.message).split('\n')[0];
+  }
+  box.innerHTML = `<h4>${label}</h4><div>${verdict}</div><p class="out">${detail}</p>`;
+  out.appendChild(box);
+}
+</script>
+<script>
+  window.addEventListener('load', () => {
+    if (!document.querySelector('.p2-valuechart')) document.getElementById('fail').style.display = 'block';
+  });
+</script>
+</body>
+</html>
