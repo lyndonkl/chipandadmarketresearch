@@ -221,6 +221,35 @@ export function revalidateStrip(plan, { marks: allMarks, context }) {
   return true;
 }
 
+/* ------------------------------------------------------------------ *
+ * THE PLANNER HANDLE. Module-private, and that is the identity.
+ *
+ * `STRIP_PLANNER` is never exported. The seal used to be a public
+ * `sealPlan(plan, { revalidate })` taking any revalidator, so a caller could
+ * seal a plan of genuinely minted marks with an empty `revalidate() {}` and
+ * hand it to a renderer: every other check passed, because nothing about the
+ * marks was wrong. The seal now records WHICH planner minted the plan, and
+ * `openStripPlan` opens only plans this handle sealed.
+ *
+ * The door is exported and the handle is not. Opening validates and mints
+ * nothing; `seal` is the capability.
+ * ------------------------------------------------------------------ */
+const STRIP_PLANNER = marks.definePlanner({
+  name: 'the share-of-GDP strip planner',
+  revalidate: revalidateStrip,
+});
+
+/** THE ONE DOOR a plan from outside comes through. Identity, then content. */
+export function openStripPlan(plan, context) {
+  return STRIP_PLANNER.open(plan, context);
+}
+
+/** True when `plan` is one this module's planner minted. Not "some plan". */
+export function isStripPlan(plan) {
+  return STRIP_PLANNER.owns(plan);
+}
+
+
 export function planStrip(frozen, options = {}) {
   const { claims, adspend } = frozen;
   const ctx = 'the share-of-GDP strip';
@@ -260,7 +289,11 @@ export function planStrip(frozen, options = {}) {
       year,
       label: c.id,
       register,
-      extra: { statement: c.statement, as_of: c.as_of },
+      /* `as_of` used to ride along here, on the mark itself. It is provenance —
+       * the field G8 exists to keep off a time axis — and a mark is the one
+       * place on a plan the record strip does not look. The reading below
+       * carries it, where the register prints it and names it as provenance. */
+      extra: { statement: c.statement },
     });
     drawable.push({
       id: c.id, mark, year,
@@ -370,7 +403,7 @@ export function planStrip(frozen, options = {}) {
     spanOnlyCount: drawable.filter((r) => r.mark.kind !== 'point').length,
     wideCut: marks.wideCut(),
   };
-  return marks.sealPlan(plan, { revalidate: revalidateStrip, context: ctx });
+  return STRIP_PLANNER.seal(plan, ctx);
 }
 
 /* ------------------------------------------------------------------ *
@@ -877,7 +910,7 @@ function mergeHoles(gaps) {
 export function render(container, frozen, options = {}) {
   guards.useFrozen(frozen);
   const plan = options.plan
-    ? marks.openSealedPlan(options.plan, 'the share-of-GDP strip')
+    ? openStripPlan(options.plan, 'the share-of-GDP strip')
     : planStrip(frozen, options);
   let windowKey = options.window === 'wide' ? 'wide' : 'narrow';
 

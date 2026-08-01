@@ -49,6 +49,13 @@
  * The object is frozen at construction, so nothing downstream can put a central
  * back onto a span. Modules are strict by default, so the attempt throws.
  *
+ * AND `extra` IS AN ALLOW LIST, NOT A BAN LIST. A mark may carry a short, closed
+ * set of presentation fields — which compiler's run it belongs to, which medium
+ * it is of, the claim's own sentence — and every value must be a primitive.
+ * Anything else is refused, because `assertNoRecordOnPlan` skips minted marks by
+ * design and a record field that reaches one is a record field nothing
+ * downstream will ever find. See EXTRA_KEYS.
+ *
  * THERE IS NO `layout` FIELD ANY MORE, AND ITS REMOVAL IS A REPAIR.
  *
  * There used to be one: a number for positioning only, the central where there
@@ -112,13 +119,15 @@
  * proof twice. It is authenticated instead, on IDENTITY and then on CONTENT,
  * which is exactly the shape G5's declared-empty sentinel ended up with:
  *
- *   sealPlan(plan, { revalidate, context })
- *                               mints it. Only this module can. It DEEP-FREEZES
- *                               the whole plan first, then runs the same
- *                               inspection re-entry runs, so a plan that could
- *                               not survive coming back in never leaves the
- *                               planner.
- *   openSealedPlan(plan, ctx)   refuses a plan this module did not mint, then
+ *   definePlanner({ name, revalidate })
+ *                               hands back a PLANNER HANDLE. The planner module
+ *                               keeps it in a module-private const and exports
+ *                               its door, never the handle.
+ *   planner.seal(plan, ctx)     mints. It DEEP-FREEZES the whole plan first,
+ *                               then runs the same inspection re-entry runs, so
+ *                               a plan that could not survive coming back in
+ *                               never leaves the planner.
+ *   planner.open(plan, ctx)     refuses a plan THIS PLANNER did not mint, then
  *                               re-inspects the LIVE plan — every container,
  *                               every mark, and the module's own invariants.
  *                               Every call. There is no "already validated"
@@ -126,12 +135,36 @@
  *                               guards.js: a cache keyed on identity remembers
  *                               that an object was once valid.
  *
+ * THE SEAL USED TO BE A FUNCTION ANYBODY COULD CALL, AND THAT IS THE HOLE THIS
+ * ROUND CLOSED. `sealPlan(plan, { revalidate })` was a public export taking any
+ * revalidator, so:
+ *
+ *     const forged = { ...realPlan, organs: withAMidpointTypedIntoHeadlineShort };
+ *     sealPlan(forged, { revalidate() {} });     // a no-op revalidator
+ *     renderEraMachine(host, forged);            // isSealedPlan said yes
+ *
+ * Every mark on that object was really minted, so the deep freeze, the generic
+ * walk and `assertMarksHonest` all passed; the only thing that would have caught
+ * the hand-typed figure was the era planner's OWN `revalidate`, and the caller
+ * supplied a different one. `isSealedPlan` could not tell the two apart, because
+ * the seal recorded no answer to WHO SEALED THIS.
+ *
+ * Now it does. A seal carries its planner handle, and a door only opens a plan
+ * its own planner sealed. The handle is minted by `definePlanner` and is
+ * recognised by membership of a module-private WeakSet — the same identity, not
+ * a flag, that `NO_DOCUMENTED_GAPS` is recognised by, and which survived seven
+ * forge routes across three rounds. `definePlanner` stays public because a
+ * planner has to be definable; that buys an adversary nothing, because a handle
+ * they define is not the handle `era-plan.js` holds, and `renderEraMachine`
+ * asks for that one. There is no public `sealPlan` any more, and no unscoped
+ * `openSealedPlan` to reach for instead.
+ *
  * ======================================================================
  * A SHALLOW FREEZE IS NOT A FREEZE, AND A SEAL IS NOT A VALIDATION
  * ======================================================================
  * The seal used to be `Object.freeze(plan)`, which freezes the top level and
  * nothing under it. `plan.rails[i].segments[j].marks[k] = someOtherMark` was a
- * one-line edit on a sealed plan, and `openSealedPlan` took it: the swapped-in
+ * one-line edit on a sealed plan, and the door took it: the swapped-in
  * object was a mark this module really had minted, so it passed every per-mark
  * test, and the benchmark rail drew a central square reading 1,930 where the
  * record has a span. `plan.categories.find(c => c.id === "internet").peakShare
@@ -144,7 +177,7 @@
  *      every Map and Set — those are replaced by frozen read-only facades,
  *      because `Object.freeze` does nothing to a Map's backing store and a
  *      facade with no `set` has no backing store to reach.
- *   2. RE-ENTRY RE-VALIDATES CONTENT, NEVER PROVENANCE ALONE. `openSealedPlan`
+ *   2. RE-ENTRY RE-VALIDATES CONTENT, NEVER PROVENANCE ALONE. `planner.open`
  *      re-walks the whole live object graph, asserts every container is still
  *      frozen, collects every mark it can reach ANYWHERE in the plan rather
  *      than from a hand-written list of containers, and then hands the plan to
@@ -225,6 +258,132 @@ export function wideCutSentence() {
 const _MINTED = new WeakSet();
 
 /**
+ * THE ONLY FIELDS `extra` MAY CARRY, AND IT IS AN ALLOW LIST BECAUSE A BAN LIST
+ * WAS NOT ONE.
+ *
+ * `extra` used to be policed by a list of forbidden keys — `central`, `kind`,
+ * `lo`, `hi`, `ratio`, `layout`, `anchor` — which are this function's own
+ * answers. Everything else went straight onto a minted mark, and "everything
+ * else" included `ci80`, `sources`, `method`, `as_of` and `calibration`.
+ *
+ * That is a hole with a second mouth on it. `assertNoRecordOnPlan` in
+ * `../eras/era-plan.js` walks a finished plan for record rows and SKIPS MINTED
+ * MARKS BY DESIGN, because a point mark's `central` is the one record-shaped key
+ * a mark is supposed to carry. So a record field put onto a mark through `extra`
+ * walked past the strip, was sealed with the plan, and re-opened with the
+ * midpoint of an interval the library had refused a central to computable off
+ * the mark itself. B3 passes only `organField` today, so nothing exploited it —
+ * but "no caller does this yet" is a latent hazard, not a guarantee, and both
+ * READMEs state the strip as a GUARANTEE over the whole plan.
+ *
+ * So the list is closed, and it is closed five times:
+ *
+ *   1. A KEY NOT ON THIS LIST IS REFUSED. Not "a key on a list of bad names" —
+ *      a ban list only protects against the fields somebody thought of, and
+ *      `calibration` was not one of them.
+ *   2. A VALUE THAT IS NOT A PRIMITIVE IS REFUSED. "No record on a mark" is not
+ *      a rule about key names; it is a rule about whether a renderer can reach
+ *      the record. `{ statement: theWholeClaim }` reaches it through an allowed
+ *      key. A mark carries strings, numbers and nulls.
+ *   3. EVERY OWN KEY IS READ, INCLUDING SYMBOLS. The check used to walk
+ *      `Object.keys`, which does not see a symbol — and object spread does. So
+ *      `{ [Symbol.for("ci80")]: claim.ci80 }` walked onto a minted mark with
+ *      nothing looking at it, and `assertNoRecordOnPlan` walks `Object.keys`
+ *      too, so nothing downstream would ever have found it. `Reflect.ownKeys`
+ *      sees every own key, and a symbol is never on the allow list.
+ *   4. AN ACCESSOR IS REFUSED. A mark carries values. A property with a getter
+ *      is a value that can be one thing when it is checked and another thing
+ *      when it is read, and the check used to read `extra[key]`, approve it, and
+ *      then let the mark spread `extra` — two reads of the same property. So
+ *      `{ get statement() { return n++ ? claim : "a sentence"; } }` passed the
+ *      check and put the whole record on the mark.
+ *   5. AND THE VALIDATED VALUES ARE WHAT GOES ON THE MARK, not the caller's
+ *      object. Rule 4 already closes the two-reads gap; this closes it a second
+ *      time, without depending on anyone having thought of accessors. The bag is
+ *      copied here, once, and the copy is what `planClaimMark` spreads.
+ *
+ * Adding a key here is an edit in a diff a reviewer reads, which is the point.
+ */
+export const EXTRA_KEYS = Object.freeze([
+  'source_series',  // which compiler's run a mark belongs to — value-chart, small-multiples
+  'medium',         // which medium a mark is of — small-multiples
+  'organField',     // which of the eight organ fields a mark sits at — the era machines
+  'statement',      // the claim's own sentence, which a verdict stamp has to be able to print
+]);
+
+/** The fields planClaimMark computes. Named apart, so the refusal says which. */
+const COMPUTED_KEYS = Object.freeze([
+  'central', 'kind', 'lo', 'hi', 'ratio', 'layout', 'anchor',
+  'id', 'year', 'grade', 'unit', 'label', 'verdict',
+]);
+
+/**
+ * THROWING FORM. What a caller may hand a mark, and in what shape.
+ *
+ * Returns a FROZEN COPY holding the values this function actually checked, and
+ * `planClaimMark` spreads that copy rather than the caller's object. Validating
+ * one object and spreading another read of it is a check with a gap in the
+ * middle of it: see note 4 on EXTRA_KEYS.
+ */
+export function assertExtra(extra, id) {
+  if (extra === undefined || extra === null) return Object.freeze({});
+  if (typeof extra !== 'object' || Array.isArray(extra)) {
+    throw new MarkError(
+      `planClaimMark(${id}) was given an \`extra\` that is not a plain object.`, extra,
+    );
+  }
+  const safe = {};
+  /* Reflect.ownKeys, not Object.keys: object spread copies symbol keys and
+   * Object.keys does not see them, so a walk that misses one is a walk a record
+   * row rides through. */
+  for (const key of Reflect.ownKeys(extra)) {
+    const name = typeof key === 'symbol' ? key.toString() : key;
+    if (COMPUTED_KEYS.includes(key)) {
+      throw new MarkError(
+        `planClaimMark(${id}) was given "${name}" in \`extra\`. Those fields are this function's ` +
+        `answer, not the caller's — and "central" in particular is the field whose ABSENCE on a ` +
+        `span-only mark is the entire guarantee this module makes.`,
+        extra,
+      );
+    }
+    if (!EXTRA_KEYS.includes(key)) {
+      throw new MarkError(
+        `planClaimMark(${id}) was given "${name}" in \`extra\`, which is not one of the ` +
+        `presentation fields a mark may carry: ${EXTRA_KEYS.join(', ')}. The list is an ALLOW ` +
+        `list because a ban list let \`ci80\`, \`sources\`, \`method\`, \`as_of\` and ` +
+        `\`calibration\` onto minted marks — and the record strip skips minted marks by design, ` +
+        `so a record field that reaches one is a record field nothing downstream will find. If ` +
+        `this mark really needs "${name}" to be drawn, add it to EXTRA_KEYS with the reason.`,
+        extra,
+      );
+    }
+    const descriptor = Object.getOwnPropertyDescriptor(extra, key);
+    if (descriptor && (typeof descriptor.get === 'function' || typeof descriptor.set === 'function')) {
+      throw new MarkError(
+        `planClaimMark(${id}) was given an accessor at \`extra.${name}\`. A mark carries values. ` +
+        `A property with a getter is a value that can be a harmless string when it is checked and ` +
+        `the whole claim record when it is read again, and that is how \`ci80\` and \`calibration\` ` +
+        `walked past a check that had just approved a sentence.`,
+        descriptor,
+      );
+    }
+    /* Read ONCE. What is checked is what is kept. */
+    const value = extra[key];
+    if (value !== null && (typeof value === 'object' || typeof value === 'function')) {
+      throw new MarkError(
+        `planClaimMark(${id}) was given a ${Array.isArray(value) ? 'array' : typeof value} at ` +
+        `\`extra.${name}\`. A mark carries strings, numbers and nulls. An object under an allowed ` +
+        `key is how a whole claim record — its \`ci80\`, its \`calibration\`, its sources — rides ` +
+        `onto a mark that every later check waves through.`,
+        value,
+      );
+    }
+    safe[key] = value;
+  }
+  return Object.freeze(safe);
+}
+
+/**
  * Build the one drawable object, and strip what the renderer must not reach.
  *
  * `claim` is a record in the shape G1 reads: `{ id, central, ci80, ... }`. The
@@ -241,7 +400,8 @@ const _MINTED = new WeakSet();
  *   label       what this mark is of, for the accessible name
  *   format      value -> string, for the accessible name
  *   register    REQUIRED when the claim's verdict is not the clean one
- *   extra       fields to carry along (source_series, medium, …)
+ *   extra       presentation fields to carry along. EXTRA_KEYS is the closed
+ *               list, and every value must be a primitive. See EXTRA_KEYS.
  */
 export function planClaimMark(claim, options = {}) {
   /* The library's own reader. Two finite numbers, low before high, central
@@ -259,23 +419,7 @@ export function planClaimMark(claim, options = {}) {
   const ratio = guards.intervalRatio(claim);
   const stamp = stampVerdict(claim, options.register, options.label || claim.id);
 
-  /* `extra` carries record fields along for the ride — source_series, medium,
-   * the claim's own statement. It is spread FIRST so nothing in it can shadow a
-   * field this function computes, and `central` is refused outright: that is
-   * the one key whose absence is the whole guarantee, and a caller who could
-   * pass it in `extra` could put a central back on a span in one line, through
-   * the constructor whose job is to take it off. */
-  const extra = options.extra || {};
-  for (const banned of ['central', 'kind', 'lo', 'hi', 'ratio', 'layout', 'anchor']) {
-    if (Object.prototype.hasOwnProperty.call(extra, banned)) {
-      throw new MarkError(
-        `planClaimMark(${claim.id}) was given "${banned}" in \`extra\`. Those fields are this ` +
-        `function's answer, not the caller's — and "central" in particular is the field whose ` +
-        `ABSENCE on a span-only mark is the entire guarantee this module makes.`,
-        extra,
-      );
-    }
-  }
+  const extra = assertExtra(options.extra, claim.id);
 
   const mark = {
     ...extra,
@@ -545,12 +689,14 @@ export function assertVerdictsVisible(marks, stamps, context) {
 /* ======================================================================
  * 4 · THE SEAL — what closes options.plan
  *
- * Three pieces, and they are in this order because each one exists because the
+ * Four pieces, and they are in this order because each one exists because the
  * one before it was not enough:
  *
  *   deepFreeze   removes the ability to edit a sealed plan at all
  *   inspectPlan  re-derives, from the LIVE graph, what the plan now contains
  *   revalidate   the planner's own arithmetic, re-run on re-entry
+ *   the handle   says WHICH planner's arithmetic that was, so a caller cannot
+ *                substitute their own and have a door open on the answer
  * ====================================================================== */
 
 const _SEALED = new WeakMap();
@@ -628,7 +774,7 @@ function frozenSetOf(set, seal) {
  *
  * Returns the value to store, because a Map is not frozen in place — it is
  * REPLACED — so the caller has to take what comes back. At the top level
- * `sealPlan` does that for every own property of the plan before freezing the
+ * the seal does that for every own property of the plan before freezing the
  * plan itself.
  *
  * Functions are left alone. A plan may carry one — the GDP strip's `windowMax`
@@ -659,7 +805,7 @@ function sealValue(value, seen) {
        * the outside. It does not happen on any plan in this folder; if it ever
        * does, it fails here rather than silently leaving the Map writable. */
       throw new SealError(
-        `sealPlan cannot deep-freeze this plan: a container that is already frozen holds a Map ` +
+        `this plan cannot be deep-frozen: a container that is already frozen holds a Map ` +
         `or a Set at "${key}", and a Map is replaced rather than frozen in place. Build the ` +
         `container after its contents, or hand the planner a plain object.`,
         value,
@@ -781,35 +927,30 @@ export function inspectPlan(plan, context, { requireFrozen = false } = {}) {
   return { marks: found };
 }
 
-/**
- * Mint a plan.
- *
- * `revalidate(plan, { marks, context })` is REQUIRED and it is the planner's own
- * arithmetic, written once and run twice: here at mint, and again every time the
- * plan comes back in through `options.plan`. It is where a module says the
- * things only that module knows — that a rail's marks are its segments' marks in
- * order, that a category's printed peak is the largest share the record allows a
- * central to, that a cross-section's members are the ones its year holds.
- *
- * It is required for the same reason `collect` used to be: without it the seal
- * is a rubber stamp. It is run at mint so that a plan which could not survive
- * re-entry never leaves the planner, which means the two paths through
- * `renderValueChart` cannot disagree about what is legal.
- */
-export function sealPlan(plan, options = {}) {
-  const { revalidate, context } = options;
-  const where = context || 'a plan';
-  if (typeof revalidate !== 'function') {
-    throw new SealError(
-      `sealPlan(${where}) needs a \`revalidate\` function. It is the module's own invariants, ` +
-      `re-run on the live plan every time one arrives through options.plan. Without it the seal ` +
-      `proves only that this module once built this object, which is provenance wearing a ` +
-      `validation badge — and that is exactly how a swapped-in mark reached a benchmark rail.`,
-      options,
-    );
-  }
+/** Planner handles this module minted. A caller cannot forge membership. */
+const _PLANNERS = new WeakSet();
+
+/** True for a planner handle `definePlanner` produced. Never a shape test. */
+export function isPlanner(value) {
+  return typeof value === 'object' && value !== null && _PLANNERS.has(value);
+}
+
+function mintSeal(plan, planner, revalidate, context) {
+  const where = context || planner.name;
   if (plan === null || typeof plan !== 'object') {
-    throw new SealError(`sealPlan(${where}) was handed something that is not a plan.`, plan);
+    throw new SealError(`${planner.name} was handed something that is not a plan to seal.`, plan);
+  }
+  if (_SEALED.has(plan)) {
+    /* One plan, one planner. Re-sealing would let a second caller overwrite
+     * whose arithmetic a door re-runs, which is the whole thing this identity
+     * exists to pin down. */
+    const held = _SEALED.get(plan);
+    throw new SealError(
+      `${planner.name} was handed a plan that ${held.planner.name} has already sealed. A plan ` +
+      `carries one planner's identity for its whole life: re-sealing it would swap out the ` +
+      `\`revalidate\` a door re-runs, which is exactly the substitution the handle exists to stop.`,
+      plan,
+    );
   }
   const seen = new WeakSet();
   for (const key of Object.keys(plan)) plan[key] = sealValue(plan[key], seen);
@@ -819,32 +960,31 @@ export function sealPlan(plan, options = {}) {
   assertMarksHonest(marks, where);
   revalidate(plan, { marks, context: where });
 
-  _SEALED.set(plan, { revalidate, context: where });
+  _SEALED.set(plan, { planner, revalidate, context: where });
   return plan;
 }
 
-/**
- * THE ONLY WAY TO ACCEPT A PLAN FROM OUTSIDE.
- *
- * Refuses a plan this module did not mint, and then does not trust the seal. It
- * re-walks the whole live graph, asserts every container is still frozen,
- * collects every mark from anywhere in the plan, re-checks each one against the
- * live guards, and re-runs the planner's own invariants. Content, every call, no
- * cache — because a cache keyed on identity remembers only that an object was
- * once valid, which is the hole guards.js closed in resolveGaps and is not going
- * to be reopened here.
- */
-export function openSealedPlan(plan, context) {
+function openFor(plan, planner, context) {
   const seal = _SEALED.get(plan);
   if (!seal) {
     throw new SealError(
-      `${context || 'this chart'} was handed an options.plan that this module did not build. ` +
-      `That option used to accept any object at all, which skipped every guard in the module: ` +
-      `it was used to render a rejected claim plotted at its as_of publication date, and to forge ` +
-      `every share in the small-multiple bank straight past the partition proof. A public option ` +
-      `that disables every invariant is not an option, it is the bypass. Build the plan with this ` +
-      `module's own planner and pass that.`,
+      `${context || planner.name} was handed an options.plan that no planner sealed. That option ` +
+      `used to accept any object at all, which skipped every guard in the module: it was used to ` +
+      `render a rejected claim plotted at its as_of publication date, and to forge every share in ` +
+      `the small-multiple bank straight past the partition proof. A public option that disables ` +
+      `every invariant is not an option, it is the bypass. Build the plan with this module's own ` +
+      `planner and pass that.`,
       plan && typeof plan === 'object' ? Object.keys(plan) : plan,
+    );
+  }
+  if (seal.planner !== planner) {
+    throw new SealError(
+      `${context || planner.name} was handed a plan sealed by ${seal.planner.name} rather than by ` +
+      `${planner.name}. A seal is not a permission slip: it records WHICH planner minted the plan, ` +
+      `so the \`revalidate\` this door re-runs is the one written beside the numbers it protects. ` +
+      `A caller who could seal a plan with their own no-op revalidator could hand-type a figure ` +
+      `into a plan of otherwise real marks and have every other check wave it through.`,
+      { sealedBy: seal.planner.name, openedBy: planner.name },
     );
   }
   const where = context || seal.context;
@@ -854,9 +994,93 @@ export function openSealedPlan(plan, context) {
   return plan;
 }
 
-/** True when `plan` is one this module minted. For a test page's banner. */
-export function isSealedPlan(plan) {
-  return _SEALED.has(plan);
+/**
+ * DEFINE A PLANNER, AND KEEP THE HANDLE PRIVATE.
+ *
+ * `revalidate(plan, { marks, context })` is REQUIRED and it is the planner's own
+ * arithmetic, written once and run twice: at mint, and again every time the plan
+ * comes back in through `options.plan`. It is where a module says the things
+ * only that module knows — that a rail's marks are its segments' marks in order,
+ * that a category's printed peak is the largest share the record allows a
+ * central to, that a cross-section's members are the ones its year holds.
+ *
+ * It is required for the same reason `collect` used to be: without it the seal
+ * is a rubber stamp. It runs at mint so that a plan which could not survive
+ * re-entry never leaves the planner, which means the two paths through
+ * `renderValueChart` cannot disagree about what is legal.
+ *
+ * HOW TO USE THE HANDLE, AND THE ONE RULE ABOUT IT.
+ *
+ *     const PLANNER = definePlanner({ name: 'the era machine planner', revalidate });
+ *     export function planEra(...)  { ...; return PLANNER.seal(plan, where); }
+ *     export function openEraPlan(plan, ctx) { return PLANNER.open(plan, ctx); }
+ *     export const isEraPlan = (plan) => PLANNER.owns(plan);
+ *
+ * THE HANDLE IS NEVER EXPORTED. Exporting the door is safe — opening validates
+ * and mints nothing. Exporting the handle would hand out `seal`, and the seal is
+ * the capability. A module that keeps its handle in a module-private const can
+ * only be forged by editing that module, which is a rewrite in a diff a reviewer
+ * reads, and is the same line the library draws around `mechanism_scope_rules`.
+ *
+ * `definePlanner` itself is public, and that is not a hole: a handle an
+ * adversary defines is not the handle `era-plan.js` holds, and `renderEraMachine`
+ * asks for that one by identity.
+ */
+export function definePlanner(options = {}) {
+  const { name, revalidate } = options;
+  if (typeof name !== 'string' || name.trim().length < 4) {
+    throw new SealError(
+      'definePlanner needs a `name`. It is what a refusal prints when a plan reaches the wrong ' +
+      'door, and "this plan was sealed by something else" is not a sentence anybody can act on.',
+      name,
+    );
+  }
+  if (typeof revalidate !== 'function') {
+    throw new SealError(
+      `definePlanner(${name}) needs a \`revalidate\` function. It is the module's own invariants, ` +
+      `re-run on the live plan every time one arrives through options.plan. Without it the seal ` +
+      `proves only that this module once built this object, which is provenance wearing a ` +
+      `validation badge — and that is exactly how a swapped-in mark reached a benchmark rail.`,
+      options,
+    );
+  }
+  const planner = {
+    name,
+    /** Mint. Deep-freezes, inspects, then runs this planner's own arithmetic. */
+    seal(plan, context) { return mintSeal(plan, planner, revalidate, context); },
+    /**
+     * THE ONLY WAY TO ACCEPT A PLAN FROM OUTSIDE.
+     *
+     * Refuses a plan this planner did not mint, and then does not trust the
+     * seal. It re-walks the whole live graph, asserts every container is still
+     * frozen, collects every mark from anywhere in the plan, re-checks each one
+     * against the live guards, and re-runs this planner's own invariants.
+     * Content, every call, no cache — because a cache keyed on identity
+     * remembers only that an object was once valid, which is the hole guards.js
+     * closed in resolveGaps and is not going to be reopened here.
+     */
+    open(plan, context) { return openFor(plan, planner, context); },
+    /** True when this planner sealed `plan`. For a renderer's own error message. */
+    owns(plan) {
+      const seal = _SEALED.get(plan);
+      return seal !== undefined && seal.planner === planner;
+    },
+  };
+  _PLANNERS.add(planner);
+  return Object.freeze(planner);
+}
+
+/**
+ * Which planner sealed this plan, by name — or `null`. FOR A MESSAGE ONLY.
+ *
+ * It returns the name and never the handle, because the handle carries `seal`.
+ * A test page's banner and a refusal's text are what this is for; nothing may
+ * branch a permission on it, because a name is a string and a string is
+ * forgeable. The permission is `planner.owns`.
+ */
+export function sealedBy(plan) {
+  const seal = _SEALED.get(plan);
+  return seal ? seal.planner.name : null;
 }
 
 /** Every mark a plan can reach, from anywhere in it. The generic walk. */
@@ -922,10 +1146,11 @@ export function assertMarksHonest(marks, context) {
 }
 
 export default {
-  planClaimMark, markReading, markFigure, markTitle, anchorY, unorderablePairs,
+  planClaimMark, assertExtra, EXTRA_KEYS,
+  markReading, markFigure, markTitle, anchorY, unorderablePairs,
   wideCut, wideCutPercent, wideCutSentence,
   verdictRegister, verdictStamps, verdictSentence, stampVerdict,
   assertVerdictsVisible, verdictVocabulary, CLEAN_VERDICT,
-  sealPlan, openSealedPlan, isSealedPlan, planMarks, inspectPlan,
+  definePlanner, isPlanner, sealedBy, planMarks, inspectPlan,
   assertMarksHonest, assertMark, isMark, isFrozenMap, isFrozenSet,
 };

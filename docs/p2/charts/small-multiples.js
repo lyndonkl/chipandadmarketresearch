@@ -436,6 +436,35 @@ export function revalidateBank(plan, { marks: allMarks, context }) {
   return true;
 }
 
+/* ------------------------------------------------------------------ *
+ * THE PLANNER HANDLE. Module-private, and that is the identity.
+ *
+ * `BANK_PLANNER` is never exported. The seal used to be a public
+ * `sealPlan(plan, { revalidate })` taking any revalidator, so a caller could
+ * seal a plan of genuinely minted marks with an empty `revalidate() {}` and
+ * hand it to a renderer: every other check passed, because nothing about the
+ * marks was wrong. The seal now records WHICH planner minted the plan, and
+ * `openBankPlan` opens only plans this handle sealed.
+ *
+ * The door is exported and the handle is not. Opening validates and mints
+ * nothing; `seal` is the capability.
+ * ------------------------------------------------------------------ */
+const BANK_PLANNER = marks.definePlanner({
+  name: 'the small-multiple bank planner',
+  revalidate: revalidateBank,
+});
+
+/** THE ONE DOOR a plan from outside comes through. Identity, then content. */
+export function openBankPlan(plan, context) {
+  return BANK_PLANNER.open(plan, context);
+}
+
+/** True when `plan` is one this module's planner minted. Not "some plan". */
+export function isBankPlan(plan) {
+  return BANK_PLANNER.owns(plan);
+}
+
+
 /**
  * Work out which panels the bank has, and why.
  *
@@ -838,10 +867,10 @@ export function planBank(frozen, options = {}) {
     columnYears: [...crossSections.values()].filter((x) => x.definite).length,
     spanPanelYears: [...crossSections.values()].filter((x) => !x.definite).map((x) => x.year),
   };
-  /* sealPlan deep-freezes, walks the whole graph for marks, and runs
+  /* The seal deep-freezes, walks the whole graph for marks, and runs
    * revalidateBank — which is where assertVerdictsVisible now lives, over every
    * mark anywhere in the plan rather than over a hand-listed set of containers. */
-  return marks.sealPlan(plan, { revalidate: revalidateBank, context: ctx });
+  return BANK_PLANNER.seal(plan, ctx);
 }
 
 /**
@@ -1508,10 +1537,10 @@ function verdictRegisterBox(parent, plan) {
  * 7 · Public entry points
  * ------------------------------------------------------------------ */
 
-/** The one door a plan from outside comes through. See claim-marks.openSealedPlan. */
+/** The one door a plan from outside comes through. See openBankPlan, above. */
 function resolvePlan(frozen, options, context) {
   return options.plan
-    ? marks.openSealedPlan(options.plan, context)
+    ? openBankPlan(options.plan, context)
     : planBank(frozen, options);
 }
 

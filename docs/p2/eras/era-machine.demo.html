@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The seven era machines — P2 The Attention Economy</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./eras.css">
+</head>
+<body class="p2 p2-paper-ground">
+
+<header class="page">
+  <div class="p2-arch">P2 · The Attention Economy · team B3 · the seven era machines</div>
+  <h1>Seven machines that set a price.</h1>
+  <p class="p2-prose p2-lede">
+    Each era is one machine. Eight parts, in the same eight places every time, so the part that
+    counts the audience in 1880 sits where the part that counts it in 2019 sits. One part can be
+    turned. Turn it, and the machine shows you what that rule priced.
+  </p>
+  <p class="p2-prose p2-lede">
+    Every number on this page is a claim from the frozen record. Where a claim's interval is wider
+    than the cut, there is no middle value at all — the bar is the whole reading, and the machine
+    has no number to print. Where the record refuses to place a reading in time, the year is drawn
+    as an object with a name on it rather than left blank.
+  </p>
+  <div id="motiontoggle"></div>
+  <p class="p2-status" id="status">loading the frozen record…</p>
+</header>
+
+<div id="loadfail">
+  <b>This page could not read the frozen data.</b>
+  <p>Browsers block <code>fetch</code> on <code>file://</code> origins, and Chrome additionally
+    blocks <code>&lt;script type="module"&gt;</code> imports there. Serve the repository root over
+    http and open the page from the server:</p>
+  <p><code>cd /path/to/repo &amp;&amp; python3 -m http.server 8000</code><br>
+     then <code>http://localhost:8000/docs/p2/eras/era-machine.demo.html</code></p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<nav class="p2-era-nav" id="nav" aria-label="Choose an era"></nav>
+<p class="p2-chrome p2-gate-note" id="gate" hidden></p>
+
+<main id="root"></main>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle, auditReducedCoverage } from '../lib/motion.js';
+import { auditPalette, verifyTokenParity } from '../lib/tokens.js';
+import { planEra, planCrossEra } from './era-plan.js';
+import { renderEraMachine } from './era-machine.js';
+import { createTeacher, installPullRings, createDrawer } from './pull-ring.js';
+import { loadEraRecords } from './era-records.js';
+import { assertOrganSpine, FIELDS } from './organs.js';
+
+const status = document.getElementById('status');
+const fail = document.getElementById('loadfail');
+
+function die(err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent = (err && err.stack) ? err.stack : String(err);
+  status.textContent = 'FAILED — see the box above.';
+  throw err;
+}
+
+try {
+  initMotion();
+  installMotionToggle(document.getElementById('motiontoggle'));
+  verifyTokenParity();
+  auditPalette();
+  auditReducedCoverage();
+  assertOrganSpine();
+
+  await guards.loadFrozen();
+  const frozen = guards.snapshotFrozen();
+  const records = await loadEraRecords();
+
+  const plans = records.map((r) => planEra(r, frozen, { scope: 'era-native' }));
+  const drawerPlans = new Map();
+  for (const field of FIELDS) drawerPlans.set(field, planCrossEra(field, records, frozen));
+
+  const teacher = createTeacher();
+  const drawer = createDrawer(document.body);
+  const root = document.getElementById('root');
+  const nav = document.getElementById('nav');
+  const gate = document.getElementById('gate');
+
+  let current = 1;
+
+  /* THE MOMENT THE READER CANNOT SKIP.
+   *
+   * Era 1 teaches both verbs and the page will not move on until both have been
+   * used. This is deliberate and it is the whole answer to the problem five
+   * design architects raised independently: a comparison tool nobody finds is
+   * not a tool. The note below says why the other six are held, so the gate is
+   * never a dead button with no explanation. */
+  const state = { cranked: false };
+  const gateOpen = () => state.cranked && teacher.taught;
+
+  function paintGate() {
+    const open = gateOpen();
+    nav.querySelectorAll('button[data-era]').forEach((b) => {
+      const era = Number(b.dataset.era);
+      b.disabled = !open && era !== 1;
+      b.setAttribute('aria-pressed', String(era === current));
+    });
+    gate.hidden = open && current !== 1;
+    gate.dataset.open = String(open);
+    gate.textContent = open
+      ? 'Both controls are learned. The rings stay on every part from here on, and the handle ' +
+        'works the same way in all seven machines.'
+      : `Era 1 teaches the two controls. Turn the handle${state.cranked ? ' ✓' : ''}, then pull a ` +
+        `ring${teacher.taught ? ' ✓' : ''}. The other six machines open once you have used both.`;
+  }
+
+  function show(era) {
+    current = era;
+    const plan = plans[era - 1];
+    const out = renderEraMachine(root, plan, {
+      onFirstCrank() {
+        state.cranked = true;
+        rings.teachAfterFirstCrank();
+        paintGate();
+      },
+    });
+    const rings = installPullRings(out.svg, {
+      teacher,
+      teaching: era === 1,
+      onPull(field) {
+        drawer.show(drawerPlans.get(field));
+        paintGate();
+      },
+    });
+    paintGate();
+    return out;
+  }
+
+  for (let era = 1; era <= 7; era += 1) {
+    const plan = plans[era - 1];
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.dataset.era = String(era);
+    b.textContent = `${era} · ${plan.name}`;
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', () => { if (!b.disabled) show(era); });
+    nav.appendChild(b);
+  }
+
+  const reset = document.createElement('button');
+  reset.type = 'button';
+  reset.textContent = 'reset the lesson';
+  reset.title = 'Forget that the pull ring was taught, so the teaching sequence runs again.';
+  reset.addEventListener('click', () => { teacher.reset(); state.cranked = false; show(1); });
+  nav.appendChild(reset);
+
+  teacher.on(paintGate);
+  show(1);
+
+  const claims = plans.reduce((a, p) => a + p.organs.reduce((x, o) => x + o.claimCount, 0), 0);
+  const spans = plans.reduce((a, p) => a + p.organs.reduce((x, o) => x + o.spanOnlyCount, 0), 0);
+  const withheld = plans.reduce((a, p) => a + p.organs.reduce((x, o) => x + o.withheldCount, 0), 0);
+  const stamps = plans.reduce((a, p) => a + p.verdictStamps.length, 0);
+  status.textContent =
+    `7 machines · 8 organs each at 8 fixed positions · ${claims} claims drawn · ` +
+    `${spans} of them span-only at the ${plans[0].cutPercent}% cut · ` +
+    `${withheld} withheld from the timeline and drawn as objects · ` +
+    `${stamps} verdict stamps printed · ` +
+    `${plans.reduce((a, p) => a + p.crank.notches.length, 0)} crank settings across the seven · ` +
+    `era 5's drawers read ${drawerPlans.get('SCALE').cells.find((c) => c.era === 5).pools.split}`;
+
+  window.P2_ERAS = { plans, drawerPlans, teacher, drawer, show };
+} catch (err) {
+  die(err);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The era machines — the bench</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./eras.css">
+<style>
+  table.bench { border-collapse: collapse; width: 100%; font-family: var(--p2-font-chrome); font-size: 12px; }
+  table.bench th, table.bench td { border: 1px solid var(--p2-rule-faint); padding: 5px 8px; text-align: left; vertical-align: top; }
+  table.bench th { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .06em; font-size: 10px; color: var(--p2-zinc-text); }
+  td.v { font-weight: 700; }
+  tr[data-pass="false"] td.v { color: var(--p2-rust); }
+  tr[data-pass="true"]  td.v { color: var(--p2-iron); }
+  #tally { font-family: var(--p2-font-numeral); font-size: 20px; margin: 14px 0; }
+  #tally.bad { color: var(--p2-rust); }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<header class="page">
+  <div class="p2-arch">P2 · team B3 · the bench</div>
+  <h1>Every case here is a way to make a machine lie.</h1>
+  <p class="p2-prose p2-lede">
+    It reads the six real frozen files and all seven era records. Two rows use a made-up claim
+    because they need a shape rather than a fact, and both rows say so. Nothing else here is a
+    fixture. The census rows count against the whole record: a five-claim excerpt cannot tell you
+    that every position still says the same sentence in all seven machines.
+  </p>
+  <p class="p2-status" id="status">running…</p>
+  <div id="tally"></div>
+</header>
+
+<div id="loadfail">
+  <b>This page could not read the frozen data.</b>
+  <p>Serve the repository root over http:
+    <code>cd /path/to/repo &amp;&amp; python3 -m http.server 8000</code>, then
+    <code>http://localhost:8000/docs/p2/eras/eras.test.html</code></p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<main id="out"></main>
+
+<!-- The bench draws real machines into this. It is parked offscreen and it is
+     RENDERED, because Chrome does not run an animation on an element it is not
+     rendering, and a bench whose motion verbs never finish hangs instead of
+     failing. `visibility` and `display:none` would both break it. -->
+<div id="bench-host" style="position:absolute;left:-100000px;top:0;width:1240px" aria-hidden="true"></div>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion } from '../lib/motion.js';
+import { runAll } from './eras.test.js';
+import { loadEraRecords } from './era-records.js';
+
+const status = document.getElementById('status');
+const fail = document.getElementById('loadfail');
+
+try {
+  initMotion();
+  await guards.loadFrozen();
+  const frozen = guards.snapshotFrozen();
+  const records = await loadEraRecords();
+
+  const rows = await runAll({ frozen, records, host: document.getElementById('bench-host') });
+
+  const groups = [...new Set(rows.map((r) => r.group))];
+  const out = document.getElementById('out');
+  for (const group of groups) {
+    const box = document.createElement('section');
+    box.className = 'p2-note-box';
+    box.style.marginBottom = '16px';
+    const head = document.createElement('div');
+    head.className = 'p2-arch';
+    head.textContent = group;
+    box.appendChild(head);
+    const t = document.createElement('table');
+    t.className = 'bench';
+    t.innerHTML = '<thead><tr><th>case</th><th>kind</th><th></th><th>what came back</th></tr></thead>';
+    const tb = document.createElement('tbody');
+    for (const r of rows.filter((x) => x.group === group)) {
+      const tr = document.createElement('tr');
+      tr.dataset.pass = String(r.pass);
+      tr.innerHTML =
+        `<td>${r.name}</td><td>${r.kind}</td>` +
+        `<td class="v">${r.pass ? 'PASS' : 'FAIL'}</td><td>${r.detail}</td>`;
+      tb.appendChild(tr);
+    }
+    t.appendChild(tb);
+    box.appendChild(t);
+    out.appendChild(box);
+  }
+
+  const bad = rows.filter((r) => !r.pass);
+  const tally = document.getElementById('tally');
+  tally.textContent = `${rows.length} cases · ${rows.length - bad.length} pass · ${bad.length} fail`;
+  tally.className = bad.length ? 'bad' : '';
+  status.textContent = bad.length
+    ? `FAILING: ${bad.map((r) => `${r.group}/${r.name}`).join(' · ')}`
+    : 'the page\'s own tally is the authority; no number written in the README overrides it.';
+} catch (err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent = err && err.stack ? err.stack : String(err);
+  status.textContent = 'FAILED — see the box above.';
+  throw err;
+}
+</script>
+</body>
+</html>

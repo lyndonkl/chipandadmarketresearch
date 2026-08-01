@@ -1,0 +1,242 @@
+/* docs/p2/eras/eras.css — page furniture for the seven era machines.
+ *
+ * Every colour, type role and rhythm comes from ../lib/tokens.css through its
+ * own custom properties. Nothing here restates a token value, and nothing here
+ * is a second answer to a question tokens.css already answers.
+ *
+ * FOUR RULES HERE USED TO RESTATE A TOKEN IN DECIMAL. `rgba(91, 101, 112, …)`
+ * is Iron and `rgba(21, 24, 29, …)` is Graphite, written out channel by channel
+ * because those rules need the colour at low alpha. Decimal is worse than a
+ * duplicated hex, not better: a grep for #5B6570 finds every stray copy of Iron
+ * in the build and finds none of these. They go through `color-mix()` on the
+ * custom property now, so the token has one home and the alpha is the only
+ * thing this file is saying.
+ */
+
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--p2-gutter) 220px;
+}
+
+header.page { padding: 56px 0 22px; }
+
+h1 {
+  font-family: var(--p2-font-prose);
+  font-weight: 600;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.15;
+  margin: .2em 0 .4em;
+  max-width: 28ch;
+  letter-spacing: -.005em;
+}
+
+.p2-lede {
+  font-size: 17.5px; line-height: 1.6; color: var(--p2-ink-2);
+  max-width: 74ch; margin: 0 0 14px;
+}
+
+/* ---------- one machine ---------- */
+.p2-era {
+  padding: 44px 0 8px;
+  border-top: 1px solid var(--p2-rule-faint);
+}
+.p2-era:first-of-type { border-top: 0; }
+
+.p2-era-head { margin-bottom: 12px; }
+.p2-era-title {
+  font-family: var(--p2-font-prose); font-weight: 600;
+  font-size: clamp(22px, 2.6vw, 30px); line-height: 1.18;
+  margin: .1em 0 .3em; max-width: 26ch;
+}
+.p2-era-alt { max-width: 78ch; color: var(--p2-ink-2); font-size: 16px; margin: 0; }
+
+.p2-era-board { border: 1px solid var(--p2-iron); background: var(--p2-paper); }
+.p2-era-board > svg { min-width: 1100px; }
+.p2-era-svg { display: block; }
+
+/* the eight plates: one selectable head each, at eight fixed x */
+.p2-era-plate { cursor: pointer; }
+.p2-era-plate:focus-visible { outline: 2px solid var(--p2-focus); outline-offset: 2px; }
+.p2-era-plate[data-selected="true"] > rect:first-of-type {
+  fill: color-mix(in srgb, var(--p2-iron) 10%, transparent);
+}
+.p2-era-plate:hover > rect:first-of-type {
+  fill: color-mix(in srgb, var(--p2-iron) 6%, transparent);
+}
+
+/* ---------- the crank bench ---------- */
+.p2-era-bench { margin: 22px 0 10px; }
+.p2-era-bench-lede { max-width: 70ch; font-size: 16.5px; color: var(--p2-ink-2); margin: 4px 0 12px; }
+.p2-era-ctl { align-items: flex-start; }
+.p2-era-notches { flex-wrap: wrap; }
+.p2-era-notch {
+  font-family: var(--p2-font-numeral); font-size: 13px; font-weight: 600;
+  min-width: 44px; min-height: 44px; padding: 0 12px;
+  color: var(--p2-zinc-text); background: none; border: 0; cursor: pointer;
+  transition: background var(--p2-crank) var(--p2-crank-ease),
+              color var(--p2-crank) var(--p2-crank-ease);
+}
+.p2-era-notch + .p2-era-notch { border-left: 1px solid var(--p2-iron); }
+.p2-era-notch[aria-pressed="true"] { background: var(--p2-iron); color: var(--p2-bone); }
+.p2-era-notch:focus-visible { outline: 2px solid var(--p2-focus); outline-offset: -4px; }
+
+.p2-era-out { margin-top: 14px; }
+.p2-era-out-box { max-width: 560px; }
+.p2-era-out-box--empty {
+  border: 1px dashed var(--p2-iron); padding: 16px 18px; max-width: 560px;
+}
+.p2-era-out-box--empty p { margin: 6px 0 0; font-size: 16px; }
+.p2-era-out-head { margin-bottom: 6px; }
+.p2-era-out-svg { max-width: 560px; }
+.p2-era-out-read { margin: 8px 0 2px; max-width: 74ch; line-height: 1.5; }
+.p2-era-out-id { margin: 0; }
+.p2-era-out-withheld {
+  margin: 8px 0 0; max-width: 74ch; line-height: 1.5;
+  border-left: 2px solid var(--p2-iron); padding-left: 10px;
+}
+.p2-era-because, .p2-era-why { margin: 10px 0 0; max-width: 84ch; line-height: 1.5; }
+
+/* ---------- the desk: one organ, at one fixed place ---------- */
+.p2-era-desk {
+  margin: 26px 0 0; border-top: 1px solid var(--p2-rule-faint); padding-top: 16px;
+}
+.p2-era-desk-sentence { font-size: 18px; margin: 6px 0 8px; max-width: 60ch; }
+.p2-era-desk-read { margin: 0 0 4px; max-width: 84ch; line-height: 1.5; }
+.p2-era-desk-why { margin: 0 0 14px; max-width: 84ch; }
+
+.p2-era-pools { margin: 6px 0 18px; }
+.p2-era-pools > p { max-width: 84ch; margin: 4px 0 10px; line-height: 1.5; }
+.p2-era-pool-grid {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.p2-era-pool {
+  border: 1px solid var(--p2-rule-faint); background: var(--p2-paper); padding: 9px 11px 11px;
+}
+.p2-era-pool-fig { font-size: 16px; margin: 3px 0 5px; color: var(--p2-graphite); }
+.p2-era-pool .p2-chrome { display: block; line-height: 1.45; margin-bottom: 3px; }
+
+.p2-era-reg { margin: 6px 0 14px; }
+.p2-era-reg tr[data-form="span"] td:nth-child(2) { font-style: italic; }
+.p2-era-quote { margin: 4px 0 0; }
+.p2-era-quote > summary { cursor: pointer; padding: 6px 0; }
+.p2-era-quote-body {
+  max-width: 92ch; line-height: 1.6; margin: 4px 0 0;
+  border-left: 2px solid var(--p2-rule-faint); padding-left: 12px;
+}
+
+/* ---------- registers ---------- */
+.p2-era-foot { margin-top: 30px; display: grid; gap: 18px; }
+.p2-note-box { border: 1px solid var(--p2-iron); background: var(--p2-paper); padding: 14px 16px 16px; }
+.p2-note-box > .p2-arch { margin-bottom: 8px; }
+.p2-note-box p { max-width: 92ch; margin: 0 0 10px; }
+
+table.p2-reg {
+  border-collapse: collapse; width: 100%;
+  font-family: var(--p2-font-chrome); font-size: 11.5px;
+  font-variant-numeric: tabular-nums; color: var(--p2-graphite);
+}
+table.p2-reg caption {
+  text-align: left; font-family: var(--p2-font-label); text-transform: uppercase;
+  letter-spacing: .06em; font-size: 10px; color: var(--p2-zinc-text);
+  font-weight: 600; padding-bottom: 6px;
+}
+table.p2-reg th, table.p2-reg td {
+  border: 1px solid var(--p2-rule-faint); padding: 5px 8px;
+  text-align: left; vertical-align: top; overflow-wrap: anywhere;
+}
+table.p2-reg th {
+  font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .06em;
+  font-size: 10px; color: var(--p2-zinc-text); font-weight: 600;
+}
+
+.p2-era-event-list { margin: 0; padding-left: 20px; }
+.p2-era-event-list li { margin-bottom: 12px; }
+.p2-era-event-date { display: inline-block; margin-right: 8px; }
+.p2-era-event-title { font-family: var(--p2-font-prose); font-weight: 600; }
+.p2-era-event-desc { margin: 3px 0 3px; max-width: 88ch; font-size: 16px; }
+.p2-era-event-read { margin: 0; max-width: 88ch; line-height: 1.5; }
+
+/* ---------- the pull ring ---------- */
+.p2-ring { cursor: pointer; }
+.p2-ring:focus-visible { outline: 2px solid var(--p2-focus); outline-offset: 2px; }
+.p2-ring:hover .p2-ring-body circle,
+.p2-ring:focus-visible .p2-ring-body circle { stroke: var(--p2-graphite); stroke-width: 2; }
+.p2-ring-teach[data-shown="false"] { display: none; }
+
+/* ---------- the drawer ---------- */
+.p2-drawer {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  background: var(--p2-bone);
+  border-top: 1.5px solid var(--p2-iron);
+  box-shadow: 0 -8px 26px color-mix(in srgb, var(--p2-graphite) 13%, transparent);
+  transform: translateY(101%);
+  max-height: 78svh; overflow: auto;
+}
+.p2-drawer.is-open { transform: translateY(0); }
+.p2-drawer-inner { padding: 16px var(--p2-gutter) 26px; max-width: 1400px; margin: 0 auto; }
+.p2-drawer-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.p2-drawer-close {
+  font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .08em;
+  font-size: 11px; font-weight: 600; background: none; border: 1px solid var(--p2-iron);
+  color: var(--p2-graphite); padding: 10px 14px; min-height: 44px; cursor: pointer;
+}
+.p2-drawer-close:focus-visible { outline: 2px solid var(--p2-focus); outline-offset: 2px; }
+.p2-drawer-lede { margin: 8px 0 4px; font-size: 17px; max-width: 66ch; }
+.p2-drawer-ruler, .p2-drawer-seam { margin: 0 0 8px; max-width: 96ch; line-height: 1.5; }
+.p2-drawer-seam { border-left: 2px solid var(--p2-iron); padding-left: 10px; }
+.p2-drawer-cells {
+  display: grid; gap: 12px; margin: 12px 0 16px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+@media (max-width: 1180px) { .p2-drawer-cells { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 760px)  { .p2-drawer-cells { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.p2-drawer-cell {
+  border: 1px solid var(--p2-rule-faint); background: var(--p2-paper); padding: 9px 10px 11px;
+}
+.p2-drawer-years { display: block; margin: 1px 0 6px; }
+.p2-drawer-svg { display: block; width: 100%; height: auto; }
+.p2-drawer-unit { margin: 6px 0 2px; line-height: 1.4; color: var(--p2-graphite); }
+.p2-drawer-read { margin: 0 0 4px; line-height: 1.42; }
+.p2-drawer-count { margin: 0; }
+.p2-drawer-pools { margin-top: 8px; border-top: 1px solid var(--p2-rule-faint); padding-top: 6px; }
+.p2-drawer-pool { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.p2-drawer-pool-name { flex: 1 1 auto; }
+.p2-drawer-pool-fig { font-size: 11.5px; }
+.p2-drawer-pools p { margin: 6px 0 0; line-height: 1.4; }
+.p2-drawer-stamps { margin-top: 12px; }
+
+/* ---------- era navigation, and the gate era 1 holds ---------- */
+.p2-era-nav { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 16px 0 8px; }
+.p2-era-nav button {
+  font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .08em;
+  font-size: 11px; font-weight: 600; background: none; border: 1px solid var(--p2-iron);
+  color: var(--p2-graphite); padding: 10px 12px; min-height: 44px; cursor: pointer;
+}
+.p2-era-nav button[aria-pressed="true"] { background: var(--p2-iron); color: var(--p2-bone); }
+.p2-era-nav button[disabled] { opacity: .45; cursor: not-allowed; }
+.p2-era-nav button:focus-visible { outline: 2px solid var(--p2-focus); outline-offset: 2px; }
+.p2-gate-note {
+  border: 1px solid var(--p2-iron); padding: 12px 14px; max-width: 78ch;
+  margin: 8px 0 0; line-height: 1.55;
+}
+.p2-gate-note[data-open="true"] { border-style: dashed; opacity: .6; }
+
+/* ---------- the load banner ---------- */
+#loadfail {
+  display: none; border: 2px solid var(--p2-rust); padding: 16px 18px; margin: 24px 0;
+  font-family: var(--p2-font-prose); font-size: 16px; line-height: 1.55;
+}
+#loadfail code {
+  font-family: var(--p2-font-chrome); font-size: 12.5px;
+  background: color-mix(in srgb, var(--p2-graphite) 6%, transparent); padding: 1px 5px;
+}
+#loadfail pre {
+  font-family: var(--p2-font-chrome); font-size: 11.5px; white-space: pre-wrap;
+  color: var(--p2-rust); margin: 10px 0 0;
+}
+.p2-status {
+  font-family: var(--p2-font-chrome); font-size: 11.5px; color: var(--p2-zinc-text);
+  border-top: 1px solid var(--p2-rule-faint); padding-top: 8px; margin-top: 8px;
+}

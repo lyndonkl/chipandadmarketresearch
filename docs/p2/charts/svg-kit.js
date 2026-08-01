@@ -400,15 +400,28 @@ export function rule(parent, { x1, y1, x2, y2, dashed = false, color = ZINC_RULE
  * The guard checks the descriptor, not the DOM — that limit is written down in
  * the library README — so a caller that builds the descriptor without calling
  * this function is unprotected. Call this one.
+ *
+ * NOT EVERY ABSENCE IS A RANGE OF YEARS. The auction bench draws a band the
+ * record cannot place: no floor, no ceiling, and no years either. `extent` is
+ * the alternative — a phrase naming what the block covers — and exactly one of
+ * `years` and `extent` must arrive. The old guarantee is untouched: a block
+ * that says nothing about what it covers is still refused, and so is one with
+ * no label.
  */
-export function absenceBlock(parent, svg, { x, y, width, height, years, label, vertical = false, note = null }) {
-  if (!Array.isArray(years) || years.length !== 2) {
-    throw new Error('svg-kit: an absence block must name the years it covers.');
+export function absenceBlock(parent, svg, { x, y, width, height, years = null, extent = null, label, vertical = false, note = null }) {
+  const hasYears = Array.isArray(years) && years.length === 2;
+  const hasExtent = typeof extent === 'string' && extent.trim() !== '';
+  if (hasYears === hasExtent) {
+    throw new Error(
+      'svg-kit: an absence block must name exactly one of the years it covers or the extent it ' +
+      'covers. A block that says neither is whitespace with a texture on it.'
+    );
   }
   if (typeof label !== 'string' || label.trim() === '') {
     throw new Error('svg-kit: an absence block must be named. An unlabelled block is whitespace with a texture on it.');
   }
-  const g = el('g', { class: 'p2-absence', 'data-years': years.join('-') }, parent);
+  const g = el('g', Object.assign({ class: 'p2-absence' },
+    hasYears ? { 'data-years': years.join('-') } : { 'data-extent': extent.trim() }), parent);
   el('rect', { x, y, width, height, fill: stipplePaint(svg) }, g);
   assertObjectColor(IRON, 'svg-kit absence frame');
   el('rect', {
@@ -433,8 +446,11 @@ export function absenceBlock(parent, svg, { x, y, width, height, years, label, v
    * merging them into one rectangle without carrying both sentences turns two
    * different findings into one anonymous grey stretch. */
   el('title', {}, g).textContent =
-    `${years[0]}–${years[1]}: ${label}${note ? ` · the record's reason: ${note}` : ''}`;
-  return { years: [years[0], years[1]], label, form: 'stipple' };
+    `${hasYears ? `${years[0]}–${years[1]}` : extent.trim()}: ${label}` +
+    `${note ? ` · the record's reason: ${note}` : ''}`;
+  return hasYears
+    ? { years: [years[0], years[1]], label, form: 'stipple' }
+    : { extent: extent.trim(), label, form: 'stipple' };
 }
 
 /**

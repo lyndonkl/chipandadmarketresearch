@@ -92,7 +92,7 @@ import * as guards from '../lib/guards.js';
 import { initMotion, installMotionToggle } from '../lib/motion.js';
 import { verifyTokenParity } from '../lib/tokens.js';
 import { renderRailBoard } from './rail-board.js';
-import { renderValueChart, planValueChart } from './value-chart.js';
+import { renderValueChart, planValueChart, openValuePlan } from './value-chart.js';
 
 initMotion();
 /* A token-parity failure means the CSS and the JS disagree about a colour, and
@@ -179,17 +179,23 @@ const attacks = [
       span.central = 999;
     }],
   ['Hand the renderer a plan the module did not build (options.plan)',
+    () => {
+      openValuePlan({ rails: [], annotations: [] }, 'the adversary');
+    }],
+  ['Seal a plan of real marks with your own no-op revalidator, then draw it',
     async () => {
       const cm = await import('./claim-marks.js');
-      cm.openSealedPlan({ rails: [], annotations: [] }, 'the adversary');
+      const real = planValueChart(frozen, {});
+      const forged = { ...real, axisNote: 'US advertising reached $1,930m in 1919' };
+      cm.definePlanner({ name: 'the adversary', revalidate() {} }).seal(forged, 'the adversary');
+      openValuePlan(forged, 'the value chart');
     }],
   ['Swap a hand-built mark into a real plan and hand it back in',
-    async () => {
-      const cm = await import('./claim-marks.js');
+    () => {
       const p = planValueChart(frozen, {});
       p.rails[0].segments[0].marks[0] =
         { id: 'forged', kind: 'point', lo: 1, hi: 2, ratio: 0.1, central: 1.5, year: 1919 };
-      cm.openSealedPlan(p, 'the adversary');
+      openValuePlan(p, 'the adversary');
     }],
   ['Smuggle a central through planClaimMark\'s `extra` bag',
     async () => {

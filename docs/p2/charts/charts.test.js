@@ -113,7 +113,7 @@ export function chartCases({ frozen, host }) {
     strip: () => gdpStrip.planStrip(frozen, {}),
     board: () => railBoard.planRailBoard(frozen, {}),
   };
-  /* A revalidator takes the same second argument sealPlan hands it. */
+  /* A revalidator takes the same second argument the seal hands it. */
   const arg = (plan) => ({ marks: marks.planMarks(plan), context: 'the adversary' });
 
   return [
@@ -129,7 +129,7 @@ export function chartCases({ frozen, host }) {
         const donor = plan.rails.find((r) => r.key === 'coen_mce').segments[0].marks[0];
         const bench = plan.rails.find((r) => r.cadence === railBoard.CADENCE.BENCHMARK);
         bench.segments[0].marks[0] = donor;
-        marks.openSealedPlan(plan, 'the adversary');
+        valueChart.openValuePlan(plan, 'the adversary');
         return `the benchmark rail now draws a square at ${donor.central}`;
       },
     },
@@ -152,7 +152,7 @@ export function chartCases({ frozen, host }) {
         const plan = plans.value();
         plan.rails[0].segments[0].marks[0] =
           { id: 'forged', kind: 'point', lo: 1, hi: 2, ratio: 0.1, central: 1.5, year: 1919 };
-        marks.openSealedPlan(plan, 'the adversary');
+        valueChart.openValuePlan(plan, 'the adversary');
       },
     },
     {
@@ -181,8 +181,8 @@ export function chartCases({ frozen, host }) {
       expect: 'draws',
       run() {
         const plan = plans.bank();
-        marks.openSealedPlan(plan, 'a second view');
-        marks.openSealedPlan(plan, 'a third view');
+        bank.openBankPlan(plan, 'a second view');
+        bank.openBankPlan(plan, 'a third view');
         return 're-opened twice, re-validated both times';
       },
     },
@@ -347,7 +347,7 @@ export function chartCases({ frozen, host }) {
       run() {
         const plan = plans.value();
         plan.tallerSpans.push({ source_series: 'INVENTED', year: 1999 });
-        marks.openSealedPlan(plan, 'the adversary');
+        valueChart.openValuePlan(plan, 'the adversary');
         return 'the axis note now names INVENTED 1999';
       },
     },
@@ -359,7 +359,7 @@ export function chartCases({ frozen, host }) {
         const plan = plans.value();
         plan.overlaps[0].high.mark =
           { id: 'forged', kind: 'point', lo: 1, hi: 2, ratio: 0.1, central: 1.5, year: 1980 };
-        marks.openSealedPlan(plan, 'the adversary');
+        valueChart.openValuePlan(plan, 'the adversary');
       },
     },
     {
@@ -412,9 +412,84 @@ export function chartCases({ frozen, host }) {
     },
     {
       group: 'the containers',
-      name: 'Seal a plan with no revalidate function',
+      name: 'Define a planner with no revalidate function',
       expect: 'refused',
-      run() { marks.sealPlan({ rails: [] }, { context: 'the adversary' }); },
+      run() { marks.definePlanner({ name: 'the adversary' }); },
+    },
+
+    /* ---------------------------------------------------------------- *
+     * 4b · THE SEAL NAMES ITS PLANNER
+     *
+     * `sealPlan` was a public export taking any revalidator, so the seal proved
+     * only that SOME caller had run SOME arithmetic. These three cases are the
+     * routes that opened.
+     * ---------------------------------------------------------------- */
+    {
+      group: 'the seal',
+      name: 'Seal a plan of real minted marks with your own no-op revalidator',
+      expect: 'refused',
+      run() {
+        const real = plans.value();
+        const forged = { ...real, axisNote: 'US advertising rose to $1,930m in 1919' };
+        const mine = marks.definePlanner({ name: 'the adversary', revalidate() {} });
+        mine.seal(forged, 'the adversary');
+        valueChart.openValuePlan(forged, 'the value chart');
+        return 'the chart drew a plan the adversary sealed';
+      },
+    },
+    {
+      group: 'the seal',
+      name: 'Re-seal a real plan under a second planner to swap its revalidator',
+      expect: 'refused',
+      run() {
+        const plan = plans.value();
+        const mine = marks.definePlanner({ name: 'the adversary', revalidate() {} });
+        mine.seal(plan, 'the adversary');
+        return 'the plan now re-validates through the adversary\'s arithmetic';
+      },
+    },
+    {
+      group: 'the seal',
+      name: 'Hand the bank plan to the value chart\'s door',
+      expect: 'refused',
+      run() {
+        valueChart.openValuePlan(plans.bank(), 'the value chart');
+        return 'one planner\'s plan opened at another planner\'s door';
+      },
+    },
+
+    /* ---------------------------------------------------------------- *
+     * 4c · THE `extra` BAG IS AN ALLOW LIST, INCLUDING THE KEYS
+     *      `Object.keys` DOES NOT SEE
+     * ---------------------------------------------------------------- */
+    {
+      group: 'the extra bag',
+      name: 'Carry ci80 onto a mark under a SYMBOL key',
+      expect: 'refused',
+      run() {
+        const claim = guards.getFrozen('claims').claims.find((c) => c.id === 'ds-gdp-001');
+        const key = Symbol.for('ci80');
+        const mark = marks.planClaimMark(claim, {
+          year: 1922, register: marks.verdictRegister('the adversary'),
+          extra: { [key]: claim.ci80 },
+        });
+        return `the mark carries ${JSON.stringify(mark[key])} where nothing looks`;
+      },
+    },
+    {
+      group: 'the extra bag',
+      name: 'A getter that answers a string once and the whole claim twice',
+      expect: 'refused',
+      run() {
+        const claim = guards.getFrozen('claims').claims.find((c) => c.id === 'ds-gdp-001');
+        let n = 0;
+        const mark = marks.planClaimMark(claim, {
+          year: 1922, register: marks.verdictRegister('the adversary'),
+          extra: { get statement() { n += 1; return n === 1 ? 'a sentence' : claim; } },
+        });
+        return `the mark's statement is a ${typeof mark.statement}, carrying ci80 ` +
+          `${JSON.stringify(mark.statement && mark.statement.ci80)}`;
+      },
     },
 
     /* ---------------------------------------------------------------- *

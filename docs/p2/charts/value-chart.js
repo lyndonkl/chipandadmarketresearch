@@ -314,6 +314,35 @@ export function revalidateValueChart(plan, { marks: allMarks, context }) {
   return true;
 }
 
+/* ------------------------------------------------------------------ *
+ * THE PLANNER HANDLE. Module-private, and that is the identity.
+ *
+ * `VALUE_PLANNER` is never exported. The seal used to be a public
+ * `sealPlan(plan, { revalidate })` taking any revalidator, so a caller could
+ * seal a plan of genuinely minted marks with an empty `revalidate() {}` and
+ * hand it to a renderer: every other check passed, because nothing about the
+ * marks was wrong. The seal now records WHICH planner minted the plan, and
+ * `openValuePlan` opens only plans this handle sealed.
+ *
+ * The door is exported and the handle is not. Opening validates and mints
+ * nothing; `seal` is the capability.
+ * ------------------------------------------------------------------ */
+const VALUE_PLANNER = marks.definePlanner({
+  name: 'the value chart planner',
+  revalidate: revalidateValueChart,
+});
+
+/** THE ONE DOOR a plan from outside comes through. Identity, then content. */
+export function openValuePlan(plan, context) {
+  return VALUE_PLANNER.open(plan, context);
+}
+
+/** True when `plan` is one this module's planner minted. Not "some plan". */
+export function isValuePlan(plan) {
+  return VALUE_PLANNER.owns(plan);
+}
+
+
 /**
  * @param {{adspend:object, claims?:object}|object} frozen
  * @param {{window?:[number,number], annotate?:string[]}} options
@@ -521,7 +550,10 @@ export function planValueChart(frozen, options = {}) {
       year,
       label: id,
       register,
-      extra: { statement: claim.statement, method: claim.method || null },
+      /* `method` used to ride along here. It is a record row, and a mark is the
+       * one place on a plan the record strip does not look. The annotation
+       * object below carries what this drawing prints. */
+      extra: { statement: claim.statement },
     });
     annotations.push({
       id, mark, year,
@@ -578,7 +610,7 @@ export function planValueChart(frozen, options = {}) {
   };
   /* Sealed: deep-frozen, then re-walked and re-validated on every arrival
    * through options.plan. See claim-marks.js. */
-  return marks.sealPlan(plan, { revalidate: revalidateValueChart, context: ctx });
+  return VALUE_PLANNER.seal(plan, ctx);
 }
 
 /* ------------------------------------------------------------------ *
@@ -768,8 +800,8 @@ function installStyles() {
  * @param {{window?:[number,number], annotate?:string[], plan?:object}} options
  *
  * `options.plan` takes a plan THIS MODULE built, and nothing else. It is
- * re-opened through claim-marks.openSealedPlan, which refuses an object the
- * module did not mint, asserts the whole live graph is still deep-frozen,
+ * re-opened through `openValuePlan`, which refuses an object THIS PLANNER did
+ * not mint, asserts the whole live graph is still deep-frozen,
  * re-checks every mark it can reach anywhere in it against the guards, and then
  * re-runs `revalidateValueChart` — before a pixel is drawn.
  */
@@ -779,7 +811,7 @@ export function renderValueChart(container, frozen, options = {}) {
   }
   installStyles();
   const plan = options.plan
-    ? marks.openSealedPlan(options.plan, 'the value chart')
+    ? openValuePlan(options.plan, 'the value chart')
     : planValueChart(frozen, options);
   const id = uid('vc');
 

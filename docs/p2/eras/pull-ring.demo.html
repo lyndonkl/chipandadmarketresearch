@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The pull ring — the four-state teaching sequence</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./eras.css">
+<style>
+  .states { display: grid; gap: 12px; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 18px 0 6px; }
+  @media (max-width: 860px) { .states { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .state {
+    border: 1px solid var(--p2-rule-faint); background: var(--p2-paper); padding: 10px 12px 12px;
+  }
+  .state[data-live="true"] { border-color: var(--p2-iron); border-width: 1.5px; }
+  .state h3 {
+    font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .08em;
+    font-size: 11px; font-weight: 600; margin: 0 0 6px; color: var(--p2-graphite);
+  }
+  .state p { font-size: 14.5px; line-height: 1.45; margin: 0 0 6px; max-width: none; }
+  .state .now {
+    font-family: var(--p2-font-chrome); font-size: 10px; text-transform: uppercase;
+    letter-spacing: .06em; color: var(--p2-zinc-text);
+  }
+  .state[data-live="true"] .now { color: var(--p2-graphite); }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<header class="page">
+  <div class="p2-arch">P2 · team B3 · the pull ring, its own test page</div>
+  <h1>The control five architects expected readers to miss.</h1>
+  <p class="p2-prose p2-lede">
+    A small ring sits inside every machine part. Pull one and that part is lifted out of all seven
+    machines at once. It is the only way to compare one era with another without scrolling twice,
+    and a comparison tool nobody finds is not a tool. The piece therefore teaches it once, in
+    era 1, in a moment the reader cannot skip.
+  </p>
+  <p class="p2-prose p2-lede">
+    This page runs that teaching sequence on its own, so it can be watched a step at a time. Turn
+    the handle to fire it. Reset the lesson to run it again. Switch the motion toggle to reduced
+    and run it once more: the ring does not tug, it rests three pixels proud, and the sentence
+    arrives at once. That is a different encoding of the same fact, not a shorter one.
+  </p>
+  <div id="motiontoggle"></div>
+  <p class="p2-status" id="status">loading…</p>
+</header>
+
+<div id="loadfail">
+  <b>This page could not read the frozen data.</b>
+  <p>Serve the repository root over http:
+    <code>cd /path/to/repo &amp;&amp; python3 -m http.server 8000</code>, then
+    <code>http://localhost:8000/docs/p2/eras/pull-ring.demo.html</code></p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<section class="states" id="states"></section>
+<div class="p2-era-nav">
+  <button type="button" id="reset">reset the lesson</button>
+  <button type="button" id="force">fire the sequence without cranking</button>
+</div>
+
+<main id="root"></main>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle } from '../lib/motion.js';
+import { verifyTokenParity, auditPalette } from '../lib/tokens.js';
+import { planEra, planCrossEra } from './era-plan.js';
+import { renderEraMachine } from './era-machine.js';
+import { createTeacher, installPullRings, createDrawer, STATES } from './pull-ring.js';
+import { loadEraRecords } from './era-records.js';
+import { FIELDS } from './organs.js';
+
+const COPY = {
+  REST: {
+    title: '1 · rest',
+    body: 'Eight rings, drawn, quiet. Nothing has happened yet. The rings cost 26 pixels of every ' +
+      'screen from here on, and that is the price the design wrote down on purpose.',
+  },
+  TUG: {
+    title: '2 · tug',
+    body: 'Once, and only once in the whole piece. The ring on the part you just turned pulls ' +
+      'itself ten pixels and springs back, while your own hand is still the cause of the last ' +
+      'thing that moved.',
+  },
+  NAMED: {
+    title: '3 · named',
+    body: 'One line, beside that ring, saying what a ring does. It stays until you pull one, so ' +
+      'the reader who looked away during the tug still gets told.',
+  },
+  LEARNED: {
+    title: '4 · learned',
+    body: 'The line retires. The rings stay. Nothing tugs again, in any era, for the rest of the ' +
+      'session.',
+  },
+};
+
+const status = document.getElementById('status');
+const fail = document.getElementById('loadfail');
+
+try {
+  initMotion();
+  installMotionToggle(document.getElementById('motiontoggle'));
+  verifyTokenParity();
+  auditPalette();
+
+  await guards.loadFrozen();
+  const frozen = guards.snapshotFrozen();
+  const records = await loadEraRecords();
+  const plan = planEra(records[0], frozen, { scope: 'era-native' });
+  const drawerPlans = new Map(FIELDS.map((f) => [f, planCrossEra(f, records, frozen)]));
+
+  const statesHost = document.getElementById('states');
+  const cards = new Map();
+  for (const s of STATES) {
+    const card = document.createElement('div');
+    card.className = 'state';
+    card.dataset.state = s;
+    card.dataset.live = 'false';
+    card.innerHTML =
+      `<h3>${COPY[s].title}</h3><p>${COPY[s].body}</p><span class="now">waiting</span>`;
+    statesHost.appendChild(card);
+    cards.set(s, card);
+  }
+
+  const teacher = createTeacher();
+  const drawer = createDrawer(document.body);
+
+  function paint(state) {
+    for (const [s, card] of cards) {
+      const live = s === state;
+      card.dataset.live = String(live);
+      card.querySelector('.now').textContent = live ? 'now' : (
+        STATES.indexOf(s) < STATES.indexOf(state) ? 'done' : 'waiting'
+      );
+    }
+    status.textContent = `state: ${state} · taught: ${teacher.taught} · ` +
+      'the state is kept for the session, because PULL allows one teaching tug in the whole piece.';
+  }
+  teacher.on(paint);
+
+  let rings = null;
+  function draw() {
+    const out = renderEraMachine(document.getElementById('root'), plan, {
+      onFirstCrank() { rings.teachAfterFirstCrank(); },
+    });
+    rings = installPullRings(out.svg, {
+      teacher, teaching: true,
+      onPull(field) { drawer.show(drawerPlans.get(field)); },
+    });
+    paint(teacher.state);
+    return out;
+  }
+  draw();
+
+  document.getElementById('reset').addEventListener('click', () => { teacher.reset(); draw(); });
+  document.getElementById('force').addEventListener('click', () => { rings.teachAfterFirstCrank(); });
+} catch (err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent = err && err.stack ? err.stack : String(err);
+  status.textContent = 'FAILED — see the box above.';
+  throw err;
+}
+</script>
+</body>
+</html>
