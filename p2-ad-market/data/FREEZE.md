@@ -29,7 +29,17 @@ R3b followed the R2b pattern exactly: the R3 entries still read `"verdict": "con
 
 *The `as_of` definition is now fixed, and it is not the fact year.* `as_of` is **provenance**: when the governing source published, filed or was retrieved. It never appears on an axis and never acts as a time filter. A new required integer field **`about_year`** carries the year the fact is about, and it is the only field a chart may read; `about_span` carries the band where a fact spans years, and `timeline_ready: false` withholds permission to draw. No `as_of` value was changed. 60 of 505 claims would have been plotted at their source's publication date, the worst by 86 years (`ds-gdp-001`, `as_of` 2008-09-14 for a 1922 fact). The gate is `tools/verify_p2.py p1-timeline`; the audit is `verification/asof-audit.json` and `../research/notes/asof-audit.md`.
 
-*Eleven claims adjusted from the R3c re-attack on the fifteen open items* (`verification/repair-p1-open-items.json`). One central moved: `e7-unit_econ-006`, 0.00022 → 0.000165. Three era-7 AI-cost claims had a second, undeclared series (the frontier tier) sitting in their `ci80` field; splitting it out cut their intervals from 19.5x–28x of central to 2x–7x. `e5-events-007`'s R3b `open_defect` is **closed** — the unsupportable share clause is deleted, the source and the value stand. Sixteen supersessions were recorded under stage P1, five of them a records-integrity sweep (R3c finding XC-4) of confirmed verdicts that still certified values R2b had replaced. Nine chapters were updated and all ten still clear the four readability gates. Read `verification/REPAIR-P1.md`.
+*Eleven claims adjusted from the R3c re-attack on the fifteen open items* (`verification/repair-p1-open-items.json`). One central moved: `e7-unit_econ-006`, 0.00022 → 0.000165. Three era-7 AI-cost claims had a second, undeclared series (the frontier tier) sitting in their `ci80` field. Splitting it out cut their intervals from 19.5x–28x of central to 2x–7x. `e5-events-007`'s R3b `open_defect` is **closed** — the unsupportable share clause is deleted, the source and the value stand. Sixteen supersessions were recorded under stage P1, five of them a records-integrity sweep (R3c finding XC-4) of confirmed verdicts that still certified values R2b had replaced. Nine chapters were updated and all ten still clear the four readability gates. Read `verification/REPAIR-P1.md`.
+
+**B1 — 2026-07-31.** `simulator-params.json` gains two fields. No number moved, no scenario changed, and nothing was re-researched; this is the same pattern as P1's `about_year` — a required field added so a downstream guard can enforce what the prose was only asserting.
+
+*Every scenario now carries a `mechanism_scope`* naming which auction rule it demonstrates, which surface it ran on (`search` or `display`) and which years, drawn from a new top-level `mechanism_scope_rules` vocabulary whose eight entries each cite the `mechanism.json` path they came from. A scenario without a scope is a hard error in `docs/p2/lib/guards.js` (guard G7), and **no scope may pair the search surface with a first-price rule**. The reason is the one `mechanism.json` already states: on 2019-09-05 the DISPLAY exchange moved to unified first price and SEARCH did not, and conflating the two is "the standard error in retellings of the 2019 transition". The guard used to try to catch that error by scanning captions. Prose scanning is now advice; the scope check over these 21 records is the enforcement.
+
+## The guard library: what is guaranteed and what is advice
+
+Not every check in `docs/p2/lib/` is a guarantee, and three that read like one are not. **G4** guarantees the shape of a series selector and a written reason on any subset. It never guarantees the whole record reaches the page. **G7's caption test** guarantees the record's true sentence is on screen. It says nothing about a false one printed beside it. The **prose lint is a heuristic**: 19 caught and 22 missed over a 5,593-string corpus, so an empty result is never a clearance.
+
+The row-by-row table is `docs/p2/lib/README.md` → **"What is guaranteed and what is advice"**. Read the row, not the function name, before building on any guard.
 
 ## Verification state at freeze
 
@@ -37,13 +47,15 @@ All 21 deterministic checks pass, including `p1-timeline`. All ten chapters clea
 
 Claims by grade: **A 133+, B 262+, C 103+** (counts shifted slightly with R2b and the seam). Every grade-C claim carries a method documenting its derivation.
 
-## Three things a builder must not get wrong
+## Four things a builder must not get wrong
 
 **1. Do not hard-code five series keys.** `adspend.json` carries eight. A reader of only the five originally specified silently loses the classified axis, the pre-1960 cross-check and the bridge ribbon.
 
 **2. The century series is not one line.** Coen/McCann runs 1919–2007 on a billings basis; Magna backcasts to 1980 on a media-owner-revenue basis. The break decomposes to 69% category scope and only 7.2 points price basis. Seams are content and must be visible. Post-2015, Magna and IRS diverge by roughly a third — any US ad-spend number must name its rail.
 
 **3. Era 5 carries two taxonomies on purpose.** `by_money_type` is the era-native geographic split; `by_money_type_alt` is the cross-era comparable, on which all directory money sits in one intent pool. Cross-era comparisons use the alt. The two rules order local retail and direct response differently — but under both, the intervals overlap, so the pair is unranked either way. The flip is an artifact of classification, not a fact about the market. See `moneytype/reconciled.json → taxonomy_seam`.
+
+**4. Search never moved to first price.** In 2019 two things happened on opposite sides of Google's business, in opposite directions. Google Ad Manager — the open-web DISPLAY exchange — moved to a unified first-price auction on 2019-09-05. Google SEARCH did not, and never has; the 2019 search change was rGSP, a randomised generalised second-price auction the DOJ record shows was an explicit revenue play. `mechanism.json` calls the conflation "the standard error in retellings of the 2019 transition". Every simulator scenario declares its surface in `mechanism_scope`, and the guard refuses a first-price rule on search.
 
 ## Known limits, stated plainly
 

@@ -1,0 +1,2614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE GUARDS — test bench, P2 The Attention Economy</title>
+<!--
+  docs/p2/lib/guards.test.html — team B1.
+
+  Runs every guard in guards.js against a passing case and a failing case and
+  prints the result. No test framework, no external requests, no build step.
+
+  GUARANTEE ROWS AND ADVICE ROWS
+  ------------------------------
+  Most rows below prove a guard THROWS on the thing it forbids. A handful prove
+  the opposite, and they are the most important rows on the page: G7's text lint
+  is a heuristic, two ordinary English sentences get past it today, and those two
+  are here as PASSING cases. A page that only ever showed guards catching things
+  would teach the reader that the lint is a guard. It is not. The enforcement for
+  G7 is the scope check over simulator-params.json, a few rows further down.
+
+  HOW TO OPEN IT
+  --------------
+  Best:   from the repo root, `python3 -m http.server 8000`
+          then http://localhost:8000/docs/p2/lib/guards.test.html
+          Reads the six real frozen files. Every census row is checked.
+
+  Also:   open this file directly. Browsers refuse to load ES modules over
+          file:// (every module fetch is a CORS fetch and a file has no
+          origin), so the page says so plainly and tells you the command.
+
+  THE FIXTURE
+  -----------
+  When the page cannot reach the frozen files it falls back to FIXTURE, a
+  faithful excerpt of all six of them, copied verbatim on 2026-07-31. The
+  fixture proves the guards' behaviour; it never supplies a guard's parameters
+  by hand. Rows marked CENSUS count against the whole frozen record and are
+  skipped on the fixture, because a five-claim excerpt cannot tell you that the
+  60% cut still selects 65 of 506 claims.
+-->
+<style>
+:root{
+  --ground:#F2EEE4; --ink:#15181D;
+  --zinc:#838A93; --zinc-ink:#646B74;
+  --brass:#B07A2C; --brass-ink:#8A5F20;
+  --cyan:#3AA6BD;  --cyan-ink:#1F6E80;
+  --iron:#5B6570;  --rust:#A8442E;  --stipple:#C9C2B4;
+  --f-serif:'Iowan Old Style','Palatino Linotype','Book Antiqua',Palatino,Georgia,'Times New Roman',serif;
+  --f-mono:ui-monospace,'SF Mono','Cascadia Mono','Roboto Mono',Menlo,Consolas,monospace;
+  --f-arch:'Inter Tight',Inter,'Helvetica Neue',Helvetica,'Segoe UI',system-ui,Arial,sans-serif;
+  --pad:clamp(18px,5vw,72px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--f-serif);font-size:18px;line-height:1.6;
+  background-image:
+    repeating-linear-gradient(to right,rgba(21,24,29,.045) 0 1px,transparent 1px 22px),
+    repeating-linear-gradient(to bottom,rgba(21,24,29,.045) 0 1px,transparent 1px 22px);
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--pad) 80px}
+.arch{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;
+      font-size:11px;font-weight:600;color:var(--zinc-ink);line-height:1.4}
+.num{font-family:var(--f-mono);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.chrome{font-family:var(--f-mono);font-weight:400;font-size:12px;line-height:1.5;
+        color:var(--zinc-ink);font-variant-numeric:tabular-nums}
+p{max-width:64ch;margin:0 0 1em}
+h1{font-family:var(--f-serif);font-weight:600;font-size:clamp(28px,4vw,38px);
+   line-height:1.15;margin:16px 0 12px;max-width:24ch;letter-spacing:-.005em}
+
+header{padding:40px 0 8px}
+#lede{max-width:62ch;color:rgba(21,24,29,.82);margin:0 0 22px}
+
+/* ---- the tally board ---- */
+#tally{border:1px solid var(--iron);background:rgba(255,255,255,.5);
+       display:flex;flex-wrap:wrap;gap:0;margin:0 0 10px}
+#tally .cellx{padding:11px 16px 12px;border-right:1px solid rgba(91,101,112,.4);min-width:104px}
+#tally .cellx:last-child{border-right:0}
+#tally dt{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;
+          font-size:10px;font-weight:600;color:var(--zinc-ink)}
+#tally dd{margin:2px 0 0;font-family:var(--f-mono);font-weight:600;font-size:22px;
+          font-variant-numeric:tabular-nums;line-height:1.1}
+#tally dd.bad{color:var(--rust)}
+#tally dd.small{font-size:13px;line-height:1.6;padding-top:5px}
+
+#mode{border:1px solid var(--iron);border-left-width:4px;padding:12px 16px;margin:0 0 26px;
+      background:rgba(255,255,255,.45);max-width:none}
+#mode.live{border-left-color:var(--cyan)}
+#mode.fixture{border-left-color:var(--brass)}
+#mode.dead{border-left-color:var(--rust)}
+#mode p{margin:0 0 .5em;font-size:15.5px;max-width:78ch}
+#mode p:last-child{margin-bottom:0}
+#mode code{font-family:var(--f-mono);font-size:13px;background:rgba(91,101,112,.13);padding:2px 5px}
+
+/* ---- guard sections ---- */
+section{padding:34px 0 4px;border-top:1px solid rgba(91,101,112,.28)}
+.bayhead{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:8px}
+.bayhead .tag{border:1px solid var(--iron);padding:3px 7px 2px;color:var(--iron);
+              font-family:var(--f-mono);font-weight:600;font-size:12px}
+.bayhead .rule{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;
+               font-size:13px;font-weight:600;color:var(--ink)}
+.why{font-size:16px;line-height:1.5;max-width:74ch;margin:0 0 6px;color:rgba(21,24,29,.86)}
+.reads{margin:0 0 14px}
+.advice{margin:-10px 0 14px;color:var(--brass-ink);border-left:3px solid var(--brass);padding-left:9px}
+
+table.reg{border-collapse:collapse;width:100%;font-family:var(--f-mono);font-size:12.5px;
+          font-variant-numeric:tabular-nums;color:var(--ink)}
+table.reg th,table.reg td{border:1px solid rgba(91,101,112,.4);padding:6px 9px;text-align:left;
+                          vertical-align:top;overflow-wrap:anywhere}
+table.reg th{font-family:var(--f-arch);font-weight:600;color:var(--zinc-ink);font-size:10.5px;
+             text-transform:uppercase;letter-spacing:.06em;background:rgba(255,255,255,.4)}
+table.reg td.v{width:74px;white-space:nowrap;font-weight:600}
+table.reg td.k{width:210px}
+table.reg tr.fail td{background:rgba(168,68,46,.09)}
+table.reg tr.skip td{color:var(--zinc-ink)}
+.pass{color:var(--iron)}
+.fail{color:var(--rust)}
+.skip{color:var(--zinc-ink)}
+.glyph{display:inline-block;width:9px;height:9px;border:1px solid currentColor;margin-right:6px;
+       vertical-align:0}
+.pass .glyph{background:var(--iron);border-color:var(--iron)}
+.fail .glyph{background:
+  linear-gradient(45deg,transparent 43%,var(--rust) 43% 57%,transparent 57%),
+  linear-gradient(-45deg,transparent 43%,var(--rust) 43% 57%,transparent 57%);
+  border-color:var(--rust)}
+.skip .glyph{background-image:radial-gradient(var(--stipple) 45%,transparent 47%);
+             background-size:3px 3px;border-color:var(--zinc)}
+.tablewrap{overflow-x:auto;border:1px solid var(--iron);background:rgba(255,255,255,.34)}
+.tablewrap>table.reg{border:0}
+.tablewrap>table.reg th,.tablewrap>table.reg td{border-left:0}
+.tablewrap>table.reg th:not(:last-child),.tablewrap>table.reg td:not(:last-child){border-right:1px solid rgba(91,101,112,.4)}
+
+footer{border-top:1px solid var(--iron);margin-top:52px;padding:22px 0 0}
+footer dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:6px 18px}
+footer dt{font-family:var(--f-arch);text-transform:uppercase;letter-spacing:.08em;font-size:11px;
+          font-weight:600;color:var(--zinc-ink);padding-top:3px}
+footer dd{margin:0;font-size:15.5px;line-height:1.5;max-width:80ch}
+footer code{font-family:var(--f-mono);font-size:13px;background:rgba(91,101,112,.13);padding:2px 5px}
+@media (max-width:620px){footer dl{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="arch">P2 · The Attention Economy · B1 foundation · docs/p2/lib/guards.js</div>
+  <h1>Eight invariants, and the proof that each one throws.</h1>
+  <p id="lede">Every guard below is run twice: once against something it must allow,
+    once against the exact thing it exists to forbid. A guard that passes its failing
+    case is broken, and a broken guard is worse than none, because the next person
+    trusts it. Where a check is a heuristic rather than a guarantee, its section says
+    so and its known misses are on the page as passing rows.</p>
+
+  <dl id="tally">
+    <div class="cellx"><dt>Guards</dt><dd id="tGuards" class="num">—</dd></div>
+    <div class="cellx"><dt>Cases</dt><dd id="tCases" class="num">—</dd></div>
+    <div class="cellx"><dt>Passed</dt><dd id="tPass" class="num">—</dd></div>
+    <div class="cellx"><dt>Failed</dt><dd id="tFail" class="num">—</dd></div>
+    <div class="cellx"><dt>Skipped</dt><dd id="tSkip" class="num">—</dd></div>
+    <div class="cellx"><dt>Frozen data</dt><dd id="tMode" class="num small">—</dd></div>
+  </dl>
+  <div id="mode"><p class="chrome">Loading…</p></div>
+</header>
+
+<main id="out"></main>
+
+<footer>
+  <dl>
+    <dt>Run it live</dt>
+    <dd>From the repo root: <code>python3 -m http.server 8000</code>, then
+      <code>http://localhost:8000/docs/p2/lib/guards.test.html</code>. That reads the
+      six real frozen files and checks the census rows as well.</dd>
+    <dt>Run it offline</dt>
+    <dd>Open this file directly. Browsers refuse ES modules over <code>file://</code>,
+      so the page will say so and tell you the command above. There is no way around
+      that in a browser and no reason to work around it — the served run is the real one.</dd>
+    <dt>What a red row means</dt>
+    <dd>Either a guard stopped throwing on the thing it forbids, or the frozen record
+      moved under it. Both are stop-the-build. Read the message: every guard names the
+      rule, the offending value and what to do instead.</dd>
+    <dt>What ADVICE, NOT A GUARANTEE means</dt>
+    <dd>G7's text lint returns findings and never throws. Its section carries two
+      sentences it misses, as passing rows, so that a green page is never read as
+      "the prose is clean". The guarantee for G7 is
+      <code>assertSimulatorMechanismScopes()</code>, which checks 21 frozen scenario
+      records against a declared vocabulary and cannot be paraphrased around.</dd>
+    <dt>Adding a guard</dt>
+    <dd>Add it to <code>GUARDS</code> in guards.js with its <code>why</code>, then add a
+      passing and a failing case to <code>CASES</code> in this file. The page builds
+      itself from those two lists.</dd>
+  </dl>
+</footer>
+
+</div>
+
+<script>
+/* =========================================================================
+   FIXTURE — a faithful excerpt of all six frozen files, copied verbatim on
+   2026-07-31 from p2-ad-market/data/. Used only when the page cannot reach the
+   real files. It supplies no guard's parameters by hand: every guard still
+   derives them by reading this object the same way it reads the real one.
+   ========================================================================= */
+window.FIXTURE = {
+ "claims": {
+  "claims": [
+   {
+    "id": "e1-creators-001",
+    "central": 25,
+    "unit": "percent of space price",
+    "ci80": [
+     20,
+     30
+    ],
+    "grade": "B",
+    "as_of": "1841",
+    "about_year": 1841,
+    "about_span": [
+     1840,
+     1842
+    ],
+    "statement": "Volney B. Palmer, the first or among the first US advertising agents, was paid by publishers at a commission widely reported as about 25 percent of th"
+   },
+   {
+    "id": "e1-scale-001",
+    "central": 50,
+    "unit": "USD millions (current)",
+    "ci80": [
+     30,
+     80
+    ],
+    "grade": "B",
+    "as_of": "1867",
+    "about_year": 1867,
+    "statement": "Total US advertising volume in 1867 is estimated at $50 million, the earliest quantitative benchmark that exists for the United States."
+   },
+   {
+    "id": "e1-buyers-008",
+    "central": 192,
+    "unit": "USD millions (current), 1914 benchmark",
+    "ci80": [
+     96,
+     360
+    ],
+    "grade": "C",
+    "as_of": "1914",
+    "about_year": 1914,
+    "statement": "Direct-response buyers - mail-order houses, patent-medicine makers and every advertiser working a keyed reply - spent about $192 million in 1914, roug"
+   },
+   {
+    "id": "ds-gdp-001",
+    "central": 3.0,
+    "unit": "percent of nominal GDP on the Coen/Galbi basis, 1922",
+    "ci80": [
+     2.7,
+     3.2
+    ],
+    "grade": "C",
+    "as_of": "2008-09-14",
+    "about_year": 1922,
+    "statement": "Advertising's share of US GDP was highest in the 1920s on the Coen series - about 3.0% in 1922, and 2.7-2.9% through 1920-1932 - fell to 1.2-1.3% duri"
+   },
+   {
+    "id": "ds-provenance-001",
+    "central": 100,
+    "unit": "percent of points carrying full provenance",
+    "ci80": [
+     100,
+     100
+    ],
+    "grade": "B",
+    "as_of": "2026-06-30",
+    "about_year": 2026,
+    "timeline_ready": false,
+    "about_year_note": "NOT TIMELINE-READY BY NATURE, not by ignorance. This claim describes this dataset's own provenance coverage rather than the advertising market, so it ",
+    "statement": "Of the 1,573 points in this dataset, 100% carry a named compiler, a source URL and an as-of date; points that cross a definitional break are graded C "
+   }
+  ]
+ },
+ "adspend": {
+  "series": {
+   "coen_mce": {
+    "role": "stitch",
+    "access": "free (galbithink.org xls); the underlying Coen releases were trade publications",
+    "coverage": [
+     1919,
+     2007
+    ],
+    "measures": "advertiser BILLINGS, bottom-up, valued at list (rate-card) prices, eleven media incl. direct mail, business papers and a",
+    "points": [
+     {
+      "year": 1919,
+      "medium": "total",
+      "value": 1930.0,
+      "source_series": "coen_mce"
+     },
+     {
+      "year": 1920,
+      "medium": "total",
+      "value": 2480.0,
+      "source_series": "coen_mce"
+     },
+     {
+      "year": 2007,
+      "medium": "total",
+      "value": 185280.0,
+      "source_series": "coen_mce"
+     },
+     {
+      "year": 2007,
+      "medium": "total",
+      "value": 94332.0,
+      "source_series": "coen_mce"
+     }
+    ]
+   },
+   "magna": {
+    "role": "stitch",
+    "access": "LICENSED. The annual series and the methodology document are not public. Every point here comes from a press release or from Silk & Berndt's published summary statistics; 1981-2017 and 2019-2020 are unsourceable without a licence.",
+    "coverage": [
+     1980,
+     2025
+    ],
+    "measures": "media-supplier (media-owner) advertising REVENUE, top-down; MG8 = eight media incl. direct mail on the 2015 methodology;",
+    "points": [
+     {
+      "year": 1980,
+      "medium": "total",
+      "value": 41021,
+      "source_series": "magna"
+     },
+     {
+      "year": 2018,
+      "medium": "total",
+      "value": 232906,
+      "source_series": "magna"
+     },
+     {
+      "year": 2024,
+      "medium": "total",
+      "value": 380000,
+      "source_series": "magna"
+     },
+     {
+      "year": 2025,
+      "medium": "total",
+      "value": 398000,
+      "source_series": "magna"
+     }
+    ]
+   },
+   "iab_pwc": {
+    "role": "stitch",
+    "access": "free PDFs",
+    "coverage": [
+     1996,
+     2025
+    ],
+    "measures": "US internet/online/mobile advertising REVENUE reported by sellers, plus conservative estimates for non-participants",
+    "points": [
+     {
+      "year": 1996,
+      "medium": "internet",
+      "value": 267,
+      "source_series": "iab_pwc"
+     },
+     {
+      "year": 1997,
+      "medium": "internet",
+      "value": 907,
+      "source_series": "iab_pwc"
+     },
+     {
+      "year": 2025,
+      "medium": "internet_digital_audio",
+      "value": 8400,
+      "source_series": "iab_pwc"
+     },
+     {
+      "year": 2025,
+      "medium": "internet_other_incl_classified_and_lead_gen",
+      "value": 12500,
+      "source_series": "iab_pwc"
+     }
+    ]
+   },
+   "irs_soi": {
+    "role": "cross-check-only",
+    "access": "free (irs.gov)",
+    "coverage": [
+     1960,
+     2022
+    ],
+    "measures": "the 'Advertising' deduction claimed on federal corporate income tax returns, estimated from a stratified sample of retur",
+    "points": [
+     {
+      "year": 2005,
+      "medium": "total_corporate_ad_deductions",
+      "value": 253187.675,
+      "source_series": "irs_soi"
+     },
+     {
+      "year": 2006,
+      "medium": "total_corporate_ad_deductions",
+      "value": 277006.387,
+      "source_series": "irs_soi"
+     },
+     {
+      "year": 2022,
+      "medium": "total_corporate_ad_deductions",
+      "value": 473153.216,
+      "source_series": "irs_soi"
+     },
+     {
+      "year": 1960,
+      "medium": "total_corporate_ad_deductions",
+      "value": 9291,
+      "source_series": "irs_soi"
+     }
+    ]
+   },
+   "benchmarks_pre1919": {
+    "role": "stitch",
+    "access": "free",
+    "coverage": [
+     1867,
+     1918
+    ],
+    "measures": "total US advertising volume, retrospectively estimated decades after the fact",
+    "points": [
+     {
+      "year": 1867,
+      "medium": "total",
+      "value": 50,
+      "source_series": "benchmarks_pre1919"
+     },
+     {
+      "year": 1880,
+      "medium": "total",
+      "value": 200,
+      "source_series": "benchmarks_pre1919"
+     },
+     {
+      "year": 1917,
+      "medium": "total",
+      "value": 1500,
+      "source_series": "benchmarks_pre1919"
+     },
+     {
+      "year": 1918,
+      "medium": "total",
+      "value": 1355,
+      "source_series": "benchmarks_pre1919"
+     }
+    ]
+   },
+   "naa_newspaper": {
+    "role": "stitch",
+    "access": "free via the Internet Archive; NAA stopped publishing industry revenue after 2013 and the association no longer exists",
+    "coverage": [
+     1950,
+     2010
+    ],
+    "measures": "newspaper advertising revenue reported by publishers, split national / retail / classified, print and (from 2003) online",
+    "points": [
+     {
+      "year": 1950,
+      "medium": "newspapers",
+      "value": 518.0,
+      "source_series": "naa_newspaper"
+     },
+     {
+      "year": 1950,
+      "medium": "newspapers",
+      "value": 1175.0,
+      "source_series": "naa_newspaper"
+     },
+     {
+      "year": 2010,
+      "medium": "newspapers",
+      "value": 22795.0,
+      "source_series": "naa_newspaper"
+     },
+     {
+      "year": 2010,
+      "medium": "newspapers_online",
+      "value": 3042.0,
+      "source_series": "naa_newspaper"
+     }
+    ],
+    "added_beyond_schema_spec": true,
+    "why_added": "the schema's classified money-type axis is not derivable from any of the five named series; NAA is the only compiler that published the nati"
+   },
+   "census_manufactures": {
+    "role": "cross-check-only",
+    "access": "free",
+    "coverage": [
+     1909,
+     1937
+    ],
+    "measures": "advertising RECEIPTS of newspaper and periodical publishers, enumerated biennially",
+    "points": [
+     {
+      "year": 1909,
+      "medium": "census_newspapers",
+      "value": 148.9,
+      "source_series": "census_manufactures"
+     },
+     {
+      "year": 1909,
+      "medium": "census_other_periodicals",
+      "value": 54.0,
+      "source_series": "census_manufactures"
+     },
+     {
+      "year": 1937,
+      "medium": "census_newspapers",
+      "value": 574.1,
+      "source_series": "census_manufactures"
+     },
+     {
+      "year": 1937,
+      "medium": "census_other_periodicals",
+      "value": 235.8,
+      "source_series": "census_manufactures"
+     }
+    ],
+    "added_beyond_schema_spec": true,
+    "why_added": "the only official, enumerated (non-estimated) advertising aggregate that exists before 1960, and therefore the only independent check availa"
+   },
+   "bridge_mce_mg8": {
+    "role": "derived-bridge",
+    "access": "n/a",
+    "coverage": [
+     1980,
+     2007
+    ],
+    "measures": "an estimate of what MAGNA's MG8 media-supplier-revenue series would show for the Coen years",
+    "points": [
+     {
+      "year": 1980,
+      "medium": "total",
+      "value": 41021.0,
+      "source_series": "bridge_mce_mg8"
+     },
+     {
+      "year": 1981,
+      "medium": "total",
+      "value": 46465.165,
+      "source_series": "bridge_mce_mg8"
+     },
+     {
+      "year": 2006,
+      "medium": "total",
+      "value": 230048.685,
+      "source_series": "bridge_mce_mg8"
+     },
+     {
+      "year": 2007,
+      "medium": "total",
+      "value": 230864.336,
+      "source_series": "bridge_mce_mg8"
+     }
+    ],
+    "added_beyond_schema_spec": true,
+    "why_added": "keeps constructed values out of the named compilers' series. Every point is bridged:true and graded C."
+   }
+  },
+  "concordance": [
+   {
+    "id": "coen-magna-basis",
+    "series_a": "coen_mce",
+    "series_b": "magna",
+    "years": [
+     1980,
+     2007
+    ],
+    "note": "Different objects under the same headline. Coen measures advertiser billings bottom-up at list (rate-card) prices across eleven media including business papers and a ~20%-of-total 'miscellaneous' buck",
+    "magnitude": {
+     "raw_level_break_pct_1980": -23.43,
+     "like_for_like_wedge_pct_1980": -7.21,
+     "scope_share_of_break_pct": 69.2
+    }
+   }
+  ],
+  "bridge": {
+   "gaps_not_bridged": [
+    {
+     "years": [
+      1840,
+      1866
+     ],
+     "reason": "no estimate of US advertising expenditure of any kind exists"
+    },
+    {
+     "years": [
+      1867,
+      1918
+     ],
+     "reason": "benchmark years only; the intervening years are not interpolated"
+    },
+    {
+     "years": [
+      2008,
+      2020
+     ],
+     "reason": "no free annual total exists between Coen's last year and MAGNA's press-released years; left visibly empty"
+    },
+    {
+     "years": [
+      2011,
+      2025
+     ],
+     "reason": "no free by-medium US series exists after NAA stops and before a MAGNA/eMarketer licence"
+    }
+   ]
+  }
+ },
+ "reconciled": {
+  "eras": [
+   {
+    "era": 1,
+    "era_name": "The Middlemen",
+    "unranked_pairs": [
+     {
+      "pair": [
+       "national_brand",
+       "local_retail"
+      ],
+      "verdict": null,
+      "reason": "Exact tie at the median, and all three lenses independently declined to separate them (36.1 vs 36.4; 22 vs 22; 17.0 vs 22.0). The two routes that would separate them run in OPPOSIT"
+     },
+     {
+      "pair": [
+       "national_brand",
+       "direct_response"
+      ],
+      "verdict": null,
+      "reason": "Two of three lenses declared this pair unrankable and the third ranked it at only about 85 percent. Intervals [11,46] and [8,30] overlap across almost their whole length. The separ"
+     },
+     {
+      "pair": [
+       "local_retail",
+       "direct_response"
+      ],
+      "verdict": null,
+      "reason": "Carried as unranked because the reference-class lens declared it indeterminate with high confidence and the intervals overlap over their whole range. INFORMATION PRESERVED: all thr"
+     }
+    ]
+   },
+   {
+    "era": 5,
+    "era_name": "The Impression",
+    "unranked_pairs": [
+     {
+      "pair": [
+       "local_retail",
+       "direct_response"
+      ],
+      "verdict": "fully unranked, at the 2000 anchor and across the era",
+      "reason": "Declared unrankable by two of three lenses independently. The overlap is the whole of one interval and the centrals are 3.6pp apart. The ordering flips on ONE definitional choice w"
+     },
+     {
+      "pair": [
+       "national_brand",
+       "direct_response"
+      ],
+      "verdict": "ORDERED at the 2000 anchor, UNRANKED across the era",
+      "reason": "At the 2000 anchor all three lenses put national_brand above direct_response, so that ordering is supported. Across the era it is not: the structural-proxy lens's year path reverse"
+     },
+     {
+      "pair": [
+       "national_brand",
+       "local_retail"
+      ],
+      "verdict": "UNRANKED AT THE TAIL ONLY; direction unanimous but not certified",
+      "reason": "Recorded for completeness, on the same rule era 7 applies to its direct_response/local_retail pair: the combined intervals touch over 31.5-33.0 percent, about 1.5pp of shared range"
+     }
+    ]
+   },
+   {
+    "era": 7,
+    "era_name": "The Machine Market",
+    "unranked_pairs": [
+     {
+      "pair": [
+       "national_brand",
+       "direct_response"
+      ],
+      "verdict": "UNRANKED",
+      "reason": "Centrals sit 1.4pp apart inside near-identical intervals, and the lenses do not agree on the direction: structural-proxy and reference-class order national_brand above direct_respo"
+     },
+     {
+      "pair": [
+       "national_brand",
+       "local_retail"
+      ],
+      "verdict": "UNRANKED BY INTERVAL; direction unanimous but not certified",
+      "reason": "The combined intervals overlap over 25-31 percent, six points, so the pair is recorded as unranked rather than ordered. The dependence is the reason: national_brand is a residual a"
+     },
+     {
+      "pair": [
+       "direct_response",
+       "local_retail"
+      ],
+      "verdict": "UNRANKED AT THE TAIL ONLY; direction unanimous and wide",
+      "reason": "Recorded for completeness: the combined intervals touch over 29.5-31 percent, about 1.5pp of shared range at the extreme tails. The ordering is supported but the intervals are not "
+     }
+    ]
+   }
+  ],
+  "taxonomy_seam": {
+   "cross_era_comparable_basis": "unified-intent. Any chart, table or sentence that sets era 5 beside another era must use it, because eras 6 and 7 and the dataset's own intent grouping are already built on it. Spl",
+   "era_native_basis": "geographic. It is what era 5 reports on its own terms, and era 5's chapter states both rules and both orderings rather than presenting one silently.",
+   "what_moves": {
+    "block": "local Yellow Pages, 2000",
+    "usd_millions": 11135,
+    "percentage_points_of_the_2000_us_total": 4.4995
+   },
+   "magnitude": {
+    "year": 2000,
+    "local_leg_usd_millions": 11135,
+    "local_leg_pp": 4.4995
+   },
+   "the_two_rules": {
+    "geographic": {
+     "label": "era-native basis",
+     "taxonomy_tag": "geographic",
+     "claims": [
+      "e5-scale-011",
+      "e5-scale-013",
+      "e5-buyers-011",
+      "e5-buyers-013"
+     ]
+    },
+    "unified-intent": {
+     "label": "cross-era comparable basis",
+     "taxonomy_tag": "unified-intent",
+     "claims": [
+      "e5-scale-015",
+      "e5-scale-016",
+      "e5-buyers-014",
+      "e5-buyers-015"
+     ]
+    }
+   }
+  }
+ },
+ "era5": {
+  "fields": {
+   "SCALE": {
+    "by_money_type": {
+     "national_brand": {
+      "id": "e5-scale-010"
+     },
+     "local_retail": {
+      "id": "e5-scale-011"
+     },
+     "classified": {
+      "id": "e5-scale-012"
+     },
+     "direct_response": {
+      "id": "e5-scale-013"
+     }
+    },
+    "by_money_type_alt": {
+     "local_retail": {
+      "id": "e5-scale-015"
+     },
+     "direct_response": {
+      "id": "e5-scale-016"
+     }
+    }
+   },
+   "BUYERS": {
+    "by_money_type": {
+     "national_brand": {
+      "id": "e5-buyers-010"
+     },
+     "local_retail": {
+      "id": "e5-buyers-011"
+     },
+     "classified": {
+      "id": "e5-buyers-012"
+     },
+     "direct_response": {
+      "id": "e5-buyers-013"
+     }
+    },
+    "by_money_type_alt": {
+     "local_retail": {
+      "id": "e5-buyers-014"
+     },
+     "direct_response": {
+      "id": "e5-buyers-015"
+     }
+    }
+   }
+  }
+ },
+ "mechanism": {
+  "engines": {
+   "auction": {
+    "designs": {
+     "first_price_shading": {
+      "name": "Unified first-price auction with equilibrium bid shading (Google Ad Manager display exchange, from 2019-09-05)",
+      "scope_warning": "THIS WAS DISPLAY, NOT SEARCH. Google Search never moved to first price. The 2019 search-side change was rGSP, which the DOJ record shows was an explicit revenue play. Conflating the two is the standard error in retellings of the 2019 transition.",
+      "evidence": [
+       {
+        "calibration": {
+         "statement": "Google Ad Manager - the open-web DISPLAY exchange, not search - completed its move to a unified first-price auction from 5 September 2019, folding publisher floors into unified pricing rules. Google's stated rationale was a fair a"
+        }
+       },
+       {
+        "calibration": {
+         "statement": "Google's rGSP (randomized generalized second-price) auction, launched on SEARCH in 2019, raised top-slot cost-per-click on non-navigational queries by 5.91% on PCs and tablets and 4.85% on mobile in pre-launch experiments, with a "
+        }
+       }
+      ]
+     }
+    },
+    "scope": "Google's quality-weighted second-price search auction as deployed 2002-2008 (AdWords Select), compared against pure-bid ranking (GoTo/Overture) and first-price with equilibrium bid shading, with a coda on the DOJ-disclosed pricing knobs that overrode the mechanism from 2019."
+   }
+  }
+ },
+ "simulatorParams": {
+  "mechanism_scope_note": "Every scenario carries a mechanism_scope: which rule it demonstrates, which surface it ran on, and which years. `rule` must be a key of mechanism_scope_rules; `surface` must be one the rule's own entry allows. No scope may pair the search surface with a first_price-family rule.",
+  "mechanism_scope_rules": {
+   "gsp": {
+    "family": "second_price",
+    "ad_auction": true,
+    "surfaces": [
+     "search"
+    ],
+    "source": "mechanism.json engines.auction.designs.gsp - Quality-weighted generalized second-price (AdWords Select, deployed 2002-2008)"
+   },
+   "second_price": {
+    "family": "second_price",
+    "ad_auction": true,
+    "surfaces": [
+     "search",
+     "display"
+    ],
+    "source": "the second-price benchmark every design in mechanism.json engines.auction is compared against"
+   },
+   "rgsp": {
+    "family": "second_price",
+    "ad_auction": true,
+    "surfaces": [
+     "search"
+    ],
+    "source": "mechanism.json engines.auction.examples ex-7-rgsp-inside-the-band - randomized generalized second-price, launched on SEARCH in 2019"
+   },
+   "first_price": {
+    "family": "first_price",
+    "ad_auction": true,
+    "surfaces": [
+     "display"
+    ],
+    "source": "mechanism.json engines.auction.designs.first_price_shading - Google Ad Manager, the open-web DISPLAY exchange, from 2019-09-05. The record supports this rule on display only."
+   },
+   "default_placement_deal": {
+    "family": "distribution_deal",
+    "ad_auction": false,
+    "surfaces": [
+     "search"
+    ],
+    "source": "mechanism.json engines.distribution.mechanism - revenue-share syndication, minimum-revenue guarantees and exclusive default placement (1998-2008, with a 2024 coda)."
+   }
+  },
+  "scenarios": [
+   {
+    "id": "sc-02-quality-weighting-both-metrics",
+    "demonstrates": "C2 - quality weighting raises TOTAL revenue and relevance in the same example.",
+    "mechanism_scope": [
+     {
+      "rule": "gsp",
+      "surface": "search",
+      "years": [
+       2002,
+       2008
+      ]
+     }
+    ],
+    "settings": {
+     "ranking_rule": "quality_weighted",
+     "pricing_rule": "second_price"
+    }
+   },
+   {
+    "id": "sc-06-first-price-bid-shading-panel",
+    "demonstrates": "C5 - first price with equilibrium shading is revenue-equivalent to second price. REQUIRED PANEL.",
+    "mechanism_scope": [
+     {
+      "rule": "first_price",
+      "surface": "display",
+      "years": [
+       2019,
+       2019
+      ],
+      "note": "Google Ad Manager, the open-web display exchange, from 2019-09-05. This scope may not name search and the guard refuses it if it tries."
+     },
+     {
+      "rule": "second_price",
+      "surface": "display",
+      "years": [
+       2019,
+       2019
+      ],
+      "note": "the comparison leg - the same exchange's rule before the move"
+     }
+    ],
+    "settings": {
+     "pricing_rule": [
+      "second_price",
+      "first_price"
+     ]
+    },
+    "expected_output": {
+     "headline": "Identical for every n. The 86% 'windfall' from Google's own 10-K bid example exists only if nobody re-bids.",
+     "required_caption": "This was DISPLAY. Google Search never moved to first price - the 2019 search change was rGSP (sc-09)."
+    }
+   },
+   {
+    "id": "sc-10-era-6-vs-era-7-side-by-side",
+    "demonstrates": "Finding f10 and f12 - the two 2019 changes ran in opposite directions.",
+    "mechanism_scope": [
+     {
+      "rule": "first_price",
+      "surface": "display",
+      "years": [
+       2019,
+       2019
+      ],
+      "note": "the display panel"
+     },
+     {
+      "rule": "rgsp",
+      "surface": "search",
+      "years": [
+       2019,
+       2019
+      ],
+      "note": "the search panel. The two 2019 changes ran in opposite directions and this is the one scenario that puts them side by side, which is exactly where they get conflated."
+     }
+    ],
+    "settings": {
+     "panels": [
+      "display_2019_first_price",
+      "search_2019_rgsp"
+     ]
+    }
+   },
+   {
+    "id": "D1-guarantee-headline-vs-exposure",
+    "demonstrates": "Claim 1 / X1 and X2 - the guarantee is bet-the-company as a headline number and structurally bounded as an exposure.",
+    "mechanism_scope": [
+     {
+      "rule": "default_placement_deal",
+      "surface": "search",
+      "years": [
+       2002,
+       2003
+      ]
+     }
+    ],
+    "expected_output": {
+     "required_caption": "The ~$100m and ~85% terms are grade B. The contract was never filed. D10 reconstructs both from the accounts."
+    }
+   }
+  ]
+ }
+};
+</script>
+
+<script type="module">
+import * as G from "./guards.js";
+
+/* ---------------------------------------------------------------- harness */
+const results = [];
+let mode = "fixture";
+
+function record(guard, name, call, expect, verdict, detail) {
+  results.push({ guard, name, call, expect, verdict, detail });
+}
+
+/** A case that must run without throwing. */
+function ok(guard, name, call, fn) {
+  try {
+    const value = fn();
+    record(guard, name, call, "returns", "pass",
+      value === true || value === undefined ? "returned" : short(value));
+  } catch (error) {
+    record(guard, name, call, "returns", "fail", `${error.name}: ${firstLine(error.message)}`);
+  }
+}
+
+/** A case that must throw, and must throw the named error class. */
+function throws(guard, name, call, ErrorClass, fn) {
+  try {
+    fn();
+    record(guard, name, call, `throws ${ErrorClass.name}`, "fail", "DID NOT THROW");
+  } catch (error) {
+    if (error instanceof ErrorClass) {
+      record(guard, name, call, `throws ${ErrorClass.name}`, "pass", firstLine(error.message));
+    } else {
+      record(guard, name, call, `throws ${ErrorClass.name}`, "fail",
+        `threw ${error.name} instead — ${firstLine(error.message)}`);
+    }
+  }
+}
+
+/** A census over the whole frozen record. Meaningless on the fixture, so skipped there. */
+function census(guard, name, call, expected, fn) {
+  if (mode !== "live") {
+    record(guard, name, call, expected, "skip", "needs the whole frozen record — serve the repo");
+    return;
+  }
+  try {
+    const got = String(fn());
+    record(guard, name, call, expected, got === expected ? "pass" : "fail", `got ${got}`);
+  } catch (error) {
+    record(guard, name, call, expected, "fail", `${error.name}: ${firstLine(error.message)}`);
+  }
+}
+
+const firstLine = (text) => String(text).split("\n")[0].replace(/^\[[^\]]+\]\s*/, "");
+const short = (value) => {
+  try { const s = JSON.stringify(value); return s.length > 90 ? s.slice(0, 90) + "…" : s; }
+  catch (_) { return String(value); }
+};
+
+/* ---------------------------------------------------------------- loading */
+let loadError = null;
+try {
+  await G.loadFrozen();
+  mode = "live";
+} catch (error) {
+  loadError = error;
+  if (!window.FIXTURE) throw error;
+  G.useFrozen(window.FIXTURE);
+  mode = "fixture";
+}
+
+window.__GUARDS_MODULE_RAN__ = true;
+
+/* Claims come back through the guard API rather than a second copy of the file. */
+const split = G.timelineClaims();
+const byId = Object.fromEntries(split.drawable.concat(split.withheld).map((c) => [c.id, c]));
+
+const NARROW = byId["e1-creators-001"];          // ci80 [20,30] on 25 — ratio 0.40
+const WIDE   = byId["e1-scale-001"];             // ci80 [30,80] on 50 — ratio 1.00
+const GDP    = byId["ds-gdp-001"];               // 1922 fact, 2008 source — 86 years apart
+const HELD   = byId["ds-provenance-001"];        // timeline_ready:false
+
+/* Nothing below hands a guard its data. Every one of them reads the registry. */
+const coen = G.selectSeries(undefined,
+  { only: ["coen_mce"], because: "the splice cases need Coen's own points, and only his" }
+).coen_mce.points.filter((p) => p.medium === "total");
+const magna = G.selectSeries(undefined,
+  { only: ["magna"], because: "the splice cases need MAGNA's own points, to join against Coen's" }
+).magna.points.filter((p) => p.medium === "total");
+const GAPS = G.coverageGaps();
+const THE_2008_HOLE = GAPS.find((g) => g.years[0] === 2008) || GAPS[GAPS.length - 1];
+
+/* Helpers for the cases that have to show a guard REFUSING a record. Both work
+   on a deep copy: nothing below ever mutates the frozen data the other cases
+   read, and a case that edited it in place would quietly change every case
+   after it. */
+const FROZEN_SCENARIOS = G.getFrozen("simulatorParams").scenarios;
+const SC06_CAPTION =
+  "This was DISPLAY. Google Search never moved to first price - the 2019 search change was rGSP (sc-09).";
+/* A field/value pair the record carries and no single series carries together.
+   Used by the G4 empty-conjunction case, and computed rather than written down
+   for the same reason the guard itself reads the file. */
+function impossibleConjunction() {
+  const fields = G.seriesFields();
+  const series = G.selectSeries(undefined, "all");
+  const names = Object.keys(fields);
+  for (const a of names) {
+    for (const b of names) {
+      if (a === b) continue;
+      for (const va of fields[a]) {
+        for (const vb of fields[b]) {
+          const hit = Object.values(series).some((s) => s[a] === va && s[b] === vb);
+          if (!hit) return { [a]: va, [b]: vb };
+        }
+      }
+    }
+  }
+  throw new Error("every field/value pair in the record co-occurs; nothing to prove here");
+}
+
+function editParams(mutate) {
+  const copy = JSON.parse(JSON.stringify(G.getFrozen("simulatorParams")));
+  mutate(copy);
+  return copy;
+}
+
+/* ================================================================ THE CASES
+   One passing case and one failing case per guard, at minimum. The failing
+   case is always the real mistake, not a synthetic one: the five-key series
+   list, the sorted era-7 pools, the 2007-to-2021 line, the as_of axis.
+   ======================================================================= */
+
+/* ---- G1 · NO POINT ON A WIDE INTERVAL ---------------------------------- */
+ok("G1", "a claim inside the cut may carry a point",
+  'drawMark(e1-creators-001, "point")', () => G.drawMark(NARROW, "point"));
+throws("G1", "a claim over the cut refuses a point",
+  'drawMark(e1-scale-001, "point")', G.WideIntervalError, () => G.drawMark(WIDE, "point"));
+ok("G1", "the same claim draws span-only",
+  'drawMark(e1-scale-001, "span")', () => G.drawMark(WIDE, "span"));
+throws("G1", "a mark kind the guard cannot classify is refused, not waved through",
+  'drawMark(claim, "blob")', G.WideIntervalError, () => G.drawMark(WIDE, "blob"));
+ok("G1", "the boolean form agrees with the throwing form",
+  "markKindFor(claim)", () => {
+    if (G.markKindFor(WIDE) !== "span" || G.markKindFor(NARROW) !== "point") throw new Error("disagree");
+    return true;
+  });
+census("G1", "the 60% cut still selects 65 of 506 claims",
+  "auditWideIntervals()", "65/506", () => {
+    const a = G.auditWideIntervals();
+    return `${a.wide}/${a.total}`;
+  });
+/* THE BYPASS. readInterval never checked orientation. ci80 [360, 96] on a
+   central of 192 gives a ratio of -1.375 — negative, therefore below the cut,
+   therefore "narrow" — and drawMark returned "point" on the widest claim in
+   the record. e1-buyers-008 is that claim, written backwards. */
+throws("G1", "an inverted ci80 is refused, not silently sorted",
+  "drawMark({ci80:[360,96]}, 'point')", G.GuardError,
+  () => G.drawMark({ id: "e1-buyers-008-inverted", central: 192, ci80: [360, 96] }, "point"));
+throws("G1", "and the span form will not draw it either",
+  "drawMark({ci80:[360,96]}, 'span')", G.GuardError,
+  () => G.drawMark({ id: "e1-buyers-008-inverted", central: 192, ci80: [360, 96] }, "span"));
+throws("G1", "the boolean form does not answer on an inverted interval",
+  "isWideInterval({ci80:[360,96]})", G.GuardError,
+  () => G.isWideInterval({ id: "e1-buyers-008-inverted", central: 192, ci80: [360, 96] }));
+ok("G1", "written the right way round, the same claim is span-only",
+  "drawMark({ci80:[96,360]}, 'span')", () => {
+    const claim = { id: "e1-buyers-008", central: 192, ci80: [96, 360] };
+    if (G.markKindFor(claim) !== "span") throw new Error("not span-only");
+    return G.drawMark(claim, "span");
+  });
+throws("G1", "a central outside its own interval is refused",
+  "drawMark({central:500, ci80:[96,360]}, 'point')", G.GuardError,
+  () => G.drawMark({ id: "probe-central-outside", central: 500, ci80: [96, 360] }, "point"));
+
+/* ---- G2 · NO ORDER ON UNRANKED QUANTITIES ------------------------------ */
+ok("G2", "an established ordering may be sorted",
+  'assertRankable(7, [local_retail, classified], "sort")',
+  () => G.assertRankable(7, ["local_retail", "classified"], "sort"));
+throws("G2", "era 7's three unranked pools refuse a sort",
+  'assertRankable(7, [national_brand, direct_response, local_retail], "sort")',
+  G.UnrankedOrderError,
+  () => G.assertRankable(7, ["national_brand", "direct_response", "local_retail"], "sort"));
+throws("G2", "the call the design spec names by hand",
+  'renderPools(pools, "unranked", "sorted")', G.UnrankedOrderError,
+  () => G.renderPools([{ id: "national_brand", era: 7 }, { id: "direct_response", era: 7 }],
+    "unranked", "sorted"));
+ok("G2", "the same pools in an unordered layout",
+  'renderPools(pools, "unranked", "span-panel")',
+  () => G.renderPools([{ id: "national_brand", era: 7 }, { id: "direct_response", era: 7 }],
+    "unranked", "span-panel"));
+throws("G2", "a caller who declares them ranked is still caught by the record",
+  'renderPools(pools, "ranked", "sorted")', G.UnrankedOrderError,
+  () => G.renderPools([{ id: "national_brand", era: 7 }, { id: "direct_response", era: 7 }],
+    "ranked", "sorted"));
+throws("G2", "era 5's taxonomy-flipped pair is unranked under both rules",
+  'assertRankable(5, [local_retail, direct_response], "stack")', G.UnrankedOrderError,
+  () => G.assertRankable(5, ["local_retail", "direct_response"], "stack"));
+throws("G2", "a layout the guard cannot classify is refused",
+  'renderPools(pools, "unranked", "waterfall")', G.UnrankedOrderError,
+  () => G.renderPools([{ id: "national_brand", era: 7 }], "unranked", "waterfall"));
+throws("G2", "the guard goes loud, not quiet, if the pairs leave the record",
+  "unrankedPairsByEra({eras:[…no pairs…]})", G.GuardVacuousError,
+  () => G.unrankedPairsByEra({ eras: [{ era: 7, unranked_pairs: [] }] }));
+census("G2", "era 7 still carries three unranked pairs",
+  "unrankedPairs(7).size", "3", () => G.unrankedPairs(7).size);
+/* THE BYPASS. The pool readers said `p.id ?? p`. A pool object keyed by `name`
+   has no `id`, so the object itself was coerced to "[object Object]", which
+   matches no pair in the record — and era 7's two mutually unranked pools came
+   back sorted, with no throw. The rule was right; the input handling was not. */
+throws("G2", "pools keyed by name, not id, are refused instead of coerced",
+  "sortPools(7, [{name:'national_brand'}, {name:'direct_response'}], desc)",
+  G.UnrankedOrderError,
+  () => G.sortPools(7, [{ name: "national_brand", v: 1 }, { name: "direct_response", v: 2 }],
+    (a, b) => b.v - a.v));
+throws("G2", "the same objects handed straight to the rule",
+  "assertRankable(7, [{name:…}, {name:…}], 'sort')", G.UnrankedOrderError,
+  () => G.assertRankable(7, [{ name: "national_brand" }, { name: "direct_response" }], "sort"));
+throws("G2", "and through the layout route",
+  "renderPools([{name:…, era:7}, …], 'ranked', 'sorted')", G.UnrankedOrderError,
+  () => G.renderPools([{ name: "national_brand", era: 7 }, { name: "direct_response", era: 7 }],
+    "ranked", "sorted"));
+throws("G2", "a number where an id belongs is refused",
+  "assertRankable(7, [1, 2], 'sort')", G.UnrankedOrderError,
+  () => G.assertRankable(7, [1, 2], "sort"));
+ok("G2", "the same pools keyed by id are read, not refused",
+  "sortPools(7, [{id:'local_retail'}, {id:'classified'}], desc)",
+  () => G.sortPools(7, [{ id: "local_retail", v: 1 }, { id: "classified", v: 2 }],
+    (a, b) => b.v - a.v).map((p) => p.id));
+
+/* ---- G3 · NO SPLICE ---------------------------------------------------- */
+ok("G3", "one rail joins itself", "assertNoSplice(coen totals)",
+  () => G.assertNoSplice(coen.slice(0, 3), "the Coen rail"));
+throws("G3", "Coen billings will not join MAGNA media-owner revenue",
+  "assertNoSplice([coen 2007, magna 2018])", G.SpliceError,
+  () => G.assertNoSplice([coen[coen.length - 1], magna[1]], "the rails board main path"));
+/* This case used to assert two segments, because buildPath's gap list used to
+   default to nothing. It is three: the rail change at 2018, AND the 2018→2021
+   step, which crosses two documented holes. The old expectation was the unsafe
+   default written down as the right answer. */
+ok("G3", "the path builder breaks instead of splicing, and again at the hole",
+  "buildPath([…coen, …magna]).segments", () => {
+    const r = G.buildPath([...coen.slice(-2), ...magna.slice(1, 3)]);
+    if (r.segments.length !== 3) throw new Error("segments=" + r.segments.length);
+    if (r.breaks[0].reason !== "different source_series") throw new Error(r.breaks[0].reason);
+    if (r.breaks[1].reason !== "documented absence") throw new Error(r.breaks[1].reason);
+    return { segments: r.segments.length, breaks: r.breaks.map((b) => b.reason) };
+  });
+ok("G3", "the error quotes the measured distance between the two rails",
+  "assertNoSplice(...).message", () => {
+    try { G.assertNoSplice([coen[coen.length - 1], magna[1]], "x"); }
+    catch (error) {
+      if (!/23\.43/.test(error.message)) throw new Error("no distance in the message");
+      return "names 23.43%";
+    }
+    throw new Error("did not throw");
+  });
+ok("G3", "the boolean form agrees", "canJoin(a, b)", () => {
+  if (!G.canJoin(coen[0], coen[1])) throw new Error("same rail refused");
+  if (G.canJoin(coen[0], magna[0])) throw new Error("two rails allowed");
+  return true;
+});
+throws("G3", "a point stripped of source_series cannot be judged, so it is refused",
+  "assertNoSplice([{year:1980,value:1}, …])", G.GuardError,
+  () => G.assertNoSplice([{ year: 1980 }, { year: 1981 }], "a reshaped array"));
+
+/* ---- G4 · NO HARD-CODED SERIES LIST ------------------------------------ */
+ok("G4", "the file's own keys are complete by construction",
+  "assertSeriesListComplete(seriesKeys())", () => G.assertSeriesListComplete(G.seriesKeys()));
+throws("G4", "the five keys the schema spec named are refused",
+  "assertSeriesListComplete([the original five])", G.SeriesListError,
+  () => G.assertSeriesListComplete(
+    ["coen_mce", "magna", "iab_pwc", "irs_soi", "benchmarks_pre1919"], undefined, "the rails board"));
+ok("G4", "the refusal names all three dropped series",
+  "…message", () => {
+    try {
+      G.assertSeriesListComplete(["coen_mce", "magna", "iab_pwc", "irs_soi", "benchmarks_pre1919"]);
+    } catch (error) {
+      for (const key of ["naa_newspaper", "census_manufactures", "bridge_mce_mg8"]) {
+        if (!error.message.includes(key)) throw new Error("does not name " + key);
+      }
+      return "names naa_newspaper, census_manufactures, bridge_mce_mg8";
+    }
+    throw new Error("did not throw");
+  });
+throws("G4", "a literal array selector is refused outright",
+  'selectSeries(adspend, ["coen_mce","magna"])', G.SeriesListError,
+  () => G.selectSeries(undefined, ["coen_mce", "magna"]));
+ok("G4", "criteria the record carries are the supported way to take a subset",
+  'selectSeries(adspend, { role: "stitch", because: "…" })',
+  () => Object.keys(G.selectSeries(undefined, {
+    role: "stitch",
+    because: "the rails board draws the two stitch rails; the cross-checks are a separate panel",
+  })).length);
+ok("G4", "and \"all\" is how a chart says it wants the whole record",
+  'selectSeries(adspend, "all")',
+  () => Object.keys(G.selectSeries(undefined, "all")).length);
+throws("G4", "a bare role string no longer names its own field, so it is refused",
+  'selectSeries(adspend, "stitch")', G.SeriesListError,
+  () => G.selectSeries(undefined, "stitch", "the rails board"));
+throws("G4", "a key the file does not hold is refused",
+  'assertSeriesListComplete([…, "emarketer"])', G.SeriesListError,
+  () => G.assertSeriesListComplete(G.seriesKeys().concat("emarketer")));
+census("G4", "adspend.json still holds eight series",
+  "seriesKeys().length", "8", () => G.seriesKeys().length);
+/* THE BYPASS. Anything that was neither an array nor a function fell through
+   to `s.role === selector`, matched nothing, and returned {}. Zero series
+   renders an empty chart, and an empty chart looks deliberate. */
+throws("G4", "a typo'd role string is refused, not answered with nothing",
+  'selectSeries(adspend, "stich")', G.SeriesListError,
+  () => G.selectSeries(undefined, "stich", "the rails board"));
+throws("G4", "a Set is a list with a different constructor, so it is not criteria",
+  'selectSeries(adspend, new Set(["coen_mce"]))', G.SeriesListError,
+  () => G.selectSeries(undefined, new Set(["coen_mce"])));
+throws("G4", "nor is a Map",
+  'selectSeries(adspend, new Map([["role","stitch"]]))', G.SeriesListError,
+  () => G.selectSeries(undefined, new Map([["role", "stitch"]])));
+throws("G4", "nor is nothing at all",
+  "selectSeries(adspend, undefined)", G.SeriesListError,
+  () => G.selectSeries(undefined, undefined));
+/* THE SECOND BYPASS, AND WHY DETECTION WAS ABANDONED.
+
+   The array refusal caught the shape of the mistake and not the mistake: the
+   same five-key list inside a predicate dropped the same three series and
+   looked like the supported call. The answer was to read the predicate's own
+   source and refuse one that named two or more keys as literals — a detector.
+   It lost twice, to one extra line and to a method call:
+
+     const RAILS = [...the five...];
+     selectSeries(adspend, (k) => RAILS.includes(k));            // source names no keys
+     selectSeries(adspend, ((k) => RAILS.includes(k)).bind(null)); // "[native code]"
+
+   So the predicate form is gone. There is no source to inspect because there is
+   no function to pass: a subset is described with fields the record carries, or
+   written down as { only, because } with a reason a reviewer can read. The
+   cases below are the ones the detector could not catch, and they are refused
+   now by the shape of the API rather than by a scan. */
+const RAILS_FIVE = ["coen_mce", "magna", "iab_pwc", "irs_soi", "benchmarks_pre1919"];
+throws("G4", "the five-key list wearing a lambda is the same mistake",
+  "selectSeries(adspend, k => [the original five].includes(k))", G.SeriesListError,
+  () => G.selectSeries(undefined, (k) => RAILS_FIVE.includes(k), "the rails board"));
+throws("G4", "and so is the same lambda with the array hoisted one line up",
+  "const RAILS = [...]; selectSeries(adspend, k => RAILS.includes(k))", G.SeriesListError,
+  () => G.selectSeries(undefined, (k) => RAILS_FIVE.includes(k)));
+throws("G4", "a bound function no longer buys an exemption by name",
+  "selectSeries(adspend, (k => RAILS.includes(k)).bind(null))", G.SeriesListError,
+  () => G.selectSeries(undefined, ((k) => RAILS_FIVE.includes(k)).bind(null)));
+throws("G4", "and the same five keys written down still have to say why",
+  'selectSeries(adspend, { only: [the original five] })  // no because', G.SeriesListError,
+  () => G.selectSeries(undefined, { only: RAILS_FIVE }, "the rails board"));
+ok("G4", "the same five keys WITH a written reason are allowed, and leave one in the diff",
+  'selectSeries(adspend, { only: [the original five], because: "…" })',
+  () => Object.keys(G.selectSeries(undefined, {
+    only: RAILS_FIVE,
+    because: "this bench quotes the schema spec's original five to show what they drop",
+  })).length);
+ok("G4", "the refusal of a predicate names both defeats and the three forms",
+  "…message", () => {
+    try {
+      G.selectSeries(undefined, (k) => RAILS_FIVE.includes(k));
+    } catch (error) {
+      for (const phrase of ["SOURCE", "one line up into a const", "[native code]", "only"]) {
+        if (!error.message.includes(phrase)) throw new Error("does not mention: " + phrase);
+      }
+      return "names the const hoist, the bound function, and the three forms";
+    }
+    throw new Error("did not throw");
+  });
+throws("G4", "a field the record does not carry is refused, not answered with nothing",
+  'selectSeries(adspend, { rolle: "stitch" })', G.SeriesListError,
+  () => G.selectSeries(undefined, { rolle: "stitch" }, "the rails board"));
+throws("G4", "a value the record does not carry is refused the same way",
+  'selectSeries(adspend, { role: "stich" })', G.SeriesListError,
+  () => G.selectSeries(undefined, { role: "stich" }, "the rails board"));
+throws("G4", "empty criteria describe no subset at all",
+  "selectSeries(adspend, {})", G.SeriesListError,
+  () => G.selectSeries(undefined, {}));
+throws("G4", "a conjunction that matches nothing is an empty chart, so it is refused",
+  "selectSeries(adspend, { role: A, otherField: B })  // no series carries both",
+  G.SeriesListError,
+  /* Built from whatever the record holds rather than from two field names typed
+     here, so the case still means something after the file gains a field. */
+  () => G.selectSeries(undefined, impossibleConjunction(), "the rails board"));
+ok("G4", "one series, named on purpose, with the reason written down",
+  'selectSeries(adspend, { only: ["coen_mce"], because: "…" })',
+  () => Object.keys(G.selectSeries(undefined, {
+    only: ["coen_mce"],
+    because: "the billings rail is Coen's alone; MAGNA counts a different object",
+  })));
+ok("G4", "a conjunction the record does satisfy comes back with what it holds",
+  'selectSeries(adspend, { role: "stitch", added_beyond_schema_spec: true, because: "…" })',
+  () => Object.keys(G.selectSeries(undefined, {
+    role: "stitch", added_beyond_schema_spec: true,
+    because: "this bench shows the stitch rails that arrived after the schema spec was written",
+  })));
+ok("G4", "the roles come from the file, like the keys do",
+  "seriesRoles(adspend)", () => G.seriesRoles().sort().join(", "));
+ok("G4", "and so do the fields a selection may be made of",
+  "seriesFields(adspend)", () => Object.keys(G.seriesFields()).join(", "));
+
+/* ======================================================================
+   ROUND 3 · G4 · THE CRITERIA GRAMMAR WAS A KEY SELECTOR WITH ANOTHER NAME
+
+   Two holes, and between them they rebuilt the exact list this guard exists to
+   prevent, with no reason written anywhere.
+
+   (1) adspend.json's series carry `compiler`, `measures`, `why_added` and
+       `as_of_convention`, and every value of each names exactly one series. So
+       `{ compiler: "MAGNA Global (IPG Mediabrands)" }` is `{ key: "magna" }`
+       with a longer string in it. `{ key: … }` had been removed for exactly
+       this reason and walked back in through the record's own metadata.
+
+   (2) `{ role: "stitch" }` returns five series and silently drops
+       census_manufactures and bridge_mce_mg8 — two of the three the guard is
+       named for. The `because` requirement keyed off the WORD `only`, so the
+       call cost nothing. And it was the call the guard's own error message
+       recommended.
+
+   Both are refused below, and the reason requirement now attaches to the
+   OUTCOME: any selection that leaves a series off the chart carries a sentence,
+   whichever form asked for it.
+   ====================================================================== */
+throws("G4", "a field whose every value names one series is a key in a costume",
+  'selectSeries(adspend, { compiler: "…" })  // 8 series, 8 distinct compilers',
+  G.SeriesListError,
+  () => {
+    const keyLike = Object.keys(G.seriesKeyLikeFields());
+    if (keyLike.length === 0) throw new Error("the record carries no key-like field to test");
+    const series = G.selectSeries(undefined, "all");
+    const field = keyLike[0];
+    const value = Object.values(series).map((s) => s[field]).find((v) => v !== undefined);
+    return G.selectSeries(undefined, { [field]: value }, "the rails board");
+  });
+ok("G4", "one key-like selection per series cannot rebuild the five-key list any more",
+  "selectSeries(adspend, { <key-like field>: <that series' value> }) × 8", () => {
+    const field = Object.keys(G.seriesKeyLikeFields())[0];
+    if (!field) throw new Error("the record carries no key-like field to test");
+    const series = G.selectSeries(undefined, "all");
+    const keys = G.seriesKeys().filter((k) => series[k][field] !== undefined);
+    let refused = 0;
+    for (const key of keys) {
+      try { G.selectSeries(undefined, { [field]: series[key][field] }); }
+      catch (error) { if (error instanceof G.SeriesListError) refused += 1; }
+    }
+    if (refused !== keys.length) throw new Error(`only ${refused} of ${keys.length} refused`);
+    return `${field}: all ${refused} refused`;
+  });
+ok("G4", "the key-like fields are named, with the counts that made the call",
+  "seriesKeyLikeFields(adspend)", () => {
+    const keyLike = G.seriesKeyLikeFields();
+    if (Object.keys(keyLike).length === 0) throw new Error("no field is refused as key-like");
+    const series = G.selectSeries(undefined, "all");
+    for (const [field, counts] of Object.entries(keyLike)) {
+      const values = Object.values(series).map((s) => s[field]).filter((v) => v !== undefined);
+      if (new Set(values).size !== values.length) throw new Error(`${field} is not key-like`);
+      if (counts.carriers !== values.length) throw new Error(`${field} carrier count is wrong`);
+    }
+    return Object.keys(keyLike).join(", ");
+  });
+census("G4", "the four key-like fields the third round found are all refused",
+  "seriesKeyLikeFields()", "compiler, measures, as_of_convention, why_added",
+  () => Object.keys(G.seriesKeyLikeFields()).join(", "));
+throws("G4", "{ role } alone drops two of the three series the guard is named for",
+  'selectSeries(adspend, { role: "stitch" })  // no because', G.SeriesListError,
+  () => G.selectSeries(undefined, { role: "stitch" }, "the rails board"));
+ok("G4", "and the refusal names what came off the chart",
+  "…message", () => {
+    try {
+      G.selectSeries(undefined, { role: "stitch" }, "the rails board");
+    } catch (error) {
+      for (const key of ["census_manufactures", "bridge_mce_mg8"]) {
+        if (!error.message.includes(key)) throw new Error("does not name " + key);
+      }
+      if (!/OUTCOME/.test(error.message)) throw new Error("does not say the rule is on the outcome");
+      return "names census_manufactures and bridge_mce_mg8, and says why";
+    }
+    throw new Error("did not throw");
+  });
+throws("G4", "a placeholder reason on a dropping criteria selection is refused too",
+  'selectSeries(adspend, { role: "stitch", because: "todo" })', G.SeriesListError,
+  () => G.selectSeries(undefined, { role: "stitch", because: "todo" }, "the rails board"));
+ok("G4", "a criteria selection that drops NOTHING needs no reason",
+  "selectSeries(adspend, { <a field every series shares> })", () => {
+    const fields = G.seriesFields();
+    const series = G.selectSeries(undefined, "all");
+    for (const [field, values] of Object.entries(fields)) {
+      for (const value of values) {
+        if (Object.values(series).every((s) => s[field] === value)) {
+          return `{ ${field}: ${JSON.stringify(value)} } -> ` +
+            `${Object.keys(G.selectSeries(undefined, { [field]: value })).length} series`;
+        }
+      }
+    }
+    /* No field/value covers all eight today. The rule still holds: "all" drops
+       nothing and needs no reason, which the case above already proves. */
+    return 'no single field/value covers all eight; "all" is the drop-nothing form';
+  });
+throws("G4", "a because with no subset is a reason with nothing to explain",
+  'selectSeries(adspend, { because: "…" })', G.SeriesListError,
+  () => G.selectSeries(undefined, {
+    because: "a reason floating free of any selection at all",
+  }, "the rails board"));
+
+/* ---- G5 · ABSENCE IS AN OBJECT ----------------------------------------- */
+ok("G5", "a step inside the record's coverage is fine",
+  "assertNoInterpolation([1919, 1920])",
+  () => G.assertNoInterpolation([{ year: 1919 }, { year: 1920 }], GAPS));
+throws("G5", "a line from Coen's last year to MAGNA's first press release",
+  "assertNoInterpolation([2007, 2021])", G.AbsenceError,
+  () => G.assertNoInterpolation([{ year: 2007 }, { year: 2021 }], GAPS, "the total rail"));
+ok("G5", "a named, stippled block over the hole",
+  "assertAbsenceDrawn(gap, [{form:'stipple', label:…}])",
+  () => G.assertAbsenceDrawn([THE_2008_HOLE],
+    [{ years: THE_2008_HOLE.years, form: "stipple", label: "no continuous rail" }]));
+throws("G5", "whitespace over the hole",
+  "assertAbsenceDrawn(gap, [])", G.AbsenceError,
+  () => G.assertAbsenceDrawn([THE_2008_HOLE], [], "the rails board"));
+throws("G5", "a block with no name on it",
+  "assertAbsenceDrawn(gap, [{form:'stipple', label:''}])", G.AbsenceError,
+  () => G.assertAbsenceDrawn([THE_2008_HOLE],
+    [{ years: THE_2008_HOLE.years, form: "stipple", label: "" }]));
+throws("G5", 'a "form: none" placeholder is not a drawn thing',
+  "assertAbsenceDrawn(gap, [{form:'none'}])", G.AbsenceError,
+  () => G.assertAbsenceDrawn([THE_2008_HOLE],
+    [{ years: THE_2008_HOLE.years, form: "none", label: "no data" }]));
+ok("G5", "the path builder breaks at a documented hole when told about it",
+  "buildPath(points, { gaps })", () => {
+    const r = G.buildPath(
+      [{ year: 2007, source_series: "magna" }, { year: 2021, source_series: "magna" }], { gaps: GAPS });
+    if (r.segments.length !== 2) throw new Error("segments=" + r.segments.length);
+    return { segments: 2, break: r.breaks[0].reason };
+  });
+census("G5", "the record still documents four unbridged holes",
+  "coverageGaps().length", "4", () => G.coverageGaps().length);
+
+/* THE WORST BYPASS IN THE FILE.
+
+   buildPath(points) — no second argument, the shortest and most natural way to
+   call it — used to draw ONE unbroken line from 2007 to 2021: one segment,
+   zero breaks, no throw, straight across the documented 2008–2020 hole. `gaps`
+   was optional and its default was the unsafe one, so the guard whose whole
+   job is to stop a line crossing a hole did nothing at all unless you
+   remembered to configure it.
+
+   The four cases below are the same call that used to pass. */
+ok("G5", "buildPath with no gaps argument breaks at the hole anyway",
+  "buildPath([2007, 2021])  // gaps omitted", () => {
+    const r = G.buildPath([
+      { year: 2007, source_series: "magna" }, { year: 2021, source_series: "magna" }]);
+    if (r.segments.length !== 2) throw new Error("ONE UNBROKEN LINE: segments=" + r.segments.length);
+    if (r.breaks[0].reason !== "documented absence") throw new Error(r.breaks[0].reason);
+    return { segments: r.segments.length, break: r.breaks[0].reason, gapsRead: r.gaps.length };
+  });
+throws("G5", "and assertNoInterpolation catches the same case with no gaps argument",
+  "assertNoInterpolation([2007, 2021])  // gaps omitted", G.AbsenceError,
+  () => G.assertNoInterpolation(
+    [{ year: 2007 }, { year: 2021 }], undefined, "the total rail"));
+throws("G5", "an empty gap list guards nothing, so it is refused",
+  "buildPath(points, { gaps: [] })", G.GuardVacuousError,
+  () => G.buildPath([{ year: 2007, source_series: "magna" }], { gaps: [] }));
+throws("G5", "and so does an empty list on the assert",
+  "assertNoInterpolation(points, [])", G.GuardVacuousError,
+  () => G.assertNoInterpolation([{ year: 2007 }, { year: 2021 }], []));
+ok("G5", "a rail with genuinely no hole says so out loud and is accepted",
+  "buildPath(points, { gaps: NO_DOCUMENTED_GAPS })", () => {
+    const r = G.buildPath(
+      [{ year: 2007, source_series: "magna" }, { year: 2021, source_series: "magna" }],
+      { gaps: G.NO_DOCUMENTED_GAPS });
+    if (r.segments.length !== 1) throw new Error("segments=" + r.segments.length);
+    return { segments: 1, note: "the exemption is greppable, a bare [] is not" };
+  });
+throws("G5", "a gap range written backwards would match nothing, so it is refused",
+  "buildPath(points, { gaps: [{years:[2020, 2008]}] })", G.GuardError,
+  () => G.buildPath([{ year: 2007, source_series: "magna" }],
+    { gaps: [{ years: [2020, 2008], reason: "reversed" }] }));
+/* The same omission, in the other half of the guard: assertAbsenceDrawn used
+   to iterate `gaps || []`, so a chart that drew nothing over any hole passed. */
+throws("G5", "assertAbsenceDrawn with no gaps argument still checks the record's holes",
+  "assertAbsenceDrawn(undefined, [])", G.AbsenceError,
+  () => G.assertAbsenceDrawn(undefined, [], "the rails board"));
+ok("G5", "seriesYearGaps hands back a declared empty, not a bare one",
+  "seriesYearGaps(key) on a series with no hole", () => {
+    const key = G.seriesKeys().find((k) => G.seriesYearGaps(k).length === 0);
+    if (!key) return "every series in the file has a hole; nothing to prove here";
+    const holes = G.seriesYearGaps(key);
+    const r = G.buildPath(
+      [{ year: 1980, source_series: key }, { year: 2000, source_series: key }], { gaps: holes });
+    return { key, segments: r.segments.length };
+  });
+
+
+/* THE SENTINEL WAS FORGEABLE, AND ONE GAP RANGE WAS A DECOY.
+
+   Two things in this guard authenticated on data the caller supplies, which is
+   not authentication:
+
+   (a) the declared-empty sentinel was recognised by `gaps.declaredEmpty ===
+       true`, so the greppable exemption could be forged inline in one
+       expression — shorter than importing the real one, which is what a hurried
+       person writes:
+
+           buildPath(points, { gaps: Object.assign([], { declaredEmpty: true }) })
+
+   (b) a non-empty list was checked for shape and never for content, so a
+       well-formed gap over years the record has never heard of passed, and the
+       call reported itself configured while every real hole went uncovered.
+
+   Both are now identity: a declared-empty list is one this module minted, and
+   every declared gap must intersect an absence adspend.json actually has. */
+throws("G5", "the sentinel cannot be forged from a data flag any more",
+  "buildPath(points, { gaps: Object.assign([], {declaredEmpty:true}) })", G.GuardVacuousError,
+  () => G.buildPath(
+    [{ year: 2007, source_series: "magna" }, { year: 2021, source_series: "magna" }],
+    { gaps: Object.assign([], { declaredEmpty: true, why: "no hole here, honest" }) }));
+throws("G5", "and neither can it be forged by copying the real one's own properties",
+  "buildPath(points, { gaps: Object.assign([], {...NO_DOCUMENTED_GAPS}) })", G.GuardVacuousError,
+  () => G.buildPath(
+    [{ year: 2007, source_series: "magna" }, { year: 2021, source_series: "magna" }],
+    { gaps: Object.assign([], { ...G.NO_DOCUMENTED_GAPS }) }));
+ok("G5", "the module's own sentinel still passes, because identity is the test",
+  "buildPath(points, { gaps: NO_DOCUMENTED_GAPS })", () => {
+    const r = G.buildPath(
+      [{ year: 2007, source_series: "magna" }, { year: 2021, source_series: "magna" }],
+      { gaps: G.NO_DOCUMENTED_GAPS });
+    if (r.segments.length !== 1) throw new Error("segments=" + r.segments.length);
+    return { segments: 1, note: "minted here, so it cannot be written by a caller" };
+  });
+ok("G5", "and a rail can mint its own with a reason a reviewer reads",
+  'declareNoDocumentedGaps("…")', () => {
+    const gaps = G.declareNoDocumentedGaps("this rail publishes every year of its coverage");
+    return { segments: G.buildPath(
+      [{ year: 2007, source_series: "magna" }, { year: 2021, source_series: "magna" }],
+      { gaps }).segments.length, why: gaps.why };
+  });
+throws("G5", "an exemption with no written reason is the bare [] again",
+  'declareNoDocumentedGaps("ok")', G.GuardVacuousError,
+  () => G.declareNoDocumentedGaps("ok"));
+throws("G5", "a decoy gap over years the record never covered is refused",
+  "buildPath(points, { gaps: [{years:[3000,3001]}] })", G.AbsenceError,
+  () => G.buildPath(
+    [{ year: 2007, source_series: "magna" }, { year: 2021, source_series: "magna" }],
+    { gaps: [{ id: "gap-3000-3001", years: [3000, 3001], reason: "documented absence" }] }));
+throws("G5", "and a decoy smuggled in beside a real hole is refused too",
+  "assertNoInterpolation(points, [realGap, {years:[3000,3001]}])", G.AbsenceError,
+  () => G.assertNoInterpolation([{ year: 2007 }, { year: 2021 }],
+    [THE_2008_HOLE, { years: [3000, 3001], reason: "decoy" }], "the total rail"));
+ok("G5", "a hand-scoped gap that IS a real hole is still accepted",
+  "assertNoInterpolation([1919, 1920], [the 2008–2020 hole])",
+  () => G.assertNoInterpolation([{ year: 1919 }, { year: 1920 }],
+    [{ years: THE_2008_HOLE.years, reason: "hand-scoped to one rail, and real" }]));
+ok("G5", "the refusal shows what the record's absences actually are",
+  "…message", () => {
+    try {
+      G.buildPath([{ year: 2007, source_series: "magna" }],
+        { gaps: [{ years: [3000, 3001], reason: "decoy" }] });
+    } catch (error) {
+      if (!/record_absences/.test(error.message)) throw new Error("does not list the real absences");
+      return "names the real absences beside the invented one";
+    }
+    throw new Error("did not throw");
+  });
+
+/* ======================================================================
+   ROUND 3 · G5 · A LATER FIX REOPENED AN EARLIER HOLE
+
+   The reality check above — every declared gap must intersect an absence the
+   record actually has — closed the decoy. Then a validation cache was added on
+   top of it, to save re-deriving the record's absence set on every step of every
+   path. It was a WeakSet of gap arrays, tested ABOVE the shape checks and above
+   the reality check, and a WeakSet keys on OBJECT IDENTITY. Gap arrays are
+   mutable. So what it remembered was "this object was once valid":
+
+       const gaps = [{ years: [2008, 2020], reason: "the real hole" }];
+       buildPath(points, { gaps });          // validated, and remembered
+       gaps[0].years = [3000, 3001];         // same object, now a decoy
+       buildPath(points, { gaps });          // 1 segment, 0 breaks
+
+   One unbroken line straight across the documented 2008–2020 hole, with the
+   guard reporting itself switched on. The module's own constructors were worse:
+   they pre-authenticated their result, so emptying and refilling one produced a
+   trusted decoy in two statements.
+
+   The cache is gone. Validation runs on content, every time, and every validated
+   list is deep-frozen — so the mutation is refused where it is written rather
+   than detected somewhere downstream, or missed.
+   ====================================================================== */
+const MUTATION_POINTS = [
+  { year: 2007, source_series: "magna" }, { year: 2021, source_series: "magna" },
+];
+ok("G5", "THE SEQUENCE: validate a real gap, then mutate it into a decoy",
+  "buildPath(pts,{gaps}); gaps[0].years=[3000,3001]; buildPath(pts,{gaps})", () => {
+    const gaps = [{ years: [2008, 2020], reason: "the real hole" }];
+    const first = G.buildPath(MUTATION_POINTS, { gaps });
+    if (first.breaks.length !== 1) throw new Error("the real gap did not break the path");
+    let mutated = false;
+    try { gaps[0].years = [3000, 3001]; mutated = true; } catch (_) { /* frozen */ }
+    if (mutated && gaps[0].years[0] === 3000) {
+      throw new Error("the validated gap was mutated into a decoy");
+    }
+    const second = G.buildPath(MUTATION_POINTS, { gaps });
+    if (second.breaks.length !== 1) {
+      throw new Error(`after mutation the path drew ${second.segments.length} segment(s), ` +
+        `${second.breaks.length} break(s) — across the documented hole`);
+    }
+    return "the gap is frozen on validation; the second path still breaks";
+  });
+ok("G5", "a validated gap list is frozen, objects and year ranges included",
+  "Object.isFrozen(resolved gap, .years, and the list)", () => {
+    const gaps = [{ years: [2008, 2020], reason: "the real hole" }];
+    G.buildPath(MUTATION_POINTS, { gaps });
+    if (!Object.isFrozen(gaps)) throw new Error("the list is not frozen");
+    if (!Object.isFrozen(gaps[0])) throw new Error("the gap object is not frozen");
+    if (!Object.isFrozen(gaps[0].years)) throw new Error("the years range is not frozen");
+    return "list, gap and years all frozen";
+  });
+ok("G5", "coverageGaps() cannot be emptied and refilled with a decoy",
+  "const g = coverageGaps(); g.length = 0; g.push(decoy)", () => {
+    const gaps = G.coverageGaps();
+    const before = gaps.length;
+    try { gaps.length = 0; } catch (_) { /* frozen */ }
+    try { gaps.push({ years: [3000, 3001], reason: "decoy" }); } catch (_) { /* frozen */ }
+    if (gaps.length !== before) throw new Error("the sanctioned constructor's array was rewritten");
+    return `still ${before} documented holes, and the array is frozen`;
+  });
+ok("G5", "seriesYearGaps() is frozen the same way, for the same reason",
+  "seriesYearGaps(key)[0].years = [3000,3001]", () => {
+    const key = G.seriesKeys().find((k) => G.seriesYearGaps(k).length > 0);
+    if (!key) return "no series in the file has an internal hole; nothing to prove here";
+    const gaps = G.seriesYearGaps(key);
+    const before = gaps[0].years[0];
+    try { gaps[0].years = [3000, 3001]; } catch (_) { /* frozen */ }
+    if (gaps[0].years[0] !== before) throw new Error("a computed gap list was rewritten");
+    return `${key}: ${gaps.length} hole(s), frozen`;
+  });
+ok("G5", "re-validation is per CONTENT, so a fresh decoy is refused every time",
+  "buildPath with a decoy, twice", () => {
+    const decoy = [{ years: [3000, 3001], reason: "decoy" }];
+    let refusals = 0;
+    for (let i = 0; i < 2; i += 1) {
+      try { G.buildPath(MUTATION_POINTS, { gaps: decoy }); }
+      catch (error) { if (error instanceof G.AbsenceError) refusals += 1; }
+    }
+    if (refusals !== 2) throw new Error(`refused ${refusals} of 2 — the check is not per call`);
+    return "refused both times";
+  });
+census("G5", "and the path builder still breaks at every documented hole",
+  "buildPath(coen + magna totals).breaks", "8", () => {
+    const both = [...coen, ...magna].sort((a, b) => a.year - b.year);
+    return G.buildPath(both).breaks.length;
+  });
+
+/* ---- G6 · THE CROSS-ERA TAXONOMY --------------------------------------- */
+ok("G6", "the seam resolves to two named rules",
+  "taxonomyRules()", () => {
+    const r = G.taxonomyRules();
+    if (r.crossEra.tag !== "unified-intent") throw new Error("cross-era is " + r.crossEra.tag);
+    if (r.eraNative.tag !== "geographic") throw new Error("era-native is " + r.eraNative.tag);
+    return { crossEra: r.crossEra.tag, eraNative: r.eraNative.tag };
+  });
+ok("G6", "a cross-era view on the comparable claims",
+  'assertTaxonomy({scope:"cross-era", claimIds:[e5-scale-015, e5-scale-016]})',
+  () => G.assertTaxonomy({ scope: "cross-era", claimIds: ["e5-scale-015", "e5-scale-016"] }));
+throws("G6", "a cross-era view on era 5's native claims",
+  'assertTaxonomy({scope:"cross-era", claimIds:[e5-scale-011, e5-scale-013]})',
+  G.TaxonomyMixError,
+  () => G.assertTaxonomy({ scope: "cross-era", claimIds: ["e5-scale-011", "e5-scale-013"],
+    context: "the four-era money-type table" }));
+throws("G6", "one view holding claims from both taxonomies",
+  "assertTaxonomy({claimIds:[e5-scale-011, e5-scale-015]})", G.TaxonomyMixError,
+  () => G.assertTaxonomy({ claimIds: ["e5-scale-011", "e5-scale-015"], context: "the pool strip" }));
+ok("G6", "era 5 on its own terms reads the native claims",
+  'assertTaxonomy({scope:"era-native", claimIds:[e5-scale-011, e5-scale-013]})',
+  () => G.assertTaxonomy({ scope: "era-native", claimIds: ["e5-scale-011", "e5-scale-013"] }));
+ok("G6", "the field's taxonomy is resolved through era-5.json, not by its name",
+  'taxonomyOfField("SCALE", "by_money_type_alt")', () => {
+    if (G.taxonomyOfField("SCALE", "by_money_type_alt") !== "unified-intent") throw new Error("alt");
+    if (G.taxonomyOfField("SCALE", "by_money_type") !== "geographic") throw new Error("native");
+    return "alt → unified-intent, native → geographic";
+  });
+throws("G6", "a cross-era chart reading the era-native split",
+  'assertTaxonomyField("cross-era", "SCALE", "by_money_type")', G.TaxonomyMixError,
+  () => G.assertTaxonomyField("cross-era", "SCALE", "by_money_type",
+    { context: "the four-era money-type table" }));
+ok("G6", "a cross-era chart reading the alt split",
+  'assertTaxonomyField("cross-era", "SCALE", "by_money_type_alt")',
+  () => G.assertTaxonomyField("cross-era", "SCALE", "by_money_type_alt"));
+/* THE BYPASS. `scope` was optional, so assertTaxonomy({claimIds}) ran only the
+   mixing half — and a cross-era chart built entirely on era-5-native numbers
+   is consistent with itself, passes the mixing test, and is the exact failure
+   G6 exists to prevent. An omission that turns off half a guard must not be
+   spelled as a missing key. */
+throws("G6", "scope omitted turns off half the guard, so it is refused",
+  "assertTaxonomy({claimIds:[e5-scale-011, e5-scale-013]})  // no scope",
+  G.GuardVacuousError,
+  () => G.assertTaxonomy({ claimIds: ["e5-scale-011", "e5-scale-013"],
+    context: "the four-era money-type table" }));
+throws("G6", "an empty scope is the same omission",
+  'assertTaxonomy({scope:"", claimIds:[…]})', G.GuardVacuousError,
+  () => G.assertTaxonomy({ scope: "", claimIds: ["e5-scale-011"] }));
+throws("G6", "a view that names no claims checked nothing, so it is refused",
+  'assertTaxonomy({scope:"cross-era"})  // no claimIds', G.GuardVacuousError,
+  () => G.assertTaxonomy({ scope: "cross-era", context: "the four-era table" }));
+ok("G6", "claims that carry no taxonomy tag are not a mixture and do pass",
+  'assertTaxonomy({scope:"cross-era", claimIds:["e7-scale-008"]})',
+  () => G.assertTaxonomy({ scope: "cross-era", claimIds: ["e7-scale-008"] }));
+ok("G6", "the mixing test alone is available, under a name that says so",
+  "assertNoTaxonomyMix({claimIds:[e5-scale-011, e5-scale-013]})",
+  () => { G.assertNoTaxonomyMix({ claimIds: ["e5-scale-011", "e5-scale-013"] }); return true; });
+throws("G6", "and it still catches a genuine mixture",
+  "assertNoTaxonomyMix({claimIds:[e5-scale-011, e5-scale-015]})", G.TaxonomyMixError,
+  () => G.assertNoTaxonomyMix({ claimIds: ["e5-scale-011", "e5-scale-015"],
+    context: "the pool strip" }));
+/* The figures in both messages are read from reconciled.json, not typed in. */
+ok("G6", "the seam's money is read from the record, not written into the guard",
+  "taxonomySeamFigures()", () => {
+    const f = G.taxonomySeamFigures();
+    try {
+      G.assertTaxonomy({ scope: "cross-era", claimIds: ["e5-scale-011"] });
+    } catch (error) {
+      if (!error.message.includes(f.pp)) throw new Error("message does not quote " + f.pp);
+      return { usd: f.usd, points: f.pp, source: "taxonomy_seam.what_moves" };
+    }
+    throw new Error("did not throw");
+  });
+ok("G6", "and so is the block it moves",
+  "assertNoTaxonomyMix(...).message quotes what_moves", () => {
+    const f = G.taxonomySeamFigures();
+    try {
+      G.assertNoTaxonomyMix({ claimIds: ["e5-scale-011", "e5-scale-015"] });
+    } catch (error) {
+      if (!error.message.includes(f.usd)) throw new Error("message does not quote " + f.usd);
+      return { quotes: f.usd, block: f.block };
+    }
+    throw new Error("did not throw");
+  });
+
+/* ---- G7 · THE DEAD-MECHANISM GUARD ------------------------------------- */
+ok("G7", "the 2019 map derives from mechanism.json, three probes deep",
+  "mechanism2019()", () => {
+    const m = G.mechanism2019();
+    if (m.display !== "first_price" || m.search !== "rgsp") throw new Error(JSON.stringify(m));
+    if (m.evidence.length !== 3) throw new Error("evidence " + m.evidence.length);
+    return { display: m.display, search: m.search, probes: m.evidence.length };
+  });
+ok("G7", "display did move to unified first price",
+  'assertMechanism2019({channel:"display", mechanism:"first_price"})',
+  () => G.assertMechanism2019({ channel: "display", mechanism: "first_price" }));
+throws("G7", "search did not, and the scenario that says so throws",
+  'assertMechanism2019({channel:"search", mechanism:"first_price"})', G.DeadMechanismError,
+  () => G.assertMechanism2019({ channel: "search", mechanism: "first_price" }, undefined, "sc-06"));
+ok("G7", "search got rGSP",
+  'assertMechanism2019({channel:"search", mechanism:"rGSP"})',
+  () => G.assertMechanism2019({ channel: "search", mechanism: "rGSP" }));
+/* ENFORCEMENT MOVED. `assertNoDeadMechanismClaim(text)` is gone.
+
+   It threw, so it read as a guarantee, and it was a regex over English that had
+   been patched twice and leaked after each patch. What replaces it is two
+   things that read the record instead of the caller's prose — a scenario the
+   record describes in mechanism terms must DECLARE its channel, and the
+   record's own required_caption must be on screen — plus mechanismSentence(),
+   which renders the true sentence so nobody has to type one. The scanner
+   survives as advice, with "Heuristic" in its name. */
+ok("G7", "the true sentence is rendered from the record, not typed",
+  'mechanismSentence("display")', () => {
+    const map = G.mechanism2019();
+    const sentence = G.mechanismSentence("display");
+    if (!sentence.includes(map.displayFirstPriceDate)) throw new Error("date not from the record");
+    if (G.lintTextForDeadMechanism(sentence).length) {
+      throw new Error("the guard's own sentence trips its own lint");
+    }
+    return sentence;
+  });
+ok("G7", "and so is the search half of it",
+  'mechanismSentence("search")', () => {
+    const sentence = G.mechanismSentence("search");
+    if (G.lintTextForDeadMechanism(sentence).length) {
+      throw new Error("the guard's own sentence trips its own lint");
+    }
+    return sentence;
+  });
+throws("G7", "a first-price panel rendered without its required caption",
+  "assertScenarioMechanism({id:'sc-06-…'})", G.DeadMechanismError,
+  () => G.assertScenarioMechanism({ id: "sc-06-first-price-bid-shading-panel" }));
+throws("G7", "a mechanism-bearing panel that does not declare its channel",
+  "assertScenarioMechanism({id, caption})  // no channel", G.DeadMechanismError,
+  () => G.assertScenarioMechanism({
+    id: "sc-06-first-price-bid-shading-panel",
+    caption: "This was DISPLAY. Google Search never moved to first price - the 2019 search change was rGSP (sc-09).",
+  }));
+ok("G7", "the same panel with the caption and the right channel",
+  "assertScenarioMechanism({id, caption, channel:'display'})",
+  () => G.assertScenarioMechanism({
+    id: "sc-06-first-price-bid-shading-panel",
+    caption: "This was DISPLAY. Google Search never moved to first price - the 2019 search change was rGSP (sc-09).",
+    channel: "display", mechanism: "first_price",
+  }).ok);
+throws("G7", "and declaring the false thing is refused against the record",
+  "assertScenarioMechanism({… channel:'search', mechanism:'first_price'})", G.DeadMechanismError,
+  () => G.assertScenarioMechanism({
+    id: "sc-06-first-price-bid-shading-panel",
+    caption: "This was DISPLAY. Google Search never moved to first price - the 2019 search change was rGSP (sc-09).",
+    channel: "search", mechanism: "first_price",
+  }));
+throws("G7", "the guard goes loud if mechanism.json loses its scope warning",
+  "mechanism2019({…gutted…})", G.GuardVacuousError,
+  () => G.mechanism2019({ engines: { auction: { designs: {} } } }));
+
+/* THE HEURISTIC, AS A HEURISTIC.
+
+   Eight strings walked through three structural holes in the first version:
+     (a) the negation test threw away a whole clause on any negation anywhere
+         in it, in any relation to the claim — and counted contrast markers
+         (unlike, rather than, instead of) as denials;
+     (b) the clause splitter did not split on "and", the commonest way two
+         propositions get joined, which is what made (a) so cheap to trigger;
+     (c) both patterns required FIRST PRICE to be the last of the three tokens,
+         so any clause naming first price before search was invisible.
+
+   Two more walked through the REPAIRS, which is the reason this is advice now:
+     (d) splitting on "and" severs a verb from its second object;
+     (e) stripping a dash aside deletes the claim when the aside IS the claim.
+   And one walked through all of them, because it states the mechanism as
+   behaviour and needs no movement verb at all.
+
+   Every string below is scanned, not asserted: the check is that the heuristic
+   REPORTS it. An empty report is never a clearance. */
+const HOSTILE_2019 = [
+  ["(a) a negation in a different proposition",
+    "In 2019 search moved to first price, and the industry did not notice."],
+  ["(a) a contrast marker read as a denial",
+    "Search, unlike display, moved to first price in 2019."],
+  ["(a) + (b) the negation arrives after the 'and'",
+    "Search switched to first price in 2019 and never looked back."],
+  ["(b) two propositions joined by 'and'",
+    "Display kept its rule and search moved to first price in 2019."],
+  ["(c) first price named before search",
+    "The 2019 first-price switch applied to search as well as display."],
+  ["(c) the mechanism arriving at the channel",
+    "First price came to search in 2019."],
+  ["(d) the 'and' fix severed a verb from its object",
+    "Search moved to second price in 2002 and to first price in 2019."],
+  ["(e) the aside fix deleted the claim, because the aside was the claim",
+    "The 2019 change - search went first-price - surprised everyone."],
+  ["(e) the same, in parentheses",
+    "The 2019 change (search went first-price) surprised everyone."],
+  ["the mechanism stated as behaviour, with no movement verb at all",
+    "Search pays its own bid."],
+];
+for (const [hole, sentence] of HOSTILE_2019) {
+  ok("G7", `the lint reports the string from ${hole}`,
+    `lintTextForDeadMechanism(${JSON.stringify(sentence.slice(0, 40))}…)`,
+    () => {
+      const findings = G.lintTextForDeadMechanism(sentence, "a caption");
+      if (findings.length === 0) throw new Error("reported nothing");
+      const advice = G.adviseOnDeadMechanismText(sentence, "a caption");
+      if (!advice.heuristic) throw new Error("the advisory does not declare itself a heuristic");
+      return findings[0].matched;
+    });
+}
+/* The erosion behind the three holes: a verb list grown one word at a time. */
+ok("G7", "a verb the list had never been taught",
+  'lintTextForDeadMechanism("By 2019 search had gone first-price.")',
+  () => G.lintTextForDeadMechanism("By 2019 search had gone first-price.")
+    .length === 1 || (() => { throw new Error("not reported"); })());
+ok("G7", "a claim carrying a subordinate clause between subject and verb",
+  'lintTextForDeadMechanism("In 2019 search, which had run …, moved to first price.")',
+  () => G.lintTextForDeadMechanism(
+    "In 2019 Google search, which had run a quality-weighted generalised second-price " +
+    "auction across all of its properties since October 2002, moved to first price."
+  ).length > 0 || (() => { throw new Error("not reported"); })());
+/* And the widening must not cost the record its own true sentences. Recall is
+   bought with precision, so this is where the price is measured. */
+ok("G7", "the lint's aggression is bounded by the frozen record itself",
+  "scan every string in mechanism.json + simulator-params.json", () => {
+    const strings = [];
+    const walk = (node, d = 0) => {
+      if (d > 14) return;
+      if (typeof node === "string") strings.push(node);
+      else if (Array.isArray(node)) node.forEach((v) => walk(v, d + 1));
+      else if (node && typeof node === "object") Object.values(node).forEach((v) => walk(v, d + 1));
+    };
+    walk(G.getFrozen("mechanism"));
+    walk(G.getFrozen("simulatorParams"));
+    const fired = strings.filter((s) => G.lintTextForDeadMechanism(s).length > 0);
+    if (fired.length) throw new Error(`${fired.length} false positives, first: ${fired[0].slice(0, 120)}`);
+    return `${strings.length} record strings scanned, 0 false positives`;
+  });
+ok("G7", "the frozen required caption is not a false positive",
+  "lintTextForDeadMechanism(sc-06 required_caption)", () => {
+    const findings = G.lintTextForDeadMechanism(
+      "This was DISPLAY. Google Search never moved to first price - the 2019 search change was rGSP (sc-09).");
+    if (findings.length) throw new Error(JSON.stringify(findings));
+    return "clean";
+  });
+ok("G7", "the record's own contrast sentence is not a false positive",
+  'lintTextForDeadMechanism("Display went to unified first price … while search got rGSP.")', () => {
+    const findings = G.lintTextForDeadMechanism(
+      "Display went to unified first price on 2019-09-05, while search got rGSP.");
+    if (findings.length) throw new Error(JSON.stringify(findings));
+    return "clean";
+  });
+ok("G7", "the distribution engine's first-price sealed-bid deal is not a search claim",
+  "lintTextForDeadMechanism(the default-deal sentence)", () => {
+    const findings = G.lintTextForDeadMechanism(
+      "The access-point owner allocates the default slot to one search engine, typically " +
+      "by private negotiation shaped like a first-price sealed-bid auction over " +
+      "revenue-share terms.");
+    if (findings.length) throw new Error(JSON.stringify(findings));
+    return "clean";
+  });
+ok("G7", "a false sentence in a scenario is ADVISED, and the panel still passes on its data",
+  "assertScenarioMechanism({id, subtitle:…}).advisory", () => {
+    const result = G.assertScenarioMechanism({
+      id: "sc-06-first-price-bid-shading-panel",
+      caption: "This was DISPLAY. Google Search never moved to first price - the 2019 search change was rGSP (sc-09).",
+      subtitle: "In 2019 search moved to first price.",
+      channel: "display", mechanism: "first_price",
+    });
+    if (!result.advisory.heuristic) throw new Error("advisory is not marked heuristic");
+    if (result.advisory.findings.length === 0) throw new Error("advisory found nothing in `subtitle`");
+    return `${result.advisory.findings.length} finding in \`subtitle\`, returned rather than thrown — ` +
+      "the throw belongs to the declaration and the caption, which are checked against the record";
+  });
+/* The date in the message is read from mechanism.json, not typed into it. */
+ok("G7", "the display date comes from the record",
+  "mechanism2019().displayFirstPriceDate", () => {
+    const map = G.mechanism2019();
+    try {
+      G.assertMechanism2019({ channel: "search", mechanism: "first_price" }, undefined, "sc-06");
+    } catch (error) {
+      if (!error.message.includes(map.displayFirstPriceDate)) {
+        throw new Error("message does not quote " + map.displayFirstPriceDate);
+      }
+      return { date: map.displayFirstPriceDate, year: map.year, source: "mechanism.json" };
+    }
+    throw new Error("did not throw");
+  });
+throws("G7", "the guard goes loud if the record loses the date",
+  "mechanism2019({…probes but no date…})", G.GuardVacuousError,
+  () => G.mechanism2019({
+    a: "Google Search never moved to first price.",
+    b: "The display exchange moved to a unified first-price auction in 2019.",
+    c: "Search got rGSP in 2019.",
+  }));
+
+
+/* ---- G7 · LAYER ONE: THE PART THAT IS A GUARANTEE ----------------------
+
+   Everything above this line about text is advice. This is the enforcement,
+   and it works because it does not read prose. Every scenario in
+   simulator-params.json declares which rule it demonstrates, on which surface,
+   in which years, out of a vocabulary the file itself declares. Twenty-one
+   records against eight rules: bounded, finite, and with nowhere to paraphrase.
+
+   Each failing case below is an edit somebody could plausibly make. */
+ok("G7", "every scenario in the frozen file declares a mechanism scope",
+  "assertSimulatorMechanismScopes()", () => G.assertSimulatorMechanismScopes());
+ok("G7", "the rule vocabulary is read from the file, not written into the guard",
+  "mechanismScopeVocabulary()", () => [...G.mechanismScopeVocabulary().keys()].join(", "));
+census("G7", "all 21 scenarios carry a scope, and none puts first price on search",
+  "auditSimulatorMechanismScopes()", "21 scenarios · 0 search-first-price", () => {
+    const a = G.auditSimulatorMechanismScopes();
+    return `${a.scenarios} scenarios · ${a.searchFirstPrice} search-first-price`;
+  });
+ok("G7", "sc-06 is scoped to display, which is the whole point of sc-06",
+  "scenarioMechanismScopes(sc-06)", () => {
+    const record = FROZEN_SCENARIOS.find((s) => s.id === "sc-06-first-price-bid-shading-panel");
+    return G.scenarioMechanismScopes(record).map((s) => `${s.rule}/${s.surface}`);
+  });
+ok("G7", "sc-10 holds both 2019 changes and keeps them on different surfaces",
+  "scenarioMechanismScopes(sc-10)", () => {
+    const record = FROZEN_SCENARIOS.find((s) => s.id === "sc-10-era-6-vs-era-7-side-by-side");
+    const scopes = G.scenarioMechanismScopes(record);
+    const fp = scopes.find((s) => s.firstPrice);
+    if (!fp || fp.surface !== "display") throw new Error("first price is not on display");
+    return scopes.map((s) => `${s.rule}/${s.surface}`);
+  });
+
+/* A SCENARIO WITHOUT A SCOPE IS A HARD ERROR, not a default. The absent case
+   must not be the permissive one, or the next scenario added to the file
+   inherits silence and this rule stops applying to it with nothing on screen
+   saying so. */
+throws("G7", "a scenario with no mechanism_scope is a hard error, not a default",
+  "assertSimulatorMechanismScopes({ …one scope deleted… })", G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => { delete p.scenarios[0].mechanism_scope; });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "an empty scope array says nothing while looking like a declaration",
+  "assertSimulatorMechanismScopes({ …scope: []… })", G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => { p.scenarios[0].mechanism_scope = []; });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "THE CLAIM ITSELF, in the data: search plus first price in one scope",
+  'mechanism_scope: [{rule:"first_price", surface:"search"}]', G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => {
+      const sc = p.scenarios.find((s) => s.id === "sc-06-first-price-bid-shading-panel");
+      sc.mechanism_scope[0].surface = "search";
+    });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "and the paraphrase route is shut: an invented rule name is not a rule",
+  'rule: "the_advertiser_pays_what_it_bid" on search', G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => {
+      const sc = p.scenarios.find((s) => s.id === "sc-06-first-price-bid-shading-panel");
+      sc.mechanism_scope = [{ rule: "the_advertiser_pays_what_it_bid", surface: "search", years: [2019, 2019] }];
+    });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "nor can the vocabulary be edited to let first price onto search",
+  'mechanism_scope_rules.first_price.surfaces += "search"', G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => { p.mechanism_scope_rules.first_price.surfaces.push("search"); });
+    return G.mechanismScopeVocabulary(params);
+  });
+throws("G7", "nor by relabelling first price as a second-price family",
+  'mechanism_scope_rules.first_price.family = "second_price"', G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => {
+      p.mechanism_scope_rules.first_price.family = "second_price";
+      p.mechanism_scope_rules.first_price.surfaces = ["search", "display"];
+    });
+    return G.mechanismScopeVocabulary(params);
+  });
+throws("G7", "settings that drive first price with no display scope to own them",
+  "sc-06 scoped gsp/search while its settings run first_price", G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => {
+      const sc = p.scenarios.find((s) => s.id === "sc-06-first-price-bid-shading-panel");
+      sc.mechanism_scope = [{ rule: "gsp", surface: "search", years: [2019, 2019] }];
+    });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "a scope with no years names a rule and never says when",
+  "assertSimulatorMechanismScopes({ …years deleted… })", G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => { delete p.scenarios[0].mechanism_scope[0].years; });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "a surface outside the two the record covers is refused",
+  'surface: "retail_media"', G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => { p.scenarios[0].mechanism_scope[0].surface = "retail_media"; });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "and the guard goes loud if the vocabulary leaves the file",
+  "mechanismScopeVocabulary({ …no mechanism_scope_rules… })", G.GuardVacuousError,
+  () => {
+    const params = editParams((p) => { delete p.mechanism_scope_rules; });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+ok("G7", "which scenarios must declare a channel is read from the scopes, not the prose",
+  "mechanismBearingScenarios()", () => {
+    const bearing = G.mechanismBearingScenarios();
+    if (!bearing.includes("sc-06-first-price-bid-shading-panel")) throw new Error("sc-06 is not in the set");
+    return `${bearing.length} of ${FROZEN_SCENARIOS.length} scenarios declare an ad-auction rule`;
+  });
+throws("G7", "a display panel rendered under a search label is refused",
+  "assertScenarioMechanism({id: sc-06, channel: 'search'})", G.DeadMechanismError,
+  () => G.assertScenarioMechanism({
+    id: "sc-06-first-price-bid-shading-panel",
+    caption: SC06_CAPTION, channel: "search", mechanism: "rgsp",
+  }));
+
+/* ======================================================================
+   ROUND 3 · G7 · TWO ROUTES ROUND THE SETTINGS CHECK, AND ONE DISARMED LAYER
+
+   (1) THE INHERITS ROUTE. The settings check read the record's own `settings`
+       object and stopped. Three scenarios in the frozen file declare
+       `settings: { inherits: … }`, so a scenario could pick up sc-06's
+       first-price settings from a parent, declare only search scopes, and pass:
+       every scope legal, the whole-file assert green, and the panel a reader
+       sees is a first-price auction under a search label.
+
+   (2) THE THIRD KEY NAME. The check read exactly `pricing_rule` and
+       `ranking_rule`. Settings are free shape, so a rule arriving under any
+       other key was invisible to the guard and visible to the simulator.
+
+   (3) THE VACUITY GUARD THAT WAS NEVER WIRED IN. Deleting eight words from the
+       JSON — the `ad_auction` flag, on every rule — switches off the second
+       enforcement layer ("a mechanism-bearing panel must declare its channel")
+       across all 21 scenarios. mechanismBearingScenarios() threw the right error
+       for exactly this, and nothing in guards.js called it. Only this page did.
+   ====================================================================== */
+throws("G7", "THE INHERITS ROUTE: first-price settings inherited under a search label",
+  'settings: { inherits: "sc-06-…" } with only search scopes', G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => {
+      const sc = p.scenarios.find((s) => s.id === "sc-02-quality-weighting-both-metrics");
+      sc.settings = { inherits: "sc-06-first-price-bid-shading-panel" };
+    });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "and through two links, because inherits is resolved transitively",
+  "sc-A inherits sc-MID inherits sc-06", G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => {
+      /* The middle link is minted here rather than named, so the case does not
+         depend on which scenarios the fixture happens to carry. */
+      p.scenarios.push({
+        id: "sc-mid-link",
+        mechanism_scope: [{ rule: "first_price", surface: "display", years: [2019, 2019] }],
+        settings: { inherits: "sc-06-first-price-bid-shading-panel" },
+      });
+      const sc = p.scenarios.find((s) => s.id === "sc-02-quality-weighting-both-metrics");
+      sc.settings = { inherits: "sc-mid-link" };
+    });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "an inherits pointing at a scenario the file does not hold is a hard error",
+  'settings: { inherits: "sc-99-does-not-exist" }', G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => {
+      p.scenarios[0].settings = { inherits: "sc-99-does-not-exist" };
+    });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "and a cycle is too, rather than a loop the guard resolves at runtime",
+  "sc-A inherits sc-B inherits sc-A", G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => {
+      p.scenarios[0].settings = { inherits: p.scenarios[1].id };
+      p.scenarios[1].settings = { inherits: p.scenarios[0].id };
+    });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "a first-price rule under a key name the guard was never told about",
+  'settings: { auction_rule: "first_price" }', G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => {
+      const sc = p.scenarios.find((s) => s.id === "sc-02-quality-weighting-both-metrics");
+      sc.settings = { auction_rule: "first_price" };
+    });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "and nested one level down, where a named-key read never looked",
+  'settings: { panel_a: { rule: "first_price" } }', G.DeadMechanismError,
+  () => {
+    const params = editParams((p) => {
+      const sc = p.scenarios.find((s) => s.id === "sc-02-quality-weighting-both-metrics");
+      sc.settings = { panel_a: { rule: "first_price" } };
+    });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+throws("G7", "THE VACUITY: deleting ad_auction from every rule is now a hard error",
+  "assertSimulatorMechanismScopes({ …ad_auction deleted… })", G.GuardVacuousError,
+  () => {
+    const params = editParams((p) => {
+      for (const rule of Object.values(p.mechanism_scope_rules)) delete rule.ad_auction;
+    });
+    return G.assertSimulatorMechanismScopes({ simulatorParams: params });
+  });
+ok("G7", "and the frozen record passes both layers, so the wiring is not vacuous",
+  "assertSimulatorMechanismScopes() over the frozen file", () => {
+    G.assertSimulatorMechanismScopes();
+    return `${G.mechanismBearingScenarios().length} mechanism-bearing scenarios`;
+  });
+ok("G7", "the settings scan reads identifiers, and says so where it can be read",
+  "MECHANISM_SCOPE_LIMITS", () => {
+    if (!G.MECHANISM_SCOPE_LIMITS.some((l) => /IDENTIFIERS only/.test(l))) {
+      throw new Error("the prose limit is not written down");
+    }
+    return `${G.MECHANISM_SCOPE_LIMITS.length} limits, exported`;
+  });
+ok("G7", "sc-03's prose overlay is not read as a rule, which is that limit in practice",
+  'settings.overlay: "…a pay-your-bid comparison row…"', () => {
+    const sc = FROZEN_SCENARIOS.find((s) => s.id === "sc-03-winners-pay-less-than-bid");
+    if (!sc) return "sc-03 is not in this record";
+    G.scenarioMechanismScopes(sc);
+    return "a settings SENTENCE naming pay-your-bid is prose, not a rule — and is not caught";
+  });
+
+
+/* ---- G7 · LAYER TWO: THE PART THAT IS ADVICE ---------------------------
+
+   The lint returns findings and never throws, and its docstring says in as many
+   words that an empty result is not a clearance. These two cases are the reason
+   that sentence is there: both assert the false claim in plain English, and the
+   lint returns nothing for either. They are not a bug to be fixed by a fifth
+   pattern — the fourth pattern closed "Search pays its own bid" and these two
+   arrived behind it. That is what unbounded means. */
+const LINT_MISSES = [
+  "On search, the winner is billed the amount it offered.",
+  "Since 2019 the top search ad is sold at the price the advertiser named.",
+];
+for (const sentence of LINT_MISSES) {
+  ok("G7", "A KNOWN MISS, kept as a case so nobody mistakes the lint for a guard",
+    `lintTextForDeadMechanism(${JSON.stringify(sentence.slice(0, 34))}…)`, () => {
+      if (G.lintTextForDeadMechanism(sentence).length > 0) {
+        return "the lint now catches this one — leave the row, and add the next paraphrase";
+      }
+      return "returns nothing, exactly as the docstring says it will";
+    });
+}
+ok("G7", "the same false claim IS caught where it is bounded: in the data",
+  "assertSimulatorMechanismScopes() over a scenario asserting it", () => {
+    const params = editParams((p) => {
+      const sc = p.scenarios.find((s) => s.id === "sc-06-first-price-bid-shading-panel");
+      sc.mechanism_scope = [{ rule: "first_price", surface: "search", years: [2019, 2019] }];
+    });
+    try { G.assertSimulatorMechanismScopes({ simulatorParams: params }); }
+    catch (error) {
+      if (!(error instanceof G.DeadMechanismError)) throw error;
+      return "the prose lint misses paraphrases; the scope check has no paraphrases to miss";
+    }
+    throw new Error("did not throw");
+  });
+ok("G7", "the lint's limits are exported, so a report prints them beside its findings",
+  "DEAD_MECHANISM_LINT_LIMITS", () => {
+    if (!Array.isArray(G.DEAD_MECHANISM_LINT_LIMITS) || G.DEAD_MECHANISM_LINT_LIMITS.length === 0) {
+      throw new Error("no limits published");
+    }
+    if (!G.DEAD_MECHANISM_LINT_LIMITS.some((l) => /not a clearance/i.test(l))) {
+      throw new Error("the limits do not say an empty result is not a clearance");
+    }
+    return `${G.DEAD_MECHANISM_LINT_LIMITS.length} limits, published`;
+  });
+ok("G7", "the frozen scenarios are clean under the lint as well",
+  "lintSimulatorScenarios()", () => {
+    const findings = G.lintSimulatorScenarios();
+    if (findings.length > 0) {
+      throw new Error(`${findings.length} finding(s), first in ${findings[0].scenario} at ${findings[0].path}`);
+    }
+    return `${FROZEN_SCENARIOS.length} scenarios, 0 findings — which is not a clearance`;
+  });
+ok("G7", "and a finding is reported against the scenario that owns it",
+  "lintSimulatorScenarios({ …claim planted in sc-06… })", () => {
+    const params = editParams((p) => {
+      const sc = p.scenarios.find((s) => s.id === "sc-06-first-price-bid-shading-panel");
+      sc.expected_output.subtitle = "In 2019 search moved to first price.";
+    });
+    const findings = G.lintSimulatorScenarios({ simulatorParams: params });
+    if (findings.length !== 1) throw new Error("findings=" + findings.length);
+    if (findings[0].scenario !== "sc-06-first-price-bid-shading-panel") throw new Error("wrong owner");
+    return { scenario: findings[0].scenario, path: findings[0].path };
+  });
+ok("G7", "a scenario hiding the claim in a field is ADVISED on, not thrown at",
+  "assertScenarioMechanism({id, subtitle: …}).advisory", () => {
+    const result = G.assertScenarioMechanism({
+      id: "sc-06-first-price-bid-shading-panel",
+      caption: SC06_CAPTION,
+      subtitle: "In 2019 search moved to first price.",
+      channel: "display", mechanism: "first_price",
+    });
+    if (result.advisory.findings.length === 0) throw new Error("the lint saw nothing");
+    return { findings: result.advisory.findings.length, note: result.advisory.note.slice(0, 60) };
+  });
+
+/* ---- G8 · TIME IS TWO FIELDS ------------------------------------------- */
+ok("G8", "about_year is the field a chart may read",
+  'assertTimeField("about_year")', () => G.assertTimeField("about_year", "the rails x axis"));
+throws("G8", "as_of on an axis",
+  'assertTimeField("as_of")', G.TimeFieldError,
+  () => G.assertTimeField("as_of", "the rails x axis"));
+throws("G8", "as_of as a time filter",
+  'filterByYear(claims, {field:"as_of"})', G.TimeFieldError,
+  () => G.filterByYear([NARROW], { field: "as_of", from: 1900 }));
+ok("G8", "ds-gdp-001 is a 1922 fact from a 2008 source and draws at 1922",
+  "timelineYear(ds-gdp-001)", () => {
+    if (G.timelineYear(GDP) !== 1922) throw new Error("drew at " + G.timelineYear(GDP));
+    if (G.timeFieldDivergence(GDP) !== 86) throw new Error("divergence " + G.timeFieldDivergence(GDP));
+    return { about_year: 1922, as_of: GDP.as_of, years_apart: 86 };
+  });
+throws("G8", "a claim that withholds permission to be drawn",
+  "timelineYear(ds-provenance-001)", G.TimeFieldError,
+  () => G.timelineYear(HELD, "the meter strip"));
+ok("G8", "the boolean form agrees", "isTimelineDrawable(claim)", () => {
+  if (!G.isTimelineDrawable(GDP)) throw new Error("GDP refused");
+  if (G.isTimelineDrawable(HELD)) throw new Error("withheld claim allowed");
+  return true;
+});
+census("G8", "seven claims still withhold permission to be drawn",
+  "timelineClaims().withheld.length", "7", () => G.timelineClaims().withheld.length);
+census("G8", "and the record still holds 506 claims",
+  "timelineClaims().total", "506", () => G.timelineClaims().total);
+
+/* ======================================================================
+   ROUND 3 · RULES · THE TWO CONVENTIONS WERE A MUTABLE OBJECT
+
+   `RULES` was a plain object and configureRules was `Object.assign(RULES,
+   patch)`. Both conventions are guard PARAMETERS: the cut decides which claims
+   may carry a central dot, and the absence forms decide what counts as a hole
+   drawn as an object. So either could be moved from any call site, with no
+   reason recorded and no bound on the value, and the guard would report itself
+   switched on while refusing nothing.
+   ====================================================================== */
+ok("RULES", "the conventions object and its arrays are frozen",
+  "Object.isFrozen(RULES) && Object.isFrozen(RULES.absenceForms)", () => {
+    if (!Object.isFrozen(G.RULES)) throw new Error("RULES is not frozen");
+    if (!Object.isFrozen(G.RULES.absenceForms)) throw new Error("absenceForms is not frozen");
+    let moved = false;
+    try { G.RULES.wideIntervalRatio = 1e9; moved = true; } catch (_) { /* frozen */ }
+    if (moved && G.RULES.wideIntervalRatio === 1e9) throw new Error("the cut was moved in place");
+    let pushed = false;
+    try { G.RULES.absenceForms.push("none"); pushed = true; } catch (_) { /* frozen */ }
+    if (pushed && G.RULES.absenceForms.includes("none")) throw new Error("a form was pushed in");
+    return `cut ${G.RULES.wideIntervalRatio}, forms [${G.RULES.absenceForms.join(", ")}]`;
+  });
+throws("RULES", "a moved convention with no written reason is refused",
+  "configureRules({ wideIntervalRatio: 0.5 })", G.GuardError,
+  () => G.configureRules({ wideIntervalRatio: 0.5 }));
+throws("RULES", "and a placeholder reason is not a reason",
+  'configureRules({ wideIntervalRatio: 0.5 }, "todo")', G.GuardError,
+  () => G.configureRules({ wideIntervalRatio: 0.5 }, "todo"));
+throws("RULES", "a cut above the ceiling is G1 switched off, not a different convention",
+  "configureRules({ wideIntervalRatio: 1e9 }, reason)", G.WideIntervalError,
+  () => G.configureRules({ wideIntervalRatio: 1e9 },
+    "a perfectly well-formed sentence that would have moved the cut"));
+throws("RULES", "and so is a cut at or below zero",
+  "configureRules({ wideIntervalRatio: 0 }, reason)", G.WideIntervalError,
+  () => G.configureRules({ wideIntervalRatio: 0 },
+    "a perfectly well-formed sentence that would have moved the cut"));
+throws("RULES", "an absence form the design brief does not name cannot be added",
+  'configureRules({ absenceForms: ["none"] }, reason)', G.AbsenceError,
+  () => G.configureRules({ absenceForms: ["none"] },
+    "a perfectly well-formed sentence that would have added a form"));
+throws("RULES", "nor smuggled in beside the real ones",
+  'configureRules({ absenceForms: [...ABSENCE_FORMS, "blank"] }, reason)', G.AbsenceError,
+  () => G.configureRules({ absenceForms: [...G.ABSENCE_FORMS, "blank"] },
+    "a perfectly well-formed sentence that would have added a form"));
+throws("RULES", "a misspelled convention is refused, not absorbed in silence",
+  'configureRules({ wideIntervalRatiio: 0.5 }, reason)', G.GuardError,
+  () => G.configureRules({ wideIntervalRatiio: 0.5 },
+    "a perfectly well-formed sentence about a misspelled key"));
+ok("RULES", "a legitimate move is allowed, and the manifest marks it",
+  'configureRules({ wideIntervalRatio: 0.5 }, "…"); guardManifest()', () => {
+    const reason = "the era-3 bench draws to a narrower cut because every claim on it " +
+      "comes from one instrument";
+    try {
+      G.configureRules({ wideIntervalRatio: 0.5 }, reason);
+      const status = G.rulesStatus();
+      if (status.default) throw new Error("rulesStatus still reports the design default");
+      const g1 = G.guardManifest().find((g) => g.id === "G1");
+      if (!g1.configured || !/NON-DEFAULT/.test(g1.configured)) {
+        throw new Error("the manifest does not mark G1 as configured");
+      }
+      if (!g1.configured.includes(reason.slice(0, 20))) {
+        throw new Error("the manifest does not carry the reason");
+      }
+      const g5 = G.guardManifest().find((g) => g.id === "G5");
+      if (g5.configured) throw new Error("G5 is marked configured and nothing of its moved");
+      return g1.configured.slice(0, 90) + "…";
+    } finally {
+      G.resetRules();
+    }
+  });
+ok("RULES", "resetRules puts the design brief's own conventions back",
+  "resetRules()", () => {
+    G.configureRules({ wideIntervalRatio: 0.5 },
+      "a temporary narrower cut, put back on the next line");
+    G.resetRules();
+    if (!G.rulesStatus().default) throw new Error("still marked configured");
+    if (G.guardManifest().some((g) => g.configured)) throw new Error("the manifest still marks one");
+    return `back to ${G.RULES.wideIntervalRatio}`;
+  });
+census("RULES", "the design cut still selects the claims the brief was written against",
+  "auditWideIntervals().wide", "65", () => G.auditWideIntervals().wide);
+
+/* ---- the registry itself ------------------------------------------------ */
+ok("ALL", "a guard starved of its frozen file says so instead of passing",
+  "seriesKeys() with nothing loaded", () => {
+    const saved = G.snapshotFrozen();
+    try {
+      G.clearFrozen();
+      try { G.seriesKeys(); }
+      catch (error) {
+        if (!(error instanceof G.FrozenDataError)) throw error;
+        return "FrozenDataError, naming the file and how to supply it";
+      }
+      throw new Error("did not throw");
+    } finally {
+      G.useFrozen(saved);
+    }
+  });
+ok("ALL", "every function the manifest names is actually exported",
+  "GUARDS[].throwing / .boolean resolve", () => {
+    const named = new Set();
+    for (const g of G.GUARDS) {
+      for (const text of [g.throwing, g.boolean, g.heuristic]) {
+        for (const m of String(text).matchAll(/([A-Za-z_$][\w$]*)(?=\s*\()/g)) named.add(m[1]);
+      }
+    }
+    const missing = [...named].filter((n) => typeof G[n] !== "function");
+    if (missing.length) {
+      throw new Error("the manifest names " + missing.join(", ") + ", which the module does not export");
+    }
+    return `${named.size} named functions, all exported`;
+  });
+ok("ALL", "every guard in the manifest was actually exercised above",
+  "GUARDS[].id vs the case list", () => {
+    const exercised = new Set(results.map((r) => r.guard));
+    const idle = G.GUARDS.filter((g) => !exercised.has(g.id)).map((g) => g.id);
+    if (idle.length) throw new Error("no case runs " + idle.join(", "));
+    return `${G.GUARDS.length} guards, all exercised`;
+  });
+
+/* ============================================================== RENDERING */
+const modeBox = document.getElementById("mode");
+if (mode === "live") {
+  modeBox.className = "live";
+  modeBox.innerHTML =
+    `<p><b>Live.</b> All six frozen files were read from <code>p2-ad-market/data/</code>. ` +
+    `Census rows are checked against the whole record.</p>`;
+} else {
+  modeBox.className = "fixture";
+  modeBox.innerHTML =
+    `<p><b>Fixture.</b> The frozen files could not be fetched — ` +
+    `<code>${escapeHtml(firstLine(loadError ? loadError.message : "unknown"))}</code></p>` +
+    `<p>Browsers refuse to load ES modules and JSON over <code>file://</code>. The guards are ` +
+    `running against a verbatim excerpt of all six files instead, which proves every behaviour ` +
+    `but cannot count the whole record. For the census rows, serve the repo root: ` +
+    `<code>python3 -m http.server 8000</code> and open ` +
+    `<code>http://localhost:8000/docs/p2/lib/guards.test.html</code>.</p>`;
+}
+
+/* Published so a headless runner (or the console) can read the same rows the
+   table below renders. The page itself never reads it. */
+window.__GUARD_TEST_RESULTS__ = results;
+
+const counts = {
+  pass: results.filter((r) => r.verdict === "pass").length,
+  fail: results.filter((r) => r.verdict === "fail").length,
+  skip: results.filter((r) => r.verdict === "skip").length,
+};
+document.getElementById("tGuards").textContent = G.GUARDS.length;
+document.getElementById("tCases").textContent = results.length;
+document.getElementById("tPass").textContent = counts.pass;
+const failCell = document.getElementById("tFail");
+failCell.textContent = counts.fail;
+if (counts.fail > 0) failCell.classList.add("bad");
+document.getElementById("tSkip").textContent = counts.skip;
+document.getElementById("tMode").textContent = mode === "live" ? "live · 6 files" : "fixture · excerpt";
+document.title = (counts.fail ? `${counts.fail} FAILED — ` : "PASS — ") + document.title;
+
+const out = document.getElementById("out");
+/* guardManifest() rather than GUARDS: the manifest's figures are placeholders
+   filled from the frozen record, so the header reads the same numbers the
+   guards do rather than a copy that can drift. */
+const sections = G.guardManifest().map((g) => ({ ...g, rows: results.filter((r) => r.guard === g.id) }));
+const conventions = results.filter((r) => r.guard === "RULES");
+if (conventions.length) {
+  const status = G.rulesStatus();
+  sections.push({
+    id: "RULES", rule: "THE TWO CONVENTIONS THAT ARE NOT IN THE DATA",
+    why: "The span-only cut and the vocabulary of drawn absence are guard PARAMETERS, not " +
+         "decoration. RULES was a plain object and configureRules was an Object.assign, so " +
+         "either could be moved from any call site with no reason recorded and no bound on " +
+         "the value — and the guard would report itself switched on while refusing nothing. " +
+         "The object is frozen, a move carries a written reason, the cut is range-checked, " +
+         "the absence forms may be narrowed but never extended, and guardManifest() marks a " +
+         "non-default configuration on the guards it affects.",
+    throwing: "configureRules(patch, reason) / resetRules()",
+    boolean: "rulesStatus() / ABSENCE_FORMS",
+    reads: ["design/DESIGN.md — these two are decisions, not measurements"],
+    configured: status.default ? null : `NON-DEFAULT: ${status.changed.join(", ")} · ${status.reason}`,
+    rows: conventions,
+  });
+}
+const registry = results.filter((r) => r.guard === "ALL");
+if (registry.length) {
+  sections.push({
+    id: "REG", rule: "THE REGISTRY ITSELF",
+    why: "A guard that cannot find its frozen file must fail loudly. The quiet version of that " +
+         "bug is a guard that passes everything, and nothing on screen would ever say so.",
+    reads: ["all six"], rows: registry,
+  });
+}
+
+for (const section of sections) {
+  const el = document.createElement("section");
+  el.innerHTML =
+    `<div class="bayhead"><span class="tag">${section.id}</span>` +
+    `<span class="rule">${escapeHtml(section.rule)}</span></div>` +
+    `<p class="why">${escapeHtml(section.why)}</p>` +
+    `<p class="chrome reads">READS ${section.reads.map(escapeHtml).join(" · ")}` +
+    (section.throwing ? ` &nbsp;|&nbsp; THROWS ${escapeHtml(section.throwing)}` : "") +
+    (section.boolean ? ` &nbsp;|&nbsp; BOOLEAN ${escapeHtml(section.boolean)}` : "") + `</p>` +
+    (section.heuristic
+      ? `<p class="chrome reads advice">ADVICE, NOT A GUARANTEE — ${escapeHtml(section.heuristic)}</p>`
+      : "") +
+    /* A guard running on a moved convention is not the guard this header
+       describes, so the mark goes where the description is. */
+    (section.configured
+      ? `<p class="chrome reads advice">${escapeHtml(section.configured)}</p>`
+      : "") +
+    `<div class="tablewrap"><table class="reg">` +
+    `<thead><tr><th>Case</th><th>Call</th><th>Expected</th><th>Result</th><th>Got</th></tr></thead>` +
+    `<tbody>${section.rows.map(rowHtml).join("")}</tbody></table></div>`;
+  out.appendChild(el);
+}
+
+function rowHtml(r) {
+  const cls = r.verdict === "pass" ? "pass" : r.verdict === "fail" ? "fail" : "skip";
+  const label = r.verdict === "pass" ? "PASS" : r.verdict === "fail" ? "FAIL" : "SKIP";
+  return `<tr class="${cls === "fail" ? "fail" : cls === "skip" ? "skip" : ""}">` +
+    `<td>${escapeHtml(r.name)}</td>` +
+    `<td class="k">${escapeHtml(r.call)}</td>` +
+    `<td>${escapeHtml(r.expect)}</td>` +
+    `<td class="v ${cls}"><span class="glyph"></span>${label}</td>` +
+    `<td>${escapeHtml(String(r.detail))}</td></tr>`;
+}
+
+function escapeHtml(text) {
+  return String(text).replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+</script>
+
+<script>
+/* A module script that fails to load runs nothing at all, so this classic
+   script is the only thing that can report it. Opening this page straight off
+   the filesystem is exactly that case: every module fetch is a CORS fetch, and
+   a file has no origin to check. Say so, and give the command. */
+setTimeout(function () {
+  if (window.__GUARDS_MODULE_RAN__) return;
+  var box = document.getElementById("mode");
+  if (!box) return;
+  box.className = "dead";
+  box.innerHTML =
+    "<p><b>guards.js did not load.</b> If you opened this file directly, that is why: " +
+    "browsers refuse to load ES modules over <code>file://</code>, because every module " +
+    "fetch is a CORS fetch and a file has no origin to check. Nothing is wrong with the " +
+    "guards.</p>" +
+    "<p>From the repo root, run <code>python3 -m http.server 8000</code> and open " +
+    "<code>http://localhost:8000/docs/p2/lib/guards.test.html</code>.</p>" +
+    "<p class='chrome'>If the page is already being served, open the console — a real " +
+    "syntax error in guards.js reports there.</p>";
+  document.getElementById("tMode").textContent = "not loaded";
+  document.getElementById("tGuards").textContent = "—";
+  document.title = "CANNOT LOAD — " + document.title;
+}, 1500);
+</script>
+
+<noscript>
+  <div class="wrap"><p class="chrome">This page runs the guards in your browser, so it needs
+    JavaScript. The guards themselves are in <code>guards.js</code> beside this file.</p></div>
+</noscript>
+</body>
+</html>

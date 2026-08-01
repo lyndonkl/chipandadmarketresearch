@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P2 design system — every token, every type role, every motion verb</title>
+<link rel="stylesheet" href="./tokens.css">
+<style>
+  /* Page furniture only. Everything with meaning comes from tokens.css. */
+  body{max-width:1240px;margin:0 auto;padding:0 var(--p2-gutter) 120px}
+  header{padding:56px 0 24px}
+  h1{font-family:var(--p2-font-prose);font-weight:600;font-size:clamp(28px,3.6vw,40px);
+     line-height:1.15;margin:.2em 0 .4em;max-width:24ch;letter-spacing:-.005em}
+  h2{font-family:var(--p2-font-prose);font-weight:600;font-size:clamp(22px,2.6vw,29px);
+     line-height:1.2;margin:0 0 .3em;max-width:26ch}
+  h3{font-family:var(--p2-font-label);text-transform:uppercase;letter-spacing:.08em;
+     font-size:11px;font-weight:600;color:var(--p2-zinc-text);margin:0 0 8px}
+  section{padding:52px 0 8px;border-top:1px solid var(--p2-rule-faint)}
+  p{margin:0 0 1em;max-width:64ch}
+  .lede{font-size:20px;line-height:1.6;color:var(--p2-ink-2);max-width:62ch}
+  .bar{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:18px 0 6px}
+  .card{border:1px solid var(--p2-iron);background:var(--p2-paper);padding:14px 16px 16px}
+  .grid{display:grid;gap:14px}
+  .g3{grid-template-columns:repeat(auto-fill,minmax(288px,1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+  table{border-collapse:collapse;width:100%;font-family:var(--p2-font-chrome);font-size:12px;
+        font-variant-numeric:tabular-nums;color:var(--p2-graphite)}
+  th,td{border:1px solid var(--p2-rule-faint);padding:6px 9px;text-align:left;vertical-align:top}
+  th{font-family:var(--p2-font-label);text-transform:uppercase;letter-spacing:.06em;
+     font-size:10px;color:var(--p2-zinc-text);font-weight:600}
+  td.n{text-align:right}
+  .wrapx{overflow-x:auto;overscroll-behavior-x:contain}
+  .swatch{height:64px;border:1px solid var(--p2-iron);margin:-14px -16px 10px;display:block}
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin:6px 0 0}
+  .kv dt{font-family:var(--p2-font-label);text-transform:uppercase;letter-spacing:.06em;
+         font-size:10px;color:var(--p2-zinc-text);font-weight:600;padding-top:2px}
+  .kv dd{margin:0;font-family:var(--p2-font-chrome);font-size:11.5px;line-height:1.45}
+  .never{color:var(--p2-rust);font-family:var(--p2-font-chrome);font-size:11.5px;
+         line-height:1.45;margin:8px 0 0;border-top:1px dashed var(--p2-rule-faint);padding-top:7px}
+  .pass{color:var(--p2-iron)} .fail{color:var(--p2-rust);font-weight:600}
+  .stage{border:1px solid var(--p2-rule-faint);background:var(--p2-bone);height:132px;
+         position:relative;overflow:hidden;margin:0 0 8px}
+  .stage svg{display:block;width:100%;height:100%}
+  .stagehead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 6px}
+  button.go{font-family:var(--p2-font-label);text-transform:uppercase;letter-spacing:.08em;
+    font-size:11px;font-weight:600;background:none;border:1px solid var(--p2-iron);
+    color:var(--p2-graphite);padding:8px 12px;min-height:40px;cursor:pointer}
+  .verbcard>h2{font-size:24px;margin-bottom:2px}
+  .why{font-size:14.5px;line-height:1.5;color:var(--p2-ink-2);max-width:58ch;margin:0 0 14px}
+  .invented{border:1px solid var(--p2-rust);color:var(--p2-rust);font-family:var(--p2-font-label);
+    text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:600;padding:3px 6px 2px}
+  .dot{width:14px;height:14px;border-radius:50%;background:var(--p2-brass);position:absolute}
+  #modulefail{display:none;border:2px solid var(--p2-rust);padding:16px 18px;margin:24px 0}
+  #modulefail code{font-family:var(--p2-font-chrome);background:rgba(21,24,29,.06);padding:1px 5px}
+  .note{font-family:var(--p2-font-chrome);font-size:11.5px;color:var(--p2-zinc-text);
+        line-height:1.5;max-width:72ch;margin:8px 0 0}
+
+  /* SIDE BY SIDE IN BOTH MODES.
+     Six of the seven verbs drive the Web Animations API, which the reduced
+     blanket in tokens.css cannot reach — element.animate() is unaffected by
+     animation-duration overrides — so the FULL specimen keeps playing whatever
+     mode the page is in. TREMOR is the exception: it is a CSS keyframe, so it
+     needs one explicit restatement, scoped to .stage--full and nothing else.
+     (A generic `animation-duration: revert` does NOT work here: revert goes to
+     the user-agent origin, i.e. 0s, not back to the author's declaration.)
+     The only cosmetic loss is the rocker's own background transition inside the
+     CRANK specimen, which snaps instead of easing. */
+  :root[data-motion="reduce"] .stage--full .p2-tremor{
+    animation:p2-tremor var(--p2-tremor-period) ease-in-out infinite !important;
+  }
+</style>
+</head>
+<body class="p2">
+
+<header>
+  <div class="p2-arch">P2 · The Attention Economy · design system · direction "The Bench"</div>
+  <h1>Every token, every type role, and every motion verb beside its reduced twin.</h1>
+  <p class="lede">Everything below is generated from <span class="p2-chrome">tokens.js</span> and
+    <span class="p2-chrome">motion.js</span> at load. Nothing on this page is transcribed by hand, so
+    if a number here is wrong, the module is wrong.</p>
+  <div class="bar" id="toggles"></div>
+  <p class="note" id="modestate"></p>
+</header>
+
+<div id="modulefail">
+  <p style="margin:0 0 8px"><strong>The modules did not load.</strong></p>
+  <p style="margin:0" class="p2-chrome">Chrome refuses <code>&lt;script type="module"&gt;</code> imports over
+    <code>file://</code>. Safari and Firefox open this page from the filesystem fine. For Chrome, serve the
+    folder: <code>cd docs/p2 &amp;&amp; python3 -m http.server 8000</code> then open
+    <code>http://localhost:8000/lib/demo-system.html</code>.</p>
+</div>
+
+<main id="out" hidden>
+
+<!-- ===================================================== 1. AUDITS -->
+<section>
+  <h3>Self-check</h3>
+  <h2>The module audits its own claims before it draws anything.</h2>
+  <p class="why">Two sources of truth is a bug waiting for 2am. <span class="p2-chrome">verifyTokenParity()</span>
+    reads the computed custom properties back out of <span class="p2-chrome">tokens.css</span> and throws if
+    they have drifted from the JavaScript. <span class="p2-chrome">auditPalette()</span> recomputes every
+    contrast figure. <span class="p2-chrome">auditReducedCoverage()</span> throws if any verb has been added
+    without a stated alternative encoding. The last two cards are <strong>specimens, not audits</strong>: they
+    prove the cases they name and nothing wider. <strong>Mode symmetry as a whole is enforced by review</strong>
+    — <span class="p2-chrome">motion.js</span> deliberately ships no audit for it, because the one it used to
+    ship compared declared argument counts, which every verb here makes identical by construction.</p>
+  <div class="grid g3" id="audits"></div>
+</section>
+
+<!-- ===================================================== 2. PALETTE -->
+<section>
+  <h3>Palette</h3>
+  <h2>Eight colours. Each one means exactly one thing.</h2>
+  <p class="why">The contrast figure is measured against Bone at load. <strong>OBJ</strong> is WCAG 1.4.11
+    for a non-text graphical object and wants 3:1. <strong>TEXT</strong> is WCAG 1.4.3 at body size and
+    wants 4.5:1. Where the drawing value fails as text, a darkened sibling is exported beside it, and the
+    raw value throws if it reaches a glyph.</p>
+  <div class="grid g3" id="palette"></div>
+</section>
+
+<!-- ===================================================== 3. THE ZINC PAIR -->
+<section>
+  <h3>The Zinc problem</h3>
+  <h2>One hue, two tokens, and they are not interchangeable.</h2>
+  <div class="grid g2" id="zincpair"></div>
+  <p class="note" id="zincnote"></p>
+</section>
+
+<!-- ===================================================== 4. COLOUR VISION -->
+<section>
+  <h3>Colour vision</h3>
+  <h2>Brass against Cyan is the workhorse pair, and it carries the thesis.</h2>
+  <p class="why">Money against the count. Every simulation below is at full severity, under two independent
+    models — Machado, Oliveira &amp; Fernandes 2009, and Viénot, Brettel &amp; Mollon 1999 — because on this
+    palette the two disagree, and the guard takes the worse of them.</p>
+  <div class="wrapx"><table id="bccvd"></table></div>
+  <h3 style="margin-top:28px">Every hue pair, worst case</h3>
+  <div class="wrapx"><table id="pairs"></table></div>
+  <p class="note">ΔE2000 below 11 means hue alone cannot carry the difference; below 20 it works but has no
+    headroom at 1px. Every pair in this project carries a second channel regardless — see
+    <span class="p2-chrome">REDUNDANT_CODING</span> below.</p>
+  <h3 style="margin-top:28px">The second channel</h3>
+  <div class="wrapx"><table id="redundant"></table></div>
+</section>
+
+<!-- ===================================================== 5. TYPE -->
+<section>
+  <h3>Type</h3>
+  <h2>Four faces, one job each, and the jobs never overlap.</h2>
+  <div class="grid g2" id="type"></div>
+  <h3 style="margin-top:28px">The tabular test</h3>
+  <div class="card">
+    <p class="note" style="margin:0 0 8px">These two rows must be exactly the same width. If they are not,
+      the numeral face lost its <span class="p2-chrome">tnum</span> feature in subsetting, and every readout
+      will jitter while the reader drags. This is the check the build script has to run.</p>
+    <div class="p2-num" style="font-size:22px">0000000000</div>
+    <div class="p2-num" style="font-size:22px">1111111111</div>
+    <p class="p2-chrome" id="tnum" style="margin:8px 0 0"></p>
+  </div>
+</section>
+
+<!-- ===================================================== 6. MOTION -->
+<section>
+  <h3>Motion</h3>
+  <h2>Seven verbs. Full on the left, the alternative encoding on the right.</h2>
+  <p class="why">Reduced motion is not the verb switched off. It is a different way of carrying the same
+    fact, and each one below states what fact that is. The two stages play independently of the page toggle
+    on purpose, so both can be watched at once. <em>Play as set</em> calls the dispatching export and follows
+    whatever the toggle at the top says.</p>
+  <div id="verbs"></div>
+  <h3 style="margin-top:34px">Coverage</h3>
+  <div class="wrapx"><table id="coverage"></table></div>
+</section>
+
+<!-- ===================================================== 7. STRUCTURE -->
+<section>
+  <h3>Structure</h3>
+  <h2>The grid, the rules, and the eight organs.</h2>
+  <div class="grid g2" id="structure"></div>
+</section>
+
+<!-- ===================================================== 8. SHIP -->
+<section>
+  <h3>Before ship</h3>
+  <h2>What the font step must do, in order.</h2>
+  <div id="ship"></div>
+</section>
+
+</main>
+
+<script type="module">
+import * as T from './tokens.js';
+import * as M from './motion.js';
+
+document.getElementById('out').hidden = false;
+M.initMotion();
+
+const el = (tag, attrs = {}, ...kids) => {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === 'class') n.className = v; else if (k === 'html') n.innerHTML = v; else n.setAttribute(k, v);
+  }
+  for (const k of kids) n.append(k);
+  return n;
+};
+const svgEl = (tag, attrs = {}) => {
+  const n = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  return n;
+};
+const table = (host, head, rows) => {
+  const t = document.getElementById(host);
+  t.append(el('thead', {}, el('tr', {}, ...head.map((h) => el('th', {}, h)))));
+  const tb = el('tbody');
+  for (const r of rows) tb.append(el('tr', {}, ...r.map((c) => {
+    const td = el('td', typeof c === 'object' && c.cls ? { class: c.cls } : {});
+    td.innerHTML = typeof c === 'object' ? c.v : String(c);
+    return td;
+  })));
+  t.append(tb);
+};
+
+/* ---------- 0. toggles + mode readout ---------- */
+M.installMotionToggle(document.getElementById('toggles'));
+const osBtn = el('button', { class: 'go', type: 'button' }, 'Follow the OS again');
+osBtn.addEventListener('click', () => M.setMotionMode(null));
+document.getElementById('toggles').append(osBtn);
+const paintMode = () => {
+  document.getElementById('modestate').textContent =
+    `Mode in force: ${M.motionMode().toUpperCase()} · source: ${document.documentElement.dataset.motionSource}` +
+    ` · this operating system asks for reduced motion: ${M.prefersReduced() ? 'yes' : 'no'}` +
+    ` · ?motion=reduce and ?motion=full also work in the URL.`;
+};
+M.onMotionChange(paintMode); paintMode();
+
+/* ---------- 1. audits ---------- */
+{
+  const host = document.getElementById('audits');
+  const run = (name, fn) => {
+    let ok = true, msg = '';
+    try { const r = fn(); msg = typeof r === 'string' ? r : 'pass'; } catch (e) { ok = false; msg = e.message; }
+    host.append(el('div', { class: 'card' },
+      el('h3', {}, name),
+      el('p', { class: ok ? 'p2-chrome pass' : 'p2-chrome fail', style: 'margin:0;white-space:pre-wrap' },
+        (ok ? '✓ ' : '✕ ') + msg)));
+  };
+  run('verifyTokenParity()', () => { T.verifyTokenParity(); return 'tokens.css matches tokens.js on all ' + Object.keys(T.cssVariables()).length + ' properties'; });
+  run('auditPalette()', () => { const r = T.auditPalette(); return r.length + ' colours; every declared contrast figure re-measured and matches'; });
+  run('auditReducedCoverage()', () => { const r = M.auditReducedCoverage(); return r.length + ' verbs; every one has a named alternative encoding that states what it carries'; });
+  run('Both halves refuse a non-element', () => {
+    /* Not an audit and not named like one. These are SPECIMENS: eight verb
+       halves, each handed a string where an element belongs, each of which must
+       refuse AT THE CALL SITE rather than inside an animation frame. It proves
+       these eight cases and nothing more. Mode symmetry as a whole is a review
+       rule — motion.js has no audit for it, on purpose; see the README. */
+    const g = () => document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    const WIDE = { id: 'e1-buyers-008', central: 192, ci80: [96, 360], unit: '$m' };
+    const arg = {
+      settle: (bad) => [bad, [{ opacity: 1 }]],
+      sweep: (bad) => [{ el: bad }],                                   // el is OPTIONAL, and checked when given
+      crank: (bad) => [{ input: bad }],
+      crankOutput: (bad) => [{ input: g(), output: bad }],             // output is OPTIONAL, and checked when given
+      traverse: (bad) => [bad, { from: { x: 0, y: 0 }, to: { x: 9, y: 9 }, trailLayer: g() }],
+      tremor: (bad) => [bad, { ciWidthPx: 12, claim: WIDE }],
+      pullTug: (bad) => [bad],
+      pullOpen: (bad) => [bad, { open: true }],
+    };
+    const halves = [];
+    for (const slot of Object.keys(arg)) {
+      const verb = slot === 'crankOutput' ? 'crank' : slot;
+      for (const suffix of ['Full', 'Reduced']) {
+        const name = verb + suffix;
+        try { M[name](...arg[slot]('#not-an-element')); throw new Error(`${name} accepted a string for ${slot}`); }
+        catch (e) { if (/accepted a string/.test(e.message)) throw e; }
+        halves.push(slot + suffix);
+      }
+    }
+    return halves.length + ' calls across 7 verbs, both halves each, every one refusing a non-element synchronously — including the two OPTIONAL slots, sweep\'s el and crank\'s output, which used to be accepted and then throw inside an animation frame';
+  });
+  run('TREMOR scope is enforced in both halves', () => {
+    const point = { id: 'a-point-claim', central: 25, ci80: [20, 30], unit: 'demo' };
+    const backwards = { id: 'e1-buyers-008-inverted', central: 192, ci80: [360, 96], unit: '$m' };
+    const refused = [];
+    for (const [what, claim] of [['a claim guards.js calls a point', point], ['an inverted ci80', backwards]]) {
+      for (const half of ['tremorFull', 'tremorReduced']) {
+        const mark = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        try { M[half](mark, { ciWidthPx: 12, claim }); throw new Error(`${half} drew ${what}`); }
+        catch (e) { if (/drew/.test(e.message)) throw e; }
+        if (mark.getAttribute('data-interval') || mark.getAttribute('data-reduced-encoding')) {
+          throw new Error(`${half} left the mark half-stamped after refusing`);
+        }
+        refused.push(`${half}(${what})`);
+      }
+    }
+    return refused.length + ' refusals, both halves, nothing stamped: ' + refused.join(', ');
+  });
+}
+
+/* ---------- 2. palette ---------- */
+{
+  const host = document.getElementById('palette');
+  for (const r of T.auditPalette()) {
+    const card = el('div', { class: 'card' });
+    const sw = el('span', { class: 'swatch' });
+    sw.style.background = r.hex;
+    if (r.name === 'bone') sw.style.background = `${r.hex} repeating-linear-gradient(to right, var(--p2-grid-ink) 0 1px, transparent 1px 22px)`;
+    if (r.name === 'rust') sw.style.background = `repeating-linear-gradient(45deg, ${r.hex} 0 1.4px, ${T.BONE} 1.4px 6px)`;
+    if (r.name === 'stipple') sw.style.background = `${T.BONE} radial-gradient(${r.hex} 42%, transparent 44%) 0 0/4px 4px`;
+    card.append(sw);
+    card.append(el('h3', {}, r.name.toUpperCase()));
+    card.append(el('div', { class: 'p2-num', style: 'font-size:14px' }, r.hex));
+    const kv = el('dl', { class: 'kv' });
+    const add = (k, v, cls) => { kv.append(el('dt', {}, k)); kv.append(el('dd', cls ? { class: cls } : {}, v)); };
+    add('token', r.token);
+    add('obj', r.name === 'bone' ? 'n/a — this is the ground everything else is measured against'
+      : `${r.onBone.toFixed(2)}:1 ${r.passesObject ? '✓ clears 3:1' : '✕ needs an Iron stroke or frame'}`,
+      r.name === 'bone' ? '' : r.passesObject ? 'pass' : 'fail');
+    add('text', r.textHex ? `${r.textHex}  ${r.textOnBone.toFixed(2)}:1 ${r.passesAAText ? '✓' : '✕'}` : 'never text', r.textHex ? (r.passesAAText ? 'pass' : 'fail') : 'fail');
+    add('role', r.role);
+    card.append(kv);
+    card.append(el('p', { class: 'never' }, r.never));
+    host.append(card);
+  }
+}
+
+/* ---------- 3. the zinc pair ---------- */
+{
+  const host = document.getElementById('zincpair');
+  const mk = (title, hex, ratio, body, demo) => {
+    const c = el('div', { class: 'card' });
+    c.append(el('h3', {}, title));
+    c.append(el('div', { class: 'p2-num', style: 'font-size:20px;margin-bottom:8px' }, `${hex}  ·  ${ratio.toFixed(2)}:1`));
+    c.append(demo);
+    c.append(el('p', { class: 'p2-chrome', style: 'margin:10px 0 0' }, body));
+    return c;
+  };
+  const ruleDemo = el('div', { style: 'height:52px;position:relative' });
+  const rs = svgEl('svg', { viewBox: '0 0 320 52', style: 'width:100%;height:52px' });
+  for (let i = 0; i <= 6; i++) {
+    rs.append(svgEl('line', { x1: 20 + i * 46, y1: 8, x2: 20 + i * 46, y2: 40, stroke: T.ZINC_RULE, 'stroke-width': 1 }));
+  }
+  rs.append(svgEl('line', { x1: 20, y1: 40, x2: 296, y2: 40, stroke: T.ZINC_RULE, 'stroke-width': 1 }));
+  ruleDemo.append(rs);
+  const textDemo = el('div', { style: 'height:52px;display:flex;align-items:center' });
+  textDemo.append(el('span', { class: 'p2-arch', style: `color:${T.ZINC_TEXT};font-size:13px` }, 'INLET · GATE · METER · RULE'));
+
+  host.append(mk('--p2-zinc-rule · lines only', T.ZINC_RULE, T.contrastRatio(T.ZINC_RULE, T.BONE),
+    'Clears 3:1 as a graphical object, so it is fine for axes, gridlines and ticks. It fails WCAG AA as text at every size. assertTextColor() throws on it.', ruleDemo));
+  host.append(mk('--p2-zinc-text · glyphs only', T.ZINC_TEXT, T.contrastRatio(T.ZINC_TEXT, T.BONE),
+    'The darkened sibling. Same hue in OKLCH, lightness dropped until it clears 4.5:1 with margin. Every organ label and every line of data chrome uses this one.', textDemo));
+
+  document.getElementById('zincnote').textContent =
+    `Measured: rule ${T.contrastRatio(T.ZINC_RULE, T.BONE).toFixed(2)}:1, text ${T.contrastRatio(T.ZINC_TEXT, T.BONE).toFixed(2)}:1 on Bone. ` +
+    `The text token sits ΔE2000 ${T.deltaE2000(T.ZINC_TEXT, T.IRON).toFixed(1)} from Iron ${T.IRON} — at any lightness that clears AA on this ground, ` +
+    `the two greys are the same grey. They are separated by role and by stroke weight, never by appearance, which is exactly why the token names are long and the guard throws.`;
+}
+
+/* ---------- 4. colour vision ---------- */
+{
+  const chip = (hex) => `<span style="display:inline-block;width:34px;height:14px;border:1px solid ${T.IRON};background:${hex};vertical-align:-2px"></span> <span class="p2-num">${hex}</span>`;
+  const w = T.worstCaseSeparation(T.BRASS, T.CYAN);
+  table('bccvd', ['Vision', 'Model', 'Brass — money', 'Cyan — the count', 'ΔE2000', 'Verdict'],
+    w.rows.map((r) => [r.vision, r.model, { v: chip(r.a) }, { v: chip(r.b) },
+      { v: r.deltaE.toFixed(2), cls: 'n' },
+      { v: r.deltaE >= T.SEPARATION_COMFORT ? '<span class="pass">clear</span>' : r.deltaE >= T.SEPARATION_FLOOR ? 'tight' : '<span class="fail">fails</span>' }]));
+
+  table('pairs', ['Pair', 'Normal ΔE', 'Worst ΔE', 'Under', 'Verdict'],
+    T.auditSeparation().map((r) => [r.pair, { v: r.normal.toFixed(2), cls: 'n' }, { v: r.worst.toFixed(2), cls: 'n' },
+      `${r.worstVision} / ${r.worstModel}`,
+      { v: r.verdict === 'clear' ? '<span class="pass">clear</span>' : r.verdict === 'tight' ? 'tight' : '<span class="fail">HUE ALONE FAILS</span>' }]));
+
+  table('redundant', ['Role', 'Hue', 'The channel beside hue', 'Why it is not optional'],
+    Object.entries(T.REDUNDANT_CODING).map(([role, c]) => [role, { v: chip(c.hex) }, c.channel, c.why]));
+}
+
+/* ---------- 5. type ---------- */
+{
+  const host = document.getElementById('type');
+  const specimen = {
+    numeral: '<span class="p2-num" style="font-size:30px">53,570</span> <span class="p2-num" style="font-size:15px">1919–2007 · 23.43%</span>',
+    prose: '<span class="p2-prose">For eighty-two years, somebody other than the seller counted the audience. Around 1996 that rule broke.</span>',
+    chrome: '<span class="p2-chrome">e2-measurement-005 · 80% CI [500, 800] · grade B · as_of 2019-11-04</span>',
+    label: '<span class="p2-arch" style="font-size:12px">INLET · GATE · METER · RULE · SORTER · TOLL · DOOR · OUTLET</span>',
+  };
+  const face = { numeral: 'Martian Mono', prose: 'Newsreader', chrome: 'IBM Plex Mono', label: 'Instrument Sans' };
+  for (const [role, r] of Object.entries(T.TYPE_ROLE)) {
+    const c = el('div', { class: 'card' });
+    c.append(el('h3', {}, `${role} · ${face[role]}`));
+    c.append(el('div', { html: specimen[role], style: 'margin:6px 0 12px;min-height:44px' }));
+    const kv = el('dl', { class: 'kv' });
+    const add = (k, v) => { kv.append(el('dt', {}, k)); kv.append(el('dd', {}, v)); };
+    add('class', '.' + r.class);
+    add('spec', `${r.weight} · ${r.size} / ${r.lineHeight} · tracking ${r.tracking}${r.transform !== 'none' ? ' · ' + r.transform : ''}`);
+    const f = Object.entries(r.features).map(([k, v]) => `${k}: ${v}`).join('; ');
+    if (f) add('features', f);
+    add('stack', r.family.replace(/,/g, ', '));
+    add('use', r.use);
+    c.append(kv);
+    c.append(el('p', { class: 'never' }, r.never));
+    host.append(c);
+  }
+  // tabular check
+  const probe = el('span', { class: 'p2-num', style: 'position:absolute;visibility:hidden;font-size:22px;white-space:pre' });
+  document.body.append(probe);
+  probe.textContent = '0000000000'; const w0 = probe.getBoundingClientRect().width;
+  probe.textContent = '1111111111'; const w1 = probe.getBoundingClientRect().width;
+  probe.remove();
+  const same = Math.abs(w0 - w1) < 0.5;
+  const t = document.getElementById('tnum');
+  t.textContent = `Measured now: ${w0.toFixed(2)}px vs ${w1.toFixed(2)}px — ${same ? '✓ tabular' : '✕ PROPORTIONAL: readouts will jitter'}` +
+    (same ? ' (the system monospace fallback is tabular by nature; re-run this after the real subset lands)' : '');
+  t.className = same ? 'p2-chrome pass' : 'p2-chrome fail';
+}
+
+/* ---------- 6. motion ---------- */
+{
+  const host = document.getElementById('verbs');
+
+  /* Each verb builds two identical stages and returns a play(stage, mode) fn. */
+  const rigs = {
+    SETTLE(stage) {
+      const d = el('span', { class: 'dot' });
+      d.style.left = '28px'; d.style.top = '90px';
+      stage.append(d);
+      return (mode) => {
+        d.style.transform = 'none'; d.style.opacity = '1';
+        const kf = [{ transform: 'translateY(-64px)' }, { transform: 'none' }];
+        return mode === 'full' ? M.settleFull(d, kf) : M.settleReduced(d, kf, { fromTransform: 'translateY(-64px)' });
+      };
+    },
+    SWEEP(stage) {
+      const s = svgEl('svg', { viewBox: '0 0 400 132' });
+      const path = svgEl('path', {
+        d: 'M18 104 L60 96 L102 92 L144 78 L186 74 L228 56 L270 50 L312 30 L354 22 L382 14',
+        fill: 'none', stroke: T.BRASS, 'stroke-width': 2,
+      });
+      s.append(svgEl('line', { x1: 18, y1: 114, x2: 382, y2: 114, stroke: T.ZINC_RULE, 'stroke-width': 1 }));
+      s.append(path); stage.append(s);
+      const len = 460;
+      path.setAttribute('stroke-dasharray', String(len));
+      return (mode) => {
+        path.setAttribute('stroke-dashoffset', String(len));
+        const onProgress = (t) => path.setAttribute('stroke-dashoffset', String(len * (1 - t)));
+        return mode === 'full' ? M.sweepFull({ onProgress }) : M.sweepReduced({ onProgress });
+      };
+    },
+    CRANK(stage) {
+      const wrap = el('div', { style: 'display:flex;gap:16px;align-items:center;height:100%;padding:0 16px' });
+      const rock = el('span', { class: 'p2-rocker' });
+      const b1 = el('button', { type: 'button', 'aria-pressed': 'true' }, 'Billings');
+      const b2 = el('button', { type: 'button', 'aria-pressed': 'false' }, 'Media revenue');
+      rock.append(b1, b2);
+      const out = el('span', { class: 'p2-num', style: 'font-size:26px' }, '53,570');
+      wrap.append(rock, out); stage.append(wrap);
+      let flip = false;
+      return (mode) => {
+        const input = flip ? b2 : b1;
+        const apply = () => {
+          flip = !flip;
+          b1.setAttribute('aria-pressed', String(!flip)); b2.setAttribute('aria-pressed', String(flip));
+          out.textContent = flip ? '41,021' : '53,570';
+        };
+        return mode === 'full' ? M.crankFull({ input, output: out, apply }) : M.crankReduced({ input, output: out, apply });
+      };
+    },
+    TRAVERSE(stage) {
+      const s = svgEl('svg', { viewBox: '0 0 400 132' });
+      const trail = svgEl('g'); const unit = svgEl('circle', { cx: 60, cy: 96, r: 7, fill: T.BRASS });
+      s.append(trail, unit); stage.append(s);
+      return (mode) => {
+        unit.style.transform = 'none'; unit.style.opacity = '1';
+        const o = { from: { x: 60, y: 96 }, to: { x: 330, y: 40 }, arc: 46, trailLayer: trail, trailStroke: T.ZINC_RULE };
+        return mode === 'full' ? M.traverseFull(unit, o) : M.traverseReduced(unit, o);
+      };
+    },
+    TREMOR(stage) {
+      const s = svgEl('svg', { viewBox: '0 0 400 132' });
+      const defs = svgEl('defs');
+      const pat = svgEl('pattern', { id: 'hx' + Math.random().toString(36).slice(2), width: 6, height: 6, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' });
+      pat.append(svgEl('line', { x1: 0, y1: 0, x2: 0, y2: 6, stroke: T.IRON, 'stroke-width': 1 }));
+      defs.append(pat); s.append(defs);
+      s.append(svgEl('line', { x1: 30, y1: 104, x2: 370, y2: 104, stroke: T.ZINC_RULE, 'stroke-width': 1 }));
+      const mark = svgEl('g'); s.append(mark); stage.append(s);
+      const claim = { id: 'e3-toll-004', central: 15, ci80: [5, 25], unit: '% of billings' };
+      return (mode) => {
+        mark.replaceChildren();
+        mark.classList.remove('p2-tremor');
+        mark.removeAttribute('data-reduced-encoding');
+        mark.removeAttribute('data-interval');
+        const ciPx = 5.4; // the 80% interval measured in this chart's pixels
+        const ends = () => {
+          mark.append(svgEl('line', { x1: 120, y1: 46, x2: 120, y2: 78, stroke: T.IRON, 'stroke-width': 1.5 }));
+          mark.append(svgEl('line', { x1: 280, y1: 46, x2: 280, y2: 78, stroke: T.IRON, 'stroke-width': 1.5 }));
+        };
+        const caption = (s) => {
+          const tx = svgEl('text', { x: 120, y: 96, fill: T.ZINC_TEXT, 'font-family': T.FONT.chrome, 'font-size': 11 });
+          tx.textContent = s; mark.append(tx);
+        };
+        // Span-only in BOTH modes. This claim's 80% interval is 133% of its
+        // central, so invariant 3 forbids a central mark anywhere, in any mode.
+        //
+        // The claim goes to BOTH halves. It used to go only to the reduced one,
+        // which meant the scope rule — TREMOR is for the wide claims and
+        // nothing else, ever — was checked in reduced mode and not in full, and
+        // this line was the call site that proved it: `{ ciWidthPx: ciPx }` with
+        // no claim at all, shivering a mark on nothing.
+        const spec = M.tremorStatic(claim, ciPx);
+        if (mode === 'full') {
+          mark.append(svgEl('line', { x1: 120, y1: 62, x2: 280, y2: 62, stroke: T.IRON, 'stroke-width': 1.5 }));
+          ends();
+          caption(spec.label + '  ·  span only, shivering');
+          return M.tremorFull(mark, { ciWidthPx: ciPx, claim });
+        }
+        mark.append(svgEl('rect', { x: 120, y: 54, width: 160, height: 16, rx: 8, fill: `url(#${pat.id})`, stroke: T.IRON, 'stroke-width': 1.2 }));
+        ends();
+        caption(spec.label + '  ·  span only, hatched');
+        return M.tremorReduced(mark, { ciWidthPx: ciPx, claim });
+      };
+    },
+    CUT(stage) {
+      const wrap = el('div', { style: 'display:flex;flex-direction:column;gap:10px;justify-content:center;height:100%;padding:0 16px' });
+      const lab = el('span', { class: 'p2-num p2-cut', style: 'font-size:15px' }, 'COEN MCE · billings at list price · 1919–2007');
+      const btn = el('button', { class: 'go', type: 'button' }, 'Cross the seam');
+      wrap.append(lab, btn); stage.append(wrap);
+      let flip = false;
+      const go = () => M.cut(() => {
+        flip = !flip;
+        lab.textContent = flip ? 'MAGNA · media-owner revenue · 1980–2025' : 'COEN MCE · billings at list price · 1919–2007';
+      }, stage);
+      btn.addEventListener('click', go);
+      return () => go();
+    },
+    PULL(stage) {
+      const s = svgEl('svg', { viewBox: '0 0 400 132' });
+      s.append(svgEl('rect', { x: 60, y: 26, width: 280, height: 80, fill: 'none', stroke: T.IRON, 'stroke-width': 1.5 }));
+      s.append(svgEl('line', { x1: 60, y1: 96, x2: 340, y2: 96, stroke: T.ZINC_RULE, 'stroke-width': 1 }));
+      const ring = svgEl('g');
+      ring.append(svgEl('circle', { cx: 200, cy: 96, r: 9, fill: 'none', stroke: T.IRON, 'stroke-width': 1.5 }));
+      for (let i = 0; i < 8; i++) {
+        const a = (i / 8) * Math.PI * 2;
+        ring.append(svgEl('line', {
+          x1: 200 + Math.cos(a) * 9, y1: 96 + Math.sin(a) * 9,
+          x2: 200 + Math.cos(a) * 12, y2: 96 + Math.sin(a) * 12, stroke: T.IRON, 'stroke-width': 1,
+        }));
+      }
+      s.append(ring); stage.append(s);
+      const lab = svgEl('text', { x: 66, y: 20, fill: T.ZINC_TEXT, 'font-family': T.FONT.label, 'font-size': 10, 'letter-spacing': '.08em' });
+      lab.textContent = 'METER'; s.append(lab);
+      return (mode) => {
+        ring.removeAttribute('data-pull'); ring.style.transform = '';
+        return mode === 'full' ? M.pullTugFull(ring) : M.pullTugReduced(ring);
+      };
+    },
+  };
+
+  for (const [name, v] of Object.entries(M.VERBS)) {
+    const card = el('section', { class: 'verbcard', style: 'border-top:1px solid var(--p2-rule-faint);padding:30px 0 6px' });
+    const head = el('div', { style: 'display:flex;gap:12px;align-items:baseline;flex-wrap:wrap' });
+    head.append(el('h2', {}, name));
+    if (v.INVENTED) head.append(el('span', { class: 'invented' }, 'invented here'));
+    head.append(el('span', { class: 'p2-num', style: 'font-size:13px' },
+      `${v.duration}ms ${v.easing}${v.hold ? ` + ${v.hold}ms hold` : ''}`));
+    card.append(head);
+    card.append(el('p', { class: 'why' }, v.what));
+
+    const pair = el('div', { class: 'grid g2' });
+    const plays = [];
+    for (const mode of ['full', 'reduce']) {
+      const box = el('div');
+      const h = el('div', { class: 'stagehead' });
+      h.append(el('span', { class: 'p2-arch' }, mode === 'full' ? 'FULL' : 'REDUCED — the alternative encoding'));
+      h.append(el('span', { class: 'p2-chrome' }, mode === 'full'
+        ? `${v.duration}ms` : `${v.reduced.form} · ${v.reduced.duration}ms`));
+      box.append(h);
+      const stage = el('div', { class: 'stage ' + (mode === 'full' ? 'stage--full' : 'stage--reduced') });
+      box.append(stage);
+      const play = rigs[name](stage);
+      plays.push(() => play(mode));
+      box.append(el('p', { class: 'p2-chrome', style: 'margin:0' },
+        mode === 'full' ? v.use : v.reduced.what));
+      if (mode === 'reduce') box.append(el('p', { class: 'note', style: 'margin-top:6px' }, 'Carries: ' + v.reduced.carries));
+      else box.append(el('p', { class: 'never' }, v.never));
+      pair.append(box);
+    }
+    card.append(pair);
+
+    const bar = el('div', { class: 'bar', style: 'margin-top:12px' });
+    const both = el('button', { class: 'go', type: 'button' }, 'Play both');
+    both.addEventListener('click', () => plays.forEach((p) => p()));
+    const asSet = el('button', { class: 'go', type: 'button' }, 'Play as set');
+    asSet.addEventListener('click', () => plays[M.isReduced() ? 1 : 0]());
+    bar.append(both, asSet);
+    if (v.note) bar.append(el('span', { class: 'p2-chrome', style: 'max-width:60ch' }, v.note));
+    card.append(bar);
+    if (v.reduced.hardRule) card.append(el('p', { class: 'never', style: 'max-width:72ch' }, v.reduced.hardRule));
+    host.append(card);
+  }
+
+  table('coverage', ['Verb', 'Origin', 'Full', 'Reduced', 'What the fallback carries'],
+    M.auditReducedCoverage().map((r) => [
+      { v: `<strong>${r.verb}</strong>${r.invented ? ' <span class="fail">*</span>' : ''}` },
+      M.VERBS[r.verb].origin, r.full, r.reduced, r.carries]));
+  document.getElementById('coverage').after(
+    el('p', { class: 'note' }, '* PULL is the one verb whose timing is invented here. Six verbs — SETTLE, SWEEP, CRANK, TRAVERSE, TREMOR, CUT — are specified in architect-proposals.json. PULL is named and decided in DESIGN.md but was never given a duration. See VERBS.PULL.note.'));
+}
+
+/* ---------- 7. structure ---------- */
+{
+  const host = document.getElementById('structure');
+  const c1 = el('div', { class: 'card' });
+  c1.append(el('h3', {}, 'Grid and rules'));
+  const kv = el('dl', { class: 'kv' });
+  const add = (k, v) => { kv.append(el('dt', {}, k)); kv.append(el('dd', { class: 'p2-num' }, String(v))); };
+  for (const [k, v] of Object.entries(T.GRID)) add(k, v);
+  for (const [k, v] of Object.entries(T.RULE_WIDTH)) add('rule ' + k, v + 'px');
+  c1.append(kv);
+  const rs = svgEl('svg', { viewBox: '0 0 320 60', style: 'width:100%;height:60px;margin-top:10px' });
+  [['hairline', T.ZINC_RULE, 1], ['mechanism', T.IRON, 1.5], ['emphasis', T.GRAPHITE, 2]].forEach(([n, col, w], i) => {
+    rs.append(svgEl('line', { x1: 8, y1: 14 + i * 18, x2: 220, y2: 14 + i * 18, stroke: col, 'stroke-width': w }));
+    const t = svgEl('text', { x: 230, y: 18 + i * 18, fill: T.ZINC_TEXT, 'font-family': T.FONT.label, 'font-size': 9, 'letter-spacing': '.08em' });
+    t.textContent = n.toUpperCase() + ' ' + w; rs.append(t);
+  });
+  c1.append(rs);
+  c1.append(el('p', { class: 'never' }, 'Iron and Zinc are ΔE ' + T.deltaE2000(T.IRON, T.ZINC_RULE).toFixed(1) + ' apart. Stroke weight is what separates them, not colour. Never draw mechanism at 1px.'));
+  host.append(c1);
+
+  const c2 = el('div', { class: 'card' });
+  c2.append(el('h3', {}, 'The eight organs, in fixed order'));
+  c2.append(el('p', { class: 'p2-chrome', style: 'margin:0 0 10px' }, 'Same eight positions in all seven eras. The repetition is the point.'));
+  const ol = el('ol', { style: 'margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:4px 14px' });
+  T.ORGANS.forEach((o, i) => ol.append(el('li', { class: 'p2-arch' }, `${String(i + 1).padStart(2, '0')} · ${o}`)));
+  c2.append(ol);
+  host.append(c2);
+}
+
+/* ---------- 8. ship ---------- */
+{
+  const host = document.getElementById('ship');
+  const s = T.FONT_SHIP_SPEC;
+  const wrap = el('div', { class: 'wrapx' });
+  const t = el('table', { id: 'faces' }); host.append(wrap); wrap.append(t);
+  table('faces', ['Face', 'Role', 'Licence / source', 'What ships'],
+    s.faces.map((f) => [f.family, f.role, f.source, f.ship]));
+  const c = el('div', { class: 'card', style: 'margin-top:16px' });
+  c.append(el('h3', {}, 'Load-bearing, in order'));
+  const ul = el('ul', { class: 'p2-chrome', style: 'margin:0;padding-left:18px;line-height:1.55' });
+  for (const line of s.subset.LOAD_BEARING) ul.append(el('li', { style: 'margin-bottom:8px' }, line));
+  ul.append(el('li', { style: 'margin-bottom:8px' }, s.metricOverrides.how));
+  ul.append(el('li', { style: 'margin-bottom:8px' }, s.display));
+  ul.append(el('li', {}, s.hosting));
+  c.append(ul);
+  c.append(el('p', { class: 'p2-chrome', style: 'margin:12px 0 4px' }, 'Subset range: ' + s.subset.unicodeRange));
+  c.append(el('p', { class: 'note', style: 'margin:0' }, s.subset.note));
+  host.append(c);
+  const p = el('div', { class: 'card', style: 'margin-top:14px' });
+  p.append(el('h3', {}, 'Preload'));
+  p.append(el('pre', { class: 'p2-chrome', style: 'margin:0;white-space:pre-wrap;overflow-x:auto' }, s.preload.join('\n')));
+  host.append(p);
+}
+</script>
+<script>
+  // If the module above never ran, say why. Chrome blocks module imports over file://.
+  setTimeout(() => {
+    if (document.getElementById('out').hidden) {
+      document.getElementById('modulefail').style.display = 'block';
+    }
+  }, 600);
+</script>
+</body>
+</html>

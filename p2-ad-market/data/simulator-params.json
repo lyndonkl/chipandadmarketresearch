@@ -2,6 +2,74 @@
   "target": "the era-6 twin-engine simulator (P2 centerpiece): the auction engine (yield, scenarios sc-01..sc-10) and the distribution engine (volume, scenarios D1..D11)",
   "analysis_ref": "p2-ad-market/data/mechanism.json - engines.auction (claims C1-C6, examples ex-1..ex-7, breaks brk-*) and engines.distribution (claims mech-*, examples X1-X10, breaks B1-B9). Per-analyst source files: data/mechanism-auction.json and data/mechanism-distribution.json.",
   "as_of": "2026-07-30",
+  "mechanism_scope_note": "Every scenario carries a mechanism_scope: which rule it demonstrates, which surface it ran on, and which years. It is the bounded, checkable half of guard G7 in docs/p2/lib/guards.js. `rule` must be a key of mechanism_scope_rules; `surface` must be one the rule's own entry allows. No scope may pair the search surface with a first_price-family rule, because search never ran one - in 2019 DISPLAY moved to unified first price and SEARCH got rGSP. A scenario with no mechanism_scope is a hard error, not a default. `ad_auction` says whether the rule is one the ad auction runs; a scenario with at least one ad_auction rule must also declare `channel` and `mechanism` when it is rendered, so a panel that draws an auction cannot reach a reader without naming which surface it is about.",
+  "mechanism_scope_rules": {
+    "pure_bid": {
+      "family": "pure_bid",
+      "ad_auction": true,
+      "surfaces": [
+        "search"
+      ],
+      "source": "mechanism.json engines.auction.designs.pure_bid - Pure-bid ranking, pay-per-click (GoTo/Overture, 1998-2007)"
+    },
+    "gsp": {
+      "family": "second_price",
+      "ad_auction": true,
+      "surfaces": [
+        "search"
+      ],
+      "source": "mechanism.json engines.auction.designs.gsp - Quality-weighted generalized second-price (AdWords Select, deployed 2002-2008)"
+    },
+    "second_price": {
+      "family": "second_price",
+      "ad_auction": true,
+      "surfaces": [
+        "search",
+        "display"
+      ],
+      "source": "the second-price benchmark every design in mechanism.json engines.auction is compared against"
+    },
+    "squashed_gsp": {
+      "family": "second_price",
+      "ad_auction": true,
+      "surfaces": [
+        "search"
+      ],
+      "source": "mechanism.json engines.auction.examples ex-5-squashing - named in the DOJ findings of fact; the exponent has never been disclosed"
+    },
+    "format_pricing": {
+      "family": "pricing_knob",
+      "ad_auction": true,
+      "surfaces": [
+        "search"
+      ],
+      "source": "mechanism.json engines.auction.examples ex-6-format-pricing - disclosed magnitude, carries its court citation"
+    },
+    "rgsp": {
+      "family": "second_price",
+      "ad_auction": true,
+      "surfaces": [
+        "search"
+      ],
+      "source": "mechanism.json engines.auction.examples ex-7-rgsp-inside-the-band - randomized generalized second-price, launched on SEARCH in 2019"
+    },
+    "first_price": {
+      "family": "first_price",
+      "ad_auction": true,
+      "surfaces": [
+        "display"
+      ],
+      "source": "mechanism.json engines.auction.designs.first_price_shading - Google Ad Manager, the open-web DISPLAY exchange, from 2019-09-05. The record supports this rule on display only."
+    },
+    "default_placement_deal": {
+      "family": "distribution_deal",
+      "ad_auction": false,
+      "surfaces": [
+        "search"
+      ],
+      "source": "mechanism.json engines.distribution.mechanism - revenue-share syndication, minimum-revenue guarantees and exclusive default placement (1998-2008, with a 2024 coda). The placement is bought by private negotiation over revenue-share terms; it is not the ad auction that runs on the surface."
+    }
+  },
   "build_notes": [
     "Ranking and pricing always use predicted_ctrs; revenue and clicks always use true_ctrs. Keeping the two arrays separate is what makes sc-07 possible and is the single most important structural decision in the model.",
     "Every revenue figure the simulator displays must carry the current bidder_mode as a label. A GSP revenue number without a bidder_mode is not a number; it is a point inside a 1.727x band (sc-05).",
@@ -491,6 +559,17 @@
     {
       "id": "sc-01-pure-bid-misorders",
       "demonstrates": "C1 - pure-bid ranking places lower-revenue ads above higher-revenue ads once clickthrough differs enough.",
+      "mechanism_scope": [
+        {
+          "rule": "pure_bid",
+          "surface": "search",
+          "years": [
+            1998,
+            2007
+          ],
+          "note": "pure-bid RANKING (GoTo/Overture). Pricing stays second-price in the settings so ranking is the only thing that changes against sc-02."
+        }
+      ],
       "example_ref": "ex-1-quality-vs-pure-bid",
       "settings": {
         "impressions": 1000,
@@ -552,6 +631,16 @@
     {
       "id": "sc-02-quality-weighting-both-metrics",
       "demonstrates": "C2 - quality weighting raises TOTAL revenue and relevance in the same example, and C3's volume-not-price mechanism.",
+      "mechanism_scope": [
+        {
+          "rule": "gsp",
+          "surface": "search",
+          "years": [
+            2002,
+            2008
+          ]
+        }
+      ],
       "example_ref": "ex-1-quality-vs-pure-bid",
       "settings": {
         "impressions": 1000,
@@ -613,6 +702,16 @@
     {
       "id": "sc-03-winners-pay-less-than-bid",
       "demonstrates": "C3 - each winner pays below its bid, and total revenue still beats pure-bid.",
+      "mechanism_scope": [
+        {
+          "rule": "gsp",
+          "surface": "search",
+          "years": [
+            2002,
+            2008
+          ]
+        }
+      ],
       "example_ref": "ex-1-quality-vs-pure-bid",
       "settings": {
         "inherits": "sc-02-quality-weighting-both-metrics",
@@ -632,6 +731,16 @@
     {
       "id": "sc-04-gsp-not-truthful",
       "demonstrates": "C4 - bidding below value strictly beats truthful bidding.",
+      "mechanism_scope": [
+        {
+          "rule": "gsp",
+          "surface": "search",
+          "years": [
+            2002,
+            2008
+          ]
+        }
+      ],
       "example_ref": "ex-2-gsp-not-truthful",
       "settings": {
         "slot_clicks": [
@@ -674,6 +783,16 @@
     {
       "id": "sc-05-equilibrium-band",
       "demonstrates": "C4 corollary / break brk-non-truthful - GSP revenue is a 1.727x band set by bidder sophistication, not by the mechanism.",
+      "mechanism_scope": [
+        {
+          "rule": "gsp",
+          "surface": "search",
+          "years": [
+            2002,
+            2008
+          ]
+        }
+      ],
       "example_ref": "ex-3-gsp-equilibrium-band",
       "settings": {
         "slot_clicks": [
@@ -713,6 +832,26 @@
     {
       "id": "sc-06-first-price-bid-shading-panel",
       "demonstrates": "C5 - first price with equilibrium shading is revenue-equivalent to second price. REQUIRED PANEL.",
+      "mechanism_scope": [
+        {
+          "rule": "first_price",
+          "surface": "display",
+          "years": [
+            2019,
+            2019
+          ],
+          "note": "Google Ad Manager, the open-web display exchange, from 2019-09-05. This scope may not name search and the guard refuses it if it tries: the required_caption below says the same thing to the reader."
+        },
+        {
+          "rule": "second_price",
+          "surface": "display",
+          "years": [
+            2019,
+            2019
+          ],
+          "note": "the comparison leg - the same exchange's rule before the move. The panel's whole point is that the two are revenue-equivalent under equilibrium shading."
+        }
+      ],
       "example_ref": "ex-4-first-price-shading-panel",
       "settings": {
         "n_bidders": [
@@ -776,6 +915,16 @@
     {
       "id": "sc-07-ctr-misestimation",
       "demonstrates": "Break brk-quality-estimate - the whole quality-weighting case rests on a seller-computed estimate no third party audited before 2009.",
+      "mechanism_scope": [
+        {
+          "rule": "gsp",
+          "surface": "search",
+          "years": [
+            2002,
+            2008
+          ]
+        }
+      ],
       "example_ref": "break-1-ctr-misestimation",
       "settings": {
         "inherits": "sc-02-quality-weighting-both-metrics",
@@ -797,6 +946,17 @@
     {
       "id": "sc-08-reserve-is-a-posted-price",
       "demonstrates": "Break brk-thin-query-reserve / finding f13 - on a one-bidder query the second price IS the seller's reserve, from August 2005.",
+      "mechanism_scope": [
+        {
+          "rule": "gsp",
+          "surface": "search",
+          "years": [
+            2005,
+            2008
+          ],
+          "note": "the quality-based reserve, in force from August 2005"
+        }
+      ],
       "example_ref": "break-2-reserve-is-a-posted-price",
       "settings": {
         "impressions": 1000,
@@ -832,6 +992,41 @@
     {
       "id": "sc-09-pricing-knobs-coda",
       "demonstrates": "C6 - squashing, format pricing and rGSP each move price with quality, allocation and creative held fixed.",
+      "mechanism_scope": [
+        {
+          "rule": "gsp",
+          "surface": "search",
+          "years": [
+            2002,
+            2008
+          ],
+          "note": "the base auction the three knobs are applied to"
+        },
+        {
+          "rule": "squashed_gsp",
+          "surface": "search",
+          "years": [
+            2019,
+            2019
+          ]
+        },
+        {
+          "rule": "format_pricing",
+          "surface": "search",
+          "years": [
+            2019,
+            2019
+          ]
+        },
+        {
+          "rule": "rgsp",
+          "surface": "search",
+          "years": [
+            2019,
+            2019
+          ]
+        }
+      ],
       "example_ref": "ex-5-squashing, ex-6-format-pricing, ex-7-rgsp-inside-the-band",
       "settings": {
         "inherits": "sc-02-quality-weighting-both-metrics",
@@ -915,6 +1110,26 @@
     {
       "id": "sc-10-era-6-vs-era-7-side-by-side",
       "demonstrates": "Finding f10 and f12 - the two 2019 changes ran in opposite directions, and the knobs are small next to the band the mechanism already leaves open.",
+      "mechanism_scope": [
+        {
+          "rule": "first_price",
+          "surface": "display",
+          "years": [
+            2019,
+            2019
+          ],
+          "note": "the display panel"
+        },
+        {
+          "rule": "rgsp",
+          "surface": "search",
+          "years": [
+            2019,
+            2019
+          ],
+          "note": "the search panel. The two 2019 changes ran in opposite directions and this is the one scenario that puts them side by side, which is exactly where they get conflated."
+        }
+      ],
       "example_ref": "cmp-2019-two-changes, ex-7-rgsp-inside-the-band",
       "settings": {
         "panels": [
@@ -944,6 +1159,16 @@
     {
       "id": "D1-guarantee-headline-vs-exposure",
       "demonstrates": "Claim 1 / X1 and X2 - the guarantee is bet-the-company as a headline number and structurally bounded as an exposure. Exposure is max(0, G - s*R), not G.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            2002,
+            2003
+          ]
+        }
+      ],
       "example_ref": "X1, X2",
       "settings": {
         "guarantee_musd": 100,
@@ -977,6 +1202,16 @@
     {
       "id": "D2-delivery-contingency",
       "demonstrates": "Break B1 - a revenue guarantee is not a bet on your own monetisation. The FY2004 10-K voids the guaranteed minimum entirely if the partner cannot deliver queries.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            2002,
+            2004
+          ]
+        }
+      ],
       "example_ref": "X2",
       "settings": {
         "partner_delivers": false,
@@ -995,6 +1230,16 @@
     {
       "id": "D3-the-equity-leg",
       "demonstrates": "Claim 1 / X4 and break B3 - equity was the expensive leg and nobody counts it. The cost rises monotonically in the buyer's own success.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            2002,
+            2004
+          ]
+        }
+      ],
       "example_ref": "X4",
       "settings": {
         "equity_pct_of_company": 0.0271,
@@ -1021,6 +1266,16 @@
     {
       "id": "D4-owned-vs-syndicated-retention",
       "demonstrates": "Claim 2 / X6 - at ~85% revenue share the syndicated dollar is a different business from the owned dollar, on retention and again on fully allocated margin. Carries break B4.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            2008,
+            2008
+          ]
+        }
+      ],
       "example_ref": "X6",
       "settings": {
         "take_rate_syndicated": 0.213,
@@ -1053,6 +1308,16 @@
     {
       "id": "D5-yield-sets-the-distribution-budget",
       "demonstrates": "Claims 2 and 3 / X8 - the maximum feasible bid for a default IS the yield net of serving cost, so the higher-RPM bidder wins the distribution auction. This is the coupling between the two engines.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            1998,
+            2008
+          ]
+        }
+      ],
       "example_ref": "X8",
       "illustrative": true,
       "settings": {
@@ -1082,6 +1347,16 @@
     {
       "id": "D6-the-loss-leading-network",
       "demonstrates": "X8 tail - at the 91% ratio Google actually recognised in 2002 the network ran at a loss per 1,000 queries, funded by the owned-site revenue that carries no revenue share.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            2002,
+            2002
+          ]
+        }
+      ],
       "example_ref": "X8",
       "illustrative": true,
       "settings": {
@@ -1103,6 +1378,16 @@
     {
       "id": "D7-capture-attribution",
       "demonstrates": "Claim 3 / X9 - the capture-attribution decomposition, and the quantitative spine of chapter 09. Carries evidence weights W1-W4 and break B9.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            2008,
+            2008
+          ]
+        }
+      ],
       "example_ref": "X9",
       "settings": {
         "query_denominator_path": [
@@ -1142,6 +1427,16 @@
     {
       "id": "D8-composition-inversion",
       "demonstrates": "Claim 4 / X10 and break B7 - the headline TAC rate barely moved while its composition inverted, and under monopoly the default payment stops being a price and becomes a barrier. Carries evidence weight W5.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            2002,
+            2022
+          ]
+        }
+      ],
       "example_ref": "X10",
       "settings": {
         "year": [
@@ -1174,6 +1469,16 @@
     {
       "id": "D9-liquidity-externality-toggle",
       "demonstrates": "Claim 2 / X7 and break B5 - the volume engine's arithmetic justification, and the fact that its STRONGEST justification is unmeasurable.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            2002,
+            2008
+          ]
+        }
+      ],
       "example_ref": "X7",
       "settings": {
         "advertiser_pool_elasticity": [
@@ -1198,6 +1503,16 @@
     {
       "id": "D10-guarantee-overhang-reconstruction",
       "demonstrates": "Claim 1 / X3 and break B2 - the never-filed deal terms leave a footprint in the accounts, and the footprint prices the guarantee at roughly one seventh of its headline.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            2002,
+            2002
+          ]
+        }
+      ],
       "example_ref": "X3",
       "illustrative": true,
       "settings": {
@@ -1229,6 +1544,16 @@
     {
       "id": "D11-what-the-deal-moved-and-returned",
       "demonstrates": "Claim 1 / X5 - the distribution purchase worked and the investment lost money, which are the same set of facts read two ways. Carries the trace behind break B6.",
+      "mechanism_scope": [
+        {
+          "rule": "default_placement_deal",
+          "surface": "search",
+          "years": [
+            2002,
+            2009
+          ]
+        }
+      ],
       "example_ref": "X5",
       "illustrative": true,
       "settings": {

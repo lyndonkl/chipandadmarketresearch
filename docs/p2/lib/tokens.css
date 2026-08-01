@@ -1,0 +1,336 @@
+/* ==========================================================================
+   P2 — The Attention Economy · tokens.css
+   Direction: "The Bench". Light mode only.
+
+   WHAT LIVES HERE AND WHY IT IS NOT ALL IN tokens.js
+   --------------------------------------------------
+   Four things belong to the cascade and cannot be done well from JavaScript:
+
+     1. The custom-property declarations themselves, so the page is correct
+        before a single module has parsed. A JS-only token layer means the
+        first paint is unstyled — on a 22px grid with a bone ground, that
+        flash is the whole page changing colour.
+     2. @font-face, including the metric-override fallback aliases. There is
+        no JS equivalent that runs early enough to matter.
+     3. @keyframes and @media (prefers-reduced-motion). A media query is the
+        only thing that is right before `initMotion()` has run, and TREMOR's
+        shiver has to be a keyframe so the compositor can own it.
+     4. The paper: the bone ground and its 22px engineering grid.
+
+   Everything else — every value a script has to hand to `setAttribute` —
+   lives in tokens.js, because SVG presentation attributes do not resolve
+   `var()`. The two files declare the same set, and `verifyTokenParity()` in
+   tokens.js throws if they ever drift.
+
+   Load order:  <link rel="stylesheet" href="lib/tokens.css">  then modules.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TOKENS. Mirrored exactly by cssVariables() in tokens.js.
+   -------------------------------------------------------------------------- */
+:root {
+  /* --- ground --- */
+  --p2-bone: #F2EEE4;                     /* paper                    ground */
+  --p2-paper: rgba(255,255,255,0.42);     /* board interior, lifts off the grid */
+
+  /* --- ink. Graphite, stepped by opacity, never by hue. --- */
+  --p2-graphite: #15181D;                 /* 15.36:1  prose, headings, rules  */
+  --p2-ink-2:    #343639;                 /* 10.46:1  secondary prose         */
+  --p2-ink-3:    #414345;                 /*  8.58:1  tertiary                */
+  --p2-ink-4:    #535455;                 /*  6.55:1  floor for body prose    */
+
+  /* --- ZINC. TWO TOKENS, ONE HUE, AND THEY ARE NOT INTERCHANGEABLE. ---
+     --p2-zinc-rule is 3.01:1 on Bone. It clears 3:1 for a graphical object
+     and FAILS AA (4.5:1) for text at every size. It touches lines only.
+     --p2-zinc-text is 4.65:1. It touches glyphs only.
+     tokens.js `assertTextColor()` throws if the rule value reaches a glyph. */
+  --p2-zinc-rule: #838A93;                /*  3.01:1  axes, gridlines, ticks  */
+  --p2-zinc-text: #646B74;                /*  4.65:1  organ labels, chrome    */
+
+  /* --- MONEY. Brass is 3.20:1 — a graphical object, never a glyph. --- */
+  --p2-brass:      #B07A2C;               /*  3.20:1  marks, particles, spend */
+  --p2-brass-text: #8A5F20;               /*  4.85:1  a money figure as text  */
+
+  /* --- THE COUNT. Cyan is 2.46:1 and does NOT clear 3:1 on its own.
+         Every cyan fill carries an Iron stroke. That is not styling. --- */
+  --p2-cyan:      #3AA6BD;                /*  2.46:1  marks, WITH iron stroke */
+  --p2-cyan-text: #1F6E80;                /*  5.03:1  a count as text         */
+
+  /* --- MECHANISM / THE TAKE / ABSENCE --- */
+  --p2-iron:    #5B6570;                  /*  5.12:1  structure. text-safe.   */
+  --p2-rust:    #A8442E;                  /*  5.13:1  the cut. ALWAYS hatched.*/
+  --p2-stipple: #C9C2B4;                  /*  1.53:1  2px texture only, framed*/
+
+  /* --- surfaces --- */
+  --p2-grid-ink:   rgba(21,24,29,0.045);  /* 22px engineering grid, ~4% ink   */
+  --p2-rule-faint: rgba(91,101,112,0.28); /* 1.45:1 — DECORATIVE separators   */
+  --p2-focus:      #15181D;               /* 15.36:1 focus ring               */
+
+  /* --- structure --- */
+  --p2-grid: 22px;
+  --p2-measure: 62ch;
+  --p2-gutter: clamp(20px, 6vw, 96px);
+
+  /* --- type stacks. Real face first; the "* Fallback" aliases below are
+         metric-overridden so nothing reflows when the webfont lands. --- */
+  --p2-font-numeral: 'Martian Mono','Martian Mono Fallback',ui-monospace,'SF Mono','Cascadia Mono','Roboto Mono',Menlo,Consolas,monospace;
+  --p2-font-prose:   'Newsreader','Newsreader Fallback','Iowan Old Style','Palatino Linotype','Book Antiqua',Palatino,Georgia,'Times New Roman',serif;
+  --p2-font-chrome:  'IBM Plex Mono','IBM Plex Mono Fallback',ui-monospace,'SF Mono','Cascadia Mono',Menlo,Consolas,monospace;
+  --p2-font-label:   'Instrument Sans','Instrument Sans Fallback','Inter Tight',Inter,'Helvetica Neue',Helvetica,'Segoe UI',system-ui,Arial,sans-serif;
+
+  /* --- motion. initMotion() re-stamps these; they are declared here so the
+         cascade is correct before any module has run. --- */
+  --p2-settle: 700ms;      --p2-settle-ease: cubic-bezier(.16,1,.3,1);
+  --p2-sweep: 1400ms;      --p2-sweep-ease:  cubic-bezier(.4,0,.6,1);
+  --p2-crank: 320ms;       --p2-crank-ease:  cubic-bezier(.34,0,.2,1);
+  --p2-crank-hold: 40ms;
+  --p2-tremor-period: 833ms;   /* 1.2Hz */
+  --p2-tremor-amp: 0;          /* px, set per mark, capped at 6 */
+  --p2-pull-tug: 180ms;
+  --p2-sweep-progress: 0;      /* 0..1, driven by sweep() */
+}
+
+/* --------------------------------------------------------------------------
+   2. FONTS.
+
+   SHIP STEP — these four blocks are the metric-matched fallbacks. The numbers
+   marked MEASURE-AT-SHIP must be replaced with real measurements before the
+   real faces are added; until then the aliases are inert and the raw system
+   stacks in the token above do the work.
+
+   For each face: render the real face and the fallback at 100px, read
+   ascent / descent / lineGap from the font tables and the advance width of
+   "0", then set
+       size-adjust        = (real advance / fallback advance) * 100%
+       ascent-override    = real ascent  / real unitsPerEm
+       descent-override   = real descent / real unitsPerEm
+       line-gap-override  = real lineGap / real unitsPerEm
+   so the fallback occupies the same box. capsize or a 20-line canvas
+   measureText probe will produce these; the numbers are what matter.
+
+   AND THE ONE THAT WILL BITE: subset Martian Mono and IBM Plex Mono with
+       pyftsubset … --layout-features="+tnum,+kern,+liga,+calt"
+   The default subsetter feature set DROPS tnum. Without tnum,
+   font-variant-numeric:tabular-nums silently does nothing, digits go
+   proportional, and every readout physically jitters while the reader drags.
+   Verify by measuring "0000000000" against "1111111111"; equal to the pixel
+   or the subset is rejected. See FONT_SHIP_SPEC in tokens.js.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Martian Mono Fallback';
+  src: local('SFMono-Regular'), local('Menlo'), local('Consolas'), local('DejaVu Sans Mono');
+  size-adjust: 100%;        /* MEASURE-AT-SHIP */
+  ascent-override: normal;  /* MEASURE-AT-SHIP */
+  descent-override: normal; /* MEASURE-AT-SHIP */
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Newsreader Fallback';
+  src: local('Iowan Old Style'), local('Palatino'), local('Georgia'), local('Times New Roman');
+  size-adjust: 100%;        /* MEASURE-AT-SHIP */
+  ascent-override: normal;  /* MEASURE-AT-SHIP */
+  descent-override: normal; /* MEASURE-AT-SHIP */
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'IBM Plex Mono Fallback';
+  src: local('SFMono-Regular'), local('Menlo'), local('Consolas'), local('DejaVu Sans Mono');
+  size-adjust: 100%;        /* MEASURE-AT-SHIP */
+  ascent-override: normal;  /* MEASURE-AT-SHIP */
+  descent-override: normal; /* MEASURE-AT-SHIP */
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Sans Fallback';
+  src: local('Inter'), local('Helvetica Neue'), local('Segoe UI'), local('Arial');
+  size-adjust: 100%;        /* MEASURE-AT-SHIP */
+  ascent-override: normal;  /* MEASURE-AT-SHIP */
+  descent-override: normal; /* MEASURE-AT-SHIP */
+  line-gap-override: 0%;
+}
+
+/* --------------------------------------------------------------------------
+   3. THE PAPER.
+   -------------------------------------------------------------------------- */
+.p2-paper-ground,
+body.p2 {
+  margin: 0;
+  background-color: var(--p2-bone);
+  color: var(--p2-graphite);
+  font-family: var(--p2-font-prose);
+  font-size: 19px;
+  line-height: 1.65;
+  background-image:
+    repeating-linear-gradient(to right,  var(--p2-grid-ink) 0 1px, transparent 1px var(--p2-grid)),
+    repeating-linear-gradient(to bottom, var(--p2-grid-ink) 0 1px, transparent 1px var(--p2-grid));
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+   4. THE FOUR TYPE ROLES. One job each; the jobs never overlap.
+   -------------------------------------------------------------------------- */
+
+/* NUMERAL — every numeral and every readout. Tabular is the whole point. */
+.p2-num {
+  font-family: var(--p2-font-numeral);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+.p2-num--display { font-size: 30px; line-height: 1.1; }
+.p2-num--lede    { font-size: 15px; line-height: 1.2; }
+
+/* PROSE — body only. */
+.p2-prose {
+  font-family: var(--p2-font-prose);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.65;
+  max-width: var(--p2-measure);
+  color: var(--p2-graphite);
+}
+.p2-prose--secondary { color: var(--p2-ink-2); }
+
+/* CHROME — tooltips, intervals, grades, ids, arithmetic panels. */
+.p2-chrome {
+  font-family: var(--p2-font-chrome);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--p2-zinc-text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* LABEL — the eight organ names and every knob. Structure, never a value. */
+.p2-arch {
+  font-family: var(--p2-font-label);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--p2-zinc-text);
+}
+
+/* Meaning-carrying text colours. There is no class for raw zinc / brass /
+   cyan as text, on purpose: the token that fails AA has no way to reach a
+   glyph through this stylesheet. */
+.p2-ink-money { color: var(--p2-brass-text); }
+.p2-ink-count { color: var(--p2-cyan-text); }
+.p2-ink-take  { color: var(--p2-rust); }
+.p2-ink-mech  { color: var(--p2-iron); }
+
+/* --------------------------------------------------------------------------
+   5. CONTROLS — the rocker the CRANK verb drives, and the focus ring.
+   -------------------------------------------------------------------------- */
+.p2-rocker { display: inline-flex; border: 1px solid var(--p2-iron); background: var(--p2-bone); }
+.p2-rocker button {
+  font-family: var(--p2-font-label);
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; font-weight: 600;
+  color: var(--p2-zinc-text); background: none; border: 0;
+  padding: 9px 13px; min-height: 44px; cursor: pointer;
+  transition: background var(--p2-crank) var(--p2-crank-ease),
+              color      var(--p2-crank) var(--p2-crank-ease);
+}
+.p2-rocker button + button { border-left: 1px solid var(--p2-iron); }
+.p2-rocker button[aria-pressed="true"] { background: var(--p2-iron); color: var(--p2-bone); }
+
+:where(a, button, [tabindex], summary, [role="button"]):focus-visible {
+  outline: 2px solid var(--p2-focus);
+  outline-offset: 2px;
+}
+
+.p2-motion-toggle { display: inline-flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+/* --------------------------------------------------------------------------
+   6. THE VERBS, as CSS.
+   -------------------------------------------------------------------------- */
+
+/* CRANK — the two-step highlight. In FULL mode these attributes are on the
+   element only for the 40ms hold and the 320ms response, so they read as the
+   machine registering a hand. In REDUCED mode they are the entire verb. */
+[data-crank="input"]  { background-color: var(--p2-iron) !important; color: var(--p2-bone) !important; }
+[data-crank="output"] { box-shadow: inset 0 0 0 2px var(--p2-iron); }
+
+/* CUT — zero transition, everywhere under the scope, for one frame. */
+[data-cut], [data-cut] * { transition: none !important; animation: none !important; }
+.p2-cut { transition: none !important; }
+
+/* TREMOR — 1.2Hz, amplitude = the 80% interval in px, capped at 6.
+   Only on claims where ci_width / central > 0.6. Nothing else. */
+@keyframes p2-tremor {
+  0%   { transform: translateX(calc(var(--p2-tremor-amp) * -0.5px)); }
+  50%  { transform: translateX(calc(var(--p2-tremor-amp) *  0.5px)); }
+  100% { transform: translateX(calc(var(--p2-tremor-amp) * -0.5px)); }
+}
+.p2-tremor { animation: p2-tremor var(--p2-tremor-period) ease-in-out infinite; }
+
+/* TREMOR's static twin. The lozenge itself is drawn by the chart layer from
+   tremorStatic(); this is the hatch and the "no central mark" enforcement. */
+[data-reduced-encoding="lozenge"] { animation: none !important; }
+[data-reduced-encoding="lozenge"] .p2-central-mark { display: none !important; }
+
+/* SETTLE / TRAVERSE — the origin ghost and the trail. */
+[data-p2-ghost="origin"] { pointer-events: none; }
+[data-p2-trail] { pointer-events: none; }
+
+/* PULL — the proud rest state that replaces the tug. */
+[data-pull="proud"] { transform: translateY(3px); filter: drop-shadow(0 1px 0 var(--p2-rule-faint)); }
+
+/* SWEEP — a clip a caller can hang off --p2-sweep-progress. */
+.p2-sweep-clip { clip-path: inset(0 calc((1 - var(--p2-sweep-progress)) * 100%) 0 0); }
+
+/* --------------------------------------------------------------------------
+   7. REDUCED MOTION.
+
+   Two selectors carry the same rules on purpose:
+     @media (prefers-reduced-motion: reduce)  — correct before any JS runs
+     :root[data-motion="reduce"]              — the in-page reviewer toggle,
+                                                stamped by motion.js
+   The toggle must also be able to force motion BACK ON for a reviewer whose
+   OS asks for reduced — that is what the [data-motion="full"] block does, and
+   it is why the media query below is scoped away from that state.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion="full"]) *,
+  :root:not([data-motion="full"]) *::before,
+  :root:not([data-motion="full"]) *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  :root:not([data-motion="full"]) .p2-tremor { animation: none !important; }
+  :root:not([data-motion="full"]) .p2-motion-only { display: none !important; }
+  :root:not([data-motion="full"]) .p2-reduced-only { display: revert !important; }
+}
+
+:root[data-motion="reduce"] *,
+:root[data-motion="reduce"] *::before,
+:root[data-motion="reduce"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+:root[data-motion="reduce"] .p2-tremor { animation: none !important; }
+:root[data-motion="reduce"] .p2-motion-only { display: none !important; }
+:root[data-motion="reduce"] .p2-reduced-only { display: revert !important; }
+
+/* The alternative encoding is hidden by default and revealed by either
+   selector above. It is NOT `display:none` on the motion form — the motion
+   form is the default, and the static form replaces it rather than adding. */
+.p2-reduced-only { display: none; }
+
+/* --------------------------------------------------------------------------
+   8. UTILITY
+   -------------------------------------------------------------------------- */
+.p2-visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px;
+  padding: 0; border: 0; overflow: hidden; white-space: nowrap;
+  clip: rect(0 0 0 0); clip-path: inset(50%);
+}
+.p2-scrollx { overflow-x: auto; overscroll-behavior-x: contain; }
