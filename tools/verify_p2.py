@@ -1537,6 +1537,403 @@ def r5_claimsfile():
         check_claim(c, "r5-rdy-01", "claims.json", seen)
 
 
+# ======================================================================
+# B8 - the alt sentence, and the check that it exists and can be read
+#
+# DESIGN.md, "Still unsolved": every visual carries a required plain-English
+# sentence in the data layer, written to pass the four readability gates,
+# driving a text-only path. BUILD-PLAN.md gives it to team B8.
+#
+# THE INVARIANT IS A PURE FUNCTION OVER PLAIN DATA. `_b8_check(doc, floors)`
+# returns a list of violations and appends to nothing. That is what makes
+# `b8-alt-selfcheck` possible: it hands the same function deliberately broken
+# records and requires each one to be caught. This folder has paid twice for a
+# check that could not fire - `assertRivalIsPresent`, whose two operands
+# contradicted each other, and `buildControl`'s unreachable wheel branch - and
+# both repairs were the same shape as this one.
+# ======================================================================
+
+B8_VISUALS = P2 / "data" / "visuals.json"
+B8_COMPONENTS = ("charts", "eras", "drawers", "auction", "door", "toll")
+B8_ID_RE = re.compile(r"^[a-z][a-z0-9-]{3,40}$")
+B8_DIGIT_RE = re.compile(r"[0-9]")
+B8_MIN_WORDS = 12          # a sentence pair shorter than this is a label, not a finding
+B8_TEXT_FIELDS = ("shows", "finding")
+
+
+def _b8_readability():
+    """The one implementation of the four formulas, imported rather than copied.
+
+    A second copy of the arithmetic in this file would be a second answer to
+    "what is the grade of this sentence", which is the defect the whole guard
+    layer of this project is built to refuse.
+    """
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import readability
+    return readability
+
+
+def _b8_floors():
+    """The counts a complete registry must hit, DERIVED FROM THE FROZEN RECORD.
+
+    Not a constant. Seven era files means seven era machines and seven toll
+    plates; era-1's own field list means eight cross-era drawers; the scenario
+    ids in simulator-params.json name every auction panel and every door stop.
+    Add an era to the record and this check demands its machine, its plate and
+    its cells. Delete the record and every floor goes to zero, which is a
+    vacuity failure rather than a pass.
+    """
+    floors = {"eras": [], "organs": [], "auction": [], "door": []}
+    for path in ERA_FILES:
+        rec = load(path)
+        if rec is None:
+            continue
+        floors["eras"].append(rec.get("era"))
+        if rec.get("era") == 1 and isinstance(rec.get("fields"), dict):
+            floors["organs"] = sorted(rec["fields"].keys())
+    sim = load(P2 / "data" / "simulator-params.json") or {}
+    for sc in sim.get("scenarios", []) or []:
+        sid = sc.get("id")
+        if not isinstance(sid, str):
+            continue
+        (floors["auction"] if sid.startswith("sc-") else floors["door"]).append(sid)
+    return floors
+
+
+def _b8_check(doc, floors, readability):
+    """Every rule the alt-sentence field carries. Returns violations; raises
+    nothing, appends to nothing, and reads no file."""
+    out = []
+
+    def v(msg, artifact="visuals.json"):
+        out.append(("b8-alt-01", msg, artifact))
+
+    if not isinstance(doc, dict):
+        v("visuals.json is not an object")
+        return out, 0
+    visuals = doc.get("visuals")
+    if not isinstance(visuals, list) or not visuals:
+        v("visuals.json holds no visuals — the alt-sentence gate is vacuous")
+        return out, 0
+
+    seen_ids, seen_orders = {}, {}
+    seen_text = {f: {} for f in B8_TEXT_FIELDS}
+    by_component = {}
+    scored = 0
+
+    for i, item in enumerate(visuals):
+        where = f"visual[{i}]"
+        if not isinstance(item, dict):
+            v(f"{where} is not an object")
+            continue
+        vid = item.get("id")
+        where = vid if isinstance(vid, str) else where
+        if not isinstance(vid, str) or not B8_ID_RE.match(vid):
+            v(f"{where}: id {vid!r} is not a lowercase slug")
+        elif vid in seen_ids:
+            v(f"{vid}: two visuals share this id")
+        else:
+            seen_ids[vid] = item
+
+        comp = item.get("component")
+        if comp not in B8_COMPONENTS:
+            v(f"{where}: component {comp!r} is not one of {list(B8_COMPONENTS)}")
+        else:
+            by_component.setdefault(comp, []).append(item)
+
+        chapter = item.get("chapter")
+        if not isinstance(chapter, int) or isinstance(chapter, bool) or not (1 <= chapter <= 10):
+            v(f"{where}: chapter {chapter!r} is not one of the ten chapters")
+
+        order = item.get("order")
+        if not isinstance(order, int) or isinstance(order, bool) or order < 1:
+            v(f"{where}: order {order!r} is not a positive integer")
+        elif order in seen_orders:
+            v(f"{where}: order {order} is already taken by {seen_orders[order]} — the "
+              f"text-only path reads this field to put the piece in sequence")
+        else:
+            seen_orders[order] = where
+
+        module = item.get("module")
+        if not isinstance(module, str) or not (ROOT / module).exists():
+            v(f"{where}: module {module!r} is not a file in this repository — a sentence "
+              f"about a drawing nothing draws is a sentence nobody reads")
+
+        # --- the two fields, and the rules on them ---
+        parts = []
+        for field in B8_TEXT_FIELDS:
+            text = item.get(field)
+            if not isinstance(text, str) or not text.strip():
+                v(f"{where}: {field} is missing. Every visual carries BOTH — shows says "
+                  f"what is on the drawing, finding says what a reader takes from it")
+                continue
+            if B8_DIGIT_RE.search(text):
+                v(f"{where}: {field} contains a digit. A number here is a second, "
+                  f"unversioned copy of a number the mark beside it already carries, and "
+                  f"nothing checks that the two agree")
+            if not text.rstrip().endswith((".", "?", "!")):
+                v(f"{where}: {field} does not end in a full stop — it is a fragment, and "
+                  f"the text path speaks it as a sentence")
+            prior = seen_text[field].get(text)
+            if prior:
+                v(f"{where}: its {field} is word for word {prior}'s. Two drawings with one "
+                  f"sentence between them means one of them has no sentence")
+            else:
+                seen_text[field][text] = where
+            parts.append(text)
+
+        if len(parts) != len(B8_TEXT_FIELDS):
+            continue
+
+        sample = " ".join(parts)
+        s = readability.score_sample(sample)
+        if "error" in s:
+            v(f"{where}: its sentences could not be scored ({s['error']})")
+            continue
+        if s["words"] < B8_MIN_WORDS:
+            v(f"{where}: {s['words']} words across both fields. That is a label, not a "
+              f"finding a reader can use in place of the drawing")
+        scored += 1
+        for metric, ok in readability.gate(s).items():
+            if not ok:
+                op, limit = readability.THRESHOLDS[metric]
+                v(f"{where}: {metric} is {s[metric]}, and the gate is {op} {limit}. "
+                  f"The sentence a reader gets instead of the picture has to be readable")
+
+    # --- THE FLOORS. This is the half that cannot go quietly vacuous. ---
+    def group(name):
+        return by_component.get(name, [])
+
+    if not floors["eras"]:
+        v("no era records could be read, so the era, drawer and toll floors are all "
+          "zero — this check would pass an empty registry", "data/eras/")
+    if not floors["organs"]:
+        v("era-1 declares no organ fields, so the drawer floor is zero", "data/eras/era-1.json")
+    if not floors["auction"] or not floors["door"]:
+        v("simulator-params.json names no scenarios, so the auction and door floors are "
+          "zero", "data/simulator-params.json")
+
+    for era in floors["eras"]:
+        if not any(m.get("id") == f"era-{era}-machine" for m in group("eras")):
+            v(f"era {era} is in the record and has no machine visual — a reader on the "
+              f"text path loses that era's machine entirely")
+    if len(group("eras")) != len(floors["eras"]):
+        v(f"{len(group('eras'))} era visuals against {len(floors['eras'])} era records")
+
+    drawer_fields = [m.get("field") for m in group("drawers")]
+    for organ in floors["organs"]:
+        if drawer_fields.count(organ) != 1:
+            v(f"the {organ} drawer is named {drawer_fields.count(organ)} times and must be "
+              f"named once — one cross-era drawer per organ, and there are "
+              f"{len(floors['organs'])} organs")
+    if len(group("drawers")) != len(floors["organs"]):
+        v(f"{len(group('drawers'))} drawer visuals against {len(floors['organs'])} organs")
+
+    plate_eras = [m.get("era") for m in group("toll")]
+    for era in floors["eras"]:
+        if plate_eras.count(era) != 1:
+            v(f"era {era} carries {plate_eras.count(era)} toll plates and must carry one")
+
+    for name, ids in (("auction", floors["auction"]), ("door", floors["door"])):
+        named = [m.get("scenario") for m in group(name)]
+        for sid in ids:
+            if named.count(sid) != 1:
+                v(f"scenario {sid} is in simulator-params.json and is named by "
+                  f"{named.count(sid)} {name} visuals")
+        for sid in named:
+            if sid is not None and sid not in ids:
+                v(f"{name} visual names scenario {sid!r}, which simulator-params.json "
+                  f"does not hold")
+
+    if scored == 0:
+        v("not one visual was scored — the readability half of this gate is vacuous")
+    return out, scored
+
+
+def b8_alt():
+    """b8-alt: every visual carries a readable plain-English sentence.
+
+    Five things, over p2-ad-market/data/visuals.json:
+
+      1. every visual carries BOTH fields - `shows` and `finding` - and neither
+         is blank, a fragment, or a copy of another visual's;
+      2. neither field carries a digit, because a figure written here is a
+         second copy of one the mark already holds;
+      3. the two joined clear all four readability gates PER VISUAL, not on
+         average, because an average hides the one sentence a reader cannot
+         follow;
+      4. every visual points at a module that exists;
+      5. the registry is COMPLETE against the frozen record - one machine and
+         one toll plate per era file, one drawer per organ field, one visual per
+         scenario id in simulator-params.json. Those floors are derived, not
+         written down, so adding an era to the record demands its sentences.
+
+    Coverage goes to stderr and the floors fire on an empty record, so a
+    registry that has quietly stopped covering the piece fails rather than
+    passes. `b8-alt-selfcheck` proves each clause can fire.
+    """
+    doc = load(B8_VISUALS)
+    if doc is None:
+        return
+    readability = _b8_readability()
+    floors = _b8_floors()
+    found, scored = _b8_check(doc, floors, readability)
+    for inv, msg, artifact in found:
+        bad(inv, msg, artifact)
+
+    visuals = doc.get("visuals") or []
+    per = {}
+    for m in visuals:
+        per[m.get("component")] = per.get(m.get("component"), 0) + 1
+    corpus = readability.score_sample(" ".join(
+        f"{m.get('shows', '')} {m.get('finding', '')}" for m in visuals))
+    print(f"b8-alt: {len(visuals)} visuals scanned, {scored} scored against all four gates "
+          f"({', '.join(f'{k} {v}' for k, v in sorted(per.items()))}); floors from the record: "
+          f"{len(floors['eras'])} eras, {len(floors['organs'])} organs, "
+          f"{len(floors['auction'])} A-series, {len(floors['door'])} D-series; "
+          f"corpus {corpus.get('words')} words, fk {corpus.get('fk_grade')}, "
+          f"ease {corpus.get('reading_ease')}, fog {corpus.get('gunning_fog')}, "
+          f"smog {corpus.get('smog')}", file=sys.stderr)
+
+
+def _b8_mutations(doc, floors):
+    """Deliberately broken registries, one per clause of `_b8_check`.
+
+    Each entry is (name, mutated document, mutated floors). Every one of them
+    MUST produce at least one violation. A mutation that comes back clean is a
+    clause that has gone dead, and it fails this command by name.
+    """
+    def copy(d):
+        return json.loads(json.dumps(d))
+
+    out = []
+
+    d = copy(doc); d["visuals"] = []
+    out.append(("an empty registry", d, floors))
+
+    d = copy(doc); d["visuals"][3]["finding"] = "The line goes up by 42 per cent."
+    out.append(("a digit in a finding", d, floors))
+
+    d = copy(doc); d["visuals"][5]["shows"] = ""
+    out.append(("a blank shows", d, floors))
+
+    d = copy(doc); del d["visuals"][7]["finding"]
+    out.append(("a missing finding", d, floors))
+
+    d = copy(doc); d["visuals"][9]["finding"] = d["visuals"][8]["finding"]
+    out.append(("one finding on two visuals", d, floors))
+
+    d = copy(doc)
+    d["visuals"][2]["finding"] = (
+        "The disintermediation of the measurement apparatus, notwithstanding the "
+        "countervailing institutional incentives which had heretofore obtained, "
+        "constitutes an epistemological discontinuity of considerable magnitude "
+        "insofar as the verification of audience quantification is concerned.")
+    out.append(("a finding no reader can follow", d, floors))
+
+    d = copy(doc); d["visuals"][4]["shows"] = "A drawing"
+    out.append(("a fragment with no full stop", d, floors))
+
+    d = copy(doc); d["visuals"][1]["module"] = "docs/p2/charts/no-such-file.js"
+    out.append(("a module that does not exist", d, floors))
+
+    d = copy(doc); d["visuals"][6]["order"] = d["visuals"][5]["order"]
+    out.append(("two visuals at one place in the order", d, floors))
+
+    d = copy(doc); d["visuals"][6]["id"] = d["visuals"][5]["id"]
+    out.append(("two visuals with one id", d, floors))
+
+    d = copy(doc); d["visuals"][0]["component"] = "diagrams"
+    out.append(("a component outside the vocabulary", d, floors))
+
+    d = copy(doc); d["visuals"][0]["chapter"] = 11
+    out.append(("a chapter the piece does not have", d, floors))
+
+    d = copy(doc)
+    d["visuals"] = [m for m in d["visuals"] if m.get("id") != "era-3-machine"]
+    out.append(("an era in the record with no machine", d, floors))
+
+    d = copy(doc)
+    d["visuals"] = [m for m in d["visuals"] if m.get("component") != "drawers"]
+    out.append(("every cross-era drawer dropped", d, floors))
+
+    d = copy(doc)
+    for m in d["visuals"]:
+        if m.get("field") == "MEASUREMENT":
+            m["field"] = "PRICING"
+    out.append(("one organ drawn twice and another not at all", d, floors))
+
+    d = copy(doc)
+    d["visuals"] = [m for m in d["visuals"] if m.get("era") != 7]
+    out.append(("the last toll plate dropped", d, floors))
+
+    d = copy(doc)
+    for m in d["visuals"]:
+        if m.get("scenario", "").startswith("sc-05"):
+            m["scenario"] = "sc-99-invented"
+    out.append(("a scenario the record does not hold", d, floors))
+
+    d = copy(doc)
+    d["visuals"] = [m for m in d["visuals"] if not str(m.get("scenario", "")).startswith("D")]
+    out.append(("every door stop dropped", d, floors))
+
+    empty = {"eras": [], "organs": [], "auction": [], "door": []}
+    out.append(("the record itself gone, so every floor is zero", copy(doc), empty))
+
+    return out
+
+
+def b8_alt_selfcheck():
+    """b8-alt-selfcheck: prove the alt-sentence gate is not vacuous.
+
+    A check that cannot fire is worse than no check, because the team stops
+    looking at the thing it appears to be watching. This project has shipped
+    that defect twice and written it down both times. So every clause of
+    `_b8_check` is fired here on demand: the live registry is broken one way at
+    a time and each break must be caught.
+
+    It also asserts the LIVE registry is clean, so this command cannot pass by
+    catching mutations of a record that was already failing.
+    """
+    doc = load(B8_VISUALS)
+    if doc is None:
+        return
+    readability = _b8_readability()
+    floors = _b8_floors()
+
+    live, scored = _b8_check(doc, floors, readability)
+    if live:
+        bad("b8-selfcheck-01", f"the live registry has {len(live)} violations, so this "
+                               f"command cannot tell a caught mutation from a standing "
+                               f"failure. Run b8-alt.", "visuals.json")
+        return
+
+    mutations = _b8_mutations(doc, floors)
+    caught, missed = [], []
+    for name, mutated, mfloors in mutations:
+        found, _ = _b8_check(mutated, mfloors, readability)
+        if found:
+            caught.append((name, found[0][1]))
+        else:
+            missed.append(name)
+    for name in missed:
+        bad("b8-selfcheck-01",
+            f"the gate did not fire on {name} — that clause is dead, and the registry it "
+            f"claims to guard is unguarded", "visuals.json")
+
+    if not mutations:
+        bad("b8-selfcheck-01", "no mutations were run — the proof itself is vacuous",
+            "visuals.json")
+    print(f"b8-alt-selfcheck: live registry clean at {scored} scored visuals; "
+          f"{len(mutations)} mutations run, {len(caught)} caught, {len(missed)} missed",
+          file=sys.stderr)
+    # Print WHAT fired, not just that something did. A count alone cannot tell
+    # you that nineteen mutations were caught by nineteen clauses rather than by
+    # one loose one.
+    for name, msg in caught:
+        print(f"    caught · {name}\n              -> {msg[:150]}", file=sys.stderr)
+
+
 COMMANDS = {
     "r1-records": r1_records, "r1-claims": r1_claims, "r1-hygiene": r1_hygiene,
     "r2-series": r2_series, "r2-concordance": r2_concordance, "r2-checks": r2_checks,
@@ -1549,6 +1946,7 @@ COMMANDS = {
     "r5-chapter-stale": r5_chapter_stale,
     "r5-worked-examples": r5_worked_examples,
     "p1-timeline": p1_timeline,
+    "b8-alt": b8_alt, "b8-alt-selfcheck": b8_alt_selfcheck,
 }
 
 

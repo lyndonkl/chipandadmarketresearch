@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-motion="full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P2 · access bench</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./access.css">
+<style>
+  body { margin: 0; padding: 32px clamp(16px, 5vw, 64px) 96px; }
+  h1 { font-family: var(--p2-font-label); font-size: 15px; letter-spacing: .08em;
+       text-transform: uppercase; margin: 0 0 6px; }
+  .lede { max-width: 62ch; }
+  h2 { margin: 26px 0 8px; font-size: 11px; }
+  .tally { font-family: var(--p2-font-numeral); font-size: 17px; margin: 18px 0 6px; }
+  .tally.pass { color: var(--p2-iron); }
+  .tally.fail { color: var(--p2-rust); }
+  .row { display: grid; grid-template-columns: 54px minmax(0, 30ch) 1fr; gap: 12px;
+         padding: 5px 0; border-top: 1px solid var(--p2-rule-faint); align-items: baseline; }
+  .tag { font-family: var(--p2-font-label); font-size: 10px; letter-spacing: .08em; }
+  .row.pass .tag { color: var(--p2-iron); }
+  .row.fail .tag { color: var(--p2-rust); font-weight: 700; }
+  .name { font-family: var(--p2-font-prose); font-size: 14px; }
+  .detail { font-family: var(--p2-font-chrome); font-size: 12px; color: var(--p2-ink-2);
+            overflow-wrap: anywhere; }
+  .row.fail .detail { color: var(--p2-rust); }
+</style>
+</head>
+<body class="p2-paper-ground">
+
+<h1>docs/p2/access — the bench</h1>
+<p class="p2-prose lede">Every case is a way to make the access layer lie: a drawing reaching a
+reader with no authored sentence, a text block saying something the drawing does not, or a control
+no keyboard can reach while the census reports the page green. <strong>This page prints its own
+tally. Trust it over any number in the README.</strong></p>
+<p class="p2-prose lede">Readability is not scored here. <code>tools/verify_p2.py b8-alt</code>
+scores every visual against all four gates through <code>tools/readability.py</code>'s own code
+path, and a second implementation in JavaScript would be a second answer to one question.</p>
+
+<div id="out"><p class="p2-chrome">running…</p></div>
+
+<script type="module">
+  import { run } from './access.test.js';
+  const mount = document.getElementById('out');
+  run(mount).then(({ pass, fail, total }) => {
+    document.title = `${fail ? 'FAIL' : 'PASS'} ${pass}/${total} · P2 access bench`;
+    window.__accessTally = { pass, fail, total };
+  }).catch((e) => {
+    mount.innerHTML = `<p class="tally fail">the bench itself threw</p>` +
+      `<pre class="p2-chrome">${String(e && e.stack || e).replace(/</g, '&lt;')}</pre>`;
+    window.__accessTally = { pass: 0, fail: 1, total: 1, threw: String(e) };
+  });
+</script>
+</body>
+</html>

@@ -61,12 +61,29 @@ def count_syllables(word: str) -> int:
     return max(1, n)
 
 
-def analyze(text: str) -> dict:
-    prose = strip_markdown(text)
+def score_sample(prose: str) -> dict:
+    """The four scores over one sample of plain text. No markdown stripping,
+    and NO minimum length.
+
+    `analyze()` refuses a sample under 30 words, because a file that short is
+    almost always the wrong file. A single authored sentence is a different
+    object: `p2-ad-market/data/visuals.json` holds one hundred of them and every
+    one has to clear the same four gates on its own, since a corpus average
+    hides a bad sentence. This function is the one implementation of the four
+    formulas; `analyze()` calls it, so there is never a second answer to "what
+    is the grade of this text".
+
+    THE LIMIT, STATED: SMOG is defined over a 30-sentence sample and is
+    normalised here by 30/n. Over two or three sentences it is coarse — one more
+    three-syllable word moves it about a grade. It is still applied, because a
+    gate that is switched off for short text is not a gate; but the score to
+    read on a short sample is Gunning Fog, which does not carry that
+    normalisation.
+    """
     sentences = [s for s in re.split(r"[.!?]+(?:\s|$)", prose) if s.strip()]
     words = re.findall(r"[A-Za-z0-9'’-]+", prose)
-    if not sentences or len(words) < 30:
-        return {"error": "not enough prose to score (need >= 30 words)"}
+    if not sentences or not words:
+        return {"error": "no prose to score"}
 
     syllables = [count_syllables(w) for w in words]
     n_words, n_sents = len(words), len(sentences)
@@ -87,11 +104,20 @@ def analyze(text: str) -> dict:
     return {
         "words": n_words,
         "sentences": n_sents,
+        "polysyllables": poly,
         "fk_grade": round(fk_grade, 2),
         "reading_ease": round(reading_ease, 2),
         "gunning_fog": round(gunning_fog, 2),
         "smog": round(smog, 2),
     }
+
+
+def analyze(text: str) -> dict:
+    prose = strip_markdown(text)
+    words = re.findall(r"[A-Za-z0-9'’-]+", prose)
+    if len(words) < 30:
+        return {"error": "not enough prose to score (need >= 30 words)"}
+    return score_sample(prose)
 
 
 def gate(scores: dict) -> dict:

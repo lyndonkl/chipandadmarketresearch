@@ -1,0 +1,186 @@
+/* ==========================================================================
+   docs/p2/access/access.css — the text-only path and the keyboard layer.
+   Team B8. Loads AFTER ../lib/tokens.css and restates no token value.
+
+   Four rules of the house style apply here and are worth naming, because each
+   one is a mistake this folder could have made:
+
+   1. NO TOKEN VALUE IS RESTATED. Every colour is a custom property, and the
+      three that need one at low alpha go through `color-mix()`. A hand-written
+      rgba(91,101,112,0.2) is Iron in a form no grep for the token will find.
+
+   2. THE TEXT PATH IS NOT `display: none` ON THE PICTURE AND NOTHING ELSE.
+      `../lib/motion.js` set the standard: a complete alternative encoding, not
+      a disabled state. The drawing goes; the block that replaces it is typed
+      as prose, carries the finding in the same reading position, and holds
+      every reading the drawing was saying.
+
+   3. THE CONTROLS ARE NEVER HIDDEN. Text mode hides `[data-alt-source]` and
+      nothing else. Sliders, rockers, rings and the drum stay exactly where they
+      were, because an instrument that becomes a paragraph is a demonstration.
+
+   4. THE FOCUS RING IS DRAWN TWICE ON AN SVG GROUP. `outline` on an SVG child
+      is honoured in Chrome and Firefox and has been unreliable in Safari, so a
+      focused group also takes a drawn stroke. Two channels, and the ring is the
+      one thing on this page a keyboard reader cannot do without.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. THE SWITCH
+   -------------------------------------------------------------------------- */
+
+/* Default, and the state before any module has parsed: drawings on, blocks
+   hidden. The blocks are in the DOM either way, so the prose lint and the
+   readability measurement both read them. */
+.p2-text-block { display: none; }
+
+/* A DRAWING THAT IS A CONTROL IS NEVER HIDDEN, and finding that out cost this
+   folder a round. The door drum is stamped `data-alt-source` like every other
+   drawing, and it is also the ONLY control for the revenue share — there is no
+   slider anywhere else on that bench, by B5's design. Hiding every drawing took
+   the instrument away and left the reader a paragraph about a negotiation they
+   could no longer be part of. That is the "disabled state" `motion.js` refuses,
+   arrived at from the other direction.
+
+   So text mode hides the drawings that CARRY information and keeps the ones that
+   TAKE it. The drum stays, its `aria-valuetext` says the whole state in words,
+   and its text block prints the finding and the readings underneath. */
+:root[data-p2-text="on"] [data-alt-source]:not([role="slider"]):not([role="button"]) {
+  display: none !important;
+}
+:root[data-p2-text="on"] .p2-text-block { display: block; }
+
+/* A reader in text mode gets the toggle back however far down the page they
+   are, because the way out of a mode has to be as reachable as the way in. */
+.p2-text-toggle { display: inline-flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+/* --------------------------------------------------------------------------
+   2. THE BLOCK
+   -------------------------------------------------------------------------- */
+
+.p2-text-block {
+  border-left: 2px solid var(--p2-iron);
+  padding: calc(var(--p2-grid) * 0.5) 0 calc(var(--p2-grid) * 0.5) calc(var(--p2-grid) * 0.7);
+  margin: calc(var(--p2-grid) * 0.5) 0;
+  max-width: var(--p2-measure);
+}
+
+.p2-text-alt { margin: 0 0 calc(var(--p2-grid) * 0.5) 0; }
+.p2-text-shows { color: var(--p2-ink-2); }
+.p2-text-finding { color: var(--p2-graphite); font-weight: 600; }
+
+.p2-text-name {
+  font-size: 15px;
+  color: var(--p2-ink-2);
+  margin: calc(var(--p2-grid) * 0.5) 0 calc(var(--p2-grid) * 0.25) 0;
+}
+
+.p2-text-drawing + .p2-text-drawing {
+  border-top: 1px solid color-mix(in srgb, var(--p2-iron) 28%, transparent);
+  margin-top: calc(var(--p2-grid) * 0.5);
+}
+
+/* A table is a table. It scrolls in its own box on a narrow screen rather than
+   pushing the page sideways — the same reduction the toll plates make. */
+.p2-text-table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--p2-font-chrome);
+  font-size: 12px;
+  color: var(--p2-ink-2);
+}
+.p2-text-table caption {
+  font-family: var(--p2-font-label);
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; font-weight: 600;
+  color: var(--p2-zinc-text);
+  text-align: left;
+  padding-bottom: 4px;
+}
+.p2-text-table td {
+  border-top: 1px solid color-mix(in srgb, var(--p2-iron) 22%, transparent);
+  padding: 5px 10px 5px 0;
+  vertical-align: baseline;
+}
+.p2-text-index {
+  color: var(--p2-zinc-text);
+  text-align: right;
+  width: 3.5em;
+  white-space: nowrap;
+}
+.p2-text-reading { color: var(--p2-ink-2); }
+
+/* --------------------------------------------------------------------------
+   3. ABSENCE IS A POSITIVE OBJECT
+
+   DESIGN.md rule 5, applied to prose. A region whose drawings say nothing gets
+   a named, framed, stippled block — never an empty table and never a gap. The
+   texture is the project's own Stipple and it sits inside a dashed Iron frame,
+   because Stipple is 1.53:1 on Bone and never has an edge of its own.
+   -------------------------------------------------------------------------- */
+
+.p2-text-absence {
+  border: 1px dashed var(--p2-iron);
+  padding: calc(var(--p2-grid) * 0.4);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--p2-stipple) 0 2px,
+    transparent 2px 6px);
+  background-color: var(--p2-bone);
+}
+.p2-text-absence .p2-arch { display: block; margin-bottom: 4px; }
+.p2-text-absence p { margin: 0; background: var(--p2-bone); display: inline; }
+
+/* --------------------------------------------------------------------------
+   4. THE KEYBOARD LAYER
+   -------------------------------------------------------------------------- */
+
+/* The live region the reading cursor speaks into. Off screen, never
+   `display: none` — a hidden node is not announced. */
+.p2-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* A drawing is now a tab stop. It gets the same ring as every other control,
+   and a second channel because an outline on an `<svg>` has been unreliable. */
+[data-alt-source][tabindex]:focus-visible {
+  outline: 2px solid var(--p2-focus);
+  outline-offset: 2px;
+}
+/* A focused SVG group inside a drawing — an organ plate, a pull ring. The
+   outline is first; the drawn stroke is the fallback where it is ignored. */
+svg :is(g, rect, circle, path)[tabindex]:focus-visible {
+  outline: 2px solid var(--p2-focus);
+  outline-offset: 2px;
+}
+svg g[tabindex]:focus-visible > :is(rect, circle, path):first-of-type {
+  stroke: var(--p2-focus);
+  stroke-width: 2;
+}
+
+/* A roving group's resting members keep their appearance. Nothing about the
+   roving is visible until the reader moves, which is the point of it. */
+.p2-rocker button[tabindex="-1"] { cursor: pointer; }
+
+/* Where the cursor is, for a sighted reader who is also on the keyboard. The
+   attribute is written by installReadingCursor and means nothing without it. */
+[data-p2-cursor-at]:focus-visible {
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   5. REDUCED MOTION
+
+   Nothing in this file animates, so there is nothing to reduce. The rule is
+   here so the next person does not have to check: if a transition is ever
+   added below, it needs its reduced twin in the same commit.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .p2-text-block, .p2-text-toggle { transition: none; }
+}

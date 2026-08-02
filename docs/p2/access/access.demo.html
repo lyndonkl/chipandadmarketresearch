@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" data-motion="full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P2 · the access layer, over the real components</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="../eras/eras.css">
+<link rel="stylesheet" href="../auction/auction-bench.css">
+<link rel="stylesheet" href="../door/door-bench.css">
+<link rel="stylesheet" href="../toll/toll.css">
+<link rel="stylesheet" href="./access.css">
+<style>
+  body { margin: 0; padding: 28px clamp(16px, 4vw, 56px) 120px; }
+  h1 { font-family: var(--p2-font-label); font-size: 15px; letter-spacing: .08em;
+       text-transform: uppercase; margin: 0 0 8px; }
+  h2 { font-family: var(--p2-font-label); font-size: 12px; letter-spacing: .08em;
+       text-transform: uppercase; margin: 46px 0 10px; color: var(--p2-zinc-text);
+       border-top: 1px solid var(--p2-iron); padding-top: 10px; }
+  .lede { max-width: 62ch; }
+  .bar { display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
+         padding: 12px 0; border-bottom: 1px solid var(--p2-rule-faint); margin-bottom: 12px; }
+  #status, #report { font-family: var(--p2-font-chrome); font-size: 12px;
+                     color: var(--p2-ink-2); white-space: pre-wrap; }
+  #loadfail { display: none; border: 2px solid var(--p2-rust); padding: 14px; margin: 18px 0; }
+  #loadfail pre { font-family: var(--p2-font-chrome); font-size: 12px; overflow-x: auto; }
+  .skip { position: absolute; left: -9999px; }
+  .skip:focus { position: static; display: inline-block; padding: 8px 12px;
+                border: 2px solid var(--p2-focus); }
+</style>
+</head>
+<body class="p2-paper-ground">
+
+<a class="skip" href="#root">skip to the instruments</a>
+
+<h1>the access layer, over the real components</h1>
+<p class="p2-prose lede">Four real instruments, drawn from the frozen record: one era machine, the
+auction bench with <strong>THE BAND</strong>, the door bench with <strong>the drum</strong>, and the
+seven toll plates. Each is wrapped in its declared visual, and the text path is mounted over all of
+them.</p>
+<p class="p2-prose lede">Press <strong>text only</strong> and every drawing goes. Nothing else does:
+every crank, rocker, slider, ring and the drum are still there, still operable, and the text under
+each one is rebuilt the moment you move it. <strong>Tab</strong> through the page and each composite
+control costs one stop. On a drawing, <strong>Left</strong> and <strong>Right</strong> walk what it
+says, one reading at a time.</p>
+
+<div class="bar">
+  <span id="texttoggle"></span>
+  <span id="motiontoggle"></span>
+</div>
+<p id="status">loading…</p>
+
+<div id="loadfail"><b>this page did not load.</b><pre id="loadfailmsg"></pre></div>
+
+<div id="root"></div>
+
+<h2>what the access layer reports about this page</h2>
+<p id="report" class="p2-chrome">…</p>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle } from '../lib/motion.js';
+import { verifyTokenParity, auditPalette } from '../lib/tokens.js';
+import { loadEraRecords } from '../eras/era-records.js';
+import { planEra } from '../eras/era-plan.js';
+import { renderEraMachine } from '../eras/era-machine.js';
+import { planTollPlates } from '../toll/toll-plan.js';
+import { renderTollPlates } from '../toll/toll-plate.js';
+import { renderBench } from '../auction/bench.js';
+import { renderDoorBench } from '../door/bench.js';
+
+import { loadVisuals, declareVisual, assertEveryDrawingDeclared } from './visuals.js';
+import { installTextPath, installTextToggle, auditTextPath } from './text-path.js';
+import { installKeyboard, auditKeyboard } from './keyboard.js';
+
+const status = document.getElementById('status');
+const report = document.getElementById('report');
+const fail = document.getElementById('loadfail');
+
+function die(err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent = (err && err.stack) ? err.stack : String(err);
+  status.textContent = 'FAILED — see the box above.';
+  throw err;
+}
+
+/** A declared region, with a heading, ready for a component to be drawn into. */
+function region(id, title) {
+  const box = document.createElement('section');
+  box.className = 'p2-access-region';
+  const head = document.createElement('h2');
+  head.textContent = title;
+  document.getElementById('root').appendChild(head);
+  document.getElementById('root').appendChild(box);
+  declareVisual(box, id);
+  return box;
+}
+
+try {
+  initMotion();
+  installMotionToggle(document.getElementById('motiontoggle'));
+  verifyTokenParity();
+  auditPalette();
+
+  await guards.loadFrozen();
+  await loadVisuals();
+  const frozen = guards.snapshotFrozen();
+  const records = await loadEraRecords();
+
+  /* --- one era machine: the crank, eight organ plates, eight pull rings --- */
+  const eraBox = region('era-1-machine', 'era 1 · the middlemen');
+  renderEraMachine(eraBox, planEra(records[0], frozen, { scope: 'era-native' }), { teaching: false });
+
+  /* --- the auction bench, on the scenario that carries THE BAND --- */
+  const auctionBox = region('auction-sc-05', 'the auction bench · the equilibrium band');
+  const bench = renderBench(auctionBox, {
+    scenario: 5, mechanism: frozen.mechanism, params: frozen.simulatorParams,
+  });
+  /* THE BAND IS ITS OWN VISUAL, and it is drawn inside the panel. Regions nest;
+     the nearest declared ancestor owns a drawing, so the band's readings sit
+     under the band's own finding and not under the panel's as well. */
+  const bandHost = auctionBox.querySelector('.ab-band');
+  if (bandHost) declareVisual(bandHost, 'auction-band');
+
+  /* --- the door bench, on the stop that carries the drum --- */
+  const doorBox = region('door-stop-02', 'the door bench · the wheel');
+  renderDoorBench(doorBox, {
+    stop: 2, mechanism: frozen.mechanism, params: frozen.simulatorParams, claims: frozen.claims,
+  });
+  const wheelHost = doorBox.querySelector('.db-wheel-host');
+  if (wheelHost) declareVisual(wheelHost, 'door-wheel');
+
+  /* --- the seven toll plates. Each plate is its own visual. --- */
+  const tollBox = document.createElement('section');
+  const tollHead = document.createElement('h2');
+  tollHead.textContent = 'the seven toll plates';
+  document.getElementById('root').appendChild(tollHead);
+  document.getElementById('root').appendChild(tollBox);
+  renderTollPlates(tollBox, planTollPlates(records, frozen));
+  for (const card of tollBox.querySelectorAll('[data-era]')) {
+    declareVisual(card, `toll-plate-era-${card.getAttribute('data-era')}`);
+  }
+  /* THE LEGEND IS A VISUAL, and nobody had noticed. `assertEveryDrawingDeclared`
+     found it on its first run against the real components: five drawn forms
+     under the plates, carrying the whole finding of that page, with no row in
+     the record covering them. It has one now. */
+  const legend = tollBox.querySelector('.p2-toll-legend');
+  if (legend) declareVisual(legend, 'toll-visibility-legend');
+
+  /* --- the access layer itself --- */
+  installTextToggle(document.getElementById('texttoggle'));
+  const declared = assertEveryDrawingDeclared(document.getElementById('root'), 'the demo page');
+  const keys = installKeyboard(document.getElementById('root'));
+  const text = installTextPath(document.getElementById('root'));
+
+  const kb = auditKeyboard(document.getElementById('root'));
+  const tp = auditTextPath(document.getElementById('root'));
+
+  status.textContent =
+    `${declared.drawings} drawings, every one inside a declared visual · ` +
+    `${text.regions} regions carrying a text block · ${kb.controls || keys.controls} controls, ` +
+    `${kb.tabStops} tab stops · ${kb.cursors} drawings with a reading cursor`;
+
+  report.textContent =
+    `TEXT PATH\n` +
+    `  ${tp.onThisPage} of the record's ${tp.inTheRecord} visuals are on this page\n` +
+    `  ${tp.readings} readings pulled off the drawings' own accessible names\n` +
+    `  in the record's own order: ${tp.inRecordOrder}\n` +
+    `  regions with nothing to read back: ${tp.silent.length ? tp.silent.map((s) => s.id).join(', ') : 'none'}\n` +
+    `  the rest of the piece is not on this demo, by design: ${tp.missing.length} visuals\n\n` +
+    `KEYBOARD\n` +
+    `  ${kb.tabStops} tab stops in all\n` +
+    `  ${kb.rovingGroups} composite controls made one stop each\n` +
+    `  ${kb.drawings} drawings, ${kb.drawingsReachable} reachable, ${kb.cursors} with a cursor\n` +
+    `  stops per visual: ${Object.entries(kb.perVisual).map(([k, v]) => `${k} ${v}`).join(' · ')}\n\n` +
+    `  the first stops in order:\n    ${kb.order.slice(0, 24).join('\n    ')}`;
+
+  window.P2_ACCESS = { keys, text, kb, tp, declared };
+} catch (e) {
+  die(e);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+{
+  "schema": "p2-visuals-v1",
+  "stage": "B8",
+  "as_of": "2026-08-01",
+  "what_this_is": "The plain-English sentence every visual in P2 must carry. DESIGN.md adopts it under 'Still unsolved' and BUILD-PLAN.md gives it to team B8. It is a field of the frozen data layer, not a renderer's decoration: the text-only path is built out of these sentences, and a drawing with no row here refuses to render.",
+  "rules": {
+    "two_fields": "shows says what is on the drawing. finding says what a reader should take from it. The accessible name is the two joined, derived at render time and never stored twice.",
+    "no_digit": "Neither field may contain a digit. A number here would be a second, unversioned copy of a number the mark beside it already carries, with nothing checking that the two agree. Every figure the text path prints comes from the component's own guarded strings. This is the rule toll-records.js already applies to its thirteen base sentences.",
+    "readability": "Each visual's two fields, joined, must clear all four gates: Flesch-Kincaid <= 10, Reading Ease >= 50, Gunning Fog <= 12, SMOG <= 12. Measured per visual, not over the corpus, because a corpus average hides a bad sentence.",
+    "distinct": "No two visuals may share a shows or a finding. Two drawings with one sentence between them means one of them has no sentence.",
+    "not_a_shape_description": "finding is a statement about the market or about the record. 'The line goes up' is not a finding. This one is not machine-checkable and is on review.",
+    "grounded_counts": "The era, drawer, toll, auction and door groups are counted against the frozen record: seven era files, eight organ fields, seven toll plates, ten A-series scenarios, eleven D-series scenarios. A missing row is a hard error in tools/verify_p2.py b8-alt. The chart group has no such floor and that limit is written down."
+  },
+  "visuals": [
+    {
+      "id": "chart-value-rails",
+      "component": "charts",
+      "module": "docs/p2/charts/value-chart.js",
+      "chapter": 1,
+      "order": 1,
+      "shows": "Four rails, each one a different count of what the country spent on ads. Where two rails cover the same years, both are drawn and the distance between them is named.",
+      "finding": "No single line runs across the whole span. Each ruler measured a different thing, so the gap between two rails is a fact about the count, not about the market."
+    },
+    {
+      "id": "chart-gdp-strip",
+      "component": "charts",
+      "module": "docs/p2/charts/gdp-strip.js",
+      "chapter": 1,
+      "order": 2,
+      "shows": "Eleven readings of ad spending, each set against the size of the economy that year. They are drawn as separate dated marks with no line joining them.",
+      "finding": "The share of the economy that goes to ads stays inside a narrow band for a very long time. There is no line because nobody counted the years in between."
+    },
+    {
+      "id": "era-1-machine",
+      "component": "eras",
+      "module": "docs/p2/eras/era-machine.js",
+      "chapter": 2,
+      "order": 3,
+      "shows": "The machine that set the price of an ad in the age of the middlemen. Eight parts sit in the same eight places as every other era, and one of them turns.",
+      "finding": "The published price was a starting point, not a price. What the man in the middle kept was printed in the trade, so a buyer of the day could look it up."
+    },
+    {
+      "id": "era-2-machine",
+      "component": "eras",
+      "module": "docs/p2/eras/era-machine.js",
+      "chapter": 3,
+      "order": 4,
+      "shows": "The machine that set the price of an ad in the age of the sponsor. The same eight parts, in the same eight places.",
+      "finding": "Radio had no circulation to audit, so the trade built a count from nothing. Who paid for that count shaped what it said, and who paid kept changing."
+    },
+    {
+      "id": "era-3-machine",
+      "component": "eras",
+      "module": "docs/p2/eras/era-machine.js",
+      "chapter": 4,
+      "order": 5,
+      "shows": "The machine that set the price of an ad in the age of the spot market. The same eight parts, in the same eight places.",
+      "finding": "The networks took their airtime back and sold it in small units. One rating service became the ruler the whole market priced against."
+    },
+    {
+      "id": "era-4-machine",
+      "component": "eras",
+      "module": "docs/p2/eras/era-machine.js",
+      "chapter": 5,
+      "order": 6,
+      "shows": "The machine that set the price of an ad in the age of the segment. The same eight parts, in the same eight places.",
+      "finding": "Buyers stopped paying for a big crowd and started paying for a described one. When the meter changed in the middle of the era, the prices moved with it."
+    },
+    {
+      "id": "era-5-machine",
+      "component": "eras",
+      "module": "docs/p2/eras/era-machine.js",
+      "chapter": 6,
+      "order": 7,
+      "shows": "The machine that set the price of an ad in the first web years. The same eight parts, in the same eight places.",
+      "finding": "The web copied the magazine and sold a thousand showings at a time. Here the seller starts counting the audience with its own instrument."
+    },
+    {
+      "id": "era-6-machine",
+      "component": "eras",
+      "module": "docs/p2/eras/era-machine.js",
+      "chapter": 7,
+      "order": 8,
+      "shows": "The machine that set the price of an ad in the age of the auction. The same eight parts, in the same eight places.",
+      "finding": "The seller stopped quoting a price and let the runner-up set it. The same firm now ran the sale, counted the clicks and sent the bill."
+    },
+    {
+      "id": "era-7-machine",
+      "component": "eras",
+      "module": "docs/p2/eras/era-machine.js",
+      "chapter": 8,
+      "order": 9,
+      "shows": "The machine that sets the price of an ad now. The same eight parts, in the same eight places.",
+      "finding": "The buyer hands over a budget and a goal, and the machine chooses the rest. The old rule that somebody else counts the audience has broken."
+    },
+    {
+      "id": "drawer-inlet-buyers",
+      "component": "drawers",
+      "module": "docs/p2/eras/era-plan.js",
+      "field": "BUYERS",
+      "chapter": 8,
+      "order": 10,
+      "shows": "The money inlet of all seven machines, lifted out and set side by side. Each cell names who paid for the ads in that era.",
+      "finding": "The buyer changes from a handful of national brands to millions of small accounts. The newest buyer of all hands the machine a budget and a goal."
+    },
+    {
+      "id": "drawer-gate-creators",
+      "component": "drawers",
+      "module": "docs/p2/eras/era-plan.js",
+      "field": "CREATORS",
+      "chapter": 8,
+      "order": 11,
+      "shows": "The making part of all seven machines, lifted out and set side by side. Each cell names who made the ads in that era.",
+      "finding": "Nobody was hired to write ads when this story starts. The job is invented, grows into a trade, and then splits three ways."
+    },
+    {
+      "id": "drawer-meter-measurement",
+      "component": "drawers",
+      "module": "docs/p2/eras/era-plan.js",
+      "field": "MEASUREMENT",
+      "chapter": 10,
+      "order": 12,
+      "shows": "The counting part of all seven machines, lifted out and set side by side. Each cell names who counted the audience in that era.",
+      "finding": "For most of this story somebody other than the seller held the tape measure. In the last two eras the seller counts its own work, and nobody checks it."
+    },
+    {
+      "id": "drawer-rule-pricing",
+      "component": "drawers",
+      "module": "docs/p2/eras/era-plan.js",
+      "field": "PRICING",
+      "chapter": 8,
+      "order": 13,
+      "shows": "The pricing part of all seven machines, lifted out and set side by side. Each cell names who set the price and by what rule.",
+      "finding": "The price moves from a printed card to a live sale the seller runs. Each step gives the seller more say over the number."
+    },
+    {
+      "id": "drawer-sorter-targeting",
+      "component": "drawers",
+      "module": "docs/p2/eras/era-plan.js",
+      "field": "TARGETING",
+      "chapter": 8,
+      "order": 14,
+      "shows": "The sorting part of all seven machines, lifted out and set side by side. Each cell names how an ad found its audience.",
+      "finding": "Aiming starts with the choice of a paper and a page. It ends with a guess about a person, made by the seller."
+    },
+    {
+      "id": "drawer-toll-sellers",
+      "component": "drawers",
+      "module": "docs/p2/eras/era-plan.js",
+      "field": "SELLERS",
+      "chapter": 8,
+      "order": 15,
+      "shows": "The valve of all seven machines, lifted out and set side by side. Each cell names who owned the audience and took a cut.",
+      "finding": "Ownership starts spread across thousands of papers. It ends with a few firms holding most of the money."
+    },
+    {
+      "id": "drawer-door-medium",
+      "component": "drawers",
+      "module": "docs/p2/eras/era-plan.js",
+      "field": "MEDIUM",
+      "chapter": 8,
+      "order": 16,
+      "shows": "The way out of all seven machines, lifted out and set side by side. Each cell names what carried the ad.",
+      "finding": "A new medium rarely kills the one before it quickly. The change takes an era or two to show up in the money."
+    },
+    {
+      "id": "drawer-outlet-scale",
+      "component": "drawers",
+      "module": "docs/p2/eras/era-plan.js",
+      "field": "SCALE",
+      "chapter": 8,
+      "order": 17,
+      "shows": "The spout of all seven machines, lifted out and set side by side. Each cell names how big the market got.",
+      "finding": "The market grows in every era. No single ruler measures the whole run, and the first era has no yearly count at all."
+    },
+    {
+      "id": "auction-sc-01",
+      "component": "auction",
+      "module": "docs/p2/auction/scenarios.js",
+      "scenario": "sc-01-pure-bid-misorders",
+      "chapter": 7,
+      "order": 18,
+      "shows": "Two ads ranked by what they offered, and nothing else. The one that earns the seller less holds the better slot.",
+      "finding": "Ranking on price alone can put the wrong ad on top. A cheap ad that gets clicked often is worth more than a dear one that does not."
+    },
+    {
+      "id": "auction-sc-02",
+      "component": "auction",
+      "module": "docs/p2/auction/scenarios.js",
+      "scenario": "sc-02-quality-weighting-both-metrics",
+      "chapter": 7,
+      "order": 19,
+      "shows": "The same two ads, now ranked on the offer and the click rate together. What the seller takes and what a click costs are both on screen.",
+      "finding": "Weighting by clicks raised what the seller took and lowered what a click cost. The gain came from volume, not from price."
+    },
+    {
+      "id": "auction-sc-03",
+      "component": "auction",
+      "module": "docs/p2/auction/scenarios.js",
+      "scenario": "sc-03-winners-pay-less-than-bid",
+      "chapter": 7,
+      "order": 20,
+      "shows": "What each winner offered, set beside what it really paid. A row underneath holds the offers still and charges each winner its own.",
+      "finding": "Every winner pays less than it offered, and the seller still takes more than before. Paying your own offer is the comparison, and the offers do not move in it."
+    },
+    {
+      "id": "auction-sc-04",
+      "component": "auction",
+      "module": "docs/p2/auction/scenarios.js",
+      "scenario": "sc-04-gsp-not-truthful",
+      "chapter": 7,
+      "order": 21,
+      "shows": "One bidder's own money as its offer moves. The control is on that bidder, and the readout is what it keeps.",
+      "finding": "Saying what a click is really worth can cost a bidder money here. This rule does not reward telling the truth."
+    },
+    {
+      "id": "auction-sc-05",
+      "component": "auction",
+      "module": "docs/p2/auction/scenarios.js",
+      "scenario": "sc-05-equilibrium-band",
+      "chapter": 7,
+      "order": 22,
+      "shows": "The same rule and the same bidders, with a track holding every amount the seller could collect.",
+      "finding": "The rule does not fix what the seller takes. Where it lands on the track is decided by how the bidders choose to play."
+    },
+    {
+      "id": "auction-sc-06",
+      "component": "auction",
+      "module": "docs/p2/auction/scenarios.js",
+      "scenario": "sc-06-first-price-bid-shading-panel",
+      "chapter": 7,
+      "order": 23,
+      "shows": "A sale where each winner pays its own offer, with a control for how far bidders hold back.",
+      "finding": "When bidders hold back the way the theory says, the seller ends up with the same money. There is no extra yield in the rule itself."
+    },
+    {
+      "id": "auction-sc-07",
+      "component": "auction",
+      "module": "docs/p2/auction/scenarios.js",
+      "scenario": "sc-07-ctr-misestimation",
+      "chapter": 7,
+      "order": 24,
+      "shows": "The seller's forecast of how often an ad is clicked, set against what really happened.",
+      "finding": "The whole gain rests on a forecast the seller makes about its own work. Below a certain true click rate the clever rule earns less than the crude one."
+    },
+    {
+      "id": "auction-sc-08",
+      "component": "auction",
+      "module": "docs/p2/auction/scenarios.js",
+      "scenario": "sc-08-reserve-is-a-posted-price",
+      "chapter": 7,
+      "order": 25,
+      "shows": "A search with only one bidder in it, and a floor under the price.",
+      "finding": "With nobody to bid against, the floor is the price. The seller was already turning that knob long before the changes people argue about."
+    },
+    {
+      "id": "auction-sc-09",
+      "component": "auction",
+      "module": "docs/p2/auction/scenarios.js",
+      "scenario": "sc-09-pricing-knobs-coda",
+      "chapter": 7,
+      "order": 26,
+      "shows": "Three knobs the seller can turn inside the sale, each set from the record's own marked stops.",
+      "finding": "The seller can move the price without changing the rule. One of these settings is an assumption, and the page says so wherever it appears."
+    },
+    {
+      "id": "auction-sc-10",
+      "component": "auction",
+      "module": "docs/p2/auction/scenarios.js",
+      "scenario": "sc-10-era-6-vs-era-7-side-by-side",
+      "chapter": 7,
+      "order": 27,
+      "shows": "Two panels, one for each side of the seller's business, in the year the rules changed.",
+      "finding": "The two changes ran in opposite directions. The open web moved to a pay-your-own-offer sale, and search never did."
+    },
+    {
+      "id": "auction-band",
+      "component": "auction",
+      "module": "docs/p2/auction/band.js",
+      "chapter": 7,
+      "order": 28,
+      "shows": "A track running from the least the seller could collect to the most, with a marker for where the current play lands.",
+      "finding": "One revenue figure from this rule is not a fact on its own. It is a point inside a band, and the label says how the bidders were playing when it was taken."
+    },
+    {
+      "id": "door-stop-01",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D4-owned-vs-syndicated-retention",
+      "chapter": 7,
+      "order": 29,
+      "shows": "Two lanes of searches running into one rule box, with three open cups on one baseline. One lane comes through a door from somebody else's page.",
+      "finding": "A search that arrives through the door leaves most of its money at the door. What it costs to answer is the same on both sides."
+    },
+    {
+      "id": "door-stop-02",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D5-yield-sets-the-distribution-budget",
+      "chapter": 7,
+      "order": 30,
+      "shows": "The same machine, with a drum that sets what goes back out through the door. A rival has a hand on the drum as well.",
+      "finding": "Nobody can pay more for the door than a search earns them, less what it costs to answer. The reader does not set this rate alone."
+    },
+    {
+      "id": "door-stop-03",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D6-the-loss-leading-network",
+      "chapter": 7,
+      "order": 31,
+      "shows": "The same machine, set to the share the buyer really booked in the first year of the deal.",
+      "finding": "At that share the last cup falls below the baseline. The buyer paid more for the door than the searches behind it brought in."
+    },
+    {
+      "id": "door-stop-04",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D9-liquidity-externality-toggle",
+      "chapter": 7,
+      "order": 32,
+      "shows": "The machine with one pipe drawn as a stippled block inside a dashed frame.",
+      "finding": "The best defence of the whole arrangement has no public measure behind it. The reader never gets to see a complete machine."
+    },
+    {
+      "id": "door-stop-05",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D1-guarantee-headline-vs-exposure",
+      "chapter": 7,
+      "order": 33,
+      "shows": "The money promised for the door, drawn as a band with nothing down the middle of it.",
+      "finding": "The promise was bigger than the firm that made it. Its range is too wide for the record to allow a single mark."
+    },
+    {
+      "id": "door-stop-06",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D2-delivery-contingency",
+      "chapter": 7,
+      "order": 34,
+      "shows": "The same machine with the door swung shut and the lower lane empty.",
+      "finding": "The promise held only while the traffic kept arriving. A term inside the deal could take the whole thing away."
+    },
+    {
+      "id": "door-stop-07",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D10-guarantee-overhang-reconstruction",
+      "chapter": 7,
+      "order": 35,
+      "shows": "Filed dollars on one baseline, each bar naming the base it is measured on.",
+      "finding": "The headline everyone quotes and the filed accounts are not the same size. Nobody ever filed the deal itself, so the accounts have to bracket it."
+    },
+    {
+      "id": "door-stop-08",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D3-the-equity-leg",
+      "chapter": 7,
+      "order": 36,
+      "shows": "The cash leg of the deal drawn beside the share leg, on one baseline.",
+      "finding": "The shares moved far more money than the cash did. They cost the buyer most in the case where the buyer won."
+    },
+    {
+      "id": "door-stop-09",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D7-capture-attribution",
+      "chapter": 9,
+      "order": 37,
+      "shows": "One amount of money, drawn against three different bases in turn.",
+      "finding": "One number over three bases gives three right answers. The record refuses to quote this share as a single figure."
+    },
+    {
+      "id": "door-stop-10",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D11-what-the-deal-moved-and-returned",
+      "chapter": 7,
+      "order": 38,
+      "shows": "What the deal moved, drawn beside what stayed with the buyer.",
+      "finding": "Most of the money passed straight through to the partner. What the buyer kept is a small part of what it moved."
+    },
+    {
+      "id": "door-stop-11",
+      "component": "door",
+      "module": "docs/p2/door/scenarios.js",
+      "scenario": "D8-composition-inversion",
+      "chapter": 7,
+      "order": 39,
+      "shows": "The same rate applied to two very different mixes of business.",
+      "finding": "The rate did not change and the money did. What moved was the mix of business behind it."
+    },
+    {
+      "id": "door-wheel",
+      "component": "door",
+      "module": "docs/p2/door/wheel.js",
+      "chapter": 7,
+      "order": 40,
+      "shows": "A drum with six notches and a grip the reader can turn. A second hand rests on it, and the ground that hand has taken is shaded out.",
+      "finding": "The reader cannot set this rate alone. Every raise is answered, and ground given up does not come back."
+    },
+    {
+      "id": "chart-rail-board",
+      "component": "charts",
+      "module": "docs/p2/charts/rail-board.js",
+      "chapter": 9,
+      "order": 41,
+      "shows": "One track for each source that ever counted what the country spent on ads. Every track marks only the years its source really published.",
+      "finding": "The record is a patchwork and not a series. Some decades carry several counts and some carry none at all."
+    },
+    {
+      "id": "chart-medium-bank",
+      "component": "charts",
+      "module": "docs/p2/charts/small-multiples.js",
+      "chapter": 9,
+      "order": 42,
+      "shows": "One small panel for each medium, drawn across the same years. Each panel holds that medium's share of all the ad money.",
+      "finding": "A new medium takes decades to move the share of the money. The bank stops well before the latest years, because no free count of them exists."
+    },
+    {
+      "id": "chart-medium-cross-section",
+      "component": "charts",
+      "module": "docs/p2/charts/small-multiples.js",
+      "chapter": 9,
+      "order": 43,
+      "shows": "Every medium in one year, side by side. Where a reading has no middle value the whole year is drawn as a row of ranges.",
+      "finding": "A year is only as sharp as its widest reading. In some years two media overlap so much that neither can be called the larger."
+    },
+    {
+      "id": "toll-plate-era-1",
+      "component": "toll",
+      "module": "docs/p2/toll/toll-plan.js",
+      "era": 1,
+      "chapter": 9,
+      "order": 44,
+      "shows": "What the middleman kept in the first era, drawn against the money it came out of. The bar is this era's own base and nothing else.",
+      "finding": "The trade printed one of these rates, so a buyer of the day could look it up. The other one is a range, because the source never named a single figure."
+    },
+    {
+      "id": "toll-plate-era-2",
+      "component": "toll",
+      "module": "docs/p2/toll/toll-plan.js",
+      "era": 2,
+      "chapter": 9,
+      "order": 45,
+      "shows": "What one middleman kept in the second era, drawn against its own base. The length of the bar says which base this is.",
+      "finding": "An outside body opened the books and published this rate. Its base is not the base the plate before it uses."
+    },
+    {
+      "id": "toll-plate-era-3",
+      "component": "toll",
+      "module": "docs/p2/toll/toll-plan.js",
+      "era": 3,
+      "chapter": 9,
+      "order": 46,
+      "shows": "Two cuts from the third era, each drawn against its own base. Neither bar shares a ruler with any other plate.",
+      "finding": "One of these rates was printed in the trade and the other is a range. A single era can measure its cut twice on two different bases."
+    },
+    {
+      "id": "toll-plate-era-4",
+      "component": "toll",
+      "module": "docs/p2/toll/toll-plan.js",
+      "era": 4,
+      "chapter": 9,
+      "order": 47,
+      "shows": "What the middleman kept in the fourth era, drawn against its own base.",
+      "finding": "An outside body counted this one. It is the last cut on the page that anybody outside the trade measured."
+    },
+    {
+      "id": "toll-plate-era-5",
+      "component": "toll",
+      "module": "docs/p2/toll/toll-plan.js",
+      "era": 5,
+      "chapter": 9,
+      "order": 48,
+      "shows": "Two cuts from the fifth era, each on its own base. One is money kept and the other is money handed on.",
+      "finding": "Both figures come off the seller's own books. From here on nobody outside the firm is doing the counting."
+    },
+    {
+      "id": "toll-plate-era-6",
+      "component": "toll",
+      "module": "docs/p2/toll/toll-plan.js",
+      "era": 6,
+      "chapter": 9,
+      "order": 49,
+      "shows": "Two cuts from the sixth era, each on its own base. Money that leaves is drawn leaving, and money that stays is drawn staying.",
+      "finding": "Both come off the seller's own filings. A payout is never drawn as a take, because that would turn the finding on its head."
+    },
+    {
+      "id": "toll-plate-era-7",
+      "component": "toll",
+      "module": "docs/p2/toll/toll-plan.js",
+      "era": 7,
+      "chapter": 9,
+      "order": 50,
+      "shows": "Three readings from the last era, on three different bases. Two of them count what arrived at the far end, not what anybody took.",
+      "finding": "Two buyer groups tried to trace this money and neither could close the account. The cut did not clearly rise or fall. It got harder to see."
+    },
+    {
+      "id": "toll-visibility-legend",
+      "component": "toll",
+      "module": "docs/p2/toll/toll-plate.js",
+      "chapter": 9,
+      "order": 51,
+      "note": "Found by assertEveryDrawingDeclared on its first run against the real components. The legend is five drawn marks under the plates, it carries the whole finding of that page, and no row covered it.",
+      "shows": "The five drawn forms that say who produced a figure, running from a solid block to a stippled gap. The bottom row of every plate carries one of them.",
+      "finding": "Read that row down the page and the ink drains out of it. Who could see the middleman's cut is itself the clearest finding here."
+    }
+  ]
+}

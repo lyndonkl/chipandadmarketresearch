@@ -35,6 +35,35 @@ R3b followed the R2b pattern exactly: the R3 entries still read `"verdict": "con
 
 *Every scenario now carries a `mechanism_scope`* naming which auction rule it demonstrates, which surface it ran on (`search` or `display`) and which years, drawn from a new top-level `mechanism_scope_rules` vocabulary whose eight entries each cite the `mechanism.json` path they came from. A scenario without a scope is a hard error in `docs/p2/lib/guards.js` (guard G7), and **no scope may pair the search surface with a first-price rule**. The reason is the one `mechanism.json` already states: on 2019-09-05 the DISPLAY exchange moved to unified first price and SEARCH did not, and conflating the two is "the standard error in retellings of the 2019 transition". The guard used to try to catch that error by scanning captions. Prose scanning is now advice; the scope check over these 21 records is the enforcement.
 
+**B8 — 2026-08-01.** A new file, `visuals.json`, and nothing else moved. Same pattern as P1's
+`about_year` and B1's `mechanism_scope`: a required field added so a downstream guard can enforce
+what the prose was only asserting. No number moved, no claim changed, nothing was re-researched.
+
+*Every visual the piece renders now carries a required plain-English sentence in the record.*
+`DESIGN.md` adopts this under "Still unsolved" and `BUILD-PLAN.md` gives it to team B8. **Fifty-one
+visuals** — five charts, seven era machines, eight cross-era drawers, ten auction scenarios, THE
+BAND, eleven door stops, the drum, seven toll plates and the visibility legend. Each carries two
+fields: `shows`, what is on the drawing, and `finding`, what a reader should take from it. The
+accessible name is the two joined and is **derived, never stored**, so there is no third copy to
+drift.
+
+**Neither field may contain a digit.** A figure written here would be a second, unversioned copy of a
+number the mark beside it already carries, with nothing checking that the two agree — the rule
+`toll-records.js` already applies to its thirteen base sentences. Every figure on the text-only path
+comes from the components' own guarded strings instead.
+
+The gate is `tools/verify_p2.py b8-alt`: both fields present and distinct, no digit, and **all four
+readability gates cleared per visual rather than on average**, because an average hides the one
+sentence a reader cannot follow. Measured: corpus FK 4.67, Ease 83.72, Fog 6.65, SMOG 7.25; the worst
+single visual is FK 7.31.
+
+The registry is also checked for completeness against **floors derived from this record**: one
+machine and one toll plate per era file, one drawer per organ field in `era-1.json`, one visual per
+scenario id in `simulator-params.json`. So adding an era demands its sentences. And a record that
+cannot be read drives every floor to zero, which fails rather than passes. `tools/verify_p2.py
+b8-alt-selfcheck` proves the gate can fire: 19 mutations, one per clause, 19 caught. The consumer is
+`docs/p2/access/`.
+
 ## The guard library: what is guaranteed and what is advice
 
 Not every check in `docs/p2/lib/` is a guarantee, and three that read like one are not. **G4** guarantees the shape of a series selector and a written reason on any subset. It never guarantees the whole record reaches the page. **G7's caption test** guarantees the record's true sentence is on screen. It says nothing about a false one printed beside it. The **prose lint is a heuristic**: 19 caught and 22 missed over a 5,593-string corpus, so an empty result is never a clearance.
