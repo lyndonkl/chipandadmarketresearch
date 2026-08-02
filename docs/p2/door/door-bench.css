@@ -1,0 +1,194 @@
+/* docs/p2/door/door-bench.css — the door bench, laid out.
+   Team B5. Every colour is a token from ../lib/tokens.css. No hex is typed here. */
+
+.db {
+  margin: 0 0 56px;
+  max-width: 1400px;
+}
+
+.db-head { margin: 0 0 14px; }
+.db-eyebrow { letter-spacing: 0.12em; }
+.db-teach {
+  font-family: var(--p2-font-prose);
+  font-weight: 600;
+  font-size: clamp(20px, 2.4vw, 27px);
+  line-height: 1.22;
+  margin: 6px 0 6px;
+  max-width: 34ch;
+  color: var(--p2-graphite);
+}
+.db-scope { margin: 0; max-width: 70ch; }
+
+/* ---- THE ZONES. They never move.
+   The wheel has a row of its own across the whole frame, and it is FIRST,
+   because it is the control and the reader's hand goes there first. It spans
+   all three columns because at 940 units inside an 812px centre column the last
+   notch — 91 per cent, the endpoint of the ratchet — was scrolled off the right
+   on every laptop, and that notch is the whole destination of the mechanic. ---- */
+.db-frame {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr) 280px;
+  grid-template-areas:
+    "wheel  wheel wheel"
+    "inputs draw  money";
+  gap: 0;
+  border: 1.5px solid var(--p2-iron);
+  background: var(--p2-paper);
+}
+.db-zone { padding: 12px 14px 16px; min-width: 0; }
+.db-zone--wheel { grid-area: wheel; border-bottom: 1px solid var(--p2-iron); }
+.db-zone--wheel[hidden] { display: none; }
+.db-zone--inputs { grid-area: inputs; }
+.db-zone--draw { grid-area: draw; border-left: 1px solid var(--p2-rule-faint); }
+.db-zone--money { grid-area: money; border-left: 1px solid var(--p2-rule-faint); }
+.db-zone-label {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--p2-rule-faint);
+  margin-bottom: 12px;
+}
+@media (max-width: 1200px) {
+  .db-frame {
+    grid-template-columns: 1fr;
+    grid-template-areas: "wheel" "inputs" "draw" "money";
+  }
+  .db-zone--draw, .db-zone--money { border-left: 0; border-top: 1px solid var(--p2-rule-faint); }
+}
+
+/* The machine, the bars and the band are 940 units wide and scroll in place
+   below that, rather than shrinking the line work until the labels collide. */
+.db-draw { overflow-x: auto; overscroll-behavior-x: contain; }
+.db-draw > svg { min-width: 940px; }
+
+/* THE WHEEL DOES NOT SCROLL. It is the control, and a control whose far end is
+   off the right edge is a control the reader never reaches. It scales to the
+   row it has, down to a floor. */
+.db-wheel-host { overflow-x: auto; overscroll-behavior-x: contain; }
+.db-wheel-host > svg { width: 100%; min-width: 620px; max-width: 940px; height: auto; }
+
+/* ---- the settings this stop stands on ---- */
+.db-settings {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--p2-font-chrome);
+  font-size: 11px;
+  color: var(--p2-graphite);
+  margin-bottom: 14px;
+}
+.db-settings th {
+  font-family: var(--p2-font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--p2-zinc-text);
+  text-align: left;
+  padding: 0 6px 5px 0;
+  border-bottom: 1px solid var(--p2-rule-faint);
+}
+.db-settings td { padding: 4px 6px 4px 0; vertical-align: top; border-bottom: 1px solid var(--p2-rule-faint); }
+.db-settings .n { text-align: right; font-family: var(--p2-font-numeral); font-size: 10px; }
+.db-illustrative {
+  margin: 0 0 14px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--p2-rust);
+}
+
+/* ---- the handles ---- */
+.db-controls { display: flex; flex-direction: column; gap: 18px; }
+.db-ctl-row { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+.db-range { flex: 1 1 auto; min-width: 0; accent-color: var(--p2-iron); min-height: 44px; }
+.db-ctl-value { font-size: 13px; color: var(--p2-graphite); min-width: 6ch; text-align: right; }
+.db-ctl-note { margin: 6px 0 0; color: var(--p2-ink-4); }
+.db-stops { margin-top: 4px; color: var(--p2-zinc-text); }
+
+/* THE DRUM IS THE CONTROL, so it is the drawing that carries the affordance:
+   a grab cursor, a focus ring, and no text selection to fight the drag. There
+   is no range input on this bench. */
+.db-wheel--live { cursor: grab; touch-action: pan-y; }
+.db-wheel--live:active { cursor: grabbing; }
+.db-wheel--live:focus-visible { outline: 2px solid var(--p2-iron); outline-offset: 3px; }
+.db-wheel--live .db-grip { cursor: grab; }
+.db-zone--wheel { -webkit-user-select: none; user-select: none; }
+
+/* The instrument refusing to draw. It is a failure and it looks like one. */
+.db-refusal {
+  grid-column: 1 / -1;
+  padding: 18px 20px;
+  border-left: 3px solid var(--p2-rust);
+}
+
+/* ---- the money zone ---- */
+.db-till { margin: 0; }
+.db-till dt {
+  font-size: 10px;
+  color: var(--p2-zinc-text);
+  margin-top: 12px;
+}
+.db-till dd { margin: 2px 0 0; font-size: 19px; line-height: 1.15; }
+.db-qual { margin: 3px 0 0; color: var(--p2-ink-4); font-size: 10px; line-height: 1.45; }
+
+/* ---- under the instrument ---- */
+.db-note {
+  margin: 18px 0 0;
+  max-width: var(--p2-measure);
+}
+.db-captions { margin: 16px 0 0; display: flex; flex-direction: column; gap: 8px; }
+.db-caption {
+  margin: 0;
+  padding: 8px 12px;
+  border-left: 2px solid var(--p2-iron);
+  color: var(--p2-ink-3);
+  max-width: 92ch;
+}
+.db-register { margin: 16px 0 0; }
+.db-stamps { margin: 8px 0 0; padding-left: 18px; color: var(--p2-ink-4); max-width: 92ch; }
+.db-stamps li { margin-bottom: 6px; line-height: 1.5; }
+
+.db-ledger { margin: 18px 0 0; }
+.db-ledger summary { cursor: pointer; padding: 6px 0; }
+.db-ledger-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--p2-font-chrome);
+  font-size: 11px;
+  margin-top: 8px;
+}
+.db-ledger-table th {
+  font-family: var(--p2-font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 9px;
+  color: var(--p2-zinc-text);
+  text-align: left;
+  border-bottom: 1px solid var(--p2-iron);
+  padding: 0 8px 5px 0;
+}
+.db-ledger-table td { padding: 5px 8px 5px 0; border-bottom: 1px solid var(--p2-rule-faint); vertical-align: top; }
+.db-ledger-table .n { text-align: right; font-family: var(--p2-font-numeral); }
+.db-expr { color: var(--p2-ink-4); word-break: break-word; }
+.db-derived td { font-style: italic; color: var(--p2-ink-4); }
+
+/* ---- the act rail ---- */
+.db-rail { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 24px; }
+.db-rail .db-act-label {
+  font-family: var(--p2-font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  color: var(--p2-zinc-text);
+  align-self: center;
+  padding: 0 8px 0 0;
+  width: 100%;
+  margin-top: 10px;
+}
+.db-rail button {
+  font-family: var(--p2-font-chrome);
+  font-size: 11px;
+  background: var(--p2-bone);
+  color: var(--p2-graphite);
+  border: 1px solid var(--p2-iron);
+  padding: 8px 10px;
+  min-height: 44px;
+  cursor: pointer;
+}
+.db-rail button[aria-current="true"] { background: var(--p2-iron); color: var(--p2-bone); }

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The door bench — test bench</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./door-bench.css">
+<style>
+  body.p2 { padding: 32px var(--p2-gutter) 80px; }
+  h1 { font-family: var(--p2-font-prose); font-weight: 600; font-size: 30px; margin: 10px 0 8px; }
+  p.lede { font-family: var(--p2-font-prose); font-size: 17px; max-width: 74ch; margin: 0 0 6px; }
+  #tally { font-family: var(--p2-font-numeral); font-weight: 600; font-size: 20px; margin: 18px 0; }
+  table { border-collapse: collapse; width: 100%; font-family: var(--p2-font-chrome); font-size: 12px; }
+  th, td { border: 1px solid var(--p2-rule-faint); padding: 5px 8px; text-align: left;
+           vertical-align: top; overflow-wrap: anywhere; }
+  th { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .06em;
+       font-size: 10px; color: var(--p2-zinc-text); }
+  tr.group td { background: rgba(91,101,112,.10); font-family: var(--p2-font-label);
+                text-transform: uppercase; letter-spacing: .06em; font-size: 10px; }
+  td.v { width: 52px; font-weight: 600; }
+  tr.fail td.v { color: var(--p2-rust); }
+  tr.pass td.v { color: var(--p2-iron); }
+  #loadfail { display: none; border: 1.5px solid var(--p2-rust); padding: 16px 18px; margin: 20px 0;
+              font-family: var(--p2-font-prose); font-size: 16px; }
+  #loadfail code, #loadfail pre { font-family: var(--p2-font-chrome); font-size: 12px; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<div class="p2-arch">P2 · team B5 · the door bench</div>
+<h1>Every way to make this bench lie.</h1>
+<p class="lede">
+  Each row below is an attempt on the bench. Some check that a true number comes out right. The
+  rest try to get a false one onto the screen, and pass only when the bench refuses.
+</p>
+<p class="lede">
+  Section one is the one this component was decided on: can a reader come away believing they set
+  the revenue share? No test can answer that about a person. These rows refuse the states in which
+  the answer would certainly be yes.
+</p>
+<p class="lede">
+  The tally this page prints is the one to trust. Any count written in the README can go stale.
+</p>
+
+<div id="loadfail">
+  <b>This page could not read the frozen data.</b>
+  <p>Browsers block <code>fetch</code> on <code>file://</code> origins, and Chrome also blocks
+     <code>&lt;script type="module"&gt;</code> imports there. Serve the repository root over http:</p>
+  <p><code>cd /path/to/chipandadmarketresearch &amp;&amp; python3 -m http.server 8000</code><br>
+     then <code>http://localhost:8000/docs/p2/door/door.test.html</code></p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<div id="tally">running…</div>
+<table id="out"><thead><tr><th class="v">&nbsp;</th><th>Case</th><th>What came back</th></tr></thead><tbody></tbody></table>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion } from '../lib/motion.js';
+import { runCases } from './door.test.js';
+
+const fail = document.getElementById('loadfail');
+try {
+  initMotion();
+  await guards.loadFrozen();
+  const rows = runCases(guards.snapshotFrozen());
+  const body = document.querySelector('#out tbody');
+  let group = '';
+  let passed = 0;
+  for (const row of rows) {
+    if (row.group !== group) {
+      group = row.group;
+      const tr = document.createElement('tr');
+      tr.className = 'group';
+      const td = document.createElement('td');
+      td.colSpan = 3;
+      td.textContent = group;
+      tr.appendChild(td);
+      body.appendChild(tr);
+    }
+    if (row.pass) passed += 1;
+    const tr = document.createElement('tr');
+    tr.className = row.pass ? 'pass' : 'fail';
+    const v = document.createElement('td');
+    v.className = 'v';
+    v.textContent = row.pass ? 'ok' : 'FAIL';
+    const n = document.createElement('td');
+    n.textContent = row.name;
+    const d = document.createElement('td');
+    d.textContent = row.detail;
+    tr.append(v, n, d);
+    body.appendChild(tr);
+  }
+  document.getElementById('tally').textContent =
+    `${passed} of ${rows.length} cases pass.` + (passed === rows.length ? '' : '  SOMETHING IS WRONG.');
+} catch (err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent = (err && err.stack) ? err.stack : String(err);
+  document.getElementById('tally').textContent = 'FAILED — see the box above.';
+  throw err;
+}
+</script>
+</body>
+</html>

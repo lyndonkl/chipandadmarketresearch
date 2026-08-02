@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The seven toll plates — how big a cut the middleman took</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./toll.css">
+</head>
+<body class="p2 p2-paper-ground">
+
+<header class="page">
+  <div class="p2-arch">P2 · team B6 · the toll plate</div>
+  <h1>Seven middlemen, seven cuts, and no two of them measured the same way.</h1>
+  <p class="p2-prose p2-lede">
+    A middleman sits between the advertiser and the place the advertisement appears, and keeps a
+    slice of the money. Every era wrote that slice down as a percentage. What the percentage was
+    <em>of</em> changed every time. Bars in a row on one ruler would invite you to read an early
+    percentage against a late one and conclude the cut rose. Nothing in the record says that, and
+    this page will not print the two figures side by side to make the point either.
+  </p>
+  <p class="p2-prose p2-lede">
+    So there is no chart here, and no shared scale. There are thirteen small drawings, each one
+    showing a dollar going in and a slice coming out, drawn at a size that belongs to that base and
+    to nothing else. Two of them cannot be measured against each other. Comparing two of these
+    figures means reading what each one is a share of first, which is the honest amount of work.
+  </p>
+  <p class="p2-status" id="status">loading…</p>
+</header>
+
+<div id="loadfail">
+  <b>This page could not read the frozen data.</b>
+  <p>Serve the repository root over http:
+    <code>cd /path/to/repo &amp;&amp; python3 -m http.server 8000</code>, then
+    <code>http://localhost:8000/docs/p2/toll/toll-plate.demo.html</code></p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<div class="p2-toll-nav">
+  <button type="button" id="dump">print every string this page shows</button>
+  <button type="button" id="lint">run the prose lint over the page</button>
+</div>
+<pre id="out" class="p2-chrome" style="white-space: pre-wrap; max-height: 340px; overflow: auto;"></pre>
+
+<main id="root"></main>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { verifyTokenParity, auditPalette } from '../lib/tokens.js';
+import { loadEraRecords } from '../eras/era-records.js';
+import { planTollPlates, planSentences } from './toll-plan.js';
+import { renderTollPlates } from './toll-plate.js';
+
+const status = document.getElementById('status');
+const fail = document.getElementById('loadfail');
+const out = document.getElementById('out');
+
+try {
+  verifyTokenParity();
+  auditPalette();
+
+  await guards.loadFrozen();
+  const frozen = guards.snapshotFrozen();
+  const records = await loadEraRecords();
+  const plan = planTollPlates(records, frozen);
+  const view = renderTollPlates(document.getElementById('root'), plan);
+
+  status.textContent =
+    `${plan.plateCount} plates · ${plan.bases.length} tolls · ${new Set(plan.bases).size} different ` +
+    `bases · ${plan.verdictStamps.length} claims changed after they were written · nothing on this ` +
+    'page shares a scale';
+
+  document.getElementById('dump').addEventListener('click', () => {
+    const onPage = view.sentences();
+    const onPlan = planSentences(plan);
+    out.textContent =
+      `${onPage.length} strings read off the rendered page:\n\n${onPage.join('\n')}\n\n` +
+      `${onPlan.length} sentences the plan carries:\n\n${onPlan.join('\n')}`;
+  });
+
+  document.getElementById('lint').addEventListener('click', () => {
+    const strings = view.sentences();
+    const findings = strings.flatMap((s) => guards.lintTextForDeadMechanism(s, 'the toll plates'));
+    out.textContent =
+      `the prose lint read ${strings.length} rendered strings and returned ${findings.length} ` +
+      'finding(s).\n\nAN EMPTY RESULT IS NOT A CLEARANCE. The lint is a regex over English and it ' +
+      'knows about one claim: the 2019 auction change. Two sentences it verifiably misses are ' +
+      `printed below.\n\n${findings.map((f) => JSON.stringify(f)).join('\n')}\n\n` +
+      `the lint's own written limits:\n${guards.DEAD_MECHANISM_LINT_LIMITS.join('\n')}`;
+  });
+} catch (err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent = err && err.stack ? err.stack : String(err);
+  status.textContent = 'FAILED — see the box above.';
+  throw err;
+}
+</script>
+</body>
+</html>

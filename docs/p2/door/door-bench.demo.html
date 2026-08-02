@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The door bench — P2 The Attention Economy</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./door-bench.css">
+<style>
+  body.p2 { padding: 0 var(--p2-gutter) 80px; }
+  header.page { padding: 40px 0 26px; max-width: 78ch; }
+  h1 { font-family: var(--p2-font-prose); font-weight: 600;
+       font-size: clamp(28px, 4vw, 40px); line-height: 1.14; margin: 14px 0 12px; max-width: 26ch; }
+  .p2-status { font-family: var(--p2-font-chrome); font-size: 12px; color: var(--p2-zinc-text); margin: 14px 0 0; }
+  #loadfail { display: none; border: 1.5px solid var(--p2-rust); padding: 16px 18px; margin: 20px 0;
+              font-family: var(--p2-font-prose); font-size: 16px; }
+  #loadfail code { font-family: var(--p2-font-chrome); font-size: 13px; }
+  #loadfail pre { font-family: var(--p2-font-chrome); font-size: 12px; overflow-x: auto; }
+  .gate { border: 1px solid var(--p2-iron); padding: 14px 16px; margin: 30px 0 0; max-width: 100ch; }
+  .gate h2 { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .08em;
+             font-size: 11px; font-weight: 600; color: var(--p2-zinc-text); margin: 0 0 8px; }
+  .gate p { margin: 0 0 6px; font-family: var(--p2-font-chrome); font-size: 12px; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<header class="page">
+  <div class="p2-arch">P2 · The Attention Economy · team B5 · the door bench</div>
+  <h1>Google won search advertising twice.</h1>
+  <p class="p2-prose">
+    It built a better auction. Then it paid other companies to make Google the search box people
+    met first. The bench next door covers the first half. This one covers the second, and most
+    readers have never heard it.
+  </p>
+  <p class="p2-prose">
+    Two lanes run into one auction. One starts on Google's own page. The other starts on somebody
+    else's and has to come through a door. Only the lower lane passes a valve, and the valve taps
+    most of the money straight back out through the door it came in by.
+  </p>
+  <p class="p2-prose">
+    The drum across the top of the instrument is the revenue share. Grab it and turn it, or tab to
+    it and use the arrow keys. Watch what happens under your own hand.
+  </p>
+  <div id="motiontoggle"></div>
+  <p class="p2-status" id="status">loading the frozen record…</p>
+</header>
+
+<div id="loadfail">
+  <b>This page could not read the frozen data.</b>
+  <p>Browsers block <code>fetch</code> on <code>file://</code> origins, and Chrome also blocks
+     <code>&lt;script type="module"&gt;</code> imports there. Serve the repository root over http
+     and open the page from the server:</p>
+  <p><code>cd /path/to/chipandadmarketresearch &amp;&amp; python3 -m http.server 8000</code><br>
+     then <code>http://localhost:8000/docs/p2/door/door-bench.demo.html</code></p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<nav class="db-rail" id="rail" aria-label="Stops"></nav>
+<main id="root"></main>
+
+<section class="gate" id="gate" hidden>
+  <h2>The gate</h2>
+  <div id="gatebody"></div>
+</section>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle, auditReducedCoverage } from '../lib/motion.js';
+import { auditPalette, verifyTokenParity } from '../lib/tokens.js';
+import { renderDoorBench, allDoorSentences } from './bench.js';
+import { STOPS, ACTS, defaultState, viewFigures, mintStop } from './scenarios.js';
+import { lintRenderedStrings } from '../auction/panels.js';
+import { assertFiledTotalsClose, assertClaimCopiesAgree, resolveSettings } from './engine.js';
+import { makeWheel, assertRivalIsPresent } from './wheel.js';
+import { assertDoorColourBudget } from './drawing.js';
+import {
+  checkRecordSelfConsistent, checkFiguresAgainstRecord, stepCoverage, doorSteps,
+} from './gate.js';
+
+const status = document.getElementById('status');
+const fail = document.getElementById('loadfail');
+
+function die(err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent = (err && err.stack) ? err.stack : String(err);
+  status.textContent = 'FAILED — see the box above.';
+  throw err;
+}
+
+try {
+  initMotion();
+  installMotionToggle(document.getElementById('motiontoggle'));
+  verifyTokenParity();
+  auditPalette();
+  auditReducedCoverage();
+  assertDoorColourBudget();
+
+  await guards.loadFrozen();
+  const frozen = guards.snapshotFrozen();
+
+  /* G7 over the whole frozen file, before a single stop is drawn. */
+  guards.assertSimulatorMechanismScopes();
+  /* Build note 10, and the two copies of the 31 distribution claims. */
+  assertFiledTotalsClose(frozen.mechanism);
+  assertClaimCopiesAgree(frozen.mechanism, frozen.claims);
+
+  const options = {
+    mechanism: frozen.mechanism, params: frozen.simulatorParams, claims: frozen.claims,
+  };
+  const bench = renderDoorBench(document.getElementById('root'), { stop: 1, ...options });
+  window.P2_DOOR = bench;
+
+  /* the act rail */
+  const rail = document.getElementById('rail');
+  const buttons = [];
+  for (const act of ACTS) {
+    const label = document.createElement('div');
+    label.className = 'db-act-label';
+    label.textContent = `Act ${act.n} · ${act.title} — ${act.what}`;
+    rail.appendChild(label);
+    for (const stop of STOPS.filter((s) => s.act === act.n)) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = `${stop.n} · ${stop.short}`;
+      button.addEventListener('click', () => {
+        bench.show(stop.n);
+        for (const other of buttons) other.setAttribute('aria-current', String(other === button));
+      });
+      rail.appendChild(button);
+      buttons.push(button);
+    }
+  }
+  buttons[0].setAttribute('aria-current', 'true');
+
+  /* THE GATE, run live on the page the reader is looking at. */
+  const self = checkRecordSelfConsistent(frozen.mechanism);
+  const allFigures = [];
+  let stopFails = 0;
+  let vacuousPositions = 0;
+  let derivedFigures = 0;
+  let g7Findings = 0;
+
+  for (const stop of STOPS) {
+    const panel = mintStop(stop.id, options);
+    g7Findings += panel.advisory.findings.length;
+    const wheel = stop.wheel
+      ? makeWheel(frozen.mechanism, frozen.simulatorParams, { mode: stop.wheel }) : null;
+    const ctx = {
+      mechanism: frozen.mechanism, params: frozen.simulatorParams, claims: frozen.claims,
+      settings: panel.settings, record: panel.record, id: stop.id, panel, wheel,
+    };
+    const base = defaultState(stop, ctx);
+    const controls = stop.controls(ctx, base);
+    const candidates = controls.map((c) => (c.kind === 'rocker'
+      ? c.options.map((o) => o.value)
+      : [c.min, c.max, ...(c.stops || [])]));
+    let combos = [{}];
+    for (let i = 0; i < controls.length; i += 1) {
+      const next = [];
+      for (const combo of combos) {
+        for (const v of candidates[i]) next.push(v == null ? combo : { ...combo, [controls[i].id]: v });
+      }
+      combos = next.slice(0, 400);
+    }
+    /* Every notch, and the RESTED state after a refusal as well — the door
+       coming back is a different drawing from the door swinging, and a sweep
+       that never rested the wheel never visited it. */
+    const wheelPositions = wheel
+      ? [...wheel.notches.map((_, i) => i), 'rest'] : [null];
+    for (const combo of combos) {
+      for (const position of wheelPositions) {
+        if (wheel) {
+          wheel.open();
+          if (position === 'rest') { wheel.turnTo(0); wheel.rest(); } else { wheel.turnTo(position); }
+          assertRivalIsPresent(wheel.current(), stop.id);
+        }
+        const view = stop.build({ ...base, ...combo }, ctx);
+        const shown = viewFigures(view);
+        const check = checkFiguresAgainstRecord(shown, frozen.mechanism, stop.id);
+        allFigures.push(...shown);
+        derivedFigures += check.derived.length;
+        if (check.vacuous) vacuousPositions += 1;
+        if (!check.ok) stopFails += check.failed.length + check.unbacked.length;
+      }
+    }
+  }
+  const coverage = stepCoverage(allFigures, frozen.mechanism);
+
+  /* THE PROSE LINT, over every string this bench can put on screen — eleven
+     stops, every named position of every control, and every notch of the wheel
+     twice, because the refusal sentence and the rival's answer only exist at a
+     position somebody has to go to. Still ADVICE; still never a clearance. */
+  const corpus = allDoorSentences(options);
+  const pageLint = lintRenderedStrings(corpus, 'every string this door bench can render');
+
+  const gate = document.getElementById('gate');
+  const body = document.getElementById('gatebody');
+  gate.hidden = false;
+  const line = (t) => { const p = document.createElement('p'); p.textContent = t; body.appendChild(p); };
+  line(`${self.total} stored steps read from mechanism.json — ${self.families.distribution} in ` +
+    `engines.distribution and ${self.families.reconciliation} in the cross-engine reconciliation. ` +
+    `${self.failed.length} disagree with their own arithmetic.`);
+  line(`${stopFails} figures on this bench fail to re-derive from the record, across every ` +
+    'control position and every notch of the wheel — the money zone and the ledger together.');
+  line(`${vacuousPositions} positions handed the gate nothing it could check. Any at all is a failure.`);
+  line(`${derivedFigures} figures are worked out on this page rather than stored. Each one prints ` +
+    'its derivation beside itself.');
+  line(`${coverage.claimed} of ${coverage.total} stored steps are claimed by a figure this bench ` +
+    `can show (${(coverage.fraction * 100).toFixed(1)}%).`);
+  line(`The prose lint read ${pageLint.scanned} rendered strings and returned ` +
+    `${pageLint.findings.length} finding(s). G7's own lint, over the fields each stop is minted ` +
+    `from, returned ${g7Findings}. An empty result is not a clearance; the scope check over the ` +
+    'frozen record is.');
+  for (const finding of pageLint.findings) line(`  LINT: ${finding.unit}`);
+
+  status.textContent =
+    `${STOPS.length} stops · ${self.total} stored steps re-evaluated · ` +
+    `${stopFails === 0 && vacuousPositions === 0 && self.ok ? 'the gate is green' : 'THE GATE FAILED'}`;
+} catch (err) {
+  die(err);
+}
+</script>
+</body>
+</html>

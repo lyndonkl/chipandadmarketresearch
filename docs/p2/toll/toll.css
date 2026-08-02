@@ -1,0 +1,221 @@
+/* docs/p2/toll/toll.css — page furniture for the seven toll plates.
+ *
+ * Every colour, type role and rhythm comes from ../lib/tokens.css through its
+ * own custom properties. Nothing here restates a token value, and the two rules
+ * that need a token at low alpha go through `color-mix()` on the custom
+ * property — a hand-written `rgba(168, 68, 46, …)` is Rust in a form no grep
+ * for the token will ever find. Same rule `eras.css` states and for the same
+ * reason.
+ *
+ * THERE IS NO PAGE STAGGER IN THIS FILE ANY MORE, AND THAT IS A REPAIR.
+ * `--p2-toll-indent` used to push each plate right by a whole number of steps.
+ * It moved the bars a little — and it moved the three fixed rows under them by
+ * exactly as much, including the token column, which is the one thing on this
+ * page a reader is asked to read straight down. The stagger was on the wrong
+ * channel. The bars now differ in length, thickness and origin inside their own
+ * drawings, where `assertNoSharedRuler` can prove it, and everything under them
+ * lines up.
+ */
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--p2-gutter) 200px;
+}
+
+header.page { padding: 56px 0 18px; }
+
+h1 {
+  font-family: var(--p2-font-prose);
+  font-weight: 600;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.15;
+  margin: .2em 0 .4em;
+  max-width: 30ch;
+  letter-spacing: -.005em;
+}
+
+.p2-lede { font-size: 17.5px; line-height: 1.6; color: var(--p2-ink-2); max-width: 66ch; }
+
+.p2-status {
+  font-family: var(--p2-font-chrome); font-size: 11px; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--p2-zinc-text);
+}
+
+#loadfail {
+  display: none; border: 1.5px solid var(--p2-rust); padding: 14px 16px; margin: 18px 0;
+  background: var(--p2-paper);
+}
+#loadfail pre { overflow-x: auto; font-family: var(--p2-font-chrome); font-size: 12px; }
+
+/* ------------------------------------------------------------------ *
+ * The strip
+ * ------------------------------------------------------------------ */
+
+.p2-toll-lede { margin: 0 0 26px; }
+
+.p2-toll-ruler {
+  max-width: 70ch; font-size: 17px; line-height: 1.55; margin: 0;
+  border-left: 3px solid var(--p2-iron); padding-left: 14px;
+}
+
+.p2-toll-strip { display: flex; flex-direction: column; gap: 26px; }
+
+/* ------------------------------------------------------------------ *
+ * One plate
+ *
+ * Flush left, every one of them. What stops a column of slice ends forming down
+ * the page is that no two bars are the same length, start in the same place or
+ * end in the same place — inside the drawing, where the plan derives it and
+ * `assertNoSharedRuler` proves it.
+ * ------------------------------------------------------------------ */
+
+.p2-toll-plate {
+  border: 1px solid var(--p2-iron);
+  background: var(--p2-paper);
+  padding: 14px 16px 18px;
+  max-width: 780px;
+}
+
+.p2-toll-plate[data-full="true"] { max-width: none; }
+
+.p2-toll-head { margin-bottom: 10px; }
+.p2-toll-head > .p2-arch { margin-bottom: 5px; }
+.p2-toll-relation { max-width: 88ch; margin: 0; line-height: 1.5; color: var(--p2-ink-2); }
+
+.p2-toll-rows { display: flex; flex-direction: column; gap: 22px; margin-top: 14px; }
+
+.p2-toll-row + .p2-toll-row {
+  border-top: 1px solid var(--p2-rule-faint);
+  padding-top: 20px;
+}
+
+.p2-toll-base {
+  font-size: 17px; line-height: 1.5; margin: 0 0 2px; max-width: 68ch;
+  color: var(--p2-graphite);
+}
+
+.p2-toll-draw { overflow-x: auto; overscroll-behavior-x: contain; margin: 2px 0 8px; }
+/* The drawing never grows past its own viewBox. Stretched, it would waste
+   vertical page for nothing, and this page already costs seven serial reads. */
+.p2-toll-draw > svg { min-width: 640px; max-width: 700px; }
+
+/* ------------------------------------------------------------------ *
+ * The three fixed rows
+ *
+ * They sit at the card's own left edge rather than under the drawing, and every
+ * card now sits at the same left edge, so the token column reads straight down
+ * the page — at one pixel, on all seven plates — while the bars above it cannot
+ * be read across at all. The two channels are the right way round.
+ *
+ * The first column is a fixed width rather than `auto` for the same reason: a
+ * column sized to its own content puts the token in a different place on a
+ * plate whose labels happen to be longer.
+ * ------------------------------------------------------------------ */
+
+.p2-toll-facts {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 4px 14px;
+  margin: 0 0 10px;
+  align-items: baseline;
+}
+
+.p2-toll-facts > dt { color: var(--p2-zinc-text); padding-top: 2px; }
+.p2-toll-facts > dd { margin: 0; line-height: 1.45; }
+
+.p2-toll-fact-cut { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.p2-toll-fact-cut > .p2-num { font-size: 21px; line-height: 1.1; }
+.p2-toll-nomid { color: var(--p2-iron); font-style: italic; }
+.p2-toll-grade { color: var(--p2-zinc-text); }
+
+.p2-toll-fact-of { color: var(--p2-graphite); }
+
+.p2-toll-fact-who { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.p2-toll-counter { color: var(--p2-graphite); }
+
+.p2-toll-token { display: inline-flex; flex: 0 0 auto; }
+.p2-toll-token-svg { display: block; }
+
+.p2-toll-measures,
+.p2-toll-vis,
+.p2-toll-caveat {
+  margin: 0 0 5px; max-width: 92ch; line-height: 1.5; color: var(--p2-ink-2);
+}
+
+.p2-toll-measures { color: var(--p2-graphite); }
+
+/* WHERE THE DIRECTION CAME FROM. It sits inside the sentence that states the
+ * direction, one step back in weight, because it is the grounding for that
+ * sentence and not a second claim. The colour is the chrome token this page
+ * already uses for everything that reports on the drawing rather than being it. */
+.p2-toll-measures-why { display: inline; margin-left: 6px; color: var(--p2-zinc-text); }
+
+.p2-toll-why { margin: 6px 0 0; }
+.p2-toll-why > summary { cursor: pointer; color: var(--p2-zinc-text); padding: 3px 0; }
+.p2-toll-why > summary:focus-visible { outline: 2px solid var(--p2-focus); outline-offset: 2px; }
+.p2-toll-why > p { margin: 4px 0 0; max-width: 92ch; line-height: 1.5; color: var(--p2-ink-2); }
+
+.p2-toll-caveat {
+  border-left: 2px solid var(--p2-rust);
+  padding-left: 10px;
+  background: color-mix(in srgb, var(--p2-rust) 5%, transparent);
+}
+
+.p2-toll-why { color: var(--p2-zinc-text); }
+
+/* An arrival is not a cut, and money handed on is not a cut either. Both rows
+   say so before a word is read: the term over the figure is marked, and the
+   drawing above it carries no valve and no cup. */
+.p2-toll-row[data-measures="arrived"] .p2-toll-facts > dt:first-of-type,
+.p2-toll-row[data-measures="paid"] .p2-toll-facts > dt:first-of-type { color: var(--p2-rust); }
+
+/* ------------------------------------------------------------------ *
+ * The guard on the last plate
+ * ------------------------------------------------------------------ */
+
+.p2-toll-guard {
+  margin: 18px 0 0;
+  max-width: 78ch;
+  font-size: 18px;
+  line-height: 1.5;
+  border: 1.5px solid var(--p2-rust);
+  background: color-mix(in srgb, var(--p2-rust) 5%, transparent);
+  padding: 12px 14px;
+}
+
+/* ------------------------------------------------------------------ *
+ * The finding, the legend, the register
+ * ------------------------------------------------------------------ */
+
+.p2-note-box {
+  border: 1px solid var(--p2-iron); background: var(--p2-paper); padding: 14px 16px 16px;
+  margin-top: 26px;
+}
+.p2-note-box > .p2-arch { margin-bottom: 8px; }
+.p2-note-box p { max-width: 78ch; margin: 0 0 10px; line-height: 1.6; }
+
+.p2-toll-finding { border-width: 1.5px; }
+.p2-toll-finding p { font-size: 18px; }
+
+.p2-toll-legend-list {
+  display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 8px 12px; margin: 4px 0 0;
+  align-items: center;
+}
+.p2-toll-legend-list > dt { display: flex; }
+.p2-toll-legend-list > dd { margin: 0; line-height: 1.45; }
+
+.p2-reg { border-collapse: collapse; width: 100%; font-family: var(--p2-font-chrome); font-size: 12px; }
+.p2-reg th, .p2-reg td {
+  text-align: left; padding: 5px 10px 5px 0; vertical-align: top;
+  border-bottom: 1px solid var(--p2-rule-faint);
+}
+.p2-reg th { color: var(--p2-zinc-text); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+
+.p2-toll-nav { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0; }
+.p2-toll-nav button {
+  font-family: var(--p2-font-label); font-size: 11px; text-transform: uppercase;
+  letter-spacing: .08em; padding: 7px 12px; border: 1px solid var(--p2-iron);
+  background: var(--p2-bone); color: var(--p2-graphite); cursor: pointer;
+}
+.p2-toll-nav button:focus-visible { outline: 2px solid var(--p2-focus); outline-offset: 2px; }

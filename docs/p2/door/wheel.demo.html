@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The wheel, and the hand that is not yours — P2</title>
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="./door-bench.css">
+<style>
+  body.p2 { padding: 0 var(--p2-gutter) 80px; }
+  header.page { padding: 40px 0 20px; max-width: 78ch; }
+  h1 { font-family: var(--p2-font-prose); font-weight: 600;
+       font-size: clamp(26px, 3.6vw, 36px); line-height: 1.16; margin: 14px 0 12px; max-width: 26ch; }
+  .step { border: 1px solid var(--p2-iron); padding: 14px 16px; margin: 0 0 22px; max-width: 1000px; }
+  .step h2 { font-family: var(--p2-font-label); text-transform: uppercase; letter-spacing: .08em;
+             font-size: 11px; font-weight: 600; color: var(--p2-zinc-text); margin: 0 0 6px; }
+  .step p { margin: 0 0 8px; }
+  .p2-status { font-family: var(--p2-font-chrome); font-size: 12px; color: var(--p2-zinc-text); }
+  #loadfail { display: none; border: 1.5px solid var(--p2-rust); padding: 16px 18px; margin: 20px 0;
+              font-family: var(--p2-font-prose); font-size: 16px; }
+  #loadfail code, #loadfail pre { font-family: var(--p2-font-chrome); font-size: 12px; }
+  .live { border: 1.5px solid var(--p2-iron); padding: 14px 16px; margin: 0 0 30px; max-width: 1000px; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<header class="page">
+  <div class="p2-arch">P2 · team B5 · the wheel on its own</div>
+  <h1>The wheel is not yours alone.</h1>
+  <p class="p2-prose">
+    Google did not choose the revenue share it paid for the front door. The record says the rate
+    was an auction outcome: partners bid it up, and competition for those partners bid it back
+    down. A wheel with one hand on it would teach the opposite.
+  </p>
+  <p class="p2-prose">
+    This page is the wheel with nothing else around it. There is no handle beside it: the drum
+    <em>is</em> the handle. Grab it and drag, or tab to it and use the arrow keys, and watch what
+    happens to the ground you can reach. Then read the walk underneath, which is the same wheel
+    driven step by step so the whole negotiation can be seen at once.
+  </p>
+  <div id="motiontoggle"></div>
+  <p class="p2-status" id="status">loading the frozen record…</p>
+</header>
+
+<div id="loadfail">
+  <b>This page could not read the frozen data.</b>
+  <p>Serve the repository root over http:
+     <code>cd /path/to/chipandadmarketresearch &amp;&amp; python3 -m http.server 8000</code>,
+     then <code>http://localhost:8000/docs/p2/door/wheel.demo.html</code></p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<div class="live" id="live" hidden>
+  <div class="p2-arch db-zone-label">Turn it yourself</div>
+  <div id="livewheel" class="db-wheel-host"></div>
+  <p class="p2-chrome" id="livesentence"></p>
+</div>
+
+<main id="walk"></main>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle } from '../lib/motion.js';
+import { verifyTokenParity, auditPalette } from '../lib/tokens.js';
+import { makeWheel, wheelSentence, settlementPhrase, notchPhrase, assertRivalIsPresent }
+  from './wheel.js';
+import { drawWheel } from './drawing.js';
+
+const status = document.getElementById('status');
+try {
+  initMotion();
+  installMotionToggle(document.getElementById('motiontoggle'));
+  verifyTokenParity();
+  auditPalette();
+  await guards.loadFrozen();
+  const frozen = guards.snapshotFrozen();
+
+  /* ---- the live one ---- */
+  const live = document.getElementById('live');
+  live.hidden = false;
+  const wheel = makeWheel(frozen.mechanism, frozen.simulatorParams);
+  let settlement = wheel.open();
+  const host = document.getElementById('livewheel');
+  const sentence = document.getElementById('livesentence');
+
+  /* THE DRUM IS THE CONTROL. There is no range input on this page; `drawWheel`
+     takes the pointer and the keyboard on the drawing itself, which is the only
+     way the gesture and the answer to it can be in one place. */
+  let restTimer = null;
+  function repaint(focus) {
+    host.textContent = '';
+    drawWheel(host, settlement, { onTurn: turn, focus });
+    sentence.textContent = wheelSentence(settlement);
+    assertRivalIsPresent(settlement, 'the live wheel');
+  }
+  function turn(index) {
+    settlement = wheel.turnTo(index);
+    repaint(true);
+    /* The door comes back. A refusal is an event with a length, not a state. */
+    if (restTimer) clearTimeout(restTimer);
+    if (settlement.transient) {
+      restTimer = setTimeout(() => {
+        settlement = wheel.rest();
+        repaint(false);
+      }, 900);
+    }
+  }
+  repaint(false);
+
+  /* ---- the walk: the same wheel, driven, so the whole thing reads at once ---- */
+  const script = [
+    { ask: null, title: 'It opens where the rival put it',
+      says: 'The pointer is not at nothing and not at a default. It sits one notch above the ' +
+        'rival\'s standing bid, because a lower share loses the door. The first number you meet ' +
+        'is already somebody else\'s doing.' },
+    { ask: 0, title: 'Turn it down and the door goes to the rival',
+      says: 'The grip travels to the notch you asked for and the ghost shows where it went. The ' +
+        'door swings, and for as long as you are down there those searches go somewhere else. ' +
+        'Nothing about the mechanism is disabled. It moved, and it was pushed back.' },
+    { ask: 'rest', title: 'And then the door comes back',
+      says: 'The swing is an event with a length, not a state. The wheel is back at the lowest ' +
+        'share that still wins, and the door is open to the buyer again. A door that stayed shut ' +
+        'would leave the cups on the bench next door filling from a lane the drawing calls ' +
+        'empty.' },
+    { ask: 4, title: 'Turn it up and the rival answers',
+      says: 'You raised it. The rival bid one notch higher on its own, and the shaded ground grew ' +
+        'by a notch. That ground does not come back.' },
+    { ask: 3, title: 'Again, and the range narrows again',
+      says: 'The rival is now at its own ceiling. Watch the pawl below the drum: it moved without ' +
+        'you touching anything, and it moved with a different verb from the one your hand uses.' },
+    { ask: 2, title: 'The ceiling is where the asymmetry lives',
+      says: 'The rival cannot bid past what a search earns it, less what it costs to answer. ' +
+        'Above that line you are alone on the wheel — and that line is an invented number, so ' +
+        'even the freedom you have here rests on an assumption rather than a filing.' },
+    { ask: 5, title: 'What is left is what the record contains',
+      says: 'Three notches. Eighty-four per cent is what the ratio fell to in 2003. Eighty-five ' +
+        'is the reported deal share nobody can check. Ninety-one is what was actually booked in ' +
+        '2002. You did not choose any of them.' },
+  ];
+  const walkWheel = makeWheel(frozen.mechanism, frozen.simulatorParams);
+  let s = walkWheel.open();
+  const walk = document.getElementById('walk');
+  for (const beat of script) {
+    if (beat.ask === 'rest') s = walkWheel.rest();
+    else if (beat.ask != null) s = walkWheel.turnTo(beat.ask);
+    const section = document.createElement('section');
+    section.className = 'step';
+    const h = document.createElement('h2');
+    h.textContent = beat.title;
+    section.appendChild(h);
+    const p = document.createElement('p');
+    p.className = 'p2-prose';
+    p.textContent = beat.says;
+    section.appendChild(p);
+    const d = document.createElement('div');
+    d.className = 'db-wheel-host';
+    section.appendChild(d);
+    drawWheel(d, s);
+    const q = document.createElement('p');
+    q.className = 'p2-chrome';
+    q.textContent = wheelSentence(s);
+    section.appendChild(q);
+    walk.appendChild(section);
+    assertRivalIsPresent(s, beat.title);
+  }
+
+  /* ---- and the state where the reader has no hand on it at all ---- */
+  const filed = makeWheel(frozen.mechanism, frozen.simulatorParams, { mode: 'filed' });
+  const section = document.createElement('section');
+  section.className = 'step';
+  const h = document.createElement('h2');
+  h.textContent = 'And the years nobody on this page turned';
+  section.appendChild(h);
+  const p = document.createElement('p');
+  p.className = 'p2-prose';
+  p.textContent = 'The disclosed payout ratio, year by year. It goes up and then it comes back ' +
+    'down, and there is no handle in this state at all. That reversal is the record\'s own ' +
+    'sentence about what set the rate: competition for partners, and not a decision.';
+  section.appendChild(p);
+  for (let i = 0; i < filed.walkLength(); i += 1) {
+    const t = filed.walkTo(i);
+    const d = document.createElement('div');
+    d.className = 'db-wheel-host';
+    section.appendChild(d);
+    drawWheel(d, t);
+  }
+  const gap = document.createElement('p');
+  gap.className = 'p2-chrome';
+  gap.textContent = `The record discloses no ratio for ${filed.walkTo(0).absentYears.join(', ')}. ` +
+    'That year is a hole, not a level, and this walk skips it rather than drawing an even step ' +
+    'across it.';
+  section.appendChild(gap);
+  walk.appendChild(section);
+
+  status.textContent = `${settlement.notches.length} notches, every one a number the record ` +
+    'contains · the wheel is live above and driven below';
+} catch (err) {
+  document.getElementById('loadfail').style.display = 'block';
+  document.getElementById('loadfailmsg').textContent = (err && err.stack) ? err.stack : String(err);
+  status.textContent = 'FAILED — see the box above.';
+  throw err;
+}
+</script>
+</body>
+</html>
