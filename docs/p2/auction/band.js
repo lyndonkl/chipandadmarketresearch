@@ -372,15 +372,15 @@ export function bandSentence(band, format = String) {
    * that says something else. */
   const stops = band.stops.length
     ? `${band.stops.length === 1 ? 'A named stop sits' : 'Named stops sit'} at ` +
-      `${band.stops.map((stop) => `${format(stop.usd)}, where ${modeWords(stop)}`).join('; and ')}. `
+      `${band.stops.map((stop) => `${format(stop.usd)}, where ${modeClause(stop)}`).join('; and ')}. `
     : '';
   if (!band.inside) {
     return `${head}${stops}The marker sits at ${format(band.marker.usd)}, ` +
-      `${band.outsideBelow ? 'below' : 'above'} the band, where ${modeWords(band.marker)}. ` +
+      `${band.outsideBelow ? 'below' : 'above'} the band, where ${modeClause(band.marker)}. ` +
       band.excursion;
   }
   return `${head}${stops}The marker sits at ${format(band.marker.usd)}, ` +
-    `where ${modeWords(band.marker)}.`;
+    `where ${modeClause(band.marker)}.`;
 }
 
 /**
@@ -396,7 +396,35 @@ export function bandSentence(band, format = String) {
 export function modeWords(mark) {
   if (mark && mark.modeNote) return mark.modeNote;
   if (mark && MODE_LABEL[mark.mode]) return MODE_LABEL[mark.mode];
-  return mark && mark.label ? mark.label : 'the bidders play some way this bench cannot name';
+  return mark && mark.label ? mark.label : 'bidders play some way this bench cannot name';
+}
+
+/**
+ * The same words, where the sentence has already said "where" — so they owe a CLAUSE, somebody
+ * doing something, and not the name of a thing.
+ *
+ * `modeWords` itself stays tolerant, because `bandEnds` drops it into a description slot where
+ * "the lowest equilibrium" is exactly right. It is only after "where" that a noun phrase becomes
+ * a fragment, and scenario 9 shipped one: "The marker sits at $440, where the lowest equilibrium."
+ * A reader with images off met that sentence and nothing else.
+ *
+ * The tell is an opening article. No clause in this vocabulary starts with one, and every noun
+ * phrase that reached here did. Refusing rather than quietly repairing is the point: a bench that
+ * patched the grammar would hide the fact that a mode had no sentence written for it.
+ */
+const ARTICLE_FIRST = /^(the|a|an)\b/i;
+
+export function modeClause(mark) {
+  const words = modeWords(mark);
+  if (ARTICLE_FIRST.test(words)) {
+    throw new BandError(
+      `modeClause: "${words}" names a thing, and the sentence is about to read "where ${words}".`,
+      { words, mode: mark && mark.mode },
+      'write it as somebody doing something — "bidders play the lowest equilibrium" rather than '
+      + '"the lowest equilibrium"',
+    );
+  }
+  return words;
 }
 
 /** Every minted reading a band puts on screen: its ends, its stops, its marker. */
@@ -410,4 +438,5 @@ export default {
   BIDDER_MODES, MODE_LABEL, assertBidderMode, modeWords,
   naiveTruthful, lowestEnvyFree, oneShader, vcg, envyCheck,
   mintBand, unlocatedBand, isBand, assertBand, bandSentence, bandReadings, BandError,
+  modeClause,
 };

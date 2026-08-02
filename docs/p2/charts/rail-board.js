@@ -391,9 +391,20 @@ export function renderRailBoard(container, frozen, options = {}) {
   strip.className = 'p2-railboard__strip';
   if (options.sticky === false) strip.style.position = 'static';
 
+  /* `data-alt-source` IS NOT DECORATION ON THIS ELEMENT. It is the only way the
+   * access layer finds a drawing: `access/visuals.js` requires every stamped
+   * node to sit inside a declared visual, `access/text-path.js` reads the
+   * stamped nodes to build the text-only block, and `access/keyboard.js` makes
+   * the stamped nodes tab stops with a reading cursor. This board and the value
+   * chart are the two drawings on the page that mint their own root instead of
+   * calling `svgRoot`, and both were invisible to all three of those. A drawing
+   * the access layer cannot see is a drawing that does not exist for a reader
+   * with images off — and the stipple below encodes a compiler that published
+   * nothing, which is a finding, not an ornament. */
   const svg = el('svg', {
     viewBox: `0 0 ${W} ${H}`, width: W, height: H,
     role: 'img', 'aria-label': plan.alt,
+    'data-alt-source': 'generated-by-chart',
     style: 'display:block',
   });
   const tex = textures(svg, id);

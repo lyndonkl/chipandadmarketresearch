@@ -3,7 +3,7 @@ title: The Capture Question
 project: p2-ad-market
 chapter: 9
 claim_ids: [ds-total-002, ds-bridge-001, ds-bridge-002, ds-seam-001, ds-seam-002, ds-gap-001, ds-crosscheck-001, ds-provenance-001, ds-money_type-001, ds-money_type-002, ds-money_type-003, e1-scale-001, e1-scale-006, e1-scale-009, e1-scale-011, e1-scale-012, e1-scale-013, e1-scale-014, e1-scale-017, e1-medium-005, e1-measurement-002, e2-scale-004, e2-scale-005, e2-scale-006, e2-scale-010, e2-scale-011, e2-scale-012, e2-scale-013, e2-medium-001, e2-medium-002, e2-medium-004, e2-measurement-009, e3-scale-004, e3-scale-005, e3-scale-006, e4-scale-003, e4-buyers-003, e4-buyers-004, e4-buyers-006, e4-buyers-007, e4-buyers-008, e4-medium-006, e4-targeting-004, e5-scale-002, e5-scale-004, e5-scale-010, e5-scale-011, e5-scale-012, e5-scale-013, e5-scale-014, e5-scale-015, e5-scale-016, e5-medium-002, e5-medium-005, e5-medium-006, e5-buyers-001, e5-buyers-002, e6-scale-003, e6-scale-009, e6-scale-010, e6-buyers-001, e6-buyers-002, e6-buyers-005, e6-buyers-008, e6-medium-003, e6-medium-006, e6-events-010, e6-sellers-005, e7-scale-001, e7-scale-002, e7-scale-006, e7-scale-007, e7-scale-008, e7-scale-009, e7-scale-010, e7-buyers-001, e7-buyers-002, e7-buyers-005, e7-buyers-006, e7-buyers-007, e7-buyers-008, e7-medium-001, e7-medium-002, e7-medium-004, e7-medium-006, e7-medium-007, e7-sellers-001, e7-sellers-004, e7-sellers-005, e7-sellers-007]
-readability: "PASS fk_grade=7.77 reading_ease=64.3 gunning_fog=10.64 smog=10.72"
+readability: "PASS fk_grade=7.78 reading_ease=64.28 gunning_fog=10.65 smog=10.73"
 status: draft-for-review
 ---
 
@@ -27,7 +27,7 @@ Getting there needs a detour, because the evidence is the hard part.
 
 ## No single series covers this
 
-A reader expects a chart: one line, 1919 to 2025, advertising as a share of the economy. No such line exists. Five compilers exist instead, and each measured a different object. Some have stopped.
+A reader expects a chart: one line, 1919 to 2025, advertising as a share of the economy. No such line exists. Seven compilers exist instead, and each measured a different object. Some have stopped. The rail board carries an eighth track, and that one is ours: a bridge we built between two compilers' series, not a series anybody published.
 
 **Coen/McCann** is the spine. Robert Coen at the McCann-Erickson agency built an annual US total from 1919 onward. It measures *billings*: what advertisers were charged, valued at published rate-card prices rather than at the price actually paid. It ends with 2007 at $279.6 billion, and Interpublic shut it down in 2009.[^3] The longest advertising series ever built has no successor on its own basis.
 

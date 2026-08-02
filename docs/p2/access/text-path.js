@@ -152,6 +152,15 @@ export function drawingReadings(svg) {
     seen.add(value);
     out.push(value);
   };
+  /* A CONTROL'S CURRENT VALUE IS A READING, and it lives on the root rather than on a child.
+   * The door's drum says "5 of the 6 notches are still open to you, 1 sits under the rival's
+   * bid" in its own `aria-valuetext`. A screen reader speaks that on focus. The walk below only
+   * ever looked at descendants, so a reader in text mode got the shaded ground and the rival's
+   * standing bid and never got the count — the one number that says how much of the drum the
+   * rival has taken off the table. */
+  if (svg.getAttribute) {
+    push(svg.getAttribute('aria-valuetext'));
+  }
   const walk = (node) => {
     for (const child of node.childNodes) {
       if (child.nodeType !== 1) continue;
@@ -239,10 +248,24 @@ function h(tag, attrs = {}, parent = null) {
 /**
  * Build the text block's DOM. Idempotent per region: an existing block is
  * replaced rather than added to, so a repaint cannot leave two.
+ *
+ * "PER REGION" AND NOT "PER ID", AND THE DIFFERENCE IS A DEFECT THIS FOUND.
+ * The first version matched the old block by `[data-for="${id}"]`, which holds
+ * only while a region is one visual for the life of the page. On the shipped
+ * page three regions are not: the auction panel is ten visuals in one element,
+ * the door bench is eleven, and the drawer is eight. Choosing a new scenario
+ * changed the id, the lookup found nothing under the NEW id, and the block for
+ * the OLD one was left sitting above it — so the region carried two findings,
+ * and the one on top was about a scenario the reader had left. A stale block is
+ * worse than none: it is a claim that was true a moment ago, which is the exact
+ * failure the observer below is written to avoid. Every block a region holds
+ * goes; the one that matches is replaced in place so it keeps its position.
  */
 export function renderTextBlock(region, id) {
   const block = textBlockFor(id, region);
-  const old = region.querySelector(`:scope > .p2-text-block[data-for="${id}"]`);
+  const held = [...region.querySelectorAll(':scope > .p2-text-block')];
+  const old = held.find((node) => node.getAttribute('data-for') === id) || null;
+  for (const stale of held) if (stale !== old) stale.remove();
   const box = h('div', {
     class: 'p2-text-block', 'data-for': id, 'data-component': block.component,
     'data-vacuous': String(block.vacuous),
@@ -267,8 +290,11 @@ export function renderTextBlock(region, id) {
       const table = h('table', { class: 'p2-text-table' }, card);
       const caption = h('caption', {
         class: 'p2-chrome',
+        /* "1 readings" appeared under the toll visibility legend's five one-line tokens the first
+         * time this ran on the shipped page. A caption that cannot count to one is a caption a
+         * reader stops trusting about the numbers underneath it. */
         text: `what this drawing says, in the order it says it — ` +
-              `${part.readings.length} readings`,
+              `${part.readings.length} reading${part.readings.length === 1 ? '' : 's'}`,
       }, table);
       caption.setAttribute('class', 'p2-chrome');
       const body = h('tbody', {}, table);

@@ -3,7 +3,7 @@ title: The Auction (2002-2008)
 project: p2-ad-market
 chapter: 7
 claim_ids: [e2-scale-004, e5-events-003, e5-pricing-004, e5-pricing-005, e5-scale-004, e6-pricing-001, e6-pricing-002, e6-pricing-003, e6-pricing-004, e6-pricing-005, e6-pricing-006, e6-pricing-007, e6-pricing-008, e6-events-001, e6-events-002, e6-events-003, e6-events-004, e6-events-005, e6-events-006, e6-events-007, e6-events-008, e6-events-009, e6-events-010, e6-sellers-001, e6-sellers-002, e6-sellers-003, e6-sellers-004, e6-sellers-005, e6-sellers-006, e6-buyers-001, e6-buyers-002, e6-buyers-003, e6-buyers-004, e6-buyers-005, e6-buyers-006, e6-buyers-007, e6-buyers-008, e6-creators-001, e6-creators-002, e6-creators-003, e6-creators-004, e6-medium-001, e6-medium-002, e6-medium-003, e6-medium-004, e6-medium-005, e6-medium-006, e6-scale-001, e6-scale-002, e6-scale-003, e6-scale-004, e6-scale-005, e6-scale-007, e6-scale-008, e6-scale-009, e6-scale-010, e6-measurement-001, e6-measurement-002, e6-measurement-003, e6-measurement-004, e6-measurement-006, e6-targeting-001, e6-targeting-002, e6-targeting-003, e6-targeting-004, e6-targeting-005, e6-unit_econ-001, e6-unit_econ-002, e6-unit_econ-003, mech-adwords-001, mech-discounter-001, mech-quality_score-001, mech-audit-001, mech-overture-001, mech-overture-002, mech-panama-001, mech-ovt-001, mech-ovt-002, mech-ovt-003, mech-ovt-004, mech-aol-001, mech-aol-002, mech-aol-003, mech-aol-004, mech-aol-005, mech-aol-006, mech-aol-007, mech-tac-001, mech-tac-002, mech-tac-003, mech-tac-004, mech-network-001, mech-network-002, mech-network-003, mech-google_rev-001, mech-classified-001, mech-capture-001, mech-capture-002, mech-capture-003, mech-first_price-001, mech-rgsp-001, mech-default-001, mech-default-004, mech-mehta-002, mech-mehta-004, mech-mehta-005]
-readability: "PASS fk_grade=6.61 reading_ease=72.14 gunning_fog=8.93 smog=9.33"
+readability: "PASS fk_grade=6.7 reading_ease=71.86 gunning_fog=9.07 smog=9.43"
 status: draft-for-review
 ---
 
@@ -35,6 +35,7 @@ Google's own filing gives the cleanest example of the pricing side. Three advert
 
 Paying the next bidder's price rather than your own is called second-price pricing. Google called its version the AdWords Discounter.
 
+<!-- invented: the three advertisers below, their bids and their click rates are invented to show the mechanism, and they measure nothing about Google's book -->
 Now the ranking side, which is where the money is. The best way to see it is a small made-up case. The three advertisers below are invented, and so are their numbers. They are here to show the mechanism, not to measure Google's book.
 
 One keyword. One thousand showings. Two ad slots. The top slot gets all its clicks; the second slot gets 40% as many.
@@ -81,6 +82,7 @@ The whole gain rests on one number: how often an ad will be clicked. Google made
 Keep the case above, but suppose Cedar's true click rate is 1%, not the 5% the seller predicted. Ranking and prices do not change, because the seller sets both from its forecast. The money does. The seller now collects $20.18 per thousand showings, which is 72% of what plain bid ranking would have earned.
 
 The break-even point is a true click rate of 1.99%. The forecast can overstate the truth by up to about 2.5 times before the clever rule earns less than the crude one.
+<!-- /invented -->
 
 Nobody outside could check that forecast. The industry never agreed a standard for counting a search click during the whole era. Its click measurement group only formed in late 2005 and did not publish guidelines until 2009. No accredited outside body certified search click counting in period.
 
@@ -94,6 +96,7 @@ Google then supplied the buyer's own instrument. It bought Urchin in April 2005 
 
 Second-price auctions have a famous property: telling the truth is your best move. The search auction does not have it, because the seller sells several slots together.
 
+<!-- invented: a second invented case, built to show that truthful bidding stops being a best move once several slots are sold together -->
 Take a second made-up case, again invented for illustration. Two slots, worth 100 clicks and 80 clicks. Three bidders value a click at $10, $6 and $2.
 
 The $10 bidder bids honestly, wins the top slot, and pays the $6 bid. It earns $400. Now it bids $5 instead. It drops to the second slot and pays the $2 bid. It earns $640. Bidding low earns it $240 more. Google's one-cent step does not change that: the two payoffs are $399 and $639.20.
@@ -101,6 +104,7 @@ The $10 bidder bids honestly, wins the top slot, and pays the $6 bid. It earns $
 This matters for the seller, not just the bidder. If everyone bids honestly the seller collects $760. One bidder playing well costs the seller $100, or 13.2%. If every bidder plays that well, the seller collects $440.
 
 The design does not have one revenue figure. It has a band, and here the top is 1.73 times the bottom. Where you land inside it depends on how well the advertisers play, not on the rule.
+<!-- /invented -->
 
 That is why the era grew a bid-management industry rather than a copywriting one. Firms such as iProspect, Did-It, Performics and Efficient Frontier sold bidding as a service. They were selling movement inside the band.
 
@@ -108,7 +112,9 @@ That is why the era grew a bid-management industry rather than a copywriting one
 
 A second-price auction needs a second bidder. Most distinct searches do not have one.
 
+<!-- invented: a third invented case, one advertiser and one ad, built to show what a floor does when there is no second bidder to set the price -->
 With one bidder, the price is whatever floor the seller sets. Take one more invented case: a single advertiser, an ad clicked 4% of the time, a bid of $2.00. At the one-cent floor from Google's own example, the seller earns $0.40 per thousand showings. At a $1.00 floor it earns $40. That is a hundredfold change in price with one advertiser, one ad, and nothing at all changed for the user.
+<!-- /invented -->
 
 From August 2005 that floor stopped being one number. Google gave each keyword its own minimum bid, computed from click rate, ad wording, past results and the page the ad led to. It called that combined measure a Quality Score. The seller computed the floor, per keyword, per advertiser, and never published it as a price.
 

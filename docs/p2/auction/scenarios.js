@@ -1580,7 +1580,9 @@ export const SCENARIOS = [
           }),
           marker: mintReading({
             usd: marker, role: 'money', mode: 'lowest_envy_free',
-            modeNote: rgspOn ? 'the lowest equilibrium, lifted by the disclosed rGSP effect' : 'the lowest equilibrium',
+            modeNote: rgspOn
+              ? 'bidders play the lowest equilibrium, lifted by the disclosed rGSP effect'
+              : 'bidders play the lowest equilibrium',
             label: 'where the knob puts the seller',
             stepRef: rgspOn ? '440*1.0574' : '100*2.8+80*2.0',
           }),
@@ -1715,7 +1717,7 @@ export const SCENARIOS = [
           }),
           marker: mintReading({
             usd: after, role: 'money', mode: 'lowest_envy_free',
-            modeNote: 'the lowest equilibrium, lifted by the disclosed rGSP effect',
+            modeNote: 'bidders play the lowest equilibrium, lifted by the disclosed rGSP effect',
             label: 'where rGSP put the seller',
             stepRef: '440*1.0574',
           }),

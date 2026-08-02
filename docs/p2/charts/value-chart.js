@@ -820,9 +820,18 @@ export function renderValueChart(container, frozen, options = {}) {
   const board = document.createElement('div');
   board.className = 'p2-valuechart__board';
 
+  /* `data-alt-source` IS WHAT MAKES THIS DRAWING EXIST FOR THE ACCESS LAYER.
+   * `svgRoot` stamps it on every drawing in the chart kit; this chart and the
+   * rail board mint their own root and so carried `role="img"` and nothing
+   * else. `access/visuals.js`, `access/text-path.js` and `access/keyboard.js`
+   * all select on the stamp, so without it the overlapping rails and the
+   * labelled distance between them — the whole reason this chart is not one
+   * line across the century — were unreachable with images off and unreachable
+   * by keyboard. */
   const svg = el('svg', {
     viewBox: `0 0 ${GEO.W} ${GEO.H}`, width: GEO.W, height: GEO.H,
     role: 'img', 'aria-label': `${plan.alt} ${plan.axisNote}`,
+    'data-alt-source': 'generated-by-chart',
   });
   const tex = textures(svg, id);
 

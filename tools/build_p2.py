@@ -12,23 +12,46 @@ That is the widest limit in the project, and this file is where it is closed. Th
 here, so the page is scanned here — the built HTML's own text, after rendering, not the markdown
 that went in.
 
-The gate B7 was set is one line: **every number the page renders traces to a claim id, and no
-figure is hard-coded anywhere.** It runs in four movements:
+THE GATE THIS BUILD USED TO SET, AND WHY IT WAS WORSE THAN NOTHING.
+
+The old rule was "every number the page renders traces to a claim id". It reached that verdict by
+SEARCHING: it took the number, swept all 506 claims and five frozen files, and attached whichever
+claim happened to hold a matching value. 2,314 of 3,278 figures came back "traced", and the count
+meant almost nothing, because a match on a value is not a citation. An adversary put three flat
+falsehoods into chapter 1 and the build shipped them with clean provenance: "5" was cited to a
+claim about owned-versus-syndicated revenue retention, "36.7%" to a claim about NEWSPAPERS in 1949,
+and "$196.18 billion" to the era records when the figure is Meta's revenue. Every one of those
+citations was manufactured by coincidence, and a citation manufactured by coincidence is worse than
+no citation at all: it does not merely fail to verify the number, it lends the number authority it
+has not earned, in the exact place a reader goes to check.
+
+THE RULE NOW: CITATION BY AUTHORSHIP.
 
   1. Every reader-facing string this script writes goes through ONE function, `emit()`. There is no
      second way to put text on the page. (Thirteen strings on one auction panel once carried a
      false claim past every green guard because they were written somewhere no check was looking.)
-  2. `emit()` finds every figure in the string and resolves it against the frozen record. A figure
-     that resolves carries its claim id into the HTML on a `data-claim` attribute, so the trace is
-     in the artifact rather than in this script's memory.
-  3. A figure that resolves to nothing is a build failure. There is no warning level.
-  4. The built page is then read back, its tags stripped, and every figure in the resulting text is
+  2. A figure carries a `data-claim` attribute ONLY where the chapter's author linked it — an
+     inline claim id, or a footnote marker whose note names a claim. The build never searches for a
+     source. It reads the ids the author wrote in the same sentence, and looks at nothing else.
+  3. Where the author did link one, the link is CHECKED: the figure must re-compute from that
+     claim's own central, interval, statement or method. A link that does not check out is not
+     printed. So the only way to get a citation onto this page is to write one and be right.
+  4. Every other figure renders with no provenance attribute at all. That is a KNOWN GAP, and the
+     colophon and the build report both print how many there are. An uncited number is a gap; a
+     wrongly cited one is a lie with a footnote.
+  5. A passage the chapter declares invented — chapter 7's three worked examples — is fenced, and
+     inside the fence a citation is not merely absent but REFUSED. An invented number wearing a
+     source attribute is the same defect as a falsehood wearing one.
+  6. The built page is then read back, its tags stripped, and every figure in the resulting text is
      matched against the ledger `emit()` kept. A number that reached the page by any other route
-     fails the build. This is the check that makes movements 1 to 3 worth anything.
+     fails the build. This is the check that makes movements 1 to 5 worth anything.
 
 Every refusal above has a self-test in PART 8 that feeds it the thing it forbids and requires it to
 throw. A check that cannot fire is worse than no check; this project has paid for that lesson six
-times and the last time it was a shipped guard whose condition was unsatisfiable by construction.
+times, and the seventh was in PART 8 itself — `census_resolves()` reported REFUSED whether its
+branch worked or not, because it signalled success by raising the same exception class the harness
+read as a pass. PART 8 now separates the two verbs: `refuses()` requires a named refusal, `proves()`
+requires a clean return, and neither can be satisfied by the other's outcome.
 """
 
 import html
@@ -127,6 +150,11 @@ FIGURE = re.compile(
     r"(%|percent\b|cents?\b|billion\b|bn\b|B\b|million\b|[Mm]\b)?"
 )
 
+# A four-digit year and a dash, sitting immediately before the figure being scanned. What follows is
+# the second half of "2002-07", which is a date and not a measurement. Anchored to the end of the
+# text that precedes the match, so it reads the two characters before the token and nothing else.
+YEAR_RANGE_TAIL = re.compile(r"(?:1[5-9]|20)\d{2}\s*[-–—/]\s*$")
+
 # A figure whose form says it is not a quantity. Each rule carries the sentence that says why, and
 # each is REQUIRED to match something: a rule that stops firing is a rule that has quietly become a
 # hole, so `assert_rules_fired()` refuses a build in which any of them matched nothing.
@@ -215,6 +243,15 @@ def scan_figures(text):
             # of the difference, and the first version of this scanner did not read it — so a
             # claim's own lower bound was classified as a date and never tested against the record.
             kind = "year"
+        elif (decimals == 0 and not dollar and len(raw) == 2
+              and YEAR_RANGE_TAIL.search(scannable[:match.start()])):
+            # THE TAIL OF A YEAR RANGE IS STILL A YEAR. "2002-07" is one date span written the way
+            # every historian writes it, and the "07" is not a reading of anything. Scanned as a
+            # bare quantity it became the value 7.0 with a tolerance of 0.5, and that is wide
+            # enough to reach ln(7.3516) sitting inside a claim's own long division — so the page
+            # underlined a truncated year and cited it to a claim about revenue capture. Nothing
+            # in that record measures seven of anything.
+            kind = "year"
         half = 0.5 * (10.0 ** -decimals)
         found.append({
             "start": match.start(),
@@ -228,24 +265,33 @@ def scan_figures(text):
 
 
 # ============================================================================
-# PART 3 · THE RESOLVER
+# PART 3 · THE CITATION, AND WHO IS ALLOWED TO MAKE ONE
 #
-# What a figure has to reach before this script will print it.
+# THIS PART USED TO BE CALLED THE RESOLVER, AND IT USED TO SEARCH.
 #
-# The ladder is ordered, and the order is the point: a figure resolves to a CLAIM ID first, because
-# that is what the gate asks for. Only where the record carries the number somewhere other than a
-# claim — a stored arithmetic step, a spend series point, a simulator setting — does it fall
-# through to a file-and-path citation, and the page says which.
+# It took a figure off the page and swept the whole record for anything that matched it: 506 claims
+# by central and interval, then 506 claims by every number inside their prose, then five frozen
+# files by every number anywhere in them, then a census of the record's own shape. The first thing
+# that matched became the citation printed beside the number.
+#
+# With that many haystacks, a match means almost nothing. "5" matched a claim about the ratio
+# between owned and syndicated revenue retention. "36.7%" matched a claim about newspapers in 1949.
+# "$196.18 billion" matched a number sitting somewhere in the seven era files. All three were
+# adversarial insertions into chapter 1 and all three shipped with a footnote-grade citation, and
+# the ladder below is gone because of them.
+#
+# WHAT IS LEFT IS NOT A SEARCH. `check_marked_figure()` is handed the claim ids THE CHAPTER'S AUTHOR
+# WROTE IN THE SAME SENTENCE, and it may consult those and nothing else. Its answer is yes or no,
+# never "here is one I found". A figure the author did not link has no citation, and that is
+# reported rather than repaired.
 # ============================================================================
 
-NUMBER_IN_TEXT = re.compile(r"(?<![\w.])(\d(?:[\d,]*\d)?(?:\.\d+)?)")
 # Reading the RECORD's own sentences, where a figure is often written against a letter: a method
 # reading "grown to 1914 at the Census newspaper-receipts ratio x1.131" carries a number the
 # stricter form above cannot see. Widening it here widens only what the page may RESOLVE TO; the
 # scanner that decides what counts as a figure ON the page keeps the strict form.
 NUMBER_IN_RECORD = re.compile(r"(?<![\d.])(\d(?:[\d,]*\d)?(?:\.\d+)?)")
 URL_RE = re.compile(r"https?://\S+")
-SAFE_EXPR = re.compile(r"^[\d\s.+\-*/()e]+$")
 
 
 def numbers_in_prose(value):
@@ -256,58 +302,6 @@ def numbers_in_prose(value):
         except ValueError:
             pass
     return out
-
-
-def subexpression_values(expr):
-    """Every value of every sub-expression of a stored arithmetic step.
-
-    `mechanism.json` stores "0.04/0.05+0.01" as one step with one expected value. A chapter showing
-    its working prints the intermediate too, and that intermediate is a value no stored `expected`
-    holds. Walking the tree recovers it, so prose that spells a rule out step by step is checkable
-    instead of exempt. Lifted from `tools/verify_p2.py`, which already had to solve this.
-    """
-    import ast
-
-    out = set()
-    if not isinstance(expr, str):
-        return out
-    normalised = expr.replace("**", "*")
-    if not SAFE_EXPR.match(normalised):
-        return out
-    try:
-        tree = ast.parse(expr, mode="eval")
-    except SyntaxError:
-        return out
-    for node in ast.walk(tree):
-        if not isinstance(node, (ast.BinOp, ast.UnaryOp, ast.Constant)):
-            continue
-        try:
-            value = eval(compile(ast.Expression(node), "<expr>", "eval"),  # arithmetic only
-                         {"__builtins__": {}}, {})
-        except Exception:
-            continue
-        if isinstance(value, (int, float)) and not isinstance(value, bool):
-            out.add(float(value))
-    return out
-
-
-def numbers_under(node, out, inside_sources=False):
-    if isinstance(node, dict):
-        for key, value in node.items():
-            if key == "expr" and isinstance(value, str):
-                out |= subexpression_values(value)
-            numbers_under(value, out, inside_sources or key in ("sources", "url"))
-    elif isinstance(node, list):
-        for value in node:
-            numbers_under(value, out, inside_sources)
-    elif isinstance(node, bool):
-        pass
-    elif isinstance(node, (int, float)):
-        if not inside_sources:
-            out.add(float(node))
-    elif isinstance(node, str):
-        if not inside_sources:
-            out |= numbers_in_prose(node)
 
 
 def claim_values(claim):
@@ -336,66 +330,34 @@ def claim_words(claim):
     return out
 
 
+def claim_years(claim):
+    """The years THIS claim places its fact in, and the only things a date in prose may cite.
+
+    Three sources, all of them calendars rather than measurements: the record's own `about_year`
+    and `about_span` fields, and any four-digit year written into the claim's sentences. `as_of` is
+    deliberately absent — it is when somebody published, never when the fact happened, and the
+    schema says a chart may not read it either.
+    """
+    out = set()
+    if isinstance(claim.get("about_year"), int):
+        out.add(float(claim["about_year"]))
+    for year in claim.get("about_span") or []:
+        if isinstance(year, int):
+            out.add(float(year))
+    for key in ("statement", "method"):
+        value = claim.get(key)
+        if isinstance(value, str):
+            out |= {n for n in numbers_in_prose(value) if 1500 <= n <= 2100 and n == int(n)}
+    return out
+
+
 CLAIM_VALUES = {cid: claim_values(c) for cid, c in CLAIMS.items()}
 CLAIM_WORDS = {cid: claim_words(c) for cid, c in CLAIMS.items()}
+CLAIM_YEARS = {cid: claim_years(c) for cid, c in CLAIMS.items()}
 
-MECHANISM_NUMBERS = set()
-numbers_under(FROZEN["mechanism"], MECHANISM_NUMBERS)
-ADSPEND_NUMBERS = set()
-numbers_under(FROZEN["adspend"], ADSPEND_NUMBERS)
-SIMPARAMS_NUMBERS = set()
-numbers_under(FROZEN["simulatorParams"], SIMPARAMS_NUMBERS)
-RECONCILED_NUMBERS = set()
-numbers_under(FROZEN["reconciled"], RECONCILED_NUMBERS)
-ERA_NUMBERS = set()
-numbers_under(ERA_RECORDS, ERA_NUMBERS)
-
-# THE CENSUS OF THE RECORD ITSELF.
-#
-# A chapter that says "our dataset holds 1,573 points" is quoting a fact about the record rather
-# than a measurement of the market, and no claim carries it. So the build COUNTS, here, and the
-# figure resolves against the count it just made. A number re-derived at build time cannot go
-# stale the way a number typed into prose does: add a series to adspend.json and this either
-# still agrees with the chapter or stops the build.
-def _census():
-    adspend = FROZEN["adspend"]
-    points = sum(len(s.get("points") or []) for s in adspend.get("series", {}).values())
-    scenarios = FROZEN["simulatorParams"].get("scenarios") or {}
-    steps = set()
-    def count_steps(node, out):
-        if isinstance(node, dict):
-            if isinstance(node.get("steps"), list):
-                out.append(len(node["steps"]))
-            for value in node.values():
-                count_steps(value, out)
-        elif isinstance(node, list):
-            for value in node:
-                count_steps(value, out)
-    step_counts = []
-    count_steps(FROZEN["mechanism"], step_counts)
-    return {
-        float(points): f"adspend.json holds {points} points",
-        float(len(adspend.get("series", {}))): f"adspend.json holds {len(adspend.get('series', {}))} named series",
-        float(len(CLAIMS)): f"claims.json holds {len(CLAIMS)} claims",
-        float(len(ERA_RECORDS)): f"the record carries {len(ERA_RECORDS)} era files",
-        float(len(scenarios) if isinstance(scenarios, (list, dict)) else 0):
-            f"simulator-params.json holds {len(scenarios)} scenarios",
-        float(sum(step_counts)): f"mechanism.json holds {sum(step_counts)} machine-checkable steps",
-    }
-
-
-RECORD_CENSUS = _census()
-
-RECORD_WORLDS = (
-    ("mechanism.json", MECHANISM_NUMBERS),
-    ("adspend.json", ADSPEND_NUMBERS),
-    ("simulator-params.json", SIMPARAMS_NUMBERS),
-    ("moneytype/reconciled.json", RECONCILED_NUMBERS),
-    ("eras/era-1..7.json", ERA_NUMBERS),
-)
-
-# Every year the record places a fact in. A date on the page is checked against this rather than
-# waved through: a year is not a quantity, but it is still a number a reader will believe.
+# Every year the record places a fact in. Nothing on the page CITES this — a year range is not a
+# source — but a date the record never touches is worth counting in the report, so the build keeps
+# the range and says how many dates fall outside it.
 RECORD_YEARS = set()
 for _claim in CLAIMS.values():
     if isinstance(_claim.get("about_year"), int):
@@ -407,11 +369,36 @@ for _key, _series in FROZEN["adspend"].get("series", {}).items():
     for _point in _series.get("points", []) or []:
         if isinstance(_point.get("year"), int):
             RECORD_YEARS.add(_point["year"])
-for _y in sorted(RECORD_YEARS):
-    pass
-# A range the record covers reads continuously to a reader: 1918 is a year even where no claim
-# happens to sit on it. The floor and ceiling come from the record, never from a literal here.
 YEAR_FLOOR, YEAR_CEILING = min(RECORD_YEARS), max(RECORD_YEARS)
+
+
+# THE RECORD, COUNTED AT BUILD TIME.
+#
+# Facts about the record's own shape — how many claims it holds, how many spend points, how many
+# era files. These are not measurements of the advertising market and no claim carries them, so
+# they were never citable; the old build let prose reach them by value match, which is how the
+# colophon's "506 claims" came to be traced to a coincidence in a frozen file. They are now
+# available to ONE caller — `emit_derived()`, where the build states in words that it worked the
+# number out itself — and to nothing else.
+def _record_counts():
+    adspend = FROZEN["adspend"]
+    series = adspend.get("series", {})
+    return {
+        "points": sum(len(s.get("points") or []) for s in series.values()),
+        "series": len(series),
+        "claims": len(CLAIMS),
+        "eras": len(ERA_RECORDS),
+        # A rail is a series; a compiler is a series somebody OUTSIDE this project published. The
+        # difference is in the record: every point of a constructed series carries `bridged: true`,
+        # which is the same test `charts/rail-board.js` uses to hatch that rail rather than band it.
+        "constructed": sum(
+            1 for s in series.values()
+            if (s.get("points") or []) and all(p.get("bridged") is True for p in s["points"])),
+    }
+
+
+RECORD_COUNTS = _record_counts()
+RECORD_COUNTS["compilers"] = RECORD_COUNTS["series"] - RECORD_COUNTS["constructed"]
 
 
 def reaches(candidates, world):
@@ -419,34 +406,40 @@ def reaches(candidates, world):
                for target, tolerance in candidates for value in world)
 
 
-def resolve_figure(figure, claim_ids):
-    """Where this figure comes from, or None.
+def check_marked_figure(figure, marks):
+    """Does this figure re-compute from a claim THE AUTHOR MARKED IT WITH? Yes, or no.
 
-    `claim_ids` is the chapter's own frontmatter list. A figure resolving only OUTSIDE it is a
-    citation the chapter does not carry, and the caller treats that as a failure rather than a
-    pass — the chapter would then be printing a number it never cites.
+    `marks` is not a search space. It is the list of claim ids the chapter wrote in this figure's
+    own sentence — an inline id, or a footnote marker whose note names a claim. Two or three ids at
+    the outside. The old resolver was handed the chapter's whole frontmatter list, seventy ids
+    wide, and then five frozen files behind that, and at that width a coincidence is not a rare
+    event but the expected one.
+
+    Returning None is a normal outcome and not an error. It means the page prints the number with
+    no provenance, which is exactly what an unlinked number deserves.
+
+    A DATE IS NOT A MEASUREMENT, so a date is matched against the years a claim places its fact in
+    and never against the claim's value. A `central` is something somebody counted; it is not a
+    calendar. Letting the two meet by arithmetic is how an injected sentence saying search moved to
+    a first-price sale "in 2019" earned a citation to a claim whose central is 2019.68 — a
+    measurement of the open-web display exchange, in a sentence about search. It is also how the
+    "07" in "2002-07" reached a working term inside a claim's long division. Both were the same
+    hole: a year read as a quantity, then matched by value against numbers that were never dates.
     """
     if figure["kind"] == "year":
-        year = int(figure["value"])
-        if YEAR_FLOOR <= year <= YEAR_CEILING:
-            return {"class": "year", "cite": "the record's own year range",
-                    "detail": f"{YEAR_FLOOR}–{YEAR_CEILING}"}
+        for cid in marks:
+            if figure["value"] in CLAIM_YEARS.get(cid, ()):
+                return {"class": "claim-year", "cite": cid,
+                        "detail": "a year this claim places its fact in"}
         return None
-    for cid in claim_ids:
+    for cid in marks:
         if reaches(figure["candidates"], CLAIM_VALUES.get(cid, ())):
             return {"class": "claim-value", "cite": cid,
                     "detail": CLAIMS[cid].get("unit", "")}
-    for cid in claim_ids:
+    for cid in marks:
         if reaches(figure["candidates"], CLAIM_WORDS.get(cid, ())):
             return {"class": "claim-words", "cite": cid,
                     "detail": "quoted from the claim's own statement or method"}
-    for name, world in RECORD_WORLDS:
-        if reaches(figure["candidates"], world):
-            return {"class": "record", "cite": name, "detail": "a frozen record this page reads"}
-    for value, sentence in RECORD_CENSUS.items():
-        if reaches(figure["candidates"], (value,)):
-            return {"class": "census", "cite": "the record, counted at build time",
-                    "detail": sentence}
     return None
 
 
@@ -459,47 +452,58 @@ def resolve_figure(figure, claim_ids):
 # page back.
 # ============================================================================
 
-LEDGER = []          # every figure emitted, with what it resolved to
-UNRESOLVED = []      # every figure that resolved to nothing — a non-empty list fails the build
+LEDGER = []          # every figure emitted, and the citation the author earned for it or did not
 
 
 def esc(text):
     return html.escape(str(text), quote=True)
 
 
-def emit(text, claim_ids=(), where="page furniture"):
-    """Escape a string, wrap every figure in it with the claim it traces to, and record the trace.
+def emit(text, marks=(), where="page furniture", invented=False):
+    """Escape a string, cite the figures the author linked, and leave every other figure alone.
 
-    A figure that resolves to nothing is not dropped, not warned about and not printed. It is
-    recorded in UNRESOLVED, and UNRESOLVED being non-empty is what stops the build.
+    `marks` is the claim ids the chapter wrote in THIS text's own sentence — see PART 5's
+    `marks_in()`. A figure that checks out against one of them gets `data-claim`. A figure that
+    does not gets a `<span class="p2-fig">` with NO provenance attribute of any kind: no data-claim,
+    no data-record, no data-census, no title a reader could mistake for a source.
+
+    WHY AN UNCITED FIGURE IS STILL WRAPPED. The span carries nothing and shows nothing — it renders
+    as the number, in the page's numeral face — `p2-num` is the token system's numeral role and
+    belongs on every digit on the page, cited or not. It exists so PART 10 can read the HTML back and
+    prove that every figure on the page came through this function, which is the guarantee that
+    makes everything above it worth anything. The wrapper is a receipt for the build, not a claim
+    to the reader.
+
+    `invented` is chapter 7's three worked examples, which say in their own prose that the
+    advertisers and their numbers are made up. Inside a fence a citation is not absent, it is
+    REFUSED: an invented number wearing a source attribute is the same defect as a false one
+    wearing a citation, and it was shipping 25 of them against mechanism.json.
     """
+    if invented and marks:
+        die("PART 4",
+            f"a claim id was marked inside a passage the chapter declares invented: {list(marks)}",
+            "the fence says these numbers are made up. Either the passage is not invented and the "
+            "fence is wrong, or the citation is. Both cannot stand")
     figures = scan_figures(text)
     out = []
     cursor = 0
     for figure in figures:
         out.append(esc(text[cursor:figure["start"]]))
-        resolved = resolve_figure(figure, claim_ids)
+        cited = None if invented else check_marked_figure(figure, marks)
         token = esc(figure["token"])
-        entry = {"where": where, "token": figure["token"], "kind": figure["kind"],
-                 "resolved": resolved}
-        LEDGER.append(entry)
-        if resolved is None:
-            UNRESOLVED.append(entry)
-            out.append(token)
-        elif resolved["class"] in ("claim-value", "claim-words"):
-            out.append(
-                f'<span class="p2-fig p2-num" data-claim="{esc(resolved["cite"])}" '
-                f'title="{esc(resolved["cite"])} · {esc(resolved["detail"])}">{token}</span>')
-        elif resolved["class"] == "census":
-            out.append(
-                f'<span class="p2-fig p2-num" data-census="{esc(resolved["detail"])}" '
-                f'title="{esc(resolved["detail"])}">{token}</span>')
-        elif resolved["class"] == "record":
-            out.append(
-                f'<span class="p2-fig p2-num" data-record="{esc(resolved["cite"])}" '
-                f'title="{esc(resolved["cite"])}">{token}</span>')
+        LEDGER.append({"where": where, "token": figure["token"], "kind": figure["kind"],
+                       "cited": cited, "marked": bool(marks), "invented": invented})
+        # A DATE IS NOT A READOUT. `p2-num` is the token system's numeral role — the mono face,
+        # weight 600, tabular — and it belongs on a quantity. A year set in it reads as a
+        # measurement of something, which is the one thing a year is not. That distinction was in
+        # the page before this pass and it stays.
+        role = "p2-fig" if figure["kind"] == "year" else "p2-fig p2-num"
+        if cited is None:
+            out.append(f'<span class="{role}">{token}</span>')
         else:
-            out.append(f'<span class="p2-fig p2-date">{token}</span>')
+            out.append(
+                f'<span class="{role} p2-cited" data-claim="{esc(cited["cite"])}" '
+                f'title="{esc(cited["cite"])} · {esc(cited["detail"])}">{token}</span>')
         cursor = figure["end"]
     out.append(esc(text[cursor:]))
     return "".join(out)
@@ -508,12 +512,17 @@ def emit(text, claim_ids=(), where="page furniture"):
 def emit_derived(text, derivation, where="page furniture"):
     """A number this script worked out from the record rather than read out of it.
 
-    The page furniture needs a few: a chapter's own ordinal, the count of chapters, the window the
-    era records cover. None of them is a measurement and none of them is in claims.json, so none
-    can resolve through PART 3. The answer is the one every component in this project already
-    uses — `mintReading`'s `derivedFrom`, `checkProvenance`'s twelve-character rule: a figure the
-    gate cannot check is one a reader can SEE is unchecked. The derivation goes into the HTML
-    beside the number, and a blank or throwaway one is refused.
+    The page furniture needs a few: a chapter's own ordinal, the window the era records cover, the
+    size of the record itself. None is a measurement of the advertising market and none is in
+    claims.json, so none can carry a claim id. THIS IS NOT A CITATION AND THE REPORT NEVER COUNTS
+    IT AS ONE. It is the build saying, in words, what arithmetic it did — `mintReading`'s
+    `derivedFrom`, `checkProvenance`'s twelve-character rule: a figure the gate cannot check is one
+    a reader can SEE is unchecked. A blank or throwaway derivation is refused.
+
+    The one thing this must never become is a file-name attribute. "180 years", in the first
+    sentence of chapter 1, used to carry `data-record="mechanism.json"` because that file happens
+    to hold the number 180 somewhere. A file name is not provenance. Nothing reaches this function
+    unless a caller in THIS script can write the sentence that produced the number.
     """
     if not isinstance(derivation, str) or len(derivation.strip()) < 12:
         die("PART 4", f"a derived figure was emitted with no derivation: {text!r}",
@@ -526,8 +535,8 @@ def emit_derived(text, derivation, where="page furniture"):
     # reading with a single derivation, and counting it twice would leave the report's two totals
     # disagreeing with each other for a reason nobody could see.
     LEDGER.append({"where": where, "token": text, "kind": "derived",
-                   "resolved": {"class": "derived", "cite": derivation, "detail": ""}})
-    return (f'<span class="p2-fig p2-num" data-derived="{esc(derivation)}" '
+                   "cited": None, "marked": False, "invented": False})
+    return (f'<span class="p2-fig p2-num p2-derived" data-derived="{esc(derivation)}" '
             f'title="{esc(derivation)}">{esc(text)}</span>')
 
 
@@ -548,12 +557,28 @@ def emit_plain(text):
 
 
 # ============================================================================
-# PART 5 · THE CHAPTERS
+# PART 5 · THE CHAPTERS, AND THE MARKS THEIR AUTHORS MADE
 #
-# Frontmatter, the markdown the ten chapters actually use, and the two checks BUILD-PLAN.md sets on
-# the pairing of the two: every id the frontmatter lists must exist, must not carry a rejected
-# verdict, and must be USED by the prose. A silent mismatch between frontmatter and prose is how a
-# stale citation survives a rewrite.
+# Frontmatter, the markdown the ten chapters actually use, and the checks BUILD-PLAN.md sets on the
+# pairing of the two.
+#
+# THE MARK IS THE WHOLE CITATION SYSTEM NOW, so it is worth being exact about what one is. Three
+# forms are already in the chapters and no fourth is invented here:
+#
+#   INLINE ID        `[e2-creators-002]`, or a bare id in a table cell. Chapters 3, 8, and the
+#                    source tables that close chapters 1 and 10.
+#   FOOTNOTE         `[^7]` where note 7 names a claim — "Claim `e1-sellers-004`, grade B" in
+#                    chapter 2, "e5-events-001." in chapter 6. Chapters 2, 6 and part of 9.
+#   TABLE ROW        a claim id anywhere in a row marks that row's cells.
+#
+# THE SCOPE OF A MARK IS ITS OWN SENTENCE, not its paragraph and not its chapter. That is the
+# tightest reading of what the author did, and tightness is the point: the old build handed the
+# figure seventy frontmatter ids plus five frozen files and called the first collision a source.
+# A sentence carries two or three ids at the outside, and the author put them there.
+#
+# Chapters 4, 5 and 7 carry no marks at all. Their figures therefore carry no citation, and the
+# report and the colophon both say how many that is. That is a gap with a name and a fix — mark
+# them — which is a better position than 2,314 citations nobody could trust.
 # ============================================================================
 
 CHAPTER_FILES = [
@@ -597,8 +622,96 @@ def read_chapter(filename):
     if not title:
         die("PART 5", f"{filename} frontmatter has no title",
             "the chapter needs a name for the rail, the contents and the eyebrow")
-    return {"file": filename, "meta": meta, "ids": ids, "body": body,
-            "number": number, "title": title}
+    chapter = {"file": filename, "meta": meta, "ids": ids, "body": body,
+               "number": number, "title": title}
+    chapter["_notes"] = chapter_notes(body)
+    chapter["_invented"] = invented_lines(chapter)
+    return chapter
+
+
+# ---------------------------------------------------------------- the marks
+
+# A footnote definition names its claims however its chapter's house style names them: chapter 2
+# writes "Claim `e1-creators-001`, grade B", chapter 6 writes "e5-events-001." and chapter 9 writes
+# "Claims e5-scale-015 and e5-scale-016". All three are the same act — the author saying which
+# claim this note stands on — so the id itself is what is read, not the sentence around it.
+def chapter_notes(body):
+    notes = {}
+    for line in body.splitlines():
+        match = FOOTNOTE_DEF.match(line.strip())
+        if match:
+            notes[match.group(1)] = tuple(dict.fromkeys(CLAIM_ID_RE.findall(match.group(2))))
+    return notes
+
+
+def marks_in(text, chapter):
+    """The claim ids this chunk of prose links itself to. Nothing is inferred and nothing is found.
+
+    An id written in the chunk marks it. A footnote marker in the chunk marks it with whatever
+    claims that note names. Order is the author's, and `check_marked_figure()` walks it in order,
+    so a sentence citing two claims cites the first one that fits.
+    """
+    found = list(CLAIM_ID_RE.findall(text))
+    for ref in FOOTNOTE_REF.findall(text):
+        found.extend(chapter["_notes"].get(ref, ()))
+    return tuple(cid for cid in dict.fromkeys(found) if cid in CLAIMS)
+
+
+# ---------------------------------------------------------------- the invented fence
+
+# THE ONE PLACE A CITATION IS FORBIDDEN RATHER THAN MERELY ABSENT.
+#
+# Chapter 7 works the ranking rule three times on made-up advertisers, and says so in its own
+# prose: "The three advertisers below are invented, and so are their numbers." The old build put
+# `data-record="mechanism.json"` on 25 of those figures, because the auction bench's stored steps
+# happen to hold the same arithmetic — the example is right, the numbers do re-compute, and every
+# one of those attributes was still a lie about where the number came from. The fence makes the
+# lie unsayable: inside it, `emit(invented=True)` refuses a mark rather than ignoring it.
+INVENTED_OPEN = re.compile(r"^<!--\s*invented:\s*(.+?)\s*-->$")
+INVENTED_CLOSE = re.compile(r"^<!--\s*/invented\s*-->$")
+
+
+def invented_lines(chapter):
+    """Line index -> the reason this line's figures carry no provenance.
+
+    Refuses an unclosed fence, a fence that closes without opening, and a fence with no figure
+    inside it. The last one is the `VacuousError` rule in another costume: a fence protecting
+    nothing is a fence that will absorb a real citation the day the prose moves.
+    """
+    marked, open_at, reason = {}, None, None
+    lines = chapter["body"].splitlines()
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        opened = INVENTED_OPEN.match(stripped)
+        if opened:
+            if open_at is not None:
+                die("PART 5", f"{chapter['file']} opens an invented fence inside another one",
+                    "fences do not nest; close the first one")
+            if len(opened.group(1)) < 20:
+                die("PART 5",
+                    f"{chapter['file']} opens an invented fence with no reason: "
+                    f"{opened.group(1)!r}",
+                    "write the sentence that says what is made up and why it is on the page")
+            open_at, reason = index, opened.group(1)
+            continue
+        if INVENTED_CLOSE.match(stripped):
+            if open_at is None:
+                die("PART 5", f"{chapter['file']} closes an invented fence that was never opened",
+                    "every <!-- /invented --> needs its <!-- invented: ... --> above it")
+            span = range(open_at, index + 1)
+            if not any(scan_figures(lines[i]) for i in span):
+                raise VacuousError(
+                    f"PART 5: {chapter['file']} fences an invented passage that contains no "
+                    f"figure at all, at line {open_at + 1}.\n"
+                    "    fix: a fence with nothing to protect is decoration, and it will swallow a "
+                    "real citation the first time the prose moves. Delete it or move it.")
+            for i in span:
+                marked[i] = reason
+            open_at, reason = None, None
+    if open_at is not None:
+        die("PART 5", f"{chapter['file']} never closes the invented fence at line {open_at + 1}",
+            "an unclosed fence would silently strip provenance from the rest of the chapter")
+    return marked
 
 
 def chapter_uses(chapter, cid):
@@ -612,6 +725,12 @@ def chapter_uses(chapter, cid):
 
     Anything else and the frontmatter is carrying an id the reader never meets, which is a stale
     citation waiting to be quoted at somebody.
+
+    BE HONEST ABOUT WHAT (b), (c) AND (d) ARE. They are value matches — the same inference this
+    build no longer allows to put a citation on the page. They are kept here because this check
+    does something different: it asks whether a frontmatter list has gone stale, and it prints
+    nothing to a reader. The report says how many ids are actually MARKED in the prose, which is
+    the number that means anything, and it is a great deal smaller.
     """
     claim = CLAIMS.get(cid)
     if claim is None:
@@ -646,7 +765,64 @@ def check_chapter_citations(chapter):
             "either the prose lost the number when it was rewritten, or the citation was copied "
             "from another chapter. A frontmatter list nobody reads is how a stale citation lives "
             "through a rewrite")
+    # A MARK IS A CITATION, SO IT HAS TO BE ONE THE CHAPTER DECLARES.
+    # An id written beside a number but missing from the frontmatter is a source the chapter never
+    # took responsibility for, and it is the cheapest way to smuggle one in: write "$196.18 billion
+    # [e7-sellers-002]" and walk away. The frontmatter is where a chapter says what it stands on,
+    # and now nothing can be cited from outside it.
+    declared = set(chapter["ids"])
+    undeclared = sorted({cid for cid in CLAIM_ID_RE.findall(chapter["body"])
+                         if cid in CLAIMS and cid not in declared})
+    if undeclared:
+        die("PART 5",
+            f"{chapter['file']} marks {len(undeclared)} claim id(s) its frontmatter never "
+            f"declares: {undeclared[:8]}",
+            "add them to claim_ids, or take the mark out. A citation the chapter's own header does "
+            "not carry is a citation nobody signed")
     return len(chapter["ids"])
+
+
+# THE COMPILER COUNT, WHICH THREE PLACES USED TO DISAGREE ABOUT.
+#
+# The rail board's caption said "the eight compilers". Chapter 1, sixty lines further down its own
+# file, said "Five compilers". Chapter 9 said "Five compilers exist instead". The record says eight
+# rails, of which seven are compilers — outside bodies who published a series — and one is the
+# bridge this project built between two of them. Three numbers, one record, and nothing in the
+# repository would have noticed.
+#
+# The caption is now written from `RECORD_COUNTS`, so it cannot drift. The chapters are prose and
+# cannot be, so the phrase is checked instead: any chapter saying "N compilers" must agree with the
+# record. It is a narrow rule and it fires on exactly the sentence that was wrong.
+COUNT_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
+               "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12}
+# A COUNT OF THE WHOLE, NOT A COUNT OF A SUBSET.
+# "a bridge between two compilers' series" counts the two rails that bridge spans and says nothing
+# about how many compilers the record holds, so the rule has to be able to tell the two apart. It
+# skips a possessive, and skips a count governed by a preposition that names a part of a larger
+# set. Everything left is a chapter stating how many compilers there are.
+COMPILER_PHRASE = re.compile(
+    r"(?:(\w+)\s+)?\b([A-Za-z]+|\d+)\s+compilers\b(?!['’])", re.I)
+SUBSET_WORDS = {"between", "of", "among", "amongst", "across", "from", "either", "both", "those",
+                "these", "other"}
+
+
+def check_compiler_count(chapter):
+    said = []
+    for match in COMPILER_PHRASE.finditer(chapter["body"]):
+        if (match.group(1) or "").lower() in SUBSET_WORDS:
+            continue
+        raw = match.group(2).lower()
+        value = COUNT_WORDS.get(raw, int(raw) if raw.isdigit() else None)
+        if value is not None and value != RECORD_COUNTS["compilers"]:
+            said.append(match.group(0).strip())
+    if said:
+        die("PART 5",
+            f"{chapter['file']} says {said[0]!r} and adspend.json holds "
+            f"{RECORD_COUNTS['compilers']} compilers "
+            f"({RECORD_COUNTS['series']} rails, {RECORD_COUNTS['constructed']} of them ours)",
+            "the rail board draws one track per series and names the constructed one as ours. "
+            "Say the same number the board draws, and say plainly which rail is not a compiler's")
+    return len(said)
 
 
 # ---------------------------------------------------------------- markdown
@@ -660,7 +836,67 @@ FOOTNOTE_REF = re.compile(r"\[\^([^\]]+)\]")
 FOOTNOTE_DEF = re.compile(r"^\[\^([^\]]+)\]:\s*(.*)$")
 
 
-def render_inline(text, chapter):
+# SPLITTING PROSE INTO THE SCOPE A MARK ACTUALLY COVERS.
+#
+# A footnote or an inline id sits at the end of a SENTENCE, so the sentence is the unit. The split
+# has to survive the markdown, though: cutting between the two halves of a `**bold sentence.**`
+# would leave one asterisk pair on each side and render four stray asterisks. So a cut is only
+# taken where the text either side is balanced — asterisks even, backticks even, brackets and
+# parentheses matched — and where it is not, the two pieces stay joined.
+#
+# Erring toward MORE cuts loses citations; erring toward fewer widens a mark's scope. This errs
+# toward more, which is the direction that cannot manufacture one.
+SENTENCE_END = re.compile(r'(?<=[.!?])[*_`"\'”’)\]]*\s+')
+ABBREVIATION = re.compile(
+    r'(?:\b[A-Z]|\bNo|\bNos|\bpp|\bp|\bFig|\bvs|\bSt|\bMr|\bMrs|\bDr|\bInc|\bCo|\bJr|\bapprox|\bed)'
+    r'\.$')
+
+
+def balanced(text):
+    """Whether a candidate sentence closes every markdown form it opened.
+
+    COUNTING ASTERISKS IS NOT ENOUGH, and the first version of this did exactly that. Chapter 10's
+    measurement roll opens each entry `**1914. The Audit Bureau of Circulations.**`, and a cut
+    after "1914." leaves the piece "**1914. " — two asterisks, an even number, balanced by that
+    test and broken in fact. Eighteen literal asterisk pairs rendered into the finished page. So
+    the doubles are counted as doubles and the leftover singles separately, and both must be even.
+    """
+    doubles = text.count("**")
+    singles = text.count("*") - 2 * doubles
+    return (doubles % 2 == 0 and singles % 2 == 0 and text.count("`") % 2 == 0
+            and text.count("[") == text.count("]") and text.count("(") == text.count(")"))
+
+
+def split_sentences(text):
+    """The sentences of a paragraph, concatenating back to exactly the paragraph."""
+    pieces, start = [], 0
+    for match in SENTENCE_END.finditer(text):
+        if ABBREVIATION.search(text[start:match.start() + 1]):
+            continue
+        pieces.append(text[start:match.end()])
+        start = match.end()
+    pieces.append(text[start:])
+    out, buffer = [], ""
+    for piece in pieces:
+        buffer += piece
+        if balanced(buffer):
+            out.append(buffer)
+            buffer = ""
+    if buffer:
+        if out:
+            out[-1] += buffer
+        else:
+            out.append(buffer)
+    return [piece for piece in out if piece]
+
+
+def render_prose(text, chapter, invented=False):
+    """A paragraph, sentence by sentence, each sentence carrying only its own author's marks."""
+    return "".join(render_inline(sentence, chapter, marks_in(sentence, chapter), invented)
+                   for sentence in split_sentences(text))
+
+
+def render_inline(text, chapter, marks=(), invented=False):
     """Markdown inline forms, with every text run routed through emit().
 
     The order matters. Links and inline code are lifted out first and held as placeholders, so a
@@ -674,7 +910,7 @@ def render_inline(text, chapter):
         return f"\x00{len(held) - 1}\x00"
 
     def on_link(match):
-        label = emit(match.group(1), chapter["ids"], chapter["file"])
+        label = emit(match.group(1), marks, chapter["file"], invented)
         return hold(f'<a href="{esc(match.group(2))}" rel="noopener noreferrer" '
                     f'target="_blank">{label}</a>')
 
@@ -714,10 +950,10 @@ def render_inline(text, chapter):
     text = re.sub(r"\[(" + CLAIM_ID_RE.pattern + r")\]", on_bare_id, text)
 
     def on_bold(match):
-        return hold(f"<strong>{emit(match.group(1), chapter['ids'], chapter['file'])}</strong>")
+        return hold(f"<strong>{emit(match.group(1), marks, chapter['file'], invented)}</strong>")
 
     def on_italic(match):
-        return hold(f"<em>{emit(match.group(1), chapter['ids'], chapter['file'])}</em>")
+        return hold(f"<em>{emit(match.group(1), marks, chapter['file'], invented)}</em>")
 
     text = BOLD.sub(on_bold, text)
     text = ITALIC.sub(on_italic, text)
@@ -728,22 +964,38 @@ def render_inline(text, chapter):
         if index % 2:
             out.append(held[int(part)])
         else:
-            out.append(emit(part, chapter["ids"], chapter["file"]))
+            out.append(emit(part, marks, chapter["file"], invented))
     return "".join(out)
 
 
 def render_chapter_body(chapter):
-    """The ten chapters' markdown: headings, tables, lists, paragraphs, footnote definitions."""
+    """The ten chapters' markdown: headings, tables, lists, paragraphs, footnote definitions.
+
+    Every block carries its own scope. A paragraph is split into sentences and each sentence sees
+    only the marks its own author wrote; a table row's marks cover that row; a list item's cover
+    that item. Nothing is passed down from the chapter, because a chapter-wide list of ids is what
+    the old build called a citation.
+    """
     lines = chapter["body"].splitlines()
+    invented = chapter["_invented"]
     out = []
     notes = []
     index = 0
     while index < len(lines):
         line = lines[index]
         stripped = line.strip()
-        if not stripped:
+        opened = INVENTED_OPEN.match(stripped)
+        if opened:
+            # THE FENCE IS PRINTED, not just obeyed. A reader skimming for numbers should be told
+            # where the made-up ones start without having to read the paragraph that says so.
+            out.append(f'<p class="p2-arch p2-invented-note">'
+                       f'{emit_plain("invented example · " + opened.group(1))}</p>')
             index += 1
             continue
+        if not stripped or INVENTED_CLOSE.match(stripped):
+            index += 1
+            continue
+        made_up = index in invented
         note = FOOTNOTE_DEF.match(stripped)
         if note:
             notes.append((note.group(1), note.group(2)))
@@ -754,55 +1006,66 @@ def render_chapter_body(chapter):
             body = stripped[level:].strip()
             tag = {1: "h2", 2: "h3", 3: "h4"}.get(level, "h4")
             klass = "p2-ch-title" if level == 1 else "p2-ch-head"
-            out.append(f'<{tag} class="{klass}">{render_inline(body, chapter)}</{tag}>')
+            out.append(f'<{tag} class="{klass}">'
+                       f'{render_inline(body, chapter, marks_in(body, chapter), made_up)}</{tag}>')
             index += 1
             continue
         if stripped.startswith("|"):
-            table = []
+            table, first = [], index
             while index < len(lines) and lines[index].strip().startswith("|"):
                 table.append(lines[index].strip())
                 index += 1
-            out.append(render_table(table, chapter))
+            out.append(render_table(table, chapter, first in invented))
             continue
         if re.match(r"^[-*]\s+", stripped):
             items = []
             while index < len(lines) and re.match(r"^[-*]\s+", lines[index].strip()):
-                items.append(re.sub(r"^[-*]\s+", "", lines[index].strip()))
+                items.append((re.sub(r"^[-*]\s+", "", lines[index].strip()), index in invented))
                 index += 1
             out.append("<ul class=\"p2-prose\">" + "".join(
-                f"<li>{render_inline(item, chapter)}</li>" for item in items) + "</ul>")
+                f"<li>{render_prose(item, chapter, made_up)}</li>"
+                for item, made_up in items) + "</ul>")
             continue
         if re.match(r"^\d+\.\s+", stripped):
             items = []
             while index < len(lines) and re.match(r"^\d+\.\s+", lines[index].strip()):
-                items.append(re.sub(r"^\d+\.\s+", "", lines[index].strip()))
+                items.append((re.sub(r"^\d+\.\s+", "", lines[index].strip()), index in invented))
                 index += 1
             out.append("<ol class=\"p2-prose\">" + "".join(
-                f"<li>{render_inline(item, chapter)}</li>" for item in items) + "</ol>")
+                f"<li>{render_prose(item, chapter, made_up)}</li>"
+                for item, made_up in items) + "</ol>")
             continue
         paragraph = []
         while index < len(lines) and lines[index].strip() and not lines[index].strip().startswith(
-                ("#", "|", "- ", "* ")) and not FOOTNOTE_DEF.match(lines[index].strip()):
+                ("#", "|", "- ", "* ", "<!--")) and not FOOTNOTE_DEF.match(lines[index].strip()):
             paragraph.append(lines[index].strip())
+            made_up = made_up or index in invented
             index += 1
-        out.append(f'<p class="p2-prose">{render_inline(" ".join(paragraph), chapter)}</p>')
+        out.append(f'<p class="p2-prose{" p2-invented" if made_up else ""}">'
+                   f'{render_prose(" ".join(paragraph), chapter, made_up)}</p>')
     return out, notes
 
 
-def render_table(rows, chapter):
+def render_table(rows, chapter, invented=False):
     cells = [[c.strip() for c in row.strip("|").split("|")] for row in rows]
     body = [r for r in cells if not all(re.fullmatch(r":?-{2,}:?", c or "-") for c in r)]
     if not body:
         die("PART 5", f"{chapter['file']} has a table with no rows",
             "a table that renders empty is an absence, and absence is drawn as an object here")
     head, rest = body[0], body[1:]
-    out = ['<div class="p2-tablewrap"><table class="p2-table">', "<thead><tr>"]
+    klass = "p2-table p2-invented" if invented else "p2-table"
+    out = [f'<div class="p2-tablewrap"><table class="{klass}">', "<thead><tr>"]
     for cell in head:
-        out.append(f"<th>{render_inline(cell, chapter)}</th>")
+        out.append(f"<th>{render_inline(cell, chapter, marks_in(cell, chapter), invented)}</th>")
     out.append("</tr></thead><tbody>")
     for row in rest:
+        # THE ROW IS THE SCOPE. A source table writes the claim id in the first cell and the number
+        # it stands for in the second — chapter 1 closes with seventy rows of exactly that shape —
+        # so a mark anywhere in the row covers the row and stops at its edge.
+        row_marks = marks_in(" ".join(row), chapter)
         out.append("<tr>" + "".join(
-            f"<td>{render_inline(cell, chapter)}</td>" for cell in row) + "</tr>")
+            f"<td>{render_inline(cell, chapter, row_marks, invented)}</td>"
+            for cell in row) + "</tr>")
     out.append("</tbody></table></div>")
     return "".join(out)
 
@@ -814,9 +1077,31 @@ def render_table(rows, chapter):
 # a placement is a decision a reader and a reviewer can both see rather than infer.
 # ============================================================================
 
+# THE RAIL BOARD'S CAPTION IS COUNTED, NOT TYPED.
+#
+# It used to say "the eight compilers", and chapter 1 said "Five compilers" sixty lines into its
+# own file, and chapter 9 said "Five compilers exist instead". Three numbers for one board. The
+# record settles it: eight rails, and the eighth is `bridge_mce_mg8`, whose every point is
+# `bridged: true` — our own construction between two compilers' series, hatched on the board and
+# graded C throughout. Written in words rather than digits because the caption is furniture and
+# goes through `emit_plain()`; written from `RECORD_COUNTS` so that adding a rail rewrites the
+# sentence instead of falsifying it.
+NUMBER_WORD = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven",
+               8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
+ORDINAL_WORD = {1: "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth",
+                7: "seventh", 8: "eighth", 9: "ninth", 10: "tenth"}
+RAIL_BOARD_WHY = (
+    "Before a single figure: all {rails} rails the record carries, and the years each one actually "
+    "published. {Compilers} of them are compilers — outside bodies who counted this market and "
+    "published what they found. The {last} rail is not a compiler's at all: it is the bridge this "
+    "project built between two of them, drawn hatched, graded C, and nobody's measurement but "
+    "ours. The reader meets the ruler before the reading."
+).format(rails=NUMBER_WORD[RECORD_COUNTS["series"]],
+         Compilers=NUMBER_WORD[RECORD_COUNTS["compilers"]].capitalize(),
+         last=ORDINAL_WORD[RECORD_COUNTS["series"]])
+
 SPINE = {
-    1: [("rail-board", "Before a single figure: the eight compilers, and the years each one "
-                       "actually published. The reader meets the ruler before the reading."),
+    1: [("rail-board", RAIL_BOARD_WHY),
         ("value-chart", "The money, in dollars of the day, on every rail the record carries. "
                         "Where two rails overlap the page draws both and labels the distance, "
                         "because one line across the century is the most attractive chart in this "
@@ -1154,18 +1439,42 @@ def build_bundle():
 # PART 8 · THE SELF-TESTS
 #
 # Every refusal above is handed the thing it forbids, and required to throw. A check that cannot
-# fire is worse than no check: it stops anyone looking at the thing it appears to be watching. One
-# shipped guard in this project had a condition unsatisfiable by construction and the README sold
-# it as a guarantee.
+# fire is worse than no check: it stops anyone looking at the thing it appears to be watching.
+#
+# THIS PART WAS ITSELF THE WORST EXAMPLE IN THE FILE.
+#
+# There was one harness, `fires()`, and it read ANY BuildError as a pass. Four of the six probes
+# tested a refusal, so that was right for them. The fifth, `census_resolves()`, tested a branch
+# that had to SUCCEED — and it announced success by raising a BuildError, while its failure path
+# called `die()`, which raises a BuildError too. The probe reported REFUSED whether the branch
+# worked or not. It had never once told anyone anything, and it sat directly beneath a comment
+# saying a branch nobody has seen run is the shape this project keeps finding defects in.
+#
+# THE FIX IS TWO VERBS THAT CANNOT SATISFY EACH OTHER.
+#
+#   refuses(name, fn, naming=...)  fn MUST raise, and the message must contain `naming`. A probe
+#                                  that trips a DIFFERENT refusal in the same function is a probe
+#                                  aimed at nothing, so the substring is required, not optional.
+#   proves(name, fn)               fn MUST return a detail string. Any exception at all — including
+#                                  a BuildError from die() — is a failed self-test.
+#
+# No probe signals success by raising, and no probe signals failure by returning. `refuses()` and
+# `proves()` share no outcome, so a probe cannot be mistaken for the other kind.
 # ============================================================================
 
 def self_tests(bundle, order):
     results = []
 
-    def fires(name, fn, expect=BuildError):
+    def refuses(name, fn, naming, expect=BuildError):
         try:
             fn()
         except expect as error:
+            if naming.lower() not in str(error).lower():
+                die("PART 8",
+                    f"self-test {name!r} fired the wrong refusal: expected one naming {naming!r}, "
+                    f"got {str(error).splitlines()[0][:90]!r}",
+                    "a probe that trips a different check in the same function proves nothing "
+                    "about the branch it was aimed at")
             results.append((name, "REFUSED", str(error).splitlines()[0][:110]))
             return
         except Exception as error:      # noqa: BLE001 — a wrong error type is still a failure here
@@ -1174,23 +1483,119 @@ def self_tests(bundle, order):
         die("PART 8", f"self-test {name!r} did not fire",
             "the check it exercises cannot refuse the thing it forbids, which makes it decoration")
 
-    # 1 · a figure that resolves to nothing stops the build
-    def untraceable():
-        before = len(UNRESOLVED)
-        emit("the market reached $8,675,309 that year", ("e1-pricing-004",), "self-test")
-        after = UNRESOLVED[before:]
-        del UNRESOLVED[before:]
-        del LEDGER[-1:]
-        if not after:
-            raise AssertionError
-        raise BuildError("PART 3: a figure with no source in the record was refused")
-    fires("an invented figure resolves to nothing", untraceable)
+    def proves(name, fn):
+        """A branch that has to WORK. It reports by returning; every exception is a failure.
 
-    # 2 · a number cannot reach the page except through emit()
-    fires("emit_plain() refuses a string with a figure in it",
-          lambda: emit_plain("this heading carries 42.7 percent"))
+        This is the half `fires()` did not have, and its absence is why the census probe read as a
+        pass for its whole life. Nothing in here may signal success by raising.
+        """
+        detail = fn()
+        if not isinstance(detail, str) or not detail.strip():
+            die("PART 8", f"self-test {name!r} proved nothing it could describe",
+                "a positive probe returns the sentence saying what it saw; silence is not a pass")
+        results.append((name, "PROVED", detail))
 
-    # 3 · a frontmatter id its prose never uses is refused
+    # 1 · a figure the author never linked gets NO citation, and is not a build failure either
+    def unlinked_figure():
+        before = len(LEDGER)
+        html_out = emit("the market reached $8,675,309 that year", (), "self-test")
+        rows = LEDGER[before:]
+        del LEDGER[before:]
+        if len(rows) != 1 or rows[0]["cited"] is not None:
+            die("PART 8", "an unmarked figure came back with a citation",
+                "check_marked_figure() was handed no marks and still found one, which is the "
+                "defect this whole part exists to prevent")
+        if any(a in html_out for a in ("data-claim", "data-record", "data-census",
+                                       "data-derived")):
+            die("PART 8", f"an unmarked figure rendered with a provenance attribute: {html_out!r}",
+                "an uncited figure renders plain; there is no other correct output")
+        return f"unmarked figure rendered with no provenance attribute: {html_out}"
+    proves("an unlinked figure carries no citation", unlinked_figure)
+
+    # 2 · THE INJECTED-FALSEHOOD ATTACK, run against the build every time it builds.
+    #
+    # The adversary put three flat falsehoods into chapter 1's prose, which carries no marks at
+    # all, and the old resolver went and found each one a source: "5" to mech-tac-004, the
+    # owned-versus-syndicated retention ratio; "36.7%" to e2-medium-001, newspapers in 1949;
+    # "$196.18 billion" to a number sitting somewhere in the seven era files. The attack is run
+    # here in both its forms.
+    #
+    # FORM ONE is what the adversary actually did: drop the numbers into unmarked prose. Nothing
+    # can be cited, because nothing was linked.
+    #
+    # FORM TWO is the stronger attack, and the one worth having a check for: the adversary writes
+    # the citation too. The claim id is real, it is in the frontmatter, and it sits in the same
+    # sentence — and the figure still gets nothing, because it does not re-compute from the claim
+    # that was named. Writing a citation is now necessary and not sufficient.
+    #
+    # WHAT THIS DOES NOT CATCH, said plainly here and again in the colophon: a number that DOES
+    # re-compute from the claim its author named, inside a sentence saying something the claim does
+    # not say. That is a prose error, no arithmetic can see it, and no count on this page should be
+    # read as saying otherwise.
+    def falsehood_attack():
+        unmarked = ["a factor of 5 either way",
+                    "newspapers held 36.7% of it",
+                    "the era records put it at $196.18 billion"]
+        forged = [("the era records put it at $196.18 billion", ("e7-sellers-002",)),
+                  ("the newspaper share was 36.7% that year", ("e3-medium-003",)),
+                  ("the gap was a factor of 5", ("e2-medium-001",))]
+        cited = []
+        for text in unmarked:
+            before = len(LEDGER)
+            emit(text, (), "self-test")
+            cited += [("unmarked", row) for row in LEDGER[before:] if row["cited"]]
+            del LEDGER[before:]
+        for text, marks in forged:
+            before = len(LEDGER)
+            emit(text, marks, "self-test")
+            cited += [("forged", row) for row in LEDGER[before:] if row["cited"]]
+            del LEDGER[before:]
+        if cited:
+            die("PART 8",
+                f"the injected-falsehood attack still earns {len(cited)} citation(s): "
+                f"{[(form, r['token'], r['cited']['cite']) for form, r in cited]}",
+                "an unmarked figure gets nothing, and a marked figure that does not re-compute "
+                "from the claim beside it gets nothing either")
+        return (f"{len(unmarked)} falsehoods in unmarked prose and {len(forged)} carrying a forged "
+                "claim id: none of the six earned a citation")
+    proves("the injected-falsehood attack earns no citation", falsehood_attack)
+
+    # 3 · a marked figure that DOES check out is still cited, so 1 and 2 are not passing vacuously
+    def real_citation_survives():
+        probe = sorted(cid for cid in CLAIMS
+                       if isinstance(CLAIMS[cid].get("central"), (int, float))
+                       and CLAIMS[cid]["central"] > 1 and cid not in REJECTED)[0]
+        value = CLAIMS[probe]["central"]
+        before = len(LEDGER)
+        emit(f"the record puts it at {value}", (probe,), "self-test")
+        rows = [row for row in LEDGER[before:] if row["cited"]]
+        del LEDGER[before:]
+        if not rows or rows[0]["cited"]["cite"] != probe:
+            die("PART 8", f"a figure quoting {probe}'s own central came back uncited",
+                "the citation path is broken, and tests 1 and 2 would pass on a build that cites "
+                "nothing at all")
+        return f"a figure quoting {probe}'s own central value cited it, and only it"
+    proves("a correctly linked figure is still cited", real_citation_survives)
+
+    # 4 · a number cannot reach the page except through emit()
+    refuses("emit_plain() refuses a string with a figure in it",
+            lambda: emit_plain("this heading carries 42.7 percent"),
+            naming="emit_plain")
+
+    # 5 · a citation inside a passage the chapter declares invented is refused
+    refuses("a claim id marked inside an invented passage",
+            lambda: emit("Cedar pays $0.81", ("mech-discounter-001",), "self-test", invented=True),
+            naming="declares invented")
+
+    # 6 · an invented fence with no figure in it is refused as decoration
+    def hollow_fence():
+        probe = {"file": "self-test", "body": "<!-- invented: a fence around nothing at all -->\n"
+                                              "no numbers live here\n<!-- /invented -->\n"}
+        invented_lines(probe)
+    refuses("an invented fence protecting no figure", hollow_fence,
+            naming="contains no figure", expect=VacuousError)
+
+    # 7 · a frontmatter id its prose never uses is refused
     #
     # The probe is a made-up claim, because this test needs a SHAPE rather than a fact: every id
     # the record actually holds is used by some chapter, so a real one would prove nothing about
@@ -1209,47 +1614,53 @@ def self_tests(bundle, order):
             check_chapter_citations(probe)
         finally:
             del CLAIMS[probe_id], CLAIM_VALUES[probe_id], CLAIM_WORDS[probe_id]
-    fires("a chapter citing a claim its prose never uses", stale_citation)
+    refuses("a chapter citing a claim its prose never uses", stale_citation,
+            naming="never uses")
 
-    # 4 · a rejected claim is refused as a citation
+    # 8 · a rejected claim is refused as a citation
     def rejected_citation():
         probe = dict(PROBE_CHAPTER)
         probe["ids"] = list(probe["ids"]) + [sorted(REJECTED)[0]]
         check_chapter_citations(probe)
-    fires("a chapter citing a claim the verifier rejected", rejected_citation)
+    refuses("a chapter citing a claim the verifier rejected", rejected_citation,
+            naming="REJECTED")
 
-    # 5 · the census branch resolves, even though the record never reaches it
-    #
-    # A CHAPTER'S OWN WORDS CARRY THE COUNTS TODAY: "1,573 points" resolves through
-    # ds-provenance-001's statement long before the census is consulted, so the census fires zero
-    # times on the record as frozen. A branch nobody has ever seen run is the shape this project
-    # keeps finding defects in — the cross-section drew a span-only reading as a definite length
-    # for exactly that reason — so it is forced here instead of assumed.
-    def census_resolves():
-        points = float(sum(len(x.get("points") or [])
-                           for x in FROZEN["adspend"].get("series", {}).values()))
-        probe = {"kind": "quantity", "value": points, "token": str(int(points)),
-                 "candidates": ((points, 0.5),)}
-        answer = resolve_figure(probe, ())
-        if not answer or answer["class"] != "census":
-            die("PART 8", "the record census resolves nothing, so that branch is decoration",
-                "either the census counts something the record no longer holds, or a world above "
-                "it now absorbs the count")
-        raise BuildError(f"PART 3: the census branch resolved {int(points)} — {answer['detail']}")
-    fires("the record census can resolve a count", census_resolves)
+    # 9 · a mark the chapter's own frontmatter does not declare is refused
+    def undeclared_mark():
+        outsider = sorted(set(CLAIMS) - set(PROBE_CHAPTER["ids"]) - REJECTED)[0]
+        probe = dict(PROBE_CHAPTER)
+        probe["body"] = probe["body"] + f"\n\nA smuggled figure of $196.18 billion [{outsider}].\n"
+        check_chapter_citations(probe)
+    refuses("a claim id marked but never declared in the frontmatter", undeclared_mark,
+            naming="frontmatter never declares")
 
-    # 6 · a non-quantity rule that stops matching is refused
+    # 10 · a chapter contradicting the record's own compiler count is refused
+    def wrong_compiler_count():
+        wrong = NUMBER_WORD[1 if RECORD_COUNTS["compilers"] != 1 else 2]
+        check_compiler_count({"file": "self-test",
+                              "body": f"No single series runs the century. {wrong.capitalize()} "
+                                      f"compilers each measured a different thing."})
+    refuses("a chapter miscounting the compilers the record holds", wrong_compiler_count,
+            naming="compilers")
+
+    # 11 · a non-quantity rule that stops matching is refused
     def dead_rule():
         RULE_FIRINGS["law-report"] = 0
         try:
             assert_rules_fired()
         finally:
             RULE_FIRINGS["law-report"] = 1
-    fires("a non-quantity rule that matched nothing", dead_rule, VacuousError)
+    refuses("a non-quantity rule that matched nothing", dead_rule,
+            naming="matched nothing", expect=VacuousError)
 
-    # 7 · the bundle runs, its exports match the real ES modules, and the live binding is live
-    node = run_node_check(bundle, order)
-    results.append(("the bundle equals the ES modules it was built from", "PROVED", node))
+    # 12 · a derived figure with no derivation beside it is refused
+    refuses("emit_derived() refuses a figure with no derivation",
+            lambda: emit_derived("180 years", "maths"),
+            naming="no derivation")
+
+    # 13 · the bundle runs, its exports match the real ES modules, and the live binding is live
+    proves("the bundle equals the ES modules it was built from",
+           lambda: run_node_check(bundle, order))
     return results
 
 
@@ -1341,8 +1752,13 @@ SPAN_WHY = ("the first era record's opening years and the last era record's clos
 
 PAGE_CSS = """
 /* ---- docs/p2/index.html — the page shell. Every colour is a token; none is restated here. ---- */
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* THERE IS NO `html { scroll-behavior: smooth }` HERE, AND THAT IS A DECISION.
+   There was, and it broke every link on the page. This document is over two hundred thousand
+   pixels tall; Chrome animates a smooth fragment jump at a rate that cannot cover that distance,
+   so a click on the contents or on the chapter rail set off a scroll that never arrived. The
+   symptom is not an error anywhere — the URL updates, the page creeps, and the reader concludes
+   the navigation is decorative. Instant jumps land. If smoothness is ever wanted back it has to be
+   scoped to a short-distance case and measured on the real page height, not set on `html`. */
 /* THREE COMPONENT STYLESHEETS CARRY THEIR OWN DEMO PAGE'S FURNITURE.
    `chart-demo.css`, `eras.css` and `toll.css` each open with a bare `body { max-width; margin;
    padding }` for the page they were written to sit on, and inlining a stylesheet inlines that
@@ -1404,10 +1820,18 @@ table.p2-table th {
   font-size: 11px; color: var(--p2-zinc-text); font-weight: 600; white-space: nowrap;
 }
 
+/* A CITED FIGURE LOOKS DIFFERENT FROM AN UNCITED ONE, and that is the whole visual argument.
+   The rule only fires on `[data-claim]`, so a number the author never linked is drawn exactly as
+   plain type: no underline, no help cursor, no tooltip, nothing to hover. Before this pass every
+   figure on the page was underlined, because every figure had been given SOMETHING to point at. */
 .p2-fig { font-variant-numeric: tabular-nums; }
-.p2-fig[data-claim], .p2-fig[data-record] {
-  border-bottom: 1px solid var(--p2-rule-faint); cursor: help;
-}
+.p2-fig[data-claim] { border-bottom: 1px solid var(--p2-rule-faint); cursor: help; }
+.p2-fig[data-derived] { border-bottom: 1px dotted var(--p2-rule-faint); cursor: help; }
+/* An invented passage is marked as one. Chapter 7's three worked examples say so in their own
+   prose; this says it again in the margin, where a reader skimming the numbers will see it. */
+.p2-invented { border-left: 2px solid var(--p2-iron); padding-left: 14px; }
+.p2-invented-note { font-family: var(--p2-face-label); text-transform: uppercase;
+  letter-spacing: 0.07em; font-size: 11px; color: var(--p2-zinc-text); margin: 22px 0 8px; }
 .p2-claimref { font-size: 11px; color: var(--p2-zinc-text); }
 .p2-srclink { color: var(--p2-ink-3); word-break: break-all; }
 .p2-fnref { font-size: 11px; line-height: 0; }
@@ -1515,10 +1939,19 @@ def render_page(chapters, bundle):
     nav = ['<nav class="p2-nav" aria-label="The ten chapters"><span class="p2-arch">'
            + emit_plain("The Attention Economy") + "</span>"]
     for chapter in chapters:
+        # A chapter title carries no citation. "(1840s-1917)" is the era's own span in its own
+        # name, and the marks list is empty because nobody linked it to anything.
         nav.append(f'<a href="#ch-{chapter["number"]}">'
                    f'{emit_derived(str(chapter["number"]).rjust(2, "0"), ORDINAL_WHY)}'
-                   f' · {emit(chapter["title"], chapter["ids"], chapter["file"])}</a>')
-    nav.append('<span class="p2-nav-spacer"></span><span id="p2-motion"></span></nav>')
+                   f' · {emit(chapter["title"], (), chapter["file"])}</a>')
+    # THE TWO TOGGLES SIT TOGETHER, IN THE STICKY RAIL, and that placement is the decision.
+    # `access.css` says it in one line: "a reader in text mode gets the toggle back however far
+    # down the page they are, because the way out of a mode has to be as reachable as the way in."
+    # The rail is the only element on this page that is on screen at every scroll position, and a
+    # text-only toggle a reader can only reach by scrolling back to the masthead is a mode with no
+    # exit. Motion had the same requirement and was already solved this way.
+    nav.append('<span class="p2-nav-spacer"></span><span id="p2-text"></span>'
+               '<span id="p2-motion"></span></nav>')
     body.append("".join(nav))
 
     body.append('<div class="p2-wrap"><header class="p2-masthead"><div class="p2-col">')
@@ -1529,15 +1962,22 @@ def render_page(chapters, bundle):
         "Somebody has always had to count the audience before anybody could price it. For most of "
         "this story the counter was not the seller. Then it was. That is the whole argument, and "
         "the ten chapters below are the evidence for it.") + "</p>")
+    # THIS PARAGRAPH USED TO SAY "Every number here is wired to a claim in the frozen record."
+    # It was the page's own promise and it was not true. What was true is that every number had
+    # been matched against the record by value, which is a different thing and a much weaker one.
     body.append('<p class="p2-standfirst">' + emit_plain(
-        "Every number here is wired to a claim in the frozen record. Hover a figure and it names "
-        "the claim it comes from. Nothing on this page was typed in.") + "</p>")
+        "Where a chapter's author linked a number to a claim, the number is underlined here and "
+        "names that claim when you hover it. Where nobody linked it, it is printed plain, and the "
+        "colophon at the foot says how many of each there are. This build will not guess the "
+        "difference: a citation nobody wrote is a citation that cannot be wrong, and that is "
+        "exactly what makes it worthless.") + "</p>")
     body.append('<nav class="p2-toc" aria-label="Contents">')
     for chapter in chapters:
         body.append(f'<a href="#ch-{chapter["number"]}">'
                     f'<span class="p2-toc-n">'
                     f'{emit_derived(str(chapter["number"]).rjust(2, "0"), ORDINAL_WHY)}</span>'
-                    f'<span class="p2-toc-title">{emit(chapter["title"], chapter["ids"], chapter["file"])}</span></a>')
+                    f'<span class="p2-toc-title">'
+                    f'{emit(chapter["title"], (), chapter["file"])}</span></a>')
     body.append("</nav>")
     body.append('<div class="p2-boot" id="p2-boot"><b>' + emit_plain(
         "This page did not finish building itself.") + "</b><pre id=\"p2-boot-msg\"></pre></div>")
@@ -1575,7 +2015,10 @@ def render_page(chapters, bundle):
                         + emit_plain("notes and claim ids") + "</div><ol>")
             for mark, note in notes:
                 anchor = f'{chapter["file"]}-{mark}'
-                body.append(f'<li id="fn-{esc(anchor)}">{render_inline(note, chapter)} '
+                # A note is scoped to itself. Its range and its page numbers belong to the claim it
+                # names, and to no other claim in the chapter.
+                body.append(f'<li id="fn-{esc(anchor)}">'
+                            f'{render_inline(note, chapter, marks_in(note, chapter))} '
                             f'<a href="#fnref-{esc(anchor)}" class="p2-fnref">↩</a></li>')
             body.append("</ol></section>")
         body.append("</div></div></section>")
@@ -1586,18 +2029,24 @@ def render_page(chapters, bundle):
                 + '</div><div id="p2-audit-body" class="p2-col"></div></section></div>')
     body.append('<div class="p2-wrap"><footer class="p2-colophon"><div class="p2-arch">'
                 + emit_plain("colophon") + "</div><dl>")
-    for term, definition in COLOPHON:
-        body.append(f"<dt>{emit_plain(term)}</dt><dd>{emit(definition, (), 'colophon')}</dd>")
+    for term, parts in colophon_entries():
+        body.append(f"<dt>{emit_plain(term)}</dt><dd>{emit_mixed(parts)}</dd>")
     body.append("</dl></footer></div>")
 
     # Era 5 is one of the six frozen files a guard may read, and `era-records.js` takes THAT copy
     # rather than fetching a second one — "two copies of one file in one page is the defect this
     # project has hit at every stage". The payload therefore carries a null in era 5's slot and the
     # runtime puts the registry's own copy back, so the page inlines it once.
+    # THE ALT-SENTENCE RECORD TRAVELS WITH THE PAGE, for the same reason everything else here
+    # does: `access/visuals.js` reads `p2-ad-market/data/visuals.json` over `fetch`, and a page
+    # opened off a disk cannot fetch. `useVisuals(doc)` is the injection door that module already
+    # publishes for exactly this case. Fifty-one authored sentences that only exist on a developer's
+    # filesystem are fifty-one sentences no reader will ever meet.
     frozen_payload = json.dumps({
         "frozen": FROZEN,
         "eraRecords": [None if r is FROZEN["era5"] else r for r in ERA_RECORDS],
         "verdicts": VERDICTS,
+        "visuals": load_json("visuals.json"),
     }, separators=(",", ":"))
 
     css = "\n".join([
@@ -1608,6 +2057,11 @@ def render_page(chapters, bundle):
         (P2 / "door" / "door-bench.css").read_text(),
         (P2 / "toll" / "toll.css").read_text(),
         PAGE_CSS,
+        # LAST, AND THAT IS THE POINT. access.css carries the one rule that turns the whole piece
+        # into text — `[data-alt-source]` off, `.p2-text-block` on — and a rule that decides what a
+        # reader sees must not be sitting where a later stylesheet can quietly outrank it. It
+        # restates no token value and loads after tokens.css, which is the contract in its header.
+        (P2 / "access" / "access.css").read_text(),
     ])
 
     # AN INLINED PAGE IS A PAGE WHERE A STRING CAN CLOSE A TAG.
@@ -1638,25 +2092,136 @@ def render_page(chapters, bundle):
     ])
 
 
-COLOPHON = [
-    ("the record",
-     "Six frozen files, seven era records and the verifier's verdicts, inlined into this page "
-     "whole. Nothing here re-researches and nothing summarises. claims.json carries 506 claims."),
-    ("the numbers",
-     "Every figure in the prose above traces to a claim id or to a named frozen file, and the "
-     "build script refuses to write a page containing one that does not."),
-    ("the instruments",
-     "The seven era machines, the auction bench, the door bench, the seven toll plates and the "
-     "four charts each run their own arithmetic gate against the record before they draw."),
-    ("motion",
-     "Six named verbs and one invented one, each with a complete alternative encoding rather than "
-     "a disabled state. The rocker in the header forces either mode without touching your system "
-     "setting."),
-    ("what this page cannot tell you",
-     "Whether a sentence is true. Every guard here checks a shape or a bounded record. The prose "
-     "lint is a heuristic that knows about one claim and misses ordinary English, and an empty "
-     "result from it has never been a clearance."),
-]
+def emit_mixed(parts, where="colophon"):
+    """A sentence made of plain words and figures this build worked out itself.
+
+    Every string is `emit_plain()`, so a digit that slips into the prose of a colophon entry stops
+    the build; every figure is `emit_derived()`, so it has to arrive with the sentence saying how
+    it was counted. There is no third option here, and in particular no way to write a number into
+    a colophon entry and have the build go looking for a source for it.
+    """
+    out = []
+    for part in parts:
+        out.append(emit_derived(part[0], part[1], where) if isinstance(part, tuple)
+                   else emit_plain(part))
+    return "".join(out)
+
+
+def citation_tally():
+    """The two numbers this page is required to publish about itself, counted off the ledger.
+
+    Only the ten chapters count. The page's own furniture is `emit_derived()` throughout and none
+    of it is a citation, so folding it in would flatter the ratio for no reason.
+    """
+    prose = [row for row in LEDGER if row["where"].endswith(".md")]
+    cited = [row for row in prose if row["cited"]]
+    return {
+        "figures": len(prose),
+        "cited": len(cited),
+        "uncited": len(prose) - len(cited),
+        "dates": sum(1 for row in prose if row["kind"] == "year" and not row["cited"]),
+        "invented": sum(1 for row in prose if row["invented"]),
+        "claims": len({row["cited"]["cite"] for row in cited}),
+        "unmarked_chapters": sorted({row["where"] for row in prose if not row["marked"]}
+                                    - {row["where"] for row in prose if row["marked"]}),
+        # THE WEAKEST CLASS OF CITATION THIS PAGE PRINTS, counted so the colophon can name it.
+        # `claim-value` means the figure re-computes from the claim's own central or an end of its
+        # interval — the number the record measured. `claim-words` means it matched a number that
+        # appears only inside the claim's sentences, which is usually a chapter quoting the
+        # record's working and is occasionally an intermediate term nobody measured.
+        "by_words": sum(1 for row in cited if row["cited"]["class"] == "claim-words"),
+        "by_value": sum(1 for row in cited if row["cited"]["class"] == "claim-value"),
+        "by_year": sum(1 for row in cited if row["cited"]["class"] == "claim-year"),
+    }
+
+
+TALLY_WHY = ("counted off this build's own ledger of every figure it wrote, at the moment it "
+             "wrote them; the two numbers are required to sum to the first")
+CLAIMS_WHY = "the number of entries in claims.json, counted at build time"
+INVENTED_WHY = ("figures inside chapter 7's three fenced worked examples, which the build refuses "
+                "to let carry any provenance at all")
+
+
+def colophon_entries():
+    tally = citation_tally()
+    return [
+        ("the record", [
+            "Six frozen files, seven era records and the verifier's verdicts, inlined into this "
+            "page whole. Nothing here re-researches and nothing summarises. claims.json carries ",
+            (str(RECORD_COUNTS["claims"]), CLAIMS_WHY), " claims."]),
+        ("the numbers, honestly", [
+            "The ten chapters print ", (str(tally["figures"]), TALLY_WHY), " figures. ",
+            (str(tally["cited"]), TALLY_WHY),
+            " of them carry a citation, because the chapter's author linked that number to a claim "
+            "and the number re-computes from it. ", (str(tally["uncited"]), TALLY_WHY),
+            " carry none. An uncited figure here is a known gap, not a hidden one: the build will "
+            "not go looking for a claim that happens to hold the same value, because a citation "
+            "manufactured by coincidence is worse than no citation. It lends a number authority it "
+            "has not earned, in the one place a reader goes to check."]),
+        ("where the gap is", [
+            "Of the ten chapters, ", (str(len(tally["unmarked_chapters"])), TALLY_WHY),
+            " carry no inline claim ids and no footnotes naming claims, so nothing in them can be "
+            "cited. They are chapters ",
+            (", ".join(f.split("-")[0].lstrip("0") for f in tally["unmarked_chapters"]),
+             "the chapters whose ledger rows all came back with an empty marks list, read off "
+             "their filenames"),
+            ". The fix is editorial, not technical — mark the numbers — and until somebody does, "
+            "this line is what that costs."]),
+        ("the weakest citation here", [
+            "Citations here come in three strengths. ", (str(tally["by_value"]), TALLY_WHY),
+            " rest on the number the record actually measured — a claim's central value or an end "
+            "of its interval. ", (str(tally["by_year"]), TALLY_WHY),
+            " are dates, matched only against the years the claim itself places its fact in, "
+            "because a measurement is not a calendar and the two are never compared here. The "
+            "remaining ", (str(tally["by_words"]), TALLY_WHY),
+            " rest on a number that appears inside the claim's own sentences. Most of those are a "
+            "chapter quoting the record's working, which is what a stated method is for. But the "
+            "match is by value to within the precision the prose printed, so a short number can in "
+            "principle reach a working term that was never a measurement. Trust that class less "
+            "than the other two."]),
+        ("the invented examples", [
+            "The auction chapter works the ranking rule three times on advertisers it made up, "
+            "and says so in its own prose. ", (str(tally["invented"]), INVENTED_WHY),
+            " figures sit inside those fences. Every one is printed plain, and a claim id written "
+            "inside a fence stops the build rather than decorating a number that measures "
+            "nothing."]),
+        ("the instruments",
+         ["The seven era machines, the auction bench, the door bench, the seven toll plates and "
+          "the four charts each run their own arithmetic gate against the record before they "
+          "draw."]),
+        ("motion",
+         ["Six named verbs and one invented one, each with a complete alternative encoding rather "
+          "than a disabled state. The rocker in the header forces either mode without touching "
+          "your system setting."]),
+        ("with the drawings off",
+         ["Every drawing here carries an authored sentence in the frozen record. The rocker in the "
+          "rail turns the whole piece into those sentences, each one followed by every reading its "
+          "drawing was showing, and the controls stay exactly where they were. Every drawing is "
+          "also a tab stop, and its arrow keys walk what it says one reading at a time."]),
+        ("what it costs to tab",
+         ["A reader working by keyboard meets about five hundred stops on the way down, and roughly "
+          "four in five of them are footnote and source links inside the prose. Every drawing is "
+          "reachable and each set of controls is one stop rather than many. That is the honest "
+          "shape of it: nothing here is unreachable, and reaching the middle of the piece from the "
+          "top takes a great many presses."]),
+        ("what this page cannot tell you",
+         ["Whether a sentence is true. A citation here proves that the number beside it re-computes "
+          "from the claim its author named. It does not prove the sentence around the number says "
+          "what the claim says. An adversary proved the difference on this build: a sentence "
+          "planted in the opening chapter, saying search moved to a pay-your-own-bid sale in ",
+          ("2019", "the year the planted sentence asserted. It matched mech-first_price-001, whose "
+                   "own statement opens by saying it measures the open-web display exchange and "
+                   "not search"),
+          ", earned a citation on its year. The year re-computed. The sentence was false. Every "
+          "other guard here checks a shape or a bounded record, and the prose lint is a heuristic "
+          "that knows about one claim and misses ordinary English."]),
+        ("the test nobody has run",
+         ["Every finding this piece draws also exists as a sentence, and a reader who never sees a "
+          "drawing can reach all of them. That was checked. What has not been checked is whether "
+          "such a reader arrives at the same conclusions in the same order as a reader who sees "
+          "everything. Reaching the words is a necessary condition. It is not the test, and the "
+          "test is a person."]),
+    ]
 
 
 RUNTIME = r"""
@@ -1691,8 +2256,40 @@ RUNTIME = r"""
     var records = __req('eras/era-records.js').assertSevenEras(
       payload.eraRecords.map(function (record) { return record || guards.getFrozen('era5'); }));
 
+    var visuals = __req('access/visuals.js');
+    var textPath = __req('access/text-path.js');
+    var keyboard = __req('access/keyboard.js');
+
     motion.initMotion();
     motion.installMotionToggle(document.getElementById('p2-motion'));
+
+    /* TEXT MODE IS RESOLVED BEFORE ANYTHING DRAWS, and that is why this line is here rather than
+     * at the foot with the rest of the access layer. `initTextPath()` stamps the resolved mode on
+     * <html>, and the CSS rule that hides the drawings keys off that attribute. Resolved late, a
+     * reader who asked for ?text=on would watch fifty-seven drawings paint and then vanish. It is
+     * the same reason `initMotion()` runs on the line above and not after the components.
+     *
+     * The record is not needed for this. The mode comes from the URL, then the session, then off;
+     * the registry is loaded further down, once there is something to declare. */
+    textPath.initTextPath();
+
+    /* THE FIFTY-ONE AUTHORED SENTENCES, injected the same way the frozen record is. `useVisuals`
+     * refuses an empty registry, so a payload that lost this field stops the page here rather
+     * than letting every drawing through unnamed. */
+    var visualCount = visuals.useVisuals(payload.visuals);
+
+    /* THE RECORD'S OWN KEYS, INDEXED BY WHAT THE COMPONENTS CALL THEMSELVES.
+     * A visual row for a scenario carries that scenario's id; a drawer row carries its organ
+     * field; a toll row carries its era. So the page never spells a mapping of its own — it asks
+     * the record which of its rows belongs to the thing about to be drawn, and `declareVisual`
+     * refuses anything the record does not hold. A hand-written map from `sc-04` to
+     * `auction-sc-04` would be a second copy of an ordering the record already fixes. */
+    var byScenario = {}, byField = {}, byEra = {};
+    visuals.everyVisual().forEach(function (row) {
+      if (row.scenario) byScenario[row.scenario] = row.id;
+      if (row.field) byField[row.field] = row.id;
+      if (row.component === 'toll' && row.era) byEra[String(row.era)] = row.id;
+    });
 
     /* THE LIBRARY'S OWN ALARMS. Each is a claim this page makes; each of these is what makes the
      * claim checkable. */
@@ -1765,7 +2362,18 @@ RUNTIME = r"""
         var rings = pullRing.installPullRings(out.svg, {
           teacher: teacher,
           teaching: era === 1,
-          onPull: function (field) { drawer.show(drawerPlans.get(field)); }
+          /* THE DRAWER IS ONE ELEMENT AND EIGHT VISUALS. It is built once and re-filled from
+           * whichever organ was pulled, so its declaration is re-made on every pull rather than
+           * once at mount — and it is made BEFORE `show`, so the cells that arrive are already
+           * inside a declared region. The text block is written after, when there is something to
+           * read back. `installTextPath`'s assert runs at mount over an empty drawer and would
+           * not catch a pull that arrived undeclared, which is why the declaration is at the one
+           * call site that knows the field. */
+          onPull: function (field) {
+            visuals.declareVisual(drawer.root, byField[field]);
+            drawer.show(drawerPlans.get(field));
+            textPath.renderTextBlock(drawer.root, byField[field]);
+          }
         });
       }(slot, era));
     }
@@ -1799,6 +2407,10 @@ RUNTIME = r"""
             : scenario.n + ' · ' + scenario.short;
           button.addEventListener('click', function () {
             bench.show(scenario.n, channel);
+            /* THE PANEL IS ONE ELEMENT AND TEN VISUALS. Which one it is now is set here, at the
+             * only place that knows, and the declaration follows on the next line. */
+            auctionVisual = byScenario[scenario.id];
+            syncMovingRegions();
             benchButtons.forEach(function (other) {
               other.setAttribute('aria-current', String(other === button));
             });
@@ -1833,6 +2445,8 @@ RUNTIME = r"""
           button.textContent = s.n + ' · ' + s.short;
           button.addEventListener('click', function () {
             door.show(s.n);
+            doorVisual = byScenario[s.id];
+            syncMovingRegions();
             doorButtons.forEach(function (other) {
               other.setAttribute('aria-current', String(other === button));
             });
@@ -1843,6 +2457,145 @@ RUNTIME = r"""
       });
       doorButtons[0].setAttribute('aria-current', 'true');
     }
+
+    /* ==================================================================
+     * THE ACCESS LAYER, MOUNTED ON THE PAGE THAT SHIPS.
+     *
+     * `docs/p2/access/` was built and never called. Every sentence in it, every text block, every
+     * tab stop and the whole text-only path existed in a module nothing on this page required —
+     * which for a reader is the same as not existing. This is the call site.
+     *
+     * THREE THINGS HAPPEN HERE, IN THIS ORDER, AND THE ORDER IS LOAD-BEARING.
+     *
+     *   1. EVERY REGION IS DECLARED. `declareVisual(node, id)` binds a rendered part of the page
+     *      to its row in `p2-ad-market/data/visuals.json` and refuses an id the record does not
+     *      hold. Some regions are fixed for the life of the page — a chart, a machine, a toll
+     *      plate. Three are not: the auction panel is ten visuals in one element, the door bench
+     *      is eleven, and the drawer is eight. Those are re-declared whenever they change, by
+     *      `syncMovingRegions` below.
+     *
+     *   2. THE KEYBOARD LAYER. `installKeyboard` collapses the composite controls to one tab stop
+     *      each and makes every drawing reachable with a reading cursor. It asserts, and an empty
+     *      check is a failed check: a page with no controls throws here rather than reporting
+     *      green.
+     *
+     *   3. THE TEXT PATH. `installTextPath` calls `assertEveryDrawingDeclared` FIRST, so a drawing
+     *      that reached the page outside every declared region stops the build of the page rather
+     *      than reaching a reader with nothing to say in its place. Then it writes a text block
+     *      into every region and keeps each one in step with its drawing across repaints.
+     * ================================================================== */
+
+    var accessRoot = document.body;
+
+    function declare(node, id) {
+      if (node && id) visuals.declareVisual(node, id);
+      return node;
+    }
+
+    /* ---- the regions that do not move ---- */
+    declare(host('rail-board'), 'chart-rail-board');
+    declare(host('value-chart'), 'chart-value-rails');
+    declare(host('gdp-strip'), 'chart-gdp-strip');
+    /* THE BANK AND THE CROSS-SECTION ARE TWO VISUALS IN ONE STAGE, and the record holds them as
+     * two rows with two different findings — one about a medium taking decades to move the share,
+     * one about a year being only as sharp as its widest reading. `small-multiples.render` puts
+     * each view in its own `section.p2-view`, in that order, which is what makes them separable
+     * here without either component or record being asked to change. */
+    var bankViews = document.querySelectorAll('#stage-small-multiples > .p2-view');
+    declare(bankViews[0], 'chart-medium-bank');
+    declare(bankViews[1], 'chart-medium-cross-section');
+    for (var eraN = 1; eraN <= 7; eraN += 1) {
+      declare(host('era-' + eraN), 'era-' + eraN + '-machine');
+    }
+    var plateCards = document.querySelectorAll('#stage-toll-plates .p2-toll-plate[data-era]');
+    [].forEach.call(plateCards, function (card) {
+      declare(card, byEra[card.getAttribute('data-era')]);
+    });
+    /* THE LEGEND IS A VISUAL AND IT WAS FOUND BY THE ASSERT, not by anybody reading the page: five
+     * drawn marks under the plates, carrying the finding that whoever could see the middleman's
+     * cut is itself the clearest thing here. The record has a row for it now. */
+    declare(document.querySelector('#stage-toll-plates .p2-toll-legend'), 'toll-visibility-legend');
+
+    /* ---- the three regions that move under the reader ---- */
+    var auctionVisual = byScenario[auctionScenarios.SCENARIOS[0].id];
+    var doorVisual = byScenario[doorScenarios.STOPS[0].id];
+    var textMounted = false;
+
+    function reDeclare(node, id) {
+      if (!node || !id) return false;
+      if (node.getAttribute(visuals.VISUAL_ATTR) === id) return false;
+      visuals.declareVisual(node, id);
+      /* The block is written HERE and not left to the text path's own observer. That observer
+       * decides which region a mutation belongs to at the moment the mutation arrives, and a
+       * `.ab-band` that is not yet declared belongs to the panel around it — so the band's
+       * readings would land under the panel's finding, which is a different claim about the same
+       * numbers. Declaring and writing together closes the window. */
+      if (textMounted) textPath.renderTextBlock(node, id);
+      return true;
+    }
+
+    function unDeclare(node) {
+      if (!node || !node.hasAttribute(visuals.VISUAL_ATTR)) return false;
+      node.removeAttribute(visuals.VISUAL_ATTR);
+      var stale = node.querySelector(':scope > .p2-text-block');
+      if (stale) stale.remove();
+      return true;
+    }
+
+    function syncMovingRegions() {
+      var moved = false;
+      moved = reDeclare(document.querySelector('#stage-auction-bench section.ab'), auctionVisual) || moved;
+      /* THE BAND IS ITS OWN VISUAL, drawn inside the panel, and the readout zone is cleared on
+       * every paint — so this element is a NEW element after every control the reader touches,
+       * carrying none of the attributes the last one had. */
+      moved = reDeclare(document.querySelector('#stage-auction-bench .ab-band'), 'auction-band') || moved;
+      moved = reDeclare(document.querySelector('#stage-door-bench section.db'), doorVisual) || moved;
+      /* THE DRUM IS NOT ON EVERY STOP. Seven of the eleven stops have no wheel at all, and a
+       * region declared over an empty host would print the drum's finding under a box saying
+       * there is nothing to read — an absence that is not a fact about the record but about which
+       * stop the reader is standing on. So the declaration follows the drawing. */
+      var wheelHost = document.querySelector('#stage-door-bench .db-wheel-host');
+      if (wheelHost && wheelHost.querySelector('[data-alt-source]')) {
+        moved = reDeclare(wheelHost, 'door-wheel') || moved;
+      } else {
+        moved = unDeclare(wheelHost) || moved;
+      }
+      return moved;
+    }
+
+    syncMovingRegions();
+
+    /* THE MOVING REGIONS ARE RE-DECLARED ON EVERY REPAINT, and this observer is registered BEFORE
+     * the text path's own. Both schedule their work with `setTimeout(0)` on the same delivery, and
+     * MutationObserver callbacks run in registration order — so the declaration is always in place
+     * before the block that depends on it is rebuilt. It watches the two bench stages and nothing
+     * else: the page has fifty-seven drawings and a body-wide subtree watch would wake on every
+     * one of them to check four elements. */
+    var regionQueued = false;
+    if (typeof MutationObserver === 'function') {
+      var regionWatch = new MutationObserver(function () {
+        if (regionQueued) return;
+        regionQueued = true;
+        setTimeout(function () {
+          try { syncMovingRegions(); } finally { regionQueued = false; }
+        }, 0);
+      });
+      ['auction-bench', 'door-bench'].forEach(function (name) {
+        if (host(name)) regionWatch.observe(host(name), { childList: true, subtree: true });
+      });
+    }
+
+    /* ---- the toggle, the keyboard, the text path ---- */
+    textPath.installTextToggle(document.getElementById('p2-text'), { label: 'Drawings' });
+    var keys = keyboard.installKeyboard(accessRoot);
+    var text = textPath.installTextPath(accessRoot);
+    textMounted = true;
+
+    /* ---- the drawer keeps focus, and gives it back ---- */
+    var drawerFocus = keyboard.installDialogFocus(drawer.root);
+
+    var kbAudit = keyboard.auditKeyboard(accessRoot);
+    var textAudit = textPath.auditTextPath(accessRoot);
 
     /* ------------------------------------------------------------------
      * THE PAGE CHECKS ITSELF.
@@ -1944,17 +2697,66 @@ RUNTIME = r"""
       + 'than stored, and each prints its own derivation beside itself.');
     auditLine('The door bench re-derives every figure before it touches the page, on every paint, '
       + 'and refuses to draw if one fails.');
-    auditLine('The prose lint read ' + audit.strings + ' strings on this page and returned '
-      + audit.lint + ' finding(s). AN EMPTY RESULT IS NOT A CLEARANCE. It is a regex over '
-      + 'English, it knows about one claim — the 2019 auction change — and it verifiably misses '
-      + 'ordinary sentences. Its own written limits: '
+    /* THE CLEARANCE SENTENCE.
+     *
+     * This line used to lead with the count — "read N strings and returned 0 findings" — and then
+     * take it back. A reader who stops at the first clause has been told the page is clean, and
+     * the first clause is where most readers stop. `guards.js` is explicit that an empty result
+     * has never been a clearance, so the count is now the last thing said and not the first, and
+     * what the lint checked and what it cannot are both said in plain words before it. */
+    auditLine('WHAT THE PROSE LINT CHECKED. It read the masthead, the ten chapters with their '
+      + 'instruments and text blocks, and the colophon — ' + audit.strings + ' strings — and '
+      + 'matched each one against the patterns for a single claim: that search moved to a '
+      + 'pay-your-own-bid sale in 2019. Search did not. Display did, and the two are not the '
+      + 'same market.');
+    auditLine('WHAT IT CANNOT DO, and this is the larger half. It looks for that one claim and no '
+      + 'other, so every other sentence on this page passed it by not being about that. It reads '
+      + 'no figure and compares nothing against the record. It cannot tell whether a sentence is '
+      + 'true. And it misses plain statements of the very claim it hunts: two are written into its '
+      + 'own limits below and it returns nothing for either.');
+    auditLine('So the count is a fact about the patterns, not about the page: ' + audit.lint
+      + ' finding(s). What actually holds the claim is bounded and ran before a panel was drawn — '
+      + 'assertSimulatorMechanismScopes() over the frozen scenarios, and assertMechanism2019() '
+      + 'over mechanism.json. The lint\'s own written limits: '
       + guards.DEAD_MECHANISM_LINT_LIMITS.join(' '));
     auditLine('One thing about that count, so nobody has to work it out twice: the paragraph above '
       + 'quotes the lint\'s own written limits, and those limits contain the false sentences as '
       + 'examples. Run the lint again over the finished page and it finds them, in its own '
       + 'documentation. That is the known false-positive class — a sentence that names the false '
       + 'claim in order to correct it — and this whole piece is built out of them.');
+
+    /* ---- what the access layer is worth on this page, measured on this page ---- */
+    audit.visualsDeclared = textAudit.onThisPage;
+    audit.visualsInRecord = textAudit.inTheRecord;
+    audit.readings = textAudit.readings;
+    audit.silentRegions = textAudit.silent.length;
+    audit.drawings = kbAudit.drawings;
+    audit.drawingsReachable = kbAudit.drawingsReachable;
+    audit.cursors = kbAudit.cursors;
+    audit.tabStops = kbAudit.tabStops;
+    audit.rovingGroups = kbAudit.rovingGroups;
+
+    auditLine(textAudit.onThisPage + ' of the record\'s ' + textAudit.inTheRecord + ' authored '
+      + 'visuals are declared on the page as it stands, each carrying a plain-English sentence '
+      + 'from p2-ad-market/data/visuals.json and ' + textAudit.readings + ' readings pulled off '
+      + 'the drawings\' own accessible names. The rest are the other scenarios, the other stops '
+      + 'and the eight drawers: they are declared when the reader opens them. '
+      + textAudit.silent.length + ' region(s) came back with nothing to read.');
+    auditLine('Turn the drawings off with the rocker in the rail above, or with ?text=on in the '
+      + 'address bar, and every drawing on this page is replaced by its sentence and by every '
+      + 'reading it was showing. The controls stay: the cranks, the rings, the sliders, the rail '
+      + 'and the drum are all still there and still work, because an instrument reduced to a '
+      + 'paragraph is a demonstration.');
+    auditLine(kbAudit.drawings + ' drawings, ' + kbAudit.drawingsReachable + ' of them reachable '
+      + 'by keyboard with a cursor that walks what each one says, one reading at a time. '
+      + kbAudit.rovingGroups + ' composite controls — the cranks, the organ plates, the pull '
+      + 'rings, the rockers and the two scenario rails — are one tab stop each instead of one per '
+      + 'button. ' + kbAudit.tabStops + ' tab stops in all.');
+
     window.P2_AUDIT = audit;
+    window.P2_ACCESS = { keys: keys, text: text, keyboard: kbAudit, textPath: textAudit,
+                         drawerFocus: drawerFocus, map: keyboard.KEYBOARD_MAP,
+                         visuals: visualCount };
 
     /* ---- the chapter rail ---- */
     var links = [].slice.call(document.querySelectorAll('.p2-nav a'));
@@ -1983,10 +2785,16 @@ RUNTIME = r"""
 # ============================================================================
 # PART 10 · READING THE BUILT PAGE BACK
 #
-# The check that makes the other three worth anything. Every figure in the built page's own text is
-# matched against the ledger `emit()` kept. A number that reached the page by any other route —
-# a template this script writes, a string somebody adds later, a heading typed straight into the
-# HTML — is found here and stops the build.
+# The check that makes the rest worth anything. Every figure in the built page's own text has to be
+# inside a span `emit()` wrote. A number that reached the page by any other route — a template this
+# script writes, a string somebody adds later, a heading typed straight into the HTML — is found
+# here and stops the build.
+#
+# THIS IS WHY AN UNCITED FIGURE IS STILL WRAPPED IN A SPAN. The span carries no attribute, shows no
+# tooltip and draws no underline: to a reader it is the number in plain type. To this function it
+# is the receipt proving the number went through the one door. Take the wrapper away and every
+# uncited figure on the page reads as a leak, and the leak check has to be turned off — which is
+# how a check stops protecting anything.
 # ============================================================================
 
 # The rendered forms of the same non-quantity constructs PART 2 already names in markdown. A
@@ -2006,14 +2814,65 @@ PAGE_STRIP_FIRINGS = {name: 0 for name, _, _ in PAGE_STRIP}
 TAG_RE = re.compile(r"<[^>]+>")
 SCRIPT_RE = re.compile(r"<script\b[^>]*>[\s\S]*?</script>", re.I)
 STYLE_RE = re.compile(r"<style\b[^>]*>[\s\S]*?</style>", re.I)
-TRACED_SPAN = re.compile(
-    r'<span class="p2-fig[^"]*"(?: data-(?:claim|record|census|derived)="[^"]*")?[^>]*>'
-    r'([^<]*)</span>')
+# EVERY FIGURE SPAN IS READ AND CLASSIFIED, and an unrecognised shape stops the build.
+#
+# The obvious version of this is three literal patterns, one per shape. It is also the version that
+# quietly ignores a fourth shape the day somebody adds one, and a figure the page audit cannot see
+# is a figure nothing checks. So one pattern matches ANY figure span and `classify_span()` decides
+# what it is — cited, derived, or plain — and refuses anything else by name.
+FIG_SPAN = re.compile(
+    r'<span class="(p2-fig[^"]*)"((?:\s+[a-z-]+="[^"]*")*)\s*>([^<]*)</span>')
+FIG_ATTR = re.compile(r'\s+([a-z-]+)="([^"]*)"')
+FIG_CLASSES = {"p2-fig", "p2-num", "p2-cited", "p2-derived"}
+# `data-record` and `data-census` were the two attributes that put a file name and a row count
+# where a citation belongs. The way to keep them gone is not to remember: it is to name them.
+BANNED_PROVENANCE = re.compile(r'<span class="p2-fig[^"]*"[^>]*\sdata-(record|census)=')
+
+
+def classify_span(klass, attrs):
+    """cited / derived / plain, or a refusal naming the shape nobody declared."""
+    unknown = set(klass.split()) - FIG_CLASSES
+    if unknown:
+        die("PART 10", f"a figure span carries an undeclared class: {sorted(unknown)}",
+            "add it to FIG_CLASSES and say in the CSS what it means, or take it off")
+    names = {name for name, _value in FIG_ATTR.findall(attrs)}
+    provenance = {name for name in names if name.startswith("data-")}
+
+    # THE ATTRIBUTE IS WHAT THIS FUNCTION READS. THE CLASS IS WHAT THE READER SEES. Until this
+    # check existed the two could part company without a word: the stylesheet draws the underline
+    # from `p2-cited`, so a renderer that kept `data-claim` and dropped the class would build green
+    # while every citation on the page quietly stopped being visible. A mutation proved it — that
+    # one went through where seven others were caught. The mark and the meaning now travel together
+    # or the build stops.
+    worn = set(klass.split())
+    for attribute, marker in (("data-claim", "p2-cited"), ("data-derived", "p2-derived")):
+        if (attribute in provenance) != (marker in worn):
+            die("PART 10",
+                f"a figure span carries {attribute if attribute in provenance else marker} "
+                f"without {marker if attribute in provenance else attribute}",
+                f"`{attribute}` is how this build knows where a number came from and `{marker}` is "
+                f"how the reader sees it. One without the other is provenance nobody can see, or a "
+                f"mark standing over nothing")
+
+    if provenance == {"data-claim"}:
+        return "cited"
+    if provenance == {"data-derived"}:
+        return "derived"
+    if not provenance:
+        return "uncited"
+    die("PART 10", f"a figure span carries the provenance combination {sorted(provenance)}",
+        "a figure cites one claim, or states one derivation, or claims nothing. Two at once is a "
+        "figure saying two different things about where it came from")
 
 
 def audit_built_page(page):
     """Read the page back and prove no number reached it except through emit()."""
     prose = SCRIPT_RE.sub(" ", STYLE_RE.sub(" ", page))
+    banned = BANNED_PROVENANCE.search(prose)
+    if banned:
+        die("PART 10", f"a figure on the built page carries data-{banned.group(1)}",
+            "a file name and a count of the record are not citations; cite the claim the author "
+            "linked, or cite nothing")
     for name, pattern, _why in PAGE_STRIP:
         prose, hits = pattern.subn(" ", prose)
         PAGE_STRIP_FIRINGS[name] += hits
@@ -2023,9 +2882,29 @@ def audit_built_page(page):
             f"PART 10: these rendered-form rules matched nothing on the built page: {dead}.\n"
             "    fix: a rule that fires zero times is not protecting anything and will absorb a "
             "real figure the day the renderer changes shape.")
-    traced = [html.unescape(m.group(1)) for m in TRACED_SPAN.finditer(prose)]
-    untraced_html = TRACED_SPAN.sub(" ", prose)
-    text = html.unescape(TAG_RE.sub(" ", untraced_html))
+    counts = {"cited": 0, "uncited": 0, "derived": 0}
+    for match in FIG_SPAN.finditer(prose):
+        counts[classify_span(match.group(1), match.group(2))] += 1
+    # THE PAGE AND THE LEDGER HAVE TO AGREE, FIGURE FOR FIGURE.
+    # Everything above proves a figure went through `emit()`. This proves it came out the other
+    # side wearing what `emit()` recorded. Without it, a renderer that put `data-claim` on a
+    # derived figure — or dropped one off a cited figure — would change what a reader is told and
+    # leave every count in the report unchanged, because the report reads the ledger and the
+    # reader reads the page. Two sources of truth for the same number is the defect this project
+    # has hit at every stage; here they are made to reconcile.
+    ledger = {
+        "cited": sum(1 for row in LEDGER if row["cited"]),
+        "derived": sum(1 for row in LEDGER if row["kind"] == "derived"),
+    }
+    ledger["uncited"] = len(LEDGER) - ledger["cited"] - ledger["derived"]
+    disagree = {k: (counts[k], ledger[k]) for k in ledger if counts[k] != ledger[k]}
+    if disagree:
+        die("PART 10",
+            f"the built page and the build's own ledger disagree about what it wrote: "
+            f"{ {k: {'on the page': a, 'in the ledger': b} for k, (a, b) in disagree.items()} }",
+            "emit() recorded one thing and rendered another. The report reads the ledger and the "
+            "reader reads the page, so a gap here is a page saying something the report denies")
+    text = html.unescape(TAG_RE.sub(" ", FIG_SPAN.sub(" ", prose)))
     leaked = scan_figures(text)
     if leaked:
         sample = ", ".join(sorted({f["token"] for f in leaked})[:12])
@@ -2033,7 +2912,8 @@ def audit_built_page(page):
             f"{len(leaked)} figure(s) reached the built page without going through emit(): {sample}",
             "every reader-facing string must be routed through emit(); a number that is not is a "
             "number nothing traced")
-    return len(traced), len(leaked)
+    counts["leaked"] = len(leaked)
+    return counts
 
 
 # ============================================================================
@@ -2044,40 +2924,50 @@ def main():
     chapters = [read_chapter(name) for name in CHAPTER_FILES]
     for chapter in chapters:
         chapter["_named"] = set(CLAIM_ID_RE.findall(chapter["body"]))
-        chapter["_figures"] = scan_figures(chapter["body"])
-        chapter["_years"] = {int(y) for y in YEAR_RE.findall(chapter["body"])}
+        # THE FRONTMATTER CHECK DOES NOT GET TO COUNT INVENTED NUMBERS.
+        # `chapter_uses()` decides a frontmatter id is live if some figure in the chapter matches
+        # it by value, and chapter 7's made-up advertisers produce figures that match stored
+        # auction steps exactly. Letting those keep an id alive would mean a citation kept in the
+        # header by a number the chapter itself calls fiction.
+        real = "\n".join(line for index, line in enumerate(chapter["body"].splitlines())
+                         if index not in chapter["_invented"])
+        chapter["_figures"] = scan_figures(real)
+        chapter["_years"] = {int(y) for y in YEAR_RE.findall(real)}
 
     global PROBE_CHAPTER
     PROBE_CHAPTER = chapters[0]
 
-    cited = sum(check_chapter_citations(chapter) for chapter in chapters)
+    declared = sum(check_chapter_citations(chapter) for chapter in chapters)
+    for chapter in chapters:
+        check_compiler_count(chapter)
     assert_rules_fired()
 
     bundle, order = build_bundle()
     tests = self_tests(bundle, order)
 
     page = render_page(chapters, bundle)
-
-    if UNRESOLVED:
-        lines = "\n".join(
-            f"    {entry['where']}: {entry['token']!r}" for entry in UNRESOLVED[:25])
-        die("PART 3",
-            f"{len(UNRESOLVED)} figure(s) on the page resolve to nothing in the frozen record:\n"
-            + lines,
-            "each one is either a number the record does not carry, a number this build cannot "
-            "yet re-compute from the record, or a form that is not a quantity at all. Nothing "
-            "gets written until every one of them is named")
-
-    traced, leaked = audit_built_page(page)
+    counts = audit_built_page(page)
     OUT.write_text(page)
 
     # ---- the report ----
-    counts = {}
-    for entry in LEDGER:
-        klass = entry["resolved"]["class"] if entry["resolved"] else "UNRESOLVED"
-        counts[klass] = counts.get(klass, 0) + 1
-    claim_ids_used = {entry["resolved"]["cite"] for entry in LEDGER
-                      if entry["resolved"] and entry["resolved"]["class"].startswith("claim")}
+    prose = [row for row in LEDGER if row["where"].endswith(".md")]
+    by_chapter = {}
+    for row in prose:
+        seen = by_chapter.setdefault(row["where"], {"figures": 0, "cited": 0, "marked": 0,
+                                                    "invented": 0})
+        seen["figures"] += 1
+        seen["cited"] += 1 if row["cited"] else 0
+        seen["marked"] += 1 if row["marked"] else 0
+        seen["invented"] += 1 if row["invented"] else 0
+    tally = citation_tally()
+    # NAMED, NOT SUBTRACTED. `by_words` used to be `cited - by_value`, so the day a third class
+    # of citation appeared it was silently reported as the second. The classes are counted by name
+    # and the total is asserted, which is the same rule the colophon's own two numbers obey.
+    by_value, by_words, by_year = (tally["by_value"], tally["by_words"], tally["by_year"])
+    if by_value + by_words + by_year != tally["cited"]:
+        die("PART 11", "the citation classes do not sum to the number of cited figures",
+            "a class was added without being counted here; name it rather than subtracting")
+    marks_used = {row["cited"]["cite"] for row in prose if row["cited"]}
 
     print(f"wrote {OUT.relative_to(ROOT)} ({len(page) // 1024} KB)")
     print()
@@ -2087,33 +2977,51 @@ def main():
         print(f"    {str(chapter['number']).rjust(2, '0')} {chapter['title']:<26} {placed}")
     print(f"    era-1 teaching gate kept on later machines: {ERA_GATE_KEPT}")
     print()
-    print("  THE NUMBER GATE")
-    print(f"    figures the page renders            {len(LEDGER)}")
-    print(f"    └ traced to a claim id             "
-          f"{counts.get('claim-value', 0) + counts.get('claim-words', 0)}"
-          f"  ({counts.get('claim-value', 0)} to a claim's own central or interval, "
-          f"{counts.get('claim-words', 0)} to a figure inside its statement or method)")
-    print(f"    └ traced to another frozen file    {counts.get('record', 0)}")
-    print(f"    └ a count of the record, re-derived {counts.get('census', 0)}")
-    print(f"    └ derived by this build, derivation printed beside it {counts.get('derived', 0)}")
-    print(f"    └ dates inside the record's range  {counts.get('year', 0)}")
-    print(f"    └ resolving to nothing             {counts.get('UNRESOLVED', 0)}")
-    print(f"    distinct claim ids quoted on the page {len(claim_ids_used)} "
-          f"of {len(CLAIMS)} in the record")
-    print(f"    frontmatter claim ids checked         {cited} across {len(chapters)} chapters, "
-          f"0 unknown, 0 rejected, 0 unused by their own prose")
-    print(f"    figures carrying their trace in the HTML {traced}")
-    print(f"    figures that reached the page any other way {leaked}")
+    print("  CITATION BY AUTHORSHIP — what the ten chapters actually earned")
+    print(f"    figures in the chapters                    {tally['figures']}")
+    print(f"    └ CITED: author linked it and it checks    {tally['cited']}"
+          f"  ({by_value} to a claim's own central or interval, "
+          f"{by_words} to a figure inside its statement or method, "
+          f"{by_year} a date the claim places its fact in)")
+    print(f"    └ UNCITED: nobody linked it                {tally['uncited']}"
+          f"  (of which {tally['dates']} are dates)")
+    print(f"    └ inside a fenced invented example         {tally['invented']}"
+          f"  (provenance refused, not merely absent)")
+    print(f"    distinct claims actually cited on the page {len(marks_used)} of "
+          f"{len(CLAIMS)} in the record")
+    print(f"    frontmatter ids declared                   {declared} across {len(chapters)} "
+          f"chapters, 0 unknown, 0 rejected, 0 undeclared marks")
+    print()
+    print("  THE GAP, BY CHAPTER (a chapter with no marks can cite nothing)")
+    for chapter in chapters:
+        seen = by_chapter.get(chapter["file"], {"figures": 0, "cited": 0, "marked": 0,
+                                                "invented": 0})
+        share = (100 * seen["cited"] // seen["figures"]) if seen["figures"] else 0
+        note = "  no marks in this chapter" if seen["marked"] == 0 else ""
+        print(f"    {chapter['file']:<28} {seen['cited']:>4} of {seen['figures']:>4} cited "
+              f"({share:>3}%){note}")
+    print()
+    print("  THE PAGE, READ BACK")
+    print(f"    figures carrying data-claim                {counts['cited']}")
+    print(f"    figures carrying no provenance at all      {counts['uncited']}")
+    print(f"    figures this build derived, derivation printed beside them {counts['derived']}")
+    print(f"    figures that reached the page any other way {counts['leaked']}")
+    print(f"    figures carrying data-record or data-census 0  (the attribute is now refused)")
     print()
     print("  NON-QUANTITY FORMS REFUSED THE SCANNER (each must fire, or the build stops)")
     for name, _pattern, why in NON_QUANTITY:
         print(f"    {name:<14} {RULE_FIRINGS[name]:>5}   {why}")
     print()
+    print("  THE RECORD, COUNTED")
+    print(f"    {RECORD_COUNTS['series']} rails · {RECORD_COUNTS['compilers']} compilers · "
+          f"{RECORD_COUNTS['constructed']} constructed by us · "
+          f"{RECORD_COUNTS['points']} spend points · {RECORD_COUNTS['claims']} claims")
+    print()
     print("  THE BUNDLE")
     print(f"    modules inlined {len(order)} · live bindings preserved "
           f"{sorted(LIVE_BINDINGS)}")
     print()
-    print("  SELF-TESTS (every refusal handed the thing it forbids)")
+    print("  SELF-TESTS (a refusal handed the thing it forbids; a proof made to run its branch)")
     for name, verdict, detail in tests:
         print(f"    {verdict:<8} {name}")
         if VERBOSE and detail:

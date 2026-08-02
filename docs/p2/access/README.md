@@ -282,6 +282,8 @@ time a key moves.
 | **every auction and door control** | Tab lands on the rocker or the slider | a range is native: ← → step, Home / End jump, PgUp / PgDn take a larger step. A rocker roves | B4 and B5; B8 made each rocker one stop |
 | **THE BAND** | Tab lands on the track | ← → walk its readings one at a time — the floor, every named stop, the marker and its mode — into a live region. Home / End go to the ends | B4 drew it; B8 made it reachable and gave it a cursor |
 | **THE DOOR DRUM** | Tab lands on the drum. `role="slider"`, and `aria-valuetext` is the whole state sentence including whose hand moved it last | ← → ↑ ↓ PgUp PgDn move one notch, Home / End go to the ends | **B5 built all of it.** B8 verified the percept survives and added nothing |
+| **the scenario rail**, on both benches | Tab lands on the scenario in view, not on the first of eleven | ← → move along the rail, Home / End its ends, Enter / Space shows the one under focus | B7 built the rails; B8 made each rail one stop. Twenty-two stops became two |
+| **THE CROSS-ERA DRAWER** | a pull ring opens it and focus moves to its close button | Tab and Shift-Tab stay inside while it is open. **Escape** closes it, and focus returns to the ring that opened it | B3 built the drawer, the Escape and the opening move; B8 added the trap and the return |
 | **every other drawing** | Tab lands on the drawing | ← → walk what it says, Home / End its ends, Escape gives it back its own sentence | B8 |
 | the text and motion toggles | Tab lands on the rocker | ← → move, Enter / Space chooses | B8 and B1 |
 
@@ -332,6 +334,7 @@ record, and throws. **ADVICE** finds some of what is wrong and never claims to f
 | **An empty keyboard check is a failed check** `assertKeyboardOperable` · `installKeyboard` | **GUARANTEE** | Covered: a page with no controls satisfies every clause by having nothing to satisfy them, so the result carries `vacuous` with a reason and `installKeyboard` throws on it. Pass `{ assert: false }` if the page really is prose. |
 | **A drawing that is a control is never hidden** `access.css` | **GUARANTEE OF THE RULE** | Covered: text mode hides `[data-alt-source]` **except** `[role="slider"]` and `[role="button"]`. **This is a repair.** The door drum is stamped like every other drawing and it is also the only control for the revenue share — there is no slider anywhere else on that bench, by B5's design. Hiding every drawing took the instrument away and left a paragraph about a negotiation the reader could no longer take part in. A permanent bench row asserts the drum stays and an informational plate goes. Not covered: a control drawing that declares neither role. |
 | **The reading cursor changes nothing** `installReadingCursor` | **GUARANTEE** | Covered: it moves an index through strings the drawing already says and writes them to a live region. It sets no value, fires no verb and has nothing of its own to say. A bench row fires six keys and asserts the drawing's markup is unchanged. A drawing that is already a control — the drum — is skipped, so its Arrow, Home and End stay the wheel's. Not covered: the live region is one per document; two cursors used at once would overwrite each other, which cannot happen from a keyboard. |
+| **An overlay that takes focus gives it back** `installDialogFocus` | **GUARANTEE, WITH TWO STATED LIMITS** | Covered: while the dialog is open, Tab and Shift-Tab wrap inside it. When it hides, focus returns to the last element focused outside it. Open and closed are read off the element's own `hidden`, so no second copy of that state can drift. The trap is what makes `aria-modal` true, so installing it sets the attribute. Not covered: a dialog that closes by being **removed** rather than hidden — nothing observes removal. And focus the reader moved on purpose is never taken back, so a reader who tabbed out before the close keeps where they went. |
 | **`auditTextPath` · `auditKeyboard`** | **ADVICE** | They report and never throw. They can say which visuals a page carries, whether they are in the record's order, which regions came back silent, how many stops each visual costs and in what order. **They cannot say whether the argument survives**, which is a question about a reader, and `BUILD-PLAN.md` puts that on a person. |
 
 ---
@@ -433,10 +436,35 @@ B8.
 
 # Still open for the teams behind B8
 
-- **The whole-piece text path is not assembled here.** This folder owns the mechanism and proves it
-  over four real instruments. `docs/p2/index.html` is B7's, and the three calls it needs are in
-  **Mounting it** above. Until it makes them, the text path exists and the shipped page does not
-  carry it.
+- ~~**The whole-piece text path is not assembled here.**~~ **CLOSED, 2026-08-01.** It was true, and
+  it was the whole cost of this folder. Every sentence, block and tab stop sat in a module
+  `docs/p2/index.html` never required. For a reader that is the same as not existing.
+  `tools/build_p2.py` makes the calls now. It inlines `visuals.json` beside the frozen record,
+  because a page opened off a disk cannot `fetch`. It inlines `access.css` last.
+
+  Measured on the built page: **23 declared regions, 23 text blocks, 1,329 readings, 0 of them
+  silent; 59 of 59 drawings reachable by keyboard with a reading cursor; 513 tab stops, down from
+  620.** The other 28 visuals are scenarios, stops and drawers nobody has opened yet. Each is
+  declared at the moment it is.
+
+  Four things the mount needed that the demo did not. Each was a real hole.
+
+  **(a) Two drawings the access layer could not see.** `rail-board.js` and `value-chart.js` mint
+  their own `<svg>` root rather than calling `svgRoot`. Both carried `role="img"` and no
+  `data-alt-source`, and all three modules here select on that stamp. Two attributes closed it.
+  Without them the overlapping rails and the rail board's stipple did not exist with images off.
+
+  **(b) A stale text block.** `renderTextBlock` found the block it was replacing by
+  `[data-for="${id}"]`. That holds only while a region is one visual for life. The auction panel is
+  ten, the door bench eleven, the drawer eight. Choosing a new scenario left the old block sitting
+  above the new one. It clears every block the region holds now.
+
+  **(c) The two scenario rails.** Twenty-two tab stops, every one a one-of-many choice, and not in
+  `ROVING_GROUPS`. They mark the chosen button with `aria-current`, which `activeIndex` reads now.
+  `ROVING_GROUP_SELECTOR` is derived from the list, so the two checks that need it cannot go one
+  group short again.
+
+  **(d) The drawer took focus and did not give it back.** See `installDialogFocus`.
 
 - **`BUILD-PLAN.md`'s gate is a person, and it has not been run.** *The whole argument survives with
   images off and a keyboard only.* Everything above is the mechanism built to meet it. Whether a

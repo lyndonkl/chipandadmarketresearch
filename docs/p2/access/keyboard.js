@@ -111,6 +111,25 @@ export const KEYBOARD_MAP = Object.freeze([
            'added nothing',
   }),
   Object.freeze({
+    control: 'the scenario rail, on the auction bench and on the door bench',
+    where: '../auction/bench.js and ../door/bench.js · .ab-rail button, .db-rail button',
+    reach: 'Tab lands on the scenario in view, not on the first of eleven',
+    operate: 'Left and Right move along the rail, Home and End jump to its ends, Enter or ' +
+             'Space shows the scenario under focus',
+    owner: 'B7 built the rails; B8 made each one a single tab stop when the layer was mounted ' +
+           'on the page. Twenty-two stops became two',
+  }),
+  Object.freeze({
+    control: 'THE CROSS-ERA DRAWER',
+    where: '../eras/pull-ring.js · .p2-drawer',
+    reach: 'a pull ring opens it, and focus moves to its close button',
+    operate: 'Tab and Shift-Tab stay inside it while it is open, because it covers the page ' +
+             'and focus underneath is focus the reader cannot see. Escape closes it, and focus ' +
+             'goes back to the ring that opened it rather than to the top of the document',
+    owner: 'B3 built the drawer, the Escape and the opening focus move; B8 added the trap and ' +
+           'the return',
+  }),
+  Object.freeze({
     control: 'every drawing that is not itself a control',
     where: 'anything stamped data-alt-source',
     reach: 'Tab lands on the drawing',
@@ -147,7 +166,27 @@ export const ROVING_GROUPS = Object.freeze([
   Object.freeze({ group: '.p2-rocker', items: 'button' }),
   Object.freeze({ group: 'svg', items: 'g.p2-era-plate' }),
   Object.freeze({ group: 'svg', items: 'g.p2-ring' }),
+  /* THE TWO SCENARIO RAILS, added when this layer was mounted on the shipped
+   * page rather than on the demo. The auction rail is eleven buttons and the
+   * door rail is eleven more: twenty-two stops a reader has to walk past to
+   * reach the instrument those buttons drive, and every one of them is a
+   * one-of-many choice, which is the shape this whole section is for. They mark
+   * the chosen one with `aria-current`, which is why `activeIndex` reads it. */
+  Object.freeze({ group: '.ab-rail', items: 'button' }),
+  Object.freeze({ group: '.db-rail', items: 'button' }),
 ]);
+
+/**
+ * The one selector that says "this element is inside something that roves".
+ *
+ * DERIVED from `ROVING_GROUPS` and not written out again. Two checks below need
+ * it, and both used to carry their own hand-written copy — `.p2-rocker, svg` —
+ * which was already one group short of the list the day it was written. A
+ * roving member whose group is not in that copy is reported as a control no
+ * keyboard can reach, and `installKeyboard` throws on it: the page would refuse
+ * to finish loading because a fix was working.
+ */
+export const ROVING_GROUP_SELECTOR = [...new Set(ROVING_GROUPS.map((g) => g.group))].join(',');
 
 function isHidden(el) {
   if (el.closest('[hidden]')) return true;
@@ -210,9 +249,15 @@ export function accessibleName(el) {
 const NEXT_KEYS = new Set(['ArrowRight', 'ArrowDown']);
 const PREV_KEYS = new Set(['ArrowLeft', 'ArrowUp']);
 
+/* `aria-current` is in this list because the two scenario rails mark their
+ * chosen button with it and with nothing else. Without it the tab stop of an
+ * eleven-button rail sits on button one forever, so a reader who chose scenario
+ * seven, tabbed away and came back would land at the start and have to walk the
+ * rail again to find where they were. */
 function activeIndex(items) {
   const pressed = items.findIndex((n) => n.getAttribute('aria-pressed') === 'true'
     || n.getAttribute('aria-selected') === 'true'
+    || n.getAttribute('aria-current') === 'true'
     || n.getAttribute('data-selected') === 'true');
   return pressed >= 0 ? pressed : 0;
 }
@@ -340,7 +385,14 @@ export function installReadingCursor(svg) {
     else if (PREV_KEYS.has(event.key)) to = at - 1;
     else if (event.key === 'Home') to = 0;
     else if (event.key === 'End') to = readings.length - 1;
-    else if (event.key === 'Escape') { at = -1; speak(); return; }
+    /* Escape leaves the reading cursor, and ONLY if a reading cursor was ever started. This used
+     * to return unconditionally, so inside the cross-era drawer a reader whose focus sat on one of
+     * the seven drawings pressed Escape, had it eaten by a cursor that had never begun, and had to
+     * press it again to close the drawer. Every other control closed on one press. */
+    else if (event.key === 'Escape') {
+      if (at < 0) return;
+      at = -1; speak(); event.preventDefault(); return;
+    }
     else return;
     event.preventDefault();
     at = Math.max(0, Math.min(readings.length - 1, to));
@@ -376,7 +428,125 @@ export function installReadingCursors(root) {
 }
 
 /* ------------------------------------------------------------------ *
- * 5 · THE GUARANTEE, AND THE CENSUS
+ * 5 · AN OVERLAY THAT TAKES FOCUS HAS TO GIVE IT BACK
+ *
+ * The cross-era drawer is `position: fixed` across the bottom of the window at
+ * `z-index: 40`, over content the reader cannot see past. `pull-ring.js` builds
+ * it right in every other way: it is a `role="dialog"`, it closes on Escape,
+ * and it moves focus to its close button when it opens. Two things were
+ * missing, and both are properties of the PAGE rather than of the component,
+ * which is why they are here and not there.
+ *
+ *   · WHERE FOCUS GOES WHEN IT CLOSES. The close button is inside an element
+ *     that is then hidden, so focus fell to BODY. A keyboard reader who pulled
+ *     the fourth ring of the fifth machine was returned to the top of a 600-stop
+ *     document and had to tab back down to where they had been standing.
+ *
+ *   · TAB WHILE IT IS OPEN. Nothing held focus inside it, so Tab walked out of
+ *     the drawer and into the page underneath — which is covered by the drawer
+ *     and cannot be read. Focus was somewhere the reader could not see.
+ *
+ * THE TRAP IS WHAT MAKES `aria-modal` TRUE, so this installs it. The drawer is
+ * built `aria-modal="false"`, which was the honest declaration for a dialog
+ * that did not hold focus. Holding focus and still announcing `false` would be
+ * the same disagreement between a thing and its own description that this
+ * project keeps paying for, one layer down.
+ * ------------------------------------------------------------------ */
+
+/** Everything inside `root` a Tab could land on, in document order. */
+function tabbable(root) {
+  return [...root.querySelectorAll(`${CONTROL_SELECTOR},[tabindex]`)].filter(isFocusable);
+}
+
+/**
+ * Hold focus inside an overlay while it is open, and hand it back when it
+ * closes.
+ *
+ * OPEN AND CLOSED ARE READ OFF THE ELEMENT, not tracked here. `hidden` is the
+ * component's own signal and the only one that cannot drift from what the
+ * reader sees: a second copy of "is it open" kept in this file would be a
+ * second answer to a question the DOM already answers.
+ *
+ * WHERE IT GOES BACK TO is the last thing focused OUTSIDE the dialog. Tracked
+ * on `focusin`, so it works whether the drawer was opened from a pull ring by
+ * keyboard, by a click, or from anywhere else — the call site does not have to
+ * remember, and a call site that has to remember is the shape this project has
+ * already lost a guard to. `remember()` is exported for a caller that wants to
+ * name the return point itself.
+ *
+ * NOT COVERED, and stated rather than found: a dialog that closes by being
+ * removed from the document rather than hidden. Nothing observes removal, so
+ * nothing restores focus. `pull-ring.js` hides.
+ */
+export function installDialogFocus(dialog, options = {}) {
+  const doc = dialog.ownerDocument;
+  const { modal = true } = options;
+  if (modal) dialog.setAttribute('aria-modal', 'true');
+
+  let opener = null;
+  const onFocusIn = (event) => {
+    if (dialog.contains(event.target)) return;
+    opener = event.target;
+  };
+  doc.addEventListener('focusin', onFocusIn, true);
+
+  /* TAB, AND SHIFT-TAB, WRAP INSIDE. Escape belongs to the component; this adds
+   * no second way to close, because two ways to close is two behaviours to keep
+   * in step. */
+  const onKey = (event) => {
+    if (event.key !== 'Tab' || dialog.hidden) return;
+    const items = tabbable(dialog);
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    const at = doc.activeElement;
+    const inside = dialog.contains(at);
+    if (event.shiftKey && (!inside || at === first)) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (!inside || at === last)) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+  dialog.addEventListener('keydown', onKey);
+
+  const restore = () => {
+    if (!opener || !opener.isConnected || !isFocusable(opener)) return false;
+    opener.focus({ preventScroll: false });
+    return true;
+  };
+
+  let observer = null;
+  if (typeof MutationObserver === 'function') {
+    observer = new MutationObserver(() => {
+      /* Only when it has just gone away, and only when focus is somewhere the
+       * reader can no longer see: inside the hidden drawer, or on BODY because
+       * the browser has already dropped it there. Focus the reader has moved on
+       * purpose is never taken back. */
+      if (!dialog.hidden) return;
+      const at = doc.activeElement;
+      if (at && at !== doc.body && !dialog.contains(at)) return;
+      restore();
+    });
+    observer.observe(dialog, { attributes: true, attributeFilter: ['hidden'] });
+  }
+
+  return Object.freeze({
+    dialog,
+    remember: (node) => { opener = node || doc.activeElement; },
+    get returnsTo() { return opener; },
+    restore,
+    stop: () => {
+      doc.removeEventListener('focusin', onFocusIn, true);
+      dialog.removeEventListener('keydown', onKey);
+      if (observer) observer.disconnect();
+    },
+  });
+}
+
+/* ------------------------------------------------------------------ *
+ * 6 · THE GUARANTEE, AND THE CENSUS
  * ------------------------------------------------------------------ */
 
 export class KeyboardError extends Error {
@@ -414,9 +584,8 @@ export function assertKeyboardOperable(root, where = 'this page') {
   const unreachable = [];
   const unnamed = [];
   for (const el of controls) {
-    const roving = el.getAttribute('tabindex') === '-1'
-      && el.closest('.p2-rocker, svg')
-      && [...el.closest('.p2-rocker, svg').querySelectorAll('[tabindex="0"]')].length > 0;
+    const group = el.getAttribute('tabindex') === '-1' && el.closest(ROVING_GROUP_SELECTOR);
+    const roving = Boolean(group && group.querySelectorAll('[tabindex="0"]').length > 0);
     if (!isFocusable(el) && !roving) unreachable.push(el);
     if (!accessibleName(el)) unnamed.push(el);
   }
@@ -490,7 +659,7 @@ export function auditKeyboard(root) {
 }
 
 /* ------------------------------------------------------------------ *
- * 6 · MOUNTING
+ * 7 · MOUNTING
  * ------------------------------------------------------------------ */
 
 /**
@@ -542,8 +711,8 @@ export function installKeyboard(root, options = {}) {
 }
 
 export default {
-  KEYBOARD_MAP, CONTROL_SELECTOR, ROVING_GROUPS,
+  KEYBOARD_MAP, CONTROL_SELECTOR, ROVING_GROUPS, ROVING_GROUP_SELECTOR,
   isFocusable, accessibleName, roveGroup, installRovingGroups,
-  installReadingCursor, installReadingCursors,
+  installReadingCursor, installReadingCursors, installDialogFocus,
   assertKeyboardOperable, auditKeyboard, installKeyboard, KeyboardError,
 };

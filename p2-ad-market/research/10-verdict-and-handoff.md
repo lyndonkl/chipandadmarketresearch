@@ -130,7 +130,12 @@ Change the counting and you change the price. For eighty-two years the counter w
 
 ## Claim index
 
-Every number above traces to a claim in `data/claims.json`. The grades and sources live there.
+The table below names the claims each section rests on. Their grades and sources live in
+`data/claims.json`.
+
+Naming them is not the same as marking each number where it sits. Most figures in this chapter are
+not individually marked, and the note at the foot of the page counts exactly how many are, chapter
+by chapter. Read that count before you trust an underline to be the whole story.
 
 | Section | Claim IDs |
 |---|---|
