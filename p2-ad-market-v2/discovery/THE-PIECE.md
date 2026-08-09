@@ -22,9 +22,11 @@ Start at the price, because the price was once a public number.
 
 The model is old. The New York Sun went on sale in 1833 at a penny a copy, and within about two years it was selling roughly 15,000 copies a day. You clearly couldn't run a newspaper on a penny a copy; something else had to be paying for it. By 1914, across all US newspapers, advertising supplied 64.9% of gross income – $184.1 million from advertisers against $99.5 million from readers. The advertising was subsidizing the paper.
 
-For the buyer who did not want to run a paper, there was an agency, and the agency's price was disclosed. The standard commission held at 15% of what the advertiser spent on media. On radio that one number covered two jobs at once: buying the airtime and making the program. Fifteen percent, stated openly, was the visible top plate of the middleman's cut.
+To help with the buying and selling of advertisements, a new kind of business emerged: the advertising agency. It acted as a middleman between the advertiser and the newspaper. It bought space on the advertiser's behalf, and often wrote the ad as well.
 
-The discipline is usually dated to N. W. Ayer's open contract of 1875, which is said to have shown the client what the agency paid the publisher. No copy of that contract survives in this record. The disclosed price is real in the figures that come later. Its founding document is missing here, and I will not invent one.
+For that work it charged a commission of 15% of what the advertiser spent on space. That commission was the agency's price, and it was public. Everyone in the trade knew the rate. On radio, the same 15% did two jobs at once, because the sponsor's agency both bought the airtime and produced the program that ran on it. The 15% was only the visible part of the middleman's take. The rest, as the next section will show, stayed out of view.
+
+This open pricing is usually traced to N. W. Ayer, a leading early ad agency, and its open contract, dated by tradition to 1875. Under an open contract the agency showed the advertiser exactly what it had paid the newspaper, so the advertiser could see the real cost of the space and the size of the agency's cut. Our own record does not hold that 1875 contract, so the founding document is missing here. The price itself, though, is not missing. The 15% commission shows up in later figures this piece relies on.
 
 ## Who counted the readers
 
