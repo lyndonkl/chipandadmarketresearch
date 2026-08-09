@@ -40,11 +40,11 @@ Read against the opener, the shape of the whole piece is already visible. The ma
 
 ## The count changes hands
 
-The independent number did not hold. It started drifting back almost as soon as it existed, and radio shows the drift.
+The independent count did not hold for long. It began slipping almost as soon as it appeared. Where you first see this play out is on radio. In print there had been one audited circulation number. In radio there was nothing like it. Instead, rival services sold competing audience counts, and they did not agree.
 
-Two services measured the radio audience. After 1944 they used the same telephone method — calling homes to ask what was on. They still disagreed. The commercial vendor, C. E. Hooper, produced numbers that ran about 20% above the cooperative service's, on the same method. Analysts traced the gap to small technical choices: how rings were counted, how unknown programs were handled, how busy signals were treated. Same method, different number, and the vendor's was the higher one. This is a sequence, not a proven motive; the record shows the divergence, not a reason for it.
+Two of them mattered. One was the Cooperative Analysis of Broadcasting, an industry service paid for jointly by the advertisers who used it. The other was C. E. Hooper, a commercial firm that sold ratings for profit. After 1944 both used the same telephone method: an interviewer called homes and asked what the household was listening to at that moment. Even so, Hooper's numbers ran about 20% higher than the Cooperative's. A McCann-Erickson study traced the gap to small technical choices in running the same calls: how rings were counted, how unrecognised programs were handled, how busy signals were treated.
 
-By the end of the decade the number had a price tag written into a contract. In January 1949, when Jack Benny moved from NBC to CBS, CBS guaranteed his sponsor $3,000 a week for every rating point Benny lost in the move. A rating was no longer a measurement off to the side. It was a term of the deal.
+By the end of the decade, that number had a price tag on it. Radio measured its audience in ratings: a rating point was the count turned into a share, one point meaning that one percent of all radio homes were tuned to a program. In January 1949, the radio comedian Jack Benny moved his show from the NBC network to CBS. To land him, CBS made a guarantee to his sponsor, the American Tobacco Company: for every Hooper rating point Benny's show lost by switching networks, CBS would pay the sponsor $3,000 a week. The rating was no longer a measurement off to one side. It was a term in the deal, with a dollar figure on every point.
 
 ## How many hands took a cut
 
