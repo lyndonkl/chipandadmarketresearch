@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIGURE 04 · Advertising as a share of GDP — P2 v2</title>
+<!-- order matters: toolkit tokens → reused-renderer furniture → v2 figure layer -->
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="../charts/chart-demo.css">
+<link rel="stylesheet" href="./figures.css">
+<style>
+  /* Standalone demo furniture only — the plate + strip carry the real design. */
+  body { margin: 0; padding: calc(var(--u) * 1.2) 16px calc(var(--u) * 2); }
+  .demo-standfirst {
+    max-width: 700px; margin: 0 auto calc(var(--u) * 1.2);
+    font-family: var(--fig-font-prose); color: var(--ink2);
+    font-size: 18px; line-height: 1.5;
+  }
+  .demo-standfirst .eyebrow {
+    display: block; font-family: var(--fig-font-chrome); font-size: 11px;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--zinc-text);
+    margin-bottom: 8px;
+  }
+  /* The reused strip injects its own styled header (finding + rocker) inside the
+     plate body. Its finding-title + lede duplicate the plate kicker + caption, so
+     suppress them (CONVENTIONS §3: "hide it with a scoped rule … the plan's
+     kicker/caption/shelf are the v2 voice") and keep the rocker control surface. */
+  #fig04-body.fig-body { padding: 12px 14px 10px; }
+  #fig04-body .p2-bank-head > .p2-arch,
+  #fig04-body .p2-bank-title,
+  #fig04-body .p2-bank-lede { display: none; }
+  #fig04-body .p2-ctl { margin-top: 2px; }
+
+  /* ===== COLLAPSED METHODOLOGY DRAWER (v2 page layer; shared gdp-strip.js is NOT
+     edited) =====
+     The strip's render appends three long note-boxes under it — the full
+     11-reading register, the "what verification rejected" table, and the bases
+     table. Stacked, they are the bulk of the plate's height. The script folds
+     them into this <details>, collapsed by default, appended at the end of the
+     plate, so the strip + its on-plot 11-reading register read first and the
+     provenance stays one click away. Nothing is removed. */
+  #fig04 .fig-methodology { margin-top: 12px; }
+  #fig04 .fig-methodology > summary {
+    font-family: var(--fig-font-chrome); font-size: 12px; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--cyan-d); cursor: pointer;
+    list-style: none; padding: 9px 0; border-top: 1px solid var(--ink3);
+  }
+  #fig04 .fig-methodology > summary::-webkit-details-marker { display: none; }
+  #fig04 .fig-methodology > summary::before { content: "▸ "; }
+  #fig04 .fig-methodology[open] > summary::before { content: "▾ "; }
+  #fig04 .fig-methodology[open] > summary { color: var(--ink3); }
+  #fig04 .fig-methodology .p2-bank-foot { margin-top: 14px; }
+  #loadfail { display: none; max-width: 700px; margin: 24px auto; padding: 14px 16px;
+    border-left: 3px solid var(--redline); background: var(--redline-t);
+    font-family: var(--fig-font-chrome); font-size: 13px; color: var(--graphite); }
+  #loadfail pre { white-space: pre-wrap; color: var(--ink2); }
+
+  /* ===== EMBED MODE (?embed=1): the article iframes this plate in =====
+     Strip every standalone-demo / section chrome and the page ground; leave
+     ONLY the figure plate (its key, caption and citation shelf) on a transparent
+     ground so it seats cleanly into the reading column. */
+  body.embed { background-color: transparent !important; background-image: none !important;
+    margin: 0 !important; padding: 0 !important; }
+  body.embed .demo-bar, body.embed .demo-standfirst, body.embed .hero-dek,
+  body.embed .hero-controls, body.embed .page-head,
+  body.embed .p2-motion-toggle, body.embed #motiontoggle, body.embed #status { display: none !important; }
+  body.embed .hero-wrap, body.embed main { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  body.embed .fig-plate { margin: 0 auto !important; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<p class="demo-standfirst">
+  <span class="eyebrow">S13 · WHICH TOTAL · FIGURE 04</span>
+  The share of GDP is the number most likely to mislead — so it is built to be
+  argued with. Turn the handle and watch where the peak goes.
+</p>
+
+<figure class="fig-plate" id="fig04">
+  <div class="fig-kicker">
+    <span>FIGURE&nbsp;04 <span class="fig-title">Advertising as a share of GDP — the strip</span></span>
+    <button class="fig-keybtn" type="button" aria-expanded="true" aria-controls="fig04-legend">key</button>
+  </div>
+
+  <!-- FIRST FIGURE ON THIS PAGE → the "How to read this" key is shown expanded
+       (PAGE-DESIGN §6 / CONVENTIONS §6). Inlined from figures/_legend.html. -->
+  <div class="fig-legend" id="fig04-legend" role="note" aria-label="How to read this figure">
+    <h4>How to read this</h4>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-still"></span></span>
+      <span><b>still mark = grade A</b> — an audited / settled reading. (This strip's
+        readings are grade B and C; each prints its grade under the mark.)</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-shimmer"></span></span>
+      <span><b>shimmering mark = grade C</b> — uncertain; the amplitude is the
+        uncertainty. Here the 1914 and 2025 endpoints are grade C and ride the edges.</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-cyan"></span></span>
+      <span><b>cyan = an independent number</b> — an audit, a census, a court finding.</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-amber"></span></span>
+      <span><b>amber = a seller-owned number.</b> This figure is <b>NEUTRAL</b>: share
+        of GDP is zinc scaffolding, so ownership rides only the source dots below —
+        not the marks.</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-dead"></span></span>
+      <span><b>struck red = a corrected / DEAD claim.</b> The popular "peak in 2000"
+        (<span style="font-family:var(--fig-font-chrome)">ds-gdp-001</span>) was rejected in
+        verification — it is drawn on the strip and stamped, never hidden.</span>
+    </div>
+    <p class="leg-reduced">
+      Reduced motion: every shimmer becomes a static hatched band — denser for a
+      softer grade — so the uncertainty is still seen, just not moving.
+    </p>
+  </div>
+
+  <!-- the reused GDP strip (gdp-strip.js render) mounts here, natively -->
+  <div class="fig-body" id="fig04-body"></div>
+
+  <!-- BASIS ON-AXIS (PAGE-DESIGN §6.4). NEUTRAL → zinc; the non-removable caveat
+       that the 2025 reading is a different basis is stated on the axis, not hidden. -->
+  <div class="fig-axis-basis">
+    <span class="rail-zinc">y-axis basis — advertising as % of US nominal GDP</span> ·
+    <span class="caveat">non-removable caveat: the 2025 reading (e7-scale-002) is on a
+      different basis from the 1919–2007 Coen/BEA series, and the 1914 reading is on the
+      pre-1919 benchmark basis — a maximum is only a maximum inside one ruler.</span>
+  </div>
+
+  <hr class="fig-rule">
+  <figcaption class="fig-caption">
+    Eleven dated readings of advertising's share of US GDP, drawn as marks and never
+    joined into a line, because the record holds no annual series. On the post-1960
+    window 2000 is the highest reading on screen; widen the window to the whole record
+    and 1922 (3.0%) rises above it. The rejected "peak in 2000" claim is drawn and stamped,
+    not hidden.
+  </figcaption>
+
+  <!-- citation shelf: same grammar as the prose sidenotes. NEUTRAL → zinc dots;
+       the rejected ds-gdp-001 carries a redline (DEAD) dot. -->
+  <div class="fig-shelf">
+    <span class="src-chip" data-grade="C" data-own="zinc"><span class="grade-glyph"></span><span class="grade-letter">C</span><span class="own-dot"></span><a class="claim-id" href="#e1-scale-009">e1-scale-009</a></span>
+    <span class="src-chip" data-grade="B" data-own="zinc"><span class="grade-glyph"></span><span class="grade-letter">B</span><span class="own-dot"></span><a class="claim-id" href="#e2-scale-004">e2-scale-004</a></span>
+    <span class="src-chip" data-grade="B" data-own="zinc"><span class="grade-glyph"></span><span class="grade-letter">B</span><span class="own-dot"></span><a class="claim-id" href="#e2-scale-005">e2-scale-005</a></span>
+    <span class="src-chip" data-grade="B" data-own="zinc"><span class="grade-glyph"></span><span class="grade-letter">B</span><span class="own-dot"></span><a class="claim-id" href="#e2-scale-006">e2-scale-006</a></span>
+    <span class="src-chip" data-grade="B" data-own="zinc"><span class="grade-glyph"></span><span class="grade-letter">B</span><span class="own-dot"></span><a class="claim-id" href="#e3-scale-005">e3-scale-005</a></span>
+    <span class="src-chip" data-grade="B" data-own="zinc"><span class="grade-glyph"></span><span class="grade-letter">B</span><span class="own-dot"></span><a class="claim-id" href="#e3-scale-004">e3-scale-004</a></span>
+    <span class="src-chip" data-grade="B" data-own="zinc"><span class="grade-glyph"></span><span class="grade-letter">B</span><span class="own-dot"></span><a class="claim-id" href="#e4-scale-003">e4-scale-003</a></span>
+    <span class="src-chip" data-grade="B" data-own="zinc"><span class="grade-glyph"></span><span class="grade-letter">B</span><span class="own-dot"></span><a class="claim-id" href="#e5-scale-004">e5-scale-004</a></span>
+    <span class="src-chip" data-grade="B" data-own="zinc"><span class="grade-glyph"></span><span class="grade-letter">B</span><span class="own-dot"></span><a class="claim-id" href="#e6-scale-003">e6-scale-003</a></span>
+    <span class="src-chip" data-grade="C" data-own="zinc"><span class="grade-glyph"></span><span class="grade-letter">C</span><span class="own-dot"></span><a class="claim-id" href="#e7-scale-002">e7-scale-002</a></span>
+    <span class="src-chip" data-grade="C" data-own="redline"><span class="grade-glyph"></span><span class="grade-letter">C</span><span class="own-dot"></span><a class="claim-id" href="#ds-gdp-001">ds-gdp-001 · REJECTED</a></span>
+  </div>
+</figure>
+
+<div id="loadfail">
+  <b>This figure could not render.</b>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<script type="module">
+/* --- always --- */
+import * as guards from '../lib/guards.js';
+import { initMotion } from '../lib/motion.js';
+import { verifyTokenParity } from '../lib/tokens.js';
+
+/* --- reused renderer: the GDP strip, used natively (FIGURE-PLAN §B.4, §F) --- */
+import { render as renderStrip } from '../charts/gdp-strip.js';
+
+/* --- inlined data (CONVENTIONS §4 Tier B); NOT a fetch --- */
+import { adspend, claims, verdicts } from './data/full.data.js';
+
+/* EMBED MODE — the article drops this plate in via <iframe src="…?embed=1">:
+   hide all demo/section chrome, show only the plate on a transparent ground. */
+if (new URLSearchParams(location.search).get('embed') === '1') document.body.classList.add('embed');
+
+const fail = document.getElementById('loadfail');
+function die(err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent =
+    (err && err.stack) ? err.stack : String(err);
+  throw err;
+}
+
+try {
+  initMotion();                 // stamps <html data-motion> so figures.css jitter fallbacks fire
+  verifyTokenParity();          // dev guard: throws if tokens.css and tokens.js disagree
+  guards.useFrozen({ adspend, claims });   // inject inlined record; the strip reads it from here
+
+  /* Native reuse. The strip:
+   *  - reads its 11 dated readings from claims.json (marks, never a line),
+   *  - opens on the post-1960 window where 2000 IS the max (window:'narrow'),
+   *  - the window rocker widens to the whole record and 1922 walks in above 2000,
+   *  - draws the rejected ds-gdp-001 as a verdict-stamped mark (not hidden),
+   *  - names each basis band on-axis and never merges them,
+   *  - prints the verifier's own sentence for the rejected claims (verdicts supplied). */
+  const out = renderStrip(document.getElementById('fig04-body'), { adspend, claims },
+    { window: 'narrow', verdicts });
+  window.P2_FIG4 = out;
+
+  /* METHODOLOGY, FOLDED AWAY (no renderer edit): the strip render appends its
+   * three long registers — every reading, what verification rejected, and the
+   * bases — inside #fig04-body. They are the plate's height. Move that block to
+   * the END of the plate and into a collapsed <details>, so the strip, its
+   * on-plot 11-reading register, the basis-on-axis line and the citation shelf
+   * read first, with the registers one click away. Nothing is removed. */
+  const plate = document.getElementById('fig04');
+  const foot = document.getElementById('fig04-body').querySelector('.p2-bank-foot');
+  if (foot) {
+    const details = document.createElement('details');
+    details.className = 'fig-methodology';
+    const summary = document.createElement('summary');
+    summary.textContent =
+      'Methodology — every reading in the record, what verification rejected, and why the bases are never merged';
+    details.appendChild(summary);
+    details.appendChild(foot);
+    plate.appendChild(details);
+  }
+
+  /* NEUTRAL HARDENING (v2 page layer — the shared renderer is untouched). This is a
+     NEUTRAL plate: share of GDP is zinc scaffolding, not an ownership question, so no
+     reading mark may wear the seller-owned amber. The strip draws its readings in
+     toolkit BRASS (#B07A2C, brass-text #8A5F20) — a warm amber that reads as ownership
+     here — so recolour every brass data stroke & fill to IRON (#5B6570) after the
+     native render, in the DOM only. Re-applied on every redraw (the window rocker
+     rebuilds the SVG). */
+  (function hardenNeutral(root, host) {
+    const BRASS = new Set(['#b07a2c', '#8a5f20']);
+    const IRON = '#5B6570', SVGNS = 'http://www.w3.org/2000/svg';
+    const ironise = () => {
+      for (const node of root.querySelectorAll('*')) {
+        if (node.namespaceURI !== SVGNS) continue;
+        for (const attr of ['fill', 'stroke']) {
+          const v = node.getAttribute(attr);
+          if (v && BRASS.has(v.trim().toLowerCase())) node.setAttribute(attr, IRON);
+        }
+      }
+    };
+    ironise();
+    if (host && 'MutationObserver' in window) {
+      new MutationObserver(ironise).observe(host, { childList: true, subtree: true });
+    }
+  })(document.getElementById('fig04'), document.getElementById('fig04-body'));
+
+  /* wire the plate's [ key ] toggle to the "How to read this" legend */
+  const keyBtn = document.querySelector('#fig04 .fig-keybtn');
+  const legend = document.getElementById('fig04-legend');
+  keyBtn.addEventListener('click', () => {
+    const open = keyBtn.getAttribute('aria-expanded') === 'true';
+    keyBtn.setAttribute('aria-expanded', String(!open));
+    legend.hidden = open;                 // figures.css hides on [hidden]
+  });
+} catch (err) {
+  die(err);
+}
+</script>
+</body>
+</html>

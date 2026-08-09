@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIGURE 05 · The commission rate — P2 v2</title>
+<!-- order matters: toolkit tokens → reused-renderer furniture → v2 figure layer -->
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="../charts/chart-demo.css">
+<link rel="stylesheet" href="./figures.css">
+<style>
+  /* page framing for the standalone demo — the plate carries its own design */
+  body.p2 { background: var(--bone); margin: 0; padding: 28px 20px 48px; }
+  /* fig 5: the census slope sits beside its NEUTRAL mix-collapse callout */
+  #fig05 .fig5-row { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
+  #fig05 .fig5-plot { flex: 1 1 560px; min-width: 340px; }
+  #fig05 .fig5-aside { flex: 0 0 190px; align-self: center; }
+  #fig05 .fig5-aside .stat-arrow { color: var(--ink3); font-weight: 400; }
+
+  /* ===== EMBED MODE (?embed=1): the article iframes this plate in =====
+     Strip every standalone-demo / section chrome and the page ground; leave
+     ONLY the figure plate (its key, caption and citation shelf) on a transparent
+     ground so it seats cleanly into the reading column. */
+  body.embed { background-color: transparent !important; background-image: none !important;
+    margin: 0 !important; padding: 0 !important; }
+  body.embed .demo-bar, body.embed .demo-standfirst, body.embed .hero-dek,
+  body.embed .hero-controls, body.embed .page-head,
+  body.embed .p2-motion-toggle, body.embed #motiontoggle, body.embed #status { display: none !important; }
+  body.embed .hero-wrap, body.embed main { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  body.embed .fig-plate { margin: 0 auto !important; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<figure class="fig-plate" id="fig05">
+  <div class="fig-kicker">
+    <span>FIGURE&nbsp;05 <span class="fig-title">The commission rate — the 15% didn't die, it peaked</span></span>
+    <button class="fig-keybtn" type="button" aria-expanded="true" aria-controls="fig05-legend">key</button>
+  </div>
+
+  <!-- reusable "How to read this" grammar teacher (expanded on this plate) -->
+  <div class="fig-legend" id="fig05-legend" role="note" aria-label="How to read this figure">
+    <h4>How to read this</h4>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-still"></span></span>
+      <span><b>still mark = grade A</b> — an audited / settled reading.</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-shimmer"></span></span>
+      <span><b>shimmering mark = grade C</b> — uncertain; the amplitude is the
+        uncertainty. (Grade B sits between: a faint life.)</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-cyan"></span></span>
+      <span><b>cyan = an independent number</b> — an audit, a census, a court
+        finding: held by a third party, not the party being judged.</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-amber"></span></span>
+      <span><b>amber = a seller-owned number</b> — the party being judged counting
+        its own audience, setting its own price, billing its own log.</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-dead"></span></span>
+      <span><b>struck red = a corrected / DEAD claim</b> — a popular legend this
+        piece knocks down.</span>
+    </div>
+    <p class="leg-reduced">
+      Reduced motion: every shimmer becomes a static hatched band — denser for a
+      softer grade — so the uncertainty is still seen, just not moving.
+    </p>
+  </div>
+
+  <div class="fig5-row">
+    <div class="fig5-plot">
+      <div class="fig-body" id="fig05-body"><!-- svg mounts here --></div>
+
+      <!-- axis basis, carrying the CYAN ownership hue (SVG text cannot — HTML chrome does) -->
+      <div class="fig-axis-basis">
+        <span class="rail-cyan">commission received, % of media billings (US Census / SoI)</span>
+      </div>
+    </div>
+
+    <!-- the mix-collapse rides BESIDE the slope as a NEUTRAL stat-callout, never a second axis -->
+    <aside class="fig5-aside">
+      <div class="stat-callout">
+        <span class="stat-value">61%<span class="stat-arrow"> → </span>10%</span>
+        <span class="stat-gloss">share of advertisers paying their agency on a
+          commission basis, 1994&nbsp;→&nbsp;2003 — the pay <i>basis</i> collapsed with
+          1991–94 unbundling, not the rate. <span style="white-space:nowrap">(e6-creators-002, B)</span></span>
+      </div>
+    </aside>
+  </div>
+
+  <!-- DEAD legends this plate must carry, in redline (redundantly coded) -->
+  <div class="dead-legend">
+    <span class="dead-tag">DEAD</span>
+    <span class="dead-claim">The 15% commission died in the 1980s.</span>
+    <span class="dead-fix">Commission actually received held near 14% right through the
+      decade — 14.13% (1977), 13.92% (1982), 14.16% (1987) — and did not break until after 1992.</span>
+  </div>
+  <div class="dead-legend">
+    <span class="dead-tag">DEAD</span>
+    <span class="dead-claim">Search advertising killed the commission.</span>
+    <span class="dead-fix">The rate was already sliding — 13.18% by 1992, 10.98% by 1997 —
+      before search advertising existed at scale; the record dates the real collapse to the
+      unbundling of media buying, after this window.</span>
+  </div>
+
+  <hr class="fig-rule">
+  <figcaption class="fig-caption">
+    Agency commission actually received, as a percent of media billings, held flat near 14% from
+    1977 through 1987, then dropped — 13.18% in 1992, 10.98% in 1997. The flat-then-late-fall shape
+    is the rebuttal: the 15% did not die in the 1980s; it peaked, then fell after.
+  </figcaption>
+
+  <!-- citation shelf: same grammar as the prose sidenotes -->
+  <div class="fig-shelf">
+    <span class="src-chip" data-grade="A" data-own="cyan">
+      <span class="grade-glyph"></span><span class="grade-letter">A</span>
+      <span class="own-dot"></span>
+      <a class="claim-id" href="#e4-pricing-001">e4-pricing-001</a>
+    </span>
+    <span class="src-chip" data-grade="B" data-own="zinc">
+      <span class="grade-glyph"></span><span class="grade-letter">B</span>
+      <span class="own-dot"></span>
+      <a class="claim-id" href="#e6-creators-002">e6-creators-002</a>
+    </span>
+  </div>
+</figure>
+
+<script type="module">
+/* --- always --- */
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle } from '../lib/motion.js';
+import { verifyTokenParity } from '../lib/tokens.js';
+
+/* --- the percent formatter (text-safe; runs no colour guard) --- */
+import { pct } from '../charts/svg-kit.js';
+
+/* --- the shared slope helper (figs 5 & 6) --- */
+import { renderMiniSeries } from '../charts/mini-series.js';
+
+/* EMBED MODE — the article drops this plate in via <iframe src="…?embed=1">:
+   hide all demo/section chrome, show only the plate on a transparent ground. */
+if (new URLSearchParams(location.search).get('embed') === '1') document.body.classList.add('embed');
+
+/* --- inlined claim record (VERIFIED, FIGURE-PLAN §I) — NOT a fetch. The five
+ *     values live inside this ONE claim's statement, not in adspend.json, which
+ *     is exactly why the mini-series composition exists (FIGURE-PLAN §F.2). --- */
+const claim = {
+  id: 'e4-pricing-001',
+  statement: 'Media commissions actually received by US advertising agencies as a percentage of ' +
+    'media billings were 14.13% in 1977, 13.92% in 1982, 14.16% in 1987 and 13.18% in 1992, before ' +
+    'falling to 10.98% in 1997. The 15% commission survived this era largely intact; its collapse ' +
+    'comes after it.',
+  central: 13.18,
+  unit: 'percent of media billings',
+  ci80: [12.8, 13.6],
+  grade: 'A',
+  sources: [{ name: 'Economic Census, Sources of Receipts or Revenues, via HBS WP 11-039 Table A1' }],
+  as_of: '1992',
+  about_year: 1992,
+  about_span: [1977, 1997],
+  verdict: 'confirmed',
+};
+
+/* the five ordered points, verbatim from the claim statement (reading order). */
+const points = [
+  { x: 1977, y: 14.13, label: '14.13%' },
+  { x: 1982, y: 13.92, label: '13.92%' },
+  { x: 1987, y: 14.16, label: '14.16%' },
+  { x: 1992, y: 13.18, label: '13.18%' },  // the anchor (central 13.18, ci80 12.8–13.6)
+  { x: 1997, y: 10.98, label: '10.98%' },
+];
+
+initMotion();                 // stamps <html data-motion> so figures.css jitter fallbacks fire
+try { verifyTokenParity(); } catch (e) { /* dev guard only; never blank the page over it */ }
+
+const CYAN = getComputedStyle(document.documentElement).getPropertyValue('--cyan').trim() || '#3AA6BD';
+
+renderMiniSeries(document.getElementById('fig05-body'), {
+  claim,
+  points,
+  hue: CYAN,                                   // OWN-HUE: the independent census figure
+  anchorX: 1992,                               // the one point carrying a ci80; gets the full title
+  format: (v) => pct(v, 1),                    // neutral axis ticks; point labels are verbatim above
+  yBasisShort: '% billings',
+  alt: 'US advertising-agency commission actually received, as a percent of media billings: ' +
+    '14.13% in 1977, 13.92% in 1982, 14.16% in 1987 — near-flat — then falling to 13.18% in 1992 ' +
+    'and 10.98% in 1997. Grade A, drawn still.',
+  showAnchorInterval: false,                   // grade A → still; no fabricated per-point intervals
+}, { width: 640, height: 320 });
+
+/* NUDGE (v2 page layer — the shared renderer is untouched): the 1977 datum label
+   "14.13%" sat hard against the top "14.4%" y-tick at the axis corner. Shift the
+   datum label a few px clear of the tick so the two no longer touch. */
+(() => {
+  const svg = document.querySelector('#fig05-body svg');
+  if (!svg) return;
+  for (const t of svg.querySelectorAll('text')) {
+    if (t.textContent.trim() === '14.13%') {
+      const dx = Number(t.getAttribute('x') || 0) + 14;
+      t.setAttribute('x', String(dx));
+    }
+  }
+})();
+
+/* wire the [ key ] toggle */
+const keyBtn = document.querySelector('#fig05 .fig-keybtn');
+const legend = document.getElementById('fig05-legend');
+keyBtn.addEventListener('click', () => {
+  const open = keyBtn.getAttribute('aria-expanded') === 'true';
+  keyBtn.setAttribute('aria-expanded', String(!open));
+  legend.hidden = open;
+});
+</script>
+</body>
+</html>

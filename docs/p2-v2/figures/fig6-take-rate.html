@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIGURE 06 · The take-rate reversal — P2 v2</title>
+<!-- order matters: toolkit tokens → reused-renderer furniture → v2 figure layer -->
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="../charts/chart-demo.css">
+<link rel="stylesheet" href="./figures.css">
+<style>
+  /* page frame only — the plate + figure grammar all live in figures.css */
+  body.p2 { padding: calc(var(--u) * 1.4) 18px calc(var(--u) * 3); }
+  main { max-width: 1000px; margin: 0 auto; }
+
+  /* verdict register — the claim's verdict is "post-verification", not clean, so
+     it is REQUIRED to be visible (claim-marks.stampVerdict). Printed here, under
+     the caption, where the reader sees it — never inside a console. */
+  .fig-verdict {
+    font-family: var(--fig-font-chrome); font-size: 11.5px; line-height: 1.5;
+    color: var(--ink3); margin: calc(var(--u) * 0.35) 0 0;
+    border-left: 2px solid var(--zinc); padding-left: 10px; max-width: 68ch;
+  }
+  .fig-verdict .v-tag {
+    font-weight: 700; letter-spacing: .08em; color: var(--zinc-text);
+    text-transform: uppercase; margin-right: 6px;
+  }
+  .fig-verdict code { color: var(--graphite); }
+
+  /* only shows if the module layer failed to run — keeps a blank screenshot honest */
+  #fail { display: none; border: 2px solid var(--redline); background: var(--redline-t);
+    padding: 14px 16px; margin: 18px 0; font-family: var(--fig-font-chrome); font-size: 13px; }
+  #fail code { background: rgba(21,24,29,.06); padding: 1px 5px; }
+
+  /* ===== EMBED MODE (?embed=1): the article iframes this plate in =====
+     Strip every standalone-demo / section chrome and the page ground; leave
+     ONLY the figure plate (its key, caption and citation shelf) on a transparent
+     ground so it seats cleanly into the reading column. */
+  body.embed { background-color: transparent !important; background-image: none !important;
+    margin: 0 !important; padding: 0 !important; }
+  body.embed .demo-bar, body.embed .demo-standfirst, body.embed .hero-dek,
+  body.embed .hero-controls, body.embed .page-head,
+  body.embed .p2-motion-toggle, body.embed #motiontoggle, body.embed #status { display: none !important; }
+  body.embed .hero-wrap, body.embed main { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  body.embed .fig-plate { margin: 0 auto !important; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<main>
+  <div id="fail">
+    <b>The figure did not draw.</b>
+    <div id="fail-msg"></div>
+  </div>
+
+  <figure class="fig-plate" id="fig06">
+    <div class="fig-kicker">
+      <span>FIGURE&nbsp;06 <span class="fig-title">The take-rate reversal — the residual that falls</span></span>
+      <button class="fig-keybtn" type="button" aria-expanded="true" aria-controls="fig06-legend">key</button>
+    </div>
+
+    <!-- FIRST (and only) FIGURE ON THE PAGE: the reusable grammar key, expanded. -->
+    <div class="fig-legend" id="fig06-legend" role="note" aria-label="How to read this figure">
+      <h4>How to read this</h4>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-still"></span></span>
+        <span><b>still mark = grade A</b> — an audited / settled reading. This slope is
+          grade&nbsp;A, so it sits dead still.</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-shimmer"></span></span>
+        <span><b>shimmering mark = grade C</b> — uncertain; the amplitude is the
+          uncertainty. (Grade&nbsp;B sits between: a faint life.)</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-cyan"></span></span>
+        <span><b>cyan = an independent number</b> — an audit, a census, a court finding:
+          held by a third party, not the party being judged.</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-amber"></span></span>
+        <span><b>amber = a seller-owned number</b> — the party being judged counting its
+          own audience, setting its own price, billing its own log. <b>This figure is amber:</b>
+          Google's take rate is Google's own number.</span>
+      </div>
+      <p class="leg-reduced">
+        Reduced motion: every shimmer becomes a static hatched band — denser for a softer
+        grade — so the uncertainty is still seen, just not moving.
+      </p>
+    </div>
+
+    <div class="fig-body" id="fig06-body"><!-- svg mounts here --></div>
+
+    <!-- axis basis, carrying the ownership (amber) hue → HTML chrome, never SVG text -->
+    <div class="fig-axis-basis">
+      <span class="rail-amber">y — % of Google Network revenue retained by Google</span>
+      <span class="rail-zinc">· x — year (zinc scaffold)</span>
+      <span class="caveat">— the rate a pure maximiser would only ratchet up</span>
+    </div>
+
+    <hr class="fig-rule">
+    <figcaption class="fig-caption">
+      Google's syndicated take rate climbs from about 9% (2002) to a 24.7% peak (2006),
+      then <b>falls</b> — 21.5% (2007), 21.3% (2008). A residual that reverses: a rate the
+      seller fully controls, given back when competition for partners intensified.
+    </figcaption>
+
+    <!-- verdict register (printed, per stampVerdict) -->
+    <div class="fig-verdict" id="fig06-verdict"></div>
+
+    <!-- citation shelf: same grammar as the prose sidenotes -->
+    <div class="fig-shelf">
+      <span class="src-chip" data-grade="A" data-own="amber">
+        <span class="grade-glyph"></span><span class="grade-letter">A</span>
+        <span class="own-dot"></span>
+        <a class="claim-id" href="#mech-tac-003">mech-tac-003</a>
+      </span>
+    </div>
+  </figure>
+</main>
+
+<script type="module">
+/* --- always --- */
+import * as guards from '../lib/guards.js';
+import { initMotion } from '../lib/motion.js';
+import { verifyTokenParity } from '../lib/tokens.js';
+
+/* --- the shared slope helper (figs 5 & 6) --- */
+import { renderMiniSeries } from '../charts/mini-series.js';
+
+/* --- the verdict register: mech-tac-003's verdict is "post-verification", not
+       clean, so a register is REQUIRED and its stamp must be printed (§ claim-marks) --- */
+import { verdictRegister } from '../charts/claim-marks.js';
+
+/* --- the y-value formatter (a percentage) --- */
+import { pct } from '../charts/svg-kit.js';
+
+/* --- inlined data (CONVENTIONS.md §4 Tier A); NOT a fetch --- */
+import { claim, points } from './data/fig-06.data.js';
+
+/* EMBED MODE — the article drops this plate in via <iframe src="…?embed=1">:
+   hide all demo/section chrome, show only the plate on a transparent ground. */
+if (new URLSearchParams(location.search).get('embed') === '1') document.body.classList.add('embed');
+
+const failBox = document.getElementById('fail');
+const failMsg = document.getElementById('fail-msg');
+function fail(msg) {
+  failBox.style.display = 'block';
+  failMsg.innerHTML = `<code>${String(msg).replace(/</g, '&lt;')}</code>`;
+}
+
+try {
+  initMotion();                    // stamps <html data-motion> → figures.css reduced-motion path
+  try { verifyTokenParity(); } catch (e) { /* dev-only parity net; do not block the draw */ }
+
+  const body = document.getElementById('fig06-body');
+
+  /* The register the module PRINTS into — a post-verification verdict may not be
+     invisible. renderMiniSeries mints the claim once, which stamps into this. */
+  const register = verdictRegister('FIGURE 06 — the take-rate reversal');
+
+  const out = renderMiniSeries(body, {
+    claim,
+    points,
+    hue: '#E0972A',                 // v2 amber — the seller's own rate (OWN-HUE); marks run no colour guard
+    anchorX: 2006,                  // the claim's central / about_year (24.7%, peak)
+    format: pct,
+    alt: "Google's syndicated take rate rose from about 9% in 2002 to a 24.7% peak in 2006, " +
+         'then fell to 21.5% in 2007 and 21.3% in 2008 — a residual that reverses.',
+    yBasisShort: '% retained',
+    register,
+    showAnchorInterval: false,      // grade A → the slope reads as settled (the argument)
+  }, { width: 720, height: 340 });
+
+  /* PRINT the verdict stamp(s) where the reader sees them (never console-only). */
+  const vEl = document.getElementById('fig06-verdict');
+  const stamps = out.verdictStamps || [];
+  if (stamps.length) {
+    vEl.innerHTML = stamps.map((s) =>
+      `<span class="v-tag">verdict</span><code>${s.id}</code> — ${s.sentence}`).join('<br>');
+  } else {
+    vEl.remove();
+  }
+
+  /* wire the [ key ] toggle */
+  const keyBtn = document.querySelector('#fig06 .fig-keybtn');
+  const legend = document.getElementById('fig06-legend');
+  keyBtn.addEventListener('click', () => {
+    const open = keyBtn.getAttribute('aria-expanded') === 'true';
+    keyBtn.setAttribute('aria-expanded', String(!open));
+    legend.hidden = open;
+  });
+
+  /* honest blank-check: if no svg drew, say so on the page */
+  if (!body.querySelector('svg')) fail('renderMiniSeries returned but no <svg> was mounted.');
+} catch (e) {
+  fail(e && e.stack ? e.stack : e);
+  throw e;
+}
+</script>
+</body>
+</html>

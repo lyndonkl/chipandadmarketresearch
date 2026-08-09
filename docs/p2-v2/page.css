@@ -1,0 +1,504 @@
+/* docs/p2-v2/page.css
+ * ============================================================================
+ * P2 v2 — "Who Owns the Number" — the PAGE SHELL.
+ *
+ * This is the shared chrome the reading-first article assembles into. It reuses
+ * the figure design layer WHOLESALE by @import-ing figures.css, which brings the
+ * verbatim DESIGN.md §2 tokens AND the component grammar the prose reuses:
+ *     --bone --graphite --cyan --amber --redline …            (tokens)
+ *     .src-chip .grade-glyph .grade-letter .own-dot           (the citation chip)
+ *     .dead-legend .contested-legend .dead-tag                (the redline device)
+ *     .a-reading .reading-tag                                 (author's-reading marker)
+ *     .stat-callout                                           (Martian-Mono margin numeral)
+ *     .fig-legend + .leg-* swatches                           (the "how to read this" key)
+ *     grade→jitter keyframes + the reduced-motion fallbacks   (§8, §9)
+ * So the sidenote in the gutter and the source shelf under a figure are ONE
+ * grammar — a claim id chip is the same object whether it is in prose or a plate.
+ *
+ * page.css then adds ONLY what the whole page needs and a single figure cannot:
+ *   the 3-zone grid (NUMBER RAIL · READING COLUMN · CITATION GUTTER), the
+ *   masthead, the persistent OWNERSHIP SPINE, the Tufte sidenote placement, the
+ *   FIGURE EMBED iframe wrapper, the SOURCES shown/dimmed state, and the collapse
+ *   to one column under ~900px.
+ *
+ * LIGHT-ONLY. Bone ground. No dark-mode block, by design (DESIGN.md §0).
+ * ==========================================================================*/
+
+/* @import MUST be first (only @charset may precede). It pulls the entire figure
+ * design layer — tokens + every reused component — into the page cascade. */
+@import url("figures/figures.css");
+
+/* ---------------------------------------------------------------------------
+ * FONTS — system-fallback aliases, mirrored from lib/tokens.css. No webfont
+ * files ship in this repo: the real faces ('Newsreader','Martian Mono','IBM
+ * Plex Mono') head each stack, and when absent the browser falls to these
+ * metric-matched local aliases. figures.css already declares the --fig-font-*
+ * stacks that reference these families; the @font-face blocks make the alias
+ * names resolve instead of being skipped.
+ * ------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Newsreader Fallback';
+  src: local('Iowan Old Style'), local('Palatino'), local('Georgia'), local('Times New Roman');
+  size-adjust: 100%; ascent-override: normal; descent-override: normal; line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Martian Mono Fallback';
+  src: local('SFMono-Regular'), local('Menlo'), local('Consolas'), local('DejaVu Sans Mono');
+  size-adjust: 100%; ascent-override: normal; descent-override: normal; line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'IBM Plex Mono Fallback';
+  src: local('SFMono-Regular'), local('Menlo'), local('Consolas'), local('DejaVu Sans Mono');
+  size-adjust: 100%; ascent-override: normal; descent-override: normal; line-gap-override: 0%;
+}
+
+/* ---------------------------------------------------------------------------
+ * 0 · PAGE-LEVEL TOKENS — the grid geometry (1u = 22px, from figures.css).
+ * ------------------------------------------------------------------------- */
+:root {
+  --rail-w:      7rem;       /* left NUMBER RAIL: ownership spine + section index */
+  --rail-gap:    1rem;       /* gap between rail and the measure                  */
+  --measure:     700px;      /* READING COLUMN: 68ch of Newsreader 21px          */
+  --gutter-gap:  1.5rem;     /* gap between the measure and the citation gutter   */
+  --gutter-w:    20rem;      /* right CITATION GUTTER: Tufte sidenotes (~320px)   */
+
+  /* the full centred page block */
+  --page-max: calc(var(--rail-w) + var(--rail-gap) + var(--measure) + var(--gutter-gap) + var(--gutter-w));
+  /* the measure + its reserved gutter — what a movement body spans */
+  --body-span: calc(var(--measure) + var(--gutter-gap) + var(--gutter-w));
+  /* how far the measure's left edge sits from the page-block left edge */
+  --measure-inset: calc(var(--rail-w) + var(--rail-gap));
+
+  /* the reading column's own faint grid — the instrument grid is SUPPRESSED to
+   * ~30% behind serif body text (PAGE-DESIGN §1) so the column reads as a calm
+   * Bone card floating over the full-faintness grid in the margins. */
+  --grid-ink-soft: rgba(131, 131, 147, 0.028);
+
+  --break: 900px;            /* collapse to one column below this (PAGE-DESIGN §1) */
+}
+
+/* ---------------------------------------------------------------------------
+ * 1 · GROUND — Bone paper + the 22px engineering grid at full faintness. The
+ *   reading column paints its own softer grid over an opaque Bone card (§5).
+ * ------------------------------------------------------------------------- */
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background-color: var(--bone);
+  color: var(--graphite);
+  font-family: var(--fig-font-prose);
+  font-size: 21px;
+  line-height: 33px;                       /* 1.5u — rides the grid */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-image:
+    linear-gradient(to right,  var(--grid-ink) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-ink) 1px, transparent 1px);
+  background-size: var(--u) var(--u);
+}
+
+.wrap {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+/* ---------------------------------------------------------------------------
+ * 2 · MASTHEAD — the document opens as a document, not an experience.
+ * ------------------------------------------------------------------------- */
+.masthead {
+  margin: calc(var(--u) * 3) 0 calc(var(--u) * 2);
+}
+.masthead__inner {
+  max-width: var(--measure);
+  margin-left: var(--measure-inset);       /* align the title left edge to the measure */
+}
+.masthead__eyebrow {
+  font-family: var(--fig-font-chrome);
+  font-size: 11px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--zinc-text); margin: 0 0 calc(var(--u) * 0.6);
+}
+.masthead__title {
+  font-family: var(--fig-font-prose); font-weight: 600;
+  font-size: clamp(32px, 6.2vw, 62px); line-height: 1.03; letter-spacing: -.022em;
+  color: var(--graphite); margin: 0;
+}
+.masthead__dek {
+  font-family: var(--fig-font-prose); font-style: italic;
+  font-size: 21px; line-height: 30px; color: var(--ink2);
+  max-width: 56ch; margin: calc(var(--u) * 0.7) 0 0;
+}
+.masthead__provenance {
+  font-family: var(--fig-font-chrome); font-size: 12px; line-height: 20px;
+  color: var(--ink3); max-width: 60ch; margin: calc(var(--u) * 0.8) 0 0;
+}
+.masthead__controls { margin-top: calc(var(--u) * 0.8); }
+
+/* the SOURCES: shown / dimmed toggle (PAGE-DESIGN §4 density control) */
+.sources-toggle {
+  font-family: var(--fig-font-chrome); font-size: 11px; letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink2); background: var(--card);
+  border: 1px solid var(--rule); border-radius: 2px;
+  padding: 6px 12px; min-height: 34px; cursor: pointer;
+}
+.sources-toggle b { color: var(--graphite); font-weight: 700; }
+.sources-toggle:hover { border-color: var(--ink3); }
+
+/* ---------------------------------------------------------------------------
+ * 3 · "HOW TO READ THIS" KEY — the reusable grammar teacher (PAGE-DESIGN §4/§6).
+ *   Reuses figures.css .fig-legend + .leg-* swatches; rendered once near the top
+ *   as a native <details> so the reader can collapse it. Two extra rows beyond
+ *   the plate legend: the ownership dot in the margins, and the A-READING flag.
+ * ------------------------------------------------------------------------- */
+.howto-key {
+  max-width: var(--measure);
+  margin: 0 0 calc(var(--u) * 1.5) var(--measure-inset);
+}
+.howto-key > summary {
+  font-family: var(--fig-font-chrome); font-size: 11px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--zinc-text);
+  cursor: pointer; padding: 8px 0; list-style: none;
+}
+.howto-key > summary::-webkit-details-marker { display: none; }
+.howto-key > summary::before { content: "▸ "; color: var(--ink3); }
+.howto-key[open] > summary::before { content: "▾ "; }
+/* the body of the key inherits .fig-legend look via the class on the same node */
+.howto-key.fig-legend { padding: 0; border: 0; background: none; }
+.howto-key .howto-key__body {
+  background: var(--card); border: 1px solid var(--rule);
+  padding: 12px 14px; margin-top: 6px;
+}
+.howto-key .leg-dot {
+  display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--ink3) inset;
+}
+.howto-key .leg-dot.leg-dot--cyan  { background: var(--cyan); }
+.howto-key .leg-dot.leg-dot--amber { background: var(--amber); }
+.howto-key .leg-reading {
+  display: inline-block; border-left: 2px solid var(--zinc); height: 14px;
+}
+
+/* ---------------------------------------------------------------------------
+ * 4 · THE 3-ZONE GRID — rail | (measure + gutter). The spine lives in the rail;
+ *   the reading movements live in the main track and reserve the gutter for
+ *   Tufte sidenotes (§6). (PAGE-DESIGN §1.)
+ * ------------------------------------------------------------------------- */
+.page {
+  display: grid;
+  grid-template-columns: var(--rail-w) minmax(0, 1fr);
+  column-gap: var(--rail-gap);
+  position: relative;
+}
+.reading {
+  grid-column: 2;
+  max-width: var(--body-span);
+}
+
+/* ---------------------------------------------------------------------------
+ * 5 · THE READING COLUMN — the measure. Each movement is a positioned block so
+ *   its section index can hang into the rail and its sidenotes into the gutter.
+ * ------------------------------------------------------------------------- */
+.movement { position: relative; margin: calc(var(--u) * 6) 0 0; }
+.movement:first-child { margin-top: calc(var(--u) * 1); }
+
+/* the measure card: an opaque Bone card carrying only the softened grid, so the
+ * instrument grid drops to ~30% behind serif text (PAGE-DESIGN §1). */
+.movement__body {
+  display: flow-root;                      /* contains the sidenote floats (a BFC) */
+  max-width: var(--body-span);
+  padding-right: calc(var(--gutter-gap) + var(--gutter-w));  /* reserve the gutter */
+  background-color: var(--bone);
+  background-image:
+    linear-gradient(to right,  var(--grid-ink-soft) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-ink-soft) 1px, transparent 1px);
+  background-size: var(--u) var(--u);
+}
+
+/* section index + tick — hangs LEFT of the measure, into the rail (Lynch
+ * wayfinding: sections read as labelled graduations on a ruler). */
+.movement__index {
+  position: absolute; top: 2px; right: 100%; margin-right: var(--rail-gap);
+  width: var(--rail-w); text-align: right;
+  font-family: var(--fig-font-num); font-size: 15px; font-weight: 600;
+  color: var(--zinc-text); letter-spacing: .02em;
+}
+.movement__index::after {                  /* the tick rule bleeding toward the measure */
+  content: ""; position: absolute; top: 0.62em; right: calc(-1 * var(--rail-gap));
+  width: var(--rail-gap); border-top: 1px solid var(--rule);
+}
+
+/* movement type roles (DESIGN §3.1) — authored inside .movement__body */
+.movement__eyebrow {
+  font-family: var(--fig-font-chrome); font-size: 11px; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--zinc-text);
+  margin: 0 0 calc(var(--u) * 0.4);
+}
+.movement__title {
+  font-family: var(--fig-font-prose); font-weight: 600;
+  font-size: clamp(23px, 3.6vw, 34px); line-height: 1.15; letter-spacing: -.014em;
+  color: var(--graphite); margin: 0 0 calc(var(--u) * 0.6);
+}
+.movement__standfirst {
+  font-family: var(--fig-font-prose); font-size: 24px; line-height: 1.35;
+  color: var(--ink2); max-width: 56ch; margin: 0 0 calc(var(--u) * 0.8);
+}
+.movement__body > p {
+  margin: 0 0 calc(var(--u) * 1);
+  max-width: var(--measure);               /* belt-and-braces: text never enters the gutter */
+}
+.movement__body > p:last-child { margin-bottom: 0; }
+
+/* inline numerals stay in the serif run (DESIGN §2 deliberate deviation); only
+ * numbers ON DISPLAY get Martian Mono. Author an inline instrument reading with
+ * <span class="num">…</span> only where a figure is being *quoted* as a readout. */
+.num {
+  font-family: var(--fig-font-num); font-weight: 600;
+  font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1;
+  font-size: 0.94em; letter-spacing: .01em;
+}
+.num.own-cyan  { color: var(--cyan-d); }
+.num.own-amber { color: var(--amber-d); }
+
+/* ---------------------------------------------------------------------------
+ * 6 · THE SIDENOTE — Tufte margin note in the citation gutter (PAGE-DESIGN §4).
+ *   Authored as an inline <span class="sidenote"> placed right after the claim
+ *   it supports (valid inside <p>). It floats into the reserved gutter and rises
+ *   to the top of the line it sits on; place it at the paragraph's start to
+ *   align to the paragraph's top, or after a sentence to anchor that claim.
+ *   Content = a .src-chip (dot + grade glyph + grade letter + claim-id, all from
+ *   figures.css) plus a one-line gloss = the appendix citation-map text.
+ * ------------------------------------------------------------------------- */
+.sidenote {
+  float: right; clear: right;
+  width: var(--gutter-w);
+  margin-right: calc(-1 * (var(--gutter-gap) + var(--gutter-w)));  /* out into the gutter */
+  margin-bottom: calc(var(--u) * 0.6);
+  font-family: var(--fig-font-chrome); font-size: 13px; line-height: 19px;
+  color: var(--ink3);
+  transition: opacity 240ms ease;
+}
+.sidenote .src-chip { display: inline-flex; align-items: center; gap: 6px; }
+.sidenote__gloss {
+  display: block; margin-top: 3px;
+  color: var(--zinc-text); font-size: 12px; line-height: 18px;
+}
+/* a stat-callout lifted into the margin rides the same gutter slot (PAGE-DESIGN §3) */
+.sidenote--stat { color: var(--graphite); }
+.sidenote--stat .stat-callout { line-height: 1.15; }
+
+/* SOURCES: dimmed — a pure-reading pass fades the apparatus to ~15% without
+ * removing it (recognition-over-recall preserved; PAGE-DESIGN §4). */
+:root[data-sources="dimmed"] .sidenote { opacity: 0.15; }
+:root[data-sources="dimmed"] .sidenote:hover,
+:root[data-sources="dimmed"] .sidenote:focus-within { opacity: 1; }
+
+/* ---------------------------------------------------------------------------
+ * 7 · THE FIGURE EMBED — a seamless, borderless, auto-height iframe hosting one
+ *   built figure. It breaks wider than the measure (measure + gutter, capped at
+ *   the plate's 1000px) so the plate breathes (PAGE-DESIGN §6; figures.css §2).
+ *   The iframe's height is set from its same-origin scrollHeight by _shell.html.
+ * ------------------------------------------------------------------------- */
+.figure-embed {
+  margin: calc(var(--u) * 1.5) 0;
+  margin-right: calc(-1 * (var(--gutter-gap) + var(--gutter-w)));  /* span measure + gutter */
+  max-width: 1000px;
+}
+.figure-embed__frame {
+  display: block; width: 100%; border: 0; overflow: hidden;
+  background: transparent;
+  height: 480px;                           /* pre-measure placeholder; JS sets the true height */
+}
+/* a quiet scroll cue the author may drop below s0 to hand off to the hero */
+.scroll-cue {
+  font-family: var(--fig-font-chrome); font-size: 12px; letter-spacing: .04em;
+  color: var(--ink3); text-align: center; margin: calc(var(--u) * 0.8) 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * 8 · THE OWNERSHIP SPINE — persistent wayfinding + thesis-in-miniature. A slim
+ *   sticky rail carrying the whole document's ownership map (amber → cyan →
+ *   amber) compressed to one viewport, with a marker at the scroll position.
+ *   Painted by _shell.html from each section's data-ownership + its height.
+ *   Degrades to the flat top progress bar under mobile / reduced motion (§11).
+ * ------------------------------------------------------------------------- */
+.spine {
+  grid-column: 1; grid-row: 1;
+  position: sticky; top: 0; align-self: start;
+  height: 100vh; width: 100%;
+  display: flex; justify-content: flex-end;
+  padding: calc(var(--u) * 1.5) 0;
+  pointer-events: none;
+}
+.spine__track {
+  position: relative;
+  width: 6px; height: 100%;
+  background: var(--rule);                  /* fallback tint before JS paints segments */
+  border-radius: 3px; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.spine__seg { width: 100%; }
+.spine__seg[data-ownership="cyan"]  { background: var(--cyan); }
+.spine__seg[data-ownership="amber"] { background: var(--amber); }
+.spine__seg[data-ownership="zinc"]  { background: var(--zinc); }
+/* the marker travels the spine; a graphite tick + a hairline across the rail */
+.spine__marker {
+  position: absolute; right: 0; width: 14px; height: 0;
+  border-top: 2px solid var(--graphite);
+  transform: translateY(-1px);
+  transition: top 120ms linear;
+}
+.spine__marker::after {
+  content: ""; position: absolute; right: -3px; top: -3px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--graphite);
+}
+
+/* the mobile / reduced-motion fallback: a plain scroll-progress bar pinned to
+ * the top of the viewport (PAGE-DESIGN §3 degrade path). Hidden until narrow. */
+.scroll-progress {
+  position: fixed; inset: 0 auto auto 0; z-index: 40;
+  height: 3px; width: 0%;
+  background: var(--zinc);
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------
+ * 9 · THE A-READING MARKER — record vs. author's synthesis (PAGE-DESIGN §5a).
+ *   Reuses figures.css .a-reading (zinc bracket + Plex-Mono "A READING" tag);
+ *   here it sits inline in the reading column with breathing room. Author with
+ *   <div class="a-reading"><span class="reading-tag">A reading</span> … </div>.
+ * ------------------------------------------------------------------------- */
+.movement__body .a-reading {
+  margin: calc(var(--u) * 1) 0;
+  max-width: var(--measure);
+}
+.movement__body .a-reading .reading-tag { margin-bottom: 4px; }
+
+/* ---------------------------------------------------------------------------
+ * 10 · THE REDLINE DEAD / CONTESTED DEVICE. The block panels come from
+ *   figures.css (.dead-legend / .contested-legend). page.css adds the INLINE
+ *   variant for knocking a legend down mid-sentence (PAGE-DESIGN §5b): a struck,
+ *   hatched redline mark carrying a small DEAD tag — redundantly coded, never an
+ *   ownership mark.
+ * ------------------------------------------------------------------------- */
+.movement__body .dead-legend,
+.movement__body .contested-legend { max-width: var(--measure); }
+
+.dead-inline {
+  text-decoration: line-through; text-decoration-color: var(--redline);
+  background: repeating-linear-gradient(45deg, var(--redline-t) 0 2px, transparent 2px 5px);
+  color: var(--ink2);
+  padding: 0 2px;
+}
+.dead-inline .dead-tag {
+  font-family: var(--fig-font-chrome); font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  color: var(--redline); border: 1px solid var(--redline); border-radius: 1px;
+  padding: 0 4px; margin-right: 5px; text-decoration: none; vertical-align: 1px;
+}
+
+/* ---------------------------------------------------------------------------
+ * 11 · ACT BREAKS — chunk 15 movements → 4 acts (PAGE-DESIGN §3). A Plex-Mono
+ *   act label over a full-measure hairline, with generous space above (10u).
+ * ------------------------------------------------------------------------- */
+.act-break {
+  margin: calc(var(--u) * 10) 0 calc(var(--u) * 2);
+  max-width: var(--measure);
+}
+.act-break:first-child { margin-top: calc(var(--u) * 2); }
+.act-break__rule { border: 0; border-top: 1px solid var(--zinc); margin: 0 0 calc(var(--u) * 0.5); }
+.act-break__label {
+  font-family: var(--fig-font-num); font-size: 13px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink3);
+}
+.act-break__label b { color: var(--graphite); font-weight: 600; }
+
+/* ---------------------------------------------------------------------------
+ * 12 · APPENDIX / FOOTER — the provenance back-matter. Sidenote claim-ids link
+ *   here (#claim-id); render the appendix entries with matching ids as anchors.
+ * ------------------------------------------------------------------------- */
+.appendix {
+  margin: calc(var(--u) * 8) 0 calc(var(--u) * 4);
+  padding-top: calc(var(--u) * 1.5);
+}
+.appendix__inner {
+  max-width: var(--measure); margin-left: var(--measure-inset);
+  border-top: 1px solid var(--zinc); padding-top: calc(var(--u) * 1.5);
+}
+.appendix h2 {
+  font-family: var(--fig-font-prose); font-weight: 600; font-size: 26px;
+  color: var(--graphite); margin: 0 0 calc(var(--u) * 0.8);
+}
+.appendix h3 {
+  font-family: var(--fig-font-chrome); font-size: 12px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--zinc-text);
+  margin: calc(var(--u) * 1.5) 0 calc(var(--u) * 0.5);
+}
+.appendix p, .appendix li {
+  font-family: var(--fig-font-prose); font-size: 17px; line-height: 26px; color: var(--ink2);
+}
+.appendix .claim-entry { scroll-margin-top: 80px; }        /* so #claim-id lands clear of the top */
+.appendix .claim-entry:target { background: var(--cyan-t); }
+.appendix code, .appendix .claim-id-ref {
+  font-family: var(--fig-font-chrome); font-size: 13px; color: var(--ink3);
+}
+
+/* ---------------------------------------------------------------------------
+ * 13 · RESPONSIVE — collapse to one column below --break (PAGE-DESIGN §1).
+ *   The rail and gutter fold away; sidenotes become inline notes under the
+ *   paragraph; the spine yields to the flat top progress bar.
+ * ------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  :root {
+    --rail-w: 0rem;
+    --rail-gap: 0rem;
+    --measure-inset: 0px;
+    --gutter-w: 0rem;
+    --gutter-gap: 0rem;
+  }
+
+  .page { grid-template-columns: minmax(0, 1fr); column-gap: 0; }
+  .reading { grid-column: 1; max-width: 100%; }
+
+  .spine { display: none; }
+  .scroll-progress { display: block; }
+
+  .masthead__inner, .howto-key, .appendix__inner { margin-left: 0; }
+
+  /* the section index stops hanging; it sits above the movement as an eyebrow */
+  .movement__index {
+    position: static; width: auto; text-align: left;
+    margin: 0 0 calc(var(--u) * 0.3);
+  }
+  .movement__index::after { display: none; }
+
+  .movement__body {
+    max-width: 100%; padding-right: 0;
+    background-image: none;                /* drop the card grid on small screens */
+  }
+  .movement__body > p { max-width: none; }
+
+  /* sidenotes go inline: a quiet left-bordered note in the flow, right where the
+   * claim sits. (Author collapsibles as <details class="sidenote"> if desired.) */
+  .sidenote {
+    float: none; clear: both; width: auto;
+    margin: calc(var(--u) * 0.5) 0;
+    padding: 8px 12px;
+    background: var(--card); border-left: 2px solid var(--rule);
+    font-size: 13px;
+  }
+
+  .figure-embed { margin-right: 0; max-width: 100%; }
+}
+
+/* ---------------------------------------------------------------------------
+ * 14 · REDUCED MOTION — the grade→jitter shimmer and its fallbacks are already
+ *   handled by figures.css §8/§9 (OS media query + :root[data-motion="reduce"]).
+ *   Here we only quiet the page-shell's own motion: the spine marker and smooth
+ *   scroll stop animating, so nothing drifts for a reader who asked for still.
+ * ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .spine__marker { transition: none; }
+  .sidenote { transition: none; }
+}

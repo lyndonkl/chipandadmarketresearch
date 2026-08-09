@@ -1,0 +1,65 @@
+<!-- docs/p2-v2/figures/_legend.html
+     ============================================================================
+     The reusable "How to read this" key (PAGE-DESIGN §6; DESIGN.md §5–6).
+     Teach the grammar hard, ONCE: shown expanded on the first figure (hero /
+     fig 2), thereafter a collapsed [ key ] chip that toggles this block.
+
+     HOW TO USE
+     ----------
+     Paste this block inside a .fig-plate, directly under the .fig-kicker, as the
+     first child of the plate body. Wire the kicker's [ key ] button to it:
+
+        <button class="fig-keybtn" aria-expanded="true"
+                aria-controls="fig02-legend">key</button>
+        …
+        <div id="fig02-legend"> …this block… </div>
+
+        keyBtn.addEventListener('click', () => {
+          const open = keyBtn.getAttribute('aria-expanded') === 'true';
+          keyBtn.setAttribute('aria-expanded', String(!open));
+          legend.hidden = open;                       // uses [hidden] in figures.css
+        });
+
+     Give the wrapper a UNIQUE id per figure (fig02-legend, hero-legend, …) so
+     two figures on one page never collide. All styling comes from figures.css.
+     No script or token is defined here — this is markup only.
+     ========================================================================= -->
+
+<div class="fig-legend" role="note" aria-label="How to read this figure">
+  <h4>How to read this</h4>
+
+  <!-- GRADE rides motion (+ a monochrome badge), NEVER colour -->
+  <div class="leg-row">
+    <span class="leg-swatch"><span class="leg-still"></span></span>
+    <span><b>still mark = grade A</b> — an audited / settled reading.</span>
+  </div>
+  <div class="leg-row">
+    <span class="leg-swatch"><span class="leg-shimmer"></span></span>
+    <span><b>shimmering mark = grade C</b> — uncertain; the amplitude is the
+      uncertainty. (Grade B sits between: a faint life.)</span>
+  </div>
+
+  <!-- OWNERSHIP rides the hue (OWN-HUE figures) or the source dot (NEUTRAL figures) -->
+  <div class="leg-row">
+    <span class="leg-swatch"><span class="leg-cyan"></span></span>
+    <span><b>cyan = an independent number</b> — an audit, a census, a court
+      finding: held by a third party, not the party being judged.</span>
+  </div>
+  <div class="leg-row">
+    <span class="leg-swatch"><span class="leg-amber"></span></span>
+    <span><b>amber = a seller-owned number</b> — the party being judged counting
+      its own audience, setting its own price, billing its own log.</span>
+  </div>
+
+  <!-- DEAD / CONTESTED — redline, redundantly coded, never an ownership mark -->
+  <div class="leg-row">
+    <span class="leg-swatch"><span class="leg-dead"></span></span>
+    <span><b>struck red = a corrected / DEAD claim</b> — a popular legend this
+      piece knocks down (contested claims show both values instead of a strike).</span>
+  </div>
+
+  <p class="leg-reduced">
+    Reduced motion: every shimmer becomes a static hatched band — denser for a
+    softer grade — so the uncertainty is still seen, just not moving.
+  </p>
+</div>

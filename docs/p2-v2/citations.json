@@ -1,0 +1,1791 @@
+{
+  "meta": {
+    "title": "Who Owns the Number",
+    "subtitle": "A history of the US advertising market, read through one question.",
+    "purpose": "Renders the 'sources under each paragraph' layer for P2 v2. Resolves each claim to the paragraph that carries its numbers/entities.",
+    "provenance_notice": "This apparatus records PROVENANCE, not verification. No claim has been verified. Human verification status: none. Grades (A/B/C) and confidence intervals are the sources' own and are preserved verbatim.",
+    "ownership_legend": {
+      "cyan": "INDEPENDENT — a number produced/held by a third party (audit, disclosed public figure, census, court finding of fact, regulator-extracted number)",
+      "amber": "SELLER-OWNED / JUDGED-PARTY — a number owned by the party being judged (the seller's self-count, the platform's own log/auction)",
+      "neutral": "ZINC — neutral scaffolding with no ownership claim (a GDP base, a raw span, an axis, a total used only as a denominator, a structural M&A/state-action figure)",
+      "note": "Per DESIGN §4.2, a seller-owned number surfaced by a court/audit KEEPS its amber owner-color; independent surfacing renders as a separate cyan overlay, not a recolor. Grade rides jitter + a mono badge, never color."
+    },
+    "grade_device": "jitter amplitude ∝ grade: A = still, B = faint, C = visible shimmer (DESIGN §5).",
+    "coverage": {
+      "paragraphs_total": 59,
+      "paragraphs_mapped": 41,
+      "paragraphs_unmapped": 18,
+      "unmapped_note": "Every unmapped paragraph is scaffolding, an author's-reading passage, or a DEAD-legend statement that makes no independent numeric claim — none is an unsourced figure.",
+      "unique_claims_used": 56,
+      "claims_with_real_sources": 56,
+      "claims_without_sources": 0,
+      "claims_without_sources_ids": [],
+      "figures_total": 7,
+      "figures_unsourceable": 0,
+      "figures_note": "All 7 figures are sourced by claims present in their own beats: fig1-hero (e6-measurement-006, e1-measurement-002) at s0/s14; fig5-commission-slope (e4-pricing-001, e6-creators-002) at s5; fig7-buyer-meter (e6-buyers-008, e1-buyers-008, e3-buyers-001) at s7; fig6-take-rate (mech-tac-003) at s10; fig2-instrument-blind (e6-medium-006) and fig3-medium-bank (e2-medium-006, e4-medium-002, e7-medium-001) at s12; fig4-gdp-strip (e2-scale-004, e2-scale-005, e7-scale-002) at s13."
+    },
+    "dead_column": [
+      {
+        "legend": "The 15% commission died in the 1980s",
+        "slot": "s5"
+      },
+      {
+        "legend": "Search killed the commission",
+        "slot": "s5"
+      },
+      {
+        "legend": "The internet killed classified (single cause)",
+        "slot": "s12"
+      },
+      {
+        "legend": "Advertising marched to the individual",
+        "slot": "s9"
+      },
+      {
+        "legend": "Each medium killed the last",
+        "slot": "s12"
+      },
+      {
+        "legend": "TV conquered advertising",
+        "slot": "s12"
+      },
+      {
+        "legend": "Google invented search advertising",
+        "slot": "s11"
+      },
+      {
+        "legend": "Search democratised money toward a long tail of dollars",
+        "slot": "s8"
+      },
+      {
+        "legend": "Self-serve is a platform invention",
+        "slot": "s8"
+      },
+      {
+        "legend": "The middleman's cut was a stable single 15%",
+        "slot": "s4"
+      },
+      {
+        "legend": "There is a single US ad-market total",
+        "slot": "s13"
+      },
+      {
+        "legend": "Platforms invented performance advertising",
+        "slot": "s7"
+      },
+      {
+        "legend": "AI Overviews cut the funding click",
+        "slot": "s14",
+        "treatment": "CONTESTED — ships both values, Google's dispute named"
+      }
+    ],
+    "declared_gaps": [
+      {
+        "id": "s-AYER",
+        "slot": "s1",
+        "note": "no primary 1875 N. W. Ayer open-contract artifact in the corpus"
+      },
+      {
+        "id": "s9-yield",
+        "slot": "s9",
+        "note": "reply rate exists for only one era; no cross-era yield series"
+      },
+      {
+        "id": "s12-mechanism",
+        "slot": "s12",
+        "note": "the birth-motor mechanism is L4 adjacency, marked as a reading"
+      },
+      {
+        "id": "s-PI/s-RES",
+        "slot": "s14",
+        "note": "no system-wide point of insight and no resolution"
+      }
+    ],
+    "source_claims_file": "p2-ad-market/data/claims.json",
+    "prose_file": "p2-ad-market-v2/discovery/THE-PIECE.md",
+    "architecture_file": "p2-ad-market-v2/discovery/ARCHITECTURE.md"
+  },
+  "movements": [
+    {
+      "id": "s0",
+      "act": "ACT I — The independent number is built",
+      "title": "A number that isn't there",
+      "eyebrow": "S0 · 2008 · A NUMBER THAT ISN'T THERE",
+      "figures": [
+        {
+          "figure": "fig1-hero",
+          "role": "hero — ownership over time (amber→cyan→amber reversion)",
+          "sources_claims": [
+            "e6-measurement-006",
+            "e1-measurement-002"
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "In its earnings release for the last quarter of 2008, Google told its shareholders",
+          "citations": [
+            {
+              "id": "e6-measurement-006",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "~18% YoY paid-click growth, Q4 2008 — no count, CPC, or query total disclosed",
+              "year": 2008,
+              "sources": [
+                {
+                  "name": "Google Inc., Q4 2008 earnings press release (Form 8-K exhibit 99.1)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509009712/dex991.htm"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "locator": "Hold that gap in mind.",
+          "citations": []
+        },
+        {
+          "n": 3,
+          "locator": "For about ninety years, from 1914 to the early 2000s, this market ran on an independent number",
+          "reading": true,
+          "citations": [
+            {
+              "id": "e1-measurement-002",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "ABC founded 1914 in Chicago — world's first circulation auditor",
+              "year": 1914,
+              "sources": [
+                {
+                  "name": "Alliance for Audited Media, 'Who We Are'",
+                  "url": "https://auditedmedia.com/about/who-we-are"
+                },
+                {
+                  "name": "History of Information, 'The Audit Bureau of Circulation, the First Circulation Auditing Organization, is Founded'",
+                  "url": "https://historyofinformation.com/detail.php?entryid=682"
+                }
+              ],
+              "note": "the 1914 anchor under the piece's L5 thesis; the 'independent number was the anomaly' reading is the author's, not a corpus statement"
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "locator": "That reading is mine, drawn from the record that follows.",
+          "reading": true,
+          "citations": []
+        },
+        {
+          "n": 5,
+          "locator": "Set 2008 against 1914. In 1914, in Chicago, publishers and advertisers merged two rival groups",
+          "citations": [
+            {
+              "id": "e1-measurement-002",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "ABC founded 1914 in Chicago — world's first circulation auditor",
+              "year": 1914,
+              "sources": [
+                {
+                  "name": "Alliance for Audited Media, 'Who We Are'",
+                  "url": "https://auditedmedia.com/about/who-we-are"
+                },
+                {
+                  "name": "History of Information, 'The Audit Bureau of Circulation, the First Circulation Auditing Organization, is Founded'",
+                  "url": "https://historyofinformation.com/detail.php?entryid=682"
+                }
+              ]
+            },
+            {
+              "id": "e6-measurement-006",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "~18% YoY paid-click growth, Q4 2008 — no count, CPC, or query total disclosed",
+              "year": 2008,
+              "sources": [
+                {
+                  "name": "Google Inc., Q4 2008 earnings press release (Form 8-K exhibit 99.1)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509009712/dex991.htm"
+                }
+              ],
+              "note": "the 2008 self-count set against the 1914 audit — the one load-bearing juxtaposition (fig1-hero hands off here)",
+              "echo": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s1",
+      "act": "ACT I — The independent number is built",
+      "title": "Who knew the price",
+      "eyebrow": "S1 · 1833–1914 · WHO KNEW THE PRICE",
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "Start at the price, because the price was once a public number.",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "The model is old. The New York Sun went on sale in 1833 at one cent a copy",
+          "citations": [
+            {
+              "id": "e1-events-001",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "Penny Sun, 1833: ~15,000 copies/day within ~2 years",
+              "year": 1835,
+              "sources": [
+                {
+                  "name": "Wikipedia, 'The Sun (New York City)'",
+                  "url": "https://en.wikipedia.org/wiki/The_Sun_(New_York_City)"
+                },
+                {
+                  "name": "The Founding of the Penny Press (ERIC ED360650)",
+                  "url": "https://files.eric.ed.gov/fulltext/ED360650.pdf"
+                }
+              ],
+              "note": "penny-press scaffolding — illustrates the advertiser-funded model"
+            },
+            {
+              "id": "e1-sellers-003",
+              "grade": "A",
+              "ownership": "cyan",
+              "gloss": "Ads = 64.9% of US newspaper gross income, 1914 ($184.1M vs $99.5M)",
+              "year": 1914,
+              "sources": [
+                {
+                  "name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12",
+                  "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "For the buyer who did not want to run a paper, there was an agency, and the agency's price was disclosed",
+          "citations": [
+            {
+              "id": "e2-creators-002",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "Standard 15% agency commission; on radio it covered production too",
+              "year": 1930,
+              "sources": [
+                {
+                  "name": "UCLA Anderson Review, 'The Long History of Middlemen Earning a Lucrative Fixed Commission'",
+                  "url": "https://www.anderson-review.ucla.edu/the-long-history-of-middlemen-earning-a-lucrative-fixed-commission/"
+                },
+                {
+                  "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI (networks delegated actual program production to advertising agencies)",
+                  "url": "https://earlyradiohistory.us/1941cb06.htm"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "locator": "The discipline is usually dated to N. W. Ayer's open contract of 1875",
+          "gap": {
+            "id": "s-AYER",
+            "note": "no primary 1875 N. W. Ayer open-contract artifact in the corpus; absence declared on the page, not filled"
+          },
+          "citations": [
+            {
+              "id": "e4-pricing-001",
+              "grade": "A",
+              "ownership": "cyan",
+              "gloss": "Census commissions-received held near 14% (14.13% 1977 → 13.18% 1992)",
+              "year": 1992,
+              "sources": [
+                {
+                  "name": "Economic Census, Sources of Receipts or Revenues, Census of Service Industries, via HBS WP 11-039 Table A1",
+                  "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+                }
+              ],
+              "note": "'the disclosed price is real in the figures that come later' — the census commissions-received series"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "act": "ACT I — The independent number is built",
+      "title": "Who counted the readers",
+      "eyebrow": "S2 · 1914 · WHO COUNTED THE READERS",
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "Now the count. This is where the audit begins",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "The Audit Bureau of Circulations, founded in 1914, was a merger of a publisher-led body",
+          "citations": [
+            {
+              "id": "e1-measurement-002",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "ABC founded 1914 in Chicago — world's first circulation auditor",
+              "year": 1914,
+              "sources": [
+                {
+                  "name": "Alliance for Audited Media, 'Who We Are'",
+                  "url": "https://auditedmedia.com/about/who-we-are"
+                },
+                {
+                  "name": "History of Information, 'The Audit Bureau of Circulation, the First Circulation Auditing Organization, is Founded'",
+                  "url": "https://historyofinformation.com/detail.php?entryid=682"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "Read against the opener, the shape of the whole piece is already visible",
+          "reading": true,
+          "citations": [
+            {
+              "id": "e1-measurement-002",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "ABC founded 1914 in Chicago — world's first circulation auditor",
+              "year": 1914,
+              "sources": [
+                {
+                  "name": "Alliance for Audited Media, 'Who We Are'",
+                  "url": "https://auditedmedia.com/about/who-we-are"
+                },
+                {
+                  "name": "History of Information, 'The Audit Bureau of Circulation, the First Circulation Auditing Organization, is Founded'",
+                  "url": "https://historyofinformation.com/detail.php?entryid=682"
+                }
+              ],
+              "echo": true
+            },
+            {
+              "id": "e6-measurement-006",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "~18% YoY paid-click growth, Q4 2008 — no count, CPC, or query total disclosed",
+              "year": 2008,
+              "sources": [
+                {
+                  "name": "Google Inc., Q4 2008 earnings press release (Form 8-K exhibit 99.1)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509009712/dex991.htm"
+                }
+              ],
+              "note": "s2↔s0 juxtaposition: 1914 built an independent count; 2008 reports a growth rate and keeps the count",
+              "echo": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "act": "ACT II — The count drifts back",
+      "title": "The count changes hands",
+      "eyebrow": "S3 · 1944–1949 · THE COUNT CHANGES HANDS",
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "The independent number did not hold.",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "Two services measured the radio audience. After 1944 they used the same telephone method",
+          "citations": [
+            {
+              "id": "e2-measurement-003",
+              "grade": "B",
+              "ownership": "amber",
+              "gloss": "Hooper ran ~20% above CAB on the same telephone method after 1944",
+              "year": 1946,
+              "sources": [
+                {
+                  "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1 p. 9-10 and appendix D (Zeisel study, presented by Marion Harper Jr., 7 February 1946)",
+                  "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "By the end of the decade the number had a price tag written into a contract",
+          "citations": [
+            {
+              "id": "e2-measurement-008",
+              "grade": "B",
+              "ownership": "amber",
+              "gloss": "CBS guaranteed $3,000/wk per Hooper point Benny lost, Jan 1949",
+              "year": 1949,
+              "sources": [
+                {
+                  "name": "Beville, Audience Ratings: Radio, Television, Cable (1988), ch. 1, quoting Robert Metz",
+                  "url": "https://www.worldradiohistory.com/Archive-Ratings-Documents/Audience-Ratings-Beville-1988.pdf"
+                }
+              ],
+              "note": "the Hooper (vendor) rating written into a CBS/sponsor deal term"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "act": "ACT II — The count drifts back",
+      "title": "How many hands took a cut",
+      "eyebrow": "S4 · 1925–1938 · HOW MANY HANDS TOOK A CUT",
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "The 15% was never the whole cut. It was the one plate the trade published",
+          "citations": [
+            {
+              "id": "e2-creators-002",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "Standard 15% agency commission; on radio it covered production too",
+              "year": 1930,
+              "sources": [
+                {
+                  "name": "UCLA Anderson Review, 'The Long History of Middlemen Earning a Lucrative Fixed Commission'",
+                  "url": "https://www.anderson-review.ucla.edu/the-long-history-of-middlemen-earning-a-lucrative-fixed-commission/"
+                },
+                {
+                  "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI (networks delegated actual program production to advertising agencies)",
+                  "url": "https://earlyradiohistory.us/1941cb06.htm"
+                }
+              ],
+              "note": "the one disclosed plate — the published 15%"
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "locator": "The deepest split surfaced only because a regulator forced it into the open",
+          "citations": [
+            {
+              "id": "e2-sellers-002",
+              "grade": "A",
+              "ownership": "cyan",
+              "gloss": "NBC+CBS kept 73% ($32,046,218), paid 27% to 253 affiliates — 1938 FCC audit",
+              "year": 1938,
+              "sources": [
+                {
+                  "name": "FCC, Report on Chain Broadcasting (May 1941), ch. VI",
+                  "url": "https://earlyradiohistory.us/1941cb06.htm"
+                }
+              ],
+              "note": "73/27 wrested from the seller by the 1938 FCC audit"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "The chain had started earlier, and with the phone company",
+          "citations": [
+            {
+              "id": "e2-pricing-002",
+              "grade": "A",
+              "ownership": "neutral",
+              "gloss": "AT&T sold network time at $2,600/hr, ~$750k/yr, end-1925",
+              "year": 1925,
+              "sources": [
+                {
+                  "name": "FCC, Report on Chain Broadcasting (May 1941), ch. I - full text retrieved and searched",
+                  "url": "https://earlyradiohistory.us/1941cb01.htm"
+                }
+              ],
+              "note": "AT&T price — scaffolding for the origin of the chain"
+            },
+            {
+              "id": "e3-pricing-003",
+              "grade": "C",
+              "ownership": "amber",
+              "gloss": "Station reps took 5–20% on the net after the agency's cut — range, no typical value",
+              "year": 1975,
+              "sources": [
+                {
+                  "name": "Zeigler & Howard, 'Broadcast Advertising: A Comprehensive Working Textbook', 3rd ed. (1991), via World Radio History",
+                  "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+                }
+              ],
+              "note": "hidden middleman plate, not published"
+            },
+            {
+              "id": "e3-pricing-002",
+              "grade": "B",
+              "ownership": "amber",
+              "gloss": "A 2% cash discount on the net, usually left out of take-rate comparisons",
+              "year": 1975,
+              "sources": [
+                {
+                  "name": "Zeigler & Howard, 'Broadcast Advertising', 3rd ed. (1991)",
+                  "url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Education/Broadcast-Advertising-Zeigler-Howard-3rd-1991.pdf"
+                }
+              ],
+              "note": "hidden middleman plate, not published"
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "locator": "So the middleman's cut was not a stable single 15%.",
+          "dead": {
+            "legend": "The middleman's cut was a stable single 15%",
+            "corrective": "three or four plates on different bases that cannot be summed; the public one was the smallest"
+          },
+          "citations": []
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "act": "ACT II — The count drifts back",
+      "title": "Did the 15% die?",
+      "eyebrow": "S5 · 1956–2003 · DID THE 15% DIE?",
+      "figures": [
+        {
+          "figure": "fig5-commission-slope",
+          "role": "commission received over time (the rate held, then collapsed)",
+          "sources_claims": [
+            "e4-pricing-001",
+            "e6-creators-002",
+            "e3-creators-002"
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "The tidy version says the 15% commission died in the 1980s",
+          "dead": {
+            "legend": "The 15% commission died in the 1980s (killed by a court or the internet)",
+            "corrective": "the decree changed the law, not the price; the rate held near 14% and peaked here"
+          },
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "A court did strike at it. A consent decree, entered on 1 February 1956",
+          "citations": [
+            {
+              "id": "e3-creators-001",
+              "grade": "A",
+              "ownership": "cyan",
+              "gloss": "AAAA consent decree, 1 Feb 1956 — ended collective 15% enforcement",
+              "year": 1956,
+              "sources": [
+                {
+                  "name": "U.S. Department of Justice, Antitrust Division: legacy antitrust judgment, United States v. American Association of Advertising Agencies, Inc., et al.",
+                  "url": "https://www.justice.gov/atr/legacy-antitrust-judgment-american-association-of-advertising-agencies-inc-et-al"
+                },
+                {
+                  "name": "Silk & Berndt, 'The Unbundling of Advertising Agency Services: An Economic Analysis', HBS Working Paper 11-039",
+                  "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+                }
+              ]
+            },
+            {
+              "id": "e3-creators-002",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "71% of the largest US advertisers still on commission in 1982",
+              "year": 1982,
+              "sources": [
+                {
+                  "name": "Silk & Berndt, HBS Working Paper 11-039, citing ANA tracking studies (Beals 2007)",
+                  "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+                }
+              ],
+              "note": "independent ANA tracking of advertiser compensation"
+            },
+            {
+              "id": "e4-pricing-001",
+              "grade": "A",
+              "ownership": "cyan",
+              "gloss": "Census commissions-received held near 14% (14.13% 1977 → 13.18% 1992)",
+              "year": 1992,
+              "sources": [
+                {
+                  "name": "Economic Census, Sources of Receipts or Revenues, Census of Service Industries, via HBS WP 11-039 Table A1",
+                  "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "Its collapse came later, and not from search.",
+          "dead": {
+            "legend": "Search killed the commission",
+            "corrective": "the commission mix collapsed after the 1991–94 unbundling of media buying from creative — the corpus marks search as a non-cause"
+          },
+          "citations": [
+            {
+              "id": "e6-creators-002",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "Commission basis fell to ~10% by 2003 from 61% in 1994 — followed unbundling, not search",
+              "year": 2003,
+              "sources": [
+                {
+                  "name": "Horsky & Zeithammer, 'The Rise and Fall of the 15%: Evolution of Advertising Agency Compensation' (UCLA Anderson working paper, Sep 2021), Figure 2, built from ANA triennial agency-compensation surveys",
+                  "url": "https://anderson-review.ucla.edu/wp-content/uploads/2021/09/Zeithammer-compensation-paper-Sep-2021.pdf"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "act": "ACT II — The count drifts back",
+      "title": "The instrument, not the audience",
+      "eyebrow": "S6 · 1987 · THE INSTRUMENT, NOT THE AUDIENCE",
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "In September 1987 the count changed again",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "Nielsen's people meters became the national television currency that month",
+          "citations": [
+            {
+              "id": "e4-measurement-001",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "People meters, Sept 1987: ~10% fewer viewers; CBS/ABC −13%, NBC −4%",
+              "year": 1987,
+              "sources": [
+                {
+                  "name": "Christian Science Monitor, 'For TV networks, People Meter is a profit eater', 6 January 1988",
+                  "url": "https://www.csmonitor.com/1988/0106/fmeter.html"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "Note who got hurt. The more honest count cut the sellers' own figures",
+          "reading": true,
+          "citations": []
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "act": "ACT III — The buyer's meter & the door",
+      "title": "The buyer's own meter",
+      "eyebrow": "S7 · 1914–2008 · THE BUYER'S OWN METER",
+      "figures": [
+        {
+          "figure": "fig7-buyer-meter",
+          "role": "direct-response / performance share across 150 years",
+          "sources_claims": [
+            "e6-buyers-008",
+            "e1-buyers-008",
+            "e3-buyers-001"
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "One buyer never trusted the seller's audience count and never had to.",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "The direct-response buyer pays only for a measured reply.",
+          "dead": {
+            "legend": "Platforms invented performance advertising",
+            "corrective": "the keyed-reply buyer was the largest single national medium for ~half a century before platforms"
+          },
+          "citations": [
+            {
+              "id": "e1-buyers-008",
+              "grade": "C",
+              "ownership": "cyan",
+              "gloss": "Direct-response pool ~$192M in 1914, ~16% of the benchmark — wide, low-confidence",
+              "year": 1914,
+              "sources": [
+                {
+                  "name": "Printers' Ink, 4 May 1911, vol. LXXV no. 5, p. 79 - the magazine's own estimate of money spent through each advertising channel; twelve channels summing exactly to $616,000,000 (verified)",
+                  "url": "https://archive.org/details/sim_marketing-communications-1888_1911-05-04_75_5"
+                },
+                {
+                  "name": "1926 Encyclopaedia Britannica, 'Advertising' (direct mail about $300,000,000 in 1920) - demoted at R2b from primary anchor to corroborating route",
+                  "url": "https://en.wikisource.org/wiki/1926_Encyclop%C3%A6dia_Britannica/Advertising"
+                },
+                {
+                  "name": "Samuel Hopkins Adams, 'The Great American Fraud', Collier's, 7 October 1905: US consumer spending on patent medicines put at $75,000,000"
+                },
+                {
+                  "name": "R2b money-type source hunt, era 1 (p2-ad-market/data/moneytype/sources-era-1.json): 20 sources read, 14 new to the project; documented negative result that no compiler ever published this four-way split for any year 1840s-1917"
+                },
+                {
+                  "name": "R2b money-type reconciliation, era 1, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
+                }
+              ],
+              "note": "grade C — wide, low-confidence, held as a range; shimmers under the jitter device"
+            },
+            {
+              "id": "e3-buyers-001",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "Direct mail = 24% of US national advertising in 1956, more than broadcast",
+              "year": 1956,
+              "sources": [
+                {
+                  "name": "Silk & Berndt, HBS Working Paper 11-039 (computed from the Coen/McCann-Erickson series)",
+                  "url": "https://www.hbs.edu/ris/Publication%20Files/11-039.pdf"
+                },
+                {
+                  "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14)",
+                  "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "On the internet, this buyer's model won the medium.",
+          "citations": [
+            {
+              "id": "e6-buyers-008",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "57% of US internet ad revenue bought pay-per-action in 2008 (up from 51%); 39% CPM",
+              "year": 2008,
+              "sources": [
+                {
+                  "name": "IAB/PwC, IAB Internet Advertising Revenue Report, Full Year 2008, 'Performance-Based Pricing Gains'",
+                  "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+                }
+              ],
+              "note": "reversion (cyan→amber): the buyer's independent meter finally wins the medium, but lands inside the seller's own log"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "act": "ACT III — The buyer's meter & the door",
+      "title": "Who gets in the door",
+      "eyebrow": "S8 · 1914–1971 · WHO GETS IN THE DOOR",
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "Two questions get merged here that should stay apart.",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "The open, commission-free door is old.",
+          "dead": {
+            "legend": "Self-serve buying is a platform-era invention",
+            "corrective": "1914 newspaper classified carried no agency commission and no cost of preparation"
+          },
+          "citations": [
+            {
+              "id": "e1-buyers-007",
+              "grade": "C",
+              "ownership": "neutral",
+              "gloss": "1914 newspaper classified carried no agency commission and no cost of preparation",
+              "year": 1914,
+              "sources": [
+                {
+                  "name": "Historical Statistics of the United States, Colonial Times to 1970, series T 444-471 (advertising outlay) and T 485-491 (newspaper linage, 52 cities, from 1928, Media Records Inc.)",
+                  "url": "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p2-chT.pdf"
+                },
+                {
+                  "name": "William H. Field (Business Manager, Chicago Tribune), 'Business Management of a Newspaper' (1916): advertising volume 'about equally divided between classified and display, although the former brings a much lower rate'",
+                  "url": "https://archive.org/details/businessmanageme1916fiel"
+                },
+                {
+                  "name": "Jason Rogers, 'Building Newspaper Advertising' (1919) p. 319 and 'Newspaper Building' (1918): national share of a mid-size daily's linage and net income; the two-cents-per-word classified card and the separate 'Expenses, Classified' sub-ledger",
+                  "url": "https://archive.org/details/buildingnewspape00roge"
+                },
+                {
+                  "name": "Newspaper Association of America, 'Annual Newspaper Ad Expenditures' (1950: national $518m, retail $1,175m, classified $377m of $2,070m), via the Internet Archive",
+                  "url": "https://web.archive.org/web/20110511154429/http://www.naa.org/docs/Research/Annual-Newspaper-Ad-Expenditures.htm"
+                },
+                {
+                  "name": "US Census of Manufactures 1919, Printing and Publishing bulletin, Table 12 (newspaper advertising receipts $184.047m and other-periodical receipts $71.586m, 1914)",
+                  "url": "https://www2.census.gov/library/publications/decennial/1920/bulletins/manufacturing/manufactures-printing-and-publishing.pdf"
+                }
+              ],
+              "note": "grade C — the open, commission-free door as structural access, not an ownership-of-count claim"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "And the money did not democratise the way the story says.",
+          "dead": {
+            "legend": "Search democratised money and moved spending to a long tail of dollars",
+            "corrective": "national share rose 61.4%→66.3% (2002–07): a long tail of heads, not of dollars"
+          },
+          "citations": [
+            {
+              "id": "e6-buyers-005",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "National share of US ad spend rose 61.4% (2002) → 66.3% (2007)",
+              "year": 2007,
+              "sources": [
+                {
+                  "name": "Coen Structured Advertising Expenditure Dataset, 'Total National' vs 'Total Local' scheme-3 rows",
+                  "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "locator": "The state works the door too, and it can expel a whole class of buyer.",
+          "citations": [
+            {
+              "id": "e3-buyers-004",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "Cigarette makers paid broadcasters ~$225M/yr before the 2 Jan 1971 ban",
+              "year": 1970,
+              "sources": [
+                {
+                  "name": "EBSCO Research Starters, 'Cigarette Ads Are Banned from Broadcast Media'",
+                  "url": "https://www.ebsco.com/research-starters/politics-and-government/cigarette-ads-are-banned-broadcast-media"
+                },
+                {
+                  "name": "Jon P. Nelson, 'Advertising Bans in the United States', EH.net Encyclopedia (Table 2: cigarette five-media advertising $296.6M in 1970)",
+                  "url": "https://eh.net/encyclopedia/nelson-adbans/"
+                }
+              ]
+            },
+            {
+              "id": "e3-medium-011",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "1971 was the era's only down year for US TV advertising, −1.7%",
+              "year": 1971,
+              "sources": [
+                {
+                  "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14)",
+                  "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+                },
+                {
+                  "name": "Congressional Research Service Report 80-130 E: FCC statistics show continual growth in television broadcast revenues 'with the exception of the 1970-1971 period'",
+                  "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "act": "ACT III — The buyer's meter & the door",
+      "title": "The dial",
+      "eyebrow": "S9 · 1975–2025 · THE DIAL",
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "Targeting got extraordinarily fine, and fineness turns out not to be the point.",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "By 1975, direct mail could address 71.1 million US households one at a time",
+          "reading": true,
+          "gap": {
+            "id": "s9-yield",
+            "note": "the record carries a reply rate for only one era; the piece does not claim a flat century-long yield"
+          },
+          "citations": [
+            {
+              "id": "e3-targeting-005",
+              "grade": "A",
+              "ownership": "neutral",
+              "gloss": "Direct mail addressed 71.1M US households in 1975 — ~279,000× finer than a TV spot",
+              "year": 1975,
+              "sources": [
+                {
+                  "name": "U.S. Census Bureau, Table HH-1, 'Households by Type: 1940 to present'",
+                  "url": "https://www2.census.gov/programs-surveys/demo/tables/families/time-series/households/hh1.xls"
+                },
+                {
+                  "name": "Television Bureau of Advertising, 'National Television Penetration Trends' (source: The Nielsen Company)",
+                  "url": "https://www.tvb.org/wp-content/uploads/2022/10/National-TV-Household-Penetration-Trends.pdf"
+                },
+                {
+                  "name": "USPS Office of Inspector General, RARC-WP-16-006, 'Advertising Mail: Past and Present'",
+                  "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf"
+                }
+              ],
+              "note": "targeting granularity — census/Nielsen counts, not blended"
+            },
+            {
+              "id": "e4-targeting-004",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "A 2% reply on a rented list was a successful campaign (rate on pieces mailed)",
+              "year": 1993,
+              "sources": [
+                {
+                  "name": "Encyclopedia of American Industries, 'SIC 7331 Direct Mail Advertising Services'",
+                  "url": "https://www.referenceforbusiness.com/industries/Service/Direct-Mail-Advertising-Services.html"
+                },
+                {
+                  "name": "DMA, Statistical Fact Book 2001 (cost-of-acquisition worked examples use 1-2% response on 1,000,000-piece drops)",
+                  "url": "http://courses.washington.edu/dmarket/2001Factbook.pdf"
+                }
+              ],
+              "note": "2% reply is a rate on pieces mailed"
+            },
+            {
+              "id": "e5-targeting-005",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "Read-vs-mailed guard: Overture's implied 15.9% reply is on pieces read, not mailed",
+              "year": 2001,
+              "sources": [
+                {
+                  "name": "Overture Services, Inc., Form 10-K for FY2001, Item 1 Business, SEC EDGAR",
+                  "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm"
+                }
+              ],
+              "note": "read-vs-mailed guard: do not set the mailed 2% beside search's read-based rates"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "Then search changed the axis.",
+          "dead": {
+            "legend": "Advertising marched to the individual",
+            "corrective": "it marched to the countable unit — a typed query attached to no one in particular"
+          },
+          "citations": [
+            {
+              "id": "e5-targeting-004",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "Overture: 442M paid clicks in Q4 2001, no cookie/profile, ~53,000 advertisers",
+              "year": 2001,
+              "sources": [
+                {
+                  "name": "Overture Services, Inc., Form 10-K for FY2001, Item 1 Business, SEC EDGAR",
+                  "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm"
+                }
+              ],
+              "note": "seller-owned platform count; intent without identity — the countable unit, not the individual"
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "locator": "Later the buyer handed the dial back to the machine.",
+          "citations": [
+            {
+              "id": "e7-buyers-003",
+              "grade": "C",
+              "ownership": "amber",
+              "gloss": "Vendor survey: 71% ran Performance Max in 2025 (up from 60%) — soft endpoint, wide band",
+              "year": 2025,
+              "sources": [
+                {
+                  "name": "Fluency, '2026 Trends and Performance Benchmarks for Google Ads and Meta Ads'",
+                  "url": "https://www.fluency.inc/blog/2026-trends-and-performance-benchmarks-google-ads-meta-ads"
+                }
+              ],
+              "note": "grade C — vendor panel, soft endpoint, wide band; shimmers and is never a peak"
+            },
+            {
+              "id": "e7-targeting-002",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "Apple ATT opt-in ~16% at launch (May 2021) → ~25% by mid-2022",
+              "year": 2022,
+              "sources": [
+                {
+                  "name": "AppleMagazine, 'App Tracking Transparency: Four Years of Impact on User Privacy'",
+                  "url": "https://applemagazine.com/app-tracking-transparency-cuts-u-s-tracking-rate/"
+                },
+                {
+                  "name": "Statista, Apple ATT opt-in rate by app category",
+                  "url": "https://www.statista.com/statistics/1281345/apple-att-opt-in-rate-by-app-category"
+                }
+              ],
+              "note": "the state re-separates: identity prised back off the ad"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "act": "ACT IV — The seller takes the number back",
+      "title": "The governed price",
+      "eyebrow": "S10 · 2002–2024 · THE GOVERNED PRICE",
+      "figures": [
+        {
+          "figure": "fig6-take-rate",
+          "role": "Google syndicated take rate over time (the ratchet that reversed)",
+          "sources_claims": [
+            "mech-tac-003"
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "The clearing price came dressed as a neutral machine. It was not neutral. The seller set it.",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "AdWords Select launched on 20 February 2002 with a promise",
+          "citations": [
+            {
+              "id": "mech-adwords-001",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "AdWords Select, 20 Feb 2002: advertisers 'pay the lowest amount possible'",
+              "year": 2002,
+              "sources": [
+                {
+                  "name": "Google press release, 'Google Introduces New Pricing For Popular Self-Service Online Advertising Program' (Feb 20, 2002)",
+                  "url": "http://googlepress.blogspot.com/2002/02/google-introduces-new-pricing-for.html"
+                }
+              ],
+              "note": "the seller's stated promise; the auction ran on a log the seller owned, recorded, and billed"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "The founding auction was not even that machine.",
+          "citations": [
+            {
+              "id": "e5-pricing-004",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "Overture was pure first-price, ~$0.23/click, listings needed editorial approval",
+              "year": 2001,
+              "sources": [
+                {
+                  "name": "Overture Services, Inc., Form 10-K for FY2001, Items 1 and 7, SEC EDGAR (442 million paid introductions in Q4 2001; average price $0.23; Q4 revenue $101.188M)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/0001060439/000095014802000561/v79612e10-k.htm"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "locator": "Then the seller tuned the price.",
+          "citations": [
+            {
+              "id": "mech-rgsp-001",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "rGSP (2019): +5.91% top-slot CPC on PC/tablet, +4.85% mobile; advertisers cannot opt out",
+              "year": 2019,
+              "sources": [
+                {
+                  "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024), FOF paras 245-255",
+                  "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+                }
+              ],
+              "note": "seller-owned number surfaced by a court finding (DESIGN §4.2: mark keeps the owner's amber; independent surfacing is a separate cyan overlay)"
+            },
+            {
+              "id": "mech-knobs-001",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "Three pricing knobs — 'Butternut Squash', format pricing, rGSP — 'intentional pricing'; exponent never disclosed",
+              "year": 2024,
+              "sources": [
+                {
+                  "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024), FOF paras 245-255",
+                  "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+                },
+                {
+                  "name": "Search Engine Land, 'How Google harms search advertisers in 20 slides' (DOJ trial exhibits on squashing, format pricing, intentional pricing)",
+                  "url": "https://searchengineland.com/doj-google-search-ad-price-manipulation-440207"
+                }
+              ],
+              "note": "seller-owned number surfaced by a court finding (DESIGN §4.2: mark keeps the owner's amber; independent surfacing is a separate cyan overlay)"
+            },
+            {
+              "id": "mech-mehta-004",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "Court: Google tested raising text-ad prices 5%+ — 'the results have been largely consistent — it can'",
+              "year": 2024,
+              "sources": [
+                {
+                  "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024)",
+                  "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+                }
+              ],
+              "note": "seller-owned number surfaced by a court finding (DESIGN §4.2: mark keeps the owner's amber; independent surfacing is a separate cyan overlay)"
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "locator": "One fact cuts against reading this as pure extraction.",
+          "citations": [
+            {
+              "id": "mech-tac-003",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "Syndicated take rate ~9% (2002) → 24.7% (2006) → 21.3% (2008) — the ratchet reversed",
+              "year": 2006,
+              "sources": [
+                {
+                  "name": "Google Inc., Form 10-K FY2008 (revenues by source 2006-2008; TAC split AdSense $3,134.6m/$4,543.0m/$5,284.3m and distribution $174.2m/$390.9m/$654.7m; cost of revenues $8,621.5m in 2008; $726m AOL impairment)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509029448/d10k.htm"
+                },
+                {
+                  "name": "Google Inc., Form 10-K FY2004 (revenues by source; traffic acquisition costs $94.5m/$526.5m/$1,228.7m at 91%/84%/79% of Google Network advertising revenue and 23%/37%/39% of advertising revenue; AOL 15%/16%/12% of revenues 2002/2003/2004)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312505065298/d10k.htm"
+                }
+              ],
+              "note": "residual: the seller's own take rate falls 24.7%→21.3% — a pure maximiser would not let its rate fall"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "act": "ACT IV — The seller takes the number back",
+      "title": "The state moves the top of the stack",
+      "eyebrow": "S11 · 1943–2024 · THE STATE MOVES THE TOP OF THE STACK",
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "Concentration in this market is built with capital.",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "The capital point is plain in the numbers.",
+          "dead": {
+            "legend": "Google invented search advertising",
+            "corrective": "Overture led the paid-search business on revenue and built the per-click auction; the corpus does not credit Google with inventing it"
+          },
+          "citations": [
+            {
+              "id": "e6-sellers-001",
+              "grade": "A",
+              "ownership": "neutral",
+              "gloss": "Overture led paid search: $667.7M revenue 2002 vs Google's $439.5M total",
+              "year": 2002,
+              "sources": [
+                {
+                  "name": "Overture Services, Inc., Form 10-K FY2002",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1060439/000095014803000429/v88074e10vk.htm"
+                },
+                {
+                  "name": "Google Inc., Form 10-K FY2004 (2002 revenue table)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312505065298/d10k.htm"
+                }
+              ],
+              "note": "SEC-filed revenue used as market-structure scaffolding"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "The state's record is relocation and ceilings.",
+          "citations": [
+            {
+              "id": "e2-events-006",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "Edward J. Noble bought NBC's Blue Network for $8M, 12 Oct 1943 — a sale, not a build",
+              "year": 1943,
+              "sources": [
+                {
+                  "name": "Wikipedia, 'Blue Network'",
+                  "url": "https://en.wikipedia.org/wiki/Blue_Network"
+                },
+                {
+                  "name": "Britannica, 'Blue Network'",
+                  "url": "https://www.britannica.com/topic/Blue-Network"
+                }
+              ],
+              "note": "sale only; what forced it is not in this record"
+            },
+            {
+              "id": "e3-sellers-002",
+              "grade": "A",
+              "ownership": "neutral",
+              "gloss": "From 1954 the FCC capped owners at 7 TV stations, max 5 VHF",
+              "year": 1954,
+              "sources": [
+                {
+                  "name": "FCC multiple-ownership rules, 43 FCC 2797 (1954), summarised in Congressional Research Service Report 80-130 E, 'Commercial Television Broadcasting'",
+                  "url": "https://www.everycrsreport.com/files/19800630_80-130_eafa82e1547b35d16e86f1ee64e4dcbb4d996ea3.pdf"
+                }
+              ]
+            },
+            {
+              "id": "e4-sellers-004",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "RBOC Yellow Pages sold $9,517M of advertising in 1993 — more than radio or magazines",
+              "year": 1993,
+              "sources": [
+                {
+                  "name": "Coen Structured Advertising Expenditure Dataset, workbook",
+                  "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "locator": "Audience targeting itself entered by purchase, not by build.",
+          "citations": [
+            {
+              "id": "e6-targeting-004",
+              "grade": "A",
+              "ownership": "neutral",
+              "gloss": "Targeting entered by purchase: DoubleClick $3.1bn (Apr 2007), aQuantive ~$6bn, Right Media $680M, 24/7 $649M — largest deals of the year",
+              "year": 2007,
+              "sources": [
+                {
+                  "name": "Google Inc., Form 8-K exhibit 99.1, 'Google to Acquire DoubleClick' (April 13, 2007)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/0001288776/000119312507084483/dex991.htm"
+                },
+                {
+                  "name": "Microsoft Corp., Form 8-K exhibit 99.1 (aQuantive acquisition, May 2007)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312507180380/dex991.htm"
+                }
+              ],
+              "note": "representativeness: TAIL — the largest such deals of 2007, not typical ones"
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "locator": "One deconcentration was real, and the state licensed it without designing it",
+          "citations": [
+            {
+              "id": "e2-sellers-006",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "Postwar boom tripled the AM dial: ~900 stations (1945) → ~2,500 (early 1950s)",
+              "year": 1945,
+              "sources": [
+                {
+                  "name": "Museum of Broadcast Communications, Radio Encyclopedia: AM Radio",
+                  "url": "https://www.museum.tv/radio-encyclopedia/am-radio"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": 6,
+          "locator": "And when the state named the modern structure unlawful, it did so without pulling it apart.",
+          "citations": [
+            {
+              "id": "e7-events-009",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "Court found Google paid $26.3B in search default revenue share in 2021 — spending it ruled foreclosed competition",
+              "year": 2021,
+              "sources": [
+                {
+                  "name": "United States v. Google LLC, Mem. Op. (D.D.C. Aug. 5, 2024)",
+                  "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+                }
+              ],
+              "note": "seller-owned number surfaced by a court finding (DESIGN §4.2: mark keeps the owner's amber; independent surfacing is a separate cyan overlay)"
+            },
+            {
+              "id": "mech-mehta-004",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "Court: Google tested raising text-ad prices 5%+ — 'the results have been largely consistent — it can'",
+              "year": 2024,
+              "sources": [
+                {
+                  "name": "United States v. Google LLC, Mem. Op., No. 20-cv-3010 (APM), Doc. 1033 (D.D.C. Aug. 5, 2024)",
+                  "url": "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0.pdf"
+                }
+              ],
+              "note": "'supracompetitive' — the court's characterisation of the seller's own prices (seller-owned number surfaced by a court finding (DESIGN §4.2: mark keeps the owner's amber; independent surfacing is a separate cyan overlay))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "act": "ACT IV — The seller takes the number back",
+      "title": "Every new unit is born uncounted",
+      "eyebrow": "S12 · 1919–2025 · EVERY NEW UNIT IS BORN UNCOUNTED",
+      "figures": [
+        {
+          "figure": "fig2-instrument-blind",
+          "role": "the Coen historian's series going blind at 2008",
+          "sources_claims": [
+            "e6-medium-006"
+          ]
+        },
+        {
+          "figure": "fig3-medium-bank",
+          "role": "medium shares over time (shares moved glacially; no single-stroke conquest)",
+          "sources_claims": [
+            "e2-medium-006",
+            "e4-medium-002",
+            "e7-medium-001"
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "Here is the engine underneath all of it, and it is structural, not a scheme.",
+          "reading": true,
+          "gap": {
+            "id": "s12-mechanism",
+            "note": "L4 mechanism — 'every new unit is born un-audited, so the seller counts it first' is adjacency in the record, marked as the author's reading, not a stated law"
+          },
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "The clearest evidence is the historian's own ruler going blind.",
+          "citations": [
+            {
+              "id": "e6-medium-006",
+              "grade": "A",
+              "ownership": "cyan",
+              "gloss": "Coen series understates internet by ~half ($10,529M vs $21,206M, 2007) and stops at 2007",
+              "year": 2007,
+              "sources": [
+                {
+                  "name": "Coen Structured Advertising Expenditure Dataset, 'internet' worksheet ('The Coen internet ad expenditure figures are serious underestimates for 2004-2007')",
+                  "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+                },
+                {
+                  "name": "IAB/PwC, IAB Internet Advertising Revenue Report, Full Year 2008",
+                  "url": "https://www.iab.com/wp-content/uploads/2015/05/IAB_PwC_2008_full_year.pdf"
+                },
+                {
+                  "name": "Silk & Berndt, 'Aggregate Advertising Expenditure in the U.S. Economy: What's Up? Is It Real?', NBER WP 28161",
+                  "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+                }
+              ],
+              "note": "the independent historian's series undercounts the new unit by half, then stops"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "The medium-conquest story fails on the same data.",
+          "dead": {
+            "legend": "Each medium killed the last · TV conquered advertising · the internet killed classified (single cause)",
+            "corrective": "shares moved slowly; no medium killed the last in one stroke; help-wanted classified collapsed but real-estate classified fell with the housing market, not search"
+          },
+          "citations": [
+            {
+              "id": "e2-medium-006",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "TV entered the series in 1949 at $58M, 1.1% of total",
+              "year": 1949,
+              "sources": [
+                {
+                  "name": "Coen Structured Advertising Expenditure Dataset",
+                  "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+                }
+              ]
+            },
+            {
+              "id": "e4-medium-002",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "Total TV first passed newspapers in 1992 — $31,079M vs $30,737M",
+              "year": 1992,
+              "sources": [
+                {
+                  "name": "Coen Structured Advertising Expenditure Dataset, workbook",
+                  "url": "http://www.galbithink.org/cs-ad-dataset.xls"
+                }
+              ]
+            },
+            {
+              "id": "e7-medium-001",
+              "grade": "A",
+              "ownership": "neutral",
+              "gloss": "US internet ad revenue $23,448M (2008) → $294,593M (2025), 12.6×; only down year 2009",
+              "year": 2025,
+              "sources": [
+                {
+                  "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025, Historical data findings pp.36-37",
+                  "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+                }
+              ]
+            },
+            {
+              "id": "e6-scale-009",
+              "grade": "A",
+              "ownership": "neutral",
+              "gloss": "Help-wanted classified fell 91% from its 2000 peak; real-estate classified fell with housing, not search",
+              "year": 2008,
+              "sources": [
+                {
+                  "name": "Newspaper Association of America, Annual Newspaper Classified Ad Expenditures (Research Dept., NAA), recovered via Internet Archive",
+                  "url": "http://web.archive.org/web/20110511154447/http://www.naa.org/docs/Research/Annual-Newspaper-Classified-Ad-Expenditures.htm"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "act": "ACT IV — The seller takes the number back",
+      "title": "Which total?",
+      "eyebrow": "S13 · 1922–2025 · WHICH TOTAL?",
+      "figures": [
+        {
+          "figure": "fig4-gdp-strip",
+          "role": "advertising as a share of GDP over time (name the rail on the axis)",
+          "sources_claims": [
+            "e2-scale-004",
+            "e2-scale-005",
+            "e7-scale-002"
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "Every 'share of advertising' is a claim about a basis.",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "Direct mail was the second-largest named medium in most years the data splits by medium",
+          "citations": [
+            {
+              "id": "e2-medium-004",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "Direct mail: 14.5% of US ad spend in 1949, peak 16.8% in 1938",
+              "year": 1949,
+              "sources": [
+                {
+                  "name": "Coen Structured Advertising Expenditure Dataset (CS Ad Dataset v1.14, downloaded and parsed directly)",
+                  "url": "https://www.galbithink.org/cs-ad-dataset.xls"
+                },
+                {
+                  "name": "USPS Office of Inspector General, 'Advertising Mail: Past and Present' (RARC-WP-16-006)",
+                  "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-006_0.pdf"
+                }
+              ]
+            },
+            {
+              "id": "e7-scale-001",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "2025 US total ~$405B on media-owner basis (MAGNA $398B) — excludes direct mail entirely",
+              "year": 2025,
+              "sources": [
+                {
+                  "name": "MAGNA Advertising Forecast, June 2025 update (US $398B, +4.6%)",
+                  "url": "https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/"
+                },
+                {
+                  "name": "EMARKETER, US Ad Spending 2025 ($422B, +6.7%)",
+                  "url": "https://www.emarketer.com/content/us-ad-spending-2025"
+                },
+                {
+                  "name": "Marketing Dive, 'Magna latest to downgrade global ad spending forecast, expects $979B'",
+                  "url": "https://www.marketingdive.com/news/magna-latest-to-downgrade-global-ad-spending-forecast-expects-979b/750871/"
+                }
+              ],
+              "note": "the 2025 media-owner basis excludes direct mail entirely"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "The rails disagree by more than the fine print admits.",
+          "dead": {
+            "legend": "There is a single US ad-market total waiting to be found",
+            "corrective": "change the rail and the whole picture moves; every share is a claim about a basis"
+          },
+          "citations": [
+            {
+              "id": "e7-scale-006",
+              "grade": "C",
+              "ownership": "neutral",
+              "gloss": "National-brand pool ~$145.7B, 36.6% of $398B; IRS $473B vs MAGNA $325B (2022) = $148B rail wedge",
+              "year": 2025,
+              "sources": [
+                {
+                  "name": "MAGNA Advertising Forecast, June 2025: US media-owner advertising revenue $398B in 2025 (digital pure players $294B + traditional media owners $104B), a rail that excludes direct mail",
+                  "url": "https://magnaglobal.com/global-ad-spending-is-poised-to-hit-1-trillion-inside-the-latest-forecasts/"
+                },
+                {
+                  "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025 (April 2026): US internet ad revenue $294.593B, mutually exclusive format partition, and the $12.5B 'Other' bucket defined as classifieds, directories and lead generation",
+                  "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+                },
+                {
+                  "name": "IAB / PwC Internet Advertising Revenue Report, 'Revenues by pricing model' exhibit (performance-priced share of US digital: 57 percent for 2008, 62-66 percent across 2010-2019, 62.1 percent at HY2019; exhibit discontinued after HY2019)",
+                  "url": "https://www.iab.com/wp-content/uploads/2019/10/IAB-HY19-Internet-Advertising-Revenue-Report.pdf"
+                },
+                {
+                  "name": "US Census Bureau, Service Annual Survey, broadcast air time split 'National/regional air time' versus 'Local air time', 2008-2010 (TV 2008: national $17,779m against local $10,899m)",
+                  "url": "https://www2.census.gov/services/sas/data/51/2010_NAICS51.xls"
+                },
+                {
+                  "name": "WARC / Ebiquity advertiser budget surveys, brand-building versus performance share (40.1 percent brand in 2023, 31.2 percent in 2024) - the only genuinely independent instrument bearing on the brand/response split, and it reads about 15 points below the construction",
+                  "url": "https://www.warc.com/content/feed/performance-budgets-rise-at-expense-of-brand/en-GB/10128"
+                },
+                {
+                  "name": "IRS Statistics of Income, corporate advertising deductions: $473,153m for 2022 against MAGNA's $325,000m for the same year - a $148B rail wedge, 45.6 percent of the MAGNA base"
+                },
+                {
+                  "name": "R2b money-type source hunt, era 7 (p2-ad-market/data/moneytype/sources-era-7.json)"
+                },
+                {
+                  "name": "R2b money-type reconciliation, era 7, three estimation lenses (p2-ad-market/data/moneytype/reconciled.json)"
+                }
+              ],
+              "note": "grade C — name the rail on the axis; the IRS↔MAGNA gap is $148B on the same year"
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "locator": "Intensity over time tells the same cautionary story.",
+          "citations": [
+            {
+              "id": "e2-scale-004",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "Advertising peaked at 3.0% of US GDP in 1922",
+              "year": 1922,
+              "sources": [
+                {
+                  "name": "Galbi, 'Annual U.S. Advertising Expenditure Since 1919' (Coen spend over BEA/Kendrick GDP)",
+                  "url": "https://www.galbithink.org/ad-spending.htm"
+                },
+                {
+                  "name": "Silk & Berndt, 'Aggregate Advertising Expenditure in the U.S. Economy: What's Up? Is It Real?', NBER WP 28161 (2020)",
+                  "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+                }
+              ]
+            },
+            {
+              "id": "e2-scale-005",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "Advertising bottomed at 1.2% of US GDP in 1944",
+              "year": 1944,
+              "sources": [
+                {
+                  "name": "Galbi, 'Annual U.S. Advertising Expenditure Since 1919'",
+                  "url": "https://www.galbithink.org/ad-spending.htm"
+                }
+              ]
+            },
+            {
+              "id": "e7-scale-002",
+              "grade": "C",
+              "ownership": "neutral",
+              "gloss": "~1.32% of US GDP in 2025 — different basis, not commensurable with the old series",
+              "year": 2025,
+              "sources": [
+                {
+                  "name": "US Bureau of Economic Analysis, Gross Domestic Product (2025 nominal GDP $30.762T)",
+                  "url": "https://www.bea.gov/data/gdp/gross-domestic-product"
+                },
+                {
+                  "name": "Douglas Galbi, 'US Annual Advertising Spending Since 1919' (Coen Structured Advertising Expenditure Dataset: 2007 total $279.6B, 2.0% of GDP)",
+                  "url": "https://www.galbithink.org/ad-spending.htm"
+                },
+                {
+                  "name": "Silk & Berndt, 'Aggregate Advertising Expenditure in the U.S. Economy: What's Up? Is It Real?', NBER WP 28161 (Dec 2020)",
+                  "url": "https://www.nber.org/system/files/working_papers/w28161/w28161.pdf"
+                }
+              ],
+              "note": "grade C — sits on a different basis; not commensurable with the old Coen series"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "act": "ACT IV — The seller takes the number back",
+      "title": "Back to the hole",
+      "eyebrow": "S14 · 2025 · BACK TO THE HOLE",
+      "figures": [
+        {
+          "figure": "fig1-hero",
+          "role": "hero reprise — the reversion, now earned",
+          "sources_claims": [
+            "e6-measurement-006",
+            "e1-measurement-002"
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "n": 1,
+          "locator": "The count is still a hole, and the hole is where we started.",
+          "citations": []
+        },
+        {
+          "n": 2,
+          "locator": "The industry knows it.",
+          "citations": [
+            {
+              "id": "e7-measurement-005",
+              "grade": "B",
+              "ownership": "neutral",
+              "gloss": "IAB estimates >$26B of misallocated US media spend could be unlocked in 1–2 years",
+              "year": 2026,
+              "sources": [
+                {
+                  "name": "IAB / PwC Internet Advertising Revenue Report, Full-Year 2025, p.15 (citing IAB State of Data 2026)",
+                  "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+                }
+              ],
+              "note": "an IAB estimate of what might be recovered, not a settled figure"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "locator": "Return to the opener. Google still reports the growth of its paid clicks, not their number.",
+          "contested": {
+            "legend": "AI Overviews cut the funding click",
+            "treatment": "CONTESTED — both values shown (8% vs 15%), Google's dispute named; not DEAD"
+          },
+          "citations": [
+            {
+              "id": "e6-measurement-006",
+              "grade": "A",
+              "ownership": "amber",
+              "gloss": "~18% YoY paid-click growth, Q4 2008 — no count, CPC, or query total disclosed",
+              "year": 2008,
+              "sources": [
+                {
+                  "name": "Google Inc., Q4 2008 earnings press release (Form 8-K exhibit 99.1)",
+                  "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312509009712/dex991.htm"
+                }
+              ],
+              "note": "A-frame return: still the growth, never the count",
+              "echo": true
+            },
+            {
+              "id": "e7-events-008",
+              "grade": "B",
+              "ownership": "amber",
+              "gloss": "Pew: result clicked on 8% of AI-summary visits vs 15% without — Google disputes the study",
+              "year": 2025,
+              "sources": [
+                {
+                  "name": "Pew Research Center (2025-07-22)",
+                  "url": "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/"
+                }
+              ],
+              "note": "CONTESTED — ships as both values (8% vs 15%); Google disputes Pew; rendered redline two-tone, not a strike"
+            },
+            {
+              "id": "e7-targeting-004",
+              "grade": "B",
+              "ownership": "amber",
+              "gloss": "AI Overviews >2B monthly users by Jul 2025; CBO says it monetises at ~the same rate as search",
+              "year": 2025,
+              "sources": [
+                {
+                  "name": "TechCrunch, 'Google's AI Overviews have 2B monthly users, AI Mode 100M in the US and India' (2025-07-23)",
+                  "url": "https://techcrunch.com/2025/07/23/googles-ai-overviews-have-2b-monthly-users-ai-mode-100m-in-the-us-and-india"
+                },
+                {
+                  "name": "Digiday, 'Google's AI Overviews reach over 2 billion monthly users'",
+                  "url": "https://digiday.com/media/googles-ai-overviews-reach-over-2-billion-monthly-users/"
+                }
+              ],
+              "note": "the CBO's attributed monetisation claim — his account, not an audited fact"
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "locator": "Here is the reading the record leaves, stated plainly and owned as a reading.",
+          "reading": true,
+          "citations": [
+            {
+              "id": "e1-measurement-002",
+              "grade": "B",
+              "ownership": "cyan",
+              "gloss": "ABC founded 1914 in Chicago — world's first circulation auditor",
+              "year": 1914,
+              "sources": [
+                {
+                  "name": "Alliance for Audited Media, 'Who We Are'",
+                  "url": "https://auditedmedia.com/about/who-we-are"
+                },
+                {
+                  "name": "History of Information, 'The Audit Bureau of Circulation, the First Circulation Auditing Organization, is Founded'",
+                  "url": "https://historyofinformation.com/detail.php?entryid=682"
+                }
+              ],
+              "note": "'the outside auditor the market built in 1914 and then let go'; the reversion is L5 synthesis, marked as the author's reading",
+              "echo": true
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "locator": "And there is no ending to report.",
+          "reading": true,
+          "gap": {
+            "id": "s-PI/s-RES",
+            "note": "no system-wide point of insight and no resolution; both absences named on the page"
+          },
+          "citations": []
+        }
+      ]
+    }
+  ]
+}

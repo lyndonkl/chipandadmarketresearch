@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIGURE 01 · Ownership over time — the reversion · P2 v2</title>
+<!-- order matters: toolkit tokens -> reused-renderer furniture -> v2 figure layer -->
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="../charts/chart-demo.css">
+<link rel="stylesheet" href="./figures.css">
+<style>
+  /* page furniture around the single plate (this is a self-contained demo) */
+  body.p2 { margin: 0; }
+  .hero-wrap { max-width: 1040px; margin: 0 auto; padding: calc(var(--u) * 1.4) 20px 120px; }
+  .hero-dek {
+    font-family: var(--fig-font-chrome); font-size: 12px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--zinc-text); margin: 0 0 calc(var(--u) * 0.8);
+  }
+
+  /* the hero-specific chrome that layers ON TOP of figures.css */
+  .hero-svg-host { position: relative; }
+  .hero-svg-host svg { display: block; width: 100%; height: auto; }
+
+  /* the hover readout — the epoch reveal target (HTML, so ownership hue is legal here) */
+  .hero-readout {
+    margin-top: 8px; min-height: calc(var(--u) * 2.1);
+    font-family: var(--fig-font-prose); font-size: 15px; line-height: 22px; color: var(--ink2);
+    border-top: 1px solid var(--rule); padding-top: 8px;
+  }
+  .hero-readout .ro-tag {
+    display: inline-block; font-family: var(--fig-font-chrome); font-size: 10px;
+    letter-spacing: .1em; text-transform: uppercase; font-weight: 700;
+    padding: 1px 6px; border-radius: 2px; margin-right: 8px; vertical-align: 1px;
+  }
+  .hero-readout .ro-tag.own-cyan  { color: var(--cyan-d);  border: 1px solid var(--cyan-d); }
+  .hero-readout .ro-tag.own-amber { color: var(--amber-d); border: 1px solid var(--amber-d); }
+  .hero-readout .ro-tag.own-zinc  { color: var(--zinc-text); border: 1px solid var(--zinc); }
+  .hero-readout .ro-ids { display: block; margin-top: 3px; font-family: var(--fig-font-chrome);
+    font-size: 11px; color: var(--ink3); letter-spacing: .02em; }
+
+  /* the mandatory flag: this is a reading, not a measurement */
+  .hero-reading {
+    margin: calc(var(--u) * 0.6) 0 0; border-left: 2px solid var(--zinc);
+    padding: 4px 0 4px 12px;
+    font-family: var(--fig-font-prose); font-size: 14.5px; line-height: 21px; color: var(--ink2);
+  }
+  .hero-reading .reading-tag {
+    display: block; font-family: var(--fig-font-chrome); font-size: 10px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--zinc-text); margin-bottom: 2px;
+  }
+
+  /* controls: replay + motion toggle */
+  .hero-controls { display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
+    margin-top: calc(var(--u) * 0.6); }
+  .hero-btn {
+    font-family: var(--fig-font-chrome); font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--graphite); background: var(--card); border: 1px solid var(--rule);
+    border-radius: 2px; padding: 5px 11px; cursor: pointer; min-height: 32px;
+  }
+  .p2-motion-toggle { display: inline-flex; gap: 8px; align-items: center;
+    font-family: var(--fig-font-chrome); font-size: 11px; color: var(--zinc-text); }
+  .p2-motion-toggle .p2-rocker button {
+    font-family: var(--fig-font-chrome); font-size: 11px; padding: 4px 9px; min-height: 30px;
+    background: var(--card); color: var(--ink3); border: 1px solid var(--rule); cursor: pointer;
+  }
+  .p2-motion-toggle .p2-rocker button[aria-pressed="true"] { color: var(--graphite); background: var(--bone);
+    border-color: var(--ink3); font-weight: 700; }
+
+  #fail { display: none; border: 2px solid var(--redline); background: var(--redline-t);
+    padding: 14px 16px; margin: 20px 0; font-family: var(--fig-font-prose); }
+  #fail code { font-family: var(--fig-font-chrome); background: rgba(21,24,29,.06); padding: 1px 5px; }
+
+  /* ===== EMBED MODE (?embed=1): the article iframes this plate in =====
+     Strip every standalone-demo / section chrome and the page ground; leave
+     ONLY the figure plate (its key, caption and citation shelf) on a transparent
+     ground so it seats cleanly into the reading column. */
+  body.embed { background-color: transparent !important; background-image: none !important;
+    margin: 0 !important; padding: 0 !important; }
+  body.embed .demo-bar, body.embed .demo-standfirst, body.embed .hero-dek,
+  body.embed .hero-controls, body.embed .page-head,
+  body.embed .p2-motion-toggle, body.embed #motiontoggle, body.embed #status { display: none !important; }
+  body.embed .hero-wrap, body.embed main { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  body.embed .fig-plate { margin: 0 auto !important; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<div class="hero-wrap">
+  <p class="hero-dek">P2 v2 · Who Owns the Number · s0 overture — FIGURE 01</p>
+
+  <div id="fail">
+    <strong>The chart modules did not load.</strong>
+    <p>This figure is built from ES modules. Open it over http, or (for the headless screenshot)
+    with <code>--allow-file-access-from-files</code>:</p>
+    <p><code>cd chipandadmarketresearch &amp;&amp; python3 -m http.server 8000</code> →
+    <code>http://localhost:8000/docs/p2-v2/figures/fig1-hero.html</code></p>
+  </div>
+
+  <!-- ============================ THE PLATE ============================ -->
+  <figure class="fig-plate" id="hero">
+    <div class="fig-kicker">
+      <span>FIGURE&nbsp;01 <span class="fig-title">Ownership over time — the reversion</span></span>
+      <button class="fig-keybtn" type="button" aria-expanded="true" aria-controls="hero-legend">key</button>
+    </div>
+
+    <!-- FIRST FIGURE ON THE PAGE: the reusable "How to read this" key, expanded. -->
+    <div class="fig-legend" id="hero-legend" role="note" aria-label="How to read this figure">
+      <h4>How to read this</h4>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-still"></span></span>
+        <span><b>still boundary = grade A</b> — a settled reading. Here both boundaries
+          <b>shimmer</b> because they are grade&nbsp;B: the edges of the anomaly are themselves uncertain.</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-shimmer"></span></span>
+        <span><b>shimmering = grade C</b> — most uncertain; amplitude is the uncertainty. (No grade&nbsp;C on this plate.)</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-cyan"></span></span>
+        <span><b>cyan = an independent number</b> — an audit, a census, a court finding: held by a third party.</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-amber"></span></span>
+        <span><b>amber = a seller-owned number</b> — the party being judged counting its own audience or log.</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-dead"></span></span>
+        <span><b>struck red = a corrected / DEAD claim</b> — none on this plate; redline never touches an ownership mark.</span>
+      </div>
+      <p class="leg-reduced">Reduced motion: the sweep and the shimmer stop — the amber→cyan→amber steps
+        stand as hard swaps, and the grade badges carry the uncertainty.</p>
+    </div>
+
+    <div class="fig-body">
+      <div class="hero-svg-host" id="hero-host"><!-- svg mounts here --></div>
+      <div class="hero-readout" id="hero-readout">
+        <span class="ro-tag own-zinc">read</span>Hover an epoch, a boundary (1914 · ~2004) or a drift marker
+        to read who held the count. The track is one number; only its owner changes.
+      </div>
+    </div>
+
+    <!-- axis basis, on-axis, carrying the ownership hues (HTML chrome — SVG text cannot) -->
+    <div class="fig-axis-basis">
+      x = year (zinc scaffold). Basis:
+      <span class="rail-cyan">an independent third party (cyan)</span> ·
+      <span class="rail-amber">the party being judged (amber)</span> held the count.
+      <span class="caveat">No value axis — there is no numeric ownership series.</span>
+    </div>
+
+    <!-- the mandatory flag -->
+    <div class="hero-reading">
+      <span class="reading-tag">A reading — not a measurement</span>
+      No numeric ownership series exists. This track is a reading of <em>who held the count</em>,
+      grounded in dated claims; the shape — seller-owned, then a ~90-year independent audit, then seller-owned
+      again — is the argument, not a measured quantity.
+    </div>
+
+    <hr class="fig-rule">
+    <figcaption class="fig-caption">
+      One tracked number changes hands: <b>seller-owned</b> before 1914, <b>independent</b> across the
+      1914 audit era, then <b>seller/platform-owned</b> from the 2000s — the platform era is a return, not a new crisis.
+    </figcaption>
+
+    <!-- citation shelf: same grammar as the prose sidenotes -->
+    <div class="fig-shelf" id="hero-shelf"><!-- src-chips injected --></div>
+
+    <div class="hero-controls">
+      <button class="hero-btn" id="hero-replay" type="button">Replay the settle</button>
+      <div id="hero-motion"></div>
+    </div>
+  </figure>
+</div>
+
+<script type="module">
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle, sweep, isReduced } from '../lib/motion.js';
+import { verifyTokenParity, CYAN, CYAN_TEXT, BRASS_TEXT } from '../lib/tokens.js';
+import {
+  svgRoot, layer, el, linear, rule, text, sweepClip, titled, uid,
+  IRON, ZINC_TEXT, ZINC_RULE, GRAPHITE, BONE,
+} from '../charts/svg-kit.js';
+import { claims, heroSpec } from './data/fig-01.data.js';
+
+/* EMBED MODE — the article drops this plate in via <iframe src="…?embed=1">:
+   hide all demo/section chrome, show only the plate on a transparent ground. */
+if (new URLSearchParams(location.search).get('embed') === '1') document.body.classList.add('embed');
+
+initMotion();                                  // stamps <html data-motion> for the reduced-motion path
+try { verifyTokenParity(); } catch (e) {
+  const box = document.getElementById('fail');
+  box.style.display = 'block';
+  box.insertAdjacentHTML('beforeend', `<p><b>tokens.css / tokens.js drift:</b> ${e.message}</p>`);
+}
+
+/* v2 ownership hues for MARKS (svg-kit mark primitives run no colour guard, so
+ * the v2 hexes are legal here — CONVENTIONS §7). Read live from figures.css. */
+const css = getComputedStyle(document.documentElement);
+const AMBER   = css.getPropertyValue('--amber').trim()   || '#E0972A';
+const CYAN_HX = (css.getPropertyValue('--cyan').trim())   || CYAN;   // identical in both systems
+const CYAN_D  = css.getPropertyValue('--cyan-d').trim()  || '#1d7288';
+
+const claimById = Object.fromEntries(claims.map((c) => [c.id, c]));
+
+/* ------------------------------------------------------------------ *
+ * geometry
+ * ------------------------------------------------------------------ */
+const W = 960, H = 300;
+const padL = 44, padR = 44;
+const x = linear(heroSpec.domain, [padL, W - padR]);
+const bandTop = 100, bandH = 52, bandBot = bandTop + bandH;
+const boundTop = 66, boundBot = 164;
+const axisY = 210;
+
+const host = document.getElementById('hero-host');
+const svg = svgRoot(host, {
+  width: W, height: H,
+  alt: 'A single horizontal track showing who held the advertising count over time. It is amber '
+     + '(the seller counting itself) before 1914, cyan (an independent audit) from 1914 to about 2004, '
+     + 'then amber again (the platform counting itself). The two edges of the cyan interval are drawn as '
+     + 'shimmering grade-B boundaries. There is no value axis: the shape is a reading, not a measurement.',
+});
+const idns = uid('hero');
+
+/* Layers. gBase is swept in; gOverlay settles in over it (the hue flip). */
+const gBase    = layer(svg, { 'data-layer': 'base' });
+const gOverlay = layer(svg, { 'data-layer': 'overlay' });
+const gHit     = layer(svg, { 'data-layer': 'hit' });
+
+/* ---- BASE: amber default track + iron rails + the year axis ---- */
+/* the whole track is amber by default — the seller-owned ground the audit era is an anomaly ON. */
+const baseBand = el('rect', {
+  x: x(heroSpec.domain[0]), y: bandTop, width: x(heroSpec.domain[1]) - x(heroSpec.domain[0]), height: bandH,
+  fill: AMBER, 'fill-opacity': 0.92,
+}, gBase);
+titled(baseBand, 'Default state: the number is seller-owned. Everything not covered by the cyan interval is amber.');
+/* iron rails top and bottom so the three segments read as ONE continuous track (object constancy) */
+el('line', { x1: x(heroSpec.domain[0]), x2: x(heroSpec.domain[1]), y1: bandTop, y2: bandTop, stroke: IRON, 'stroke-width': 1.5 }, gBase);
+el('line', { x1: x(heroSpec.domain[0]), x2: x(heroSpec.domain[1]), y1: bandBot, y2: bandBot, stroke: IRON, 'stroke-width': 1.5 }, gBase);
+
+/* year axis (time on x; SWEEP draws it left-to-right) */
+el('line', { x1: padL, x2: W - padR, y1: axisY, y2: axisY, stroke: ZINC_RULE, 'stroke-width': 1 }, gBase);
+/* arrowhead — time direction */
+el('path', { d: `M${W - padR} ${axisY} l -7 -3.2 l 0 6.4 z`, fill: ZINC_RULE }, gBase);
+text(gBase, { x: W - padR, y: axisY - 9, value: 'year →', role: 'chrome', fill: ZINC_TEXT, anchor: 'end', size: 11 });
+
+const TICKS = [1850, 1900, 1914, 1946, 1987, 2004, 2025];
+TICKS.forEach((yr) => {
+  const px = x(yr);
+  el('line', { x1: px, x2: px, y1: axisY, y2: axisY + 5, stroke: ZINC_RULE, 'stroke-width': 1 }, gBase);
+  text(gBase, { x: px, y: axisY + 18, value: String(yr), role: 'chrome', fill: ZINC_TEXT, anchor: 'middle', size: 11 });
+});
+
+/* ---- OVERLAY: the cyan audit interval + drift + jittering boundaries + era captions ---- */
+const audit = heroSpec.epochs.find((e) => e.key === 'audit');
+const cyanBand = el('rect', {
+  x: x(audit.years[0]), y: bandTop, width: x(audit.years[1]) - x(audit.years[0]), height: bandH,
+  fill: CYAN_HX, 'fill-opacity': 0.95,
+}, gOverlay);
+titled(cyanBand, 'The independent-audit interval, 1914 to ~2004 — the ~90-year anomaly.');
+
+/* decay markers: the independent count thinning (cyan, fading) */
+heroSpec.decay.forEach((d) => {
+  const px = x(d.year);
+  const m = el('line', {
+    x1: px, x2: px, y1: bandTop + 5, y2: bandBot - 5,
+    stroke: BONE, 'stroke-width': 2.4, 'stroke-opacity': Math.min(1, 0.35 + (1 - d.opacity) * 0.8),
+  }, gOverlay);
+  titled(m, claimById[d.claim] ? claimById[d.claim].gloss : `${d.year} drift`);
+});
+
+/* era captions, below the band, in the guarded ownership TEXT variants */
+heroSpec.epochs.forEach((ep) => {
+  const cx = (x(ep.years[0]) + x(ep.years[1])) / 2;
+  text(gOverlay, {
+    x: cx, y: bandBot + 20, value: ep.name, role: 'label',
+    fill: ep.own === 'cyan' ? CYAN_TEXT : BRASS_TEXT, anchor: 'middle', size: 9, tracking: '0.06em',
+  });
+});
+
+/* a small monochrome half-filled grade square (dual-code: grade is motion + badge, never colour) */
+function gradeBadge(parent, gx, gy, grade) {
+  const s = 10;
+  el('rect', { x: gx, y: gy, width: s, height: s, fill: BONE, stroke: IRON, 'stroke-width': 1 }, parent);
+  if (grade === 'A') {
+    el('rect', { x: gx + 1, y: gy + 1, width: s - 2, height: s - 2, fill: GRAPHITE }, parent);
+  } else if (grade === 'B') {
+    el('rect', { x: gx + 1, y: gy + 1, width: (s - 2) / 2, height: s - 2, fill: GRAPHITE }, parent);
+  } else {
+    el('path', { d: `M${gx} ${gy} l${s} ${s} M${gx} ${gy + s} l${s} -${s}`, stroke: GRAPHITE, 'stroke-width': 1 }, parent);
+  }
+  text(parent, { x: gx + s + 4, y: gy + s - 1.5, value: grade, role: 'chrome', fill: GRAPHITE, anchor: 'start', size: 9 });
+}
+
+/* the two grade-B boundaries — the vertical rule JITTERS (figures.css .fig-jit.jit-B);
+ * the year + grade badge stay still and legible above it. */
+heroSpec.boundaries.forEach((b) => {
+  const px = x(b.year);
+  /* jittering rule + bracket caps */
+  const gj = el('g', { class: 'fig-jit jit-B' }, gOverlay);
+  el('line', { x1: px, x2: px, y1: boundTop, y2: boundBot, stroke: GRAPHITE, 'stroke-width': 1.6 }, gj);
+  /* bracket caps point INTO the cyan interval (into === direction the audit era lies) */
+  const dir = b.into === 'cyan' ? 1 : -1;
+  el('path', { d: `M${px} ${boundTop} l${8 * dir} 0 M${px} ${boundBot} l${8 * dir} 0`, stroke: GRAPHITE, 'stroke-width': 1.6, fill: 'none' }, gj);
+  /* static badge above */
+  text(gOverlay, { x: px, y: boundTop - 18, value: b.label, role: 'numeral', fill: GRAPHITE, anchor: 'middle', size: 13 });
+  gradeBadge(gOverlay, px - 11, boundTop - 14, b.grade);
+});
+
+/* ---- HIT LAYER: hover reveals each epoch / boundary / drift (updates HTML readout) ---- */
+const readout = document.getElementById('hero-readout');
+const OWN_WORD = { cyan: 'INDEPENDENT', amber: 'SELLER-OWNED', zinc: 'READ' };
+function setReadout(own, head, body, ids) {
+  const idline = (ids && ids.length)
+    ? `<span class="ro-ids">grounded in ${ids.join(' · ')}</span>` : '';
+  readout.innerHTML =
+    `<span class="ro-tag own-${own}">${OWN_WORD[own] || own}</span><b>${head}</b> — ${body}${idline}`;
+}
+function hitRect(x0, x1, own, head, body, ids, title) {
+  const r = el('rect', {
+    x: x(x0), y: bandTop - 6, width: x(x1) - x(x0), height: bandH + 12,
+    fill: 'transparent', 'pointer-events': 'all', tabindex: '0', role: 'img',
+  }, gHit);
+  r.style.cursor = 'pointer';
+  titled(r, title);
+  const on = () => setReadout(own, head, body, ids);
+  r.addEventListener('pointerenter', on);
+  r.addEventListener('focus', on);
+  return r;
+}
+
+/* epoch bodies */
+heroSpec.epochs.forEach((ep) => {
+  hitRect(ep.years[0], ep.years[1], ep.own, ep.name, ep.held, ep.claims,
+    `${ep.name} (${ep.years[0]}–${ep.years[1]}): ${ep.held}`);
+});
+/* narrow hover zones for the two boundaries (override the epoch body when near the edge) */
+heroSpec.boundaries.forEach((b) => {
+  const half = 9;
+  const r = el('rect', {
+    x: x(b.year) - half, y: boundTop - 8, width: half * 2, height: (boundBot - boundTop) + 16,
+    fill: 'transparent', 'pointer-events': 'all', tabindex: '0', role: 'img',
+  }, gHit);
+  r.style.cursor = 'pointer';
+  titled(r, `Boundary ${b.label} (grade ${b.grade}): ${b.note}`);
+  const on = () => setReadout(b.into, `BOUNDARY ${b.label} · grade ${b.grade}`, b.note, [b.claim]);
+  r.addEventListener('pointerenter', on);
+  r.addEventListener('focus', on);
+});
+
+/* ------------------------------------------------------------------ *
+ * the citation shelf — the seven grounding claims
+ * ------------------------------------------------------------------ */
+const shelf = document.getElementById('hero-shelf');
+shelf.innerHTML = claims.map((c) => `
+  <span class="src-chip" data-grade="${c.grade}" data-own="${c.own}">
+    <span class="grade-glyph"></span><span class="grade-letter">${c.grade}</span>
+    <span class="own-dot"></span>
+    <a class="claim-id" href="#${c.id}" title="${c.gloss.replace(/"/g, '&quot;')}">${c.id}</a>
+  </span>`).join('');
+
+/* ------------------------------------------------------------------ *
+ * ARRIVAL — SETTLES ONCE: SWEEP the axis/track left-to-right, then the
+ * cyan hue-flip SETTLES in over the amber default (crossfade). Then still.
+ * Fails OPEN to the final settled state, so the screenshot is never blank.
+ * ------------------------------------------------------------------ */
+const clip = sweepClip(svg, idns, { x: 0, y: 0, width: W, height: H });
+gBase.setAttribute('clip-path', clip.ref);
+
+let ended = true;                 // when true, no in-flight sweep frame may re-clip the base
+let running = null;               // the live sweep handle, so we can cancel it
+
+/* The authoritative settled state. Removes the clip outright so no stray
+ * animation frame can ever re-clip the base (a real hazard under headless
+ * virtual-time, where the rAF sweep can stall partway and then overwrite). */
+function finalState() {
+  ended = true;
+  if (running) { try { running.cancel(); } catch (_) { /* noop */ } running = null; }
+  clip.apply(1);
+  gBase.removeAttribute('clip-path');
+  gOverlay.style.opacity = '1';
+}
+
+function settleOnce() {
+  if (isReduced()) { finalState(); return; }        // reduced: complete on first frame, hard swaps
+  gBase.setAttribute('clip-path', clip.ref);
+  gOverlay.style.opacity = '0';
+  clip.apply(0);
+  ended = false;
+  const end = () => { if (ended && !running) return; finalState(); };
+  try {
+    running = sweep({ onProgress: (t) => { if (!ended) clip.apply(t); } });
+    running.finished.then(() => {
+      if (ended) return;
+      clip.apply(1);
+      const a = gOverlay.animate(
+        [{ opacity: 0 }, { opacity: 1 }],
+        { duration: 800, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'both' },
+      );
+      a.finished.then(end).catch(end);
+    }).catch(end);
+  } catch (_) { finalState(); }
+  /* belt-and-braces: guarantee the settled state well inside the screenshot budget */
+  setTimeout(end, 2600);
+}
+settleOnce();
+
+/* controls */
+document.getElementById('hero-replay').addEventListener('click', settleOnce);
+installMotionToggle(document.getElementById('hero-motion'));
+
+/* [ key ] toggle */
+const keyBtn = document.querySelector('#hero .fig-keybtn');
+const legend = document.getElementById('hero-legend');
+keyBtn.addEventListener('click', () => {
+  const open = keyBtn.getAttribute('aria-expanded') === 'true';
+  keyBtn.setAttribute('aria-expanded', String(!open));
+  legend.hidden = open;
+});
+</script>
+<script>
+  /* if the modules never ran, say so on the page rather than showing a blank plate */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (!document.querySelector('#hero-host svg')) document.getElementById('fail').style.display = 'block';
+    }, 400);
+  });
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-# Who Owns the Number
+# Who Holds the Yardstick
 
 *A history of the US advertising market, read through one question.*
 

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIGURE 03 · By-medium composition — the small-multiple bank — P2 v2</title>
+<!-- order matters: toolkit tokens → reused-renderer furniture → v2 figure layer -->
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="../charts/chart-demo.css">
+<link rel="stylesheet" href="./figures.css">
+<style>
+  /* Demo-only chrome so a standalone plate reads on the bone ground. */
+  body.p2.p2-paper-ground { background: var(--bone); padding: 0 18px 120px; max-width: 1080px; margin: 0 auto; }
+  .demo-bar { display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+    font-family: var(--fig-font-chrome); font-size: 11px; color: var(--ink3);
+    padding: 20px 2px 4px; }
+
+  /* This figure REUSES renderBank natively. The renderer injects its own header
+   * (arch label + title + lede) and a footer of reasoning registers. In the v2
+   * plate the kicker / caption / shelf are the voice, so suppress the renderer's
+   * redundant head TEXT — but KEEP its scale rocker (.p2-ctl lives in the head). */
+  #fig03 .p2-bank-head > .p2-arch,
+  #fig03 .p2-bank-head > .p2-bank-title,
+  #fig03 .p2-bank-head > .p2-bank-lede { display: none; }
+  #fig03 .p2-bank-head { margin-bottom: 6px; }
+  #fig03 .p2-ctl { margin: 2px 0 10px; }
+
+  /* the native renderer's honest apparatus (why-N-panels, seams, verdicts, the
+   * series register) is kept — it is part of native reuse — but set back so the
+   * v2 plate reads first. */
+  #fig03 .p2-bank-foot { margin-top: 28px; }
+
+  /* ===== COMPACT MULTI-COLUMN BANK (v2 page layer; shared small-multiples.js
+     is NOT edited) =====
+     renderBank stacks its total + 12 media panels + tail in .p2-bank-grid, whose
+     native auto-fill floor (minmax 310px) yields only TWO columns at the embed
+     width and a ~2700px stack. Force a denser grid so the whole plate seats into
+     the reading flow; it still degrades to fewer columns on a narrow iframe. */
+  #fig03 .p2-bank-grid {
+    grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+    gap: 14px 12px;
+  }
+  /* Each small media panel's caption repeats the panel SVG's own aria-label
+     sentence VERBATIM, and the panel already prints its name, its year-span and
+     its peak INSIDE the drawing. In the compact grid that third copy is pure
+     height and clutter, so the visible copy is suppressed here — the full
+     sentence remains the SVG accessible name (role="img" aria-label) and is put
+     on each panel's hover title in the script, so nothing is lost. The TOTAL
+     panel's caption is not in the grid and stays. */
+  #fig03 .p2-bank-grid .p2-panel-cap { display: none; }
+  /* the total panel keeps its own scale and full size; just trim the demo gap
+     under it so the compact grid pulls up. */
+  #fig03 .p2-bank-total { margin: 6px 0 14px; }
+
+  /* the collapsed "methodology" drawer that now holds the native reasoning
+     registers (why-N-panels, seams/caveats, what-verification-changed, the
+     series register). Collapsed by default; the plate reads first. */
+  #fig03 .fig-methodology { margin-top: 16px; }
+  #fig03 .fig-methodology > summary {
+    font-family: var(--fig-font-chrome); font-size: 12px; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--cyan-d); cursor: pointer;
+    list-style: none; padding: 9px 0; border-top: 1px solid var(--ink3);
+  }
+  #fig03 .fig-methodology > summary::-webkit-details-marker { display: none; }
+  #fig03 .fig-methodology > summary::before { content: "▸ "; }
+  #fig03 .fig-methodology[open] > summary::before { content: "▾ "; }
+  #fig03 .fig-methodology[open] > summary { color: var(--ink3); }
+  #fig03 .fig-methodology .p2-bank-foot { margin-top: 14px; }
+
+  /* the load-failure box, so a thrown guard shows its message instead of a blank */
+  #loadfail { display: none; border: 2px solid var(--redline); padding: 14px 16px; margin: 18px 0;
+    font-family: var(--fig-font-prose); font-size: 15px; line-height: 1.5; }
+  #loadfail code { font-family: var(--fig-font-chrome); font-size: 12px; background: rgba(21,24,29,.06); padding: 1px 5px; }
+  #loadfail pre { font-family: var(--fig-font-chrome); font-size: 11px; white-space: pre-wrap; color: var(--redline); margin: 8px 0 0; }
+
+  /* ===== EMBED MODE (?embed=1): the article iframes this plate in =====
+     Strip every standalone-demo / section chrome and the page ground; leave
+     ONLY the figure plate (its key, caption and citation shelf) on a transparent
+     ground so it seats cleanly into the reading column. */
+  body.embed { background-color: transparent !important; background-image: none !important;
+    margin: 0 !important; padding: 0 !important; }
+  body.embed .demo-bar, body.embed .demo-standfirst, body.embed .hero-dek,
+  body.embed .hero-controls, body.embed .page-head,
+  body.embed .p2-motion-toggle, body.embed #motiontoggle, body.embed #status { display: none !important; }
+  body.embed .hero-wrap, body.embed main { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  body.embed .fig-plate { margin: 0 auto !important; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<div class="demo-bar">
+  <span>P2 v2 · &ldquo;Who Owns the Number&rdquo; · FIGURE 03 standalone plate</span>
+  <span id="motiontoggle"></span>
+  <span id="status">building the bank from the frozen record&hellip;</span>
+</div>
+
+<div id="loadfail">
+  <b>This figure could not build.</b>
+  <p>If you opened it over <code>file://</code> without
+     <code>--allow-file-access-from-files</code>, Chrome blocks the ES-module imports.
+     Serve the repo root over http instead:
+     <code>python3 -m http.server 8000</code> then open
+     <code>http://localhost:8000/docs/p2-v2/figures/fig3-medium-bank.html</code>.</p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<!-- ============================ THE PLATE ============================ -->
+<figure class="fig-plate" id="fig03">
+  <div class="fig-kicker">
+    <span>FIGURE&nbsp;03 <span class="fig-title">By-medium composition — where the money actually moved</span></span>
+    <button class="fig-keybtn" type="button" aria-expanded="true" aria-controls="fig03-legend">key</button>
+  </div>
+
+  <!-- "How to read this" — shown expanded (teach the grammar). Wired to [ key ]. -->
+  <div class="fig-legend" id="fig03-legend" role="note" aria-label="How to read this figure">
+    <h4>How to read this</h4>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-still"></span></span>
+      <span><b>still mark = grade A</b> — an audited / settled reading.</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-shimmer"></span></span>
+      <span><b>shimmering mark = grade C</b> — uncertain; the amplitude is the uncertainty.
+        (Grade B sits between: a faint life. This bank is mostly grade B.)</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-cyan"></span></span>
+      <span><b>cyan = an independent number</b> · <b>amber = a seller-owned number</b>.
+        This figure is <b>NEUTRAL</b>: medium composition is not an ownership question, so the marks
+        carry <b>no</b> ownership hue — ownership rides only the source dots on the shelf below.</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-dead"></span></span>
+      <span><b>struck red = a corrected / DEAD legend</b> — a popular story this figure knocks down.</span>
+    </div>
+    <p class="leg-reduced">
+      Reduced motion: every shimmer becomes a static hatched band — denser for a softer grade — so the
+      uncertainty is still seen, just not moving. Each medium sits on its <b>own flat baseline</b>; nothing
+      is ever stacked (a stack would force a length judgement against a moving reference).
+    </p>
+  </div>
+
+  <!-- the live bank (renderBank, native) mounts here -->
+  <div class="fig-body" id="fig03-body"><!-- svg bank mounts here --></div>
+
+  <!-- NAMED BASIS ON THE AXIS (PAGE-DESIGN §6.4). NEUTRAL → zinc, no ownership hue. -->
+  <div class="fig-axis-basis">
+    <span class="rail-zinc">basis — advertiser billings at list / rate-card prices, US$m of the day.</span>
+    Panels show each medium&rsquo;s <b>share of that US total</b> on one shared y-axis; turn the handle for log dollars.
+    <span class="caveat">Ownership is not the question here, so the marks carry no ownership hue.</span>
+  </div>
+
+  <hr class="fig-rule">
+  <figcaption class="fig-caption">
+    Shares moved glacially. Television entered the series in 1949 at about 1.1% of US spend and passed
+    newspapers only in 1992, by $31,079M to $30,737M &mdash; a gap of some $342M, not to be rounded away.
+    Direct mail stayed the second-largest named medium for decades. That second place was not unbroken:
+    radio and magazines pushed direct mail to third in 1944 and fourth in 1945&ndash;46 before it recovered.
+  </figcaption>
+
+  <!-- the two DEAD legends this plate corrects (DESIGN §6; redline, redundantly coded) -->
+  <div class="dead-legend">
+    <span class="dead-tag">DEAD</span>
+    <span class="dead-claim">Each medium killed the last.</span>
+    <span class="dead-fix">The record shows slow hand-offs and long overlaps, not kills. Direct mail held
+      second place for decades; television took until 1992 to edge past newspapers. No medium wiped out
+      the one before it.</span>
+  </div>
+  <div class="dead-legend">
+    <span class="dead-tag">DEAD</span>
+    <span class="dead-claim">Television conquered advertising.</span>
+    <span class="dead-fix">Television entered at about 1.1% of US spend in 1949 and only passed newspapers
+      in 1992, by $31,079M to $30,737M. It climbed for four decades before it led, and never swept the field.</span>
+  </div>
+
+  <!-- citation shelf: same grammar as the prose sidenotes. NEUTRAL → own dot = zinc. -->
+  <div class="fig-shelf">
+    <span class="src-chip" data-grade="B" data-own="zinc">
+      <span class="grade-glyph"></span><span class="grade-letter">B</span>
+      <span class="own-dot"></span>
+      <a class="claim-id" href="#e2-medium-006">e2-medium-006</a>
+    </span>
+    <span class="src-chip" data-grade="B" data-own="zinc">
+      <span class="grade-glyph"></span><span class="grade-letter">B</span>
+      <span class="own-dot"></span>
+      <a class="claim-id" href="#e4-medium-002">e4-medium-002</a>
+    </span>
+    <span class="src-chip" data-grade="B" data-own="zinc">
+      <span class="grade-glyph"></span><span class="grade-letter">B</span>
+      <span class="own-dot"></span>
+      <a class="claim-id" href="#e2-medium-004">e2-medium-004</a>
+    </span>
+    <span class="src-chip" data-grade="A" data-own="zinc">
+      <span class="grade-glyph"></span><span class="grade-letter">A</span>
+      <span class="own-dot"></span>
+      <a class="claim-id" href="#e7-medium-001">e7-medium-001</a>
+    </span>
+  </div>
+</figure>
+
+<script type="module">
+/* --- always --- */
+import * as guards from '../lib/guards.js';
+import { initMotion, installMotionToggle } from '../lib/motion.js';
+import { verifyTokenParity } from '../lib/tokens.js';
+
+/* --- the reused renderer: fig 3 is the by-medium bank, native --- */
+import { renderBank } from '../charts/small-multiples.js';
+
+/* --- inlined data (Tier B: renderBank reads the whole record); NOT a fetch --- */
+import { adspend, claims } from './data/fig-03.data.js';
+
+/* EMBED MODE — the article drops this plate in via <iframe src="…?embed=1">:
+   hide all demo/section chrome, show only the plate on a transparent ground. */
+if (new URLSearchParams(location.search).get('embed') === '1') document.body.classList.add('embed');
+
+const status = document.getElementById('status');
+const fail = document.getElementById('loadfail');
+function die(err) {
+  fail.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent = (err && err.stack) ? err.stack : String(err);
+  status.textContent = 'FAILED — see the box above.';
+  throw err;
+}
+
+try {
+  initMotion();                                   // stamps <html data-motion> → jitter fallbacks fire
+  installMotionToggle(document.getElementById('motiontoggle'));
+  verifyTokenParity();                            // dev guard: throws if tokens.css/js disagree
+  guards.useFrozen({ adspend, claims });          // inject the inlined record (no runtime fetch)
+
+  const body = document.getElementById('fig03-body');
+  const out = renderBank(body, { adspend, claims }, { mode: 'share' });
+  window.P2_FIG3 = out;
+
+  /* NEUTRAL HARDENING (v2 page layer — the shared renderer is untouched). This is a
+     NEUTRAL plate: medium composition is not an ownership question, so no data mark
+     may wear the seller-owned amber. renderBank draws its marks in toolkit BRASS
+     (#B07A2C, brass-text #8A5F20) — a warm amber that reads as ownership here — so
+     recolour every brass data stroke & fill to IRON (#5B6570) after the native
+     render, in the DOM only. Re-applied on every redraw (the scale rocker rebuilds
+     the SVG). */
+  (function hardenNeutral(root, host) {
+    const BRASS = new Set(['#b07a2c', '#8a5f20']);
+    const IRON = '#5B6570', SVGNS = 'http://www.w3.org/2000/svg';
+    const ironise = () => {
+      for (const node of root.querySelectorAll('*')) {
+        if (node.namespaceURI !== SVGNS) continue;
+        for (const attr of ['fill', 'stroke']) {
+          const v = node.getAttribute(attr);
+          if (v && BRASS.has(v.trim().toLowerCase())) node.setAttribute(attr, IRON);
+        }
+      }
+    };
+    ironise();
+    if (host && 'MutationObserver' in window) {
+      new MutationObserver(ironise).observe(host, { childList: true, subtree: true });
+    }
+  })(document.getElementById('fig03'), document.getElementById('fig03-body'));
+
+  /* NATIVE OUTPUT, RE-ORDERED FOR THE PLATE (no renderer edit): renderBank appends
+   * its self-documentation registers (why-N-panels, seams, verdicts, series table)
+   * inside the body. Those four long note-boxes are the bulk of the plate's height,
+   * so move them to the END of the plate AND fold them into a collapsed
+   * "methodology" <details> — the v2 chrome (basis-on-axis, caption, DEAD legends,
+   * citation shelf) reads first, and the native registers stay one click away as
+   * closing provenance. Nothing is removed. */
+  const plate = document.getElementById('fig03');
+  const foot = body.querySelector('.p2-bank-foot');
+  if (foot) {
+    const details = document.createElement('details');
+    details.className = 'fig-methodology';
+    const summary = document.createElement('summary');
+    summary.textContent =
+      'Methodology — why these panels, the seams and caveats, what verification changed, and the full series register';
+    details.appendChild(summary);
+    details.appendChild(foot);       // the native registers move inside, collapsed
+    plate.appendChild(details);
+  }
+
+  /* The grid's per-panel captions are hidden by CSS to keep the compact bank
+   * legible; carry each one's full sentence onto its panel as a hover title so
+   * the text stays reachable (it also remains the SVG's aria-label). */
+  for (const cap of plate.querySelectorAll('.p2-bank-grid .p2-panel-cap')) {
+    const panel = cap.closest('.p2-panel');
+    if (panel && !panel.title) panel.title = cap.textContent;
+  }
+
+  /* wire the plate's [ key ] toggle */
+  const keyBtn = document.querySelector('#fig03 .fig-keybtn');
+  const legend = document.getElementById('fig03-legend');
+  keyBtn.addEventListener('click', () => {
+    const open = keyBtn.getAttribute('aria-expanded') === 'true';
+    keyBtn.setAttribute('aria-expanded', String(!open));
+    legend.hidden = open;
+  });
+
+  const p = out.plan;
+  status.textContent =
+    `bank drawn · ${p.selectedKeys.length}/${p.allKeys.length} series · ${p.panelCount} panels ` +
+    `(1 total + ${p.categories.length} media + ${p.tail ? 1 : 0} tail) · shared ceiling ` +
+    `${p.scaleTop}% · partition exact in ${p.partitionCheck.length} years · ${p.spanOnlyCount} span-only marks`;
+} catch (err) {
+  die(err);
+}
+</script>
+</body>
+</html>

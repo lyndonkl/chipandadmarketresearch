@@ -1,0 +1,408 @@
+<!-- docs/p2-v2/_shell.html
+     ============================================================================
+     P2 v2 — "Who Owns the Number" — the PAGE SKELETON.
+
+     This is the shell the four act-builders assemble the article into. It is a
+     COMPLETE, standalone document: open it over http (python3 -m http.server) and
+     it renders the masthead, the "how to read this" key, an empty reading column
+     with the ownership spine, and the appendix frame. The act-builders paste each
+     movement's <section> at the matching INSERT marker; nothing else here moves.
+
+     Copy this file to index.html to begin the build (keep _shell.html as the
+     pristine skeleton). Serve over http — the figure iframes are same-origin, and
+     the auto-height script reads their scrollHeight across the same origin.
+
+     MARKUP CONVENTIONS the act-builders must follow are documented at the bottom
+     of this file (search: "MARKUP CONVENTIONS") and, verbatim, in figures/
+     CONVENTIONS.md's companion — page.css §2–13 name every class.
+     ========================================================================= -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Owns the Number — a history of the US advertising market</title>
+<meta name="description" content="A history of the US advertising market, read through one question: who owns the number?">
+<link rel="stylesheet" href="page.css">
+
+<div class="wrap">
+
+  <!-- ======================================================================
+       MASTHEAD — the document opens on words, then the s0 prose, then the hero.
+       ==================================================================== -->
+  <header class="masthead">
+    <div class="masthead__inner">
+      <p class="masthead__eyebrow">The US advertising market · 1833–2026</p>
+      <h1 class="masthead__title">Who Owns the Number</h1>
+      <p class="masthead__dek">A history of the US advertising market, read through one question.</p>
+      <p class="masthead__provenance">
+        This apparatus records provenance, not verification. No claim here has been
+        verified. Every figure traces to a graded claim id; grades (A/B/C) and
+        intervals are the sources' own and are preserved.
+      </p>
+      <div class="masthead__controls">
+        <button class="sources-toggle" id="sourcesToggle" type="button"
+                aria-pressed="false" aria-label="Toggle source sidenotes shown or dimmed">
+          Sources: <b id="sourcesState">shown</b>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       HOW TO READ THIS — the grammar teacher, taught hard once. Collapsible.
+       (PAGE-DESIGN §4/§6; reuses figures.css .fig-legend + .leg-* swatches.)
+       ==================================================================== -->
+  <details class="howto-key fig-legend" open>
+    <summary>How to read this</summary>
+    <div class="howto-key__body">
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-still"></span></span>
+        <span><b>still mark = grade A</b> — an audited / settled reading.</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-shimmer"></span></span>
+        <span><b>shimmering mark = grade C</b> — uncertain; the amplitude is the
+          uncertainty. (Grade B sits between: a faint life.)</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-dot leg-dot--cyan"></span></span>
+        <span><b>cyan = an independent number</b> — an audit, a census, a court
+          finding: held by a third party, not the party being judged.</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-dot leg-dot--amber"></span></span>
+        <span><b>amber = a seller-owned number</b> — the party being judged counting
+          its own audience, setting its own price, billing its own log. The left spine
+          carries the same amber → cyan → amber across the whole piece.</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-dead"></span></span>
+        <span><b>struck red = a corrected / DEAD claim</b> — a popular legend this
+          piece knocks down (contested claims show both values instead of a strike).</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-reading"></span></span>
+        <span><b>a left bracket marked <code>A READING</code></b> — the passage has
+          crossed from the record into the author's synthesis.</span>
+      </div>
+      <p class="leg-reduced">
+        Reduced motion: every shimmer becomes a static hatched band — denser for a
+        softer grade — so the uncertainty is still seen, just not moving.
+      </p>
+    </div>
+  </details>
+
+  <!-- ======================================================================
+       THE 3-ZONE GRID — ownership spine (rail) · reading column · gutter.
+       ==================================================================== -->
+  <div class="page" id="page">
+
+    <!-- OWNERSHIP SPINE — painted by the script below from each section's
+         data-ownership + its height; the marker tracks scroll. aria-hidden:
+         it is wayfinding decoration; the acts/sections carry the real semantics. -->
+    <div class="spine" id="spine" aria-hidden="true">
+      <div class="spine__track" id="spineTrack"></div>
+      <div class="spine__marker" id="spineMarker" style="top:0"></div>
+    </div>
+
+    <!-- THE READING COLUMN — the four acts assemble here, in order. Each
+         act-builder inserts an <header class="act-break"> then its movement
+         <section>s at the matching marker. Do not reorder the acts. -->
+    <main class="reading" id="reading">
+
+      <!-- ================================================================
+           ACT I — THE INDEPENDENT NUMBER IS BUILT   (s0 · s1 · s2)
+           s0 hero (fig1-hero) sits at the s0→s1 hinge.
+           ================================================================ -->
+      <!-- ACT-I:INSERT -->
+
+      <!-- ================================================================
+           ACT II — THE COUNT DRIFTS BACK   (s3 · s4 · s5 · s6)
+           s5 → fig5-commission-slope.
+           ================================================================ -->
+      <!-- ACT-II:INSERT -->
+
+      <!-- ================================================================
+           ACT III — THE BUYER'S METER & THE DOOR   (s7 · s8 · s9)
+           s7 → fig7-buyer-meter.
+           ================================================================ -->
+      <!-- ACT-III:INSERT -->
+
+      <!-- ================================================================
+           ACT IV — THE SELLER TAKES THE NUMBER BACK   (s10 … s14)
+           s10 → fig6-take-rate · s12 → fig2-instrument-blind AND fig3-medium-bank
+           · s13 → fig4-gdp-strip · s14 → fig1-hero reprise.
+           ================================================================ -->
+      <!-- ACT-IV:INSERT -->
+
+    </main>
+  </div>
+
+  <!-- ======================================================================
+       APPENDIX / FOOTER — the provenance back-matter. Sidenote and figure-shelf
+       claim-ids link here via #claim-id; render each entry as
+       <p class="claim-entry" id="e6-measurement-006"> … </p>.
+       ==================================================================== -->
+  <footer class="appendix" id="appendix">
+    <div class="appendix__inner">
+      <!-- APPENDIX:INSERT -->
+    </div>
+  </footer>
+
+</div>
+
+<!-- the mobile / reduced-motion scroll-progress bar (spine's degrade path) -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<script>
+/* ==========================================================================
+ * PAGE-SHELL SCRIPTS — three small, dependency-free behaviours. All are
+ * progressive enhancement: the document reads correctly with JS disabled.
+ * ======================================================================== */
+(function () {
+  "use strict";
+  var root = document.documentElement;
+
+  /* --------------------------------------------------------------------
+   * 1 · IFRAME AUTO-HEIGHT — a figure iframe is same-origin, so read its
+   *     document scrollHeight and set the iframe height. Re-measure on the
+   *     figure's own reflow (ResizeObserver), on window resize, and after a
+   *     couple of ticks (figures SETTLE/animate on entry).
+   * ------------------------------------------------------------------ */
+  function sizeFrame(f) {
+    try {
+      var d = f.contentDocument || (f.contentWindow && f.contentWindow.document);
+      if (!d || !d.documentElement) return;
+      var h = Math.ceil(
+        Math.max(
+          d.documentElement.getBoundingClientRect().height,
+          d.documentElement.scrollHeight,
+          d.body ? d.body.scrollHeight : 0
+        )
+      );
+      if (h > 0) f.style.height = h + "px";
+    } catch (e) { /* cross-origin or not ready — leave the placeholder height */ }
+  }
+  function wireFrame(f) {
+    f.addEventListener("load", function () {
+      sizeFrame(f);
+      try {
+        var d = f.contentDocument;
+        if (window.ResizeObserver && d) {
+          var ro = new ResizeObserver(function () { sizeFrame(f); });
+          ro.observe(d.documentElement);
+          if (d.body) ro.observe(d.body);
+        }
+      } catch (e) {}
+      /* figures settle on entry; re-measure a few times, then leave it. */
+      [150, 500, 1200].forEach(function (t) { setTimeout(function () { sizeFrame(f); }, t); });
+    });
+    /* if already loaded (cache), size now */
+    try { if (f.contentDocument && f.contentDocument.readyState === "complete") sizeFrame(f); } catch (e) {}
+  }
+  var frames = [].slice.call(document.querySelectorAll("iframe.figure-embed__frame"));
+  frames.forEach(wireFrame);
+  window.addEventListener("resize", function () { frames.forEach(sizeFrame); });
+  /* a figure MAY also post its height: window.parent.postMessage({type:'figure-height',height},'*') */
+  window.addEventListener("message", function (ev) {
+    if (!ev.data || ev.data.type !== "figure-height") return;
+    frames.forEach(function (f) {
+      if (f.contentWindow === ev.source && ev.data.height > 0) f.style.height = Math.ceil(ev.data.height) + "px";
+    });
+  });
+
+  /* --------------------------------------------------------------------
+   * 2 · OWNERSHIP SPINE — paint one segment per movement, height ∝ the
+   *     section's share of the reading column, coloured by data-ownership.
+   *     The marker tracks scroll through the reading block. Degrades to the
+   *     flat top progress bar when the spine is hidden (mobile / narrow).
+   * ------------------------------------------------------------------ */
+  var page = document.getElementById("page");
+  var reading = document.getElementById("reading");
+  var track = document.getElementById("spineTrack");
+  var marker = document.getElementById("spineMarker");
+  var progress = document.getElementById("scrollProgress");
+
+  function paintSpine() {
+    if (!reading || !track) return;
+    var sections = [].slice.call(reading.querySelectorAll("section[data-ownership]"));
+    var total = reading.scrollHeight || reading.offsetHeight || 1;
+    track.innerHTML = "";
+    sections.forEach(function (s) {
+      var seg = document.createElement("div");
+      seg.className = "spine__seg";
+      seg.setAttribute("data-ownership", s.getAttribute("data-ownership") || "zinc");
+      seg.style.height = (s.offsetHeight / total * 100).toFixed(3) + "%";
+      seg.style.flex = "0 0 " + (s.offsetHeight / total * 100).toFixed(3) + "%";
+      track.appendChild(seg);
+    });
+  }
+
+  function onScroll() {
+    if (!page) return;
+    var start = page.offsetTop;
+    var span = page.offsetHeight - window.innerHeight;
+    var p = span > 0 ? (window.scrollY - start) / span : 0;
+    p = Math.max(0, Math.min(1, p));
+    if (marker) marker.style.top = (p * 100) + "%";
+    if (progress) progress.style.width = (p * 100) + "%";
+  }
+
+  paintSpine();
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", function () { paintSpine(); onScroll(); });
+  /* re-measure once late assets (fonts, figure iframes) have changed the height */
+  window.addEventListener("load", function () { paintSpine(); onScroll(); });
+  setTimeout(function () { paintSpine(); onScroll(); }, 1400);
+
+  /* --------------------------------------------------------------------
+   * 3 · SOURCES: shown / dimmed — fade the sidenotes to ~15% for a pure
+   *     reading pass, without removing them. Sets :root[data-sources].
+   * ------------------------------------------------------------------ */
+  var btn = document.getElementById("sourcesToggle");
+  var stateLabel = document.getElementById("sourcesState");
+  if (btn) {
+    btn.addEventListener("click", function () {
+      var dimmed = root.getAttribute("data-sources") === "dimmed";
+      root.setAttribute("data-sources", dimmed ? "shown" : "dimmed");
+      btn.setAttribute("aria-pressed", String(!dimmed));
+      if (stateLabel) stateLabel.textContent = dimmed ? "shown" : "dimmed";
+    });
+  }
+})();
+</script>
+
+<!--  ============================================================================
+      MARKUP CONVENTIONS — the contract every act-builder follows. Verbatim.
+      ============================================================================
+
+  A · A MOVEMENT SECTION  (one per s0…s14)
+  ----------------------------------------
+  Each movement is a <section> in the reading column, carrying its slot id and its
+  single ownership state. data-ownership ∈ { amber | cyan | zinc } and drives the
+  spine segment (DESIGN §4.1: amber = seller-owned, cyan = independent, zinc =
+  neutral scaffolding). The intended arc is amber(early) → cyan(1914 audit era) →
+  amber(platform era); pick each section's value from DESIGN §4.3.
+
+      <section class="movement" data-slot="s7" data-ownership="amber">
+        <span class="movement__index" aria-hidden="true">07</span>
+        <div class="movement__body">
+          <p class="movement__eyebrow">S7 · 1914–2008 · THE DEMAND SIDE</p>
+          <h2 class="movement__title">The buyer's own meter</h2>
+          <p class="movement__standfirst">The one-line opener each movement runs.</p>
+          <p>Body paragraph. Prose is rendered VERBATIM from THE-PIECE.md — never
+             reworded. Sidenotes and figures attach INSIDE this body.</p>
+        </div>
+      </section>
+
+  The .movement__index is the Martian-Mono section number ("00"–"14"); it hangs
+  into the left rail on desktop and folds above the movement on mobile.
+
+  B · A PARAGRAPH THAT CARRIES A SIDENOTE  (the citation, in the gutter)
+  ---------------------------------------------------------------------
+  A sidenote is an INLINE <span class="sidenote"> placed right after the claim it
+  supports (valid inside <p>). It floats into the right gutter and rises to the top
+  of the line it sits on — put it at the paragraph's START to align to the
+  paragraph top, or immediately AFTER a sentence to anchor that specific figure.
+  Its content is one .src-chip (the same chip as a figure's source shelf) + a gloss
+  = the appendix citation-map line. data-grade ∈ {A|B|C}; data-own ∈ {cyan|amber|zinc}.
+
+      <p><span class="sidenote">
+           <span class="src-chip" data-grade="A" data-own="amber">
+             <span class="grade-glyph"></span><span class="grade-letter">A</span>
+             <span class="own-dot"></span>
+             <a class="claim-id" href="#e6-measurement-006">e6-measurement-006</a>
+           </span>
+           <span class="sidenote__gloss">~18% YoY paid clicks, Q4 2008 — no count,
+             CPC, or query total disclosed.</span>
+         </span>In its earnings release for the last quarter of 2008, Google told
+         its shareholders one fact about its ads…</p>
+
+  Two claims on one paragraph = two <span class="sidenote"> siblings; they stack
+  (clear:right). A number set as an instrument readout in the run of text uses
+  <span class="num own-amber">18%</span> — but inline figures otherwise stay in the
+  serif (DESIGN §2). The claim-id href points at the appendix entry (§F below).
+
+  C · A STAT-CALLOUT LIFTED INTO THE MARGIN  (Martian-Mono numeral + grade dot)
+  ----------------------------------------------------------------------------
+  A load-bearing figure may be promoted to the gutter as a callout. It rides the
+  same gutter slot as a sidenote (a .sidenote wrapper) and uses figures.css
+  .stat-callout inside:
+
+      <p><span class="sidenote sidenote--stat">
+           <span class="stat-callout">
+             <span class="stat-value own-cyan">73/27</span>
+             <span class="stat-gloss">the split the 1938 FCC audit EXTRACTED —
+               a number wrested from the seller. (e2-sellers-002, A)</span>
+           </span>
+         </span>The deepest split surfaced only because a regulator forced it…</p>
+
+  Add .own-cyan / .own-amber to .stat-value to tint the numeral by ownership.
+
+  D · EMBEDDING A FIGURE  (the borderless auto-height iframe)
+  -----------------------------------------------------------
+  A figure is embedded as a seamless iframe that breaks wider than the measure.
+  Append ?embed=1 to the src (the figure strips its standalone page framing on
+  that flag). Give the iframe a title. The shell script sets its height from the
+  same-origin scrollHeight — do not hard-code a height.
+
+      <div class="figure-embed">
+        <iframe class="figure-embed__frame" src="figures/fig1-hero.html?embed=1"
+                title="Figure 1 — Ownership over time: the reversion"
+                loading="lazy" scrolling="no"></iframe>
+      </div>
+
+  Placement (FIGURE-PLAN): s0 hinge fig1-hero (+ s14 reprise) · s5 fig5 · s7 fig7 ·
+  s10 fig6 · s12 fig2 AND fig3 · s13 fig4. The figure carries its own plate, key,
+  axis-basis, caption and source shelf — the prose above it only hands off.
+
+  E · THE A-READING MARKER, and the DEAD / CONTESTED DEVICE
+  ---------------------------------------------------------
+  When the prose crosses from the record into the author's synthesis, wrap the
+  passage (PAGE-DESIGN §5a):
+
+      <div class="a-reading">
+        <span class="reading-tag">A reading</span>
+        <p>That reading is mine, drawn from the record that follows…</p>
+      </div>
+
+  When the prose knocks a popular legend down, ship it in redline (PAGE-DESIGN §5b;
+  redundantly coded — hatch + strike + the word DEAD, never redline alone). Block panel:
+
+      <div class="dead-legend">
+        <span class="dead-tag">DEAD</span>
+        <span class="dead-claim">The 15% commission died in the 1980s.</span>
+        <span class="dead-fix">Commission actually received held near 14% right
+          through the decade…</span>
+      </div>
+
+  Inline knock-down mid-sentence:  the tidy version says
+      <span class="dead-inline"><span class="dead-tag">DEAD</span>the 15% commission
+      died in the 1980s</span> — the record says otherwise, twice.
+
+  s14's "AI Overviews cut the funding click" ships as CONTESTED (two values, not a
+  strike; Google's dispute named) using figures.css .contested-legend:
+
+      <div class="contested-legend">
+        <span class="dead-tag">CONTESTED</span>
+        Users clicked a result on <span class="val-a">8%</span> of visits with an AI
+        summary, against <span class="val-b">15%</span> without. Google disputes the
+        study, so both figures stand.
+      </div>
+
+  F · AN APPENDIX ENTRY  (the sidenote link target)
+  -------------------------------------------------
+  Every claim-id href resolves to a back-matter entry sharing that id:
+
+      <p class="claim-entry" id="e6-measurement-006">
+        <span class="claim-id-ref">e6-measurement-006</span> (A) — ~18% YoY paid
+        clicks, Q4 2008; no count, CPC, or query total.
+      </p>
+
+  DISCIPLINE (carried from DESIGN / PAGE-DESIGN, non-negotiable):
+    • Prose is the spine — render THE-PIECE.md VERBATIM; never reword it.
+    • Colour = OWNERSHIP only (cyan independent / amber seller-owned / zinc neutral).
+      Grade rides the glyph + jitter, never colour. Redline = DEAD/CONTESTED only,
+      never an ownership mark.
+    • Grades A/B/C, "alleged", "reported", intervals travel verbatim — never hardened.
+    • Every figure and every stated number traces to a claim id.
+  ============================================================================ -->

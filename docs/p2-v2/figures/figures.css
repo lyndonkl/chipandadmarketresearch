@@ -1,0 +1,335 @@
+/* docs/p2-v2/figures/figures.css
+ * ============================================================================
+ * P2 v2 — "Who Owns the Number" — the FIGURE design layer.
+ *
+ * This file is the v2 plate + legend + grade-jitter grammar that sits ON TOP OF
+ * the reused P2 v1 toolkit. It is loaded together with, and AFTER:
+ *     ../lib/tokens.css        (the toolkit's --p2-* tokens, .p2-* type/rocker/tremor)
+ *     ../charts/chart-demo.css (the bank / cross-section / panel / control layout)
+ * Load order in every figure HTML: tokens.css → chart-demo.css → figures.css.
+ *
+ * TWO PALETTE SYSTEMS COEXIST ON PURPOSE, and they do not collide:
+ *   - toolkit tokens are PREFIXED  --p2-*   (cyan #3AA6BD, brass #B07A2C = the
+ *     toolkit's "amber", rust #A8442E = the toolkit's "redline"). The reused
+ *     renderers and every svg-kit mark read these from tokens.js (JS constants).
+ *   - v2 tokens below are UNPREFIXED  --bone --cyan --amber --redline …, taken
+ *     VERBATIM from DESIGN.md §2. They drive the HTML PLATE CHROME only —
+ *     kicker, axis-basis label, caption, citation shelf, legend, DEAD tags,
+ *     stat-callouts. This is where the v2 amber #E0972A and redline #C6432B live.
+ *
+ * WHY THE SPLIT (read before "fixing" a colour): svg-kit's text() runs
+ * assertTextColor against a CLOSED allow-list that does NOT contain #E0972A /
+ * #9a6612 / #C6432B — passing them to an SVG <text> THROWS. So ownership-COLOURED
+ * TEXT is rendered here in HTML, never as SVG text. svg-kit MARK primitives
+ * (pointMark/polyline/band/spanMark) accept ANY `color` with no guard, so
+ * OWN-HUE data marks are drawn in the v2 hues by passing the hex straight in
+ * (see CONVENTIONS.md → "colour discipline"). cyan #3AA6BD is identical in both
+ * systems; only amber and redline differ.
+ *
+ * GRADE → JITTER lives HERE, not in the toolkit. motion.js `tremor` ties shimmer
+ * to CI-WIDTH and refuses to render a tremoring claim as a point — that is the
+ * v1 model. DESIGN.md §5 RE-TIES shimmer to the claim GRADE (A=still, B≈0.6px,
+ * C≈1.4px). That is the keyframe set at the bottom of this file; mini-series.js
+ * and every figure apply it with the `.fig-jit .jit-A|B|C` classes.
+ *
+ * LIGHT-ONLY. Bone ground. No dark-mode block, by design (DESIGN.md §0).
+ * ==========================================================================*/
+
+/* ---------------------------------------------------------------------------
+ * 1 · TOKENS — the full v2 palette, verbatim from DESIGN.md §2, unprefixed.
+ * ------------------------------------------------------------------------- */
+:root {
+  /* 2.1 core */
+  --bone:      #F2EEE4;   /* ground — engineering paper */
+  --paper:     #efe9db;   /* recessed panels, scene fill */
+  --card:      #f7f4ec;   /* figure cards, citation blocks, key backgrounds */
+  --graphite:  #15181D;   /* ink — body text, primary numerals */
+  --ink2:      #3a4149;   /* standfirst, figure notes, secondary prose */
+  --ink3:      #5b626b;   /* captions, mono metadata */
+  --zinc:      #838A93;   /* axes, gridlines, eyebrows, NEUTRAL scaffolding */
+  --zinc-text: #646B74;   /* zinc where it must touch a glyph (AA on bone) */
+  --rule:      #ddd5c4;   /* hairlines, section dividers, card borders */
+  --grid-ink:  #83839314; /* 22px engineering grid, zinc ~8% alpha */
+
+  /* 2.2 the ownership pair — the one semantic workhorse */
+  --cyan:   #3AA6BD;      /* INDEPENDENT — third-party / audited / court number */
+  --cyan-d: #1d7288;      /* cyan on tint / small text / rules (AA) */
+  --cyan-t: #3AA6BD1F;    /* independent bands, jitter halos, common-region fill */
+  --amber:   #E0972A;     /* SELLER-OWNED / JUDGED-PARTY — self-count, own log */
+  --amber-d: #9a6612;     /* amber on tint / small text / rules (AA) */
+  --amber-t: #E0972A1F;   /* seller-owned bands, jitter halos, common-region fill */
+
+  /* 2.3 redline — reassigned, single-use: DEAD / CONTESTED only */
+  --redline:   #C6432B;
+  --redline-t: #C6432B1A;
+
+  /* 3 · type roles — same stacks as tokens.css so the two files never disagree */
+  --fig-font-prose:  'Newsreader','Newsreader Fallback','Iowan Old Style','Palatino Linotype','Book Antiqua',Palatino,Georgia,'Times New Roman',serif;
+  --fig-font-num:    'Martian Mono','Martian Mono Fallback',ui-monospace,'SF Mono','Cascadia Mono','Roboto Mono',Menlo,Consolas,monospace;
+  --fig-font-chrome: 'IBM Plex Mono','IBM Plex Mono Fallback',ui-monospace,'SF Mono','Cascadia Mono',Menlo,Consolas,monospace;
+
+  /* grid + rhythm (1u = 22px, from P1) */
+  --u: 22px;
+
+  /* grade → jitter amplitude (px). DESIGN.md §5.1. Cap ≈ 2px. */
+  --jit-a: 0px;
+  --jit-b: 0.6px;
+  --jit-c: 1.4px;
+  --jit-period: 1200ms;   /* low frequency — "alive", not "broken" */
+}
+
+/* ---------------------------------------------------------------------------
+ * 2 · THE PLATE — the standard figure container (PAGE-DESIGN §6).
+ *   <figure class="fig-plate"> …
+ *     <div class="fig-kicker">FIGURE 02 <button class="fig-keybtn">key</button></div>
+ *     <div class="fig-body"> …live figure… </div>
+ *     <div class="fig-axis-basis">RAIL: …basis… ◂ axis</div>   (optional HTML axis label)
+ *     <figcaption class="fig-caption">One plain sentence.</figcaption>
+ *     <div class="fig-shelf"> …source chips… </div>
+ *   </figure>
+ * ------------------------------------------------------------------------- */
+.fig-plate {
+  box-sizing: border-box;
+  max-width: 1000px;           /* figures breathe wider than the 700px prose */
+  margin: calc(var(--u) * 1.5) auto;
+  background: var(--bone);
+  border: 1px solid var(--ink3);          /* hairline instrument bezel */
+  box-shadow: inset 0 0 0 1px var(--bone);
+  padding: calc(var(--u) * 0.9) calc(var(--u) * 1.1) calc(var(--u) * 0.8);
+  /* the 22px engineering grid shows at full faintness INSIDE the plate */
+  background-image:
+    linear-gradient(to right,  var(--grid-ink) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-ink) 1px, transparent 1px);
+  background-size: var(--u) var(--u);
+  color: var(--graphite);
+  font-family: var(--fig-font-prose);
+}
+
+/* kicker row: FIGURE NN + [ key ] affordance */
+.fig-kicker {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px; margin-bottom: calc(var(--u) * 0.5);
+  font-family: var(--fig-font-num);
+  font-size: 13px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink3);
+}
+.fig-kicker .fig-title {
+  font-family: var(--fig-font-prose); text-transform: none; letter-spacing: -.01em;
+  font-size: 15px; color: var(--ink2); font-weight: 600;
+}
+.fig-keybtn {
+  font-family: var(--fig-font-chrome); font-size: 11px; letter-spacing: .04em;
+  color: var(--cyan-d); background: var(--card);
+  border: 1px solid var(--rule); border-radius: 2px;
+  padding: 2px 8px; cursor: pointer;
+}
+.fig-keybtn::before { content: "▸ "; }
+.fig-keybtn[aria-expanded="true"]::before { content: "▾ "; }
+
+/* the live-figure host: a paper card that lifts the drawing off the plate grid */
+.fig-body { background: var(--paper); border: 1px solid var(--rule); padding: 10px 12px; }
+.fig-body svg { display: block; width: 100%; height: auto; }
+.fig-body .fig-scrollx { overflow-x: auto; overscroll-behavior-x: contain; }
+
+/* NAMED RAIL ON THE AXIS (non-negotiable, PAGE-DESIGN §6.4). Use this HTML slot
+ * whenever the basis label must carry an ownership hue (SVG text cannot).       */
+.fig-axis-basis {
+  font-family: var(--fig-font-chrome); font-size: 12px; letter-spacing: .02em;
+  color: var(--zinc-text); margin-top: 6px;
+}
+.fig-axis-basis .rail-cyan  { color: var(--cyan-d);  font-weight: 600; }
+.fig-axis-basis .rail-amber { color: var(--amber-d); font-weight: 600; }
+.fig-axis-basis .rail-zinc  { color: var(--zinc-text); }
+.fig-axis-basis .caveat { color: var(--ink3); font-style: italic; }   /* non-removable basis caveat */
+
+/* hairline zinc rule between figure and caption */
+.fig-plate hr.fig-rule,
+.fig-rule { border: 0; border-top: 1px solid var(--rule); margin: calc(var(--u) * 0.6) 0; }
+
+.fig-caption {
+  font-family: var(--fig-font-prose); font-size: 17px; line-height: 24px;
+  color: var(--ink2); max-width: 68ch; margin: calc(var(--u) * 0.4) 0 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * 3 · THE CITATION SHELF — identical grammar to the prose sidenotes (§4, §6.6).
+ *   <div class="fig-shelf">
+ *     <span class="src-chip" data-grade="A" data-own="cyan">
+ *        <span class="grade-glyph"></span> A
+ *        <span class="own-dot"></span>
+ *        <a class="claim-id" href="#e6-medium-006">e6-medium-006</a>
+ *     </span> …
+ *   </div>
+ * ------------------------------------------------------------------------- */
+.fig-shelf {
+  display: flex; flex-wrap: wrap; gap: 6px 16px;
+  margin-top: calc(var(--u) * 0.5);
+  font-family: var(--fig-font-chrome); font-size: 12px; color: var(--ink3);
+}
+.src-chip { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.src-chip .claim-id { color: var(--ink3); text-decoration: none; border-bottom: 1px dotted var(--zinc); }
+.src-chip .claim-id:hover { color: var(--graphite); }
+
+/* grade glyph — MONOCHROME, dual-coded (letter + fill). Grade NEVER rides colour. */
+.grade-glyph {
+  display: inline-block; width: 9px; height: 9px; box-sizing: border-box;
+  border: 1px solid var(--graphite); background: var(--zinc-text);
+}
+.src-chip[data-grade="A"] .grade-glyph { background: var(--graphite); }               /* solid, still */
+.src-chip[data-grade="B"] .grade-glyph {                                              /* half-filled */
+  background: linear-gradient(90deg, var(--graphite) 50%, transparent 50%);
+}
+.src-chip[data-grade="C"] .grade-glyph {                                              /* hatched, faintly shimmers */
+  background:
+    repeating-linear-gradient(45deg, var(--graphite) 0 1px, transparent 1px 3px);
+  animation: fig-jit-c var(--jit-period) ease-in-out infinite;
+}
+.src-chip .grade-letter { font-weight: 700; color: var(--graphite);
+  background: rgba(131,138,147,.12); padding: 0 3px; border-radius: 1px; font-size: 10.5px; }
+
+/* ownership dot — the semantic spine at claim level. THE ONLY place a NEUTRAL
+ * figure carries ownership (DESIGN.md §4, Guardrail G1). */
+.own-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--ink3) inset; }
+.src-chip[data-own="cyan"]  .own-dot { background: var(--cyan); }
+.src-chip[data-own="amber"] .own-dot { background: var(--amber); }
+.src-chip[data-own="zinc"]  .own-dot { background: var(--zinc); }
+.src-chip[data-own="redline"] .own-dot { background: var(--redline); }   /* DEAD/CONTESTED shelf entry */
+
+/* ---------------------------------------------------------------------------
+ * 4 · "HOW TO READ THIS" — the reusable legend (PAGE-DESIGN §6, _legend.html).
+ *   Expanded on the first figure; a collapsed [ key ] chip thereafter.
+ * ------------------------------------------------------------------------- */
+.fig-legend {
+  background: var(--card); border: 1px solid var(--rule);
+  padding: 12px 14px; margin: 0 0 calc(var(--u) * 0.6);
+  font-family: var(--fig-font-chrome); font-size: 12px; line-height: 1.5; color: var(--ink2);
+}
+.fig-legend[hidden] { display: none; }
+.fig-legend h4 {
+  margin: 0 0 8px; font-family: var(--fig-font-chrome); font-size: 10.5px;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--zinc-text); font-weight: 700;
+}
+.fig-legend .leg-row { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: center; margin: 5px 0; }
+.fig-legend .leg-swatch { display: inline-flex; align-items: center; justify-content: center; height: 14px; }
+.fig-legend b { color: var(--graphite); font-weight: 700; }
+
+/* legend swatches */
+.leg-still { width: 10px; height: 10px; background: var(--graphite); }
+.leg-shimmer { width: 10px; height: 10px;
+  background: repeating-linear-gradient(45deg, var(--graphite) 0 1px, transparent 1px 3px);
+  animation: fig-jit-c var(--jit-period) ease-in-out infinite; }
+.leg-faint { width: 10px; height: 10px;
+  background: linear-gradient(var(--graphite) 0 50%, transparent 50% 100%);
+  box-shadow: 0 0 0 1px var(--graphite) inset;
+  animation: fig-jit-b var(--jit-period) ease-in-out infinite; }
+.leg-cyan  { width: 14px; height: 8px; background: var(--cyan);  box-shadow: 0 0 0 1px var(--ink3) inset; }
+.leg-amber { width: 14px; height: 8px; background: var(--amber); box-shadow: 0 0 0 1px var(--ink3) inset; }
+.leg-dead  { width: 16px; height: 8px;
+  background: repeating-linear-gradient(45deg, var(--redline) 0 1px, transparent 1px 3px);
+  border-bottom: 1px solid var(--redline); position: relative; }
+.leg-dead::after { content: ""; position: absolute; left: 0; right: 0; top: 50%;
+  border-top: 1.5px solid var(--redline); }
+.fig-legend .leg-reduced { margin-top: 8px; color: var(--ink3); font-style: italic; }
+
+/* ---------------------------------------------------------------------------
+ * 5 · STAT-CALLOUT — Martian-Mono numerals lifted into the margin (PAGE-DESIGN §3).
+ * ------------------------------------------------------------------------- */
+.stat-callout { font-family: var(--fig-font-num); line-height: 1.15; }
+.stat-callout .stat-value { font-size: 26px; font-weight: 600; color: var(--graphite); }
+.stat-callout .stat-value.own-cyan  { color: var(--cyan-d); }
+.stat-callout .stat-value.own-amber { color: var(--amber-d); }
+.stat-callout .stat-gloss { display: block; margin-top: 4px;
+  font-family: var(--fig-font-chrome); font-size: 11px; color: var(--ink3); }
+
+/* ---------------------------------------------------------------------------
+ * 6 · DEAD / CONTESTED — redline device (DESIGN.md §6, PAGE-DESIGN §5b).
+ *   Redundantly coded: colour + hatch + strike + the literal word. Never alone.
+ *   Redline NEVER touches an ownership mark.
+ * ------------------------------------------------------------------------- */
+.dead-legend {
+  background: var(--redline-t); border-left: 3px solid var(--redline);
+  padding: 10px 14px; margin: calc(var(--u) * 0.5) 0;
+  font-family: var(--fig-font-prose); font-size: 16px; color: var(--graphite);
+}
+.dead-legend .dead-tag {
+  font-family: var(--fig-font-chrome); font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  color: var(--redline); border: 1px solid var(--redline); padding: 1px 5px; margin-right: 8px;
+  vertical-align: 2px;
+}
+.dead-legend .dead-claim {                      /* the struck / hatched legend text */
+  text-decoration: line-through; text-decoration-color: var(--redline);
+  background: repeating-linear-gradient(45deg, var(--redline-t) 0 2px, transparent 2px 5px);
+  color: var(--ink2);
+}
+.dead-legend .dead-fix { display: block; margin-top: 6px; color: var(--graphite); } /* the corrective */
+
+/* CONTESTED (s14): two-tone, NOT a strike — both values shown, dispute named. */
+.contested-legend {
+  background: var(--redline-t); border-left: 3px solid var(--redline);
+  padding: 10px 14px; margin: calc(var(--u) * 0.5) 0;
+  font-family: var(--fig-font-prose); font-size: 16px; color: var(--graphite);
+}
+.contested-legend .dead-tag { color: var(--redline); border-color: var(--redline);
+  font-family: var(--fig-font-chrome); font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  padding: 1px 5px; margin-right: 8px; }
+.contested-legend .val-a { color: var(--amber-d); font-weight: 600; }
+.contested-legend .val-b { color: var(--redline); font-weight: 600; }
+
+/* ---------------------------------------------------------------------------
+ * 7 · "A READING" marker — record vs. author's synthesis (PAGE-DESIGN §5a).
+ * ------------------------------------------------------------------------- */
+.a-reading { border-left: 2px solid var(--zinc); padding-left: 12px; }
+.a-reading .reading-tag {
+  display: block; font-family: var(--fig-font-chrome); font-size: 10px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--zinc-text); margin-bottom: 2px; }
+
+/* ---------------------------------------------------------------------------
+ * 8 · GRADE → JITTER — the v2 shimmer device (DESIGN.md §5). Applied to an SVG
+ *   <g> that wraps the data marks, OR to an HTML mark. mini-series.js and every
+ *   OWN-HUE figure add `.fig-jit` + `.jit-A|B|C`. A = still; C ≈ 1.4px shimmer.
+ *   transform-box:fill-box lets the translate work on an SVG group.
+ * ------------------------------------------------------------------------- */
+.fig-jit { transform-box: fill-box; transform-origin: center; will-change: transform; }
+.jit-A { animation: none; }                                             /* grade A — dead still */
+.jit-B { animation: fig-jit-b var(--jit-period) ease-in-out infinite; } /* faint life */
+.jit-C { animation: fig-jit-c var(--jit-period) ease-in-out infinite; } /* visible shimmer */
+
+@keyframes fig-jit-b {
+  0%,100% { transform: translate(0,0); }
+  25%     { transform: translate(var(--jit-b), calc(var(--jit-b) * -0.5)); }
+  50%     { transform: translate(calc(var(--jit-b) * -0.7), var(--jit-b)); }
+  75%     { transform: translate(calc(var(--jit-b) * 0.5), calc(var(--jit-b) * 0.6)); }
+}
+@keyframes fig-jit-c {
+  0%,100% { transform: translate(0,0); }
+  20%     { transform: translate(var(--jit-c), calc(var(--jit-c) * -0.4)); }
+  45%     { transform: translate(calc(var(--jit-c) * -0.8), calc(var(--jit-c) * 0.6)); }
+  70%     { transform: translate(calc(var(--jit-c) * 0.6), var(--jit-c)); }
+}
+
+/* ---------------------------------------------------------------------------
+ * 9 · REDUCED MOTION — jitter → STATIC HATCH, density ∝ grade (DESIGN.md §5.3).
+ *   Honours BOTH the OS setting AND the in-page toolkit toggle
+ *   (:root[data-motion="reduce"], set by motion.js). Under either, no mark moves;
+ *   uncertainty is still SEEN, as a hatched band whose density rises with grade.
+ * ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .jit-B, .jit-C,
+  .leg-shimmer,
+  .src-chip[data-grade="C"] .grade-glyph { animation: none !important; }
+}
+:root[data-motion="reduce"] .jit-B,
+:root[data-motion="reduce"] .jit-C,
+:root[data-motion="reduce"] .leg-shimmer,
+:root[data-motion="reduce"] .src-chip[data-grade="C"] .grade-glyph { animation: none !important; }
+
+/* the static-hatch fallback a figure opts a mark group into for reduced motion:
+ * add class `fig-hatch` to the SAME group; density is chosen by grade class. */
+.fig-hatch.jit-A { /* grade A: no hatch — it was always still */ }
+.fig-hatch.jit-B {
+  background: repeating-linear-gradient(45deg, currentColor 0 1px, transparent 1px 5px);
+}
+.fig-hatch.jit-C {
+  background: repeating-linear-gradient(45deg, currentColor 0 1px, transparent 1px 3px);
+}

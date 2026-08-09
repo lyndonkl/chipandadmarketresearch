@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIGURE 07 · The buyer's meter wins the medium — P2 v2</title>
+<!-- order matters: toolkit tokens → reused-renderer furniture → v2 figure layer -->
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="../charts/chart-demo.css">
+<link rel="stylesheet" href="./figures.css">
+<style>
+  /* standalone-demo page frame only — the plate itself is figures.css */
+  body.p2-paper-ground { margin: 0; padding: calc(var(--u) * 1.4) 16px calc(var(--u) * 3); }
+  .page-head { max-width: 1000px; margin: 0 auto calc(var(--u) * 0.8); font-family: var(--fig-font-chrome); }
+  .page-head .arch { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--zinc-text); }
+  .page-head h1 { font-family: var(--fig-font-prose); font-weight: 600; font-size: 26px;
+    letter-spacing: -.01em; color: var(--graphite); margin: 6px 0 0; }
+  #loadfail { display: none; max-width: 1000px; margin: 0 auto; padding: 12px 14px;
+    background: var(--redline-t); border-left: 3px solid var(--redline);
+    font-family: var(--fig-font-chrome); font-size: 13px; color: var(--graphite); }
+  #loadfail pre { white-space: pre-wrap; }
+
+  /* ===== EMBED MODE (?embed=1): the article iframes this plate in =====
+     Strip every standalone-demo / section chrome and the page ground; leave
+     ONLY the figure plate (its key, caption and citation shelf) on a transparent
+     ground so it seats cleanly into the reading column. */
+  body.embed { background-color: transparent !important; background-image: none !important;
+    margin: 0 !important; padding: 0 !important; }
+  body.embed .demo-bar, body.embed .demo-standfirst, body.embed .hero-dek,
+  body.embed .hero-controls, body.embed .page-head,
+  body.embed .p2-motion-toggle, body.embed #motiontoggle, body.embed #status { display: none !important; }
+  body.embed .hero-wrap, body.embed main { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  body.embed .fig-plate { margin: 0 auto !important; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<div class="page-head">
+  <div class="arch">P2 · Who Owns the Number · ACT III · s7 · the buyer's meter</div>
+  <h1>The buyer's own performance meter took the medium — and landed inside the seller's log.</h1>
+</div>
+
+<div id="loadfail">
+  <b>This figure could not draw.</b>
+  <p>Open it through the verification command (headless Chrome with
+     <code>--allow-file-access-from-files</code>), or serve the repo root over http.</p>
+  <pre id="loadfailmsg"></pre>
+</div>
+
+<!-- ============================ THE PLATE ============================ -->
+<figure class="fig-plate" id="fig07">
+  <div class="fig-kicker">
+    <span>FIGURE&nbsp;07 <span class="fig-title">The buyer's meter wins the medium</span></span>
+    <button class="fig-keybtn" type="button" aria-expanded="true" aria-controls="fig07-legend">key</button>
+  </div>
+
+  <!-- reusable "How to read this" key (this is the only figure on this page → expanded) -->
+  <div id="fig07-legend">
+    <div class="fig-legend" role="note" aria-label="How to read this figure">
+      <h4>How to read this</h4>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-still"></span></span>
+        <span><b>still mark = grade A</b> — an audited / settled reading. (This whole figure is grade A, so nothing shimmers.)</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-cyan"></span></span>
+        <span><b>cyan = an independent number</b> — the buyer's own keyed performance meter, held by the party doing the buying.</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-amber"></span></span>
+        <span><b>amber = a seller-owned number</b> — that same meter now read off the platform's own log.</span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-swatch"><span class="leg-dead"></span></span>
+        <span><b>struck red = a corrected / DEAD claim</b> — a popular legend this piece knocks down.</span>
+      </div>
+      <p class="leg-reduced">
+        The pay-per-action part is drawn cyan→amber: the one part whose owner reverts. Reduced motion:
+        every shimmer becomes a static hatched band.
+      </p>
+    </div>
+  </div>
+
+  <div class="fig-body" id="fig07-body"><!-- svg mounts here --></div>
+
+  <!-- axis basis, on-axis, carrying the ownership gloss (SVG text cannot hold the v2 amber) -->
+  <div class="fig-axis-basis">
+    y-axis — <b>% of US internet ad revenue by pricing basis</b> · 100% = all US internet ad revenue, 2008.
+    <br>The pay-per-action part reverts
+    <span class="rail-cyan">cyan — the buyer's keyed, independent meter</span> →
+    <span class="rail-amber">amber — now read off the seller's own log</span>.
+    CPM and “other” are the <span class="rail-zinc">neutral remainder</span> of the whole.
+  </div>
+
+  <hr class="fig-rule">
+  <figcaption class="fig-caption">
+    In 2008, 57% of US internet ad revenue was bought on the buyer's own performance meter
+    (pay-per-action), up from 51% a year earlier; only 39% was sold the seller's way, on impressions
+    (CPM). The buyer's independent meter had won the medium — and now sat inside the seller's own log.
+  </figcaption>
+
+  <!-- DEAD legend (FIGURE-PLAN §B.7): redline, redundantly coded, never on an ownership mark -->
+  <div class="dead-legend">
+    <span class="dead-tag">DEAD</span>
+    <span class="dead-claim">Platforms invented performance advertising.</span>
+    <span class="dead-fix">The keyed-reply, pay-for-response meter is over 150 years old — mail-order and
+      direct response priced on action long before a platform existed. Online, the buyer's old meter
+      simply moved inside the seller's log.</span>
+  </div>
+
+  <!-- citation shelf: same grammar as the prose sidenotes -->
+  <div class="fig-shelf">
+    <span class="src-chip" data-grade="A" data-own="amber">
+      <span class="grade-glyph"></span><span class="grade-letter">A</span>
+      <span class="own-dot" style="background:linear-gradient(180deg,var(--cyan),var(--amber))"
+            title="cyan → amber: the buyer's independent meter, now read off the seller's log"></span>
+      <a class="claim-id" href="#e6-buyers-008">e6-buyers-008</a>
+    </span>
+  </div>
+</figure>
+
+<script type="module">
+/* --- always --- */
+import * as guards from '../lib/guards.js';
+import { initMotion } from '../lib/motion.js';
+import { verifyTokenParity } from '../lib/tokens.js';
+
+/* --- svg-kit primitives (custom part-to-whole column, in renderCrossSection's grammar) --- */
+import {
+  svgRoot, defs, layer, linear, rule, text, frame, el,
+  GRAPHITE, ZINC_TEXT, ZINC_RULE, IRON, INK,
+} from '../charts/svg-kit.js';
+
+/* --- the claim mint: grade → jitter, verdict-visible, G1 interval guard --- */
+import { planClaimMark, markTitle } from '../charts/claim-marks.js';
+
+/* --- inlined data (NOT fetched) --- */
+import { claim, parts2008, ppa2007 } from './data/fig-07.data.js';
+
+/* EMBED MODE — the article drops this plate in via <iframe src="…?embed=1">:
+   hide all demo/section chrome, show only the plate on a transparent ground. */
+if (new URLSearchParams(location.search).get('embed') === '1') document.body.classList.add('embed');
+
+const fail = (err) => {
+  const box = document.getElementById('loadfail');
+  box.style.display = 'block';
+  document.getElementById('loadfailmsg').textContent = (err && err.stack) ? err.stack : String(err);
+  throw err;
+};
+
+try {
+  initMotion();          // stamps <html data-motion> so the reduced-motion fallbacks fire
+  verifyTokenParity();   // dev guard: throws if tokens.css and tokens.js disagree
+
+  /* WHY THIS FIGURE IS A CUSTOM COMPOSITION, NOT A renderCrossSection CALL.
+   * renderCrossSection (small-multiples.js) draws ONLY the coen_mce by-MEDIUM
+   * partition: its cross-sections come from a planBank sealed by a module-private
+   * planner, it colours every segment by GRADE (brass), and it has no mechanism to
+   * recolour one part cyan→amber. Fig 7's data is a PRICING-BASIS split
+   * (PPA/CPM/other) that lives inside claim e6-buyers-008 — it is not an adspend
+   * partition at all — and its defining move is the cyan→amber reversion on the
+   * PPA part (the s7 spine, DESIGN §4.3–4.4). So this is a custom part-to-whole
+   * column built from svg-kit + claim-marks, in renderCrossSection's own grammar
+   * (fixed-order stacked segments, leaders, grade→jitter) — the same
+   * "reuse-turned-composition" path the plan took for figs 2/5/6. */
+
+  const fmtPct = (v) => `${v}%`;
+
+  /* ---- 1 · MINT THE PPA PART. Runs G1 on the claim's own numbers, resolves the
+   *          grade (A → still), refuses an invisible verdict. central = 57. ---- */
+  const ppaMark = planClaimMark(claim, { year: 2008, label: 'Pay-per-action', format: fmtPct });
+  const grade = (ppaMark.grade || 'C').toUpperCase();           // 'A'
+  const ppaValue = ppaMark.central;                             // 57, the guard-minted length
+
+  /* Draw the stated CPM/other values as-is (they are not claims — same honesty
+   * rule mini-series.js encodes). Order bottom→top: PPA (protagonist) at the
+   * base, so its top edge meets the seller's CPM log. */
+  const stack = parts2008.map((p) => ({
+    ...p,
+    value: p.minted ? ppaValue : p.value,
+  }));
+  const sum = stack.reduce((a, p) => a + p.value, 0);
+  if (Math.abs(sum - 100) > 0.05) throw new Error(`fig 7: the parts sum to ${sum}%, not 100%.`);
+
+  /* ---- 2 · GEOMETRY (multiples of the 22px grid, renderCrossSection scale) --- */
+  const VB = { w: 900, h: 430 };
+  const colX = 96, colW = 128, top = 66, bottom = 356;
+  const y = linear([0, 100], [bottom, top]);
+
+  const body = document.getElementById('fig07-body');
+  const alt =
+    `US internet advertising in 2008 as one column split by pricing basis: pay-per-action ` +
+    `${ppaValue}% (up from ${ppa2007}% in 2007), CPM/impression 39%, other 4%. The pay-per-action ` +
+    `part is drawn cyan-to-amber — the buyer's own independent performance meter, now read off the ` +
+    `seller's own log.`;
+  const svg = svgRoot(body, { width: VB.w, height: VB.h, alt, className: 'p2v2-buyer-meter' });
+
+  /* PPA reversion gradient: cyan at the base (the buyer's independent meter) →
+   * amber at the top (now inside the seller's log). Mark fills run no colour
+   * guard, so the v2 hues are legal here. */
+  const CYAN = '#3AA6BD';   // identical in both palette systems (DESIGN §2.2)
+  const AMBER = '#E0972A';
+  const gid = 'ppa-reversion';
+  const grad = el('linearGradient', {
+    id: gid, gradientUnits: 'userSpaceOnUse',
+    x1: colX, y1: bottom, x2: colX, y2: y(ppaValue),
+  }, defs(svg));
+  el('stop', { offset: '0%',  'stop-color': CYAN }, grad);   // base — independent
+  el('stop', { offset: '55%', 'stop-color': CYAN }, grad);
+  el('stop', { offset: '100%', 'stop-color': AMBER }, grad); // top — seller-owned
+
+  /* ---- 3 · Y-AXIS + BASIS-ON-AXIS ------------------------------------------ */
+  const axes = layer(svg);
+  for (const v of [0, 25, 50, 75, 100]) {
+    const yy = y(v);
+    rule(axes, { x1: colX - 6, y1: yy, x2: colX, y2: yy, color: ZINC_RULE });
+    rule(axes, { x1: colX, y1: yy, x2: colX + colW, y2: yy, dashed: true, color: ZINC_RULE });
+    text(axes, { x: colX - 10, y: yy + 3.5, value: `${v}%`, role: 'chrome', fill: ZINC_TEXT, anchor: 'end', size: '11px' });
+  }
+  // the BASIS, named on the axis (non-negotiable, PAGE-DESIGN §6.4)
+  text(axes, {
+    x: 26, y: (top + bottom) / 2, value: '% of US internet ad revenue by pricing basis',
+    role: 'chrome', fill: ZINC_TEXT, anchor: 'middle', size: '11px',
+    attrs: { transform: `rotate(-90 26 ${(top + bottom) / 2})` },
+  });
+
+  /* ---- 4 · THE COLUMN (data marks, wrapped in the grade-A jitter group) ----- */
+  const marksG = layer(svg, { class: `fig-jit jit-${['A', 'B', 'C'].includes(grade) ? grade : 'C'}` });
+  marksG.dataset.grade = grade;
+
+  frame(svg, { x: colX, y: top, width: colW, height: bottom - top, fill: 'none' });
+
+  const fillFor = (p) => {
+    if (p.own === 'reversion') return `url(#${gid})`;
+    return p.id === 'cpm' ? 'rgba(131,138,147,0.26)' : 'rgba(131,138,147,0.12)';
+  };
+  const labelRows = { other: 96, cpm: 176, ppa: 300 };   // spread leader anchors, no crowding
+
+  let acc = 0;
+  for (const p of stack) {
+    const y0 = y(acc + p.value);   // top of this segment
+    const y1 = y(acc);             // bottom of this segment
+    const seg = el('rect', {
+      x: colX, y: y0, width: colW, height: Math.max(0.8, y1 - y0),
+      fill: fillFor(p), stroke: IRON, 'stroke-width': 1.25,
+    }, marksG);
+    el('title', {}, seg).textContent = p.minted
+      ? markTitle(ppaMark, { label: p.label, format: fmtPct })
+      : `${p.label} 2008: ${p.value}% of US internet ad revenue (IAB/PwC, stated value) · source grade A`;
+
+    // leader: segment mid → its label row (dashed), renderCrossSection grammar
+    const midY = (y0 + y1) / 2;
+    const rowY = labelRows[p.id];
+    const elbowX = colX + colW + 18, labelX = colX + colW + 40;
+    rule(svg, { x1: colX + colW, y1: midY, x2: elbowX, y2: rowY, dashed: true, color: ZINC_RULE });
+    rule(svg, { x1: elbowX, y1: rowY, x2: labelX - 6, y2: rowY, dashed: true, color: ZINC_RULE });
+    text(svg, { x: labelX, y: rowY + 3.5, value: p.label, role: 'chrome', fill: INK.secondary, size: '12.5px' });
+    text(svg, { x: labelX + 292, y: rowY + 3.5, value: fmtPct(p.value), role: 'numeral', fill: GRAPHITE, anchor: 'end', size: '15px' });
+    text(svg, { x: labelX + 332, y: rowY + 3.5, value: p.grade, role: 'chrome', fill: ZINC_TEXT, anchor: 'end', size: '11px' });
+    // a one-line gloss under the PPA row naming the ownership move
+    if (p.id === 'ppa') {
+      text(svg, { x: labelX, y: rowY + 20, value: "the buyer's keyed meter — cyan, now read off the seller's log — amber",
+        role: 'chrome', fill: ZINC_TEXT, size: '11px' });
+    }
+    acc += p.value;
+  }
+
+  /* ---- 5 · THE 51 → 57 ANNOTATION (the year-over-year change) --------------- */
+  const y51 = y(ppa2007), y57 = y(ppaValue);
+  // 2007 level, dashed across the PPA part
+  rule(marksG, { x1: colX, y1: y51, x2: colX + colW, y2: y51, dashed: true, color: IRON, width: 1.2 });
+  text(svg, { x: colX + 5, y: y51 - 5, value: `2007: ${ppa2007}%`, role: 'chrome', fill: GRAPHITE, anchor: 'start', size: '11px' });
+  // caliper 51 → 57 at the column's right-inner edge
+  const cx = colX + colW - 10;
+  rule(marksG, { x1: cx, y1: y51, x2: cx, y2: y57, color: GRAPHITE, width: 1.4 });
+  el('polyline', { points: `${cx - 4},${y57 + 5} ${cx},${y57} ${cx + 4},${y57 + 5}`,
+    fill: 'none', stroke: GRAPHITE, 'stroke-width': 1.4 }, marksG);
+  rule(marksG, { x1: cx - 4, y1: y51, x2: cx + 4, y2: y51, color: GRAPHITE, width: 1.4 });
+  text(svg, { x: colX + colW + 6, y: (y51 + y57) / 2 - 2, value: `+6 pts`, role: 'numeral', fill: GRAPHITE, anchor: 'start', size: '13px' });
+  text(svg, { x: colX + colW + 6, y: (y51 + y57) / 2 + 12, value: `to 57% in 2008`, role: 'chrome', fill: ZINC_TEXT, anchor: 'start', size: '11px' });
+
+  /* ---- 6 · HEADINGS ---------------------------------------------------------- */
+  text(svg, { x: colX, y: top - 30, value: '2008', role: 'numeral', fill: INK.primary, size: '30px' });
+  text(svg, { x: colX + 74, y: top - 30, value: 'US internet ad revenue', role: 'chrome', fill: ZINC_TEXT, size: '12px' });
+  text(svg, { x: colX + 74, y: top - 15, value: 'one column · one year · by pricing basis', role: 'chrome', fill: ZINC_TEXT, size: '11px' });
+
+  /* ---- key toggle ---- */
+  const keyBtn = document.querySelector('#fig07 .fig-keybtn');
+  const legend = document.getElementById('fig07-legend');
+  keyBtn.addEventListener('click', () => {
+    const open = keyBtn.getAttribute('aria-expanded') === 'true';
+    keyBtn.setAttribute('aria-expanded', String(!open));
+    legend.hidden = open;
+  });
+} catch (err) {
+  fail(err);
+}
+</script>
+</body>
+</html>

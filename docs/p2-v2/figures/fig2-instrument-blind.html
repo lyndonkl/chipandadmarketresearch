@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIGURE 02 · The instrument goes blind — P2 v2</title>
+<!-- order matters: toolkit tokens → reused-renderer furniture → v2 figure layer -->
+<link rel="stylesheet" href="../lib/tokens.css">
+<link rel="stylesheet" href="../charts/chart-demo.css">
+<link rel="stylesheet" href="./figures.css">
+<style>
+  /* page ground only — the plate itself is styled by figures.css */
+  body.p2 { margin: 0; padding: calc(var(--u) * 1.5) 18px calc(var(--u) * 3); }
+  #fail { display: none; max-width: 1000px; margin: 0 auto var(--u);
+          border: 2px solid var(--redline); background: var(--redline-t);
+          padding: 14px 16px; font-family: var(--fig-font-chrome); font-size: 13px; }
+  #fail code { background: rgba(21,24,29,.06); padding: 1px 5px; }
+  /* keep the SVG rail identifiers and readouts crisp on the paper card */
+  #fig02 .fig-body { padding: 14px 12px 8px; }
+
+  /* ===== EMBED MODE (?embed=1): the article iframes this plate in =====
+     Strip every standalone-demo / section chrome and the page ground; leave
+     ONLY the figure plate (its key, caption and citation shelf) on a transparent
+     ground so it seats cleanly into the reading column. */
+  body.embed { background-color: transparent !important; background-image: none !important;
+    margin: 0 !important; padding: 0 !important; }
+  body.embed .demo-bar, body.embed .demo-standfirst, body.embed .hero-dek,
+  body.embed .hero-controls, body.embed .page-head,
+  body.embed .p2-motion-toggle, body.embed #motiontoggle, body.embed #status { display: none !important; }
+  body.embed .hero-wrap, body.embed main { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  body.embed .fig-plate { margin: 0 auto !important; }
+</style>
+</head>
+<body class="p2 p2-paper-ground">
+
+<div id="fail">
+  <b>The modules did not load.</b> This figure imports ES modules and inlines its data (no fetch).
+  Open it through a static server — <code>python3 -m http.server 8000</code> from the repo root, then
+  <code>http://localhost:8000/docs/p2-v2/figures/fig2-instrument-blind.html</code> — or render it in
+  headless Chrome with <code>--allow-file-access-from-files</code>.
+</div>
+
+<figure class="fig-plate" id="fig02">
+  <div class="fig-kicker">
+    <span>FIGURE&nbsp;02 <span class="fig-title">The instrument goes blind</span></span>
+    <button class="fig-keybtn" type="button" aria-expanded="true" aria-controls="fig02-legend">key</button>
+  </div>
+
+  <!-- FIRST FIGURE ON THE PAGE: the reusable "How to read this" key, expanded (from _legend.html). -->
+  <div class="fig-legend" id="fig02-legend" role="note" aria-label="How to read this figure">
+    <h4>How to read this</h4>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-still"></span></span>
+      <span><b>still mark = grade A</b> — an audited / settled reading. Both rails here are grade&nbsp;A, so they sit dead still.</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-shimmer"></span></span>
+      <span><b>shimmering mark = grade C</b> — uncertain; the amplitude is the uncertainty. (Grade&nbsp;B sits between: a faint life.)</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-cyan"></span></span>
+      <span><b>cyan = an independent number</b> — here the historian's own compiled billings (Coen/McCann), a third-party ruler.</span>
+    </div>
+    <div class="leg-row">
+      <span class="leg-swatch"><span class="leg-amber"></span></span>
+      <span><b>amber = a seller-owned number</b> — here the internet revenue the sellers report to PwC (IAB), counting their own logs.</span>
+    </div>
+    <p class="leg-reduced">
+      Reduced motion: every shimmer becomes a static hatched band — denser for a softer grade — so the
+      uncertainty is still seen, just not moving.
+    </p>
+  </div>
+
+  <div class="fig-body" id="fig02-body"><!-- svg mounts here --></div>
+
+  <!-- the axis names its basis on-axis; two bases, each carrying its ownership hue (HTML, not SVG text) -->
+  <div class="fig-axis-basis">
+    <span class="rail-cyan">cyan rail — historian's compiled billings, US$m (Coen/McCann, going dark)</span> ·
+    <span class="rail-amber">amber rail — internet revenue reported by sellers, US$m (IAB/PwC, born and rising)</span> ·
+    <span class="rail-zinc">y-axis is US$m on a log scale · x-axis is year</span>
+  </div>
+
+  <hr class="fig-rule">
+  <figcaption class="fig-caption">
+    In 2007 the independent compiler counted internet advertising at barely half the sellers' own
+    total — <b>$10,529m against $21,206m</b> — then the historian's ruler stopped, while the
+    seller-reported number climbed on to <b>$294,593m by 2025</b>.
+  </figcaption>
+
+  <div class="fig-shelf">
+    <span class="src-chip" data-grade="A" data-own="cyan">
+      <span class="grade-glyph"></span><span class="grade-letter">A</span>
+      <span class="own-dot"></span>
+      <a class="claim-id" href="#e6-medium-006">e6-medium-006</a>
+    </span>
+    <span class="src-chip" data-grade="A" data-own="amber">
+      <span class="grade-glyph"></span><span class="grade-letter">A</span>
+      <span class="own-dot"></span>
+      <a class="claim-id" href="#e7-medium-001">e7-medium-001</a>
+    </span>
+  </div>
+</figure>
+
+<script type="module">
+/* --- always --- */
+import * as guards from '../lib/guards.js';
+import { initMotion } from '../lib/motion.js';
+import { verifyTokenParity } from '../lib/tokens.js';
+
+/* --- svg-kit primitives: the dual-rail caliper is built from these --- */
+import {
+  svgRoot, layer, linear, log10Scale, decadeTicks,
+  polyline, pointMark, caliper, absenceBlock, rule, text,
+  GRAPHITE, ZINC_RULE, ZINC_TEXT, IRON,
+} from '../charts/svg-kit.js';
+
+/* --- the claim mint (grade → jitter; the wedge's central is the caliper figure) --- */
+import { planClaimMark, markFigure, markReading } from '../charts/claim-marks.js';
+
+/* --- inlined data (generated from the frozen record); NOT a fetch --- */
+import { adspend, claims } from './data/fig-02.data.js';
+
+/* EMBED MODE — the article drops this plate in via <iframe src="…?embed=1">:
+   hide all demo/section chrome, show only the plate on a transparent ground. */
+if (new URLSearchParams(location.search).get('embed') === '1') document.body.classList.add('embed');
+
+initMotion();                                    // stamps <html data-motion> for the reduced-motion path
+try { verifyTokenParity(); } catch (e) { /* dev-only parity net; never blocks the draw */ }
+guards.useFrozen({ adspend, claims });           // inject the inlined record
+
+/* OWNERSHIP HUES — passed straight to the MARK primitives (no colour guard there).
+   Never to text(): svg-kit's assertTextColor rejects #E0972A, so ownership-coloured
+   labels live in the HTML axis-basis / shelf, not in the SVG.  (CONVENTIONS §7) */
+const CYAN  = '#3AA6BD';   // independent / third-party compiler
+const AMBER = '#E0972A';   // seller-owned / reported-to-PwC
+
+const coen = adspend.series.coen_mce.points;   // internet, 1997–2007, ends 10529
+const iab  = adspend.series.iab_pwc.points;    // internet, 1996–2025, 2007=21206 … 2025=294593
+
+/* ---- NEVER-SPLICE DISCIPLINE (guards) --------------------------------------
+   Each rail is a single source, so assertNoSplice passes. Concatenating the two
+   is what the guard refuses — which is *why* this is two rails on one axis and
+   not one path. Each rail is then segmented with buildPath under a per-rail
+   declared-no-gaps exemption: the record's whole-market holes ([2008,2020],
+   [2011,2025]) are documented for the TOTAL/by-medium series, not for these
+   genuinely-continuous internet worksheets, so they must not sever the amber
+   rail. Coen's termination after 2007 is drawn instead as a labelled absence. */
+guards.assertNoSplice(coen, 'fig 2 · Coen internet rail');
+guards.assertNoSplice(iab,  'fig 2 · IAB internet rail');
+const coenGaps = guards.declareNoDocumentedGaps(
+  'Coen internet worksheet runs annually 1997-2007 with no internal hole; its end after 2007 is drawn as a labelled absence block');
+const iabGaps = guards.declareNoDocumentedGaps(
+  'iab_pwc publishes internet revenue every year 1996-2025 with no internal hole');
+const coenSegments = guards.buildPath(coen, { gaps: coenGaps, adspend }).segments;
+const iabSegments  = guards.buildPath(iab,  { gaps: iabGaps,  adspend }).segments;
+
+/* ---- MINT THE TWO GOVERNING CLAIMS (both grade A → still) ------------------
+   e6-medium-006 carries the *measured wedge* (central 10,677) — that is the
+   caliper figure, not a rail value. e7-medium-001 carries the 2025 endpoint. */
+const usdM = (v) => `$${Math.round(v).toLocaleString('en-US')}m`;
+const wedgeRec  = claims.claims.find((c) => c.id === 'e6-medium-006');
+const growthRec = claims.claims.find((c) => c.id === 'e7-medium-001');
+const wedge  = planClaimMark(wedgeRec,  { year: 2007, label: 'Coen–IAB 2007 undercount', format: usdM });
+const growth = planClaimMark(growthRec, { year: 2025, label: 'IAB internet 2025',        format: usdM });
+const railGrade = (wedge.grade || 'A').toUpperCase();   // A → the rails sit still
+
+/* ---- GEOMETRY -------------------------------------------------------------- */
+const body = document.getElementById('fig02-body');
+const W = 980, H = 486;
+const pad = { top: 48, right: 176, bottom: 60, left: 78 };
+const x0 = pad.left, x1 = W - pad.right, yBot = H - pad.bottom, yTop = pad.top;
+
+const xs = linear([1996, 2025], [x0, x1]);
+const ys = log10Scale([200, 400000], [yBot, yTop]);   // LOG y (svg-kit.log10Scale)
+
+const svg = svgRoot(body, {
+  width: W, height: H,
+  alt: 'Two internet-advertising rulers on a logarithmic dollar axis: the independent Coen '
+     + 'compiler (cyan) reads $10,529m in 2007 and then ends, while the sellers own IAB total '
+     + '(amber) reads $21,206m in 2007 — about twice Coen — and climbs to $294,593m by 2025. '
+     + 'A caliper at 2007 marks the $10,677m gap.',
+});
+
+/* ---- SCAFFOLDING (neutral zinc; every axis names its basis) ---------------- */
+const axes = layer(svg);
+for (const v of decadeTicks([200, 400000])) {
+  const y = ys(v);
+  rule(axes, { x1: x0, y1: y, x2: x1, y2: y, color: ZINC_RULE, dashed: true });
+  text(axes, { x: x0 - 8, y: y + 3.5, value: usdM(v), role: 'chrome', fill: ZINC_TEXT, anchor: 'end' });
+}
+text(axes, { x: x0 - 8, y: yTop - 18, value: 'US$m · log', role: 'label', fill: ZINC_TEXT, anchor: 'end' });
+rule(axes, { x1: x0, y1: yBot, x2: x1, y2: yBot, color: ZINC_RULE });
+rule(axes, { x1: x0, y1: yTop, x2: x0, y2: yBot, color: ZINC_RULE });
+for (const yr of [1997, 2000, 2005, 2007, 2010, 2015, 2020, 2025]) {
+  const x = xs(yr);
+  rule(axes, { x1: x, y1: yBot, x2: x, y2: yBot + 4, color: ZINC_RULE });
+  text(axes, { x, y: yBot + 18, value: String(yr), role: 'chrome', fill: ZINC_TEXT, anchor: 'middle' });
+}
+/* the 2007 overlap — the moment both rulers read the same unit */
+rule(axes, { x1: xs(2007), y1: yTop, x2: xs(2007), y2: yBot, color: ZINC_RULE, dashed: true });
+
+/* ---- DOCUMENTED ABSENCE: the cyan ruler goes blind after 2007 -------------- */
+const coenEndVal = coen[coen.length - 1].value;   // 10529 @ 2007
+absenceBlock(layer(svg), svg, {
+  x: xs(2008), y: ys(coenEndVal), width: xs(2025) - xs(2008), height: ys(1600) - ys(coenEndVal),
+  years: [2008, 2025], label: 'Coen internet: no reading after 2007',
+});
+
+/* ---- THE RAILS (ownership hue on the marks; grade A → the jitter group is still) */
+const railsG = layer(svg, { class: `fig-jit jit-${railGrade}` });
+railsG.dataset.grade = railGrade;
+
+for (const seg of coenSegments) {
+  polyline(railsG, seg.points.map((p) => [xs(p.year), ys(p.value)]),
+    { color: CYAN, width: 2.4, title: `Coen/McCann internet billings, ${seg.points[0].year}–${seg.points[seg.points.length - 1].year}` });
+}
+for (const p of coen) {
+  pointMark(railsG, { x: xs(p.year), y: ys(p.value), color: CYAN, r: 2.6, title: `Coen ${p.year}: ${usdM(p.value)}` });
+}
+for (const seg of iabSegments) {
+  polyline(railsG, seg.points.map((p) => [xs(p.year), ys(p.value)]),
+    { color: AMBER, width: 2.4, title: `IAB/PwC internet revenue, ${seg.points[0].year}–${seg.points[seg.points.length - 1].year}` });
+}
+for (const p of iab) {
+  pointMark(railsG, { x: xs(p.year), y: ys(p.value), color: AMBER, r: 2.4, title: `IAB ${p.year}: ${usdM(p.value)}` });
+}
+
+/* Coen's HARD VERTICAL STOP at 2007 — the ruler terminates */
+const cStopX = xs(2007), cStopY = ys(coenEndVal);
+rule(railsG, { x1: cStopX, y1: cStopY - 9, x2: cStopX, y2: cStopY + 13, color: CYAN, width: 2.6 });
+pointMark(railsG, { x: cStopX, y: cStopY, color: CYAN, r: 3.6, title: `Coen internet ends 2007: ${usdM(coenEndVal)}` });
+
+/* ---- THE MEASURED CALIPER at 2007 (neutral iron; the wedge is an object) ----
+   Its figure is the minted claim's central (10,677), printed in ABSOLUTE dollars;
+   on a log axis the drawn length is the ~2× ratio, which the label states too. */
+const ratio2007 = iab.find((p) => p.year === 2007).value / coen.find((p) => p.year === 2007).value;
+const calG = layer(svg);
+caliper(calG, {
+  x: xs(2007), yA: ys(21206), yB: ys(coenEndVal),
+  label: `${markFigure(wedge, usdM)} gap · ${ratio2007.toFixed(1)}×`, side: 1, arm: 13,
+});
+
+/* ---- VALUE READOUTS + rail identifiers (text-safe tokens only) ------------- */
+const annot = layer(svg);
+text(annot, { x: xs(2007) - 10, y: ys(coenEndVal) + 17, value: usdM(coenEndVal), role: 'numeral', fill: GRAPHITE, anchor: 'end', size: 12 });
+text(annot, { x: xs(2007),      y: ys(21206) - 11,      value: usdM(21206),      role: 'numeral', fill: GRAPHITE, anchor: 'middle', size: 12 });
+text(annot, { x: xs(2025) + 8,  y: ys(294593) + 4,      value: usdM(294593),     role: 'numeral', fill: GRAPHITE, anchor: 'start', size: 12 });
+/* the only down year in the era */
+text(annot, { x: xs(2009), y: ys(22661) - 26, value: '2009  −3%', role: 'chrome', fill: ZINC_TEXT, anchor: 'middle', size: 10 });
+/* rail identifiers — neutral zinc; the ownership hue rides the lines, not the label */
+text(annot, { x: xs(2003), y: ys(4883) + 24,  value: 'COEN / McCANN', role: 'label', fill: ZINC_TEXT, anchor: 'middle', size: 10 });
+text(annot, { x: xs(2015), y: ys(59551) - 18,  value: 'IAB / PwC',     role: 'label', fill: ZINC_TEXT, anchor: 'middle', size: 10 });
+
+/* ---- the [ key ] toggle ---------------------------------------------------- */
+const keyBtn = document.querySelector('#fig02 .fig-keybtn');
+const legend = document.getElementById('fig02-legend');
+keyBtn.addEventListener('click', () => {
+  const open = keyBtn.getAttribute('aria-expanded') === 'true';
+  keyBtn.setAttribute('aria-expanded', String(!open));
+  legend.hidden = open;
+});
+
+/* record what the rails read, for anyone reading the DOM / console */
+svg.dataset.reading = `${markReading(wedge, usdM)} · IAB 2025 ${markFigure(growth, usdM)}`;
+</script>
+<script>
+  /* if the module never ran, show the loader note */
+  window.addEventListener('load', () => {
+    if (!document.querySelector('#fig02-body svg')) document.getElementById('fail').style.display = 'block';
+  });
+</script>
+</body>
+</html>
