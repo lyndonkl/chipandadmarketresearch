@@ -1,0 +1,38 @@
+{
+ "group_id": "L1|7912fb45881d3945",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Internet advertising medium",
+   "type": "advertising medium",
+   "grain": "Dimension",
+   "reason": "grouping of internet ad media types",
+   "child_uids": [
+    "dim:medium:internet_digital_audio",
+    "dim:medium:internet_digital_video",
+    "dim:medium:internet_display",
+    "dim:medium:internet_other_incl_classified_and_lead_gen",
+    "dim:medium:internet_search"
+   ]
+  },
+  {
+   "name": "Entire internet ad market",
+   "type": "market total",
+   "grain": "Entity",
+   "reason": "singleton: whole internet ad market entity",
+   "child_uids": [
+    "n|tu:era:5:field:SCALE|entire internet ad market|market total"
+   ]
+  },
+  {
+   "name": "Keyword search",
+   "type": "advertising product",
+   "grain": "Entity",
+   "reason": "singleton: specific internet ad product",
+   "child_uids": [
+    "n|tu:era:5:field:TARGETING|keyword search|advertising product"
+   ]
+  }
+ ]
+}

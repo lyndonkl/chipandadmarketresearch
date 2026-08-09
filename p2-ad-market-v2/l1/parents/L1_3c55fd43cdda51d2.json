@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|3c55fd43cdda51d2",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Charter member agencies count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct count of charter member agencies",
+   "child_uids": [
+    "n|e1-creators-005|charter member agencies count|count measurement"
+   ]
+  },
+  {
+   "name": "ANA member monthly subscription rate",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique price measure for ANA members",
+   "child_uids": [
+    "n|e2-measurement-001|ana member monthly subscription rate|price measurement"
+   ]
+  },
+  {
+   "name": "Charter member count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct count of charter members overall",
+   "child_uids": [
+    "n|tu:era:1:event:9|charter member count|count measurement"
+   ]
+  }
+ ]
+}

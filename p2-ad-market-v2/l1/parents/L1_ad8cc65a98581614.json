@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|ad8cc65a98581614",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "US advertising revenue (Coen basis)",
+   "type": "amount measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measure of total US ad revenue using Coen data",
+   "child_uids": [
+    "n|ds-bridge-001|us advertising revenue (coen basis)|amount measurement"
+   ]
+  },
+  {
+   "name": "children's advertising revenue measurement",
+   "type": "monetary revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific measure of children-targeted advertising revenue",
+   "child_uids": [
+    "n|e4-measurement-002|children's advertising revenue measurement|monetary revenue measurement"
+   ]
+  },
+  {
+   "name": "Nielsen undercount cost measurement",
+   "type": "revenue loss measurement",
+   "grain": "Measurement",
+   "reason": "singleton: measure of revenue loss due to Nielsen undercount",
+   "child_uids": [
+    "n|e7-measurement-002|nielsen undercount cost measurement|revenue loss measurement"
+   ]
+  },
+  {
+   "name": "lost national ad revenue value",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic measure of lost national advertising revenue value",
+   "child_uids": [
+    "n|tu:era:7:field:MEASUREMENT|lost national ad revenue value|revenue measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,78 @@
+{
+ "id": "e1-creators-004",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1917,
+ "unit": "percent of total US advertising outlay",
+ "elapsed_s": 44.1,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "Ayer",
+   "type": "advertising agency",
+   "clause": "one of the largest US agencies"
+  },
+  {
+   "name": "US advertising agencies",
+   "type": "agency group",
+   "clause": "largest US agencies context"
+  },
+  {
+   "name": "total US advertising outlay",
+   "type": "advertising spend aggregate",
+   "clause": "total US advertising outlay"
+  },
+  {
+   "name": "share of total US advertising outlay handled by Ayer",
+   "type": "share measurement",
+   "clause": "roughly ... percent of total US advertising outlay handled by Ayer"
+  },
+  {
+   "name": "agency layer",
+   "type": "market segment",
+   "clause": "the agency layer"
+  },
+  {
+   "name": "era end",
+   "type": "time point",
+   "clause": "at the end of the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Ayer",
+   "type": "WAS_ONE_OF_LARGEST_IN",
+   "to": "US advertising agencies",
+   "clause": "one of the largest US agencies"
+  },
+  {
+   "from": "Ayer",
+   "type": "HAS_SHARE",
+   "to": "share of total US advertising outlay handled by Ayer",
+   "clause": "handled roughly ... percent of total US advertising outlay in ..."
+  },
+  {
+   "from": "share of total US advertising outlay handled by Ayer",
+   "type": "SHARE_OF",
+   "to": "total US advertising outlay",
+   "clause": "... of total US advertising outlay"
+  },
+  {
+   "from": "agency layer",
+   "type": "HIGHLY_FRAGMENTED_AT",
+   "to": "era end",
+   "clause": "highly fragmented at the end of the era"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "WAS_ONE_OF_LARGEST_IN",
+   "line": "EDGE|Ayer|WAS_ONE_OF_LARGEST_IN|US advertising agencies|one of the largest US agencies"
+  }
+ ],
+ "raw": "NODE|Ayer|advertising agency|one of the largest US agencies\nNODE|US advertising agencies|agency group|largest US agencies context\nNODE|total US advertising outlay|advertising spend aggregate|total US advertising outlay\nNODE|share of total US advertising outlay handled by Ayer|share measurement|roughly ... percent of total US advertising outlay handled by Ayer\nNODE|agency layer|market segment|the agency layer\nNODE|era end|time point|at the end of the era\nEDGE|Ayer|WAS_ONE_OF_LARGEST_IN|US advertising agencies|one of the largest US agencies\nEDGE|Ayer|HAS_SHARE|share of total US advertising outlay handled by Ayer|handled roughly ... percent of total US advertising outlay in ...\nEDGE|share of total US advertising outlay handled by Ayer|SHARE_OF|total US advertising outlay|... of total US advertising outlay\nEDGE|agency layer|HIGHLY_FRAGMENTED_AT|era end|highly fragmented at the end of the era"
+}

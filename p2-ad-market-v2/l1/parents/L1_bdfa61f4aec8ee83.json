@@ -1,0 +1,26 @@
+{
+ "group_id": "L1|bdfa61f4aec8ee83",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Local Yellow Pages block advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "one measure across naming variants; year abstracted",
+   "child_uids": [
+    "n|e5-buyers-014|local yellow pages block amount|spend measurement",
+    "n|e5-buyers-015|local yellow pages block spend|spend measurement"
+   ]
+  },
+  {
+   "name": "Local Yellow Pages advertising spend",
+   "type": "spend amount measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct total spend separate from block",
+   "child_uids": [
+    "n|e5-scale-011|local yellow pages spend|spend amount measurement"
+   ]
+  }
+ ]
+}

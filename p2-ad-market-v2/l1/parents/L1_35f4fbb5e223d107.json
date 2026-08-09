@@ -1,0 +1,79 @@
+{
+ "group_id": "L1|35f4fbb5e223d107",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "agency revenue",
+   "type": "financial metric",
+   "grain": "Entity",
+   "reason": "singleton: distinct financial metric entity",
+   "child_uids": [
+    "n|tu:era:1:field:BUYERS|agency revenue|financial metric"
+   ]
+  },
+  {
+   "name": "newspaper publishers' commission payment resolution",
+   "type": "resolution",
+   "grain": "Entity",
+   "reason": "singleton: specific resolution entity about commission payment",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|newspaper publishers' commission payment resolution|resolution"
+   ]
+  },
+  {
+   "name": "independent full-service agencies",
+   "type": "advertising agency",
+   "grain": "Entity",
+   "reason": "singleton: independent full-service agencies concept",
+   "child_uids": [
+    "n|tu:era:3:field:CREATORS|independent full-service agencies|advertising agency"
+   ]
+  },
+  {
+   "name": "publisher groups",
+   "type": "media owner group",
+   "grain": "Entity",
+   "reason": "singleton: media owner group of publishers",
+   "child_uids": [
+    "n|tu:era:3:field:CREATORS|publisher groups|media owner group"
+   ]
+  },
+  {
+   "name": "AAAA",
+   "type": "advertising trade association",
+   "grain": "Entity",
+   "reason": "singleton: trade association AAAA governing commissions",
+   "child_uids": [
+    "n|tu:era:3:field:CREATORS|aaaa|advertising trade association"
+   ]
+  },
+  {
+   "name": "clients",
+   "type": "advertiser client",
+   "grain": "Entity",
+   "reason": "singleton: generic advertiser client entity",
+   "child_uids": [
+    "n|tu:era:3:field:CREATORS|clients|advertiser client"
+   ]
+  },
+  {
+   "name": "advertiser commission mix",
+   "type": "mix factor",
+   "grain": "Entity",
+   "reason": "singleton: mix factor for advertiser commission",
+   "child_uids": [
+    "n|tu:era:4:field:PRICING|advertiser commission mix|mix factor"
+   ]
+  },
+  {
+   "name": "principal media",
+   "type": "buying method",
+   "grain": "Entity",
+   "reason": "singleton: buying method termed principal media",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|principal media|buying method"
+   ]
+  }
+ ]
+}

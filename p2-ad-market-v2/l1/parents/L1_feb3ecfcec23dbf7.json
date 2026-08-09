@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|feb3ecfcec23dbf7",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Third-class advertising mail",
+   "type": "advertising mail class",
+   "grain": "Entity",
+   "reason": "same entity despite bulk qualifier",
+   "child_uids": [
+    "n|e4-medium-007|us third-class bulk advertising mail|mail category",
+    "n|e4-targeting-003|third-class advertising mail|advertising mail class"
+   ]
+  },
+  {
+   "name": "US third-class postage",
+   "type": "postal rate",
+   "grain": "Entity",
+   "reason": "singleton: specific third-class postal rate",
+   "child_uids": [
+    "n|e4-pricing-004|us third-class postage|postal rate"
+   ]
+  },
+  {
+   "name": "Postage",
+   "type": "mail cost component",
+   "grain": "Entity",
+   "reason": "singleton: generic mail cost component",
+   "child_uids": [
+    "n|e4-pricing-006|postage|mail cost component"
+   ]
+  },
+  {
+   "name": "Cheap second-class mail rate",
+   "type": "postal rate",
+   "grain": "Entity",
+   "reason": "singleton: specific second-class rate",
+   "child_uids": [
+    "n|tu:era:1:event:7|cheap second-class mail rate|postal rate"
+   ]
+  },
+  {
+   "name": "Circulars",
+   "type": "mail type",
+   "grain": "Entity",
+   "reason": "singleton: a mail type category",
+   "child_uids": [
+    "n|e1-medium-003|circulars|mail type"
+   ]
+  },
+  {
+   "name": "US Standard Mail",
+   "type": "postal service",
+   "grain": "Entity",
+   "reason": "singleton: a US postal service offering",
+   "child_uids": [
+    "n|e5-targeting-005|us standard mail|postal service"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "group_id": "L1|fc9d8a15b2dc626c",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "US advertising by-medium series",
+   "type": "advertising data series",
+   "grain": "Entity",
+   "reason": "singleton: distinct series about US medium breakdown",
+   "child_uids": [
+    "n|ds-gap-001|us advertising by\u2011medium series|advertising data series"
+   ]
+  },
+  {
+   "name": "advertising spend series",
+   "type": "data series",
+   "grain": "Entity",
+   "reason": "singleton: generic advertising spend time series",
+   "child_uids": [
+    "n|ds-money_type-003|advertising spend series|data series"
+   ]
+  },
+  {
+   "name": "US measured advertising spend (nominal)",
+   "type": "advertising spend",
+   "grain": "Entity",
+   "reason": "same nominal US advertising spend entity across concept and series",
+   "child_uids": [
+    "n|e4-scale-004|us measured advertising spend (nominal)|advertising spend",
+    "n|e4-scale-004|us measured advertising spend nominal series|time series",
+    "n|e5-scale-003|total us measured advertising expenditure|advertising spend amount"
+   ]
+  },
+  {
+   "name": "observed US total 2000",
+   "type": "advertising spend aggregate",
+   "grain": "Entity",
+   "reason": "singleton: specific observed total for year 2000",
+   "child_uids": [
+    "n|e5-scale-014|observed us total 2000|advertising spend aggregate"
+   ]
+  }
+ ]
+}

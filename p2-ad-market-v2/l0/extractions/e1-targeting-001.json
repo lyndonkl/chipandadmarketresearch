@@ -1,0 +1,62 @@
+{
+ "id": "e1-targeting-001",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "ratio, 1914 publications to 1869 listed newspapers",
+ "elapsed_s": 57.7,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "buyer targeting menu",
+   "type": "targeting tool",
+   "clause": "the buyer's targeting menu"
+  },
+  {
+   "name": "buyer targeting menu size 1869",
+   "type": "audience-unit count measurement",
+   "clause": "from ... listed newspapers"
+  },
+  {
+   "name": "buyer targeting menu size 1914",
+   "type": "audience-unit count measurement",
+   "clause": "to ... enumerated newspapers and periodicals"
+  },
+  {
+   "name": "ratio of 1914 publications to 1869 listed newspapers",
+   "type": "selectable audience unit ratio measurement",
+   "clause": "... increase in selectable audience units"
+  }
+ ],
+ "edges": [
+  {
+   "from": "buyer targeting menu",
+   "type": "HAS_MEASUREMENT",
+   "to": "buyer targeting menu size 1869",
+   "clause": "size grew from ..."
+  },
+  {
+   "from": "buyer targeting menu",
+   "type": "HAS_MEASUREMENT",
+   "to": "buyer targeting menu size 1914",
+   "clause": "size grew to ..."
+  },
+  {
+   "from": "ratio of 1914 publications to 1869 listed newspapers",
+   "type": "COMPOSED_OF",
+   "to": "buyer targeting menu size 1914",
+   "clause": "ratio based on 1914 count"
+  },
+  {
+   "from": "ratio of 1914 publications to 1869 listed newspapers",
+   "type": "COMPOSED_OF",
+   "to": "buyer targeting menu size 1869",
+   "clause": "ratio based on 1869 count"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|buyer targeting menu|targeting tool|the buyer's targeting menu\nNODE|buyer targeting menu size 1869|audience-unit count measurement|from ... listed newspapers\nNODE|buyer targeting menu size 1914|audience-unit count measurement|to ... enumerated newspapers and periodicals\nNODE|ratio of 1914 publications to 1869 listed newspapers|selectable audience unit ratio measurement|... increase in selectable audience units\nEDGE|buyer targeting menu|HAS_MEASUREMENT|buyer targeting menu size 1869|size grew from ...\nEDGE|buyer targeting menu|HAS_MEASUREMENT|buyer targeting menu size 1914|size grew to ...\nEDGE|ratio of 1914 publications to 1869 listed newspapers|COMPOSED_OF|buyer targeting menu size 1914|ratio based on 1914 count\nEDGE|ratio of 1914 publications to 1869 listed newspapers|COMPOSED_OF|buyer targeting menu size 1869|ratio based on 1869 count"
+}

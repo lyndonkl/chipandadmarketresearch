@@ -1,0 +1,138 @@
+{
+ "id": "e6-unit_econ-003",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "% gross margin per Google-owned-site query, 2007",
+ "elapsed_s": 113.8,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "monetised Google-owned search query",
+   "type": "ad product",
+   "clause": "monetised Google-owned search query"
+  },
+  {
+   "name": "gross margin on monetised Google-owned search query",
+   "type": "margin metric",
+   "clause": "gross margin on a monetised Google-owned search query"
+  },
+  {
+   "name": "per-query gross margin percentage",
+   "type": "margin measurement",
+   "clause": "gross margin ... was about ..."
+  },
+  {
+   "name": "FY2008 10-K",
+   "type": "financial filing",
+   "clause": "FY2008 10-K"
+  },
+  {
+   "name": "FY2008-derived per-query gross margin percentage",
+   "type": "margin measurement",
+   "clause": "computed straight from the FY2008 10-K..."
+  },
+  {
+   "name": "revenue per monetised Google-owned search query",
+   "type": "revenue measurement",
+   "clause": "revenue per query"
+  },
+  {
+   "name": "serving cost per monetised Google-owned search query",
+   "type": "cost measurement",
+   "clause": "serving cost per query"
+  },
+  {
+   "name": "revenue-cost derived per-query gross margin percentage",
+   "type": "margin measurement",
+   "clause": "pair independently gives ..."
+  },
+  {
+   "name": "company-wide gross margin",
+   "type": "margin metric",
+   "clause": "Google's reported company-wide gross margin"
+  },
+  {
+   "name": "company-wide gross margin percentage",
+   "type": "margin measurement",
+   "clause": "company-wide gross margin of ..."
+  },
+  {
+   "name": "revenue share paid on syndicated inventory",
+   "type": "revenue sharing practice",
+   "clause": "revenue share ... on syndicated inventory"
+  }
+ ],
+ "edges": [
+  {
+   "from": "per-query gross margin percentage",
+   "type": "HAS_RATE",
+   "to": "gross margin on monetised Google-owned search query",
+   "clause": "gross margin ... was about ..."
+  },
+  {
+   "from": "FY2008-derived per-query gross margin percentage",
+   "type": "MEASURES",
+   "to": "gross margin on monetised Google-owned search query",
+   "clause": "computed straight from the FY2008 10-K"
+  },
+  {
+   "from": "FY2008-derived per-query gross margin percentage",
+   "type": "COMPUTED_FROM",
+   "to": "FY2008 10-K",
+   "clause": "computed straight from the FY2008 10-K"
+  },
+  {
+   "from": "revenue per monetised Google-owned search query",
+   "type": "MEASURES",
+   "to": "monetised Google-owned search query",
+   "clause": "revenue per query"
+  },
+  {
+   "from": "serving cost per monetised Google-owned search query",
+   "type": "MEASURES",
+   "to": "monetised Google-owned search query",
+   "clause": "serving cost per query"
+  },
+  {
+   "from": "revenue-cost derived per-query gross margin percentage",
+   "type": "MEASURES",
+   "to": "gross margin on monetised Google-owned search query",
+   "clause": "pair independently gives ..."
+  },
+  {
+   "from": "per-query gross margin percentage",
+   "type": "NOT_DERIVED_FROM",
+   "to": "revenue per monetised Google-owned search query",
+   "clause": "margin is not derived that way"
+  },
+  {
+   "from": "per-query gross margin percentage",
+   "type": "NOT_DERIVED_FROM",
+   "to": "serving cost per monetised Google-owned search query",
+   "clause": "margin is not derived that way"
+  },
+  {
+   "from": "per-query gross margin percentage",
+   "type": "ABOVE",
+   "to": "company-wide gross margin percentage",
+   "clause": "far above company-wide gross margin"
+  },
+  {
+   "from": "company-wide gross margin percentage",
+   "type": "DRAGGED_DOWN_BY",
+   "to": "revenue share paid on syndicated inventory",
+   "clause": "dragged down by revenue share on syndicated inventory"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|monetised Google-owned search query|ad product|monetised Google-owned search query\nNODE|gross margin on monetised Google-owned search query|margin metric|gross margin on a monetised Google-owned search query\nNODE|per-query gross margin percentage|margin measurement|gross margin ... was about ...\nNODE|FY2008 10-K|financial filing|FY2008 10-K\nNODE|FY2008-derived per-query gross margin percentage|margin measurement|computed straight from the FY2008 10-K...\nNODE|revenue per monetised Google-owned search query|revenue measurement|revenue per query\nNODE|serving cost per monetised Google-owned search query|cost measurement|serving cost per query\nNODE|revenue-cost derived per-query gross margin percentage|margin measurement|pair independently gives ...\nNODE|company-wide gross margin|margin metric|Google's reported company-wide gross margin\nNODE|company-wide gross margin percentage|margin measurement|company-wide gross margin of ...\nNODE|revenue share paid on syndicated inventory|revenue sharing practice|revenue share ... on syndicated inventory\nEDGE|per-query gross margin percentage|HAS_RATE|gross margin on monetised Google-owned search query|gross margin ... was about ...\nEDGE|FY2008-derived per-query gross margin percentage|MEASURES|gross margin on monetised Google-owned search query|computed straight from the FY2008 10-K\nEDGE|FY2008-derived per-query gross margin percentage|COMPUTED_FROM|FY2008 10-K|computed straight from the FY2008 10-K\nEDGE|revenue per monetised Google-owned search query|MEASURES|monetised Google-owned search query|revenue per query\nEDGE|serving cost per monetised Google-owned search query|MEASURES|monetised Google-owned search query|serving cost per query\nEDGE|revenue-cost derived per-query gross margin percentage|MEASURES|gross margin on monetised Google-owned search query|pair independently gives ...\nEDGE|per-query gross margin percentage|NOT_DERIVED_FROM|revenue per monetised Google-owned search query|margin is not derived that way\nEDGE|per-query gross margin percentage|NOT_DERIVED_FROM|serving cost per monetised Google-owned search query|margin is not derived that way\nEDGE|per-query gross margin percentage|ABOVE|company-wide gross margin percentage|far above company-wide gross margin\nEDGE|company-wide gross margin percentage|DRAGGED_DOWN_BY|revenue share paid on syndicated inventory|dragged down by revenue share on syndicated inventory"
+}

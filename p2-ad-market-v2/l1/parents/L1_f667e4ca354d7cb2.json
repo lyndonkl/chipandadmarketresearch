@@ -1,0 +1,116 @@
+{
+ "group_id": "L1|f667e4ca354d7cb2",
+ "source": "kmeans",
+ "n_in": 13,
+ "parents": [
+  {
+   "name": "Agent commission rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic agent commission measure",
+   "child_uids": [
+    "n|e1-pricing-001|agent commission rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "National special representatives rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: rate for national special representatives",
+   "child_uids": [
+    "n|e1-pricing-004|national special representatives rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Station representative firm commission rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: commission rate for station rep firms",
+   "child_uids": [
+    "n|e3-pricing-003|station representative firm commission rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Radio average commission",
+   "type": "average commission measurement",
+   "grain": "Measurement",
+   "reason": "singleton: average commission across radio stations",
+   "child_uids": [
+    "n|e3-pricing-003|radio average commission|average commission measurement"
+   ]
+  },
+  {
+   "name": "Era 1 nominal commission rate",
+   "type": "nominal take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: nominal commission rate in era\u202f1",
+   "child_uids": [
+    "n|e5-creators-003|era 1 nominal commission rate|nominal take-rate measurement"
+   ]
+  },
+  {
+   "name": "Pre-web actual commission rate",
+   "type": "actual take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: actual commission rate before the web",
+   "child_uids": [
+    "n|e5-creators-003|pre-web actual commission rate|actual take-rate measurement"
+   ]
+  },
+  {
+   "name": "Customary commission rate",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: customary 15\u202f% commission rate",
+   "child_uids": [
+    "n|tu:era:1:event:5|customary commission rate|share measurement"
+   ]
+  },
+  {
+   "name": "Agency compensation rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: standardized agency compensation rate",
+   "child_uids": [
+    "n|tu:era:1:event:9|agency compensation rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Patent\u2011medicine makers share of agency revenue",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: agencies' revenue share to patent\u2011medicine makers",
+   "child_uids": [
+    "n|tu:era:1:field:BUYERS|patent-medicine makers share of agency revenue|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Agency gross commission rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "same agency gross commission rate across sources; subject and breakdown identical",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|agency take rate of gross billings|take-rate measurement",
+    "n|tu:era:4:field:PRICING|agency commission on gross|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Commission rate (era boundary)",
+   "type": "agency commission measurement",
+   "grain": "Measurement",
+   "reason": "singleton: commission rate at era boundary",
+   "child_uids": [
+    "n|tu:era:3:boundary|commission rate (era boundary)|agency commission measurement"
+   ]
+  },
+  {
+   "name": "Era\u20111 agency commission rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: agency commission rate in era\u202f1",
+   "child_uids": [
+    "n|tu:era:7:field:CREATORS|era-1 agency commission rate|take-rate measurement"
+   ]
+  }
+ ]
+}

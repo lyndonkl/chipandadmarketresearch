@@ -1,0 +1,105 @@
+{
+ "id": "e6-scale-010",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions, US direct-response / intent-priced advertising 2007",
+ "elapsed_s": 61.7,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "response-priced and intent-matched advertising spend",
+   "type": "advertising spend pool",
+   "clause": "Response-priced and intent-matched money \u2026"
+  },
+  {
+   "name": "response-priced advertising spend amount",
+   "type": "spend measurement",
+   "clause": "was roughly \u2026"
+  },
+  {
+   "name": "total US advertising",
+   "type": "advertising aggregate",
+   "clause": "all US advertising"
+  },
+  {
+   "name": "response-priced advertising share",
+   "type": "share measurement",
+   "clause": "about \u2026 of all US advertising"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail"
+  },
+  {
+   "name": "Yellow Pages",
+   "type": "advertising medium",
+   "clause": "Yellow Pages"
+  },
+  {
+   "name": "newspaper classified",
+   "type": "advertising medium",
+   "clause": "newspaper classified"
+  },
+  {
+   "name": "performance-priced internet advertising",
+   "type": "advertising medium",
+   "clause": "performance-priced share of internet advertising"
+  },
+  {
+   "name": "search advertising",
+   "type": "advertising channel",
+   "clause": "search"
+  }
+ ],
+ "edges": [
+  {
+   "from": "response-priced advertising spend amount",
+   "type": "MEASURES",
+   "to": "response-priced and intent-matched advertising spend",
+   "clause": "was roughly \u2026"
+  },
+  {
+   "from": "response-priced advertising share",
+   "type": "SHARE_OF",
+   "to": "total US advertising",
+   "clause": "about \u2026 of all US advertising"
+  },
+  {
+   "from": "direct mail",
+   "type": "PART_OF",
+   "to": "response-priced and intent-matched advertising spend",
+   "clause": "part of the pool"
+  },
+  {
+   "from": "Yellow Pages",
+   "type": "PART_OF",
+   "to": "response-priced and intent-matched advertising spend",
+   "clause": "part of the pool"
+  },
+  {
+   "from": "newspaper classified",
+   "type": "PART_OF",
+   "to": "response-priced and intent-matched advertising spend",
+   "clause": "part of the pool"
+  },
+  {
+   "from": "performance-priced internet advertising",
+   "type": "PART_OF",
+   "to": "response-priced and intent-matched advertising spend",
+   "clause": "part of the pool"
+  },
+  {
+   "from": "search advertising",
+   "type": "COMPETING_FOR",
+   "to": "response-priced and intent-matched advertising spend",
+   "clause": "search was actually competing for"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|response-priced and intent-matched advertising spend|advertising spend pool|Response-priced and intent-matched money \u2026\nNODE|response-priced advertising spend amount|spend measurement|was roughly \u2026\nNODE|total US advertising|advertising aggregate|all US advertising\nNODE|response-priced advertising share|share measurement|about \u2026 of all US advertising\nNODE|direct mail|advertising medium|direct mail\nNODE|Yellow Pages|advertising medium|Yellow Pages\nNODE|newspaper classified|advertising medium|newspaper classified\nNODE|performance-priced internet advertising|advertising medium|performance-priced share of internet advertising\nNODE|search advertising|advertising channel|search\nEDGE|response-priced advertising spend amount|MEASURES|response-priced and intent-matched advertising spend|was roughly \u2026\nEDGE|response-priced advertising share|SHARE_OF|total US advertising|about \u2026 of all US advertising\nEDGE|direct mail|PART_OF|response-priced and intent-matched advertising spend|part of the pool\nEDGE|Yellow Pages|PART_OF|response-priced and intent-matched advertising spend|part of the pool\nEDGE|newspaper classified|PART_OF|response-priced and intent-matched advertising spend|part of the pool\nEDGE|performance-priced internet advertising|PART_OF|response-priced and intent-matched advertising spend|part of the pool\nEDGE|search advertising|COMPETING_FOR|response-priced and intent-matched advertising spend|search was actually competing for"
+}

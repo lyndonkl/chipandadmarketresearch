@@ -1,0 +1,83 @@
+{
+ "group_id": "L2|e28fdbaa9922159b",
+ "n_in": 13,
+ "parents": [
+  {
+   "name": "auction mechanism",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "All auction-related mechanisms share same market role",
+   "child_uids": [
+    "L1|55becad229707a32",
+    "L1|5c52e274a2eeccd7",
+    "L1|63d6d9156d2889c9",
+    "L1|a918eec88303b939",
+    "L1|f8559fab3e8d97ef"
+   ]
+  },
+  {
+   "name": "market mechanism",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "Programmatic buying is a distinct market\u2011mechanism role",
+   "child_uids": [
+    "L1|9d5b6a4ee891e5c0"
+   ]
+  },
+  {
+   "name": "search advertising mechanism",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "Self\u2011serve search ads constitute a specific advertising mechanism",
+   "child_uids": [
+    "L1|a3f139fb2fb77c29"
+   ]
+  },
+  {
+   "name": "matching process",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "Advertiser\u2011searcher matching is a distinct matching process role",
+   "child_uids": [
+    "L1|b64a8c4277f003ee"
+   ]
+  },
+  {
+   "name": "auction launch event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "Both entries describe events launching new auction formats",
+   "child_uids": [
+    "L1|dfb5d6e7e907b4ac",
+    "L1|f08b3177960eaad6"
+   ]
+  },
+  {
+   "name": "article",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "Singleton: an article about header bidding, no other articles present",
+   "child_uids": [
+    "L1|ccf9a3cfe20e9e64"
+   ]
+  },
+  {
+   "name": "advertising company",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "Singleton: GoTo/Overture is a search advertising company",
+   "child_uids": [
+    "L1|86aecd3fc1b5690f"
+   ]
+  },
+  {
+   "name": "Header bidding technique",
+   "type": "advertising technique",
+   "grain": "Entity",
+   "reason": "singleton: unplaced by model",
+   "child_uids": [
+    "L1|8b18d736f37dc154"
+   ]
+  }
+ ]
+}

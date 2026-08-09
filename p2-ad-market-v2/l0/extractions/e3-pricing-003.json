@@ -1,0 +1,94 @@
+{
+ "id": "e3-pricing-003",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent commission to the station representative firm",
+ "elapsed_s": 66.5,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "station representative firms",
+   "type": "intermediary firm",
+   "clause": "Station representative firms"
+  },
+  {
+   "name": "local stations inventory",
+   "type": "media inventory",
+   "clause": "local stations' inventory"
+  },
+  {
+   "name": "national advertisers",
+   "type": "advertiser",
+   "clause": "national advertisers"
+  },
+  {
+   "name": "station representative firm commission rate",
+   "type": "take-rate measurement",
+   "clause": "negotiated commission in a normal range of ..."
+  },
+  {
+   "name": "agency commission rate",
+   "type": "take-rate measurement",
+   "clause": "agency's ... commission"
+  },
+  {
+   "name": "source",
+   "type": "information source",
+   "clause": "The source publishes the range"
+  },
+  {
+   "name": "television average commission",
+   "type": "average commission measurement",
+   "clause": "television averages"
+  },
+  {
+   "name": "radio average commission",
+   "type": "average commission measurement",
+   "clause": "radio's"
+  }
+ ],
+ "edges": [
+  {
+   "from": "station representative firms",
+   "type": "SOLD_INVENTORY_TO",
+   "to": "national advertisers",
+   "clause": "sold local stations' inventory to national advertisers"
+  },
+  {
+   "from": "station representative firms",
+   "type": "HAS_RATE",
+   "to": "station representative firm commission rate",
+   "clause": "took a negotiated commission"
+  },
+  {
+   "from": "station representative firm commission rate",
+   "type": "CALCULATED_AFTER_DEDUCTION_OF",
+   "to": "agency commission rate",
+   "clause": "calculated on the amount left after the agency's ... had been deducted"
+  },
+  {
+   "from": "source",
+   "type": "PUBLISHED",
+   "to": "station representative firm commission rate",
+   "clause": "publishes the range"
+  },
+  {
+   "from": "source",
+   "type": "NOTE",
+   "to": "television average commission",
+   "clause": "notes that television averages ran below radio's"
+  },
+  {
+   "from": "television average commission",
+   "type": "BELOW",
+   "to": "radio average commission",
+   "clause": "television averages ran below radio's"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|station representative firms|intermediary firm|Station representative firms\nNODE|local stations inventory|media inventory|local stations' inventory\nNODE|national advertisers|advertiser|national advertisers\nNODE|station representative firm commission rate|take-rate measurement|negotiated commission in a normal range of ...\nNODE|agency commission rate|take-rate measurement|agency's ... commission\nNODE|source|information source|The source publishes the range\nNODE|television average commission|average commission measurement|television averages\nNODE|radio average commission|average commission measurement|radio's\nEDGE|station representative firms|SOLD_INVENTORY_TO|national advertisers|sold local stations' inventory to national advertisers\nEDGE|station representative firms|HAS_RATE|station representative firm commission rate|took a negotiated commission\nEDGE|station representative firm commission rate|CALCULATED_AFTER_DEDUCTION_OF|agency commission rate|calculated on the amount left after the agency's ... had been deducted\nEDGE|source|PUBLISHED|station representative firm commission rate|publishes the range\nEDGE|source|NOTE|television average commission|notes that television averages ran below radio's\nEDGE|television average commission|BELOW|radio average commission|television averages ran below radio's"
+}

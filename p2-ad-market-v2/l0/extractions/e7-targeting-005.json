@@ -1,0 +1,83 @@
+{
+ "id": "e7-targeting-005",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions annualised revenue run rate from Meta automated ad products",
+ "elapsed_s": 64.1,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Meta",
+   "type": "company",
+   "clause": "Meta"
+  },
+  {
+   "name": "Q3 2025 earnings call",
+   "type": "corporate event",
+   "clause": "earnings call"
+  },
+  {
+   "name": "AI-powered ad solutions",
+   "type": "advertising solution",
+   "clause": "end-to-end AI-powered ad solutions"
+  },
+  {
+   "name": "Advantage+ family",
+   "type": "product family",
+   "clause": "Advantage+ family"
+  },
+  {
+   "name": "AI-powered ad solutions revenue run rate",
+   "type": "revenue-run-rate measurement",
+   "clause": "annualised revenue run rate of AI-powered ad solutions"
+  },
+  {
+   "name": "Meta 2025 advertising revenue",
+   "type": "advertising-revenue measurement",
+   "clause": "Meta's 2025 advertising revenue"
+  },
+  {
+   "name": "twelve-month actual revenue",
+   "type": "revenue measurement",
+   "clause": "twelve-month actual revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Meta",
+   "type": "DISCLOSED",
+   "to": "AI-powered ad solutions revenue run rate",
+   "clause": "disclosed on its earnings call"
+  },
+  {
+   "from": "AI-powered ad solutions",
+   "type": "HAS_RUN_RATE",
+   "to": "AI-powered ad solutions revenue run rate",
+   "clause": "surpassed the run rate"
+  },
+  {
+   "from": "Advantage+ family",
+   "type": "PART_OF",
+   "to": "AI-powered ad solutions",
+   "clause": "including the Advantage+ family"
+  },
+  {
+   "from": "AI-powered ad solutions revenue run rate",
+   "type": "SHARE_OF",
+   "to": "Meta 2025 advertising revenue",
+   "clause": "equivalent to roughly ... of Meta's advertising revenue"
+  },
+  {
+   "from": "AI-powered ad solutions revenue run rate",
+   "type": "EXCLUDES",
+   "to": "twelve-month actual revenue",
+   "clause": "instantaneous annualisation rather than a twelve-month actual"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Meta|company|Meta\nNODE|Q3 2025 earnings call|corporate event|earnings call\nNODE|AI-powered ad solutions|advertising solution|end-to-end AI-powered ad solutions\nNODE|Advantage+ family|product family|Advantage+ family\nNODE|AI-powered ad solutions revenue run rate|revenue-run-rate measurement|annualised revenue run rate of AI-powered ad solutions\nNODE|Meta 2025 advertising revenue|advertising-revenue measurement|Meta's 2025 advertising revenue\nNODE|twelve-month actual revenue|revenue measurement|twelve-month actual revenue\nEDGE|Meta|DISCLOSED|AI-powered ad solutions revenue run rate|disclosed on its earnings call\nEDGE|AI-powered ad solutions|HAS_RUN_RATE|AI-powered ad solutions revenue run rate|surpassed the run rate\nEDGE|Advantage+ family|PART_OF|AI-powered ad solutions|including the Advantage+ family\nEDGE|AI-powered ad solutions revenue run rate|SHARE_OF|Meta 2025 advertising revenue|equivalent to roughly ... of Meta's advertising revenue\nEDGE|AI-powered ad solutions revenue run rate|EXCLUDES|twelve-month actual revenue|instantaneous annualisation rather than a twelve-month actual"
+}

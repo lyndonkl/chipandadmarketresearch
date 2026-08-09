@@ -1,0 +1,45 @@
+{
+ "id": "e3-measurement-001",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1950,
+ "unit": "year Nielsen acquired Hooper's national ratings business",
+ "elapsed_s": 31.3,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Nielsen",
+   "type": "company",
+   "clause": "Nielsen acquired ..."
+  },
+  {
+   "name": "C. E. Hooper's national radio and television ratings business",
+   "type": "ratings business",
+   "clause": "C.\u202fE.\u202fHooper's ... business"
+  },
+  {
+   "name": "national broadcast audience currency",
+   "type": "market metric",
+   "clause": "the national broadcast audience currency"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Nielsen",
+   "type": "ACQUIRED",
+   "to": "C. E. Hooper's national radio and television ratings business",
+   "clause": "Nielsen acquired ... business"
+  },
+  {
+   "from": "Nielsen",
+   "type": "RECEIVED",
+   "to": "national broadcast audience currency",
+   "clause": "transaction gave ... the national broadcast audience currency"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Nielsen|company|Nielsen acquired ...\nNODE|C. E. Hooper's national radio and television ratings business|ratings business|C.\u202fE.\u202fHooper's ... business\nNODE|national broadcast audience currency|market metric|the national broadcast audience currency\nEDGE|Nielsen|ACQUIRED|C. E. Hooper's national radio and television ratings business|Nielsen acquired ... business\nEDGE|Nielsen|RECEIVED|national broadcast audience currency|transaction gave ... the national broadcast audience currency"
+}

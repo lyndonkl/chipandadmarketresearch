@@ -1,0 +1,73 @@
+{
+ "group_id": "L1|76b9ab3fd16e2020",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Price premium over prior season",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "same seasonal price premium measure; year abstracted to children",
+   "child_uids": [
+    "n|e3-pricing-007|upfront price premium over previous season|percentage measurement",
+    "n|tu:era:3:boundary|price premium above prior season (1979-80 season)|price increase measurement"
+   ]
+  },
+  {
+   "name": "Auction tuning average price change",
+   "type": "price change measurement",
+   "grain": "Measurement",
+   "reason": "average price change from auction tunings; same quantity across sources",
+   "child_uids": [
+    "n|e7-pricing-003|average price change from auction tunings|percent average price change measurement",
+    "n|mech-tuning-001|price increase measurement|price change measurement"
+   ]
+  },
+  {
+   "name": "Price raise amount",
+   "type": "percent price increase measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic price raise amount measurement",
+   "child_uids": [
+    "n|e7-pricing-003|price raise amount|percent price increase measurement"
+   ]
+  },
+  {
+   "name": "Possible price increase amount",
+   "type": "potential price increase measurement",
+   "grain": "Measurement",
+   "reason": "possible price increase measure; same potential increase concept",
+   "child_uids": [
+    "n|e7-pricing-003|possible price increase amount|percent potential increase measurement",
+    "n|mech-tuning-001|potential price increase measurement|price increase possibility measurement"
+   ]
+  },
+  {
+   "name": "First path yield increase",
+   "type": "yield change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: first path yield increase measurement",
+   "child_uids": [
+    "n|mech-capture-002|first path yield increase|yield change measurement"
+   ]
+  },
+  {
+   "name": "Second path yield increase",
+   "type": "yield change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: second path yield increase measurement",
+   "child_uids": [
+    "n|mech-capture-002|second path yield increase|yield change measurement"
+   ]
+  },
+  {
+   "name": "Future take rate increase",
+   "type": "forecasted measurement",
+   "grain": "Measurement",
+   "reason": "singleton: forecasted future take rate increase measurement",
+   "child_uids": [
+    "n|mech-tac-003|future take rate increase|forecasted measurement"
+   ]
+  }
+ ]
+}

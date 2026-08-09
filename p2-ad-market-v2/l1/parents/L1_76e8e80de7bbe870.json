@@ -1,0 +1,107 @@
+{
+ "group_id": "L1|76e8e80de7bbe870",
+ "source": "kmeans",
+ "n_in": 12,
+ "parents": [
+  {
+   "name": "Items listed count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measurement concept",
+   "child_uids": [
+    "n|e1-events-002|items listed count|count measurement"
+   ]
+  },
+  {
+   "name": "Ring counts",
+   "type": "measurement factor",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measurement concept",
+   "child_uids": [
+    "n|e2-measurement-003|ring counts|measurement factor"
+   ]
+  },
+  {
+   "name": "Reply count measurement",
+   "type": "measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measurement concept",
+   "child_uids": [
+    "n|tu:era:1:field:MEASUREMENT|reply count measurement|measurement"
+   ]
+  },
+  {
+   "name": "Direct mail piece count",
+   "type": "piece volume measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measurement concept",
+   "child_uids": [
+    "n|tu:era:1:field:MEDIUM|direct mail piece count|piece volume measurement"
+   ]
+  },
+  {
+   "name": "Publisher receipts",
+   "type": "measurement base",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measurement concept",
+   "child_uids": [
+    "n|tu:era:1:field:SCALE|publisher receipts|measurement base"
+   ]
+  },
+  {
+   "name": "Orders",
+   "type": "order count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measurement concept",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|orders|order count measurement"
+   ]
+  },
+  {
+   "name": "Countability",
+   "type": "measurement property",
+   "grain": "Measurement",
+   "reason": "shared concept of countability across feasibility and property measurements",
+   "child_uids": [
+    "n|tu:era:2:event:2|countability|measurement feasibility",
+    "n|tu:era:2:field:TARGETING|countable|measurement property"
+   ]
+  },
+  {
+   "name": "Rating counter",
+   "type": "measurement service",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measurement concept",
+   "child_uids": [
+    "n|tu:era:3:field:MEASUREMENT|rating counter|measurement service"
+   ]
+  },
+  {
+   "name": "Paid introductions",
+   "type": "transaction count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measurement concept",
+   "child_uids": [
+    "n|tu:era:5:boundary|paid introductions|transaction count measurement"
+   ]
+  },
+  {
+   "name": "Seller-generated count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measurement concept",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|seller-generated count|count measurement"
+   ]
+  },
+  {
+   "name": "Inflated video metric amount",
+   "type": "measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measurement concept",
+   "child_uids": [
+    "n|tu:era:7:field:MEASUREMENT|inflated video metric amount|measurement"
+   ]
+  }
+ ]
+}

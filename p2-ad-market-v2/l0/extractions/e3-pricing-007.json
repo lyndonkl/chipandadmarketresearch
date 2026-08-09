@@ -1,0 +1,94 @@
+{
+ "id": "e3-pricing-007",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1979,
+ "unit": "percent of network prime-time inventory sold in the upfront",
+ "elapsed_s": 88.1,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Spot Market era",
+   "type": "advertising era",
+   "clause": "the Spot Market era"
+  },
+  {
+   "name": "upfront mechanism",
+   "type": "clearing method",
+   "clause": "the upfront mechanism the era created"
+  },
+  {
+   "name": "dominant clearing method",
+   "type": "market clearing method",
+   "clause": "the dominant clearing method"
+  },
+  {
+   "name": "network prime-time inventory",
+   "type": "ad inventory",
+   "clause": "network prime-time schedule"
+  },
+  {
+   "name": "prime-time inventory upfront sell share",
+   "type": "percentage measurement",
+   "clause": "... of the network prime-time schedule was sold in the upfront"
+  },
+  {
+   "name": "upfront sale prices",
+   "type": "price level",
+   "clause": "prices of upfront sales"
+  },
+  {
+   "name": "upfront price premium over previous season",
+   "type": "percentage measurement",
+   "clause": "prices ... above the previous season"
+  },
+  {
+   "name": "previous season",
+   "type": "time period",
+   "clause": "the previous season"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Spot Market era",
+   "type": "CREATED",
+   "to": "upfront mechanism",
+   "clause": "the era created the upfront mechanism"
+  },
+  {
+   "from": "upfront mechanism",
+   "type": "BECAME",
+   "to": "dominant clearing method",
+   "clause": "had become the dominant clearing method"
+  },
+  {
+   "from": "prime-time inventory upfront sell share",
+   "type": "MEASURES",
+   "to": "network prime-time inventory",
+   "clause": "... was sold in the upfront"
+  },
+  {
+   "from": "prime-time inventory upfront sell share",
+   "type": "SOLD_IN",
+   "to": "upfront mechanism",
+   "clause": "... was sold in the upfront"
+  },
+  {
+   "from": "upfront price premium over previous season",
+   "type": "MEASURES",
+   "to": "upfront sale prices",
+   "clause": "prices ... above the previous season"
+  },
+  {
+   "from": "upfront price premium over previous season",
+   "type": "ABOVE",
+   "to": "previous season",
+   "clause": "prices ... above the previous season"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Spot Market era|advertising era|the Spot Market era\nNODE|upfront mechanism|clearing method|the upfront mechanism the era created\nNODE|dominant clearing method|market clearing method|the dominant clearing method\nNODE|network prime-time inventory|ad inventory|network prime-time schedule\nNODE|prime-time inventory upfront sell share|percentage measurement|... of the network prime-time schedule was sold in the upfront\nNODE|upfront sale prices|price level|prices of upfront sales\nNODE|upfront price premium over previous season|percentage measurement|prices ... above the previous season\nNODE|previous season|time period|the previous season\nEDGE|Spot Market era|CREATED|upfront mechanism|the era created the upfront mechanism\nEDGE|upfront mechanism|BECAME|dominant clearing method|had become the dominant clearing method\nEDGE|prime-time inventory upfront sell share|MEASURES|network prime-time inventory|... was sold in the upfront\nEDGE|prime-time inventory upfront sell share|SOLD_IN|upfront mechanism|... was sold in the upfront\nEDGE|upfront price premium over previous season|MEASURES|upfront sale prices|prices ... above the previous season\nEDGE|upfront price premium over previous season|ABOVE|previous season|prices ... above the previous season"
+}

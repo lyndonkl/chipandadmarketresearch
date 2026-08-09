@@ -1,0 +1,26 @@
+{
+ "group_id": "L1|1263edf3abf28073",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Google",
+   "type": "pricing term",
+   "grain": "Entity",
+   "reason": "same company across pricing terms; activation fee and monthly minimum",
+   "child_uids": [
+    "n|tu:era:6:field:PRICING|google activation fee|activation fee amount",
+    "n|tu:era:6:field:PRICING|google monthly minimum|monthly minimum amount"
+   ]
+  },
+  {
+   "name": "Overture",
+   "type": "pricing term",
+   "grain": "Entity",
+   "reason": "singleton: Overture pricing term",
+   "child_uids": [
+    "n|tu:era:6:field:PRICING|overture monthly commitment|monthly commitment amount"
+   ]
+  }
+ ]
+}

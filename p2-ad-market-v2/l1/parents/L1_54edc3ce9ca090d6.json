@@ -1,0 +1,37 @@
+{
+ "group_id": "L1|54edc3ce9ca090d6",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "US advertising market",
+   "type": "advertising market",
+   "grain": "Entity",
+   "reason": "singleton: specific era market node",
+   "child_uids": [
+    "n|tu:era:1:field:MEDIUM|us advertising market 1840s-1917|advertising market"
+   ]
+  },
+  {
+   "name": "Middlemen era",
+   "type": "advertising era",
+   "grain": "Entity",
+   "reason": "singleton: period label for 1840s\u20111917",
+   "child_uids": [
+    "n|tu:era:1:field:SCALE|middlemen era|advertising era"
+   ]
+  },
+  {
+   "name": "US advertising spend",
+   "type": "advertising expenditure",
+   "grain": "Entity",
+   "reason": "one entity across periods; time abstracted to children",
+   "child_uids": [
+    "n|tu:era:2:field:SCALE|early\u20111930s us advertising spend level|advertising expenditure",
+    "n|tu:era:2:field:SCALE|pre\u2011depression peak us advertising spend|advertising expenditure",
+    "n|tu:era:2:field:SCALE|us advertising spend early twentieth-century|advertising expenditure",
+    "n|tu:era:2:field:SCALE|us advertising spend late forties|advertising expenditure"
+   ]
+  }
+ ]
+}

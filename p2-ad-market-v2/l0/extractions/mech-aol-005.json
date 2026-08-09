@@ -1,0 +1,143 @@
+{
+ "id": "mech-aol-005",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2005,
+ "unit": "USD millions of value realised by AOL/Time Warner from the May 2002 Google warrant",
+ "elapsed_s": 101.5,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Time Warner",
+   "type": "company",
+   "clause": "Time Warner realised ..."
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's IPO"
+  },
+  {
+   "name": "May 2002 Google warrant",
+   "type": "financial instrument",
+   "clause": "the warrant"
+  },
+  {
+   "name": "Google IPO",
+   "type": "equity offering event",
+   "clause": "sold in Google's IPO"
+  },
+  {
+   "name": "Class A shares",
+   "type": "share class",
+   "clause": "Class A shares sold in Google's IPO"
+  },
+  {
+   "name": "Google warrant realized value",
+   "type": "revenue measurement",
+   "clause": "realised approximately ... from the warrant"
+  },
+  {
+   "name": "Class A shares sold in Google IPO",
+   "type": "share count measurement",
+   "clause": "... Class A shares sold ..."
+  },
+  {
+   "name": "Net proceeds from Google IPO share sale",
+   "type": "revenue measurement",
+   "clause": "... net proceeds ..."
+  },
+  {
+   "name": "Booked gain from Google IPO share sale",
+   "type": "gain measurement",
+   "clause": "... booked gain ..."
+  },
+  {
+   "name": "Remaining shares sold in 2005",
+   "type": "share count measurement",
+   "clause": "... remaining ... shares sold during 2005"
+  },
+  {
+   "name": "Booked gain from 2005 share sale",
+   "type": "gain measurement",
+   "clause": "... booked gain ..."
+  },
+  {
+   "name": "Total booked gains",
+   "type": "gain measurement",
+   "clause": "... total booked gains"
+  },
+  {
+   "name": "Exercise price",
+   "type": "price measurement",
+   "clause": "... exercise price"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Time Warner",
+   "type": "REALIZED",
+   "to": "Google warrant realized value",
+   "clause": "realised ... from the warrant"
+  },
+  {
+   "from": "Google warrant realized value",
+   "type": "MEASURES",
+   "to": "May 2002 Google warrant",
+   "clause": "value realised from the warrant"
+  },
+  {
+   "from": "Class A shares sold in Google IPO",
+   "type": "COUNT_OF",
+   "to": "Class A shares",
+   "clause": "... Class A shares sold ..."
+  },
+  {
+   "from": "Class A shares sold in Google IPO",
+   "type": "PART_OF",
+   "to": "Google IPO",
+   "clause": "sold in Google's IPO"
+  },
+  {
+   "from": "Net proceeds from Google IPO share sale",
+   "type": "MEASURES",
+   "to": "Google IPO",
+   "clause": "... net proceeds ..."
+  },
+  {
+   "from": "Booked gain from Google IPO share sale",
+   "type": "MEASURES",
+   "to": "Google IPO",
+   "clause": "... booked gain ..."
+  },
+  {
+   "from": "Remaining shares sold in 2005",
+   "type": "COUNT_OF",
+   "to": "Class A shares",
+   "clause": "... remaining ... shares sold ..."
+  },
+  {
+   "from": "Booked gain from 2005 share sale",
+   "type": "MEASURES",
+   "to": "Remaining shares sold in 2005",
+   "clause": "... booked gain ..."
+  },
+  {
+   "from": "Total booked gains",
+   "type": "MEASURES",
+   "to": "Google warrant realized value",
+   "clause": "... total booked gains"
+  },
+  {
+   "from": "Exercise price",
+   "type": "APPLIES_TO",
+   "to": "May 2002 Google warrant",
+   "clause": "... exercise price"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Time Warner|company|Time Warner realised ...\nNODE|Google|company|Google's IPO\nNODE|May 2002 Google warrant|financial instrument|the warrant\nNODE|Google IPO|equity offering event|sold in Google's IPO\nNODE|Class A shares|share class|Class A shares sold in Google's IPO\nNODE|Google warrant realized value|revenue measurement|realised approximately ... from the warrant\nNODE|Class A shares sold in Google IPO|share count measurement|... Class A shares sold ...\nNODE|Net proceeds from Google IPO share sale|revenue measurement|... net proceeds ...\nNODE|Booked gain from Google IPO share sale|gain measurement|... booked gain ...\nNODE|Remaining shares sold in 2005|share count measurement|... remaining ... shares sold during 2005\nNODE|Booked gain from 2005 share sale|gain measurement|... booked gain ...\nNODE|Total booked gains|gain measurement|... total booked gains\nNODE|Exercise price|price measurement|... exercise price\nEDGE|Time Warner|REALIZED|Google warrant realized value|realised ... from the warrant\nEDGE|Google warrant realized value|MEASURES|May 2002 Google warrant|value realised from the warrant\nEDGE|Class A shares sold in Google IPO|COUNT_OF|Class A shares|... Class A shares sold ...\nEDGE|Class A shares sold in Google IPO|PART_OF|Google IPO|sold in Google's IPO\nEDGE|Net proceeds from Google IPO share sale|MEASURES|Google IPO|... net proceeds ...\nEDGE|Booked gain from Google IPO share sale|MEASURES|Google IPO|... booked gain ...\nEDGE|Remaining shares sold in 2005|COUNT_OF|Class A shares|... remaining ... shares sold ...\nEDGE|Booked gain from 2005 share sale|MEASURES|Remaining shares sold in 2005|... booked gain ...\nEDGE|Total booked gains|MEASURES|Google warrant realized value|... total booked gains\nEDGE|Exercise price|APPLIES_TO|May 2002 Google warrant|... exercise price"
+}

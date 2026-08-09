@@ -1,0 +1,84 @@
+{
+ "id": "e7-scale-005",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of US non-search digital ad revenue transacted programmatically, 2025",
+ "elapsed_s": 67.4,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Programmatic buying",
+   "type": "market mechanism",
+   "clause": "Programmatic buying"
+  },
+  {
+   "name": "US internet advertising revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "US internet ad revenue"
+  },
+  {
+   "name": "Programmatic buying revenue",
+   "type": "amount measurement",
+   "clause": "accounted for ... of US internet advertising revenue"
+  },
+  {
+   "name": "Non-programmatic non-search placements revenue",
+   "type": "amount measurement",
+   "clause": "against ... of US internet advertising revenue"
+  },
+  {
+   "name": "US non-search digital ad revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "all non-search digital revenue"
+  },
+  {
+   "name": "Share of US non-search digital ad revenue transacted programmatically",
+   "type": "percentage measurement",
+   "clause": "about ... of all non-search digital revenue is now transacted programmatically"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Programmatic buying revenue",
+   "type": "MEASURES",
+   "to": "Programmatic buying",
+   "clause": "accounted for ... of US internet advertising revenue"
+  },
+  {
+   "from": "Programmatic buying revenue",
+   "type": "AMOUNT_OF",
+   "to": "US internet advertising revenue",
+   "clause": "accounted for ... of US internet advertising revenue"
+  },
+  {
+   "from": "Non-programmatic non-search placements revenue",
+   "type": "AMOUNT_OF",
+   "to": "US internet advertising revenue",
+   "clause": "against ... of US internet advertising revenue"
+  },
+  {
+   "from": "Programmatic buying revenue",
+   "type": "AGAINST",
+   "to": "Non-programmatic non-search placements revenue",
+   "clause": "against ..."
+  },
+  {
+   "from": "Share of US non-search digital ad revenue transacted programmatically",
+   "type": "SHARE_OF",
+   "to": "US non-search digital ad revenue",
+   "clause": "about ... of all non-search digital revenue is now transacted programmatically"
+  },
+  {
+   "from": "Share of US non-search digital ad revenue transacted programmatically",
+   "type": "TRANSACTED_VIA",
+   "to": "Programmatic buying",
+   "clause": "now transacted programmatically"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Programmatic buying|market mechanism|Programmatic buying\nNODE|US internet advertising revenue|advertising revenue aggregate|US internet ad revenue\nNODE|Programmatic buying revenue|amount measurement|accounted for ... of US internet advertising revenue\nNODE|Non-programmatic non-search placements revenue|amount measurement|against ... of US internet advertising revenue\n NODE|US non-search digital ad revenue|advertising revenue aggregate|all non-search digital revenue\nNODE|Share of US non-search digital ad revenue transacted programmatically|percentage measurement|about ... of all non-search digital revenue is now transacted programmatically\nEDGE|Programmatic buying revenue|MEASURES|Programmatic buying|accounted for ... of US internet advertising revenue\nEDGE|Programmatic buying revenue|AMOUNT_OF|US internet advertising revenue|accounted for ... of US internet advertising revenue\nEDGE|Non-programmatic non-search placements revenue|AMOUNT_OF|US internet advertising revenue|against ... of US internet advertising revenue\nEDGE|Programmatic buying revenue|AGAINST|Non-programmatic non-search placements revenue|against ...\nEDGE|Share of US non-search digital ad revenue transacted programmatically|SHARE_OF|US non-search digital ad revenue|about ... of all non-search digital revenue is now transacted programmatically\nEDGE|Share of US non-search digital ad revenue transacted programmatically|TRANSACTED_VIA|Programmatic buying|now transacted programmatically"
+}

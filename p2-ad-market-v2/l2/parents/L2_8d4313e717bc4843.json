@@ -1,0 +1,70 @@
+{
+ "group_id": "L2|8d4313e717bc4843",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "product development phase",
+   "type": "development-phase kind",
+   "grain": "Entity",
+   "reason": "singleton: a product development phase distinct from other kinds",
+   "child_uids": [
+    "L1|29886d9fdbee34b2"
+   ]
+  },
+  {
+   "name": "event",
+   "type": "event kind",
+   "grain": "Entity",
+   "reason": "singleton: a generic event, not a transition or milestone",
+   "child_uids": [
+    "L1|7dbf0f322c3113f3"
+   ]
+  },
+  {
+   "name": "transition event",
+   "type": "transition-event kind",
+   "grain": "Entity",
+   "reason": "singleton: a handover point between eras, unique role",
+   "child_uids": [
+    "L1|136c927a0bc1ec35"
+   ]
+  },
+  {
+   "name": "abstract phase",
+   "type": "abstract-phase kind",
+   "grain": "Entity",
+   "reason": "climb phase and summit phase are both abstract phases",
+   "child_uids": [
+    "L1|1c293d2ea3cb315e",
+    "L1|5580701444887aea"
+   ]
+  },
+  {
+   "name": "milestone",
+   "type": "milestone kind",
+   "grain": "Entity",
+   "reason": "singleton: a notable era global peak milestone",
+   "child_uids": [
+    "L1|13f2f6795663db8d"
+   ]
+  },
+  {
+   "name": "discontinuity point",
+   "type": "discontinuity-point kind",
+   "grain": "Entity",
+   "reason": "singleton: a hard seam of 2008, a market discontinuity",
+   "child_uids": [
+    "L1|bff9e7fe3ef24cf5"
+   ]
+  },
+  {
+   "name": "conceptual maximum",
+   "type": "conceptual-maximum kind",
+   "grain": "Entity",
+   "reason": "singleton: a maximum ad intensity conceptual maximum",
+   "child_uids": [
+    "L1|5845d269badffad3"
+   ]
+  }
+ ]
+}

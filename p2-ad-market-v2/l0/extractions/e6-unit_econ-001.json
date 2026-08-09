@@ -1,0 +1,84 @@
+{
+ "id": "e6-unit_econ-001",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD advertising revenue per Google-owned-site query, 2007",
+ "elapsed_s": 78.8,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google"
+  },
+  {
+   "name": "advertising revenue per Google-owned-site query",
+   "type": "revenue-per-query measurement",
+   "clause": "advertising revenue per search query on its own properties"
+  },
+  {
+   "name": "Google-owned-site advertising revenue",
+   "type": "total-revenue measurement",
+   "clause": "Google-owned-site advertising revenue"
+  },
+  {
+   "name": "Google-owned-site search queries",
+   "type": "query-count measurement",
+   "clause": "Google-owned-site search queries"
+  },
+  {
+   "name": "Google-owned sites",
+   "type": "owned web property",
+   "clause": "its own properties"
+  },
+  {
+   "name": "search query",
+   "type": "ad request",
+   "clause": "search query"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "EARNED",
+   "to": "advertising revenue per Google-owned-site query",
+   "clause": "earned ... cents per query"
+  },
+  {
+   "from": "advertising revenue per Google-owned-site query",
+   "type": "PER_UNIT_OF",
+   "to": "search query",
+   "clause": "per query"
+  },
+  {
+   "from": "advertising revenue per Google-owned-site query",
+   "type": "ON_PROPERTY",
+   "to": "Google-owned sites",
+   "clause": "on owned sites"
+  },
+  {
+   "from": "Google",
+   "type": "EARNED",
+   "to": "Google-owned-site advertising revenue",
+   "clause": "earned ... of advertising revenue"
+  },
+  {
+   "from": "Google-owned-site advertising revenue",
+   "type": "OVER",
+   "to": "Google-owned-site search queries",
+   "clause": "over ... queries"
+  },
+  {
+   "from": "advertising revenue per Google-owned-site query",
+   "type": "UP_FROM",
+   "to": "advertising revenue per Google-owned-site query",
+   "clause": "up from ... cents per query"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google\nNODE|advertising revenue per Google-owned-site query|revenue-per-query measurement|advertising revenue per search query on its own properties\nNODE|Google-owned-site advertising revenue|total-revenue measurement|Google-owned-site advertising revenue\nNODE|Google-owned-site search queries|query-count measurement|Google-owned-site search queries\nNODE|Google-owned sites|owned web property|its own properties\nNODE|search query|ad request|search query\nEDGE|Google|EARNED|advertising revenue per Google-owned-site query|earned ... cents per query\nEDGE|advertising revenue per Google-owned-site query|PER_UNIT_OF|search query|per query\nEDGE|advertising revenue per Google-owned-site query|ON_PROPERTY|Google-owned sites|on owned sites\nEDGE|Google|EARNED|Google-owned-site advertising revenue|earned ... of advertising revenue\nEDGE|Google-owned-site advertising revenue|OVER|Google-owned-site search queries|over ... queries\nEDGE|advertising revenue per Google-owned-site query|UP_FROM|advertising revenue per Google-owned-site query|up from ... cents per query"
+}

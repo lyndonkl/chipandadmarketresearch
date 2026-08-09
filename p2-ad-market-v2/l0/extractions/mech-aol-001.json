@@ -1,0 +1,139 @@
+{
+ "id": "mech-aol-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "USD millions, reported revenue guarantee in the May 2002 Google-AOL agreement",
+ "elapsed_s": 81.9,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google-AOL agreement",
+   "type": "contract",
+   "clause": "the May 2002 Google-AOL agreement"
+  },
+  {
+   "name": "revenue guarantee amount",
+   "type": "monetary guarantee measurement",
+   "clause": "... revenue guarantee"
+  },
+  {
+   "name": "revenue share percentage",
+   "type": "share measurement",
+   "clause": "... revenue share"
+  },
+  {
+   "name": "SEC",
+   "type": "regulatory body",
+   "clause": "the SEC"
+  },
+  {
+   "name": "secondary accounts",
+   "type": "source type",
+   "clause": "secondary accounts"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google's disclosed network economics"
+  },
+  {
+   "name": "Google Network advertising revenue",
+   "type": "advertising revenue",
+   "clause": "Google Network advertising revenue"
+  },
+  {
+   "name": "traffic acquisition costs",
+   "type": "advertising cost",
+   "clause": "traffic acquisition costs"
+  },
+  {
+   "name": "traffic acquisition cost share measurement",
+   "type": "share of revenue measurement",
+   "clause": "... traffic acquisition costs equalled ... of Google Network advertising revenue"
+  },
+  {
+   "name": "AOL",
+   "type": "online media company",
+   "clause": "AOL supplied ..."
+  },
+  {
+   "name": "AOL supply share measurement",
+   "type": "share of revenue measurement",
+   "clause": "... AOL supplied about ... of that network revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google-AOL agreement",
+   "type": "CARRIED",
+   "to": "revenue guarantee amount",
+   "clause": "carried an ... revenue guarantee"
+  },
+  {
+   "from": "Google-AOL agreement",
+   "type": "HAS_SHARE",
+   "to": "revenue share percentage",
+   "clause": "and an ... revenue share"
+  },
+  {
+   "from": "Google-AOL agreement",
+   "type": "NOT_FILED_WITH",
+   "to": "SEC",
+   "clause": "contract was never filed with the SEC"
+  },
+  {
+   "from": "revenue guarantee amount",
+   "type": "ORIGINATES_FROM",
+   "to": "secondary accounts",
+   "clause": "figures originate in secondary accounts"
+  },
+  {
+   "from": "revenue share percentage",
+   "type": "ORIGINATES_FROM",
+   "to": "secondary accounts",
+   "clause": "figures originate in secondary accounts"
+  },
+  {
+   "from": "Google",
+   "type": "CONSISTENT_WITH",
+   "to": "revenue guarantee amount",
+   "clause": "Google's disclosed network economics are consistent with them"
+  },
+  {
+   "from": "Google",
+   "type": "CONSISTENT_WITH",
+   "to": "revenue share percentage",
+   "clause": "Google's disclosed network economics are consistent with them"
+  },
+  {
+   "from": "traffic acquisition cost share measurement",
+   "type": "MEASURES",
+   "to": "traffic acquisition costs",
+   "clause": "traffic acquisition costs equalled ... of Google Network advertising revenue"
+  },
+  {
+   "from": "traffic acquisition cost share measurement",
+   "type": "SHARE_OF",
+   "to": "Google Network advertising revenue",
+   "clause": "traffic acquisition costs equalled ... of Google Network advertising revenue"
+  },
+  {
+   "from": "AOL supply share measurement",
+   "type": "MEASURES",
+   "to": "AOL",
+   "clause": "AOL supplied about ... of that network revenue"
+  },
+  {
+   "from": "AOL supply share measurement",
+   "type": "SHARE_OF",
+   "to": "Google Network advertising revenue",
+   "clause": "AOL supplied about ... of that network revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google-AOL agreement|contract|the May 2002 Google-AOL agreement\nNODE|revenue guarantee amount|monetary guarantee measurement|... revenue guarantee\nNODE|revenue share percentage|share measurement|... revenue share\nNODE|SEC|regulatory body|the SEC\nNODE|secondary accounts|source type|secondary accounts\nNODE|Google|technology company|Google's disclosed network economics\nNODE|Google Network advertising revenue|advertising revenue|Google Network advertising revenue\nNODE|traffic acquisition costs|advertising cost|traffic acquisition costs\nNODE|traffic acquisition cost share measurement|share of revenue measurement|... traffic acquisition costs equalled ... of Google Network advertising revenue\nNODE|AOL|online media company|AOL supplied ...\nNODE|AOL supply share measurement|share of revenue measurement|... AOL supplied about ... of that network revenue\nEDGE|Google-AOL agreement|CARRIED|revenue guarantee amount|carried an ... revenue guarantee\nEDGE|Google-AOL agreement|HAS_SHARE|revenue share percentage|and an ... revenue share\nEDGE|Google-AOL agreement|NOT_FILED_WITH|SEC|contract was never filed with the SEC\nEDGE|revenue guarantee amount|ORIGINATES_FROM|secondary accounts|figures originate in secondary accounts\nEDGE|revenue share percentage|ORIGINATES_FROM|secondary accounts|figures originate in secondary accounts\nEDGE|Google|CONSISTENT_WITH|revenue guarantee amount|Google's disclosed network economics are consistent with them\nEDGE|Google|CONSISTENT_WITH|revenue share percentage|Google's disclosed network economics are consistent with them\nEDGE|traffic acquisition cost share measurement|MEASURES|traffic acquisition costs|traffic acquisition costs equalled ... of Google Network advertising revenue\nEDGE|traffic acquisition cost share measurement|SHARE_OF|Google Network advertising revenue|traffic acquisition costs equalled ... of Google Network advertising revenue\nEDGE|AOL supply share measurement|MEASURES|AOL|AOL supplied about ... of that network revenue\nEDGE|AOL supply share measurement|SHARE_OF|Google Network advertising revenue|AOL supplied about ... of that network revenue"
+}

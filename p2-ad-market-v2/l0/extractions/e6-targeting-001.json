@@ -1,0 +1,94 @@
+{
+ "id": "e6-targeting-001",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2003,
+ "unit": "year (2003-06-18), AdSense for content public launch",
+ "elapsed_s": 81.3,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AdSense for content",
+   "type": "ad product",
+   "clause": "AdSense for content launched"
+  },
+  {
+   "name": "AdSense for content launch",
+   "type": "product launch event",
+   "clause": "AdSense for content launch on ..."
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google's ... acquisition of Applied Semantics"
+  },
+  {
+   "name": "Applied Semantics",
+   "type": "company",
+   "clause": "acquired by Google"
+  },
+  {
+   "name": "Google acquisition of Applied Semantics",
+   "type": "acquisition event",
+   "clause": "Google acquisition of Applied Semantics in ..."
+  },
+  {
+   "name": "keyword-intent targeting",
+   "type": "targeting practice",
+   "clause": "keyword\u2011intent targeting extending from queries to page text"
+  },
+  {
+   "name": "queries",
+   "type": "information request medium",
+   "clause": "from queries"
+  },
+  {
+   "name": "third-party web page text",
+   "type": "content source",
+   "clause": "the text of third\u2011party web pages"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AdSense for content",
+   "type": "HAS_LAUNCH_EVENT",
+   "to": "AdSense for content launch",
+   "clause": "launched on ..."
+  },
+  {
+   "from": "AdSense for content",
+   "type": "BUILT_ON",
+   "to": "Google acquisition of Applied Semantics",
+   "clause": "built on Google's ... acquisition"
+  },
+  {
+   "from": "Google acquisition of Applied Semantics",
+   "type": "ACQUIRER",
+   "to": "Google",
+   "clause": "acquisition by Google"
+  },
+  {
+   "from": "Google acquisition of Applied Semantics",
+   "type": "TARGET",
+   "to": "Applied Semantics",
+   "clause": "acquisition of Applied Semantics"
+  },
+  {
+   "from": "keyword-intent targeting",
+   "type": "EXTENDS_FROM",
+   "to": "queries",
+   "clause": "extending from queries"
+  },
+  {
+   "from": "keyword-intent targeting",
+   "type": "EXTENDS_TO",
+   "to": "third-party web page text",
+   "clause": "to the text of third\u2011party web pages"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AdSense for content|ad product|AdSense for content launched\nNODE|AdSense for content launch|product launch event|AdSense for content launch on ...\nNODE|Google|technology company|Google's ... acquisition of Applied Semantics\nNODE|Applied Semantics|company|acquired by Google\nNODE|Google acquisition of Applied Semantics|acquisition event|Google acquisition of Applied Semantics in ...\nNODE|keyword-intent targeting|targeting practice|keyword\u2011intent targeting extending from queries to page text\nNODE|queries|information request medium|from queries\nNODE|third-party web page text|content source|the text of third\u2011party web pages\nEDGE|AdSense for content|HAS_LAUNCH_EVENT|AdSense for content launch|launched on ...\nEDGE|AdSense for content|BUILT_ON|Google acquisition of Applied Semantics|built on Google's ... acquisition\nEDGE|Google acquisition of Applied Semantics|ACQUIRER|Google|acquisition by Google\nEDGE|Google acquisition of Applied Semantics|TARGET|Applied Semantics|acquisition of Applied Semantics\nEDGE|keyword-intent targeting|EXTENDS_FROM|queries|extending from queries\nEDGE|keyword-intent targeting|EXTENDS_TO|third-party web page text|to the text of third\u2011party web pages"
+}

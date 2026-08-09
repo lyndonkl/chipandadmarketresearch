@@ -1,0 +1,94 @@
+{
+ "id": "e5-creators-001",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1994,
+ "unit": "percent of large US national advertisers surveyed",
+ "elapsed_s": 64.3,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "large US national advertisers",
+   "type": "advertiser group",
+   "clause": "share of large US national advertisers..."
+  },
+  {
+   "name": "advertising agencies",
+   "type": "agency class",
+   "clause": "compensating their agencies"
+  },
+  {
+   "name": "media commission basis",
+   "type": "compensation method",
+   "clause": "media\u2011commission basis"
+  },
+  {
+   "name": "labour-based fee basis",
+   "type": "compensation method",
+   "clause": "labour\u2011based fee basis"
+  },
+  {
+   "name": "media\u2011commission compensation share",
+   "type": "share measurement",
+   "clause": "share of large US national advertisers compensating their agencies on a media\u2011commission basis"
+  },
+  {
+   "name": "previous media\u2011commission compensation share",
+   "type": "share measurement",
+   "clause": "share ... down from ... in ..."
+  },
+  {
+   "name": "projected media\u2011commission compensation share",
+   "type": "share measurement",
+   "clause": "share ... heading to ... by ..."
+  },
+  {
+   "name": "labour\u2011based fee share",
+   "type": "share measurement",
+   "clause": "labour\u2011based fees were ... in ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "media\u2011commission compensation share",
+   "type": "SHARE_OF",
+   "to": "large US national advertisers",
+   "clause": "share of large US national advertisers..."
+  },
+  {
+   "from": "media\u2011commission compensation share",
+   "type": "COMPENSATES_ON",
+   "to": "media commission basis",
+   "clause": "compensating their agencies on a media\u2011commission basis"
+  },
+  {
+   "from": "media\u2011commission compensation share",
+   "type": "DOWN_FROM",
+   "to": "previous media\u2011commission compensation share",
+   "clause": "down from ... in ..."
+  },
+  {
+   "from": "media\u2011commission compensation share",
+   "type": "HEADING_TO",
+   "to": "projected media\u2011commission compensation share",
+   "clause": "heading to ... by ..."
+  },
+  {
+   "from": "labour\u2011based fee share",
+   "type": "SHARE_OF",
+   "to": "large US national advertisers",
+   "clause": "share of large US national advertisers..."
+  },
+  {
+   "from": "labour\u2011based fee share",
+   "type": "COMPENSATES_ON",
+   "to": "labour-based fee basis",
+   "clause": "labour\u2011based fees were ... in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|large US national advertisers|advertiser group|share of large US national advertisers...\nNODE|advertising agencies|agency class|compensating their agencies\nNODE|media commission basis|compensation method|media\u2011commission basis\n NODE|labour-based fee basis|compensation method|labour\u2011based fee basis\nNODE|media\u2011commission compensation share|share measurement|share of large US national advertisers compensating their agencies on a media\u2011commission basis\nNODE|previous media\u2011commission compensation share|share measurement|share ... down from ... in ...\nNODE|projected media\u2011commission compensation share|share measurement|share ... heading to ... by ...\nNODE|labour\u2011based fee share|share measurement|labour\u2011based fees were ... in ...\nEDGE|media\u2011commission compensation share|SHARE_OF|large US national advertisers|share of large US national advertisers...\nEDGE|media\u2011commission compensation share|COMPENSATES_ON|media commission basis|compensating their agencies on a media\u2011commission basis\nEDGE|media\u2011commission compensation share|DOWN_FROM|previous media\u2011commission compensation share|down from ... in ...\nEDGE|media\u2011commission compensation share|HEADING_TO|projected media\u2011commission compensation share|heading to ... by ...\nEDGE|labour\u2011based fee share|SHARE_OF|large US national advertisers|share of large US national advertisers...\nEDGE|labour\u2011based fee share|COMPENSATES_ON|labour-based fee basis|labour\u2011based fees were ... in ..."
+}

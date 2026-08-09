@@ -1,0 +1,54 @@
+{
+ "group_id": "L1|d670626e22e2f897",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "US newspaper classified advertising decline percentage",
+   "type": "percentage change measurement",
+   "grain": "Measurement",
+   "reason": "same subject and quantity; years/sources abstracted",
+   "child_uids": [
+    "n|e6-buyers-007|us newspaper classified advertising spend decline percent|percentage change measurement",
+    "n|e6-events-010|percent change in us newspaper classified advertising 2008|percentage change measurement",
+    "n|tu:era:6:event:9|us newspaper classified advertising decline percent|decline rate measurement"
+   ]
+  },
+  {
+   "name": "US newspaper classified advertising below-peak percentage",
+   "type": "percentage change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: below-peak metric distinct from decline measures",
+   "child_uids": [
+    "n|e6-buyers-007|us newspaper classified advertising spend below-peak percent|percentage change measurement"
+   ]
+  },
+  {
+   "name": "US newspaper classified revenue decline percentage",
+   "type": "decline rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: revenue decline percent separate from advertising metrics",
+   "child_uids": [
+    "n|ds-money_type-001|us newspaper classified revenue decline percentage|decline rate measurement"
+   ]
+  },
+  {
+   "name": "Newspapers advertising spend decline percentage",
+   "type": "percent change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic newspapers advertising spend decline metric",
+   "child_uids": [
+    "n|tu:era:4:event:9|newspapers advertising spend decline rate|percent change measurement"
+   ]
+  },
+  {
+   "name": "Classified advertising employment decline percentage",
+   "type": "employment decline rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: employment decline percent for classified advertising",
+   "child_uids": [
+    "n|tu:era:6:event:9|classified advertising employment decline percent|employment decline rate measurement"
+   ]
+  }
+ ]
+}

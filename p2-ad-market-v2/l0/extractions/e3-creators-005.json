@@ -1,0 +1,67 @@
+{
+ "id": "e3-creators-005",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "million USD of US advertising-agency gross income",
+ "elapsed_s": 78.1,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "us advertising agency sector",
+   "type": "market segment",
+   "clause": "the US agency sector"
+  },
+  {
+   "name": "agency sector gross income",
+   "type": "revenue measurement",
+   "clause": "own revenue ... gross income"
+  },
+  {
+   "name": "us advertising spend",
+   "type": "total ad spend",
+   "clause": "all US advertising spend"
+  },
+  {
+   "name": "agency sector gross income share of us advertising spend",
+   "type": "media-share measurement",
+   "clause": "about ... of all US advertising spend"
+  },
+  {
+   "name": "agency-placed share of the market",
+   "type": "market share measurement",
+   "clause": "agency-placed share of the market"
+  }
+ ],
+ "edges": [
+  {
+   "from": "agency sector gross income",
+   "type": "MEASURES",
+   "to": "us advertising agency sector",
+   "clause": "own revenue ... gross income"
+  },
+  {
+   "from": "agency sector gross income share of us advertising spend",
+   "type": "MEASURES",
+   "to": "agency sector gross income",
+   "clause": "about ... of all US advertising spend"
+  },
+  {
+   "from": "agency sector gross income share of us advertising spend",
+   "type": "SHARE_OF",
+   "to": "us advertising spend",
+   "clause": "about ... of all US advertising spend"
+  },
+  {
+   "from": "agency sector gross income",
+   "type": "EARNED_AS_COMMISSION_ON",
+   "to": "agency-placed share of the market",
+   "clause": "earned as commission on the agency-placed share of the market"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|us advertising agency sector|market segment|the US agency sector\nNODE|agency sector gross income|revenue measurement|own revenue ... gross income\nNODE|us advertising spend|total ad spend|all US advertising spend\nNODE|agency sector gross income share of us advertising spend|media-share measurement|about ... of all US advertising spend\nNODE|agency-placed share of the market|market share measurement|agency-placed share of the market\nEDGE|agency sector gross income|MEASURES|us advertising agency sector|own revenue ... gross income\nEDGE|agency sector gross income share of us advertising spend|MEASURES|agency sector gross income|about ... of all US advertising spend\nEDGE|agency sector gross income share of us advertising spend|SHARE_OF|us advertising spend|about ... of all US advertising spend\nEDGE|agency sector gross income|EARNED_AS_COMMISSION_ON|agency-placed share of the market|earned as commission on the agency-placed share of the market"
+}

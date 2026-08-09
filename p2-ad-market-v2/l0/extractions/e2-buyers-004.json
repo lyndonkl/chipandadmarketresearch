@@ -1,0 +1,100 @@
+{
+ "id": "e2-buyers-004",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "percent of US ad spend placed by national advertisers, 1949",
+ "elapsed_s": 43.3,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national advertisers",
+   "type": "advertiser group",
+   "clause": "National advertisers - packaged goods, autos, tobacco, oil, appliances"
+  },
+  {
+   "name": "packaged goods industry",
+   "type": "industry sector",
+   "clause": "packaged goods"
+  },
+  {
+   "name": "autos industry",
+   "type": "industry sector",
+   "clause": "autos"
+  },
+  {
+   "name": "tobacco industry",
+   "type": "industry sector",
+   "clause": "tobacco"
+  },
+  {
+   "name": "oil industry",
+   "type": "industry sector",
+   "clause": "oil"
+  },
+  {
+   "name": "appliances industry",
+   "type": "industry sector",
+   "clause": "appliances"
+  },
+  {
+   "name": "US advertising dollars",
+   "type": "advertising spend aggregate",
+   "clause": "all US advertising dollars"
+  },
+  {
+   "name": "share of US ad spend placed by national advertisers",
+   "type": "share measurement",
+   "clause": "percent of US ad spend placed by national advertisers"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national advertisers",
+   "type": "INCLUDES",
+   "to": "packaged goods industry",
+   "clause": "packaged goods, autos, tobacco, oil, appliances"
+  },
+  {
+   "from": "national advertisers",
+   "type": "INCLUDES",
+   "to": "autos industry",
+   "clause": "packaged goods, autos, tobacco, oil, appliances"
+  },
+  {
+   "from": "national advertisers",
+   "type": "INCLUDES",
+   "to": "tobacco industry",
+   "clause": "packaged goods, autos, tobacco, oil, appliances"
+  },
+  {
+   "from": "national advertisers",
+   "type": "INCLUDES",
+   "to": "oil industry",
+   "clause": "packaged goods, autos, tobacco, oil, appliances"
+  },
+  {
+   "from": "national advertisers",
+   "type": "INCLUDES",
+   "to": "appliances industry",
+   "clause": "packaged goods, autos, tobacco, oil, appliances"
+  },
+  {
+   "from": "share of US ad spend placed by national advertisers",
+   "type": "SHARE_OF",
+   "to": "US advertising dollars",
+   "clause": "percent of all US advertising dollars"
+  },
+  {
+   "from": "national advertisers",
+   "type": "HAS_SHARE",
+   "to": "share of US ad spend placed by national advertisers",
+   "clause": "accounted for ... percent of all US advertising dollars"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national advertisers|advertiser group|National advertisers - packaged goods, autos, tobacco, oil, appliances\nNODE|packaged goods industry|industry sector|packaged goods\nNODE|autos industry|industry sector|autos\nNODE|tobacco industry|industry sector|tobacco\nNODE|oil industry|industry sector|oil\nNODE|appliances industry|industry sector|appliances\nNODE|US advertising dollars|advertising spend aggregate|all US advertising dollars\nNODE|share of US ad spend placed by national advertisers|share measurement|percent of US ad spend placed by national advertisers\nEDGE|national advertisers|INCLUDES|packaged goods industry|packaged goods, autos, tobacco, oil, appliances\nEDGE|national advertisers|INCLUDES|autos industry|packaged goods, autos, tobacco, oil, appliances\nEDGE|national advertisers|INCLUDES|tobacco industry|packaged goods, autos, tobacco, oil, appliances\nEDGE|national advertisers|INCLUDES|oil industry|packaged goods, autos, tobacco, oil, appliances\nEDGE|national advertisers|INCLUDES|appliances industry|packaged goods, autos, tobacco, oil, appliances\nEDGE|share of US ad spend placed by national advertisers|SHARE_OF|US advertising dollars|percent of all US advertising dollars\nEDGE|national advertisers|HAS_SHARE|share of US ad spend placed by national advertisers|accounted for ... percent of all US advertising dollars"
+}

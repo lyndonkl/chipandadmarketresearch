@@ -1,0 +1,94 @@
+{
+ "id": "e3-creators-001",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1956,
+ "unit": "year (final judgment entered)",
+ "elapsed_s": 62.3,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "United States v. American Association of Advertising Agencies consent decree",
+   "type": "legal instrument",
+   "clause": "the consent decree"
+  },
+  {
+   "name": "United States",
+   "type": "government entity",
+   "clause": "United States in case name"
+  },
+  {
+   "name": "American Association of Advertising Agencies",
+   "type": "trade association",
+   "clause": "American Association of Advertising Agencies in case name"
+  },
+  {
+   "name": "SDNY",
+   "type": "court district",
+   "clause": "filed in SDNY"
+  },
+  {
+   "name": "collective trade-association enforcement",
+   "type": "enforcement practice",
+   "clause": "collective trade-association enforcement"
+  },
+  {
+   "name": "agency commission",
+   "type": "intermediary pricing practice",
+   "clause": "the agency commission"
+  },
+  {
+   "name": "agency commission rate",
+   "type": "take-rate measurement",
+   "clause": "the ... agency commission (measurement)"
+  },
+  {
+   "name": "recognition system",
+   "type": "industry practice",
+   "clause": "the 'recognition' system"
+  }
+ ],
+ "edges": [
+  {
+   "from": "United States v. American Association of Advertising Agencies consent decree",
+   "type": "FILED_IN",
+   "to": "SDNY",
+   "clause": "complaint filed ... SDNY"
+  },
+  {
+   "from": "United States v. American Association of Advertising Agencies consent decree",
+   "type": "ENDED_ENFORCEMENT_OF",
+   "to": "agency commission",
+   "clause": "ended ... enforcement of the agency commission"
+  },
+  {
+   "from": "United States v. American Association of Advertising Agencies consent decree",
+   "type": "ENDED_ENFORCEMENT_OF",
+   "to": "recognition system",
+   "clause": "ended ... enforcement of the 'recognition' system"
+  },
+  {
+   "from": "agency commission",
+   "type": "HAS_RATE",
+   "to": "agency commission rate",
+   "clause": "the agency commission ... rate"
+  },
+  {
+   "from": "United States",
+   "type": "PLAINTIFF_IN",
+   "to": "United States v. American Association of Advertising Agencies consent decree",
+   "clause": "named in case title"
+  },
+  {
+   "from": "American Association of Advertising Agencies",
+   "type": "DEFENDANT_IN",
+   "to": "United States v. American Association of Advertising Agencies consent decree",
+   "clause": "named in case title"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|United States v. American Association of Advertising Agencies consent decree|legal instrument|the consent decree\nNODE|United States|government entity|United States in case name\nNODE|American Association of Advertising Agencies|trade association|American Association of Advertising Agencies in case name\nNODE|SDNY|court district|filed in SDNY\nNODE|collective trade-association enforcement|enforcement practice|collective trade-association enforcement\nNODE|agency commission|intermediary pricing practice|the agency commission\nNODE|agency commission rate|take-rate measurement|the ... agency commission (measurement)\nNODE|recognition system|industry practice|the 'recognition' system\nEDGE|United States v. American Association of Advertising Agencies consent decree|FILED_IN|SDNY|complaint filed ... SDNY\nEDGE|United States v. American Association of Advertising Agencies consent decree|ENDED_ENFORCEMENT_OF|agency commission|ended ... enforcement of the agency commission\nEDGE|United States v. American Association of Advertising Agencies consent decree|ENDED_ENFORCEMENT_OF|recognition system|ended ... enforcement of the 'recognition' system\nEDGE|agency commission|HAS_RATE|agency commission rate|the agency commission ... rate\nEDGE|United States|PLAINTIFF_IN|United States v. American Association of Advertising Agencies consent decree|named in case title\nEDGE|American Association of Advertising Agencies|DEFENDANT_IN|United States v. American Association of Advertising Agencies consent decree|named in case title"
+}

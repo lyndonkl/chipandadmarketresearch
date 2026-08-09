@@ -1,0 +1,133 @@
+{
+ "id": "tu:era:1:event:0",
+ "kind": "prose:event",
+ "era": 1,
+ "about_year": 1833,
+ "unit": null,
+ "elapsed_s": 69.1,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Benjamin Day",
+   "type": "person",
+   "clause": "Benjamin Day launched the New York Sun"
+  },
+  {
+   "name": "New York Sun",
+   "type": "newspaper",
+   "clause": "launched the New York Sun"
+  },
+  {
+   "name": "newspaper price per copy",
+   "type": "price measurement",
+   "clause": "price at ..."
+  },
+  {
+   "name": "production cost per copy",
+   "type": "cost measurement",
+   "clause": "below the cost of production"
+  },
+  {
+   "name": "daily circulation",
+   "type": "circulation measurement",
+   "clause": "selling roughly ... copies a day"
+  },
+  {
+   "name": "advertising medium",
+   "type": "advertising channel",
+   "clause": "offer an advantageous medium for advertisements"
+  },
+  {
+   "name": "ad-funded free newspaper model",
+   "type": "business model",
+   "clause": "the trade described by Benjamin Day"
+  },
+  {
+   "name": "broadcast radio",
+   "type": "media type",
+   "clause": "later ad\u2011funded free service - broadcast radio"
+  },
+  {
+   "name": "network television",
+   "type": "media type",
+   "clause": "later ad\u2011funded free service - network television"
+  },
+  {
+   "name": "the portal",
+   "type": "digital platform",
+   "clause": "later ad\u2011funded free service - the portal"
+  },
+  {
+   "name": "search",
+   "type": "search advertising medium",
+   "clause": "later ad\u2011funded free service - search"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Benjamin Day",
+   "type": "LAUNCHED",
+   "to": "New York Sun",
+   "clause": "launched the New York Sun"
+  },
+  {
+   "from": "New York Sun",
+   "type": "HAS_PRICE",
+   "to": "newspaper price per copy",
+   "clause": "price at ..."
+  },
+  {
+   "from": "newspaper price per copy",
+   "type": "BELOW_COST",
+   "to": "production cost per copy",
+   "clause": "below the cost of production"
+  },
+  {
+   "from": "New York Sun",
+   "type": "OFFERS",
+   "to": "advertising medium",
+   "clause": "offer an advantageous medium for advertisements"
+  },
+  {
+   "from": "New York Sun",
+   "type": "HAS_CIRCULATION",
+   "to": "daily circulation",
+   "clause": "selling roughly ... copies a day"
+  },
+  {
+   "from": "New York Sun",
+   "type": "USES_MODEL",
+   "to": "ad-funded free newspaper model",
+   "clause": "trade described by Benjamin Day"
+  },
+  {
+   "from": "broadcast radio",
+   "type": "RERUN_OF",
+   "to": "ad-funded free newspaper model",
+   "clause": "later ad\u2011funded free service is a rerun of this trade"
+  },
+  {
+   "from": "network television",
+   "type": "RERUN_OF",
+   "to": "ad-funded free newspaper model",
+   "clause": "later ad\u2011funded free service is a rerun of this trade"
+  },
+  {
+   "from": "the portal",
+   "type": "RERUN_OF",
+   "to": "ad-funded free newspaper model",
+   "clause": "later ad\u2011funded free service is a rerun of this trade"
+  },
+  {
+   "from": "search",
+   "type": "RERUN_OF",
+   "to": "ad-funded free newspaper model",
+   "clause": "later ad\u2011funded free service is a rerun of this trade"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Benjamin Day|person|Benjamin Day launched the New York Sun\nNODE|New York Sun|newspaper|launched the New York Sun\nNODE|newspaper price per copy|price measurement|price at ...\nNODE|production cost per copy|cost measurement|below the cost of production\nNODE|daily circulation|circulation measurement|selling roughly ... copies a day\nNODE|advertising medium|advertising channel|offer an advantageous medium for advertisements\nNODE|ad-funded free newspaper model|business model|the trade described by Benjamin Day\nNODE|broadcast radio|media type|later ad\u2011funded free service - broadcast radio\nNODE|network television|media type|later ad\u2011funded free service - network television\nNODE|the portal|digital platform|later ad\u2011funded free service - the portal\nNODE|search|search advertising medium|later ad\u2011funded free service - search\nEDGE|Benjamin Day|LAUNCHED|New York Sun|launched the New York Sun\nEDGE|New York Sun|HAS_PRICE|newspaper price per copy|price at ...\nEDGE|newspaper price per copy|BELOW_COST|production cost per copy|below the cost of production\nEDGE|New York Sun|OFFERS|advertising medium|offer an advantageous medium for advertisements\nEDGE|New York Sun|HAS_CIRCULATION|daily circulation|selling roughly ... copies a day\nEDGE|New York Sun|USES_MODEL|ad-funded free newspaper model|trade described by Benjamin Day\nEDGE|broadcast radio|RERUN_OF|ad-funded free newspaper model|later ad\u2011funded free service is a rerun of this trade\nEDGE|network television|RERUN_OF|ad-funded free newspaper model|later ad\u2011funded free service is a rerun of this trade\nEDGE|the portal|RERUN_OF|ad-funded free newspaper model|later ad\u2011funded free service is a rerun of this trade\nEDGE|search|RERUN_OF|ad-funded free newspaper model|later ad\u2011funded free service is a rerun of this trade"
+}

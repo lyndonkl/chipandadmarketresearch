@@ -1,0 +1,67 @@
+{
+ "id": "e2-sellers-007",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1940,
+ "unit": "percent of NBC network time sales paid out to affiliated stations, 1940",
+ "elapsed_s": 43.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "NBC",
+   "type": "company",
+   "clause": "NBC's payments to affiliated stations"
+  },
+  {
+   "name": "affiliated stations",
+   "type": "media outlet group",
+   "clause": "affiliated stations"
+  },
+  {
+   "name": "NBC affiliate station payment share",
+   "type": "share measurement",
+   "clause": "percent of network time sales paid out to affiliated stations"
+  },
+  {
+   "name": "network time sales",
+   "type": "revenue stream",
+   "clause": "network time sales"
+  },
+  {
+   "name": "NBC network time sales volume",
+   "type": "monetary amount measurement",
+   "clause": "NBC network time sales amount"
+  }
+ ],
+ "edges": [
+  {
+   "from": "NBC",
+   "type": "PAYMENTS_TO",
+   "to": "affiliated stations",
+   "clause": "NBC's payments to affiliated stations"
+  },
+  {
+   "from": "NBC affiliate station payment share",
+   "type": "SHARE_OF",
+   "to": "network time sales",
+   "clause": "... percent of network time sales"
+  },
+  {
+   "from": "NBC network time sales volume",
+   "type": "MEASURES",
+   "to": "network time sales",
+   "clause": "time sales grew from ... to ..."
+  },
+  {
+   "from": "NBC affiliate station payment share",
+   "type": "LED_TO",
+   "to": "NBC network time sales volume",
+   "clause": "as time sales grew"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|NBC|company|NBC's payments to affiliated stations\nNODE|affiliated stations|media outlet group|affiliated stations\nNODE|NBC affiliate station payment share|share measurement|percent of network time sales paid out to affiliated stations\nNODE|network time sales|revenue stream|network time sales\nNODE|NBC network time sales volume|monetary amount measurement|NBC network time sales amount\nEDGE|NBC|PAYMENTS_TO|affiliated stations|NBC's payments to affiliated stations\nEDGE|NBC affiliate station payment share|SHARE_OF|network time sales|... percent of network time sales\nEDGE|NBC network time sales volume|MEASURES|network time sales|time sales grew from ... to ...\nEDGE|NBC affiliate station payment share|LED_TO|NBC network time sales volume|as time sales grew"
+}

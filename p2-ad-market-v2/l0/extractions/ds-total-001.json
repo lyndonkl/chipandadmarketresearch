@@ -1,0 +1,128 @@
+{
+ "id": "ds-total-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2006,
+ "unit": "USD millions (current)",
+ "elapsed_s": 126.6,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen/McCann series",
+   "type": "advertising spend dataset",
+   "clause": "the Coen/McCann series' highest nominal level..."
+  },
+  {
+   "name": "Coen/McCann series nominal level 2006",
+   "type": "nominal level measurement",
+   "clause": "highest nominal level is ... in ..."
+  },
+  {
+   "name": "Coen/McCann series nominal level 2000",
+   "type": "nominal level measurement",
+   "clause": "not ... at ..."
+  },
+  {
+   "name": "Advertising share of US GDP on Coen series",
+   "type": "media-share measurement",
+   "clause": "advertising's share of US GDP on the Coen series peaked..."
+  },
+  {
+   "name": "advertising share 1922 peak",
+   "type": "peak measurement",
+   "clause": "peaked at about ... in ..."
+  },
+  {
+   "name": "advertising share max in post-1960 window",
+   "type": "media-share measurement",
+   "clause": "ad/GDP maximum is ... within the post-1960 window"
+  },
+  {
+   "name": "US GDP",
+   "type": "gross domestic product",
+   "clause": "share of US GDP"
+  },
+  {
+   "name": "post-1960 window",
+   "type": "analysis period",
+   "clause": "within the post-1960 window that Silk & Berndt analyse"
+  },
+  {
+   "name": "Silk",
+   "type": "person",
+   "clause": "Silk & Berndt analyse"
+  },
+  {
+   "name": "Berndt",
+   "type": "person",
+   "clause": "Silk & Berndt analyse"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Coen/McCann series",
+   "type": "HAS_NOMINAL_LEVEL",
+   "to": "Coen/McCann series nominal level 2006",
+   "clause": "highest nominal level is ... in ..."
+  },
+  {
+   "from": "Coen/McCann series",
+   "type": "NOT_AT",
+   "to": "Coen/McCann series nominal level 2000",
+   "clause": "not ... at ..."
+  },
+  {
+   "from": "Advertising share of US GDP on Coen series",
+   "type": "MEASURED_ON",
+   "to": "Coen/McCann series",
+   "clause": "share measured on the Coen series"
+  },
+  {
+   "from": "Advertising share of US GDP on Coen series",
+   "type": "SHARE_OF",
+   "to": "US GDP",
+   "clause": "advertising's share of US GDP"
+  },
+  {
+   "from": "Advertising share of US GDP on Coen series",
+   "type": "PEAKED_AT",
+   "to": "advertising share 1922 peak",
+   "clause": "peaked at about ... in ..."
+  },
+  {
+   "from": "Advertising share of US GDP on Coen series",
+   "type": "NEVER_REGAINED",
+   "to": "advertising share 1922 peak",
+   "clause": "never regained it"
+  },
+  {
+   "from": "advertising share max in post-1960 window",
+   "type": "MEASURED_ON",
+   "to": "Coen/McCann series",
+   "clause": "ad/GDP maximum is ... within the post-1960 window"
+  },
+  {
+   "from": "advertising share max in post-1960 window",
+   "type": "SHARE_OF",
+   "to": "US GDP",
+   "clause": "ad/GDP maximum ..."
+  },
+  {
+   "from": "Silk",
+   "type": "ANALYSES",
+   "to": "post-1960 window",
+   "clause": "Silk & Berndt analyse"
+  },
+  {
+   "from": "Berndt",
+   "type": "ANALYSES",
+   "to": "post-1960 window",
+   "clause": "Silk & Berndt analyse"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen/McCann series|advertising spend dataset|the Coen/McCann series' highest nominal level...\nNODE|Coen/McCann series nominal level 2006|nominal level measurement|highest nominal level is ... in ...\nNODE|Coen/McCann series nominal level 2000|nominal level measurement|not ... at ...\nNODE|Advertising share of US GDP on Coen series|media-share measurement|advertising's share of US GDP on the Coen series peaked...\nNODE|advertising share 1922 peak|peak measurement|peaked at about ... in ...\nNODE|advertising share max in post-1960 window|media-share measurement|ad/GDP maximum is ... within the post-1960 window\nNODE|US GDP|gross domestic product|share of US GDP\nNODE|post-1960 window|analysis period|within the post-1960 window that Silk & Berndt analyse\nNODE|Silk|person|Silk & Berndt analyse\nNODE|Berndt|person|Silk & Berndt analyse\nEDGE|Coen/McCann series|HAS_NOMINAL_LEVEL|Coen/McCann series nominal level 2006|highest nominal level is ... in ...\nEDGE|Coen/McCann series|NOT_AT|Coen/McCann series nominal level 2000|not ... at ...\nEDGE|Advertising share of US GDP on Coen series|MEASURED_ON|Coen/McCann series|share measured on the Coen series\nEDGE|Advertising share of US GDP on Coen series|SHARE_OF|US GDP|advertising's share of US GDP\nEDGE|Advertising share of US GDP on Coen series|PEAKED_AT|advertising share 1922 peak|peaked at about ... in ...\nEDGE|Advertising share of US GDP on Coen series|NEVER_REGAINED|advertising share 1922 peak|never regained it\nEDGE|advertising share max in post-1960 window|MEASURED_ON|Coen/McCann series|ad/GDP maximum is ... within the post-1960 window\nEDGE|advertising share max in post-1960 window|SHARE_OF|US GDP|ad/GDP maximum ...\nEDGE|Silk|ANALYSES|post-1960 window|Silk & Berndt analyse\nEDGE|Berndt|ANALYSES|post-1960 window|Silk & Berndt analyse"
+}

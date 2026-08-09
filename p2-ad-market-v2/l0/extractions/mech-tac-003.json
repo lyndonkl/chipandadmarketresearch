@@ -1,0 +1,94 @@
+{
+ "id": "mech-tac-003",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2006,
+ "unit": "% of Google Network advertising revenue retained by Google, peak year 2006",
+ "elapsed_s": 73.7,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "syndicated inventory",
+   "type": "advertising inventory type",
+   "clause": "syndicated inventory"
+  },
+  {
+   "name": "Google Network advertising revenue",
+   "type": "advertising revenue pool",
+   "clause": "... of Google Network advertising revenue retained by Google"
+  },
+  {
+   "name": "syndicated inventory take rate",
+   "type": "take-rate measurement",
+   "clause": "% of Google Network advertising revenue retained by Google, peak year ..."
+  },
+  {
+   "name": "competition for partners",
+   "type": "market pressure",
+   "clause": "competition for partners intensifies"
+  },
+  {
+   "name": "FY2008 10-K",
+   "type": "financial filing",
+   "clause": "FY2008 10-K"
+  },
+  {
+   "name": "future take rate increase",
+   "type": "forecasted measurement",
+   "clause": "rate may increase in the future"
+  },
+  {
+   "name": "guaranteed minimum revenue share payments",
+   "type": "revenue guarantee arrangement",
+   "clause": "guaranteed minimum revenue share payments"
+  }
+ ],
+ "edges": [
+  {
+   "from": "syndicated inventory take rate",
+   "type": "SHARE_OF",
+   "to": "Google Network advertising revenue",
+   "clause": "... of Google Network advertising revenue retained by Google"
+  },
+  {
+   "from": "syndicated inventory take rate",
+   "type": "APPLIES_TO",
+   "to": "syndicated inventory",
+   "clause": "take rate on syndicated inventory"
+  },
+  {
+   "from": "syndicated inventory take rate",
+   "type": "REVERSES_WHEN",
+   "to": "competition for partners",
+   "clause": "ratchet reverses when competition intensifies"
+  },
+  {
+   "from": "FY2008 10-K",
+   "type": "FILED_BY",
+   "to": "Google",
+   "clause": "FY2008 10-K filed by Google"
+  },
+  {
+   "from": "FY2008 10-K",
+   "type": "WARNED_ABOUT",
+   "to": "future take rate increase",
+   "clause": "rate may increase in the future if we are unable to continue to improve monetization particularly with those members to whom we have guaranteed minimum revenue share payments"
+  },
+  {
+   "from": "future take rate increase",
+   "type": "RELATED_TO",
+   "to": "guaranteed minimum revenue share payments",
+   "clause": "particularly with those members ... guaranteed minimum revenue share payments"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|syndicated inventory|advertising inventory type|syndicated inventory\nNODE|Google Network advertising revenue|advertising revenue pool|... of Google Network advertising revenue retained by Google\nNODE|syndicated inventory take rate|take-rate measurement|% of Google Network advertising revenue retained by Google, peak year ...\nNODE|competition for partners|market pressure|competition for partners intensifies\nNODE|FY2008 10-K|financial filing|FY2008 10-K\nNODE|future take rate increase|forecasted measurement|rate may increase in the future\nNODE|guaranteed minimum revenue share payments|revenue guarantee arrangement|guaranteed minimum revenue share payments\nEDGE|syndicated inventory take rate|SHARE_OF|Google Network advertising revenue|... of Google Network advertising revenue retained by Google\nEDGE|syndicated inventory take rate|APPLIES_TO|syndicated inventory|take rate on syndicated inventory\nEDGE|syndicated inventory take rate|REVERSES_WHEN|competition for partners|ratchet reverses when competition intensifies\nEDGE|FY2008 10-K|FILED_BY|Google|FY2008 10-K filed by Google\nEDGE|FY2008 10-K|WARNED_ABOUT|future take rate increase|rate may increase in the future if we are unable to continue to improve monetization particularly with those members to whom we have guaranteed minimum revenue share payments\nEDGE|future take rate increase|RELATED_TO|guaranteed minimum revenue share payments|particularly with those members ... guaranteed minimum revenue share payments"
+}

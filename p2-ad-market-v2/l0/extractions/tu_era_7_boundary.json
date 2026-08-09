@@ -1,0 +1,307 @@
+{
+ "id": "tu:era:7:boundary",
+ "kind": "prose:boundary",
+ "era": 7,
+ "about_year": null,
+ "unit": null,
+ "elapsed_s": 243.2,
+ "error": null,
+ "n_nodes": 23,
+ "n_edges": 29,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "era boundary",
+   "type": "data seam",
+   "clause": "the era boundary is a real data seam"
+  },
+  {
+   "name": "date",
+   "type": "temporal marker",
+   "clause": "not just a date"
+  },
+  {
+   "name": "Coen/McCann Structured Advertising Expenditure Dataset",
+   "type": "advertising expenditure dataset",
+   "clause": "the Coen/McCann Structured Advertising Expenditure Dataset ... only continuous US by-medium series"
+  },
+  {
+   "name": "total US ad spend amount",
+   "type": "monetary measurement",
+   "clause": "ends with ... of total US ad spend"
+  },
+  {
+   "name": "US ad spend share of GDP",
+   "type": "share-of-GDP measurement",
+   "clause": "ends with ... of GDP"
+  },
+  {
+   "name": "Era 7",
+   "type": "market era",
+   "clause": "Era 7 runs on IAB/PwC for the digital half and MAGNA/eMarketer for the all-media total"
+  },
+  {
+   "name": "IAB/PwC digital series",
+   "type": "digital-half data series",
+   "clause": "runs on IAB/PwC for the digital half"
+  },
+  {
+   "name": "MAGNA/eMarketer all-media series",
+   "type": "all-media data series",
+   "clause": "runs on MAGNA/eMarketer for the all-media total"
+  },
+  {
+   "name": "Era 6",
+   "type": "market era",
+   "clause": "Era 6 should close with US internet ad revenue ..."
+  },
+  {
+   "name": "US internet ad revenue amount",
+   "type": "monetary measurement",
+   "clause": "close with ... for 2007 and open with ... for 2008"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google completed the DoubleClick acquisition"
+  },
+  {
+   "name": "DoubleClick acquisition",
+   "type": "corporate acquisition event",
+   "clause": "completed the DoubleClick acquisition on ... announced in era 6 closed in era 7"
+  },
+  {
+   "name": "quality-weighted second-price auction (GSP)",
+   "type": "auction mechanism",
+   "clause": "the quality-weighted second-price auction that era 6 owns is killed by era 7"
+  },
+  {
+   "name": "Google ad-tech take rate measurement",
+   "type": "take-rate measurement",
+   "clause": "Google's ad-tech take rate dates from ... per DOJ"
+  },
+  {
+   "name": "AdX fee measurement",
+   "type": "fee percentage measurement",
+   "clause": "AdX 20% fee dates from ... per DOJ"
+  },
+  {
+   "name": "DOJ",
+   "type": "regulatory agency",
+   "clause": "per the DOJ"
+  },
+  {
+   "name": "platform revenue",
+   "type": "revenue type",
+   "clause": "a large share of platform revenue is money older series never counted as advertising"
+  },
+  {
+   "name": "money-type split",
+   "type": "data classification",
+   "clause": "record carries a rebuilt money-type split rather than a published one"
+  },
+  {
+   "name": "Silk & Berndt",
+   "type": "researchers",
+   "clause": "Silk & Berndt treat this as an open question"
+  },
+  {
+   "name": "claim e7-medium-003",
+   "type": "ad spend claim",
+   "clause": "Claim e7-medium-003 was rejected in adversarial verification"
+  },
+  {
+   "name": "EMARKETER dataset",
+   "type": "market research dataset",
+   "clause": "the cited EMARKETER piece reports ..."
+  },
+  {
+   "name": "SQ Magazine source",
+   "type": "publication",
+   "clause": "the SQ Magazine citation is dropped"
+  },
+  {
+   "name": "record",
+   "type": "data record",
+   "clause": "the record carries a rebuilt money-type split"
+  }
+ ],
+ "edges": [
+  {
+   "from": "era boundary",
+   "type": "EXCLUDES",
+   "to": "date",
+   "clause": "not just a date"
+  },
+  {
+   "from": "Coen/McCann Structured Advertising Expenditure Dataset",
+   "type": "MEASURES",
+   "to": "total US ad spend amount",
+   "clause": "ends with ... of total US ad spend"
+  },
+  {
+   "from": "Coen/McCann Structured Advertising Expenditure Dataset",
+   "type": "MEASURES",
+   "to": "US ad spend share of GDP",
+   "clause": "ends with ... of GDP"
+  },
+  {
+   "from": "Era 7",
+   "type": "USES",
+   "to": "IAB/PwC digital series",
+   "clause": "runs on IAB/PwC for the digital half"
+  },
+  {
+   "from": "Era 7",
+   "type": "USES",
+   "to": "MAGNA/eMarketer all-media series",
+   "clause": "runs on MAGNA/eMarketer for the all-media total"
+  },
+  {
+   "from": "IAB/PwC digital series",
+   "type": "NOT_IDENTICAL",
+   "to": "Coen/McCann Structured Advertising Expenditure Dataset",
+   "clause": "not definitionally identical to Coen"
+  },
+  {
+   "from": "MAGNA/eMarketer all-media series",
+   "type": "NOT_IDENTICAL",
+   "to": "Coen/McCann Structured Advertising Expenditure Dataset",
+   "clause": "not definitionally identical to Coen"
+  },
+  {
+   "from": "Era 6",
+   "type": "CLOSES_WITH",
+   "to": "US internet ad revenue amount",
+   "clause": "close with ... for 2007"
+  },
+  {
+   "from": "Era 7",
+   "type": "OPENS_WITH",
+   "to": "US internet ad revenue amount",
+   "clause": "opens at ... for 2008"
+  },
+  {
+   "from": "Era 6",
+   "type": "AGREES_EXACTLY_WITH",
+   "to": "Era 7",
+   "clause": "must agree exactly on these numbers"
+  },
+  {
+   "from": "Google",
+   "type": "COMPLETED",
+   "to": "DoubleClick acquisition",
+   "clause": "completed the DoubleClick acquisition"
+  },
+  {
+   "from": "DoubleClick acquisition",
+   "type": "ANNOUNCED_IN",
+   "to": "Era 6",
+   "clause": "announced in era 6"
+  },
+  {
+   "from": "DoubleClick acquisition",
+   "type": "CLOSED_IN",
+   "to": "Era 7",
+   "clause": "closed in era 7"
+  },
+  {
+   "from": "Era 6",
+   "type": "OWNS",
+   "to": "quality-weighted second-price auction (GSP)",
+   "clause": "the GSP that era 6 owns"
+  },
+  {
+   "from": "Era 7",
+   "type": "KILLS",
+   "to": "quality-weighted second-price auction (GSP)",
+   "clause": "era 7 kills the GSP"
+  },
+  {
+   "from": "Google",
+   "type": "HAS",
+   "to": "Google ad-tech take rate measurement",
+   "clause": "Google's ad-tech take rate"
+  },
+  {
+   "from": "Google",
+   "type": "HAS",
+   "to": "AdX fee measurement",
+   "clause": "Google's AdX fee"
+  },
+  {
+   "from": "Google ad-tech take rate measurement",
+   "type": "LOCATED_IN",
+   "to": "Era 7",
+   "clause": "inside era 7"
+  },
+  {
+   "from": "AdX fee measurement",
+   "type": "LOCATED_IN",
+   "to": "Era 7",
+   "clause": "inside era 7"
+  },
+  {
+   "from": "Google ad-tech take rate measurement",
+   "type": "EXCLUDES",
+   "to": "Era 6",
+   "clause": "not era 6"
+  },
+  {
+   "from": "AdX fee measurement",
+   "type": "EXCLUDES",
+   "to": "Era 6",
+   "clause": "not era 6"
+  },
+  {
+   "from": "Google ad-tech take rate measurement",
+   "type": "PROVIDED_BY",
+   "to": "DOJ",
+   "clause": "per the DOJ"
+  },
+  {
+   "from": "AdX fee measurement",
+   "type": "PROVIDED_BY",
+   "to": "DOJ",
+   "clause": "per the DOJ"
+  },
+  {
+   "from": "platform revenue",
+   "type": "INCLUDES",
+   "to": "money-type split",
+   "clause": "large share ... money older series never counted as advertising"
+  },
+  {
+   "from": "record",
+   "type": "CARRIES",
+   "to": "money-type split",
+   "clause": "record carries a rebuilt money-type split rather than a published one"
+  },
+  {
+   "from": "Silk & Berndt",
+   "type": "TREAT_AS_OPEN_QUESTION",
+   "to": "US ad spend share of GDP",
+   "clause": "treat this as an open question"
+  },
+  {
+   "from": "claim e7-medium-003",
+   "type": "REJECTED",
+   "to": "EMARKETER dataset",
+   "clause": "was rejected; EMARKETER piece reports ..."
+  },
+  {
+   "from": "claim e7-medium-003",
+   "type": "REPLACED_BY",
+   "to": "EMARKETER dataset",
+   "clause": "replaced by ... EMARKETER-sourced figure"
+  },
+  {
+   "from": "SQ Magazine source",
+   "type": "DROPPED_FROM",
+   "to": "claim e7-medium-003",
+   "clause": "citation is dropped"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|era boundary|data seam|the era boundary is a real data seam\nNODE|date|temporal marker|not just a date\nNODE|Coen/McCann Structured Advertising Expenditure Dataset|advertising expenditure dataset|the Coen/McCann Structured Advertising Expenditure Dataset ... only continuous US by-medium series\nNODE|total US ad spend amount|monetary measurement|ends with ... of total US ad spend\nNODE|US ad spend share of GDP|share-of-GDP measurement|ends with ... of GDP\nNODE|Era 7|market era|Era 7 runs on IAB/PwC for the digital half and MAGNA/eMarketer for the all-media total\nNODE|IAB/PwC digital series|digital-half data series|runs on IAB/PwC for the digital half\nNODE|MAGNA/eMarketer all-media series|all-media data series|runs on MAGNA/eMarketer for the all-media total\nNODE|Era 6|market era|Era 6 should close with US internet ad revenue ...\nNODE|US internet ad revenue amount|monetary measurement|close with ... for 2007 and open with ... for 2008\nNODE|Google|technology company|Google completed the DoubleClick acquisition\nNODE|DoubleClick acquisition|corporate acquisition event|completed the DoubleClick acquisition on ... announced in era 6 closed in era 7\nNODE|quality-weighted second-price auction (GSP)|auction mechanism|the quality-weighted second-price auction that era 6 owns is killed by era 7\nNODE|Google ad-tech take rate measurement|take-rate measurement|Google's ad-tech take rate dates from ... per DOJ\nNODE|AdX fee measurement|fee percentage measurement|AdX 20% fee dates from ... per DOJ\nNODE|DOJ|regulatory agency|per the DOJ\nNODE|platform revenue|revenue type|a large share of platform revenue is money older series never counted as advertising\nNODE|money-type split|data classification|record carries a rebuilt money-type split rather than a published one\nNODE|Silk & Berndt|researchers|Silk & Berndt treat this as an open question\nNODE|claim e7-medium-003|ad spend claim|Claim e7-medium-003 was rejected in adversarial verification\nNODE|EMARKETER dataset|market research dataset|the cited EMARKETER piece reports ...\nNODE|SQ Magazine source|publication|the SQ Magazine citation is dropped\nNODE|record|data record|the record carries a rebuilt money-type split\n\nEDGE|era boundary|EXCLUDES|date|not just a date\nEDGE|Coen/McCann Structured Advertising Expenditure Dataset|MEASURES|total US ad spend amount|ends with ... of total US ad spend\nEDGE|Coen/McCann Structured Advertising Expenditure Dataset|MEASURES|US ad spend share of GDP|ends with ... of GDP\nEDGE|Era 7|USES|IAB/PwC digital series|runs on IAB/PwC for the digital half\nEDGE|Era 7|USES|MAGNA/eMarketer all-media series|runs on MAGNA/eMarketer for the all-media total\nEDGE|IAB/PwC digital series|NOT_IDENTICAL|Coen/McCann Structured Advertising Expenditure Dataset|not definitionally identical to Coen\nEDGE|MAGNA/eMarketer all-media series|NOT_IDENTICAL|Coen/McCann Structured Advertising Expenditure Dataset|not definitionally identical to Coen\nEDGE|Era 6|CLOSES_WITH|US internet ad revenue amount|close with ... for 2007\nEDGE|Era 7|OPENS_WITH|US internet ad revenue amount|opens at ... for 2008\nEDGE|Era 6|AGREES_EXACTLY_WITH|Era 7|must agree exactly on these numbers\nEDGE|Google|COMPLETED|DoubleClick acquisition|completed the DoubleClick acquisition\nEDGE|DoubleClick acquisition|ANNOUNCED_IN|Era 6|announced in era 6\nEDGE|DoubleClick acquisition|CLOSED_IN|Era 7|closed in era 7\nEDGE|Era 6|OWNS|quality-weighted second-price auction (GSP)|the GSP that era 6 owns\nEDGE|Era 7|KILLS|quality-weighted second-price auction (GSP)|era 7 kills the GSP\nEDGE|Google|HAS|Google ad-tech take rate measurement|Google's ad-tech take rate\nEDGE|Google|HAS|AdX fee measurement|Google's AdX fee\nEDGE|Google ad-tech take rate measurement|LOCATED_IN|Era 7|inside era 7\nEDGE|AdX fee measurement|LOCATED_IN|Era 7|inside era 7\nEDGE|Google ad-tech take rate measurement|EXCLUDES|Era 6|not era 6\nEDGE|AdX fee measurement|EXCLUDES|Era 6|not era 6\nEDGE|Google ad-tech take rate measurement|PROVIDED_BY|DOJ|per the DOJ\nEDGE|AdX fee measurement|PROVIDED_BY|DOJ|per the DOJ\nEDGE|platform revenue|INCLUDES|money-type split|large share ... money older series never counted as advertising\nEDGE|record|CARRIES|money-type split|record carries a rebuilt money-type split rather than a published one\nEDGE|Silk & Berndt|TREAT_AS_OPEN_QUESTION|US ad spend share of GDP|treat this as an open question\nEDGE|claim e7-medium-003|REJECTED|EMARKETER dataset|was rejected; EMARKETER piece reports ...\nEDGE|claim e7-medium-003|REPLACED_BY|EMARKETER dataset|replaced by ... EMARKETER-sourced figure\nEDGE|SQ Magazine source|DROPPED_FROM|claim e7-medium-003|citation is dropped"
+}

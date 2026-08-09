@@ -1,0 +1,289 @@
+{
+ "id": "e1-buyers-008",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "USD millions (current), 1914 benchmark",
+ "elapsed_s": 138.2,
+ "error": null,
+ "n_nodes": 23,
+ "n_edges": 26,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct-response buyers",
+   "type": "advertiser group",
+   "clause": "Direct-response buyers ... spent ..."
+  },
+  {
+   "name": "direct-response spend amount",
+   "type": "spend measurement",
+   "clause": "spent about ... in ..."
+  },
+  {
+   "name": "1914 benchmark total",
+   "type": "benchmark measurement",
+   "clause": "set as ... of the benchmark total"
+  },
+  {
+   "name": "Printers' Ink",
+   "type": "trade publication",
+   "clause": "The largest single input is Printers' Ink..."
+  },
+  {
+   "name": "direct mail category",
+   "type": "advertising category",
+   "clause": "tabulates direct mail at ..."
+  },
+  {
+   "name": "farm and mail-order category",
+   "type": "advertising category",
+   "clause": "tabulates farm and mail-order at ..."
+  },
+  {
+   "name": "sampling category",
+   "type": "advertising activity",
+   "clause": "tabulates sampling at ..."
+  },
+  {
+   "name": "distributing category",
+   "type": "advertising activity",
+   "clause": "tabulates distributing at ..."
+  },
+  {
+   "name": "house organs category",
+   "type": "advertising medium",
+   "clause": "tabulates house organs at ..."
+  },
+  {
+   "name": "direct mail amount",
+   "type": "spend measurement",
+   "clause": "direct mail at ..."
+  },
+  {
+   "name": "farm and mail-order amount",
+   "type": "spend measurement",
+   "clause": "farm and mail-order at ..."
+  },
+  {
+   "name": "sampling amount",
+   "type": "spend measurement",
+   "clause": "sampling at ..."
+  },
+  {
+   "name": "distributing amount",
+   "type": "spend measurement",
+   "clause": "distributing at ..."
+  },
+  {
+   "name": "house organs amount",
+   "type": "spend measurement",
+   "clause": "house organs at ..."
+  },
+  {
+   "name": "sum of five lines amount",
+   "type": "aggregate spend measurement",
+   "clause": "Those five lines sum to ..."
+  },
+  {
+   "name": "route D1",
+   "type": "distribution route",
+   "clause": "route D1 takes only ... of the direct-mail line"
+  },
+  {
+   "name": "direct-mail line category",
+   "type": "advertising channel",
+   "clause": "direct-mail line as direct response"
+  },
+  {
+   "name": "route D1 share of direct-mail line",
+   "type": "percentage measurement",
+   "clause": "takes only ... of the direct-mail line"
+  },
+  {
+   "name": "route D1 direct-response amount",
+   "type": "spend measurement",
+   "clause": "giving ..."
+  },
+  {
+   "name": "four-route blend",
+   "type": "distribution blend",
+   "clause": "of a four-route blend"
+  },
+  {
+   "name": "route D1 weight in blend",
+   "type": "weight measurement",
+   "clause": "carries weight ..."
+  },
+  {
+   "name": "grown direct-response amount",
+   "type": "adjusted spend measurement",
+   "clause": "grown ... to 1914 = ..."
+  },
+  {
+   "name": "central direct-response amount",
+   "type": "central spend measurement",
+   "clause": "The central of ... is set as ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct-response buyers",
+   "type": "HAS_SPEND",
+   "to": "direct-response spend amount",
+   "clause": "spent about ... in ..."
+  },
+  {
+   "from": "direct-response spend amount",
+   "type": "SHARE_OF",
+   "to": "1914 benchmark total",
+   "clause": "roughly ... of the benchmark total"
+  },
+  {
+   "from": "Printers' Ink",
+   "type": "TABULATES",
+   "to": "direct mail amount",
+   "clause": "tabulates direct mail at ..."
+  },
+  {
+   "from": "Printers' Ink",
+   "type": "TABULATES",
+   "to": "farm and mail-order amount",
+   "clause": "tabulates farm and mail-order at ..."
+  },
+  {
+   "from": "Printers' Ink",
+   "type": "TABULATES",
+   "to": "sampling amount",
+   "clause": "tabulates sampling at ..."
+  },
+  {
+   "from": "Printers' Ink",
+   "type": "TABULATES",
+   "to": "distributing amount",
+   "clause": "tabulates distributing at ..."
+  },
+  {
+   "from": "Printers' Ink",
+   "type": "TABULATES",
+   "to": "house organs amount",
+   "clause": "tabulates house organs at ..."
+  },
+  {
+   "from": "direct mail amount",
+   "type": "MEASURES",
+   "to": "direct mail category",
+   "clause": "direct mail at ..."
+  },
+  {
+   "from": "farm and mail-order amount",
+   "type": "MEASURES",
+   "to": "farm and mail-order category",
+   "clause": "farm and mail-order at ..."
+  },
+  {
+   "from": "sampling amount",
+   "type": "MEASURES",
+   "to": "sampling category",
+   "clause": "sampling at ..."
+  },
+  {
+   "from": "distributing amount",
+   "type": "MEASURES",
+   "to": "distributing category",
+   "clause": "distributing at ..."
+  },
+  {
+   "from": "house organs amount",
+   "type": "MEASURES",
+   "to": "house organs category",
+   "clause": "house organs at ..."
+  },
+  {
+   "from": "sum of five lines amount",
+   "type": "COMPOSED_OF",
+   "to": "direct mail amount",
+   "clause": "Those five lines sum to ..."
+  },
+  {
+   "from": "sum of five lines amount",
+   "type": "COMPOSED_OF",
+   "to": "farm and mail-order amount",
+   "clause": "..."
+  },
+  {
+   "from": "sum of five lines amount",
+   "type": "COMPOSED_OF",
+   "to": "sampling amount",
+   "clause": "..."
+  },
+  {
+   "from": "sum of five lines amount",
+   "type": "COMPOSED_OF",
+   "to": "distributing amount",
+   "clause": "..."
+  },
+  {
+   "from": "sum of five lines amount",
+   "type": "COMPOSED_OF",
+   "to": "house organs amount",
+   "clause": "..."
+  },
+  {
+   "from": "sum of five lines amount",
+   "type": "NOT_CENTRAL",
+   "to": "central direct-response amount",
+   "clause": "are not the central"
+  },
+  {
+   "from": "route D1",
+   "type": "HAS_SHARE",
+   "to": "route D1 share of direct-mail line",
+   "clause": "takes only ... of the direct-mail line"
+  },
+  {
+   "from": "route D1 share of direct-mail line",
+   "type": "PERCENT_OF",
+   "to": "direct-mail line category",
+   "clause": "of the direct-mail line as direct response"
+  },
+  {
+   "from": "route D1",
+   "type": "HAS_SPEND",
+   "to": "route D1 direct-response amount",
+   "clause": "giving ..."
+  },
+  {
+   "from": "route D1",
+   "type": "HAS_WEIGHT",
+   "to": "route D1 weight in blend",
+   "clause": "carries weight ..."
+  },
+  {
+   "from": "route D1 weight in blend",
+   "type": "WEIGHT_IN",
+   "to": "four-route blend",
+   "clause": "of a four-route blend"
+  },
+  {
+   "from": "grown direct-response amount",
+   "type": "GROWN_FROM",
+   "to": "route D1 direct-response amount",
+   "clause": "grown ... to 1914 = ..."
+  },
+  {
+   "from": "central direct-response amount",
+   "type": "SET_AS_PERCENT_OF",
+   "to": "1914 benchmark total",
+   "clause": "set as ... of the benchmark"
+  },
+  {
+   "from": "central direct-response amount",
+   "type": "NOT_DERIVED_FROM",
+   "to": "sum of five lines amount",
+   "clause": "not as a sum of source lines"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct-response buyers|advertiser group|Direct-response buyers ... spent ...\nNODE|direct-response spend amount|spend measurement|spent about ... in ...\nNODE|1914 benchmark total|benchmark measurement|set as ... of the benchmark total\nNODE|Printers' Ink|trade publication|The largest single input is Printers' Ink...\nNODE|direct mail category|advertising category|tabulates direct mail at ...\nNODE|farm and mail-order category|advertising category|tabulates farm and mail-order at ...\nNODE|sampling category|advertising activity|tabulates sampling at ...\nNODE|distributing category|advertising activity|tabulates distributing at ...\nNODE|house organs category|advertising medium|tabulates house organs at ...\nNODE|direct mail amount|spend measurement|direct mail at ...\nNODE|farm and mail-order amount|spend measurement|farm and mail-order at ...\nNODE|sampling amount|spend measurement|sampling at ...\nNODE|distributing amount|spend measurement|distributing at ...\nNODE|house organs amount|spend measurement|house organs at ...\nNODE|sum of five lines amount|aggregate spend measurement|Those five lines sum to ... \nNODE|route D1|distribution route|route D1 takes only ... of the direct-mail line\nNODE|direct-mail line category|advertising channel|direct-mail line as direct response\nNODE|route D1 share of direct-mail line|percentage measurement|takes only ... of the direct-mail line\nNODE|route D1 direct-response amount|spend measurement|giving ...\nNODE|four-route blend|distribution blend|of a four-route blend\nNODE|route D1 weight in blend|weight measurement|carries weight ...\nNODE|grown direct-response amount|adjusted spend measurement|grown ... to 1914 = ...\nNODE|central direct-response amount|central spend measurement|The central of ... is set as ...\n\nEDGE|direct-response buyers|HAS_SPEND|direct-response spend amount|spent about ... in ...\nEDGE|direct-response spend amount|SHARE_OF|1914 benchmark total|roughly ... of the benchmark total\nEDGE|Printers' Ink|TABULATES|direct mail amount|tabulates direct mail at ...\nEDGE|Printers' Ink|TABULATES|farm and mail-order amount|tabulates farm and mail-order at ...\nEDGE|Printers' Ink|TABULATES|sampling amount|tabulates sampling at ...\nEDGE|Printers' Ink|TABULATES|distributing amount|tabulates distributing at ...\nEDGE|Printers' Ink|TABULATES|house organs amount|tabulates house organs at ...\nEDGE|direct mail amount|MEASURES|direct mail category|direct mail at ...\nEDGE|farm and mail-order amount|MEASURES|farm and mail-order category|farm and mail-order at ...\nEDGE|sampling amount|MEASURES|sampling category|sampling at ...\nEDGE|distributing amount|MEASURES|distributing category|distributing at ...\nEDGE|house organs amount|MEASURES|house organs category|house organs at ...\nEDGE|sum of five lines amount|COMPOSED_OF|direct mail amount|Those five lines sum to ...\nEDGE|sum of five lines amount|COMPOSED_OF|farm and mail-order amount|...\nEDGE|sum of five lines amount|COMPOSED_OF|sampling amount|...\nEDGE|sum of five lines amount|COMPOSED_OF|distributing amount|...\nEDGE|sum of five lines amount|COMPOSED_OF|house organs amount|...\nEDGE|sum of five lines amount|NOT_CENTRAL|central direct-response amount|are not the central\nEDGE|route D1|HAS_SHARE|route D1 share of direct-mail line|takes only ... of the direct-mail line\nEDGE|route D1 share of direct-mail line|PERCENT_OF|direct-mail line category|of the direct-mail line as direct response\nEDGE|route D1|HAS_SPEND|route D1 direct-response amount|giving ...\nEDGE|route D1|HAS_WEIGHT|route D1 weight in blend|carries weight ...\nEDGE|route D1 weight in blend|WEIGHT_IN|four-route blend|of a four-route blend\nEDGE|grown direct-response amount|GROWN_FROM|route D1 direct-response amount|grown ... to 1914 = ...\nEDGE|central direct-response amount|SET_AS_PERCENT_OF|1914 benchmark total|set as ... of the benchmark\nEDGE|central direct-response amount|NOT_DERIVED_FROM|sum of five lines amount|not as a sum of source lines"
+}

@@ -1,0 +1,229 @@
+{
+ "id": "e6-buyers-003",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "% of US internet ad revenue from retail advertisers, FY2008",
+ "elapsed_s": 80.8,
+ "error": null,
+ "n_nodes": 17,
+ "n_edges": 21,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "retail advertisers",
+   "type": "buyer category",
+   "clause": "Retail advertisers were the largest buyer category of US internet advertising in 2008"
+  },
+  {
+   "name": "financial services",
+   "type": "buyer category",
+   "clause": "Financial services followed retail advertisers in US internet advertising in 2008"
+  },
+  {
+   "name": "automotive",
+   "type": "buyer category",
+   "clause": "Automotive followed financial services in US internet advertising in 2008"
+  },
+  {
+   "name": "computing",
+   "type": "buyer category",
+   "clause": "Computing followed automotive in US internet advertising in 2008"
+  },
+  {
+   "name": "telecom",
+   "type": "buyer category",
+   "clause": "Telecom followed computing in US internet advertising in 2008"
+  },
+  {
+   "name": "US internet ad revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "US internet ad revenue"
+  },
+  {
+   "name": "US internet advertising",
+   "type": "advertising market",
+   "clause": "US internet advertising"
+  },
+  {
+   "name": "retail advertisers revenue share of US internet ad revenue FY2008",
+   "type": "share measurement",
+   "clause": "at ... of revenues"
+  },
+  {
+   "name": "retail advertisers revenue amount FY2008",
+   "type": "revenue measurement",
+   "clause": "... $... billion"
+  },
+  {
+   "name": "financial services revenue share of US internet ad revenue FY2008",
+   "type": "share measurement",
+   "clause": "at ... of revenues"
+  },
+  {
+   "name": "financial services revenue amount FY2008",
+   "type": "revenue measurement",
+   "clause": "... $... billion"
+  },
+  {
+   "name": "automotive revenue share of US internet ad revenue FY2008",
+   "type": "share measurement",
+   "clause": "at ... of revenues"
+  },
+  {
+   "name": "automotive revenue amount FY2008",
+   "type": "revenue measurement",
+   "clause": "... $... billion"
+  },
+  {
+   "name": "computing revenue share of US internet ad revenue FY2008",
+   "type": "share measurement",
+   "clause": "at ... of revenues"
+  },
+  {
+   "name": "computing revenue amount FY2008",
+   "type": "revenue measurement",
+   "clause": "... $... billion"
+  },
+  {
+   "name": "telecom revenue share of US internet ad revenue FY2008",
+   "type": "share measurement",
+   "clause": "at ... of revenues"
+  },
+  {
+   "name": "telecom revenue amount FY2008",
+   "type": "revenue measurement",
+   "clause": "... $... billion"
+  }
+ ],
+ "edges": [
+  {
+   "from": "retail advertisers",
+   "type": "WAS_LARGEST_CATEGORY",
+   "to": "US internet advertising",
+   "clause": "largest buyer category in 2008"
+  },
+  {
+   "from": "retail advertisers",
+   "type": "BUYER_CATEGORY_IN",
+   "to": "US internet advertising",
+   "clause": "buyer category in US internet advertising"
+  },
+  {
+   "from": "financial services",
+   "type": "BUYER_CATEGORY_IN",
+   "to": "US internet advertising",
+   "clause": "buyer category in US internet advertising"
+  },
+  {
+   "from": "automotive",
+   "type": "BUYER_CATEGORY_IN",
+   "to": "US internet advertising",
+   "clause": "buyer category in US internet advertising"
+  },
+  {
+   "from": "computing",
+   "type": "BUYER_CATEGORY_IN",
+   "to": "US internet advertising",
+   "clause": "buyer category in US internet advertising"
+  },
+  {
+   "from": "telecom",
+   "type": "BUYER_CATEGORY_IN",
+   "to": "US internet advertising",
+   "clause": "buyer category in US internet advertising"
+  },
+  {
+   "from": "retail advertisers",
+   "type": "HAS_SHARE",
+   "to": "retail advertisers revenue share of US internet ad revenue FY2008",
+   "clause": "at ... of revenues"
+  },
+  {
+   "from": "retail advertisers revenue share of US internet ad revenue FY2008",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "share of US internet ad revenue"
+  },
+  {
+   "from": "retail advertisers",
+   "type": "HAS_REVENUE",
+   "to": "retail advertisers revenue amount FY2008",
+   "clause": "... $... billion"
+  },
+  {
+   "from": "financial services",
+   "type": "HAS_SHARE",
+   "to": "financial services revenue share of US internet ad revenue FY2008",
+   "clause": "at ... of revenues"
+  },
+  {
+   "from": "financial services revenue share of US internet ad revenue FY2008",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "share of US internet ad revenue"
+  },
+  {
+   "from": "financial services",
+   "type": "HAS_REVENUE",
+   "to": "financial services revenue amount FY2008",
+   "clause": "... $... billion"
+  },
+  {
+   "from": "automotive",
+   "type": "HAS_SHARE",
+   "to": "automotive revenue share of US internet ad revenue FY2008",
+   "clause": "at ... of revenues"
+  },
+  {
+   "from": "automotive revenue share of US internet ad revenue FY2008",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "share of US internet ad revenue"
+  },
+  {
+   "from": "automotive",
+   "type": "HAS_REVENUE",
+   "to": "automotive revenue amount FY2008",
+   "clause": "... $... billion"
+  },
+  {
+   "from": "computing",
+   "type": "HAS_SHARE",
+   "to": "computing revenue share of US internet ad revenue FY2008",
+   "clause": "at ... of revenues"
+  },
+  {
+   "from": "computing revenue share of US internet ad revenue FY2008",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "share of US internet ad revenue"
+  },
+  {
+   "from": "computing",
+   "type": "HAS_REVENUE",
+   "to": "computing revenue amount FY2008",
+   "clause": "... $... billion"
+  },
+  {
+   "from": "telecom",
+   "type": "HAS_SHARE",
+   "to": "telecom revenue share of US internet ad revenue FY2008",
+   "clause": "at ... of revenues"
+  },
+  {
+   "from": "telecom revenue share of US internet ad revenue FY2008",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "share of US internet ad revenue"
+  },
+  {
+   "from": "telecom",
+   "type": "HAS_REVENUE",
+   "to": "telecom revenue amount FY2008",
+   "clause": "... $... billion"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|retail advertisers|buyer category|Retail advertisers were the largest buyer category of US internet advertising in 2008\nNODE|financial services|buyer category|Financial services followed retail advertisers in US internet advertising in 2008\nNODE|automotive|buyer category|Automotive followed financial services in US internet advertising in 2008\nNODE|computing|buyer category|Computing followed automotive in US internet advertising in 2008\nNODE|telecom|buyer category|Telecom followed computing in US internet advertising in 2008\nNODE|US internet ad revenue|advertising revenue aggregate|US internet ad revenue\nNODE|US internet advertising|advertising market|US internet advertising\nNODE|retail advertisers revenue share of US internet ad revenue FY2008|share measurement|at ... of revenues\nNODE|retail advertisers revenue amount FY2008|revenue measurement|... $... billion\nNODE|financial services revenue share of US internet ad revenue FY2008|share measurement|at ... of revenues\nNODE|financial services revenue amount FY2008|revenue measurement|... $... billion\nNODE|automotive revenue share of US internet ad revenue FY2008|share measurement|at ... of revenues\nNODE|automotive revenue amount FY2008|revenue measurement|... $... billion\nNODE|computing revenue share of US internet ad revenue FY2008|share measurement|at ... of revenues\nNODE|computing revenue amount FY2008|revenue measurement|... $... billion\nNODE|telecom revenue share of US internet ad revenue FY2008|share measurement|at ... of revenues\nNODE|telecom revenue amount FY2008|revenue measurement|... $... billion\nEDGE|retail advertisers|WAS_LARGEST_CATEGORY|US internet advertising|largest buyer category in 2008\nEDGE|retail advertisers|BUYER_CATEGORY_IN|US internet advertising|buyer category in US internet advertising\nEDGE|financial services|BUYER_CATEGORY_IN|US internet advertising|buyer category in US internet advertising\nEDGE|automotive|BUYER_CATEGORY_IN|US internet advertising|buyer category in US internet advertising\nEDGE|computing|BUYER_CATEGORY_IN|US internet advertising|buyer category in US internet advertising\nEDGE|telecom|BUYER_CATEGORY_IN|US internet advertising|buyer category in US internet advertising\nEDGE|retail advertisers|HAS_SHARE|retail advertisers revenue share of US internet ad revenue FY2008|at ... of revenues\nEDGE|retail advertisers revenue share of US internet ad revenue FY2008|SHARE_OF|US internet ad revenue|share of US internet ad revenue\nEDGE|retail advertisers|HAS_REVENUE|retail advertisers revenue amount FY2008|... $... billion\nEDGE|financial services|HAS_SHARE|financial services revenue share of US internet ad revenue FY2008|at ... of revenues\nEDGE|financial services revenue share of US internet ad revenue FY2008|SHARE_OF|US internet ad revenue|share of US internet ad revenue\nEDGE|financial services|HAS_REVENUE|financial services revenue amount FY2008|... $... billion\nEDGE|automotive|HAS_SHARE|automotive revenue share of US internet ad revenue FY2008|at ... of revenues\nEDGE|automotive revenue share of US internet ad revenue FY2008|SHARE_OF|US internet ad revenue|share of US internet ad revenue\nEDGE|automotive|HAS_REVENUE|automotive revenue amount FY2008|... $... billion\nEDGE|computing|HAS_SHARE|computing revenue share of US internet ad revenue FY2008|at ... of revenues\nEDGE|computing revenue share of US internet ad revenue FY2008|SHARE_OF|US internet ad revenue|share of US internet ad revenue\nEDGE|computing|HAS_REVENUE|computing revenue amount FY2008|... $... billion\nEDGE|telecom|HAS_SHARE|telecom revenue share of US internet ad revenue FY2008|at ... of revenues\nEDGE|telecom revenue share of US internet ad revenue FY2008|SHARE_OF|US internet ad revenue|share of US internet ad revenue\nEDGE|telecom|HAS_REVENUE|telecom revenue amount FY2008|... $... billion"
+}

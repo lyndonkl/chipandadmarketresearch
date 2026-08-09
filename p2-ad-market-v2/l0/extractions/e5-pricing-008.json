@@ -1,0 +1,182 @@
+{
+ "id": "e5-pricing-008",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1996,
+ "unit": "USD millions per placement slot per year",
+ "elapsed_s": 70.7,
+ "error": null,
+ "n_nodes": 16,
+ "n_edges": 14,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "implied annual price of Premier Provider slot",
+   "type": "price measurement",
+   "clause": "implied annual price of one ... slot"
+  },
+  {
+   "name": "Excite",
+   "type": "company",
+   "clause": "Excite's April 1996 agreements..."
+  },
+  {
+   "name": "McKinley brand",
+   "type": "brand",
+   "clause": "... its McKinley brand..."
+  },
+  {
+   "name": "April 1996 agreement",
+   "type": "sponsorship contract",
+   "clause": "Excite's April 1996 agreements..."
+  },
+  {
+   "name": "Netscape Net Search page",
+   "type": "web page",
+   "clause": "on Netscape's Net Search page"
+  },
+  {
+   "name": "Premier Provider slot",
+   "type": "ad placement slot type",
+   "clause": "Premier Provider slots on Netscape..."
+  },
+  {
+   "name": "$10M payment measurement",
+   "type": "aggregate payment measurement",
+   "clause": "payments totalling ... over one year"
+  },
+  {
+   "name": "March 1997 renewal",
+   "type": "sponsorship contract",
+   "clause": "The March 1997 renewal committed..."
+  },
+  {
+   "name": "$8.25M minimum payment measurement",
+   "type": "aggregate payment measurement",
+   "clause": "minimum aggregate payments of ... covering both slots"
+  },
+  {
+   "name": "Marquee Provider slot",
+   "type": "ad placement slot type",
+   "clause": "a Marquee Provider slot..."
+  },
+  {
+   "name": "WebCrawler brand",
+   "type": "brand",
+   "clause": "... WebCrawler..."
+  },
+  {
+   "name": "portal anchor tenancy",
+   "type": "sponsorship contract",
+   "clause": "Portal anchor tenancy was the era's sponsorship contract"
+  },
+  {
+   "name": "fixed fee pricing model",
+   "type": "pricing model",
+   "clause": "fixed fee for guaranteed placement"
+  },
+  {
+   "name": "guaranteed placement",
+   "type": "placement guarantee",
+   "clause": "fixed fee for guaranteed placement"
+  },
+  {
+   "name": "magazine cover position pricing analogy",
+   "type": "pricing analogy",
+   "clause": "priced like a magazine cover position"
+  },
+  {
+   "name": "per impression pricing metric",
+   "type": "pricing metric",
+   "clause": "not per impression"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Excite",
+   "type": "HAS_AGREEMENT",
+   "to": "April 1996 agreement",
+   "clause": "Excite's April 1996 agreements..."
+  },
+  {
+   "from": "McKinley brand",
+   "type": "PART_OF_AGREEMENT",
+   "to": "April 1996 agreement",
+   "clause": "... its McKinley brand..."
+  },
+  {
+   "from": "April 1996 agreement",
+   "type": "PLACED_IN",
+   "to": "Premier Provider slot",
+   "clause": "placed in two of the five slots"
+  },
+  {
+   "from": "April 1996 agreement",
+   "type": "PAID_TOTAL",
+   "to": "$10M payment measurement",
+   "clause": "payments totalling ... over one year"
+  },
+  {
+   "from": "Excite",
+   "type": "HAS_AGREEMENT",
+   "to": "March 1997 renewal",
+   "clause": "The March 1997 renewal committed..."
+  },
+  {
+   "from": "WebCrawler brand",
+   "type": "PART_OF_AGREEMENT",
+   "to": "March 1997 renewal",
+   "clause": "... WebCrawler..."
+  },
+  {
+   "from": "March 1997 renewal",
+   "type": "COVERS_SLOT",
+   "to": "Premier Provider slot",
+   "clause": "covering one of four slots"
+  },
+  {
+   "from": "March 1997 renewal",
+   "type": "COVERS_SLOT",
+   "to": "Marquee Provider slot",
+   "clause": "and a Marquee Provider slot"
+  },
+  {
+   "from": "March 1997 renewal",
+   "type": "PAID_MINIMUM",
+   "to": "$8.25M minimum payment measurement",
+   "clause": "minimum aggregate payments of ... covering both slots"
+  },
+  {
+   "from": "implied annual price of Premier Provider slot",
+   "type": "LESS_THAN",
+   "to": "$8.25M minimum payment measurement",
+   "clause": "Premier slot alone cost less than ..."
+  },
+  {
+   "from": "portal anchor tenancy",
+   "type": "HAS_PRICING_MODEL",
+   "to": "fixed fee pricing model",
+   "clause": "fixed fee for guaranteed placement"
+  },
+  {
+   "from": "portal anchor tenancy",
+   "type": "GUARANTEES",
+   "to": "guaranteed placement",
+   "clause": "fixed fee for guaranteed placement"
+  },
+  {
+   "from": "fixed fee pricing model",
+   "type": "ANALOGOUS_TO",
+   "to": "magazine cover position pricing analogy",
+   "clause": "priced like a magazine cover position"
+  },
+  {
+   "from": "portal anchor tenancy",
+   "type": "EXCLUDES",
+   "to": "per impression pricing metric",
+   "clause": "not per impression"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|implied annual price of Premier Provider slot|price measurement|implied annual price of one ... slot\nNODE|Excite|company|Excite's April 1996 agreements...\nNODE|McKinley brand|brand|... its McKinley brand...\nNODE|April 1996 agreement|sponsorship contract|Excite's April 1996 agreements...\nNODE|Netscape Net Search page|web page|on Netscape's Net Search page\nNODE|Premier Provider slot|ad placement slot type|Premier Provider slots on Netscape...\nNODE|$10M payment measurement|aggregate payment measurement|payments totalling ... over one year\nNODE|March 1997 renewal|sponsorship contract|The March 1997 renewal committed...\nNODE|$8.25M minimum payment measurement|aggregate payment measurement|minimum aggregate payments of ... covering both slots\nNODE|Marquee Provider slot|ad placement slot type|a Marquee Provider slot...\nNODE|WebCrawler brand|brand|... WebCrawler...\nNODE|portal anchor tenancy|sponsorship contract|Portal anchor tenancy was the era's sponsorship contract\n NODE|fixed fee pricing model|pricing model|fixed fee for guaranteed placement\nNODE|guaranteed placement|placement guarantee|fixed fee for guaranteed placement\nNODE|magazine cover position pricing analogy|pricing analogy|priced like a magazine cover position\nNODE|per impression pricing metric|pricing metric|not per impression\nEDGE|Excite|HAS_AGREEMENT|April 1996 agreement|Excite's April 1996 agreements...\nEDGE|McKinley brand|PART_OF_AGREEMENT|April 1996 agreement|... its McKinley brand...\nEDGE|April 1996 agreement|PLACED_IN|Premier Provider slot|placed in two of the five slots\nEDGE|April 1996 agreement|PAID_TOTAL|$10M payment measurement|payments totalling ... over one year\nEDGE|Excite|HAS_AGREEMENT|March 1997 renewal|The March 1997 renewal committed...\nEDGE|WebCrawler brand|PART_OF_AGREEMENT|March 1997 renewal|... WebCrawler...\nEDGE|March 1997 renewal|COVERS_SLOT|Premier Provider slot|covering one of four slots\nEDGE|March 1997 renewal|COVERS_SLOT|Marquee Provider slot|and a Marquee Provider slot\nEDGE|March 1997 renewal|PAID_MINIMUM|$8.25M minimum payment measurement|minimum aggregate payments of ... covering both slots\nEDGE|implied annual price of Premier Provider slot|LESS_THAN|$8.25M minimum payment measurement|Premier slot alone cost less than ...\nEDGE|portal anchor tenancy|HAS_PRICING_MODEL|fixed fee pricing model|fixed fee for guaranteed placement\nEDGE|portal anchor tenancy|GUARANTEES|guaranteed placement|fixed fee for guaranteed placement\nEDGE|fixed fee pricing model|ANALOGOUS_TO|magazine cover position pricing analogy|priced like a magazine cover position\nEDGE|portal anchor tenancy|EXCLUDES|per impression pricing metric|not per impression"
+}

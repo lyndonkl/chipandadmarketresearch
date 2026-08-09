@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|82411602a7c016b7",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "direct-mail advertising spend",
+   "type": "advertising spend aggregate",
+   "grain": "Entity",
+   "reason": "singleton: total direct\u2011mail ad spend",
+   "child_uids": [
+    "n|e4-pricing-006|direct-mail advertising spend|advertising spend aggregate"
+   ]
+  },
+  {
+   "name": "non-postage components of direct-mail advertising spend",
+   "type": "cost component group",
+   "grain": "Entity",
+   "reason": "singleton: subset component of direct\u2011mail spend",
+   "child_uids": [
+    "n|e4-pricing-006|non-postage components of direct-mail advertising spend|cost component group"
+   ]
+  },
+  {
+   "name": "direct mail advertising budget",
+   "type": "budget",
+   "grain": "Entity",
+   "reason": "singleton: planned budget for direct\u2011mail ads",
+   "child_uids": [
+    "n|tu:era:6:event:9|direct mail advertising budget|budget"
+   ]
+  }
+ ]
+}

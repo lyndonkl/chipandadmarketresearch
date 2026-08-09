@@ -1,0 +1,148 @@
+{
+ "group_id": "L1|d59644377c9518f1",
+ "source": "kmeans",
+ "n_in": 21,
+ "parents": [
+  {
+   "name": "Price level",
+   "type": "price level",
+   "grain": "Entity",
+   "reason": "same concept across upfront and middleman prices",
+   "child_uids": [
+    "n|e3-pricing-007|upfront sale prices|price level",
+    "n|tu:era:1:event:9|middleman's price|price level"
+   ]
+  },
+  {
+   "name": "Format-price experiments",
+   "type": "experiment series",
+   "grain": "Entity",
+   "reason": "both are experiment series about format-price",
+   "child_uids": [
+    "n|e7-pricing-002|format-price experiments|experiment series",
+    "n|mech-format_pricing-001|individual format-price experiments|experiment series"
+   ]
+  },
+  {
+   "name": "Pricing model",
+   "type": "pricing model",
+   "grain": "Entity",
+   "reason": "different models abstracted over specific regimes",
+   "child_uids": [
+    "n|tu:era:2:field:PRICING|spot pricing model|pricing model",
+    "n|tu:era:3:field:PRICING|different pricing regime|pricing model"
+   ]
+  },
+  {
+   "name": "Pricing practice",
+   "type": "pricing practice",
+   "grain": "Entity",
+   "reason": "various practices of pricing implementation",
+   "child_uids": [
+    "n|tu:era:3:field:MEASUREMENT|same-week repricing|pricing practice",
+    "n|tu:era:3:field:PRICING|fee per show|per\u2011show pricing",
+    "n|tu:era:3:field:PRICING|price negotiation per show|pricing practice"
+   ]
+  },
+  {
+   "name": "Pricing mechanism",
+   "type": "pricing mechanism",
+   "grain": "Entity",
+   "reason": "distinct mechanisms for setting prices",
+   "child_uids": [
+    "n|tu:era:3:event:9|scatter pricing|pricing mechanism",
+    "n|tu:era:7:field:BUYERS|negotiated allowance|pricing mechanism"
+   ]
+  },
+  {
+   "name": "Priceability",
+   "type": "pricing eligibility",
+   "grain": "Entity",
+   "reason": "singleton: pricing eligibility concept",
+   "child_uids": [
+    "n|tu:era:2:event:2|priceability|pricing eligibility"
+   ]
+  },
+  {
+   "name": "Cartel price",
+   "type": "price type",
+   "grain": "Entity",
+   "reason": "singleton: specific cartel price category",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|cartel price|price type"
+   ]
+  },
+  {
+   "name": "Fixed price status",
+   "type": "price condition",
+   "grain": "Entity",
+   "reason": "singleton: fixed price condition concept",
+   "child_uids": [
+    "n|tu:era:1:event:9|fixed price status|price condition"
+   ]
+  },
+  {
+   "name": "Early ...",
+   "type": "promoted",
+   "grain": "Entity",
+   "reason": "singleton: early promoted pricing notion",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|early ...|(promoted)"
+   ]
+  },
+  {
+   "name": "Price pressure",
+   "type": "promoted",
+   "grain": "Entity",
+   "reason": "singleton: market price pressure idea",
+   "child_uids": [
+    "n|tu:era:4:field:PRICING|price pressure|(promoted)"
+   ]
+  },
+  {
+   "name": "Performance-priced deals",
+   "type": "advertising deal type",
+   "grain": "Entity",
+   "reason": "singleton: performance\u2011priced advertising deals",
+   "child_uids": [
+    "n|tu:era:5:event:9|performance-priced deals|advertising deal type"
+   ]
+  },
+  {
+   "name": "Crash",
+   "type": "economic event",
+   "grain": "Entity",
+   "reason": "singleton: economic crash affecting pricing",
+   "child_uids": [
+    "n|tu:era:5:event:9|crash|economic event"
+   ]
+  },
+  {
+   "name": "Entry price package",
+   "type": "price package",
+   "grain": "Entity",
+   "reason": "singleton: entry\u2011level price package concept",
+   "child_uids": [
+    "n|tu:era:6:field:PRICING|entry price package|price package"
+   ]
+  },
+  {
+   "name": "Unified pricing rules",
+   "type": "pricing rule set",
+   "grain": "Entity",
+   "reason": "singleton: unified set of pricing rules",
+   "child_uids": [
+    "n|tu:era:7:event:4|unified pricing rules|pricing rule set"
+   ]
+  },
+  {
+   "name": "Standard purchase period",
+   "type": "purchase format",
+   "grain": "Entity",
+   "reason": "singleton: standard purchase period format",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|standard purchase period|purchase format"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "group_id": "L1|632ea51733a196e2",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Cheap pricing tier",
+   "type": "price tier",
+   "grain": "Entity",
+   "reason": "same cheap tier concept across wording variations",
+   "child_uids": [
+    "n|e7-unit_econ-006|cheapest capable tier|price tier",
+    "n|e7-unit_econ-007|cheap tier|pricing segment"
+   ]
+  },
+  {
+   "name": "Cheap tier model cohort",
+   "type": "model cohort",
+   "grain": "Entity",
+   "reason": "singleton: cohort of cheap\u2011tier models launched since",
+   "child_uids": [
+    "n|e7-unit_econ-007|cheap tier models launched since|model cohort"
+   ]
+  },
+  {
+   "name": "First sixteen unit hours free",
+   "type": "compensation rule",
+   "grain": "Entity",
+   "reason": "singleton: rule granting first sixteen unit hours free",
+   "child_uids": [
+    "n|tu:era:2:field:PRICING|first sixteen unit hours free|compensation rule"
+   ]
+  },
+  {
+   "name": "Next-price billing",
+   "type": "pricing rule",
+   "grain": "Entity",
+   "reason": "singleton: pricing rule called next-price billing",
+   "child_uids": [
+    "n|tu:era:5:event:2|next-price billing|pricing rule"
+   ]
+  },
+  {
+   "name": "Free tier",
+   "type": "pricing tier",
+   "grain": "Entity",
+   "reason": "singleton: specific Free pricing tier",
+   "child_uids": [
+    "n|tu:era:7:event:9|free tier|pricing tier"
+   ]
+  },
+  {
+   "name": "Go tier",
+   "type": "pricing tier",
+   "grain": "Entity",
+   "reason": "singleton: specific Go pricing tier",
+   "child_uids": [
+    "n|tu:era:7:event:9|go tier|pricing tier"
+   ]
+  },
+  {
+   "name": "Paid tiers",
+   "type": "pricing tier",
+   "grain": "Entity",
+   "reason": "singleton: group of paid tiers staying ad\u2011free",
+   "child_uids": [
+    "n|tu:era:7:event:9|paid tiers|pricing tier"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "group_id": "L1|b9ed795ce857aa3a",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Google total revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years and sources; global total revenue abstracted from year/source",
+   "child_uids": [
+    "n|e6-sellers-002|google total revenue 2002|revenue measurement",
+    "n|e6-sellers-002|google total revenue fy2008|revenue measurement",
+    "n|mech-overture-002|google fy2002 total revenue|revenue measurement",
+    "n|tu:era:5:boundary|google fy2001 revenue|revenue measurement",
+    "n|tu:era:6:boundary|google total revenue 2008|revenue measurement",
+    "n|tu:era:6:field:SELLERS|google 2002 revenue|revenue measurement"
+   ]
+  },
+  {
+   "name": "Google US revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years and sources; US-only revenue abstracted from year/source",
+   "child_uids": [
+    "n|e6-scale-005|google us revenue|revenue measurement",
+    "n|e6-sellers-002|google us revenue fy2008|revenue measurement",
+    "n|tu:era:6:boundary|google us revenue 2008|revenue measurement"
+   ]
+  },
+  {
+   "name": "Google paid-search revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: only paid\u2011search revenue measure, no other breakdown present",
+   "child_uids": [
+    "n|tu:era:6:boundary|google paid-search revenue 2002|revenue measurement"
+   ]
+  }
+ ]
+}

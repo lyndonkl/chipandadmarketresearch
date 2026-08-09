@@ -1,0 +1,83 @@
+{
+ "id": "e5-scale-006",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "USD billions",
+ "elapsed_s": 76.6,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet advertising revenue 2001",
+   "type": "revenue measurement",
+   "clause": "US internet advertising revenue in 2001"
+  },
+  {
+   "name": "US internet advertising revenue 2000",
+   "type": "revenue measurement",
+   "clause": "US internet advertising revenue in 2000"
+  },
+  {
+   "name": "US internet advertising revenue decline percent",
+   "type": "percentage measurement",
+   "clause": "down about ... from ..."
+  },
+  {
+   "name": "Internet advertising",
+   "type": "advertising medium",
+   "clause": "the medium's first ever decline"
+  },
+  {
+   "name": "US internet advertising quarterly revenue Q4 2000",
+   "type": "quarterly revenue measurement",
+   "clause": "Q4 ... peak of ..."
+  },
+  {
+   "name": "US internet advertising quarterly revenue Q4 2001",
+   "type": "quarterly revenue measurement",
+   "clause": "... in Q4 ..."
+  },
+  {
+   "name": "four consecutive quarters",
+   "type": "time span",
+   "clause": "fell for four consecutive quarters"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US internet advertising revenue 2001",
+   "type": "DOWN_FROM",
+   "to": "US internet advertising revenue 2000",
+   "clause": "down about ... from ..."
+  },
+  {
+   "from": "US internet advertising revenue decline percent",
+   "type": "MEASURES_DECLINE_OF",
+   "to": "US internet advertising revenue 2001",
+   "clause": "decline percent of revenue in ..."
+  },
+  {
+   "from": "Internet advertising",
+   "type": "FIRST_DECLINE",
+   "to": "US internet advertising revenue decline percent",
+   "clause": "the medium's first ever decline"
+  },
+  {
+   "from": "US internet advertising quarterly revenue Q4 2001",
+   "type": "FELL_FROM_PEAK",
+   "to": "US internet advertising quarterly revenue Q4 2000",
+   "clause": "fell from Q4 ... peak to Q4 ..."
+  },
+  {
+   "from": "US internet advertising quarterly revenue Q4 2001",
+   "type": "FALL_FOR",
+   "to": "four consecutive quarters",
+   "clause": "fell for four consecutive quarters"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet advertising revenue 2001|revenue measurement|US internet advertising revenue in 2001\nNODE|US internet advertising revenue 2000|revenue measurement|US internet advertising revenue in 2000\nNODE|US internet advertising revenue decline percent|percentage measurement|down about ... from ...\nNODE|Internet advertising|advertising medium|the medium's first ever decline\nNODE|US internet advertising quarterly revenue Q4 2000|quarterly revenue measurement|Q4 ... peak of ...\nNODE|US internet advertising quarterly revenue Q4 2001|quarterly revenue measurement|... in Q4 ...\nNODE|four consecutive quarters|time span|fell for four consecutive quarters\nEDGE|US internet advertising revenue 2001|DOWN_FROM|US internet advertising revenue 2000|down about ... from ...\nEDGE|US internet advertising revenue decline percent|MEASURES_DECLINE_OF|US internet advertising revenue 2001|decline percent of revenue in ...\nEDGE|Internet advertising|FIRST_DECLINE|US internet advertising revenue decline percent|the medium's first ever decline\nEDGE|US internet advertising quarterly revenue Q4 2001|FELL_FROM_PEAK|US internet advertising quarterly revenue Q4 2000|fell from Q4 ... peak to Q4 ...\nEDGE|US internet advertising quarterly revenue Q4 2001|FALL_FOR|four consecutive quarters|fell for four consecutive quarters"
+}

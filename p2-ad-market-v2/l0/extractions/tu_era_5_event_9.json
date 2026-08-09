@@ -1,0 +1,170 @@
+{
+ "id": "tu:era:5:event:9",
+ "kind": "prose:event",
+ "era": 5,
+ "about_year": 2001,
+ "unit": null,
+ "elapsed_s": 113.2,
+ "error": null,
+ "n_nodes": 16,
+ "n_edges": 12,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet advertising market",
+   "type": "advertising market",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "US internet advertising revenue",
+   "type": "advertising revenue measurement",
+   "clause": "fell about ... for the year to ..."
+  },
+  {
+   "name": "four consecutive quarterly declines",
+   "type": "decline sequence",
+   "clause": "after four consecutive quarterly declines"
+  },
+  {
+   "name": "total US advertising market",
+   "type": "advertising market",
+   "clause": "total US measured advertising fell ... to ..."
+  },
+  {
+   "name": "total US advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "total US measured advertising fell ... to ..."
+  },
+  {
+   "name": "banner ads",
+   "type": "advertising format",
+   "clause": "Banners fell ... of internet revenue"
+  },
+  {
+   "name": "banner ads share of internet revenue",
+   "type": "media-share measurement",
+   "clause": "Banners fell ... of internet revenue"
+  },
+  {
+   "name": "barter deals",
+   "type": "advertising transaction type",
+   "clause": "barter rose ... of internet revenue"
+  },
+  {
+   "name": "barter deals share of internet revenue",
+   "type": "media-share measurement",
+   "clause": "barter rose ... of internet revenue"
+  },
+  {
+   "name": "top ten sellers",
+   "type": "seller group",
+   "clause": "seller concentration rose ... for the top ten"
+  },
+  {
+   "name": "seller concentration among top ten",
+   "type": "market-concentration measurement",
+   "clause": "seller concentration rose ... for the top ten"
+  },
+  {
+   "name": "performance-priced deals",
+   "type": "advertising deal type",
+   "clause": "performance-priced deals rose ..."
+  },
+  {
+   "name": "performance-priced deals share of internet revenue",
+   "type": "media-share measurement",
+   "clause": "performance-priced deals rose ... of internet revenue"
+  },
+  {
+   "name": "impression pricing",
+   "type": "pricing mechanism",
+   "clause": "Impression pricing survived the crash smaller"
+  },
+  {
+   "name": "performance pricing",
+   "type": "pricing mechanism",
+   "clause": "performance pricing came out of it larger"
+  },
+  {
+   "name": "crash",
+   "type": "economic event",
+   "clause": "Impression pricing survived the crash"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US internet advertising market",
+   "type": "HAS_REVENUE",
+   "to": "US internet advertising revenue",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "from": "US internet advertising revenue",
+   "type": "FELL_AFTER",
+   "to": "four consecutive quarterly declines",
+   "clause": "after four consecutive quarterly declines"
+  },
+  {
+   "from": "total US advertising market",
+   "type": "HAS_SPEND",
+   "to": "total US advertising spend",
+   "clause": "total US measured advertising fell ... to ..."
+  },
+  {
+   "from": "banner ads",
+   "type": "HAS_SHARE",
+   "to": "banner ads share of internet revenue",
+   "clause": "Banners fell ... of internet revenue"
+  },
+  {
+   "from": "banner ads share of internet revenue",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "of internet revenue"
+  },
+  {
+   "from": "barter deals",
+   "type": "HAS_SHARE",
+   "to": "barter deals share of internet revenue",
+   "clause": "barter rose ... of internet revenue"
+  },
+  {
+   "from": "barter deals share of internet revenue",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "of internet revenue"
+  },
+  {
+   "from": "top ten sellers",
+   "type": "MEASURES",
+   "to": "seller concentration among top ten",
+   "clause": "seller concentration rose ... for the top ten"
+  },
+  {
+   "from": "performance-priced deals",
+   "type": "HAS_SHARE",
+   "to": "performance-priced deals share of internet revenue",
+   "clause": "performance-priced deals rose ..."
+  },
+  {
+   "from": "performance-priced deals share of internet revenue",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "of internet revenue"
+  },
+  {
+   "from": "impression pricing",
+   "type": "SURVIVED_CRASH_SMALLER",
+   "to": "crash",
+   "clause": "Impression pricing survived the crash smaller"
+  },
+  {
+   "from": "performance pricing",
+   "type": "CAME_OUT_LARGER_AFTER",
+   "to": "crash",
+   "clause": "performance pricing came out of it larger"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet advertising market|advertising market|US internet advertising revenue\nNODE|US internet advertising revenue|advertising revenue measurement|fell about ... for the year to ...\nNODE|four consecutive quarterly declines|decline sequence|after four consecutive quarterly declines\nNODE|total US advertising market|advertising market|total US measured advertising fell ... to ...\nNODE|total US advertising spend|advertising spend measurement|total US measured advertising fell ... to ...\nNODE|banner ads|advertising format|Banners fell ... of internet revenue\nNODE|banner ads share of internet revenue|media-share measurement|Banners fell ... of internet revenue\nNODE|barter deals|advertising transaction type|barter rose ... of internet revenue\nNODE|barter deals share of internet revenue|media-share measurement|barter rose ... of internet revenue\nNODE|top ten sellers|seller group|seller concentration rose ... for the top ten\nNODE|seller concentration among top ten|market-concentration measurement|seller concentration rose ... for the top ten\nNODE|performance-priced deals|advertising deal type|performance-priced deals rose ...\nNODE|performance-priced deals share of internet revenue|media-share measurement|performance-priced deals rose ... of internet revenue\nNODE|impression pricing|pricing mechanism|Impression pricing survived the crash smaller\nNODE|performance pricing|pricing mechanism|performance pricing came out of it larger\nNODE|crash|economic event|Impression pricing survived the crash\n\nEDGE|US internet advertising market|HAS_REVENUE|US internet advertising revenue|US internet advertising revenue\nEDGE|US internet advertising revenue|FELL_AFTER|four consecutive quarterly declines|after four consecutive quarterly declines\nEDGE|total US advertising market|HAS_SPEND|total US advertising spend|total US measured advertising fell ... to ...\nEDGE|banner ads|HAS_SHARE|banner ads share of internet revenue|Banners fell ... of internet revenue\nEDGE|banner ads share of internet revenue|SHARE_OF|US internet advertising revenue|of internet revenue\nEDGE|barter deals|HAS_SHARE|barter deals share of internet revenue|barter rose ... of internet revenue\nEDGE|barter deals share of internet revenue|SHARE_OF|US internet advertising revenue|of internet revenue\nEDGE|top ten sellers|MEASURES|seller concentration among top ten|seller concentration rose ... for the top ten\nEDGE|performance-priced deals|HAS_SHARE|performance-priced deals share of internet revenue|performance-priced deals rose ...\nEDGE|performance-priced deals share of internet revenue|SHARE_OF|US internet advertising revenue|of internet revenue\nEDGE|impression pricing|SURVIVED_CRASH_SMALLER|crash|Impression pricing survived the crash smaller\nEDGE|performance pricing|CAME_OUT_LARGER_AFTER|crash|performance pricing came out of it larger"
+}

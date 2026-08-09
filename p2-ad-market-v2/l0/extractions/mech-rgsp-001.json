@@ -1,0 +1,189 @@
+{
+ "id": "mech-rgsp-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2019,
+ "unit": "percent increase in top-slot CPC on PC/tablet from rGSP",
+ "elapsed_s": 99.8,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 16,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's rGSP auction"
+  },
+  {
+   "name": "rGSP auction",
+   "type": "randomized generalized second-price auction",
+   "clause": "Google's rGSP (randomized generalized second-price) auction"
+  },
+  {
+   "name": "SEARCH",
+   "type": "advertising platform",
+   "clause": "launched on SEARCH"
+  },
+  {
+   "name": "top-slot cost-per-click",
+   "type": "ad pricing metric",
+   "clause": "top-slot cost-per-click"
+  },
+  {
+   "name": "non-navigational queries",
+   "type": "query type",
+   "clause": "on non-navigational queries"
+  },
+  {
+   "name": "PC/tablet devices",
+   "type": "device class",
+   "clause": "on PCs and tablets"
+  },
+  {
+   "name": "mobile devices",
+   "type": "device class",
+   "clause": "on mobile"
+  },
+  {
+   "name": "pre-launch experiments",
+   "type": "experiment phase",
+   "clause": "in pre-launch experiments"
+  },
+  {
+   "name": "top-slot CPC increase on PC/tablet measurement",
+   "type": "percentage increase measurement",
+   "clause": "raised top-slot cost-per-click ... on PCs and tablets"
+  },
+  {
+   "name": "top-slot CPC increase on mobile measurement",
+   "type": "percentage increase measurement",
+   "clause": "raised ... on mobile"
+  },
+  {
+   "name": "long-term stickage factor measurement",
+   "type": "percentage stickage measurement",
+   "clause": "with a ... long-term stickage factor"
+  },
+  {
+   "name": "stickage factor",
+   "type": "metric",
+   "clause": "long-term stickage factor"
+  },
+  {
+   "name": "revenue gain measurement",
+   "type": "percentage revenue gain measurement",
+   "clause": "a ... revenue gain persisted"
+  },
+  {
+   "name": "advertiser revenue",
+   "type": "metric",
+   "clause": "revenue gain"
+  },
+  {
+   "name": "advertisers",
+   "type": "advertiser class",
+   "clause": "Advertisers cannot opt out"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "OWNS",
+   "to": "rGSP auction",
+   "clause": "Google's rGSP auction"
+  },
+  {
+   "from": "rGSP auction",
+   "type": "LAUNCHED_ON",
+   "to": "SEARCH",
+   "clause": "launched on SEARCH"
+  },
+  {
+   "from": "rGSP auction",
+   "type": "RAISED",
+   "to": "top-slot CPC increase on PC/tablet measurement",
+   "clause": "raised top-slot cost-per-click ... on PCs and tablets"
+  },
+  {
+   "from": "top-slot CPC increase on PC/tablet measurement",
+   "type": "MEASURES",
+   "to": "top-slot cost-per-click",
+   "clause": "top-slot cost-per-click"
+  },
+  {
+   "from": "top-slot CPC increase on PC/tablet measurement",
+   "type": "ON_QUERY_TYPE",
+   "to": "non-navigational queries",
+   "clause": "on non-navigational queries"
+  },
+  {
+   "from": "top-slot CPC increase on PC/tablet measurement",
+   "type": "ON_DEVICE",
+   "to": "PC/tablet devices",
+   "clause": "on PCs and tablets"
+  },
+  {
+   "from": "top-slot CPC increase on PC/tablet measurement",
+   "type": "IN_PHASE",
+   "to": "pre-launch experiments",
+   "clause": "in pre-launch experiments"
+  },
+  {
+   "from": "rGSP auction",
+   "type": "RAISED",
+   "to": "top-slot CPC increase on mobile measurement",
+   "clause": "raised ... on mobile"
+  },
+  {
+   "from": "top-slot CPC increase on mobile measurement",
+   "type": "MEASURES",
+   "to": "top-slot cost-per-click",
+   "clause": "top-slot cost-per-click"
+  },
+  {
+   "from": "top-slot CPC increase on mobile measurement",
+   "type": "ON_QUERY_TYPE",
+   "to": "non-navigational queries",
+   "clause": "on non-navigational queries"
+  },
+  {
+   "from": "top-slot CPC increase on mobile measurement",
+   "type": "ON_DEVICE",
+   "to": "mobile devices",
+   "clause": "on mobile"
+  },
+  {
+   "from": "rGSP auction",
+   "type": "HAS_STICKAGE_FACTOR",
+   "to": "long-term stickage factor measurement",
+   "clause": "with a ... long-term stickage factor"
+  },
+  {
+   "from": "long-term stickage factor measurement",
+   "type": "MEASURES",
+   "to": "stickage factor",
+   "clause": "with a ... long-term stickage factor"
+  },
+  {
+   "from": "rGSP auction",
+   "type": "GENERATED",
+   "to": "revenue gain measurement",
+   "clause": "a ... revenue gain persisted"
+  },
+  {
+   "from": "revenue gain measurement",
+   "type": "MEASURES",
+   "to": "advertiser revenue",
+   "clause": "a ... revenue gain persisted"
+  },
+  {
+   "from": "advertisers",
+   "type": "CANNOT_OPT_OUT",
+   "to": "rGSP auction",
+   "clause": "Advertisers cannot opt out"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google's rGSP auction\nNODE|rGSP auction|randomized generalized second-price auction|Google's rGSP (randomized generalized second-price) auction\nNODE|SEARCH|advertising platform|launched on SEARCH\nNODE|top-slot cost-per-click|ad pricing metric|top-slot cost-per-click\nNODE|non-navigational queries|query type|on non-navigational queries\nNODE|PC/tablet devices|device class|on PCs and tablets\nNODE|mobile devices|device class|on mobile\nNODE|pre-launch experiments|experiment phase|in pre-launch experiments\nNODE|top-slot CPC increase on PC/tablet measurement|percentage increase measurement|raised top-slot cost-per-click ... on PCs and tablets\nNODE|top-slot CPC increase on mobile measurement|percentage increase measurement|raised ... on mobile\nNODE|long-term stickage factor measurement|percentage stickage measurement|with a ... long-term stickage factor\nNODE|stickage factor|metric|long-term stickage factor\nNODE|revenue gain measurement|percentage revenue gain measurement|a ... revenue gain persisted\nNODE|advertiser revenue|metric|revenue gain\nNODE|advertisers|advertiser class|Advertisers cannot opt out\nEDGE|Google|OWNS|rGSP auction|Google's rGSP auction\nEDGE|rGSP auction|LAUNCHED_ON|SEARCH|launched on SEARCH\nEDGE|rGSP auction|RAISED|top-slot CPC increase on PC/tablet measurement|raised top-slot cost-per-click ... on PCs and tablets\nEDGE|top-slot CPC increase on PC/tablet measurement|MEASURES|top-slot cost-per-click|top-slot cost-per-click\nEDGE|top-slot CPC increase on PC/tablet measurement|ON_QUERY_TYPE|non-navigational queries|on non-navigational queries\nEDGE|top-slot CPC increase on PC/tablet measurement|ON_DEVICE|PC/tablet devices|on PCs and tablets\nEDGE|top-slot CPC increase on PC/tablet measurement|IN_PHASE|pre-launch experiments|in pre-launch experiments\nEDGE|rGSP auction|RAISED|top-slot CPC increase on mobile measurement|raised ... on mobile\nEDGE|top-slot CPC increase on mobile measurement|MEASURES|top-slot cost-per-click|top-slot cost-per-click\nEDGE|top-slot CPC increase on mobile measurement|ON_QUERY_TYPE|non-navigational queries|on non-navigational queries\nEDGE|top-slot CPC increase on mobile measurement|ON_DEVICE|mobile devices|on mobile\nEDGE|rGSP auction|HAS_STICKAGE_FACTOR|long-term stickage factor measurement|with a ... long-term stickage factor\nEDGE|long-term stickage factor measurement|MEASURES|stickage factor|with a ... long-term stickage factor\nEDGE|rGSP auction|GENERATED|revenue gain measurement|a ... revenue gain persisted\nEDGE|revenue gain measurement|MEASURES|advertiser revenue|a ... revenue gain persisted\nEDGE|advertisers|CANNOT_OPT_OUT|rGSP auction|Advertisers cannot opt out"
+}

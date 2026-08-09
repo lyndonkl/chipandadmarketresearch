@@ -1,0 +1,165 @@
+{
+ "id": "e5-unit_econ-001",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD of banner-and-sponsorship revenue per delivered US display impression",
+ "elapsed_s": 126.7,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 12,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "effective revenue per delivered US web display impression",
+   "type": "revenue-per-impression measurement",
+   "clause": "Effective revenue per delivered impression"
+  },
+  {
+   "name": "banner ad format",
+   "type": "ad format",
+   "clause": "Banner ad format"
+  },
+  {
+   "name": "sponsorship ad format",
+   "type": "ad format",
+   "clause": "Sponsorship ad format"
+  },
+  {
+   "name": "IAB/PwC FY2000 revenue",
+   "type": "advertising revenue measurement",
+   "clause": "IAB/PwC FY2000 advertising revenue"
+  },
+  {
+   "name": "search advertising format",
+   "type": "ad format",
+   "clause": "Search advertising format"
+  },
+  {
+   "name": "classified advertising format",
+   "type": "ad format",
+   "clause": "Classified advertising format"
+  },
+  {
+   "name": "email advertising format",
+   "type": "ad format",
+   "clause": "Email advertising format"
+  },
+  {
+   "name": "referral advertising format",
+   "type": "ad format",
+   "clause": "Referral advertising format"
+  },
+  {
+   "name": "full banner rate card price",
+   "type": "price-per-thousand measurement",
+   "clause": "Full banner rate card price"
+  },
+  {
+   "name": "effective revenue gap",
+   "type": "price-difference measurement",
+   "clause": "Price gap between effective revenue and rate cards"
+  },
+  {
+   "name": "unsold inventory",
+   "type": "advertising inventory",
+   "clause": "Unsold advertising inventory"
+  },
+  {
+   "name": "volume discounting",
+   "type": "pricing practice",
+   "clause": "Volume discounting practice"
+  },
+  {
+   "name": "house ads",
+   "type": "ad format",
+   "clause": "House ad format"
+  },
+  {
+   "name": "barter",
+   "type": "transaction type",
+   "clause": "Barter transaction type"
+  },
+  {
+   "name": "DoubleClick",
+   "type": "advertising technology company",
+   "clause": "DoubleClick advertising technology company"
+  }
+ ],
+ "edges": [
+  {
+   "from": "banner ad format",
+   "type": "SHARE_OF",
+   "to": "IAB/PwC FY2000 revenue",
+   "clause": "banners share of IAB/PwC FY2000 revenue"
+  },
+  {
+   "from": "sponsorship ad format",
+   "type": "SHARE_OF",
+   "to": "IAB/PwC FY2000 revenue",
+   "clause": "sponsorships share of IAB/PwC FY2000 revenue"
+  },
+  {
+   "from": "effective revenue per delivered US web display impression",
+   "type": "EXCLUDES",
+   "to": "search advertising format",
+   "clause": "excludes search classifieds email referrals"
+  },
+  {
+   "from": "effective revenue per delivered US web display impression",
+   "type": "EXCLUDES",
+   "to": "classified advertising format",
+   "clause": "excludes search classifieds email referrals"
+  },
+  {
+   "from": "effective revenue per delivered US web display impression",
+   "type": "EXCLUDES",
+   "to": "email advertising format",
+   "clause": "excludes search classifieds email referrals"
+  },
+  {
+   "from": "effective revenue per delivered US web display impression",
+   "type": "EXCLUDES",
+   "to": "referral advertising format",
+   "clause": "excludes search classifieds email referrals"
+  },
+  {
+   "from": "effective revenue per delivered US web display impression",
+   "type": "COMPARED_AGAINST",
+   "to": "full banner rate card price",
+   "clause": "against full banner rate cards"
+  },
+  {
+   "from": "effective revenue gap",
+   "type": "INCLUDES",
+   "to": "unsold inventory",
+   "clause": "gap includes unsold inventory"
+  },
+  {
+   "from": "effective revenue gap",
+   "type": "INCLUDES",
+   "to": "volume discounting",
+   "clause": "gap includes volume discounting"
+  },
+  {
+   "from": "effective revenue gap",
+   "type": "INCLUDES",
+   "to": "house ads",
+   "clause": "gap includes house ads"
+  },
+  {
+   "from": "effective revenue gap",
+   "type": "INCLUDES",
+   "to": "barter",
+   "clause": "gap includes barter"
+  },
+  {
+   "from": "effective revenue gap",
+   "type": "DESCRIBED_BY",
+   "to": "DoubleClick",
+   "clause": "DoubleClick described the gap"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|effective revenue per delivered US web display impression|revenue-per-impression measurement|Effective revenue per delivered impression\nNODE|banner ad format|ad format|Banner ad format\nNODE|sponsorship ad format|ad format|Sponsorship ad format\nNODE|IAB/PwC FY2000 revenue|advertising revenue measurement|IAB/PwC FY2000 advertising revenue\nNODE|search advertising format|ad format|Search advertising format\nNODE|classified advertising format|ad format|Classified advertising format\nNODE|email advertising format|ad format|Email advertising format\nNODE|referral advertising format|ad format|Referral advertising format\nNODE|full banner rate card price|price-per-thousand measurement|Full banner rate card price\nNODE|effective revenue gap|price-difference measurement|Price gap between effective revenue and rate cards\nNODE|unsold inventory|advertising inventory|Unsold advertising inventory\nNODE|volume discounting|pricing practice|Volume discounting practice\nNODE|house ads|ad format|House ad format\nNODE|barter|transaction type|Barter transaction type\nNODE|DoubleClick|advertising technology company|DoubleClick advertising technology company\nEDGE|banner ad format|SHARE_OF|IAB/PwC FY2000 revenue|banners share of IAB/PwC FY2000 revenue\nEDGE|sponsorship ad format|SHARE_OF|IAB/PwC FY2000 revenue|sponsorships share of IAB/PwC FY2000 revenue\nEDGE|effective revenue per delivered US web display impression|EXCLUDES|search advertising format|excludes search classifieds email referrals\nEDGE|effective revenue per delivered US web display impression|EXCLUDES|classified advertising format|excludes search classifieds email referrals\nEDGE|effective revenue per delivered US web display impression|EXCLUDES|email advertising format|excludes search classifieds email referrals\nEDGE|effective revenue per delivered US web display impression|EXCLUDES|referral advertising format|excludes search classifieds email referrals\nEDGE|effective revenue per delivered US web display impression|COMPARED_AGAINST|full banner rate card price|against full banner rate cards\nEDGE|effective revenue gap|INCLUDES|unsold inventory|gap includes unsold inventory\nEDGE|effective revenue gap|INCLUDES|volume discounting|gap includes volume discounting\nEDGE|effective revenue gap|INCLUDES|house ads|gap includes house ads\nEDGE|effective revenue gap|INCLUDES|barter|gap includes barter\nEDGE|effective revenue gap|DESCRIBED_BY|DoubleClick|DoubleClick described the gap"
+}

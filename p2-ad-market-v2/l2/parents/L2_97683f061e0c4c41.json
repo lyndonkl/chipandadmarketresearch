@@ -1,0 +1,65 @@
+{
+ "group_id": "L2|97683f061e0c4c41",
+ "n_in": 19,
+ "parents": [
+  {
+   "name": "advertising dataset",
+   "type": "data set kind",
+   "grain": "Entity",
+   "reason": "multiple advertising\u2011related datasets share the same market role as data products",
+   "child_uids": [
+    "L1|1bf471ae3d90ea03",
+    "L1|277cf30ccf200374",
+    "L1|3254fc710debe7fd",
+    "L1|3648ae3b840da994",
+    "L1|403d60f484b6cb51",
+    "L1|449a778055aaab63",
+    "L1|4a11e723fbe4d2e1",
+    "L1|654439e5b3c679b8",
+    "L1|73c2310a171d605f",
+    "L1|76ae121ee2e37b87",
+    "L1|a42e45da8cbee3dc",
+    "L1|af0c4b865065b9c0",
+    "L1|cfc64cae56676710"
+   ]
+  },
+  {
+   "name": "industry income aggregate",
+   "type": "aggregate kind",
+   "grain": "Entity",
+   "reason": "singleton: industry income aggregate, distinct from raw data sets",
+   "child_uids": [
+    "L1|cac9f02f8e856623"
+   ]
+  },
+  {
+   "name": "data source",
+   "type": "source kind",
+   "grain": "Entity",
+   "reason": "data sources provide underlying raw tables for multiple datasets",
+   "child_uids": [
+    "L1|29aa3e5f55827974",
+    "L1|41c7cd998e7a8acf",
+    "L1|9b8c4cc3dbba4586"
+   ]
+  },
+  {
+   "name": "industry report",
+   "type": "report kind",
+   "grain": "Entity",
+   "reason": "singleton: industry report, a narrative analysis rather than raw data",
+   "child_uids": [
+    "L1|4f3e04596f2ba64f"
+   ]
+  },
+  {
+   "name": "data category",
+   "type": "category kind",
+   "grain": "Entity",
+   "reason": "singleton: data category, classification of datasets not a dataset itself",
+   "child_uids": [
+    "L1|4050cb0c69ebb46f"
+   ]
+  }
+ ]
+}

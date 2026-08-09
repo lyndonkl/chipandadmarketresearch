@@ -1,0 +1,113 @@
+{
+ "id": "e2-sellers-002",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1938,
+ "unit": "percent of network net time sales retained by NBC and CBS, 1938",
+ "elapsed_s": 69.9,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "NBC",
+   "type": "broadcast network",
+   "clause": "NBC"
+  },
+  {
+   "name": "CBS",
+   "type": "broadcast network",
+   "clause": "CBS"
+  },
+  {
+   "name": "network net time sales",
+   "type": "advertising inventory revenue",
+   "clause": "their network net time sales"
+  },
+  {
+   "name": "network net time sales retention share",
+   "type": "share measurement",
+   "clause": "retained ... by NBC and CBS"
+  },
+  {
+   "name": "network net time sales payment share",
+   "type": "share measurement",
+   "clause": "paid ... to affiliated stations"
+  },
+  {
+   "name": "affiliated stations",
+   "type": "broadcast affiliates",
+   "clause": "the ... affiliated stations that carried the programs"
+  },
+  {
+   "name": "affiliated station count",
+   "type": "count measurement",
+   "clause": "... affiliated stations"
+  }
+ ],
+ "edges": [
+  {
+   "from": "NBC",
+   "type": "HAS_RETENTION_SHARE",
+   "to": "network net time sales retention share",
+   "clause": "retained ... of network net time sales"
+  },
+  {
+   "from": "CBS",
+   "type": "HAS_RETENTION_SHARE",
+   "to": "network net time sales retention share",
+   "clause": "retained ... of network net time sales"
+  },
+  {
+   "from": "network net time sales retention share",
+   "type": "SHARE_OF",
+   "to": "network net time sales",
+   "clause": "of their network net time sales"
+  },
+  {
+   "from": "NBC",
+   "type": "HAS_PAYMENT_SHARE",
+   "to": "network net time sales payment share",
+   "clause": "paid ... to affiliated stations"
+  },
+  {
+   "from": "CBS",
+   "type": "HAS_PAYMENT_SHARE",
+   "to": "network net time sales payment share",
+   "clause": "paid ... to affiliated stations"
+  },
+  {
+   "from": "network net time sales payment share",
+   "type": "SHARE_OF",
+   "to": "network net time sales",
+   "clause": "of network net time sales"
+  },
+  {
+   "from": "network net time sales payment share",
+   "type": "PAID_TO",
+   "to": "affiliated stations",
+   "clause": "paid ... to the ... affiliated stations"
+  },
+  {
+   "from": "affiliated station count",
+   "type": "MEASURES",
+   "to": "affiliated stations",
+   "clause": "... count of affiliated stations"
+  },
+  {
+   "from": "affiliated stations",
+   "type": "CARRIED_PROGRAMS_FOR",
+   "to": "NBC",
+   "clause": "carried the programs"
+  },
+  {
+   "from": "affiliated stations",
+   "type": "CARRIED_PROGRAMS_FOR",
+   "to": "CBS",
+   "clause": "carried the programs"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|NBC|broadcast network|NBC\nNODE|CBS|broadcast network|CBS\nNODE|network net time sales|advertising inventory revenue|their network net time sales\nNODE|network net time sales retention share|share measurement|retained ... by NBC and CBS\nNODE|network net time sales payment share|share measurement|paid ... to affiliated stations\nNODE|affiliated stations|broadcast affiliates|the ... affiliated stations that carried the programs\nNODE|affiliated station count|count measurement|... affiliated stations\nEDGE|NBC|HAS_RETENTION_SHARE|network net time sales retention share|retained ... of network net time sales\nEDGE|CBS|HAS_RETENTION_SHARE|network net time sales retention share|retained ... of network net time sales\nEDGE|network net time sales retention share|SHARE_OF|network net time sales|of their network net time sales\nEDGE|NBC|HAS_PAYMENT_SHARE|network net time sales payment share|paid ... to affiliated stations\nEDGE|CBS|HAS_PAYMENT_SHARE|network net time sales payment share|paid ... to affiliated stations\nEDGE|network net time sales payment share|SHARE_OF|network net time sales|of network net time sales\nEDGE|network net time sales payment share|PAID_TO|affiliated stations|paid ... to the ... affiliated stations\nEDGE|affiliated station count|MEASURES|affiliated stations|... count of affiliated stations\nEDGE|affiliated stations|CARRIED_PROGRAMS_FOR|NBC|carried the programs\nEDGE|affiliated stations|CARRIED_PROGRAMS_FOR|CBS|carried the programs"
+}

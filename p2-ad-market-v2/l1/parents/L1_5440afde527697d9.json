@@ -1,0 +1,118 @@
+{
+ "group_id": "L1|5440afde527697d9",
+ "source": "kmeans",
+ "n_in": 15,
+ "parents": [
+  {
+   "name": "Advertising pricing standard",
+   "type": "pricing concept",
+   "grain": "Entity",
+   "reason": "one concept of advertising pricing across years and sources",
+   "child_uids": [
+    "n|e1-measurement-001|common currency for buying ad space|advertising pricing standard",
+    "n|tu:era:3:boundary|advertising pricing|pricing metric"
+   ]
+  },
+  {
+   "name": "Card price",
+   "type": "price component",
+   "grain": "Entity",
+   "reason": "singleton: specific card price component",
+   "child_uids": [
+    "n|e1-pricing-004|card price|advertising price component"
+   ]
+  },
+  {
+   "name": "Self-serve per-unit regime",
+   "type": "pricing regime",
+   "grain": "Entity",
+   "reason": "singleton: self-serve per-unit pricing regime",
+   "child_uids": [
+    "n|e3-buyers-008|self-serve per-unit regime|advertising pricing practice"
+   ]
+  },
+  {
+   "name": "New medium",
+   "type": "medium",
+   "grain": "Entity",
+   "reason": "singleton: new advertising medium",
+   "child_uids": [
+    "n|e6-buyers-008|new medium|advertising medium"
+   ]
+  },
+  {
+   "name": "Fixed answer product",
+   "type": "product",
+   "grain": "Entity",
+   "reason": "singleton: fixed answer product in unit economics",
+   "child_uids": [
+    "n|e7-unit_econ-005|fixed answer (1,000-in/300-out)|advertising product"
+   ]
+  },
+  {
+   "name": "Text-ad price",
+   "type": "price",
+   "grain": "Entity",
+   "reason": "singleton: text-ad advertising price",
+   "child_uids": [
+    "n|mech-mehta-004|text-ad price|advertising price"
+   ]
+  },
+  {
+   "name": "McCann-Erickson series",
+   "type": "dataset",
+   "grain": "Entity",
+   "reason": "singleton: McCann-Erickson advertising dataset",
+   "child_uids": [
+    "n|tu:era:2:field:SCALE|mccann-erickson series|advertising dataset"
+   ]
+  },
+  {
+   "name": "Advertising unit",
+   "type": "ad unit",
+   "grain": "Entity",
+   "reason": "advertising unit concept covering specific and standard units",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|60-second announcement|ad unit",
+    "n|tu:era:3:field:PRICING|standard ad unit|ad unit status"
+   ]
+  },
+  {
+   "name": "Classified advertising pricing",
+   "type": "pricing regime",
+   "grain": "Entity",
+   "reason": "classified advertising pricing regime shared across entries",
+   "child_uids": [
+    "n|tu:era:4:field:PRICING|classified advertising pricing|pricing regime",
+    "n|tu:era:6:field:PRICING|classified ads pricing|pricing regime"
+   ]
+  },
+  {
+   "name": "Search market price",
+   "type": "price",
+   "grain": "Entity",
+   "reason": "singleton: search market advertising price",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|search market price|advertising price"
+   ]
+  },
+  {
+   "name": "Television advertising price",
+   "type": "price",
+   "grain": "Entity",
+   "reason": "singleton: television advertising price",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|television advertising price|tv ad price"
+   ]
+  },
+  {
+   "name": "Production risk",
+   "type": "risk factor",
+   "grain": "Entity",
+   "reason": "singleton: production risk factor for advertisers",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|production risk|risk factor"
+   ]
+  }
+ ]
+}

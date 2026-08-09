@@ -1,0 +1,109 @@
+{
+ "id": "mech-network-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2006,
+ "unit": "% of Google revenue from Google Network sites, Q2 2006",
+ "elapsed_s": 56.4,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "total revenue",
+   "type": "revenue measurement",
+   "clause": "total revenues ..."
+  },
+  {
+   "name": "Google web sites",
+   "type": "advertising inventory source",
+   "clause": "Google web sites"
+  },
+  {
+   "name": "Google Network",
+   "type": "advertising inventory source",
+   "clause": "Google Network"
+  },
+  {
+   "name": "Google web sites revenue",
+   "type": "revenue measurement",
+   "clause": "Google web sites ... (58%)"
+  },
+  {
+   "name": "Google web sites share of total revenue",
+   "type": "share measurement",
+   "clause": "... (58%) of total revenue"
+  },
+  {
+   "name": "Google Network revenue",
+   "type": "revenue measurement",
+   "clause": "Google Network ... (41%)"
+  },
+  {
+   "name": "Google Network share of total revenue",
+   "type": "share measurement",
+   "clause": "... (41%) of total revenue"
+  },
+  {
+   "name": "TAC",
+   "type": "cost measurement",
+   "clause": "TAC of ..."
+  },
+  {
+   "name": "advertising revenues",
+   "type": "revenue pool",
+   "clause": "advertising revenues"
+  },
+  {
+   "name": "TAC share of advertising revenues",
+   "type": "share measurement",
+   "clause": "32% of advertising revenues"
+  }
+ ],
+ "edges": [
+  {
+   "from": "total revenue",
+   "type": "MEASURES",
+   "to": "Google",
+   "clause": "total revenues ..."
+  },
+  {
+   "from": "Google web sites revenue",
+   "type": "MEASURES",
+   "to": "Google web sites",
+   "clause": "Google web sites ... (58%)"
+  },
+  {
+   "from": "Google web sites share of total revenue",
+   "type": "SHARE_OF",
+   "to": "total revenue",
+   "clause": "... (58%) of total revenue"
+  },
+  {
+   "from": "Google Network revenue",
+   "type": "MEASURES",
+   "to": "Google Network",
+   "clause": "Google Network ... (41%)"
+  },
+  {
+   "from": "Google Network share of total revenue",
+   "type": "SHARE_OF",
+   "to": "total revenue",
+   "clause": "... (41%) of total revenue"
+  },
+  {
+   "from": "TAC",
+   "type": "SHARE_OF",
+   "to": "advertising revenues",
+   "clause": "32% of advertising revenues"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|total revenue|revenue measurement|total revenues ...\nNODE|Google web sites|advertising inventory source|Google web sites\nNODE|Google Network|advertising inventory source|Google Network\nNODE|Google web sites revenue|revenue measurement|Google web sites ... (58%)\nNODE|Google web sites share of total revenue|share measurement|... (58%) of total revenue\nNODE|Google Network revenue|revenue measurement|Google Network ... (41%)\nNODE|Google Network share of total revenue|share measurement|... (41%) of total revenue\nNODE|TAC|cost measurement|TAC of ...\nNODE|advertising revenues|revenue pool|advertising revenues\nNODE|TAC share of advertising revenues|share measurement|32% of advertising revenues\nEDGE|total revenue|MEASURES|Google|total revenues ...\nEDGE|Google web sites revenue|MEASURES|Google web sites|Google web sites ... (58%)\nEDGE|Google web sites share of total revenue|SHARE_OF|total revenue|... (58%) of total revenue\nEDGE|Google Network revenue|MEASURES|Google Network|Google Network ... (41%)\nEDGE|Google Network share of total revenue|SHARE_OF|total revenue|... (41%) of total revenue\nEDGE|TAC|SHARE_OF|advertising revenues|32% of advertising revenues"
+}

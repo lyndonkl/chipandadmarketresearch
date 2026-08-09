@@ -1,0 +1,45 @@
+{
+ "id": "e5-events-003",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1998,
+ "unit": "USD millions",
+ "elapsed_s": 43.0,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "GoTo.com",
+   "type": "advertising company",
+   "clause": "GoTo.com revenue in ... , its launch year"
+  },
+  {
+   "name": "GoTo.com revenue",
+   "type": "revenue measurement",
+   "clause": "GoTo.com revenue in ... , its launch year"
+  },
+  {
+   "name": "USD millions",
+   "type": "currency unit",
+   "clause": "unit of measure"
+  }
+ ],
+ "edges": [
+  {
+   "from": "GoTo.com",
+   "type": "HAS_REVENUE",
+   "to": "GoTo.com revenue",
+   "clause": "GoTo.com revenue in ... , its launch year"
+  },
+  {
+   "from": "GoTo.com revenue",
+   "type": "MEASURED_IN",
+   "to": "USD millions",
+   "clause": "unit of measure"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|GoTo.com|advertising company|GoTo.com revenue in ... , its launch year\nNODE|GoTo.com revenue|revenue measurement|GoTo.com revenue in ... , its launch year\nNODE|USD millions|currency unit|unit of measure\nEDGE|GoTo.com|HAS_REVENUE|GoTo.com revenue|GoTo.com revenue in ... , its launch year\nEDGE|GoTo.com revenue|MEASURED_IN|USD millions|unit of measure"
+}

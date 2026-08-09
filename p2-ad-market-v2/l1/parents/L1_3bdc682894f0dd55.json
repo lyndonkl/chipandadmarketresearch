@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|3bdc682894f0dd55",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Rating gap",
+   "type": "difference measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic rating gap measure",
+   "child_uids": [
+    "n|e2-measurement-003|rating gap|difference measurement"
+   ]
+  },
+  {
+   "name": "Effective revenue gap",
+   "type": "price-difference measurement",
+   "grain": "Measurement",
+   "reason": "singleton: price gap between effective revenue and rate cards",
+   "child_uids": [
+    "n|e5-unit_econ-001|effective revenue gap|price-difference measurement"
+   ]
+  },
+  {
+   "name": "Advertising share gap",
+   "type": "share-difference measurement",
+   "grain": "Measurement",
+   "reason": "singleton: gap in advertising share across vintages",
+   "child_uids": [
+    "n|e6-scale-003|advertising share gap measurement|share-difference measurement"
+   ]
+  },
+  {
+   "name": "Advertising revenue estimate gap",
+   "type": "difference measurement",
+   "grain": "Measurement",
+   "reason": "singleton: definitional gap in advertising revenue estimates",
+   "child_uids": [
+    "n|e7-scale-003|advertising revenue estimate gap|difference measurement"
+   ]
+  }
+ ]
+}

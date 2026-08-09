@@ -1,0 +1,144 @@
+{
+ "id": "e7-targeting-003",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2024,
+ "unit": "percent fall in revenue per click attributed to GDPR",
+ "elapsed_s": 76.3,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "GDPR effects on advertising performance",
+   "type": "regulatory impact",
+   "clause": "Measured GDPR effects on advertising performance"
+  },
+  {
+   "name": "large-publisher study",
+   "type": "advertising performance study",
+   "clause": "one large-publisher study"
+  },
+  {
+   "name": "click-through rate decline",
+   "type": "percent change measurement",
+   "clause": "fall in click-through rate"
+  },
+  {
+   "name": "click-through rate",
+   "type": "performance metric",
+   "clause": "click-through rate"
+  },
+  {
+   "name": "revenue per click decline",
+   "type": "percent change measurement",
+   "clause": "fall in revenue per click"
+  },
+  {
+   "name": "revenue per click",
+   "type": "monetary metric",
+   "clause": "revenue per click"
+  },
+  {
+   "name": "second study",
+   "type": "advertising performance study",
+   "clause": "another study"
+  },
+  {
+   "name": "recorded page views decline",
+   "type": "percent change measurement",
+   "clause": "falls in recorded page views"
+  },
+  {
+   "name": "recorded page views",
+   "type": "audience metric",
+   "clause": "recorded page views"
+  },
+  {
+   "name": "revenue decline for EU users",
+   "type": "percent change measurement",
+   "clause": "... falls in revenue for EU users"
+  },
+  {
+   "name": "revenue",
+   "type": "financial metric",
+   "clause": "revenue"
+  },
+  {
+   "name": "EU users",
+   "type": "user segment",
+   "clause": "EU users"
+  }
+ ],
+ "edges": [
+  {
+   "from": "large-publisher study",
+   "type": "MEASURES",
+   "to": "GDPR effects on advertising performance",
+   "clause": "one large-publisher study finds ..."
+  },
+  {
+   "from": "second study",
+   "type": "MEASURES",
+   "to": "GDPR effects on advertising performance",
+   "clause": "another study finds ..."
+  },
+  {
+   "from": "large-publisher study",
+   "type": "REPORTS",
+   "to": "click-through rate decline",
+   "clause": "finds a ... fall in click-through rate"
+  },
+  {
+   "from": "large-publisher study",
+   "type": "REPORTS",
+   "to": "revenue per click decline",
+   "clause": "finds a ... fall in revenue per click"
+  },
+  {
+   "from": "second study",
+   "type": "REPORTS",
+   "to": "recorded page views decline",
+   "clause": "finds roughly ... falls in recorded page views"
+  },
+  {
+   "from": "second study",
+   "type": "REPORTS",
+   "to": "revenue decline for EU users",
+   "clause": "finds ... falls in revenue for EU users"
+  },
+  {
+   "from": "click-through rate decline",
+   "type": "PERCENT_CHANGE_OF",
+   "to": "click-through rate",
+   "clause": "fall in click-through rate"
+  },
+  {
+   "from": "revenue per click decline",
+   "type": "PERCENT_CHANGE_OF",
+   "to": "revenue per click",
+   "clause": "fall in revenue per click"
+  },
+  {
+   "from": "recorded page views decline",
+   "type": "PERCENT_CHANGE_OF",
+   "to": "recorded page views",
+   "clause": "falls in recorded page views"
+  },
+  {
+   "from": "revenue decline for EU users",
+   "type": "PERCENT_CHANGE_OF",
+   "to": "revenue",
+   "clause": "... falls in revenue"
+  },
+  {
+   "from": "revenue decline for EU users",
+   "type": "APPLIES_TO",
+   "to": "EU users",
+   "clause": "... for EU users"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|GDPR effects on advertising performance|regulatory impact|Measured GDPR effects on advertising performance\nNODE|large-publisher study|advertising performance study|one large-publisher study\nNODE|click-through rate decline|percent change measurement|fall in click-through rate\nNODE|click-through rate|performance metric|click-through rate\nNODE|revenue per click decline|percent change measurement|fall in revenue per click\nNODE|revenue per click|monetary metric|revenue per click\nNODE|second study|advertising performance study|another study\nNODE|recorded page views decline|percent change measurement|falls in recorded page views\nNODE|recorded page views|audience metric|recorded page views\nNODE|revenue decline for EU users|percent change measurement|... falls in revenue for EU users\nNODE|revenue|financial metric|revenue\nNODE|EU users|user segment|EU users\nEDGE|large-publisher study|MEASURES|GDPR effects on advertising performance|one large-publisher study finds ...\nEDGE|second study|MEASURES|GDPR effects on advertising performance|another study finds ...\nEDGE|large-publisher study|REPORTS|click-through rate decline|finds a ... fall in click-through rate\nEDGE|large-publisher study|REPORTS|revenue per click decline|finds a ... fall in revenue per click\nEDGE|second study|REPORTS|recorded page views decline|finds roughly ... falls in recorded page views\nEDGE|second study|REPORTS|revenue decline for EU users|finds ... falls in revenue for EU users\nEDGE|click-through rate decline|PERCENT_CHANGE_OF|click-through rate|fall in click-through rate\nEDGE|revenue per click decline|PERCENT_CHANGE_OF|revenue per click|fall in revenue per click\nEDGE|recorded page views decline|PERCENT_CHANGE_OF|recorded page views|falls in recorded page views\nEDGE|revenue decline for EU users|PERCENT_CHANGE_OF|revenue|... falls in revenue\nEDGE|revenue decline for EU users|APPLIES_TO|EU users|... for EU users"
+}

@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|061e693d4dec902f",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "IRS advertising spend share of US GDP",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years and sources; year abstracted",
+   "child_uids": [
+    "n|e4-scale-003|irs advertising spend share of gdp|share measurement",
+    "n|e5-scale-004|irs advertising share of nominal us gdp|media-share measurement"
+   ]
+  },
+  {
+   "name": "IRS advertising spend peak share",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: peak share distinct from annual shares",
+   "child_uids": [
+    "n|e6-scale-003|irs series peak share measurement|media-share measurement"
+   ]
+  },
+  {
+   "name": "IRS advertising intensity share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: intensity measure separate from other share metrics",
+   "child_uids": [
+    "n|tu:era:7:field:SCALE|coen/mccann irs intensity 2000 measurement|share measurement"
+   ]
+  }
+ ]
+}

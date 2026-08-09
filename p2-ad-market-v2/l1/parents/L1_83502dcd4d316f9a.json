@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|83502dcd4d316f9a",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Cost per mille (CPM)",
+   "type": "pricing metric",
+   "grain": "Entity",
+   "reason": "generic CPM metric abstracts rate and cost phrasing",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|rate per thousand|cpm pricing",
+    "n|tu:era:4:field:BUYERS|cost per thousand metric|pricing metric"
+   ]
+  },
+  {
+   "name": "Premium CPMs",
+   "type": "pricing model",
+   "grain": "Entity",
+   "reason": "singleton: premium CPM pricing model distinct from generic CPM",
+   "child_uids": [
+    "n|tu:era:5:field:MEASUREMENT|premium cpms|pricing model"
+   ]
+  },
+  {
+   "name": "Site targeting",
+   "type": "inventory type",
+   "grain": "Entity",
+   "reason": "singleton: inventory targeting method sold on CPM",
+   "child_uids": [
+    "n|tu:era:6:field:TARGETING|site targeting|inventory type"
+   ]
+  }
+ ]
+}

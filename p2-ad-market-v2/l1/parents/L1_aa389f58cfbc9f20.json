@@ -1,0 +1,129 @@
+{
+ "group_id": "L1|aa389f58cfbc9f20",
+ "source": "kmeans",
+ "n_in": 18,
+ "parents": [
+  {
+   "name": "Search serving cost rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific search serving cost rate",
+   "child_uids": [
+    "n|e5-pricing-006|search serving cost rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Traffic acquisition cost share (generic)",
+   "type": "traffic acquisition cost share measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years and sources; generic traffic acquisition cost share",
+   "child_uids": [
+    "n|e5-sellers-005|traffic acquisition cost share of revenue|take-rate measurement",
+    "n|e6-pricing-004|traffic acquisition cost share later|media-share measurement",
+    "n|tu:era:5:boundary|traffic acquisition cost share|share measurement"
+   ]
+  },
+  {
+   "name": "Traffic acquisition cost share of Google Network advertising revenue",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "same TAC share of Google Network ad revenue across years and sources",
+   "child_uids": [
+    "n|e6-pricing-003|traffic acquisition cost share of google network advertising revenue|percentage measurement",
+    "n|mech-aol-001|traffic acquisition cost share measurement|share of revenue measurement",
+    "n|tu:era:6:field:SELLERS|traffic acquisition cost share of network advertising revenue|cost share measurement"
+   ]
+  },
+  {
+   "name": "Overture traffic acquisition cost share",
+   "type": "cost-share measurement",
+   "grain": "Measurement",
+   "reason": "OVERTURE traffic acquisition cost share across years; same breakdown",
+   "child_uids": [
+    "n|mech-ovt-001|traffic acquisition cost share of overture revenue|take-rate measurement",
+    "n|tu:era:5:field:SELLERS|overture traffic acquisition cost share|cost-share measurement"
+   ]
+  },
+  {
+   "name": "Distribution share of total traffic acquisition cost",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distribution share of total traffic acquisition cost",
+   "child_uids": [
+    "n|mech-tac-002|distribution share of total traffic acquisition cost|percentage measurement"
+   ]
+  },
+  {
+   "name": "Google take rate on Google Network advertising revenue",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: Google take rate on Google Network advertising revenue",
+   "child_uids": [
+    "n|e6-pricing-003|google take rate on google network advertising revenue|percentage measurement"
+   ]
+  },
+  {
+   "name": "Google Ads take rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: Google Ads take rate",
+   "child_uids": [
+    "n|e7-pricing-006|google ads take rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "DV360 take rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: DV360 take rate",
+   "child_uids": [
+    "n|e7-pricing-006|dv360 take rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Google Ad Manager take rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: Google Ad Manager take rate",
+   "child_uids": [
+    "n|e7-pricing-006|google ad manager take rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Syndicated inventory take rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: syndicated inventory take rate",
+   "child_uids": [
+    "n|mech-tac-003|syndicated inventory take rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Take rate on other inventory",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: take rate on other inventory",
+   "child_uids": [
+    "n|tu:era:6:field:PRICING|take rate on other inventory|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Network revenue share of Google traffic acquisition cost",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: network revenue share of Google traffic acquisition cost",
+   "child_uids": [
+    "n|mech-default-004|network revenue share of google traffic acquisition cost|share measurement"
+   ]
+  },
+  {
+   "name": "Google ad-tech take rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: Google ad-tech take rate measurement",
+   "child_uids": [
+    "n|tu:era:7:boundary|google ad-tech take rate measurement|take-rate measurement"
+   ]
+  }
+ ]
+}

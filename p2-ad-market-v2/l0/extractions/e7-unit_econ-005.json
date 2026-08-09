@@ -1,0 +1,72 @@
+{
+ "id": "e7-unit_econ-005",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2024,
+ "unit": "USD list-price cost of a fixed 1,000-in / 300-out answer at the cheapest generally available model at or above GPT-4 capability, July 2024",
+ "elapsed_s": 63.9,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "GPT-4o mini",
+   "type": "model",
+   "clause": "GPT-4o mini, the cheapest generally available model"
+  },
+  {
+   "name": "models at or above GPT-4 capability",
+   "type": "model category",
+   "clause": "models at or above GPT-4 capability"
+  },
+  {
+   "name": "fixed answer (1,000-in/300-out)",
+   "type": "advertising product",
+   "clause": "the same answer cost ... fixed 1,000-in / 300-out answer"
+  },
+  {
+   "name": "answer list-price cost",
+   "type": "price measurement",
+   "clause": "cost of the same answer by July 2024"
+  },
+  {
+   "name": "list-price index ratio",
+   "type": "ratio measurement",
+   "clause": "exact index ratio between two named list prices in twelve months"
+  },
+  {
+   "name": "estimate with a band",
+   "type": "estimation",
+   "clause": "an estimate with a band"
+  }
+ ],
+ "edges": [
+  {
+   "from": "answer list-price cost",
+   "type": "MEASURES",
+   "to": "fixed answer (1,000-in/300-out)",
+   "clause": "cost ... of the same answer"
+  },
+  {
+   "from": "answer list-price cost",
+   "type": "AT_MODEL",
+   "to": "GPT-4o mini",
+   "clause": "at GPT-4o mini"
+  },
+  {
+   "from": "GPT-4o mini",
+   "type": "CHEAPEST_IN",
+   "to": "models at or above GPT-4 capability",
+   "clause": "cheapest generally available model at or above GPT-4 capability"
+  },
+  {
+   "from": "list-price index ratio",
+   "type": "NOT",
+   "to": "estimate with a band",
+   "clause": "not an estimate with a band"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|GPT-4o mini|model|GPT-4o mini, the cheapest generally available model\nNODE|models at or above GPT-4 capability|model category|models at or above GPT-4 capability\nNODE|fixed answer (1,000-in/300-out)|advertising product|the same answer cost ... fixed 1,000-in / 300-out answer\nNODE|answer list-price cost|price measurement|cost of the same answer by July 2024\nNODE|list-price index ratio|ratio measurement|exact index ratio between two named list prices in twelve months\nNODE|estimate with a band|estimation|an estimate with a band\nEDGE|answer list-price cost|MEASURES|fixed answer (1,000-in/300-out)|cost ... of the same answer\nEDGE|answer list-price cost|AT_MODEL|GPT-4o mini|at GPT-4o mini\nEDGE|GPT-4o mini|CHEAPEST_IN|models at or above GPT-4 capability|cheapest generally available model at or above GPT-4 capability\nEDGE|list-price index ratio|NOT|estimate with a band|not an estimate with a band"
+}

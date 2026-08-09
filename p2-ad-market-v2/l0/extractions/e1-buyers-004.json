@@ -1,0 +1,89 @@
+{
+ "id": "e1-buyers-004",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1908,
+ "unit": "USD millions (current), annual sales",
+ "elapsed_s": 88.4,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Sears, Roebuck",
+   "type": "company",
+   "clause": "mentioned in statement"
+  },
+  {
+   "name": "Sears annual sales 1908",
+   "type": "revenue measurement",
+   "clause": "annual sales were about ..."
+  },
+  {
+   "name": "Sears annual sales 1906-07",
+   "type": "revenue measurement",
+   "clause": "down from roughly ... in ..."
+  },
+  {
+   "name": "Panic of 1907",
+   "type": "economic event",
+   "clause": "after the Panic of 1907"
+  },
+  {
+   "name": "mail order",
+   "type": "business model",
+   "clause": "making mail order one of the largest ..."
+  },
+  {
+   "name": "advertising-driven business",
+   "type": "business category",
+   "clause": "largest single advertising-driven businesses"
+  },
+  {
+   "name": "United States",
+   "type": "country",
+   "clause": "in the country"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Sears, Roebuck",
+   "type": "HAS_REVENUE_MEASUREMENT",
+   "to": "Sears annual sales 1908",
+   "clause": "annual sales were about ..."
+  },
+  {
+   "from": "Sears, Roebuck",
+   "type": "HAS_REVENUE_MEASUREMENT",
+   "to": "Sears annual sales 1906-07",
+   "clause": "down from roughly ... in ..."
+  },
+  {
+   "from": "Sears annual sales 1908",
+   "type": "DOWN_FROM",
+   "to": "Sears annual sales 1906-07",
+   "clause": "down from roughly ..."
+  },
+  {
+   "from": "Sears annual sales 1906-07",
+   "type": "AFTER_EVENT",
+   "to": "Panic of 1907",
+   "clause": "after the Panic of 1907"
+  },
+  {
+   "from": "mail order",
+   "type": "TOP_IN",
+   "to": "advertising-driven business",
+   "clause": "one of the largest single advertising-driven businesses in the country"
+  },
+  {
+   "from": "advertising-driven business",
+   "type": "LOCATED_IN",
+   "to": "United States",
+   "clause": "in the country"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Sears, Roebuck|company|mentioned in statement\nNODE|Sears annual sales 1908|revenue measurement|annual sales were about ...\nNODE|Sears annual sales 1906-07|revenue measurement|down from roughly ... in ...\nNODE|Panic of 1907|economic event|after the Panic of 1907\nNODE|mail order|business model|making mail order one of the largest ...\nNODE|advertising-driven business|business category|largest single advertising-driven businesses\nNODE|United States|country|in the country\nEDGE|Sears, Roebuck|HAS_REVENUE_MEASUREMENT|Sears annual sales 1908|annual sales were about ...\nEDGE|Sears, Roebuck|HAS_REVENUE_MEASUREMENT|Sears annual sales 1906-07|down from roughly ... in ...\nEDGE|Sears annual sales 1908|DOWN_FROM|Sears annual sales 1906-07|down from roughly ...\nEDGE|Sears annual sales 1906-07|AFTER_EVENT|Panic of 1907|after the Panic of 1907\nEDGE|mail order|TOP_IN|advertising-driven business|one of the largest single advertising-driven businesses in the country\nEDGE|advertising-driven business|LOCATED_IN|United States|in the country"
+}

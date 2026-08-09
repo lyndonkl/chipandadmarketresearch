@@ -1,0 +1,67 @@
+{
+ "id": "e2-medium-006",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ millions of US television advertising, 1949",
+ "elapsed_s": 34.7,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "television advertising",
+   "type": "advertising medium",
+   "clause": "Television enters the US advertising series"
+  },
+  {
+   "name": "US advertising series",
+   "type": "market segment",
+   "clause": "the US advertising series"
+  },
+  {
+   "name": "television ad spend measurement",
+   "type": "revenue measurement",
+   "clause": "at ... million"
+  },
+  {
+   "name": "television ad share measurement",
+   "type": "media-share measurement",
+   "clause": "... percent of total spend"
+  },
+  {
+   "name": "total advertising spend",
+   "type": "aggregate spending",
+   "clause": "of total spend"
+  }
+ ],
+ "edges": [
+  {
+   "from": "television advertising",
+   "type": "ENTERED_INTO",
+   "to": "US advertising series",
+   "clause": "enters the US advertising series in ..."
+  },
+  {
+   "from": "television ad spend measurement",
+   "type": "MEASURES",
+   "to": "television advertising",
+   "clause": "at ... million"
+  },
+  {
+   "from": "television ad share measurement",
+   "type": "MEASURES",
+   "to": "television advertising",
+   "clause": "... percent of total spend"
+  },
+  {
+   "from": "television ad share measurement",
+   "type": "SHARE_OF",
+   "to": "total advertising spend",
+   "clause": "... percent of total spend"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|television advertising|advertising medium|Television enters the US advertising series\nNODE|US advertising series|market segment|the US advertising series\nNODE|television ad spend measurement|revenue measurement|at ... million\nNODE|television ad share measurement|media-share measurement|... percent of total spend\nNODE|total advertising spend|aggregate spending|of total spend\nEDGE|television advertising|ENTERED_INTO|US advertising series|enters the US advertising series in ...\nEDGE|television ad spend measurement|MEASURES|television advertising|at ... million\nEDGE|television ad share measurement|MEASURES|television advertising|... percent of total spend\nEDGE|television ad share measurement|SHARE_OF|total advertising spend|... percent of total spend"
+}

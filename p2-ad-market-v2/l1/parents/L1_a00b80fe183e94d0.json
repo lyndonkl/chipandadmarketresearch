@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|a00b80fe183e94d0",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "US newspaper revenue",
+   "type": "revenue stream",
+   "grain": "Entity",
+   "reason": "singleton: overall US newspaper revenue distinct from ad measures",
+   "child_uids": [
+    "n|e1-sellers-004|us newspaper revenue|revenue stream"
+   ]
+  },
+  {
+   "name": "US newspaper classified revenue",
+   "type": "advertising revenue stream",
+   "grain": "Entity",
+   "reason": "singleton: classified ads revenue separate from total advertising",
+   "child_uids": [
+    "n|ds-money_type-001|us newspaper classified revenue|advertising revenue stream"
+   ]
+  },
+  {
+   "name": "US newspaper total advertising revenue",
+   "type": "advertising revenue aggregate",
+   "grain": "Entity",
+   "reason": "singleton: total US newspaper ad revenue distinct entity",
+   "child_uids": [
+    "n|e3-scale-010|us newspaper total advertising revenue|advertising revenue aggregate"
+   ]
+  },
+  {
+   "name": "newspaper ad revenue",
+   "type": "advertising revenue total",
+   "grain": "Entity",
+   "reason": "singleton: generic newspaper ad revenue, not limited to US",
+   "child_uids": [
+    "n|e5-medium-005|newspaper ad revenue|advertising revenue total"
+   ]
+  }
+ ]
+}

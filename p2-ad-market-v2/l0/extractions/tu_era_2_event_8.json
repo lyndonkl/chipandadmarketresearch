@@ -1,0 +1,199 @@
+{
+ "id": "tu:era:2:event:8",
+ "kind": "prose:event",
+ "era": 2,
+ "about_year": 1943,
+ "unit": null,
+ "elapsed_s": 107.8,
+ "error": null,
+ "n_nodes": 17,
+ "n_edges": 16,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "FCC",
+   "type": "regulator",
+   "clause": "FCC"
+  },
+  {
+   "name": "chain-broadcasting rules",
+   "type": "regulation",
+   "clause": "chain-broadcasting rules"
+  },
+  {
+   "name": "RCA",
+   "type": "corporation",
+   "clause": "RCA"
+  },
+  {
+   "name": "Blue Network",
+   "type": "broadcast network",
+   "clause": "Blue Network"
+  },
+  {
+   "name": "Edward J. Noble",
+   "type": "person",
+   "clause": "Edward J. Noble"
+  },
+  {
+   "name": "Life Savers",
+   "type": "candy brand",
+   "clause": "Life Savers"
+  },
+  {
+   "name": "WMCA",
+   "type": "radio station",
+   "clause": "WMCA"
+  },
+  {
+   "name": "Blue name",
+   "type": "brand name",
+   "clause": "Blue name"
+  },
+  {
+   "name": "line leases",
+   "type": "contract assets",
+   "clause": "line leases"
+  },
+  {
+   "name": "New York studios",
+   "type": "facilities",
+   "clause": "New York studios"
+  },
+  {
+   "name": "stations",
+   "type": "broadcast stations",
+   "clause": "stations"
+  },
+  {
+   "name": "affiliate agreements",
+   "type": "contracts",
+   "clause": "affiliate agreements"
+  },
+  {
+   "name": "American Broadcasting Company",
+   "type": "broadcast company",
+   "clause": "American Broadcasting Company"
+  },
+  {
+   "name": "Antitrust",
+   "type": "market force",
+   "clause": "Antitrust"
+  },
+  {
+   "name": "technology",
+   "type": "concept",
+   "clause": "technology"
+  },
+  {
+   "name": "stations acquisition count",
+   "type": "asset count measurement",
+   "clause": "... stations"
+  },
+  {
+   "name": "affiliate agreements acquisition count",
+   "type": "contract count measurement",
+   "clause": "... affiliate agreements"
+  }
+ ],
+ "edges": [
+  {
+   "from": "FCC",
+   "type": "HAS_REGULATION",
+   "to": "chain-broadcasting rules",
+   "clause": "FCC's chain-broadcasting rules"
+  },
+  {
+   "from": "chain-broadcasting rules",
+   "type": "FORCED",
+   "to": "RCA",
+   "clause": "forced by ... rules"
+  },
+  {
+   "from": "RCA",
+   "type": "SOLD",
+   "to": "Blue Network",
+   "clause": "sold Blue Network to Edward J. Noble"
+  },
+  {
+   "from": "Blue Network",
+   "type": "BOUGHT_BY",
+   "to": "Edward J. Noble",
+   "clause": "to Edward J. Noble"
+  },
+  {
+   "from": "Edward J. Noble",
+   "type": "OWNS",
+   "to": "Life Savers",
+   "clause": "Life Savers owner"
+  },
+  {
+   "from": "Edward J. Noble",
+   "type": "HOLDS",
+   "to": "WMCA",
+   "clause": "already held WMCA"
+  },
+  {
+   "from": "Edward J. Noble",
+   "type": "ACQUIRED",
+   "to": "Blue name",
+   "clause": "acquired the Blue name"
+  },
+  {
+   "from": "Edward J. Noble",
+   "type": "ACQUIRED",
+   "to": "line leases",
+   "clause": "acquired the line leases"
+  },
+  {
+   "from": "Edward J. Noble",
+   "type": "ACQUIRED",
+   "to": "New York studios",
+   "clause": "acquired the New York studios"
+  },
+  {
+   "from": "Edward J. Noble",
+   "type": "ACQUIRED_COUNT_OF",
+   "to": "stations acquisition count",
+   "clause": "acquired ... stations"
+  },
+  {
+   "from": "Edward J. Noble",
+   "type": "ACQUIRED_COUNT_OF",
+   "to": "affiliate agreements acquisition count",
+   "clause": "acquired ... affiliate agreements"
+  },
+  {
+   "from": "stations acquisition count",
+   "type": "MEASURES",
+   "to": "stations",
+   "clause": "roughly ... stations"
+  },
+  {
+   "from": "affiliate agreements acquisition count",
+   "type": "MEASURES",
+   "to": "affiliate agreements",
+   "clause": "roughly ... affiliate agreements"
+  },
+  {
+   "from": "Blue Network",
+   "type": "RENAMED_TO",
+   "to": "American Broadcasting Company",
+   "clause": "renamed company to American Broadcasting Company"
+  },
+  {
+   "from": "Antitrust",
+   "type": "CREATED",
+   "to": "American Broadcasting Company",
+   "clause": "Antitrust ... created the third network"
+  },
+  {
+   "from": "technology",
+   "type": "NOT_CREATOR_OF",
+   "to": "American Broadcasting Company",
+   "clause": "not technology, created the third network"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|FCC|regulator|FCC\nNODE|chain-broadcasting rules|regulation|chain-broadcasting rules\nNODE|RCA|corporation|RCA\nNODE|Blue Network|broadcast network|Blue Network\nNODE|Edward J. Noble|person|Edward J. Noble\nNODE|Life Savers|candy brand|Life Savers\nNODE|WMCA|radio station|WMCA\nNODE|Blue name|brand name|Blue name\nNODE|line leases|contract assets|line leases\nNODE|New York studios|facilities|New York studios\nNODE|stations|broadcast stations|stations\n NODE|affiliate agreements|contracts|affiliate agreements\nNODE|American Broadcasting Company|broadcast company|American Broadcasting Company\nNODE|Antitrust|market force|Antitrust\nNODE|technology|concept|technology\nNODE|stations acquisition count|asset count measurement|... stations\nNODE|affiliate agreements acquisition count|contract count measurement|... affiliate agreements\nEDGE|FCC|HAS_REGULATION|chain-broadcasting rules|FCC's chain-broadcasting rules\nEDGE|chain-broadcasting rules|FORCED|RCA|forced by ... rules\nEDGE|RCA|SOLD|Blue Network|sold Blue Network to Edward J. Noble\nEDGE|Blue Network|BOUGHT_BY|Edward J. Noble|to Edward J. Noble\nEDGE|Edward J. Noble|OWNS|Life Savers|Life Savers owner\nEDGE|Edward J. Noble|HOLDS|WMCA|already held WMCA\nEDGE|Edward J. Noble|ACQUIRED|Blue name|acquired the Blue name\nEDGE|Edward J. Noble|ACQUIRED|line leases|acquired the line leases\nEDGE|Edward J. Noble|ACQUIRED|New York studios|acquired the New York studios\nEDGE|Edward J. Noble|ACQUIRED_COUNT_OF|stations acquisition count|acquired ... stations\nEDGE|Edward J. Noble|ACQUIRED_COUNT_OF|affiliate agreements acquisition count|acquired ... affiliate agreements\nEDGE|stations acquisition count|MEASURES|stations|roughly ... stations\nEDGE|affiliate agreements acquisition count|MEASURES|affiliate agreements|roughly ... affiliate agreements\nEDGE|Blue Network|RENAMED_TO|American Broadcasting Company|renamed company to American Broadcasting Company\nEDGE|Antitrust|CREATED|American Broadcasting Company|Antitrust ... created the third network\nEDGE|technology|NOT_CREATOR_OF|American Broadcasting Company|not technology, created the third network"
+}

@@ -1,0 +1,106 @@
+{
+ "id": "e2-pricing-006",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1940,
+ "unit": "percent commission Mutual retained on member-station network proceeds after agency commission",
+ "elapsed_s": 63.5,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Mutual",
+   "type": "company",
+   "clause": "Mutual"
+  },
+  {
+   "name": "network rate card",
+   "type": "document",
+   "clause": "network rate card"
+  },
+  {
+   "name": "station card rates",
+   "type": "pricing schedule",
+   "clause": "stations' own card rates"
+  },
+  {
+   "name": "net network proceeds after agency commissions",
+   "type": "revenue measure",
+   "clause": "network proceeds after agency commissions"
+  },
+  {
+   "name": "member stations",
+   "type": "broadcaster group",
+   "clause": "member stations"
+  },
+  {
+   "name": "affiliated stations",
+   "type": "broadcaster group",
+   "clause": "affiliated stations"
+  },
+  {
+   "name": "Mutual member-station commission rate",
+   "type": "take-rate measurement",
+   "clause": "... commission on network proceeds from member stations after agency commissions"
+  },
+  {
+   "name": "Mutual affiliated-station commission rate",
+   "type": "take-rate measurement",
+   "clause": "... commission from affiliated stations"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Mutual",
+   "type": "DID_NOT_PUBLISH",
+   "to": "network rate card",
+   "clause": "published no network rate card"
+  },
+  {
+   "from": "Mutual",
+   "type": "BILLED_AT",
+   "to": "station card rates",
+   "clause": "billed at its stations' own card rates"
+  },
+  {
+   "from": "Mutual",
+   "type": "HAS_RATE",
+   "to": "Mutual member-station commission rate",
+   "clause": "retained a ... commission on network proceeds from member stations after agency commissions"
+  },
+  {
+   "from": "Mutual member-station commission rate",
+   "type": "SHARE_OF",
+   "to": "net network proceeds after agency commissions",
+   "clause": "share of network proceeds after agency commissions"
+  },
+  {
+   "from": "Mutual member-station commission rate",
+   "type": "FROM",
+   "to": "member stations",
+   "clause": "commission ... from member stations"
+  },
+  {
+   "from": "Mutual",
+   "type": "HAS_RATE",
+   "to": "Mutual affiliated-station commission rate",
+   "clause": "... commission from affiliated stations"
+  },
+  {
+   "from": "Mutual affiliated-station commission rate",
+   "type": "SHARE_OF",
+   "to": "net network proceeds after agency commissions",
+   "clause": "share of network proceeds after agency commissions"
+  },
+  {
+   "from": "Mutual affiliated-station commission rate",
+   "type": "FROM",
+   "to": "affiliated stations",
+   "clause": "commission ... from affiliated stations"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Mutual|company|Mutual\nNODE|network rate card|document|network rate card\nNODE|station card rates|pricing schedule|stations' own card rates\nNODE|net network proceeds after agency commissions|revenue measure|network proceeds after agency commissions\nNODE|member stations|broadcaster group|member stations\nNODE|affiliated stations|broadcaster group|affiliated stations\nNODE|Mutual member-station commission rate|take-rate measurement|... commission on network proceeds from member stations after agency commissions\nNODE|Mutual affiliated-station commission rate|take-rate measurement|... commission from affiliated stations\nEDGE|Mutual|DID_NOT_PUBLISH|network rate card|published no network rate card\nEDGE|Mutual|BILLED_AT|station card rates|billed at its stations' own card rates\nEDGE|Mutual|HAS_RATE|Mutual member-station commission rate|retained a ... commission on network proceeds from member stations after agency commissions\nEDGE|Mutual member-station commission rate|SHARE_OF|net network proceeds after agency commissions|share of network proceeds after agency commissions\nEDGE|Mutual member-station commission rate|FROM|member stations|commission ... from member stations\nEDGE|Mutual|HAS_RATE|Mutual affiliated-station commission rate|... commission from affiliated stations\nEDGE|Mutual affiliated-station commission rate|SHARE_OF|net network proceeds after agency commissions|share of network proceeds after agency commissions\nEDGE|Mutual affiliated-station commission rate|FROM|affiliated stations|commission ... from affiliated stations"
+}

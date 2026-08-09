@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|bbbb10d725312c9f",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Direct mail expenditure",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "total direct mail spend across years; years abstracted to children",
+   "child_uids": [
+    "n|e5-medium-002|direct mail expenditure|media-spend measurement",
+    "n|tu:era:1:boundary|direct mail outlay 1920|advertising-spend measurement"
+   ]
+  },
+  {
+   "name": "Direct mail line spend amount",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific line spend, not total",
+   "child_uids": [
+    "n|e4-scale-010|direct mail line spend amount|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Direct mail advertising spend per US household",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: per\u2011household measure, distinct from total",
+   "child_uids": [
+    "n|e2-buyers-007|prior direct-mail advertising spend per us household|spend measurement"
+   ]
+  },
+  {
+   "name": "World advertising expenditure including direct mail and sales promotion",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: global ad spend with direct\u2011mail & sales\u2011promotion components",
+   "child_uids": [
+    "n|e4-scale-005|world advertising expenditure including direct mail and sales promotion|global ad spend measurement"
+   ]
+  }
+ ]
+}

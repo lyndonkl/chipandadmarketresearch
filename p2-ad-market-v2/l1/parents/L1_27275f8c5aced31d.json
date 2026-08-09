@@ -1,0 +1,88 @@
+{
+ "group_id": "L1|27275f8c5aced31d",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "cost of preparation",
+   "type": "cost component",
+   "grain": "Entity",
+   "reason": "singleton: distinct cost component",
+   "child_uids": [
+    "n|e1-buyers-007|cost of preparation|cost component"
+   ]
+  },
+  {
+   "name": "production cost",
+   "type": "cost per issue",
+   "grain": "Entity",
+   "reason": "singleton: specific production cost per issue",
+   "child_uids": [
+    "n|e1-sellers-005|production cost|cost per issue"
+   ]
+  },
+  {
+   "name": "net media cost",
+   "type": "media cost",
+   "grain": "Entity",
+   "reason": "singleton: net media cost measure",
+   "child_uids": [
+    "n|e3-pricing-002|net media cost|media cost"
+   ]
+  },
+  {
+   "name": "postage and production costs",
+   "type": "cost component",
+   "grain": "Entity",
+   "reason": "singleton: combined postage and production costs",
+   "child_uids": [
+    "n|e4-buyers-003|postage and production costs|cost component"
+   ]
+  },
+  {
+   "name": "media rate",
+   "type": "cost component",
+   "grain": "Entity",
+   "reason": "singleton: media rate concept",
+   "child_uids": [
+    "n|e4-buyers-003|media rate|cost component"
+   ]
+  },
+  {
+   "name": "programme ratings",
+   "type": "rating type",
+   "grain": "Entity",
+   "reason": "singleton: programme ratings type",
+   "child_uids": [
+    "n|e6-measurement-005|programme ratings|rating type"
+   ]
+  },
+  {
+   "name": "depreciation",
+   "type": "expense type",
+   "grain": "Entity",
+   "reason": "singleton: depreciation expense category",
+   "child_uids": [
+    "n|e6-unit_econ-002|depreciation|expense type"
+   ]
+  },
+  {
+   "name": "ratings",
+   "type": "media currency",
+   "grain": "Entity",
+   "reason": "singleton: generic ratings currency",
+   "child_uids": [
+    "n|tu:era:1:event:8|ratings|media currency"
+   ]
+  },
+  {
+   "name": "cost of doing business",
+   "type": "business cost concept",
+   "grain": "Entity",
+   "reason": "singleton: overall business cost concept",
+   "child_uids": [
+    "n|tu:era:1:event:9|cost of doing business|business cost concept"
+   ]
+  }
+ ]
+}

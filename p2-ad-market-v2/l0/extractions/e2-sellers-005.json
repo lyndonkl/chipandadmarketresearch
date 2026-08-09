@@ -1,0 +1,89 @@
+{
+ "id": "e2-sellers-005",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1938,
+ "unit": "US$ of each $100 gross network radio billing retained by the network, 1938",
+ "elapsed_s": 49.1,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "agency",
+   "type": "intermediary",
+   "clause": "the agency"
+  },
+  {
+   "name": "network",
+   "type": "broadcast network",
+   "clause": "the network"
+  },
+  {
+   "name": "affiliated stations",
+   "type": "radio stations",
+   "clause": "the affiliated stations"
+  },
+  {
+   "name": "gross network radio billing",
+   "type": "advertising revenue pool",
+   "clause": "gross network radio billing"
+  },
+  {
+   "name": "agency share of gross network radio billing",
+   "type": "revenue share measurement",
+   "clause": "the agency took about ..."
+  },
+  {
+   "name": "network retention of gross network radio billing",
+   "type": "revenue share measurement",
+   "clause": "the network kept about ..."
+  },
+  {
+   "name": "stations share of gross network radio billing",
+   "type": "revenue share measurement",
+   "clause": "affiliated stations shared about ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "agency",
+   "type": "RECEIVED",
+   "to": "agency share of gross network radio billing",
+   "clause": "the agency took about ..."
+  },
+  {
+   "from": "network",
+   "type": "RECEIVED",
+   "to": "network retention of gross network radio billing",
+   "clause": "the network kept about ..."
+  },
+  {
+   "from": "affiliated stations",
+   "type": "RECEIVED",
+   "to": "stations share of gross network radio billing",
+   "clause": "affiliated stations shared about ..."
+  },
+  {
+   "from": "agency share of gross network radio billing",
+   "type": "SHARE_OF",
+   "to": "gross network radio billing",
+   "clause": "of every ... of gross network radio billing"
+  },
+  {
+   "from": "network retention of gross network radio billing",
+   "type": "SHARE_OF",
+   "to": "gross network radio billing",
+   "clause": "of every ... of gross network radio billing"
+  },
+  {
+   "from": "stations share of gross network radio billing",
+   "type": "SHARE_OF",
+   "to": "gross network radio billing",
+   "clause": "of every ... of gross network radio billing"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|agency|intermediary|the agency\nNODE|network|broadcast network|the network\nNODE|affiliated stations|radio stations|the affiliated stations\nNODE|gross network radio billing|advertising revenue pool|gross network radio billing\nNODE|agency share of gross network radio billing|revenue share measurement|the agency took about ...\nNODE|network retention of gross network radio billing|revenue share measurement|the network kept about ...\nNODE|stations share of gross network radio billing|revenue share measurement|affiliated stations shared about ...\nEDGE|agency|RECEIVED|agency share of gross network radio billing|the agency took about ...\nEDGE|network|RECEIVED|network retention of gross network radio billing|the network kept about ...\nEDGE|affiliated stations|RECEIVED|stations share of gross network radio billing|affiliated stations shared about ...\nEDGE|agency share of gross network radio billing|SHARE_OF|gross network radio billing|of every ... of gross network radio billing\nEDGE|network retention of gross network radio billing|SHARE_OF|gross network radio billing|of every ... of gross network radio billing\nEDGE|stations share of gross network radio billing|SHARE_OF|gross network radio billing|of every ... of gross network radio billing"
+}

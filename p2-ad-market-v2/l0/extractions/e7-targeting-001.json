@@ -1,0 +1,78 @@
+{
+ "id": "e7-targeting-001",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2022,
+ "unit": "USD billions of 2022 Meta revenue attributed to ATT",
+ "elapsed_s": 51.6,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Meta",
+   "type": "company",
+   "clause": "Meta told investors"
+  },
+  {
+   "name": "investors",
+   "type": "stakeholder group",
+   "clause": "investors addressed by Meta"
+  },
+  {
+   "name": "Apple",
+   "type": "company",
+   "clause": "Apple's App Tracking Transparency"
+  },
+  {
+   "name": "App Tracking Transparency",
+   "type": "privacy feature",
+   "clause": "Apple's App Tracking Transparency"
+  },
+  {
+   "name": "Meta ATT revenue headwind amount",
+   "type": "revenue impact measurement",
+   "clause": "on the order of ..."
+  },
+  {
+   "name": "third\u2011party ATT revenue headwind estimate",
+   "type": "revenue impact measurement",
+   "clause": "run as high as ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Meta",
+   "type": "TOLD",
+   "to": "investors",
+   "clause": "Meta told investors"
+  },
+  {
+   "from": "Apple",
+   "type": "CREATED",
+   "to": "App Tracking Transparency",
+   "clause": "Apple's App Tracking Transparency"
+  },
+  {
+   "from": "App Tracking Transparency",
+   "type": "CAUSES",
+   "to": "Meta ATT revenue headwind amount",
+   "clause": "would be a revenue headwind on the order of ..."
+  },
+  {
+   "from": "App Tracking Transparency",
+   "type": "CAUSES",
+   "to": "third\u2011party ATT revenue headwind estimate",
+   "clause": "same effect run as high as ..."
+  },
+  {
+   "from": "third\u2011party ATT revenue headwind estimate",
+   "type": "HIGHER_THAN",
+   "to": "Meta ATT revenue headwind amount",
+   "clause": "run as high as ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Meta|company|Meta told investors\nNODE|investors|stakeholder group|investors addressed by Meta\nNODE|Apple|company|Apple's App Tracking Transparency\nNODE|App Tracking Transparency|privacy feature|Apple's App Tracking Transparency\nNODE|Meta ATT revenue headwind amount|revenue impact measurement|on the order of ...\nNODE|third\u2011party ATT revenue headwind estimate|revenue impact measurement|run as high as ...\n\nEDGE|Meta|TOLD|investors|Meta told investors\nEDGE|Apple|CREATED|App Tracking Transparency|Apple's App Tracking Transparency\nEDGE|App Tracking Transparency|CAUSES|Meta ATT revenue headwind amount|would be a revenue headwind on the order of ...\nEDGE|App Tracking Transparency|CAUSES|third\u2011party ATT revenue headwind estimate|same effect run as high as ...\nEDGE|third\u2011party ATT revenue headwind estimate|HIGHER_THAN|Meta ATT revenue headwind amount|run as high as ..."
+}

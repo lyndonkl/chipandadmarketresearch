@@ -1,0 +1,50 @@
+{
+ "id": "e1-measurement-004",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "percent growth in circulation per issue, 1909-1914",
+ "elapsed_s": 45.4,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "aggregate US newspaper and periodical circulation per issue",
+   "type": "circulation metric",
+   "clause": "Aggregate US newspaper and periodical circulation per issue"
+  },
+  {
+   "name": "circulation per issue growth rate",
+   "type": "percent growth measurement",
+   "clause": "grew ... percent between ... and ..."
+  },
+  {
+   "name": "quantity being priced",
+   "type": "priced quantity",
+   "clause": "the quantity being priced was itself growing faster than the number of titles"
+  },
+  {
+   "name": "number of titles",
+   "type": "title count metric",
+   "clause": "number of titles"
+  }
+ ],
+ "edges": [
+  {
+   "from": "circulation per issue growth rate",
+   "type": "MEASURES",
+   "to": "aggregate US newspaper and periodical circulation per issue",
+   "clause": "grew ... percent between ... and ..."
+  },
+  {
+   "from": "circulation per issue growth rate",
+   "type": "GREW_FASTER_THAN",
+   "to": "number of titles",
+   "clause": "growing faster than the number of titles"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|aggregate US newspaper and periodical circulation per issue|circulation metric|Aggregate US newspaper and periodical circulation per issue\nNODE|circulation per issue growth rate|percent growth measurement|grew ... percent between ... and ...\nNODE|quantity being priced|priced quantity|the quantity being priced was itself growing faster than the number of titles\nNODE|number of titles|title count metric|number of titles\nEDGE|circulation per issue growth rate|MEASURES|aggregate US newspaper and periodical circulation per issue|grew ... percent between ... and ...\nEDGE|circulation per issue growth rate|GREW_FASTER_THAN|number of titles|growing faster than the number of titles"
+}

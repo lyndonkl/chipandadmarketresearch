@@ -1,0 +1,81 @@
+{
+ "group_id": "L1|c8f391ff7c09663b",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "WEAF airtime slot",
+   "type": "airtime slot",
+   "grain": "Entity",
+   "reason": "same WEAF slot across durations; length abstracted to children",
+   "child_uids": [
+    "n|e2-pricing-001|fifteen-minute weaf airtime slot|airtime slot",
+    "n|e2-pricing-001|ten-minute weaf airtime slot|airtime slot"
+   ]
+  },
+  {
+   "name": "Converted hour",
+   "type": "advertising time unit",
+   "grain": "Entity",
+   "reason": "singleton: advertising time unit definition",
+   "child_uids": [
+    "n|e2-pricing-003|converted hour|advertising time unit"
+   ]
+  },
+  {
+   "name": "Daytime network hour",
+   "type": "ad slot",
+   "grain": "Entity",
+   "reason": "singleton: daytime network hour ad slot",
+   "child_uids": [
+    "n|e2-pricing-004|daytime network hour|ad slot"
+   ]
+  },
+  {
+   "name": "Midnight hour",
+   "type": "ad slot",
+   "grain": "Entity",
+   "reason": "singleton: midnight hour ad slot",
+   "child_uids": [
+    "n|e2-pricing-004|midnight hour|ad slot"
+   ]
+  },
+  {
+   "name": "66 unit hours per 28\u2011day period",
+   "type": "hour threshold",
+   "grain": "Entity",
+   "reason": "singleton: hour threshold per 28\u2011day period",
+   "child_uids": [
+    "n|e2-pricing-007|66 unit hours per 28-day period|hour threshold"
+   ]
+  },
+  {
+   "name": "Nighttime wattage of unlimited\u2011time stations",
+   "type": "wattage metric",
+   "grain": "Entity",
+   "reason": "singleton: nighttime wattage of unlimited\u2011time stations",
+   "child_uids": [
+    "n|e2-events-003|nighttime wattage of us unlimited-time stations|wattage metric"
+   ]
+  },
+  {
+   "name": "US nighttime radio wattage",
+   "type": "wattage metric",
+   "grain": "Entity",
+   "reason": "same total US nighttime radio wattage; phrasing abstracted",
+   "child_uids": [
+    "n|e2-events-003|total us nighttime wattage|wattage metric",
+    "n|tu:era:2:field:SELLERS|national nighttime radio wattage|radio power metric"
+   ]
+  },
+  {
+   "name": "Entire daypart",
+   "type": "advertising daypart",
+   "grain": "Entity",
+   "reason": "singleton: entire advertising daypart entity",
+   "child_uids": [
+    "n|e4-measurement-002|entire daypart|advertising daypart"
+   ]
+  }
+ ]
+}

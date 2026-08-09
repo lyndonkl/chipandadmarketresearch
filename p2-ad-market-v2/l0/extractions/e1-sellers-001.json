@@ -1,0 +1,62 @@
+{
+ "id": "e1-sellers-001",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "publications",
+ "elapsed_s": 33.4,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "United States",
+   "type": "country",
+   "clause": "the United States"
+  },
+  {
+   "name": "newspapers and periodicals",
+   "type": "publication category",
+   "clause": "newspapers and periodicals"
+  },
+  {
+   "name": "newspaper and periodical count",
+   "type": "count measurement",
+   "clause": "had ... newspapers and periodicals in ..."
+  },
+  {
+   "name": "aggregate circulation per issue",
+   "type": "circulation measurement",
+   "clause": "with aggregate circulation of ... copies per issue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "United States",
+   "type": "HAS_COUNT",
+   "to": "newspaper and periodical count",
+   "clause": "had ... newspapers and periodicals"
+  },
+  {
+   "from": "newspaper and periodical count",
+   "type": "MEASURES",
+   "to": "newspapers and periodicals",
+   "clause": "count of publications"
+  },
+  {
+   "from": "United States",
+   "type": "HAS_CIRCULATION",
+   "to": "aggregate circulation per issue",
+   "clause": "with aggregate circulation ..."
+  },
+  {
+   "from": "aggregate circulation per issue",
+   "type": "MEASURES",
+   "to": "newspapers and periodicals",
+   "clause": "circulation per issue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|United States|country|the United States\nNODE|newspapers and periodicals|publication category|newspapers and periodicals\nNODE|newspaper and periodical count|count measurement|had ... newspapers and periodicals in ...\nNODE|aggregate circulation per issue|circulation measurement|with aggregate circulation of ... copies per issue\nEDGE|United States|HAS_COUNT|newspaper and periodical count|had ... newspapers and periodicals\nEDGE|newspaper and periodical count|MEASURES|newspapers and periodicals|count of publications\nEDGE|United States|HAS_CIRCULATION|aggregate circulation per issue|with aggregate circulation ...\nEDGE|aggregate circulation per issue|MEASURES|newspapers and periodicals|circulation per issue"
+}

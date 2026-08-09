@@ -1,0 +1,26 @@
+{
+ "group_id": "L1|634668d8cc2c9f8d",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Google search revenue",
+   "type": "revenue stream",
+   "grain": "Entity",
+   "reason": "same revenue stream across years; year abstracted to children",
+   "child_uids": [
+    "n|mech-default-005|google search and other revenue|revenue stream",
+    "n|mech-mehta-002|overall search revenue|revenue stream"
+   ]
+  },
+  {
+   "name": "Google default revenue share",
+   "type": "payment",
+   "grain": "Entity",
+   "reason": "singleton: distinct payment concept",
+   "child_uids": [
+    "n|tu:era:7:field:SELLERS|google default revenue share|payment"
+   ]
+  }
+ ]
+}

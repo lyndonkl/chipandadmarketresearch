@@ -1,0 +1,34 @@
+{
+ "group_id": "L2|dc8c3fb12f908895",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "advertiser revenue metric",
+   "type": "revenue metric kind",
+   "grain": "Entity",
+   "reason": "singleton: revenue metric, distinct from population and traffic measures",
+   "child_uids": [
+    "L1|f3c3a04b6f4a00c0"
+   ]
+  },
+  {
+   "name": "advertiser population",
+   "type": "population metric kind",
+   "grain": "Entity",
+   "reason": "singleton: advertiser count, different quantity than revenue or traffic",
+   "child_uids": [
+    "L1|44cc774f657c46be"
+   ]
+  },
+  {
+   "name": "ad traffic volume",
+   "type": "traffic volume kind",
+   "grain": "Entity",
+   "reason": "ad traffic volume from multiple sources share same market role",
+   "child_uids": [
+    "L1|07bfb02bddd4c769",
+    "L1|f24a84e7241b1598"
+   ]
+  }
+ ]
+}

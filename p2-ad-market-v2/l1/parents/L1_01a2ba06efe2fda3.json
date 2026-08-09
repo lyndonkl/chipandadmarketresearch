@@ -1,0 +1,80 @@
+{
+ "group_id": "L1|01a2ba06efe2fda3",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "Average cost-per-click",
+   "type": "metric",
+   "grain": "Entity",
+   "reason": "two synonymous average CPC measures",
+   "child_uids": [
+    "n|e6-measurement-006|average cpc|metric",
+    "n|e7-pricing-007|average click price|average cpc metric"
+   ]
+  },
+  {
+   "name": "Paid clicks (count metric)",
+   "type": "metric",
+   "grain": "Entity",
+   "reason": "singleton: count of paid click interactions",
+   "child_uids": [
+    "n|e7-pricing-007|paid clicks|click count metric"
+   ]
+  },
+  {
+   "name": "Aggregate paid clicks",
+   "type": "aggregate metric",
+   "grain": "Entity",
+   "reason": "singleton: aggregated total of paid clicks",
+   "child_uids": [
+    "n|e6-measurement-006|aggregate paid clicks|aggregate metric"
+   ]
+  },
+  {
+   "name": "Paid click interaction",
+   "type": "ad interaction",
+   "grain": "Entity",
+   "reason": "singleton: single paid click event",
+   "child_uids": [
+    "n|mech-overture-001|paid click|ad interaction"
+   ]
+  },
+  {
+   "name": "Intent-priced clicks",
+   "type": "ad product",
+   "grain": "Entity",
+   "reason": "singleton: ad product priced by intent",
+   "child_uids": [
+    "n|e6-targeting-005|intent-priced clicks|ad product"
+   ]
+  },
+  {
+   "name": "Revenue per click",
+   "type": "monetary metric",
+   "grain": "Entity",
+   "reason": "singleton: revenue generated per click",
+   "child_uids": [
+    "n|e7-targeting-003|revenue per click|monetary metric"
+   ]
+  },
+  {
+   "name": "Cost-per-click pricing model",
+   "type": "pricing model",
+   "grain": "Entity",
+   "reason": "singleton: CPC based pricing approach",
+   "child_uids": [
+    "n|tu:era:6:event:0|cost-per-click pricing|pricing model"
+   ]
+  },
+  {
+   "name": "Smart pricing practice",
+   "type": "pricing practice",
+   "grain": "Entity",
+   "reason": "singleton: discounting clicks by expected value",
+   "child_uids": [
+    "n|tu:era:6:field:TARGETING|smart pricing|pricing practice"
+   ]
+  }
+ ]
+}

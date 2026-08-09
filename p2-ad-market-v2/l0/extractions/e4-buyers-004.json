@@ -1,0 +1,67 @@
+{
+ "id": "e4-buyers-004",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1992,
+ "unit": "percent of marketing-communications budget",
+ "elapsed_s": 41.4,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "trade promotion",
+   "type": "marketing practice",
+   "clause": "Trade promotion took ... of packaged\u2011goods marketing\u2011communications budgets"
+  },
+  {
+   "name": "packaged-goods marketing-communications budgets",
+   "type": "budget category",
+   "clause": "... of packaged\u2011goods marketing\u2011communications budgets"
+  },
+  {
+   "name": "trade promotion budget share",
+   "type": "share measurement",
+   "clause": "44.9% ... of packaged\u2011goods marketing\u2011communications budgets"
+  },
+  {
+   "name": "media advertising",
+   "type": "advertising channel",
+   "clause": "media advertising"
+  },
+  {
+   "name": "measured-media advertising total",
+   "type": "advertising spend measurement",
+   "clause": "measured\u2011media advertising total"
+  }
+ ],
+ "edges": [
+  {
+   "from": "trade promotion",
+   "type": "HAS_SHARE",
+   "to": "trade promotion budget share",
+   "clause": "took ... of packaged\u2011goods budgets"
+  },
+  {
+   "from": "trade promotion budget share",
+   "type": "SHARE_OF",
+   "to": "packaged-goods marketing-communications budgets",
+   "clause": "... of packaged\u2011goods marketing\u2011communications budgets"
+  },
+  {
+   "from": "trade promotion",
+   "type": "OVERTAKED",
+   "to": "media advertising",
+   "clause": "having overtaken ... during the 1980s"
+  },
+  {
+   "from": "measured-media advertising total",
+   "type": "EXCLUDES",
+   "to": "trade promotion",
+   "clause": "money that never appears in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|trade promotion|marketing practice|Trade promotion took ... of packaged\u2011goods marketing\u2011communications budgets\nNODE|packaged-goods marketing-communications budgets|budget category|... of packaged\u2011goods marketing\u2011communications budgets\nNODE|trade promotion budget share|share measurement|44.9% ... of packaged\u2011goods marketing\u2011communications budgets\nNODE|media advertising|advertising channel|media advertising\nNODE|measured-media advertising total|advertising spend measurement|measured\u2011media advertising total\nEDGE|trade promotion|HAS_SHARE|trade promotion budget share|took ... of packaged\u2011goods budgets\nEDGE|trade promotion budget share|SHARE_OF|packaged-goods marketing-communications budgets|... of packaged\u2011goods marketing\u2011communications budgets\nEDGE|trade promotion|OVERTAKED|media advertising|having overtaken ... during the 1980s\nEDGE|measured-media advertising total|EXCLUDES|trade promotion|money that never appears in ..."
+}

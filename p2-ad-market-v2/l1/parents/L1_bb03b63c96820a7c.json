@@ -1,0 +1,161 @@
+{
+ "group_id": "L1|bb03b63c96820a7c",
+ "source": "kmeans",
+ "n_in": 18,
+ "parents": [
+  {
+   "name": "Dealers",
+   "type": "advertiser category",
+   "grain": "Entity",
+   "reason": "singleton: a distinct advertiser category representing dealers",
+   "child_uids": [
+    "n|e2-buyers-005|dealers|advertiser category"
+   ]
+  },
+  {
+   "name": "Car makers",
+   "type": "advertiser category",
+   "grain": "Entity",
+   "reason": "singleton: a distinct advertiser category for car manufacturers",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|car makers|advertiser category"
+   ]
+  },
+  {
+   "name": "Web ad buyer",
+   "type": "buyer type",
+   "grain": "Entity",
+   "reason": "singleton: a specific buyer type for web advertisements",
+   "child_uids": [
+    "n|tu:era:5:field:BUYERS|web ad buyer|buyer type"
+   ]
+  },
+  {
+   "name": "Listing",
+   "type": "ad listing",
+   "grain": "Entity",
+   "reason": "singleton: an entity denoting an advertiser's own listing",
+   "child_uids": [
+    "n|tu:era:5:field:CREATORS|listing|ad listing"
+   ]
+  },
+  {
+   "name": "Paid-search seller",
+   "type": "seller",
+   "grain": "Entity",
+   "reason": "same seller entity across wording variants; pay-per-click and paid-search",
+   "child_uids": [
+    "n|tu:era:5:field:MEASUREMENT|pay-per-click seller|market participant",
+    "n|tu:era:6:field:SELLERS|paid-search seller|market segment"
+   ]
+  },
+  {
+   "name": "First-time media buyer",
+   "type": "advertiser category",
+   "grain": "Entity",
+   "reason": "singleton: advertisers who have never bought media before",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|first-time media buyer|advertiser category"
+   ]
+  },
+  {
+   "name": "Financial services advertisers",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: advertisers in the financial services industry",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|financial services advertisers|advertiser segment"
+   ]
+  },
+  {
+   "name": "Automotive advertisers",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: advertisers in the automotive sector",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|automotive advertisers|advertiser segment"
+   ]
+  },
+  {
+   "name": "Computing advertisers",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: advertisers in the computing industry",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|computing advertisers|advertiser segment"
+   ]
+  },
+  {
+   "name": "Telecom advertisers",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: advertisers operating in telecommunications",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|telecom advertisers|advertiser segment"
+   ]
+  },
+  {
+   "name": "Mortgage lead brokers",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: brokers specializing in mortgage leads",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|mortgage lead brokers|advertiser segment"
+   ]
+  },
+  {
+   "name": "Travel aggregators",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: advertisers that aggregate travel offerings",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|travel aggregators|advertiser segment"
+   ]
+  },
+  {
+   "name": "Buyer class",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: a whole class of advertising buyers",
+   "child_uids": [
+    "n|tu:era:6:field:CREATORS|buyer class|advertiser segment"
+   ]
+  },
+  {
+   "name": "Advertiser-searcher matching",
+   "type": "matching process",
+   "grain": "Entity",
+   "reason": "singleton: process matching advertisers to searchers",
+   "child_uids": [
+    "n|tu:era:6:field:TARGETING|advertiser-searcher matching|matching process"
+   ]
+  },
+  {
+   "name": "Person paid by advertiser",
+   "type": "human creator role",
+   "grain": "Entity",
+   "reason": "singleton: individual compensated directly by an advertiser",
+   "child_uids": [
+    "n|tu:era:7:field:CREATORS|person paid by advertiser|human creator role"
+   ]
+  },
+  {
+   "name": "General search market",
+   "type": "advertising market",
+   "grain": "Entity",
+   "reason": "singleton: the overall market for general search advertising",
+   "child_uids": [
+    "n|tu:era:7:field:SELLERS|general search market|advertising market"
+   ]
+  },
+  {
+   "name": "Seller model",
+   "type": "advertiser-side predictive model",
+   "grain": "Entity",
+   "reason": "singleton: predictive model used by sellers on advertiser side",
+   "child_uids": [
+    "n|tu:era:7:field:TARGETING|seller model|advertiser-side predictive model"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|900ba42c40da83a5",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "AI-summary visit click rate",
+   "type": "click rate measurement",
+   "grain": "Measurement",
+   "reason": "same click-rate measure for AI-summary visits; years and sources in children",
+   "child_uids": [
+    "n|e7-events-008|ai-summary visit click rate|percentage measurement",
+    "n|e7-measurement-004|search result click rate with ai summary|take-rate measurement"
+   ]
+  },
+  {
+   "name": "non-AI-summary visit click rate",
+   "type": "click rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: only non\u2011AI summary click\u2011rate measure in this group",
+   "child_uids": [
+    "n|e7-events-008|non-ai-summary visit click rate|percentage measurement"
+   ]
+  },
+  {
+   "name": "Pew March 2024 browsing panel",
+   "type": "measurement source",
+   "grain": "Measurement",
+   "reason": "singleton: a data source node, not a click\u2011rate metric",
+   "child_uids": [
+    "n|tu:era:7:event:7|pew march ... browsing panel|measurement source"
+   ]
+  }
+ ]
+}

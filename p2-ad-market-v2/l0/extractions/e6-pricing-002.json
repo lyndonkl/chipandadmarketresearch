@@ -1,0 +1,106 @@
+{
+ "id": "e6-pricing-002",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "USD paid per click by the top-ranked advertiser bidding $1.00 against a $0.60 next bid",
+ "elapsed_s": 67.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "discounter example",
+   "type": "pricing illustration",
+   "clause": "Google's worked example of the discounter"
+  },
+  {
+   "name": "top-ranked advertiser",
+   "type": "advertiser",
+   "clause": "top-ranked advertiser"
+  },
+  {
+   "name": "advertisers",
+   "type": "advertiser group",
+   "clause": "the three advertisers"
+  },
+  {
+   "name": "maximum bid per click",
+   "type": "take-rate measurement",
+   "clause": "maximum bid per click"
+  },
+  {
+   "name": "payment per click",
+   "type": "revenue measurement",
+   "clause": "advertiser payment per click"
+  },
+  {
+   "name": "next highest bid per click",
+   "type": "take-rate measurement",
+   "clause": "next highest bid per click"
+  },
+  {
+   "name": "minimum bid",
+   "type": "minimum price measurement",
+   "clause": "minimum bid"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "CREATED_EXAMPLE",
+   "to": "discounter example",
+   "clause": "own worked example of the discounter"
+  },
+  {
+   "from": "discounter example",
+   "type": "HAS_MAX_BID",
+   "to": "maximum bid per click",
+   "clause": "with maximum bids of ... per click"
+  },
+  {
+   "from": "top-ranked advertiser",
+   "type": "HAS_MAX_BID",
+   "to": "maximum bid per click",
+   "clause": "bidding ..."
+  },
+  {
+   "from": "advertisers",
+   "type": "HAS_MAX_BID",
+   "to": "maximum bid per click",
+   "clause": "bids of ... and ... per click"
+  },
+  {
+   "from": "advertisers",
+   "type": "PAYS",
+   "to": "payment per click",
+   "clause": "the three advertisers pay ..."
+  },
+  {
+   "from": "payment per click",
+   "type": "EXCEEDS_BY",
+   "to": "next highest bid per click",
+   "clause": "winner pays one cent more than the next bid"
+  },
+  {
+   "from": "payment per click",
+   "type": "NOT_EQUAL_TO",
+   "to": "maximum bid per click",
+   "clause": "not its own bid"
+  },
+  {
+   "from": "payment per click",
+   "type": "INCLUDES",
+   "to": "minimum bid",
+   "clause": "... (the minimum bid)"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|discounter example|pricing illustration|Google's worked example of the discounter\nNODE|top-ranked advertiser|advertiser|top-ranked advertiser\nNODE|advertisers|advertiser group|the three advertisers\nNODE|maximum bid per click|take-rate measurement|maximum bid per click\nNODE|payment per click|revenue measurement|advertiser payment per click\nNODE|next highest bid per click|take-rate measurement|next highest bid per click\nNODE|minimum bid|minimum price measurement|minimum bid\nEDGE|Google|CREATED_EXAMPLE|discounter example|own worked example of the discounter\nEDGE|discounter example|HAS_MAX_BID|maximum bid per click|with maximum bids of ... per click\nEDGE|top-ranked advertiser|HAS_MAX_BID|maximum bid per click|bidding ...\nEDGE|advertisers|HAS_MAX_BID|maximum bid per click|bids of ... and ... per click\nEDGE|advertisers|PAYS|payment per click|the three advertisers pay ...\nEDGE|payment per click|EXCEEDS_BY|next highest bid per click|winner pays one cent more than the next bid\nEDGE|payment per click|NOT_EQUAL_TO|maximum bid per click|not its own bid\nEDGE|payment per click|INCLUDES|minimum bid|... (the minimum bid)"
+}

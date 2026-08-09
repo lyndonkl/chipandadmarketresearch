@@ -1,0 +1,122 @@
+{
+ "id": "e7-medium-005",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of US CTV ad spend, 2025",
+ "elapsed_s": 74.3,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US connected-TV ad spend",
+   "type": "advertising spend aggregate",
+   "clause": "US connected-TV ad spend reached ... in 2025"
+  },
+  {
+   "name": "US connected-TV ad spend amount",
+   "type": "spend measurement",
+   "clause": "reached ... (amount)"
+  },
+  {
+   "name": "US connected-TV ad spend growth rate",
+   "type": "growth-rate measurement",
+   "clause": "(+...) indicating increase"
+  },
+  {
+   "name": "US internet ad revenue",
+   "type": "internet advertising revenue aggregate",
+   "clause": "of US internet ad revenue"
+  },
+  {
+   "name": "total digital advertising",
+   "type": "digital advertising aggregate",
+   "clause": "of total digital on EMARKETER's base"
+  },
+  {
+   "name": "IAB/PwC",
+   "type": "research firm",
+   "clause": "on IAB/PwC's base"
+  },
+  {
+   "name": "EMARKETER",
+   "type": "research firm",
+   "clause": "on EMARKETER's own base"
+  },
+  {
+   "name": "US connected-TV ad spend share of internet revenue",
+   "type": "media-share measurement",
+   "clause": "roughly ... of US internet ad revenue on IAB/PwC's base"
+  },
+  {
+   "name": "US connected-TV ad spend share of total digital",
+   "type": "media-share measurement",
+   "clause": "about ... of total digital on EMARKETER's own base"
+  },
+  {
+   "name": "traditional TV advertising",
+   "type": "advertising medium",
+   "clause": "pass traditional TV advertising later this decade"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US connected-TV ad spend",
+   "type": "HAS_AMOUNT",
+   "to": "US connected-TV ad spend amount",
+   "clause": "reached ... in 2025"
+  },
+  {
+   "from": "US connected-TV ad spend",
+   "type": "HAS_GROWTH_RATE",
+   "to": "US connected-TV ad spend growth rate",
+   "clause": "(+...) indicating increase"
+  },
+  {
+   "from": "US connected-TV ad spend share of internet revenue",
+   "type": "MEASURES",
+   "to": "US connected-TV ad spend",
+   "clause": "roughly ... of US internet ad revenue"
+  },
+  {
+   "from": "US connected-TV ad spend share of internet revenue",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "... of US internet ad revenue"
+  },
+  {
+   "from": "US connected-TV ad spend share of internet revenue",
+   "type": "MEASURED_ON",
+   "to": "IAB/PwC",
+   "clause": "on IAB/PwC's base"
+  },
+  {
+   "from": "US connected-TV ad spend share of total digital",
+   "type": "MEASURES",
+   "to": "US connected-TV ad spend",
+   "clause": "about ... of total digital"
+  },
+  {
+   "from": "US connected-TV ad spend share of total digital",
+   "type": "SHARE_OF",
+   "to": "total digital advertising",
+   "clause": "... of total digital"
+  },
+  {
+   "from": "US connected-TV ad spend share of total digital",
+   "type": "MEASURED_ON",
+   "to": "EMARKETER",
+   "clause": "on EMARKETER's own base"
+  },
+  {
+   "from": "US connected-TV ad spend",
+   "type": "FORECAST_TO_PASS",
+   "to": "traditional TV advertising",
+   "clause": "forecast to pass later this decade"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US connected-TV ad spend|advertising spend aggregate|US connected-TV ad spend reached ... in 2025\nNODE|US connected-TV ad spend amount|spend measurement|reached ... (amount)\nNODE|US connected-TV ad spend growth rate|growth-rate measurement|(+...) indicating increase\nNODE|US internet ad revenue|internet advertising revenue aggregate|of US internet ad revenue\n NODE|total digital advertising|digital advertising aggregate|of total digital on EMARKETER's base\nNODE|IAB/PwC|research firm|on IAB/PwC's base\nNODE|EMARKETER|research firm|on EMARKETER's own base\nNODE|US connected-TV ad spend share of internet revenue|media-share measurement|roughly ... of US internet ad revenue on IAB/PwC's base\nNODE|US connected-TV ad spend share of total digital|media-share measurement|about ... of total digital on EMARKETER's own base\nNODE|traditional TV advertising|advertising medium|pass traditional TV advertising later this decade\nEDGE|US connected-TV ad spend|HAS_AMOUNT|US connected-TV ad spend amount|reached ... in 2025\nEDGE|US connected-TV ad spend|HAS_GROWTH_RATE|US connected-TV ad spend growth rate|(+...) indicating increase\nEDGE|US connected-TV ad spend share of internet revenue|MEASURES|US connected-TV ad spend|roughly ... of US internet ad revenue\nEDGE|US connected-TV ad spend share of internet revenue|SHARE_OF|US internet ad revenue|... of US internet ad revenue\nEDGE|US connected-TV ad spend share of internet revenue|MEASURED_ON|IAB/PwC|on IAB/PwC's base\nEDGE|US connected-TV ad spend share of total digital|MEASURES|US connected-TV ad spend|about ... of total digital\nEDGE|US connected-TV ad spend share of total digital|SHARE_OF|total digital advertising|... of total digital\nEDGE|US connected-TV ad spend share of total digital|MEASURED_ON|EMARKETER|on EMARKETER's own base\nEDGE|US connected-TV ad spend|FORECAST_TO_PASS|traditional TV advertising|forecast to pass later this decade"
+}

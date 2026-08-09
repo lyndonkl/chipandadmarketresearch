@@ -1,0 +1,100 @@
+{
+ "id": "e7-sellers-001",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of US internet ad revenue held by the top 10 companies, 2025",
+ "elapsed_s": 87.0,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "top 10 sellers",
+   "type": "seller group",
+   "clause": "the top 10 sellers"
+  },
+  {
+   "name": "ranked 11-25 companies",
+   "type": "seller group",
+   "clause": "companies ranked 11\u201125"
+  },
+  {
+   "name": "other sellers",
+   "type": "seller group",
+   "clause": "all other sellers"
+  },
+  {
+   "name": "US internet advertising revenue",
+   "type": "advertising market total",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "top 10 share of US internet advertising revenue",
+   "type": "share measurement",
+   "clause": "took ... of US internet advertising revenue in 2025"
+  },
+  {
+   "name": "prior top 10 share of US internet advertising revenue",
+   "type": "share measurement",
+   "clause": "up from ... in 2021"
+  },
+  {
+   "name": "11-25 share of US internet advertising revenue",
+   "type": "share measurement",
+   "clause": "companies ranked 11\u201125 took ..."
+  },
+  {
+   "name": "others share of US internet advertising revenue",
+   "type": "share measurement",
+   "clause": "all others ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "top 10 sellers",
+   "type": "HAS_SHARE",
+   "to": "top 10 share of US internet advertising revenue",
+   "clause": "the top 10 sellers took ... in 2025"
+  },
+  {
+   "from": "top 10 share of US internet advertising revenue",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "took ... of US internet advertising revenue"
+  },
+  {
+   "from": "top 10 share of US internet advertising revenue",
+   "type": "UP_FROM",
+   "to": "prior top 10 share of US internet advertising revenue",
+   "clause": "up from ... in 2021"
+  },
+  {
+   "from": "ranked 11-25 companies",
+   "type": "HAS_SHARE",
+   "to": "11-25 share of US internet advertising revenue",
+   "clause": "companies ranked 11\u201125 took ..."
+  },
+  {
+   "from": "11-25 share of US internet advertising revenue",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... of US internet advertising revenue"
+  },
+  {
+   "from": "other sellers",
+   "type": "HAS_SHARE",
+   "to": "others share of US internet advertising revenue",
+   "clause": "all others ..."
+  },
+  {
+   "from": "others share of US internet advertising revenue",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... of US internet advertising revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|top 10 sellers|seller group|the top 10 sellers\nNODE|ranked 11-25 companies|seller group|companies ranked 11\u201125\nNODE|other sellers|seller group|all other sellers\nNODE|US internet advertising revenue|advertising market total|US internet advertising revenue\nNODE|top 10 share of US internet advertising revenue|share measurement|took ... of US internet advertising revenue in 2025\nNODE|prior top 10 share of US internet advertising revenue|share measurement|up from ... in 2021\nNODE|11-25 share of US internet advertising revenue|share measurement|companies ranked 11\u201125 took ...\nNODE|others share of US internet advertising revenue|share measurement|all others ...\n\nEDGE|top 10 sellers|HAS_SHARE|top 10 share of US internet advertising revenue|the top 10 sellers took ... in 2025\nEDGE|top 10 share of US internet advertising revenue|SHARE_OF|US internet advertising revenue|took ... of US internet advertising revenue\nEDGE|top 10 share of US internet advertising revenue|UP_FROM|prior top 10 share of US internet advertising revenue|up from ... in 2021\nEDGE|ranked 11-25 companies|HAS_SHARE|11-25 share of US internet advertising revenue|companies ranked 11\u201125 took ...\nEDGE|11-25 share of US internet advertising revenue|SHARE_OF|US internet advertising revenue|... of US internet advertising revenue\nEDGE|other sellers|HAS_SHARE|others share of US internet advertising revenue|all others ...\nEDGE|others share of US internet advertising revenue|SHARE_OF|US internet advertising revenue|... of US internet advertising revenue"
+}

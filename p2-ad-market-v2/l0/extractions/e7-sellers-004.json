@@ -1,0 +1,197 @@
+{
+ "id": "e7-sellers-004",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of US digital ad spending held by the triopoly, 2025, on EMARKETER's digital definition",
+ "elapsed_s": 175.5,
+ "error": null,
+ "n_nodes": 19,
+ "n_edges": 14,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Meta",
+   "type": "company",
+   "clause": "Meta"
+  },
+  {
+   "name": "Amazon",
+   "type": "company",
+   "clause": "Amazon"
+  },
+  {
+   "name": "triopoly",
+   "type": "advertising seller group",
+   "clause": "Google, Meta and Amazon together"
+  },
+  {
+   "name": "US digital ad spending",
+   "type": "advertising market segment",
+   "clause": "US digital ad spending"
+  },
+  {
+   "name": "US total advertising spend",
+   "type": "advertising market segment",
+   "clause": "US total advertising spend"
+  },
+  {
+   "name": "US total media ad spend",
+   "type": "advertising market segment",
+   "clause": "US total media ad spend"
+  },
+  {
+   "name": "EMARKETER",
+   "type": "market research firm",
+   "clause": "EMARKETER"
+  },
+  {
+   "name": "EMARKETER digital definition",
+   "type": "definition",
+   "clause": "EMARKETER's digital definition"
+  },
+  {
+   "name": "MAGNA/IAB rail",
+   "type": "measurement basis",
+   "clause": "the MAGNA/IAB rail used by e7-medium-002"
+  },
+  {
+   "name": "retail media and CTV entrants",
+   "type": "advertising channel entrants",
+   "clause": "retail media and CTV entrants grew"
+  },
+  {
+   "name": "triopoly share of US digital ad spending",
+   "type": "percentage measurement",
+   "clause": "triopoly took ... of US digital ad spending"
+  },
+  {
+   "name": "triopoly share of US total advertising spend",
+   "type": "percentage measurement",
+   "clause": "triopoly's share ... of US total advertising spend"
+  },
+  {
+   "name": "digital proportion under EMARKETER definition",
+   "type": "percentage measurement",
+   "clause": "digital is about ... of US total media ad spend"
+  },
+  {
+   "name": "digital spend on MAGNA/IAB rail",
+   "type": "monetary measurement",
+   "clause": "... of digital on the MAGNA/IAB rail"
+  },
+  {
+   "name": "total ad spend on MAGNA/IAB rail",
+   "type": "monetary measurement",
+   "clause": "... total on the MAGNA/IAB rail"
+  },
+  {
+   "name": "digital proportion on MAGNA/IAB rail",
+   "type": "percentage measurement",
+   "clause": "digital at ... on the MAGNA/IAB rail"
+  },
+  {
+   "name": "triopoly share as percent of total under MAGNA/IAB rail",
+   "type": "percentage measurement",
+   "clause": "same 71.9% digital share is ... of total"
+  },
+  {
+   "name": "claim dollar difference",
+   "type": "monetary measurement",
+   "clause": "the two claims are ... apart"
+  }
+ ],
+ "edges": [
+  {
+   "from": "triopoly",
+   "type": "HAS_SHARE",
+   "to": "triopoly share of US digital ad spending",
+   "clause": "together took about ... of US digital ad spending in 2025"
+  },
+  {
+   "from": "triopoly share of US digital ad spending",
+   "type": "SHARE_OF",
+   "to": "US digital ad spending",
+   "clause": "share of US digital ad spending"
+  },
+  {
+   "from": "triopoly share of US digital ad spending",
+   "type": "DECREASED_AS",
+   "to": "retail media and CTV entrants",
+   "clause": "down from ... as retail media and CTV entrants grew"
+  },
+  {
+   "from": "triopoly",
+   "type": "HAS_SHARE",
+   "to": "triopoly share of US total advertising spend",
+   "clause": "share rose to roughly ... of US total advertising spend"
+  },
+  {
+   "from": "triopoly share of US total advertising spend",
+   "type": "SHARE_OF",
+   "to": "US total advertising spend",
+   "clause": "share of US total advertising spend"
+  },
+  {
+   "from": "EMARKETER",
+   "type": "PROVIDED_DEFINITION_FOR",
+   "to": "EMARKETER digital definition",
+   "clause": "both figures are EMARKETER's"
+  },
+  {
+   "from": "digital proportion under EMARKETER definition",
+   "type": "SHARE_OF",
+   "to": "US total media ad spend",
+   "clause": "digital is about ... of US total media ad spend"
+  },
+  {
+   "from": "MAGNA/IAB rail",
+   "type": "HAS_DIGITAL_SPEND",
+   "to": "digital spend on MAGNA/IAB rail",
+   "clause": "... of digital in a ... total"
+  },
+  {
+   "from": "MAGNA/IAB rail",
+   "type": "HAS_TOTAL_AD_SPEND",
+   "to": "total ad spend on MAGNA/IAB rail",
+   "clause": "... total on the MAGNA/IAB rail"
+  },
+  {
+   "from": "digital proportion on MAGNA/IAB rail",
+   "type": "SHARE_OF",
+   "to": "total ad spend on MAGNA/IAB rail",
+   "clause": "digital at ... on the MAGNA/IAB rail"
+  },
+  {
+   "from": "triopoly share as percent of total under MAGNA/IAB rail",
+   "type": "CALCULATED_ON",
+   "to": "MAGNA/IAB rail",
+   "clause": "same 71.9% digital share is ... of total"
+  },
+  {
+   "from": "triopoly share of US total advertising spend",
+   "type": "DIFFERENCE_WITH",
+   "to": "triopoly share as percent of total under MAGNA/IAB rail",
+   "clause": "the two claims are ... apart"
+  },
+  {
+   "from": "triopoly share of US total advertising spend",
+   "type": "NOT_PLOTTED_WITH",
+   "to": "triopoly share as percent of total under MAGNA/IAB rail",
+   "clause": "must not be plotted on the same axis"
+  },
+  {
+   "from": "triopoly share of US total advertising spend",
+   "type": "CANNOT_BE_QUOTED_WITHOUT",
+   "to": "MAGNA/IAB rail",
+   "clause": "without naming the rail"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|Meta|company|Meta\nNODE|Amazon|company|Amazon\nNODE|triopoly|advertising seller group|Google, Meta and Amazon together\nNODE|US digital ad spending|advertising market segment|US digital ad spending\nNODE|US total advertising spend|advertising market segment|US total advertising spend\nNODE|US total media ad spend|advertising market segment|US total media ad spend\nNODE|EMARKETER|market research firm|EMARKETER\nNODE|EMARKETER digital definition|definition|EMARKETER's digital definition\nNODE|MAGNA/IAB rail|measurement basis|the MAGNA/IAB rail used by e7-medium-002\nNODE|retail media and CTV entrants|advertising channel entrants|retail media and CTV entrants grew\nNODE|triopoly share of US digital ad spending|percentage measurement|triopoly took ... of US digital ad spending\nNODE|triopoly share of US total advertising spend|percentage measurement|triopoly's share ... of US total advertising spend\nNODE|digital proportion under EMARKETER definition|percentage measurement|digital is about ... of US total media ad spend\nNODE|digital spend on MAGNA/IAB rail|monetary measurement|... of digital on the MAGNA/IAB rail\nNODE|total ad spend on MAGNA/IAB rail|monetary measurement|... total on the MAGNA/IAB rail\nNODE|digital proportion on MAGNA/IAB rail|percentage measurement|digital at ... on the MAGNA/IAB rail\nNODE|triopoly share as percent of total under MAGNA/IAB rail|percentage measurement|same 71.9% digital share is ... of total\nNODE|claim dollar difference|monetary measurement|the two claims are ... apart\nEDGE|triopoly|HAS_SHARE|triopoly share of US digital ad spending|together took about ... of US digital ad spending in 2025\nEDGE|triopoly share of US digital ad spending|SHARE_OF|US digital ad spending|share of US digital ad spending\nEDGE|triopoly share of US digital ad spending|DECREASED_AS|retail media and CTV entrants|down from ... as retail media and CTV entrants grew\nEDGE|triopoly|HAS_SHARE|triopoly share of US total advertising spend|share rose to roughly ... of US total advertising spend\nEDGE|triopoly share of US total advertising spend|SHARE_OF|US total advertising spend|share of US total advertising spend\nEDGE|EMARKETER|PROVIDED_DEFINITION_FOR|EMARKETER digital definition|both figures are EMARKETER's\nEDGE|digital proportion under EMARKETER definition|SHARE_OF|US total media ad spend|digital is about ... of US total media ad spend\nEDGE|MAGNA/IAB rail|HAS_DIGITAL_SPEND|digital spend on MAGNA/IAB rail|... of digital in a ... total\nEDGE|MAGNA/IAB rail|HAS_TOTAL_AD_SPEND|total ad spend on MAGNA/IAB rail|... total on the MAGNA/IAB rail\nEDGE|digital proportion on MAGNA/IAB rail|SHARE_OF|total ad spend on MAGNA/IAB rail|digital at ... on the MAGNA/IAB rail\nEDGE|triopoly share as percent of total under MAGNA/IAB rail|CALCULATED_ON|MAGNA/IAB rail|same 71.9% digital share is ... of total\nEDGE|triopoly share of US total advertising spend|DIFFERENCE_WITH|triopoly share as percent of total under MAGNA/IAB rail|the two claims are ... apart\nEDGE|triopoly share of US total advertising spend|NOT_PLOTTED_WITH|triopoly share as percent of total under MAGNA/IAB rail|must not be plotted on the same axis\nEDGE|triopoly share of US total advertising spend|CANNOT_BE_QUOTED_WITHOUT|MAGNA/IAB rail|without naming the rail"
+}

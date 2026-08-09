@@ -1,0 +1,56 @@
+{
+ "id": "e3-measurement-003",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1973,
+ "unit": "hours to produce national television ratings",
+ "elapsed_s": 56.8,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Storage Instantaneous Audimeter",
+   "type": "device",
+   "clause": "introduced in September ..."
+  },
+  {
+   "name": "national television ratings turnaround time",
+   "type": "turnaround-time measurement",
+   "clause": "cut ... to ... hours"
+  },
+  {
+   "name": "previous rating system turnaround time",
+   "type": "turnaround-time measurement",
+   "clause": "the ... weeks the previous system needed"
+  },
+  {
+   "name": "Spot Market era",
+   "type": "advertising era",
+   "clause": "the era's decisive measurement-speed change"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Storage Instantaneous Audimeter",
+   "type": "REDUCED",
+   "to": "national television ratings turnaround time",
+   "clause": "cut ... to ... hours"
+  },
+  {
+   "from": "previous rating system turnaround time",
+   "type": "LONGER_THAN",
+   "to": "national television ratings turnaround time",
+   "clause": "the ... weeks the previous system needed"
+  },
+  {
+   "from": "national television ratings turnaround time",
+   "type": "DECISIVE_CHANGE_IN",
+   "to": "Spot Market era",
+   "clause": "the era's decisive measurement-speed change"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Storage Instantaneous Audimeter|device|introduced in September ...\nNODE|national television ratings turnaround time|turnaround-time measurement|cut ... to ... hours\nNODE|previous rating system turnaround time|turnaround-time measurement|the ... weeks the previous system needed\nNODE|Spot Market era|advertising era|the era's decisive measurement-speed change\nEDGE|Storage Instantaneous Audimeter|REDUCED|national television ratings turnaround time|cut ... to ... hours\nEDGE|previous rating system turnaround time|LONGER_THAN|national television ratings turnaround time|the ... weeks the previous system needed\nEDGE|national television ratings turnaround time|DECISIVE_CHANGE_IN|Spot Market era|the era's decisive measurement-speed change"
+}

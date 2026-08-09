@@ -1,0 +1,53 @@
+{
+ "group_id": "L1|084cab3dc66e921e",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "MarchFIRST Chapter 11 filing",
+   "type": "bankruptcy filing event",
+   "grain": "Entity",
+   "reason": "singleton: specific MarchFIRST filing event",
+   "child_uids": [
+    "n|e5-creators-004|marchfirst chapter 11 filing|bankruptcy filing event"
+   ]
+  },
+  {
+   "name": "MarchFIRST Chapter 7 liquidation",
+   "type": "liquidation event",
+   "grain": "Entity",
+   "reason": "singleton: specific MarchFIRST liquidation event",
+   "child_uids": [
+    "n|e5-creators-004|marchfirst chapter 7 liquidation|liquidation event"
+   ]
+  },
+  {
+   "name": "Excite@Home Chapter 11 filing",
+   "type": "bankruptcy filing event",
+   "grain": "Entity",
+   "reason": "same event across naming variants; year abstracted to children",
+   "child_uids": [
+    "n|tu:era:5:event:8|excite@home bankruptcy filing|bankruptcy filing event",
+    "n|tu:era:5:field:SELLERS|excite@home chapter 11 filing|bankruptcy event"
+   ]
+  },
+  {
+   "name": "Chapter 11 filing",
+   "type": "bankruptcy event",
+   "grain": "Entity",
+   "reason": "singleton: generic Chapter 11 filing concept",
+   "child_uids": [
+    "n|tu:era:5:field:CREATORS|chapter 11 filing|bankruptcy event"
+   ]
+  },
+  {
+   "name": "loss of capital market access",
+   "type": "market condition",
+   "grain": "Entity",
+   "reason": "singleton: market condition affecting internet firms",
+   "child_uids": [
+    "n|tu:era:5:field:BUYERS|loss of capital market access|market condition"
+   ]
+  }
+ ]
+}

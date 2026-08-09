@@ -1,0 +1,56 @@
+{
+ "id": "e1-medium-003",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1880,
+ "unit": "millions of pieces mailed",
+ "elapsed_s": 41.1,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "third-class mail",
+   "type": "postal class",
+   "clause": "the postal class that carried circulars and advertising mail"
+  },
+  {
+   "name": "circulars",
+   "type": "mail type",
+   "clause": "circulars"
+  },
+  {
+   "name": "advertising mail",
+   "type": "mail type",
+   "clause": "advertising mail"
+  },
+  {
+   "name": "third-class mail volume",
+   "type": "mail volume measurement",
+   "clause": "Third-class mail volume ... grew from ... to ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "third-class mail",
+   "type": "CARRIES",
+   "to": "circulars",
+   "clause": "carried circulars"
+  },
+  {
+   "from": "third-class mail",
+   "type": "CARRIES",
+   "to": "advertising mail",
+   "clause": "carried advertising mail"
+  },
+  {
+   "from": "third-class mail volume",
+   "type": "MEASURES",
+   "to": "third-class mail",
+   "clause": "volume of third-class mail"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|third-class mail|postal class|the postal class that carried circulars and advertising mail\nNODE|circulars|mail type|circulars\nNODE|advertising mail|mail type|advertising mail\nNODE|third-class mail volume|mail volume measurement|Third-class mail volume ... grew from ... to ...\nEDGE|third-class mail|CARRIES|circulars|carried circulars\nEDGE|third-class mail|CARRIES|advertising mail|carried advertising mail\nEDGE|third-class mail volume|MEASURES|third-class mail|volume of third-class mail"
+}

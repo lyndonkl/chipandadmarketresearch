@@ -1,0 +1,128 @@
+{
+ "id": "mech-default-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2021,
+ "unit": "USD billions of Google search default revenue share, 2021",
+ "elapsed_s": 90.4,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Apple",
+   "type": "company",
+   "clause": "Apple"
+  },
+  {
+   "name": "Mozilla",
+   "type": "organization",
+   "clause": "Mozilla"
+  },
+  {
+   "name": "Android OEMs",
+   "type": "device manufacturer group",
+   "clause": "Android OEMs"
+  },
+  {
+   "name": "US carriers",
+   "type": "telecom carrier group",
+   "clause": "US carriers"
+  },
+  {
+   "name": "search distribution contracts",
+   "type": "advertising contract type",
+   "clause": "search distribution contracts"
+  },
+  {
+   "name": "traffic acquisition cost",
+   "type": "advertising expense category",
+   "clause": "traffic acquisition cost"
+  },
+  {
+   "name": "traffic acquisition cost amount",
+   "type": "expense amount measurement",
+   "clause": "... in revenue share under its search distribution contracts"
+  },
+  {
+   "name": "other search-related costs combined amount",
+   "type": "expense amount measurement",
+   "clause": "all other search-related costs combined"
+  },
+  {
+   "name": "the court",
+   "type": "legal entity",
+   "clause": "the court"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "HAS_CONTRACT",
+   "to": "search distribution contracts",
+   "clause": "under its search distribution contracts"
+  },
+  {
+   "from": "search distribution contracts",
+   "type": "WITH_PARTNER",
+   "to": "Apple",
+   "clause": "with Apple"
+  },
+  {
+   "from": "search distribution contracts",
+   "type": "WITH_PARTNER",
+   "to": "Mozilla",
+   "clause": "with Mozilla"
+  },
+  {
+   "from": "search distribution contracts",
+   "type": "WITH_PARTNER",
+   "to": "Android OEMs",
+   "clause": "with Android OEMs"
+  },
+  {
+   "from": "search distribution contracts",
+   "type": "WITH_PARTNER",
+   "to": "US carriers",
+   "clause": "with US carriers"
+  },
+  {
+   "from": "Google",
+   "type": "PAID",
+   "to": "traffic acquisition cost amount",
+   "clause": "paid ... in revenue share under its search distribution contracts"
+  },
+  {
+   "from": "traffic acquisition cost amount",
+   "type": "IS_AMOUNT_FOR",
+   "to": "traffic acquisition cost",
+   "clause": "the expense it reports as traffic acquisition cost"
+  },
+  {
+   "from": "traffic acquisition cost amount",
+   "type": "MEASURED_UNDER",
+   "to": "search distribution contracts",
+   "clause": "revenue share under its search distribution contracts"
+  },
+  {
+   "from": "the court",
+   "type": "FOUND",
+   "to": "traffic acquisition cost amount",
+   "clause": "found that traffic acquisition cost was Google's greatest expense in ..."
+  },
+  {
+   "from": "traffic acquisition cost amount",
+   "type": "MULTIPLE_OF",
+   "to": "other search-related costs combined amount",
+   "clause": "almost four times more than all other search-related costs combined"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|Apple|company|Apple\nNODE|Mozilla|organization|Mozilla\nNODE|Android OEMs|device manufacturer group|Android OEMs\nNODE|US carriers|telecom carrier group|US carriers\nNODE|search distribution contracts|advertising contract type|search distribution contracts\nNODE|traffic acquisition cost|advertising expense category|traffic acquisition cost\nNODE|traffic acquisition cost amount|expense amount measurement|... in revenue share under its search distribution contracts\nNODE|other search-related costs combined amount|expense amount measurement|all other search-related costs combined\nNODE|the court|legal entity|the court\nEDGE|Google|HAS_CONTRACT|search distribution contracts|under its search distribution contracts\nEDGE|search distribution contracts|WITH_PARTNER|Apple|with Apple\nEDGE|search distribution contracts|WITH_PARTNER|Mozilla|with Mozilla\nEDGE|search distribution contracts|WITH_PARTNER|Android OEMs|with Android OEMs\nEDGE|search distribution contracts|WITH_PARTNER|US carriers|with US carriers\nEDGE|Google|PAID|traffic acquisition cost amount|paid ... in revenue share under its search distribution contracts\nEDGE|traffic acquisition cost amount|IS_AMOUNT_FOR|traffic acquisition cost|the expense it reports as traffic acquisition cost\nEDGE|traffic acquisition cost amount|MEASURED_UNDER|search distribution contracts|revenue share under its search distribution contracts\nEDGE|the court|FOUND|traffic acquisition cost amount|found that traffic acquisition cost was Google's greatest expense in ...\nEDGE|traffic acquisition cost amount|MULTIPLE_OF|other search-related costs combined amount|almost four times more than all other search-related costs combined"
+}

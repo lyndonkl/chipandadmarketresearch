@@ -1,0 +1,72 @@
+{
+ "id": "mech-google_rev-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2008,
+ "unit": "USD millions, Google advertising revenue FY2008",
+ "elapsed_s": 59.9,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "company"
+  },
+  {
+   "name": "Google advertising revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "advertising revenue aggregate"
+  },
+  {
+   "name": "Google advertising revenue FY2008",
+   "type": "revenue measurement",
+   "clause": "was ... in 2008"
+  },
+  {
+   "name": "Google Network sites revenue",
+   "type": "network site revenue aggregate",
+   "clause": "network site revenue aggregate"
+  },
+  {
+   "name": "Google Network sites revenue FY2008",
+   "type": "revenue measurement",
+   "clause": "produced ..."
+  },
+  {
+   "name": "deployed-auction era",
+   "type": "advertising auction era",
+   "clause": "closing year of the deployed-auction era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "GENERATED",
+   "to": "Google advertising revenue",
+   "clause": "Google's advertising revenue ..."
+  },
+  {
+   "from": "Google advertising revenue",
+   "type": "HAS_AMOUNT",
+   "to": "Google advertising revenue FY2008",
+   "clause": "was ... in 2008"
+  },
+  {
+   "from": "Google Network sites revenue",
+   "type": "HAS_AMOUNT",
+   "to": "Google Network sites revenue FY2008",
+   "clause": "produced ..."
+  },
+  {
+   "from": "Google Network sites revenue",
+   "type": "PART_OF",
+   "to": "Google advertising revenue",
+   "clause": "of which ... produced ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|company\nNODE|Google advertising revenue|advertising revenue aggregate|advertising revenue aggregate\nNODE|Google advertising revenue FY2008|revenue measurement|was ... in 2008\nNODE|Google Network sites revenue|network site revenue aggregate|network site revenue aggregate\nNODE|Google Network sites revenue FY2008|revenue measurement|produced ...\nNODE|deployed-auction era|advertising auction era|closing year of the deployed-auction era\nEDGE|Google|GENERATED|Google advertising revenue|Google's advertising revenue ...\nEDGE|Google advertising revenue|HAS_AMOUNT|Google advertising revenue FY2008|was ... in 2008\nEDGE|Google Network sites revenue|HAS_AMOUNT|Google Network sites revenue FY2008|produced ...\nEDGE|Google Network sites revenue|PART_OF|Google advertising revenue|of which ... produced ..."
+}

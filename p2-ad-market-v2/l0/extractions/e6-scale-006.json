@@ -1,0 +1,122 @@
+{
+ "id": "e6-scale-006",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD billions, worldwide advertising spending 2007 (measured media)",
+ "elapsed_s": 64.9,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "worldwide advertising spending",
+   "type": "advertising spend aggregate",
+   "clause": "worldwide advertising spending"
+  },
+  {
+   "name": "worldwide advertising spend amount",
+   "type": "monetary amount measurement",
+   "clause": "...was ... on GroupM's measured-media basis"
+  },
+  {
+   "name": "GroupM measured-media basis",
+   "type": "measurement basis",
+   "clause": "GroupM's measured-media basis"
+  },
+  {
+   "name": "GroupM",
+   "type": "organization",
+   "clause": "GroupM"
+  },
+  {
+   "name": "worldwide advertising spend forecast amount",
+   "type": "forecast monetary amount measurement",
+   "clause": "forecast to reach ..."
+  },
+  {
+   "name": "US measured-media spending",
+   "type": "advertising spend aggregate",
+   "clause": "US measured-media spending"
+  },
+  {
+   "name": "US measured-media spend amount",
+   "type": "monetary amount measurement",
+   "clause": "...US measured-media spending at ..."
+  },
+  {
+   "name": "Coen all-media US total",
+   "type": "advertising spend dataset",
+   "clause": "Coen's all-media US total"
+  },
+  {
+   "name": "Coen US total amount",
+   "type": "monetary amount measurement",
+   "clause": "...Coen's all-media US total of ..."
+  },
+  {
+   "name": "Coen",
+   "type": "organization",
+   "clause": "Coen"
+  }
+ ],
+ "edges": [
+  {
+   "from": "worldwide advertising spending",
+   "type": "HAS_AMOUNT",
+   "to": "worldwide advertising spend amount",
+   "clause": "...was ... on GroupM's measured-media basis"
+  },
+  {
+   "from": "worldwide advertising spend amount",
+   "type": "MEASURED_ON",
+   "to": "GroupM measured-media basis",
+   "clause": "...on GroupM's measured-media basis"
+  },
+  {
+   "from": "GroupM",
+   "type": "PROVIDES",
+   "to": "GroupM measured-media basis",
+   "clause": "GroupM's measured-media basis"
+  },
+  {
+   "from": "worldwide advertising spending",
+   "type": "FORECAST_TO_REACH",
+   "to": "worldwide advertising spend forecast amount",
+   "clause": "forecast to reach ..."
+  },
+  {
+   "from": "US measured-media spending",
+   "type": "HAS_AMOUNT",
+   "to": "US measured-media spend amount",
+   "clause": "...US measured-media spending at ..."
+  },
+  {
+   "from": "US measured-media spend amount",
+   "type": "MEASURED_ON",
+   "to": "GroupM measured-media basis",
+   "clause": "same source put US ... on GroupM's measured-media basis"
+  },
+  {
+   "from": "Coen",
+   "type": "PROVIDES",
+   "to": "Coen all-media US total",
+   "clause": "Coen's all-media US total"
+  },
+  {
+   "from": "Coen all-media US total",
+   "type": "HAS_AMOUNT",
+   "to": "Coen US total amount",
+   "clause": "...Coen's all-media US total of ..."
+  },
+  {
+   "from": "US measured-media spending",
+   "type": "VERSUS",
+   "to": "Coen all-media US total",
+   "clause": "versus Coen's all-media US total"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|worldwide advertising spending|advertising spend aggregate|worldwide advertising spending\nNODE|worldwide advertising spend amount|monetary amount measurement|...was ... on GroupM's measured-media basis\nNODE|GroupM measured-media basis|measurement basis|GroupM's measured-media basis\nNODE|GroupM|organization|GroupM\nNODE|worldwide advertising spend forecast amount|forecast monetary amount measurement|forecast to reach ...\nNODE|US measured-media spending|advertising spend aggregate|US measured-media spending\nNODE|US measured-media spend amount|monetary amount measurement|...US measured-media spending at ...\nNODE|Coen all-media US total|advertising spend dataset|Coen's all-media US total\nNODE|Coen US total amount|monetary amount measurement|...Coen's all-media US total of ...\nNODE|Coen|organization|Coen\nEDGE|worldwide advertising spending|HAS_AMOUNT|worldwide advertising spend amount|...was ... on GroupM's measured-media basis\nEDGE|worldwide advertising spend amount|MEASURED_ON|GroupM measured-media basis|...on GroupM's measured-media basis\nEDGE|GroupM|PROVIDES|GroupM measured-media basis|GroupM's measured-media basis\nEDGE|worldwide advertising spending|FORECAST_TO_REACH|worldwide advertising spend forecast amount|forecast to reach ...\nEDGE|US measured-media spending|HAS_AMOUNT|US measured-media spend amount|...US measured-media spending at ...\nEDGE|US measured-media spend amount|MEASURED_ON|GroupM measured-media basis|same source put US ... on GroupM's measured-media basis\nEDGE|Coen|PROVIDES|Coen all-media US total|Coen's all-media US total\nEDGE|Coen all-media US total|HAS_AMOUNT|Coen US total amount|...Coen's all-media US total of ...\nEDGE|US measured-media spending|VERSUS|Coen all-media US total|versus Coen's all-media US total"
+}

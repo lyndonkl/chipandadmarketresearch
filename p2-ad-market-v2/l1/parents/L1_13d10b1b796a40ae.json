@@ -1,0 +1,93 @@
+{
+ "group_id": "L1|13d10b1b796a40ae",
+ "source": "name-block",
+ "n_in": 14,
+ "parents": [
+  {
+   "name": "Classified advertising category",
+   "type": "advertising category",
+   "grain": "Entity",
+   "reason": "same category concept; different labels and years abstracted",
+   "child_uids": [
+    "n|e1-buyers-005|classified advertising|ad category",
+    "n|e1-buyers-007|classified advertising|advertising category",
+    "n|e5-scale-012|classified advertising|advertising category"
+   ]
+  },
+  {
+   "name": "Classified advertising subcategory",
+   "type": "advertising subcategory",
+   "grain": "Entity",
+   "reason": "singleton: distinct subcategory concept not shared with others",
+   "child_uids": [
+    "n|e1-scale-012|classified advertising|advertising subcategory"
+   ]
+  },
+  {
+   "name": "Classified advertising money type",
+   "type": "advertising money type",
+   "grain": "Entity",
+   "reason": "singleton: distinct money\u2011type concept not shared with others",
+   "child_uids": [
+    "n|e1-scale-013|classified advertising|advertising money type"
+   ]
+  },
+  {
+   "name": "Classified advertising segment",
+   "type": "advertising segment",
+   "grain": "Entity",
+   "reason": "same segment concept across multiple sources and eras",
+   "child_uids": [
+    "n|e2-scale-011|classified advertising|advertising segment",
+    "n|e7-scale-007|classified advertising|advertising segment",
+    "n|tu:era:1:field:PRICING|classified advertising|advertising segment"
+   ]
+  },
+  {
+   "name": "Classified advertising spend category",
+   "type": "advertising spend category",
+   "grain": "Entity",
+   "reason": "singleton: distinct spend\u2011category concept not shared with others",
+   "child_uids": [
+    "n|e5-scale-010|classified advertising|advertising spend category"
+   ]
+  },
+  {
+   "name": "Classified advertising channel",
+   "type": "advertising channel",
+   "grain": "Entity",
+   "reason": "singleton: distinct channel concept not shared with others",
+   "child_uids": [
+    "n|tu:era:1:field:MEDIUM|classified advertising|advertising channel"
+   ]
+  },
+  {
+   "name": "Classified advertising format",
+   "type": "advertising format",
+   "grain": "Entity",
+   "reason": "format concept shared by two definitions; unified parent",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|classified advertising|advertising format",
+    "n|tu:era:3:field:BUYERS|classified advertising|ad format"
+   ]
+  },
+  {
+   "name": "Classified advertising medium",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: distinct medium concept not shared with others",
+   "child_uids": [
+    "n|tu:era:3:field:MEDIUM|classified advertising|advertising medium"
+   ]
+  },
+  {
+   "name": "Classified advertising ad type",
+   "type": "ad type",
+   "grain": "Entity",
+   "reason": "singleton: distinct ad\u2011type concept not shared with others",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|classified advertising|ad type"
+   ]
+  }
+ ]
+}

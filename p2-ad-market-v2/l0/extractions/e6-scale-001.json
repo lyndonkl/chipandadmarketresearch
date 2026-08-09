@@ -1,0 +1,45 @@
+{
+ "id": "e6-scale-001",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2002,
+ "unit": "USD millions, US total advertising expenditure 2002",
+ "elapsed_s": 38.3,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US total advertising expenditure",
+   "type": "advertising spend aggregate",
+   "clause": "US total advertising expenditure was ... in ..."
+  },
+  {
+   "name": "US total advertising spend measurement",
+   "type": "spend measurement",
+   "clause": "US total advertising expenditure was ... in ..."
+  },
+  {
+   "name": "Coen/McCann list-price billings series",
+   "type": "advertising spend dataset",
+   "clause": "on the Coen/McCann (list-price billings) series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US total advertising expenditure",
+   "type": "HAS_AMOUNT",
+   "to": "US total advertising spend measurement",
+   "clause": "was ... in ..."
+  },
+  {
+   "from": "US total advertising spend measurement",
+   "type": "MEASURED_ON",
+   "to": "Coen/McCann list-price billings series",
+   "clause": "on the Coen/McCann ... series"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US total advertising expenditure|advertising spend aggregate|US total advertising expenditure was ... in ...\nNODE|US total advertising spend measurement|spend measurement|US total advertising expenditure was ... in ...\nNODE|Coen/McCann list-price billings series|advertising spend dataset|on the Coen/McCann (list-price billings) series\nEDGE|US total advertising expenditure|HAS_AMOUNT|US total advertising spend measurement|was ... in ...\nEDGE|US total advertising spend measurement|MEASURED_ON|Coen/McCann list-price billings series|on the Coen/McCann ... series"
+}

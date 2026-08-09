@@ -1,0 +1,54 @@
+{
+ "group_id": "L1|3d136776adcc253e",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Broadcast industry net time sales",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "one measure across sources and years; year abstracted",
+   "child_uids": [
+    "n|e2-scale-009|fcc broadcast industry net time sales figure|revenue measurement",
+    "n|e2-sellers-001|us broadcast-industry net time sales value|revenue measurement",
+    "n|tu:era:2:field:SCALE|fcc late\u20111930s industry net time sales|industry net time sales measurement"
+   ]
+  },
+  {
+   "name": "NBC and CBS network share of broadcast-industry net time sales",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: network share of industry net time sales",
+   "child_uids": [
+    "n|e2-sellers-001|nbc and cbs network share of us broadcast-industry net time sales|media-share measurement"
+   ]
+  },
+  {
+   "name": "Owned stations share of broadcast-industry net time sales",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: owned stations share of industry net time sales",
+   "child_uids": [
+    "n|e2-sellers-001|owned stations share of us broadcast-industry net time sales|media-share measurement"
+   ]
+  },
+  {
+   "name": "NBC and CBS share of broadcast industry net operating income",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: network share of industry net operating income",
+   "child_uids": [
+    "n|e2-sellers-004|nbc and cbs share of us broadcast industry net operating income|media-share measurement"
+   ]
+  },
+  {
+   "name": "Coen vs FCC net time sales ratio",
+   "type": "ratio measurement",
+   "grain": "Measurement",
+   "reason": "singleton: ratio of Coen figure to FCC industry net time sales",
+   "child_uids": [
+    "n|tu:era:2:boundary|coen 1938 radio figure vs fcc net time sales ratio|ratio measurement"
+   ]
+  }
+ ]
+}

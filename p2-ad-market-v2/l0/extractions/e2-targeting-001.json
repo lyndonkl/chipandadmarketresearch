@@ -1,0 +1,83 @@
+{
+ "id": "e2-targeting-001",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1935,
+ "unit": "percent of US magazine advertising placed in women's magazines, 1935",
+ "elapsed_s": 65.8,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "women's magazines",
+   "type": "magazine segment",
+   "clause": "Women's magazines"
+  },
+  {
+   "name": "US magazine advertising",
+   "type": "advertising market",
+   "clause": "all US magazine advertising"
+  },
+  {
+   "name": "women's magazines share of US magazine advertising",
+   "type": "media-share measurement",
+   "clause": "took ... percent of all US magazine advertising"
+  },
+  {
+   "name": "women's magazines advertising spend",
+   "type": "monetary amount measurement",
+   "clause": "advertising spend in women's magazines"
+  },
+  {
+   "name": "total US magazine advertising spend",
+   "type": "monetary amount measurement",
+   "clause": "total US magazine advertising spend"
+  },
+  {
+   "name": "editorial-context targeting split",
+   "type": "targeting segmentation",
+   "clause": "clearest editorial-context targeting split"
+  },
+  {
+   "name": "era's data records",
+   "type": "advertising dataset",
+   "clause": "the era's data records"
+  }
+ ],
+ "edges": [
+  {
+   "from": "women's magazines share of US magazine advertising",
+   "type": "MEASURES",
+   "to": "women's magazines",
+   "clause": "took ... percent of all US magazine advertising"
+  },
+  {
+   "from": "women's magazines share of US magazine advertising",
+   "type": "SHARE_OF",
+   "to": "US magazine advertising",
+   "clause": "took ... percent of all US magazine advertising"
+  },
+  {
+   "from": "women's magazines advertising spend",
+   "type": "MEASURES",
+   "to": "women's magazines",
+   "clause": "advertising spend in women's magazines"
+  },
+  {
+   "from": "total US magazine advertising spend",
+   "type": "MEASURES",
+   "to": "US magazine advertising",
+   "clause": "total US magazine advertising spend"
+  },
+  {
+   "from": "editorial-context targeting split",
+   "type": "SPLITS",
+   "to": "era's data records",
+   "clause": "clearest editorial-context targeting split"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|women's magazines|magazine segment|Women's magazines\nNODE|US magazine advertising|advertising market|all US magazine advertising\nNODE|women's magazines share of US magazine advertising|media-share measurement|took ... percent of all US magazine advertising\nNODE|women's magazines advertising spend|monetary amount measurement|advertising spend in women's magazines\nNODE|total US magazine advertising spend|monetary amount measurement|total US magazine advertising spend\nNODE|editorial-context targeting split|targeting segmentation|clearest editorial-context targeting split\nNODE|era's data records|advertising dataset|the era's data records\nEDGE|women's magazines share of US magazine advertising|MEASURES|women's magazines|took ... percent of all US magazine advertising\nEDGE|women's magazines share of US magazine advertising|SHARE_OF|US magazine advertising|took ... percent of all US magazine advertising\nEDGE|women's magazines advertising spend|MEASURES|women's magazines|advertising spend in women's magazines\nEDGE|total US magazine advertising spend|MEASURES|US magazine advertising|total US magazine advertising spend\nEDGE|editorial-context targeting split|SPLITS|era's data records|clearest editorial-context targeting split"
+}

@@ -1,0 +1,89 @@
+{
+ "group_id": "L1|a459d90c6c5b7735",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Network demand",
+   "type": "advertising demand",
+   "grain": "Entity",
+   "reason": "singleton: unique demand entity",
+   "child_uids": [
+    "n|e5-buyers-004|network demand|advertising demand"
+   ]
+  },
+  {
+   "name": "Select network",
+   "type": "ad network",
+   "grain": "Entity",
+   "reason": "singleton: specific DoubleClick Select ad network",
+   "child_uids": [
+    "n|e5-targeting-002|select network|ad network"
+   ]
+  },
+  {
+   "name": "Engage 4,700-site network",
+   "type": "publisher network",
+   "grain": "Entity",
+   "reason": "singleton: Engage's large publisher network",
+   "child_uids": [
+    "n|e5-targeting-002|engage 4,700-site network|publisher network"
+   ]
+  },
+  {
+   "name": "ValueClick network",
+   "type": "ad network",
+   "grain": "Entity",
+   "reason": "singleton: ValueClick's ad network entity",
+   "child_uids": [
+    "n|e5-targeting-002|valueclick network|ad network"
+   ]
+  },
+  {
+   "name": "Google AdSense",
+   "type": "advertising platform",
+   "grain": "Entity",
+   "reason": "same platform across naming variants; network and program",
+   "child_uids": [
+    "n|e6-events-003|google network (adsense)|advertising platform",
+    "n|mech-aol-002|adsense program|advertising platform"
+   ]
+  },
+  {
+   "name": "Google content network",
+   "type": "advertising platform",
+   "grain": "Entity",
+   "reason": "singleton: Google's content ad network",
+   "child_uids": [
+    "n|e6-targeting-005|google content network|advertising platform"
+   ]
+  },
+  {
+   "name": "Google ad tech stack",
+   "type": "ad-tech stack",
+   "grain": "Entity",
+   "reason": "singleton: Google's overall ad technology stack",
+   "child_uids": [
+    "n|e7-pricing-006|google's ad tech stack|ad-tech stack"
+   ]
+  },
+  {
+   "name": "Ad network (Google Services)",
+   "type": "advertising channel",
+   "grain": "Entity",
+   "reason": "singleton: generic ad network within Google services",
+   "child_uids": [
+    "n|e7-unit_econ-003|ad network|advertising channel"
+   ]
+  },
+  {
+   "name": "DoubleClick network arm",
+   "type": "ad network division",
+   "grain": "Entity",
+   "reason": "singleton: DoubleClick's network division entity",
+   "child_uids": [
+    "n|tu:era:5:field:SELLERS|doubleclick network arm|ad network division"
+   ]
+  }
+ ]
+}

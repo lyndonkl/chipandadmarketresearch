@@ -1,0 +1,78 @@
+{
+ "id": "mech-aol-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "% of Google total revenue attributable to AOL, 2002",
+ "elapsed_s": 62.8,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "America Online",
+   "type": "distribution partner",
+   "clause": "One distribution partner, America Online"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google's TOTAL revenues"
+  },
+  {
+   "name": "Google total revenue",
+   "type": "revenue measure",
+   "clause": "Google's TOTAL revenues"
+  },
+  {
+   "name": "AOL share of Google total revenue",
+   "type": "take-rate measurement",
+   "clause": "% of Google total revenue attributable to AOL"
+  },
+  {
+   "name": "AdSense program",
+   "type": "advertising platform",
+   "clause": "primarily through the AdSense program"
+  },
+  {
+   "name": "eight-month period",
+   "type": "time span",
+   "clause": "the ... figure covers roughly eight months of the agreement"
+  }
+ ],
+ "edges": [
+  {
+   "from": "America Online",
+   "type": "DISTRIBUTION_PARTNER_OF",
+   "to": "Google",
+   "clause": "distribution partner of Google"
+  },
+  {
+   "from": "America Online",
+   "type": "HAS_SHARE",
+   "to": "AOL share of Google total revenue",
+   "clause": "generated approximately ... of Google's TOTAL revenues"
+  },
+  {
+   "from": "AOL share of Google total revenue",
+   "type": "MEASURED_AS_SHARE_OF",
+   "to": "Google total revenue",
+   "clause": "... of Google's TOTAL revenues"
+  },
+  {
+   "from": "America Online",
+   "type": "PRIMARYLY_THROUGH",
+   "to": "AdSense program",
+   "clause": "primarily through the AdSense program"
+  },
+  {
+   "from": "AOL share of Google total revenue",
+   "type": "COVERS_PERIOD",
+   "to": "eight-month period",
+   "clause": "the ... figure covers roughly eight months of the agreement"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|America Online|distribution partner|One distribution partner, America Online\nNODE|Google|technology company|Google's TOTAL revenues\nNODE|Google total revenue|revenue measure|Google's TOTAL revenues\nNODE|AOL share of Google total revenue|take-rate measurement|% of Google total revenue attributable to AOL\nNODE|AdSense program|advertising platform|primarily through the AdSense program\nNODE|eight-month period|time span|the ... figure covers roughly eight months of the agreement\nEDGE|America Online|DISTRIBUTION_PARTNER_OF|Google|distribution partner of Google\nEDGE|America Online|HAS_SHARE|AOL share of Google total revenue|generated approximately ... of Google's TOTAL revenues\nEDGE|AOL share of Google total revenue|MEASURED_AS_SHARE_OF|Google total revenue|... of Google's TOTAL revenues\nEDGE|America Online|PRIMARYLY_THROUGH|AdSense program|primarily through the AdSense program\nEDGE|AOL share of Google total revenue|COVERS_PERIOD|eight-month period|the ... figure covers roughly eight months of the agreement"
+}

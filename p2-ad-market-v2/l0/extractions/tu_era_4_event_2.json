@@ -1,0 +1,121 @@
+{
+ "id": "tu:era:4:event:2",
+ "kind": "prose:event",
+ "era": 4,
+ "about_year": 1981,
+ "unit": null,
+ "elapsed_s": 63.1,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "cable channel",
+   "type": "television distribution medium",
+   "clause": "cable channel"
+  },
+  {
+   "name": "psychographic",
+   "type": "targeting dimension",
+   "clause": "as a psychographic"
+  },
+  {
+   "name": "geography",
+   "type": "targeting dimension",
+   "clause": "as a geography"
+  },
+  {
+   "name": "daypart",
+   "type": "targeting dimension",
+   "clause": "as a daypart"
+  },
+  {
+   "name": "advertisers",
+   "type": "advertiser constituency",
+   "clause": "Advertisers bought MTV"
+  },
+  {
+   "name": "MTV",
+   "type": "cable music channel",
+   "clause": "MTV"
+  },
+  {
+   "name": "defined kind of person",
+   "type": "target demographic",
+   "clause": "a defined kind of person nationally"
+  },
+  {
+   "name": "PRIZM",
+   "type": "segmentation system",
+   "clause": "PRIZM was applying"
+  },
+  {
+   "name": "segmentation logic",
+   "type": "targeting methodology",
+   "clause": "the segmentation logic that PRIZM was applying"
+  },
+  {
+   "name": "mailbox",
+   "type": "postal medium",
+   "clause": "to the mailbox"
+  },
+  {
+   "name": "dial",
+   "type": "broadcast dial",
+   "clause": "to the dial"
+  }
+ ],
+ "edges": [
+  {
+   "from": "cable channel",
+   "type": "SOLD_AS",
+   "to": "psychographic",
+   "clause": "could be sold as a psychographic"
+  },
+  {
+   "from": "cable channel",
+   "type": "EXCLUDES",
+   "to": "geography",
+   "clause": "rather than a geography"
+  },
+  {
+   "from": "cable channel",
+   "type": "EXCLUDES",
+   "to": "daypart",
+   "clause": "or a daypart"
+  },
+  {
+   "from": "advertisers",
+   "type": "BOUGHT",
+   "to": "MTV",
+   "clause": "Advertisers bought MTV"
+  },
+  {
+   "from": "MTV",
+   "type": "REACHES",
+   "to": "defined kind of person",
+   "clause": "to reach a defined kind of person nationally"
+  },
+  {
+   "from": "PRIZM",
+   "type": "APPLIES",
+   "to": "segmentation logic",
+   "clause": "PRIZM was applying"
+  },
+  {
+   "from": "segmentation logic",
+   "type": "APPLIED_TO",
+   "to": "mailbox",
+   "clause": "applied to the mailbox"
+  },
+  {
+   "from": "segmentation logic",
+   "type": "APPLIED_TO",
+   "to": "dial",
+   "clause": "applied to the dial"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|cable channel|television distribution medium|cable channel\nNODE|psychographic|targeting dimension|as a psychographic\nNODE|geography|targeting dimension|as a geography\nNODE|daypart|targeting dimension|as a daypart\nNODE|advertisers|advertiser constituency|Advertisers bought MTV\nNODE|MTV|cable music channel|MTV\nNODE|defined kind of person|target demographic|a defined kind of person nationally\nNODE|PRIZM|segmentation system|PRIZM was applying\nNODE|segmentation logic|targeting methodology|the segmentation logic that PRIZM was applying\nNODE|mailbox|postal medium|to the mailbox\nNODE|dial|broadcast dial|to the dial\nEDGE|cable channel|SOLD_AS|psychographic|could be sold as a psychographic\nEDGE|cable channel|EXCLUDES|geography|rather than a geography\nEDGE|cable channel|EXCLUDES|daypart|or a daypart\nEDGE|advertisers|BOUGHT|MTV|Advertisers bought MTV\nEDGE|MTV|REACHES|defined kind of person|to reach a defined kind of person nationally\nEDGE|PRIZM|APPLIES|segmentation logic|PRIZM was applying\nEDGE|segmentation logic|APPLIED_TO|mailbox|applied to the mailbox\nEDGE|segmentation logic|APPLIED_TO|dial|applied to the dial"
+}

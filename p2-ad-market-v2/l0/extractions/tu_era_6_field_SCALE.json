@@ -1,0 +1,217 @@
+{
+ "id": "tu:era:6:field:SCALE",
+ "kind": "prose:field:SCALE",
+ "era": 6,
+ "about_year": null,
+ "unit": null,
+ "elapsed_s": 153.0,
+ "error": null,
+ "n_nodes": 23,
+ "n_edges": 14,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "early US advertising spending amount",
+   "type": "advertising spend measurement",
+   "clause": "... from ... (2002)"
+  },
+  {
+   "name": "late US advertising spending amount",
+   "type": "advertising spend measurement",
+   "clause": "... to ... (2007)"
+  },
+  {
+   "name": "adjusted US advertising spending amount",
+   "type": "advertising spend measurement",
+   "clause": "... lifts ... to roughly ..."
+  },
+  {
+   "name": "Coen/McCann series",
+   "type": "advertising spend dataset",
+   "clause": "on the Coen/McCann series"
+  },
+  {
+   "name": "McCann series",
+   "type": "advertising spend dataset",
+   "clause": "... on the McCann series"
+  },
+  {
+   "name": "IRS corporate-deduction series",
+   "type": "advertising spend dataset",
+   "clause": "... on the IRS corporate-deduction series"
+  },
+  {
+   "name": "US GDP",
+   "type": "gross domestic product",
+   "clause": "against ..."
+  },
+  {
+   "name": "advertising share of US GDP (McCann)",
+   "type": "media-share measurement",
+   "clause": "... on the McCann series"
+  },
+  {
+   "name": "advertising share of US GDP (IRS)",
+   "type": "media-share measurement",
+   "clause": "... on the IRS corporate-deduction series"
+  },
+  {
+   "name": "advertising share of US GDP 2007",
+   "type": "media-share measurement",
+   "clause": "... dropping below ... by ..."
+  },
+  {
+   "name": "direct response pool",
+   "type": "advertising pool",
+   "clause": "the pools that mattered were direct response and intent"
+  },
+  {
+   "name": "intent pool",
+   "type": "advertising pool",
+   "clause": "the pools that mattered were direct response and intent"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "Direct mail ..."
+  },
+  {
+   "name": "Yellow Pages",
+   "type": "advertising medium",
+   "clause": "Yellow Pages ..."
+  },
+  {
+   "name": "newspaper classified",
+   "type": "advertising medium",
+   "clause": "newspaper classified ..."
+  },
+  {
+   "name": "performance-priced internet advertising",
+   "type": "advertising medium",
+   "clause": "performance-priced internet advertising ..."
+  },
+  {
+   "name": "direct response and intent pool spend 2007",
+   "type": "spend measurement",
+   "clause": "... made up roughly a third of all US advertising in ..."
+  },
+  {
+   "name": "search advertising spending 2008",
+   "type": "advertising spend measurement",
+   "clause": "... of a ... market in ..."
+  },
+  {
+   "name": "Google US advertising revenue",
+   "type": "company revenue measurement",
+   "clause": "... Google's whole US business was under ..."
+  },
+  {
+   "name": "GroupM",
+   "type": "media holding company",
+   "clause": "Globally, GroupM put worldwide advertising at ... for ..."
+  },
+  {
+   "name": "worldwide advertising spending 2007",
+   "type": "advertising spend measurement",
+   "clause": "... on a measured-media basis"
+  },
+  {
+   "name": "measured-media basis",
+   "type": "measurement base",
+   "clause": "on a measured-media basis"
+  },
+  {
+   "name": "GroupM US advertising figure 2007",
+   "type": "advertising spend measurement",
+   "clause": "... definitional gap, not a discrepancy"
+  }
+ ],
+ "edges": [
+  {
+   "from": "early US advertising spending amount",
+   "type": "MEASURED_ON",
+   "to": "Coen/McCann series",
+   "clause": "... from ... (2002)"
+  },
+  {
+   "from": "late US advertising spending amount",
+   "type": "MEASURED_ON",
+   "to": "Coen/McCann series",
+   "clause": "... to ... (2007)"
+  },
+  {
+   "from": "adjusted US advertising spending amount",
+   "type": "ADJUSTED_FROM",
+   "to": "late US advertising spending amount",
+   "clause": "... lifts ... to roughly ..."
+  },
+  {
+   "from": "advertising share of US GDP (McCann)",
+   "type": "SHARE_OF",
+   "to": "US GDP",
+   "clause": "... on the McCann series"
+  },
+  {
+   "from": "advertising share of US GDP (McCann)",
+   "type": "MEASURED_ON",
+   "to": "McCann series",
+   "clause": "... on the McCann series"
+  },
+  {
+   "from": "advertising share of US GDP (IRS)",
+   "type": "SHARE_OF",
+   "to": "US GDP",
+   "clause": "... on the IRS corporate-deduction series"
+  },
+  {
+   "from": "advertising share of US GDP (IRS)",
+   "type": "MEASURED_ON",
+   "to": "IRS corporate-deduction series",
+   "clause": "... on the IRS corporate-deduction series"
+  },
+  {
+   "from": "advertising share of US GDP 2007",
+   "type": "SHARE_OF",
+   "to": "US GDP",
+   "clause": "... dropping below ... by ..."
+  },
+  {
+   "from": "direct response and intent pool spend 2007",
+   "type": "PART_OF",
+   "to": "late US advertising spending amount",
+   "clause": "... made up roughly a third of all US advertising in ..."
+  },
+  {
+   "from": "search advertising spending 2008",
+   "type": "PART_OF",
+   "to": "adjusted US advertising spending amount",
+   "clause": "... of a ... market in ..."
+  },
+  {
+   "from": "Google US advertising revenue",
+   "type": "PART_OF",
+   "to": "adjusted US advertising spending amount",
+   "clause": "... Google's whole US business was under ..."
+  },
+  {
+   "from": "worldwide advertising spending 2007",
+   "type": "MEASURED_ON",
+   "to": "measured-media basis",
+   "clause": "... on a measured-media basis"
+  },
+  {
+   "from": "GroupM",
+   "type": "REPORTED",
+   "to": "worldwide advertising spending 2007",
+   "clause": "... put worldwide advertising at ... for ..."
+  },
+  {
+   "from": "GroupM US advertising figure 2007",
+   "type": "DIFFERENT_DEFINITION_THAN",
+   "to": "late US advertising spending amount",
+   "clause": "... definitional gap, not a discrepancy"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|early US advertising spending amount|advertising spend measurement|... from ... (2002)\nNODE|late US advertising spending amount|advertising spend measurement|... to ... (2007)\nNODE|adjusted US advertising spending amount|advertising spend measurement|... lifts ... to roughly ...\nNODE|Coen/McCann series|advertising spend dataset|on the Coen/McCann series\nNODE|McCann series|advertising spend dataset|... on the McCann series\nNODE|IRS corporate-deduction series|advertising spend dataset|... on the IRS corporate-deduction series\nNODE|US GDP|gross domestic product|against ...\nNODE|advertising share of US GDP (McCann)|media-share measurement|... on the McCann series\nNODE|advertising share of US GDP (IRS)|media-share measurement|... on the IRS corporate-deduction series\nNODE|advertising share of US GDP 2007|media-share measurement|... dropping below ... by ...\nNODE|direct response pool|advertising pool|the pools that mattered were direct response and intent\nNODE|intent pool|advertising pool|the pools that mattered were direct response and intent\nNODE|direct mail|advertising medium|Direct mail ...\nNODE|Yellow Pages|advertising medium|Yellow Pages ...\nNODE|newspaper classified|advertising medium|newspaper classified ...\nNODE|performance-priced internet advertising|advertising medium|performance-priced internet advertising ...\nNODE|direct response and intent pool spend 2007|spend measurement|... made up roughly a third of all US advertising in ...\nNODE|search advertising spending 2008|advertising spend measurement|... of a ... market in ...\nNODE|Google US advertising revenue|company revenue measurement|... Google's whole US business was under ...\nNODE|GroupM|media holding company|Globally, GroupM put worldwide advertising at ... for ...\nNODE|worldwide advertising spending 2007|advertising spend measurement|... on a measured-media basis\n NODE|measured-media basis|measurement base|on a measured-media basis\nNODE|GroupM US advertising figure 2007|advertising spend measurement|... definitional gap, not a discrepancy\nEDGE|early US advertising spending amount|MEASURED_ON|Coen/McCann series|... from ... (2002)\nEDGE|late US advertising spending amount|MEASURED_ON|Coen/McCann series|... to ... (2007)\nEDGE|adjusted US advertising spending amount|ADJUSTED_FROM|late US advertising spending amount|... lifts ... to roughly ...\nEDGE|advertising share of US GDP (McCann)|SHARE_OF|US GDP|... on the McCann series\nEDGE|advertising share of US GDP (McCann)|MEASURED_ON|McCann series|... on the McCann series\nEDGE|advertising share of US GDP (IRS)|SHARE_OF|US GDP|... on the IRS corporate-deduction series\nEDGE|advertising share of US GDP (IRS)|MEASURED_ON|IRS corporate-deduction series|... on the IRS corporate-deduction series\nEDGE|advertising share of US GDP 2007|SHARE_OF|US GDP|... dropping below ... by ...\nEDGE|direct response and intent pool spend 2007|PART_OF|late US advertising spending amount|... made up roughly a third of all US advertising in ...\nEDGE|search advertising spending 2008|PART_OF|adjusted US advertising spending amount|... of a ... market in ...\nEDGE|Google US advertising revenue|PART_OF|adjusted US advertising spending amount|... Google's whole US business was under ...\nEDGE|worldwide advertising spending 2007|MEASURED_ON|measured-media basis|... on a measured-media basis\nEDGE|GroupM|REPORTED|worldwide advertising spending 2007|... put worldwide advertising at ... for ...\nEDGE|GroupM US advertising figure 2007|DIFFERENT_DEFINITION_THAN|late US advertising spending amount|... definitional gap, not a discrepancy"
+}

@@ -1,0 +1,77 @@
+{
+ "id": "mech-tac-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2008,
+ "unit": "% of total traffic acquisition cost paid to distribution partners rather than network members, 2008",
+ "elapsed_s": 82.8,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google split the line"
+  },
+  {
+   "name": "AdSense traffic acquisition cost",
+   "type": "monetary amount measurement",
+   "clause": "traffic acquisition costs related to AdSense arrangements were ..."
+  },
+  {
+   "name": "payments to distribution partners",
+   "type": "monetary amount measurement",
+   "clause": "payments to distribution partners who direct queries to Google's own site were ..."
+  },
+  {
+   "name": "total traffic acquisition cost",
+   "type": "aggregate cost",
+   "clause": "total traffic acquisition cost"
+  },
+  {
+   "name": "distribution share of total traffic acquisition cost",
+   "type": "percentage measurement",
+   "clause": "distribution share of total traffic acquisition cost was ... of total TAC"
+  },
+  {
+   "name": "distribution partners",
+   "type": "partner category",
+   "clause": "distribution partners who direct queries to Google's own site"
+  },
+  {
+   "name": "network members",
+   "type": "member category",
+   "clause": "network members"
+  }
+ ],
+ "edges": [
+  {
+   "from": "payments to distribution partners",
+   "type": "PAID_TO",
+   "to": "distribution partners",
+   "clause": "payments ... were ..."
+  },
+  {
+   "from": "distribution share of total traffic acquisition cost",
+   "type": "PAID_TO",
+   "to": "distribution partners",
+   "clause": "paid to distribution partners"
+  },
+  {
+   "from": "distribution share of total traffic acquisition cost",
+   "type": "SHARE_OF",
+   "to": "total traffic acquisition cost",
+   "clause": "... of total TAC"
+  },
+  {
+   "from": "distribution share of total traffic acquisition cost",
+   "type": "EXCLUDES",
+   "to": "network members",
+   "clause": "rather than network members"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google split the line\nNODE|AdSense traffic acquisition cost|monetary amount measurement|traffic acquisition costs related to AdSense arrangements were ...\nNODE|payments to distribution partners|monetary amount measurement|payments to distribution partners who direct queries to Google's own site were ...\nNODE|total traffic acquisition cost|aggregate cost|total traffic acquisition cost\nNODE|distribution share of total traffic acquisition cost|percentage measurement|distribution share of total traffic acquisition cost was ... of total TAC\nNODE|distribution partners|partner category|distribution partners who direct queries to Google's own site\nNODE|network members|member category|network members\nEDGE|payments to distribution partners|PAID_TO|distribution partners|payments ... were ...\nEDGE|distribution share of total traffic acquisition cost|PAID_TO|distribution partners|paid to distribution partners\nEDGE|distribution share of total traffic acquisition cost|SHARE_OF|total traffic acquisition cost|... of total TAC\nEDGE|distribution share of total traffic acquisition cost|EXCLUDES|network members|rather than network members"
+}

@@ -1,0 +1,146 @@
+{
+ "id": "ds-crosscheck-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2022,
+ "unit": "percent, MAGNA US media-owner revenue below the IRS advertising deduction, 2022",
+ "elapsed_s": 88.2,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 13,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "IRS advertising deduction",
+   "type": "tax line",
+   "clause": "the IRS advertising deduction"
+  },
+  {
+   "name": "measured media revenue",
+   "type": "revenue metric",
+   "clause": "measured media revenue"
+  },
+  {
+   "name": "consistent media-owner basis",
+   "type": "measurement basis",
+   "clause": "on a consistent media-owner basis"
+  },
+  {
+   "name": "promotion spend",
+   "type": "advertising expense",
+   "clause": "promotion spend"
+  },
+  {
+   "name": "agency spend",
+   "type": "advertising expense",
+   "clause": "agency spend"
+  },
+  {
+   "name": "technology spend",
+   "type": "advertising expense",
+   "clause": "technology spend"
+  },
+  {
+   "name": "media owner",
+   "type": "market participant",
+   "clause": "a media owner"
+  },
+  {
+   "name": "Coen advertiser-billings total",
+   "type": "advertiser billing dataset",
+   "clause": "Coen's advertiser-billings total"
+  },
+  {
+   "name": "media-owner revenue",
+   "type": "revenue metric",
+   "clause": "media-owner revenue"
+  },
+  {
+   "name": "IRS advertising deduction premium over media revenue",
+   "type": "premium measurement",
+   "clause": "gap between IRS deduction and media revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "IRS advertising deduction",
+   "type": "ABOVE",
+   "to": "measured media revenue",
+   "clause": "ran about ... above measured media revenue"
+  },
+  {
+   "from": "IRS advertising deduction",
+   "type": "BASED_ON",
+   "to": "consistent media-owner basis",
+   "clause": "on a consistent media-owner basis"
+  },
+  {
+   "from": "IRS advertising deduction",
+   "type": "ABSORBED",
+   "to": "promotion spend",
+   "clause": "absorbed promotion spend that never reaches a media owner"
+  },
+  {
+   "from": "IRS advertising deduction",
+   "type": "ABSORBED",
+   "to": "agency spend",
+   "clause": "absorbed agency spend that never reaches a media owner"
+  },
+  {
+   "from": "IRS advertising deduction",
+   "type": "ABSORBED",
+   "to": "technology spend",
+   "clause": "absorbed technology spend that never reaches a media owner"
+  },
+  {
+   "from": "promotion spend",
+   "type": "NEVER_REACHES",
+   "to": "media owner",
+   "clause": "never reaches a media owner"
+  },
+  {
+   "from": "agency spend",
+   "type": "NEVER_REACHES",
+   "to": "media owner",
+   "clause": "never reaches a media owner"
+  },
+  {
+   "from": "technology spend",
+   "type": "NEVER_REACHES",
+   "to": "media owner",
+   "clause": "never reaches a media owner"
+  },
+  {
+   "from": "Coen advertiser-billings total",
+   "type": "COMPARED_AGAINST",
+   "to": "IRS advertising deduction",
+   "clause": "compares ... against the deduction"
+  },
+  {
+   "from": "Coen advertiser-billings total",
+   "type": "EXCLUDES",
+   "to": "media-owner revenue",
+   "clause": "not media-owner revenue"
+  },
+  {
+   "from": "IRS advertising deduction",
+   "type": "GAP_WIDENED",
+   "to": "IRS advertising deduction premium over media revenue",
+   "clause": "the gap widened to ... by ..."
+  },
+  {
+   "from": "IRS advertising deduction premium over media revenue",
+   "type": "MEASURES_DIFFERENCE_BETWEEN",
+   "to": "IRS advertising deduction",
+   "clause": "measurement of premium over media revenue"
+  },
+  {
+   "from": "IRS advertising deduction premium over media revenue",
+   "type": "MEASURES_AGAINST",
+   "to": "measured media revenue",
+   "clause": "measurement of premium over media revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|IRS advertising deduction|tax line|the IRS advertising deduction\nNODE|measured media revenue|revenue metric|measured media revenue\nNODE|consistent media-owner basis|measurement basis|on a consistent media-owner basis\nNODE|promotion spend|advertising expense|promotion spend\nNODE|agency spend|advertising expense|agency spend\nNODE|technology spend|advertising expense|technology spend\nNODE|media owner|market participant|a media owner\nNODE|Coen advertiser-billings total|advertiser billing dataset|Coen's advertiser-billings total\nNODE|media-owner revenue|revenue metric|media-owner revenue\nNODE|IRS advertising deduction premium over media revenue|premium measurement|gap between IRS deduction and media revenue\nEDGE|IRS advertising deduction|ABOVE|measured media revenue|ran about ... above measured media revenue\nEDGE|IRS advertising deduction|BASED_ON|consistent media-owner basis|on a consistent media-owner basis\nEDGE|IRS advertising deduction|ABSORBED|promotion spend|absorbed promotion spend that never reaches a media owner\nEDGE|IRS advertising deduction|ABSORBED|agency spend|absorbed agency spend that never reaches a media owner\nEDGE|IRS advertising deduction|ABSORBED|technology spend|absorbed technology spend that never reaches a media owner\nEDGE|promotion spend|NEVER_REACHES|media owner|never reaches a media owner\nEDGE|agency spend|NEVER_REACHES|media owner|never reaches a media owner\nEDGE|technology spend|NEVER_REACHES|media owner|never reaches a media owner\nEDGE|Coen advertiser-billings total|COMPARED_AGAINST|IRS advertising deduction|compares ... against the deduction\nEDGE|Coen advertiser-billings total|EXCLUDES|media-owner revenue|not media-owner revenue\nEDGE|IRS advertising deduction|GAP_WIDENED|IRS advertising deduction premium over media revenue|the gap widened to ... by ...\nEDGE|IRS advertising deduction premium over media revenue|MEASURES_DIFFERENCE_BETWEEN|IRS advertising deduction|measurement of premium over media revenue\nEDGE|IRS advertising deduction premium over media revenue|MEASURES_AGAINST|measured media revenue|measurement of premium over media revenue"
+}

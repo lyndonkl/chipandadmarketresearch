@@ -1,0 +1,94 @@
+{
+ "id": "e1-buyers-005",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1915,
+ "unit": "USD millions (current), newspaper space",
+ "elapsed_s": 61.9,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national advertisers",
+   "type": "advertiser group",
+   "clause": "National advertisers"
+  },
+  {
+   "name": "local advertisers",
+   "type": "advertiser group",
+   "clause": "local advertisers"
+  },
+  {
+   "name": "classified advertising",
+   "type": "ad category",
+   "clause": "including classified advertising"
+  },
+  {
+   "name": "newspaper space",
+   "type": "ad inventory",
+   "clause": "newspaper space"
+  },
+  {
+   "name": "newspaper advertising",
+   "type": "advertising market",
+   "clause": "newspaper advertising"
+  },
+  {
+   "name": "national advertisers newspaper space spend",
+   "type": "spend measurement",
+   "clause": "bought ... of newspaper space"
+  },
+  {
+   "name": "local advertisers newspaper space spend",
+   "type": "spend measurement",
+   "clause": "bought ... by local advertisers"
+  },
+  {
+   "name": "national advertisers share of newspaper advertising",
+   "type": "share measurement",
+   "clause": "national money was about ... percent"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national advertisers",
+   "type": "BOUGHT",
+   "to": "national advertisers newspaper space spend",
+   "clause": "National advertisers bought ..."
+  },
+  {
+   "from": "local advertisers",
+   "type": "BOUGHT",
+   "to": "local advertisers newspaper space spend",
+   "clause": "Local advertisers bought ..."
+  },
+  {
+   "from": "national advertisers newspaper space spend",
+   "type": "COMPARE_AGAINST",
+   "to": "local advertisers newspaper space spend",
+   "clause": "against ... bought by local advertisers"
+  },
+  {
+   "from": "local advertisers",
+   "type": "INCLUDES",
+   "to": "classified advertising",
+   "clause": "including classified advertising"
+  },
+  {
+   "from": "national advertisers share of newspaper advertising",
+   "type": "SHARE_OF",
+   "to": "newspaper advertising",
+   "clause": "of newspaper advertising"
+  },
+  {
+   "from": "national advertisers",
+   "type": "HAS_SHARE",
+   "to": "national advertisers share of newspaper advertising",
+   "clause": "national money was about ... percent"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national advertisers|advertiser group|National advertisers\nNODE|local advertisers|advertiser group|local advertisers\nNODE|classified advertising|ad category|including classified advertising\nNODE|newspaper space|ad inventory|newspaper space\nNODE|newspaper advertising|advertising market|newspaper advertising\nNODE|national advertisers newspaper space spend|spend measurement|bought ... of newspaper space\nNODE|local advertisers newspaper space spend|spend measurement|bought ... by local advertisers\nNODE|national advertisers share of newspaper advertising|share measurement|national money was about ... percent\nEDGE|national advertisers|BOUGHT|national advertisers newspaper space spend|National advertisers bought ...\nEDGE|local advertisers|BOUGHT|local advertisers newspaper space spend|Local advertisers bought ...\nEDGE|national advertisers newspaper space spend|COMPARE_AGAINST|local advertisers newspaper space spend|against ... bought by local advertisers\nEDGE|local advertisers|INCLUDES|classified advertising|including classified advertising\nEDGE|national advertisers share of newspaper advertising|SHARE_OF|newspaper advertising|of newspaper advertising\nEDGE|national advertisers|HAS_SHARE|national advertisers share of newspaper advertising|national money was about ... percent"
+}

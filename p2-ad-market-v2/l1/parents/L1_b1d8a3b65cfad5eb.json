@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|b1d8a3b65cfad5eb",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "broadcast programs",
+   "type": "advertising content",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertising content entity",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|broadcast programs|advertising content"
+   ]
+  },
+  {
+   "name": "sponsor",
+   "type": "advertiser entity",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertiser role entity",
+   "child_uids": [
+    "n|tu:era:2:field:PRICING|sponsor|advertiser entity"
+   ]
+  },
+  {
+   "name": "specials",
+   "type": "special programmes",
+   "grain": "Entity",
+   "reason": "singleton: distinct special programme entity",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|specials|special programmes"
+   ]
+  },
+  {
+   "name": "programmatic advertising",
+   "type": "ad buying method",
+   "grain": "Entity",
+   "reason": "singleton: distinct ad buying method entity",
+   "child_uids": [
+    "n|tu:era:7:field:MEASUREMENT|programmatic advertising|ad buying method"
+   ]
+  },
+  {
+   "name": "aggregate programmatic change",
+   "type": "programmatic advertising metric",
+   "grain": "Entity",
+   "reason": "singleton: distinct metric entity about programmatic advertising",
+   "child_uids": [
+    "n|tu:era:7:field:TARGETING|aggregate programmatic change|programmatic advertising metric"
+   ]
+  }
+ ]
+}

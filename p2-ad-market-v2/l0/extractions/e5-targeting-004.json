@@ -1,0 +1,78 @@
+{
+ "id": "e5-targeting-004",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "million paid introductions in the quarter",
+ "elapsed_s": 54.1,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture"
+  },
+  {
+   "name": "paid introductions volume",
+   "type": "intent-matched click measurement",
+   "clause": "Paid introductions (intent-matched clicks) delivered by Overture"
+  },
+  {
+   "name": "advertisers reached count",
+   "type": "advertiser reach measurement",
+   "clause": "across roughly ... advertisers"
+  },
+  {
+   "name": "keyword-based targeting",
+   "type": "targeting mechanism",
+   "clause": "targeting by the words the user typed"
+  },
+  {
+   "name": "cookie",
+   "type": "tracking technology",
+   "clause": "no cookie"
+  },
+  {
+   "name": "user profile",
+   "type": "profile data",
+   "clause": "no profile"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "DELIVERED",
+   "to": "paid introductions volume",
+   "clause": "delivered by Overture"
+  },
+  {
+   "from": "paid introductions volume",
+   "type": "SPANNED_ACROSS",
+   "to": "advertisers reached count",
+   "clause": "across roughly ... advertisers"
+  },
+  {
+   "from": "Overture",
+   "type": "USES",
+   "to": "keyword-based targeting",
+   "clause": "targeting by the words the user typed"
+  },
+  {
+   "from": "keyword-based targeting",
+   "type": "NOT_USES",
+   "to": "cookie",
+   "clause": "with no cookie"
+  },
+  {
+   "from": "keyword-based targeting",
+   "type": "NOT_USES",
+   "to": "user profile",
+   "clause": "with no profile"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|company|Overture\nNODE|paid introductions volume|intent-matched click measurement|Paid introductions (intent-matched clicks) delivered by Overture\nNODE|advertisers reached count|advertiser reach measurement|across roughly ... advertisers\nNODE|keyword-based targeting|targeting mechanism|targeting by the words the user typed\nNODE|cookie|tracking technology|no cookie\nNODE|user profile|profile data|no profile\nEDGE|Overture|DELIVERED|paid introductions volume|delivered by Overture\nEDGE|paid introductions volume|SPANNED_ACROSS|advertisers reached count|across roughly ... advertisers\nEDGE|Overture|USES|keyword-based targeting|targeting by the words the user typed\nEDGE|keyword-based targeting|NOT_USES|cookie|with no cookie\nEDGE|keyword-based targeting|NOT_USES|user profile|with no profile"
+}

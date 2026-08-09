@@ -1,0 +1,36 @@
+{
+ "group_id": "L1|e43004ca63ad1c8e",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Program production",
+   "type": "media service",
+   "grain": "Entity",
+   "reason": "one activity across wording variants; talent added in one child",
+   "child_uids": [
+    "n|e2-creators-002|program production|media service",
+    "n|e2-pricing-008|program and talent production|activity"
+   ]
+  },
+  {
+   "name": "Program",
+   "type": "media product",
+   "grain": "Entity",
+   "reason": "product variants; finished program and programmes",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|finished program|broadcast product",
+    "n|tu:era:3:field:BUYERS|programmes|media product"
+   ]
+  },
+  {
+   "name": "Program factory",
+   "type": "production entity",
+   "grain": "Entity",
+   "reason": "singleton: production entity for programs",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|program factory|production entity"
+   ]
+  }
+ ]
+}

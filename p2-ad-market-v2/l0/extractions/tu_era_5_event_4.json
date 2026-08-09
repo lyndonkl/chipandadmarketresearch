@@ -1,0 +1,165 @@
+{
+ "id": "tu:era:5:event:4",
+ "kind": "prose:event",
+ "era": 5,
+ "about_year": 1999,
+ "unit": null,
+ "elapsed_s": 95.1,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 12,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "DoubleClick",
+   "type": "company",
+   "clause": "DoubleClick completed its acquisition"
+  },
+  {
+   "name": "Abacus Direct",
+   "type": "company",
+   "clause": "acquisition target Abacus Direct"
+  },
+  {
+   "name": "direct-mail cooperative database",
+   "type": "data repository",
+   "clause": "its direct-mail cooperative database"
+  },
+  {
+   "name": "purchase-history coverage rate",
+   "type": "share measurement",
+   "clause": "held purchase histories on ... of US households"
+  },
+  {
+   "name": "US households",
+   "type": "demographic unit",
+   "clause": "... of US households"
+  },
+  {
+   "name": "cookie data",
+   "type": "user tracking data",
+   "clause": "its cookie data"
+  },
+  {
+   "name": "personally identifiable information",
+   "type": "personal data type",
+   "clause": "personally identifiable information"
+  },
+  {
+   "name": "promise of non-joining of cookie data with PII",
+   "type": "privacy promise",
+   "clause": "the promise that its cookie data would not be joined to personally identifiable information"
+  },
+  {
+   "name": "EPIC",
+   "type": "organization",
+   "clause": "EPIC complained to the FTC"
+  },
+  {
+   "name": "FTC",
+   "type": "government agency",
+   "clause": "the FTC opened an investigation"
+  },
+  {
+   "name": "investigation",
+   "type": "regulatory action",
+   "clause": "opened an investigation"
+  },
+  {
+   "name": "Kevin O'Connor",
+   "type": "person",
+   "clause": "chief executive Kevin O'Connor called the plan a mistake and shelved it"
+  },
+  {
+   "name": "plan",
+   "type": "business plan",
+   "clause": "the plan that was called a mistake and shelved"
+  },
+  {
+   "name": "identity-resolved targeting attempt",
+   "type": "advertising strategy",
+   "clause": "the web's first attempt at identity-resolved targeting"
+  },
+  {
+   "name": "launch",
+   "type": "event",
+   "clause": "its launch (which did not occur)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "DoubleClick",
+   "type": "ACQUIRED",
+   "to": "Abacus Direct",
+   "clause": "completed its acquisition"
+  },
+  {
+   "from": "Abacus Direct",
+   "type": "HAS",
+   "to": "direct-mail cooperative database",
+   "clause": "whose direct-mail cooperative database"
+  },
+  {
+   "from": "direct-mail cooperative database",
+   "type": "MEASURES",
+   "to": "purchase-history coverage rate",
+   "clause": "held purchase histories on ... of US households"
+  },
+  {
+   "from": "purchase-history coverage rate",
+   "type": "SHARE_OF",
+   "to": "US households",
+   "clause": "... of US households"
+  },
+  {
+   "from": "DoubleClick",
+   "type": "REMOVED",
+   "to": "promise of non-joining of cookie data with PII",
+   "clause": "quietly removed the promise"
+  },
+  {
+   "from": "promise of non-joining of cookie data with PII",
+   "type": "ABOUT",
+   "to": "cookie data",
+   "clause": "the promise that its cookie data..."
+  },
+  {
+   "from": "promise of non-joining of cookie data with PII",
+   "type": "ABOUT",
+   "to": "personally identifiable information",
+   "clause": "would not be joined to personally identifiable information"
+  },
+  {
+   "from": "EPIC",
+   "type": "COMPLAINED_TO",
+   "to": "FTC",
+   "clause": "complained to the FTC"
+  },
+  {
+   "from": "FTC",
+   "type": "OPENED",
+   "to": "investigation",
+   "clause": "opened an investigation"
+  },
+  {
+   "from": "Kevin O'Connor",
+   "type": "CALLED_MISTAKE",
+   "to": "plan",
+   "clause": "called the plan a mistake"
+  },
+  {
+   "from": "Kevin O'Connor",
+   "type": "SHELVED",
+   "to": "plan",
+   "clause": "shelved it"
+  },
+  {
+   "from": "identity-resolved targeting attempt",
+   "type": "KILLED_BEFORE",
+   "to": "launch",
+   "clause": "was killed before it launched"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|DoubleClick|company|DoubleClick completed its acquisition\nNODE|Abacus Direct|company|acquisition target Abacus Direct\nNODE|direct-mail cooperative database|data repository|its direct-mail cooperative database\nNODE|purchase-history coverage rate|share measurement|held purchase histories on ... of US households\nNODE|US households|demographic unit|... of US households\nNODE|cookie data|user tracking data|its cookie data\nNODE|personally identifiable information|personal data type|personally identifiable information\nNODE|promise of non-joining of cookie data with PII|privacy promise|the promise that its cookie data would not be joined to personally identifiable information\nNODE|EPIC|organization|EPIC complained to the FTC\nNODE|FTC|government agency|the FTC opened an investigation\nNODE|investigation|regulatory action|opened an investigation\nNODE|Kevin O'Connor|person|chief executive Kevin O'Connor called the plan a mistake and shelved it\nNODE|plan|business plan|the plan that was called a mistake and shelved\nNODE|identity-resolved targeting attempt|advertising strategy|the web's first attempt at identity-resolved targeting\nNODE|launch|event|its launch (which did not occur)\nEDGE|DoubleClick|ACQUIRED|Abacus Direct|completed its acquisition\nEDGE|Abacus Direct|HAS|direct-mail cooperative database|whose direct-mail cooperative database\nEDGE|direct-mail cooperative database|MEASURES|purchase-history coverage rate|held purchase histories on ... of US households\nEDGE|purchase-history coverage rate|SHARE_OF|US households|... of US households\nEDGE|DoubleClick|REMOVED|promise of non-joining of cookie data with PII|quietly removed the promise\nEDGE|promise of non-joining of cookie data with PII|ABOUT|cookie data|the promise that its cookie data...\nEDGE|promise of non-joining of cookie data with PII|ABOUT|personally identifiable information|would not be joined to personally identifiable information\nEDGE|EPIC|COMPLAINED_TO|FTC|complained to the FTC\nEDGE|FTC|OPENED|investigation|opened an investigation\nEDGE|Kevin O'Connor|CALLED_MISTAKE|plan|called the plan a mistake\nEDGE|Kevin O'Connor|SHELVED|plan|shelved it\nEDGE|identity-resolved targeting attempt|KILLED_BEFORE|launch|was killed before it launched"
+}

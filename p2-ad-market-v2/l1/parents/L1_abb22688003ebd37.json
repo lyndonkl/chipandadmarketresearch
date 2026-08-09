@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|abb22688003ebd37",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "US advertising peak amount",
+   "type": "amount measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique peak amount measure for US advertising",
+   "child_uids": [
+    "n|e2-scale-003|us advertising spend peak amount|amount measurement"
+   ]
+  },
+  {
+   "name": "US advertising nominal CAGR",
+   "type": "cagr measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique CAGR measure for US advertising spend",
+   "child_uids": [
+    "n|e2-scale-007|us advertising spend nominal cagr|cagr measurement"
+   ]
+  },
+  {
+   "name": "US direct mail advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: single-year direct mail spend measure",
+   "child_uids": [
+    "n|e2-scale-013|us direct mail advertising spend 1949|spend measurement"
+   ]
+  },
+  {
+   "name": "US advertising total revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique total revenue measure for US advertising",
+   "child_uids": [
+    "n|tu:era:2:boundary|us advertising total 1949|revenue measurement"
+   ]
+  },
+  {
+   "name": "Total US advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: multi-year aggregate spend measure for US advertising",
+   "child_uids": [
+    "n|tu:era:3:boundary|total us advertising spend (1949-1950)|advertising spend measurement"
+   ]
+  }
+ ]
+}

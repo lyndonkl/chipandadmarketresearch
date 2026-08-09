@@ -1,0 +1,111 @@
+{
+ "id": "e5-sellers-003",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD millions (DoubleClick total revenue, FY2000)",
+ "elapsed_s": 66.4,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "DoubleClick Inc.",
+   "type": "company",
+   "clause": "DoubleClick Inc."
+  },
+  {
+   "name": "DoubleClick total revenue FY2000",
+   "type": "revenue measurement",
+   "clause": "DoubleClick Inc. total revenue for 2000"
+  },
+  {
+   "name": "DoubleClick Media",
+   "type": "ad network",
+   "clause": "DoubleClick Media (ad network)"
+  },
+  {
+   "name": "DoubleClick Media revenue FY2000",
+   "type": "revenue measurement",
+   "clause": "DoubleClick Media $..."
+  },
+  {
+   "name": "TechSolutions",
+   "type": "ad serving platform",
+   "clause": "TechSolutions (ad serving)"
+  },
+  {
+   "name": "TechSolutions revenue FY2000",
+   "type": "revenue measurement",
+   "clause": "TechSolutions $..."
+  },
+  {
+   "name": "Data/Abacus",
+   "type": "data service",
+   "clause": "Data/Abacus"
+  },
+  {
+   "name": "Data/Abacus revenue FY2000",
+   "type": "revenue measurement",
+   "clause": "Data/Abacus $..."
+  },
+  {
+   "name": "Intersegment adjustment",
+   "type": "revenue reduction measurement",
+   "clause": "less $... intersegment"
+  }
+ ],
+ "edges": [
+  {
+   "from": "DoubleClick Inc.",
+   "type": "GENERATED_REVENUE",
+   "to": "DoubleClick total revenue FY2000",
+   "clause": "DoubleClick Inc. total revenue for 2000"
+  },
+  {
+   "from": "DoubleClick Media revenue FY2000",
+   "type": "COMPONENT_OF",
+   "to": "DoubleClick total revenue FY2000",
+   "clause": "DoubleClick Media (ad network) $..."
+  },
+  {
+   "from": "TechSolutions revenue FY2000",
+   "type": "COMPONENT_OF",
+   "to": "DoubleClick total revenue FY2000",
+   "clause": "TechSolutions (ad serving) $..."
+  },
+  {
+   "from": "Data/Abacus revenue FY2000",
+   "type": "COMPONENT_OF",
+   "to": "DoubleClick total revenue FY2000",
+   "clause": "Data/Abacus $..."
+  },
+  {
+   "from": "Intersegment adjustment",
+   "type": "SUBTRACTED_FROM",
+   "to": "DoubleClick total revenue FY2000",
+   "clause": "less $... intersegment"
+  },
+  {
+   "from": "DoubleClick Media",
+   "type": "HAS_REVENUE",
+   "to": "DoubleClick Media revenue FY2000",
+   "clause": "DoubleClick Media (ad network) $..."
+  },
+  {
+   "from": "TechSolutions",
+   "type": "HAS_REVENUE",
+   "to": "TechSolutions revenue FY2000",
+   "clause": "TechSolutions (ad serving) $..."
+  },
+  {
+   "from": "Data/Abacus",
+   "type": "HAS_REVENUE",
+   "to": "Data/Abacus revenue FY2000",
+   "clause": "Data/Abacus $..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|DoubleClick Inc.|company|DoubleClick Inc.\nNODE|DoubleClick total revenue FY2000|revenue measurement|DoubleClick Inc. total revenue for 2000\nNODE|DoubleClick Media|ad network|DoubleClick Media (ad network)\nNODE|DoubleClick Media revenue FY2000|revenue measurement|DoubleClick Media $...\nNODE|TechSolutions|ad serving platform|TechSolutions (ad serving)\nNODE|TechSolutions revenue FY2000|revenue measurement|TechSolutions $...\nNODE|Data/Abacus|data service|Data/Abacus\nNODE|Data/Abacus revenue FY2000|revenue measurement|Data/Abacus $...\nNODE|Intersegment adjustment|revenue reduction measurement|less $... intersegment\nEDGE|DoubleClick Inc.|GENERATED_REVENUE|DoubleClick total revenue FY2000|DoubleClick Inc. total revenue for 2000\nEDGE|DoubleClick Media revenue FY2000|COMPONENT_OF|DoubleClick total revenue FY2000|DoubleClick Media (ad network) $...\nEDGE|TechSolutions revenue FY2000|COMPONENT_OF|DoubleClick total revenue FY2000|TechSolutions (ad serving) $...\nEDGE|Data/Abacus revenue FY2000|COMPONENT_OF|DoubleClick total revenue FY2000|Data/Abacus $...\nEDGE|Intersegment adjustment|SUBTRACTED_FROM|DoubleClick total revenue FY2000|less $... intersegment\nEDGE|DoubleClick Media|HAS_REVENUE|DoubleClick Media revenue FY2000|DoubleClick Media (ad network) $...\nEDGE|TechSolutions|HAS_REVENUE|TechSolutions revenue FY2000|TechSolutions (ad serving) $...\nEDGE|Data/Abacus|HAS_REVENUE|Data/Abacus revenue FY2000|Data/Abacus $..."
+}

@@ -1,0 +1,55 @@
+{
+ "group_id": "L1|2a6dd8b9b7c8e381",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "AdWords advertiser count",
+   "type": "advertiser count measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years; year abstracted to children",
+   "child_uids": [
+    "n|e5-events-008|adwords adopters count|adoption count measurement",
+    "n|e6-buyers-002|google adwords advertiser count|count measurement"
+   ]
+  },
+  {
+   "name": "AdWords first-month signups",
+   "type": "advertiser count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific initial\u2011month signup count",
+   "child_uids": [
+    "n|tu:era:5:field:BUYERS|adwords first-month signups|advertiser count measurement"
+   ]
+  },
+  {
+   "name": "Google field office count",
+   "type": "office-count measurement",
+   "grain": "Measurement",
+   "reason": "same measure across sources; year abstracted to children",
+   "child_uids": [
+    "n|e6-creators-004|field sales offices count|office-count measurement",
+    "n|tu:era:6:field:CREATORS|google field office count|measurement"
+   ]
+  },
+  {
+   "name": "Performance Max adoption rate",
+   "type": "adoption-rate measurement",
+   "grain": "Measurement",
+   "reason": "same rate across survey years; year abstracted to children",
+   "child_uids": [
+    "n|e7-buyers-003|performance max adoption rate (latest survey)|adoption-rate measurement",
+    "n|e7-buyers-003|performance max adoption rate (prior year)|adoption-rate measurement"
+   ]
+  },
+  {
+   "name": "Google advertiser base figure",
+   "type": "advertiser-base measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total Google advertisers population level",
+   "child_uids": [
+    "n|e7-buyers-003|population-level figure for google advertisers|advertiser-base measurement"
+   ]
+  }
+ ]
+}

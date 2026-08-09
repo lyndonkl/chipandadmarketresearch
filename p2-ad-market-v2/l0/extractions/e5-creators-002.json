@@ -1,0 +1,79 @@
+{
+ "id": "e5-creators-002",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1997,
+ "unit": "percent of agency industry income",
+ "elapsed_s": 75.6,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising\u2011agency industry income",
+   "type": "industry income",
+   "clause": "total US advertising\u2011agency industry income"
+  },
+  {
+   "name": "media commissions share of agency industry income (current)",
+   "type": "share measurement",
+   "clause": "share of total US advertising\u2011agency industry income derived from media commissions and markups on materials"
+  },
+  {
+   "name": "media commissions share of agency industry income (earlier)",
+   "type": "share measurement",
+   "clause": "share of total US advertising\u2011agency industry income derived from media commissions and markups on materials, ..."
+  },
+  {
+   "name": "fees and PR share of agency industry income (current)",
+   "type": "share measurement",
+   "clause": "share of total US advertising\u2011agency industry income derived from fees, PR and other sources"
+  },
+  {
+   "name": "fees and PR share of agency industry income (earlier)",
+   "type": "share measurement",
+   "clause": "share of total US advertising\u2011agency industry income derived from fees, PR and other sources, ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "media commissions share of agency industry income (current)",
+   "type": "SHARE_OF",
+   "to": "US advertising\u2011agency industry income",
+   "clause": "share of total US advertising\u2011agency industry income"
+  },
+  {
+   "from": "media commissions share of agency industry income (earlier)",
+   "type": "SHARE_OF",
+   "to": "US advertising\u2011agency industry income",
+   "clause": "share ... in ..."
+  },
+  {
+   "from": "fees and PR share of agency industry income (current)",
+   "type": "SHARE_OF",
+   "to": "US advertising\u2011agency industry income",
+   "clause": "share of total US advertising\u2011agency industry income"
+  },
+  {
+   "from": "fees and PR share of agency industry income (earlier)",
+   "type": "SHARE_OF",
+   "to": "US advertising\u2011agency industry income",
+   "clause": "share ... in ..."
+  },
+  {
+   "from": "media commissions share of agency industry income (current)",
+   "type": "DOWN_FROM",
+   "to": "media commissions share of agency industry income (earlier)",
+   "clause": "down from ... in ..."
+  },
+  {
+   "from": "fees and PR share of agency industry income (current)",
+   "type": "UP_FROM",
+   "to": "fees and PR share of agency industry income (earlier)",
+   "clause": "rose from ... to ... over the same five years"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising\u2011agency industry income|industry income|total US advertising\u2011agency industry income\nNODE|media commissions share of agency industry income (current)|share measurement|share of total US advertising\u2011agency industry income derived from media commissions and markups on materials\nNODE|media commissions share of agency industry income (earlier)|share measurement|share of total US advertising\u2011agency industry income derived from media commissions and markups on materials, ...\nNODE|fees and PR share of agency industry income (current)|share measurement|share of total US advertising\u2011agency industry income derived from fees, PR and other sources\nNODE|fees and PR share of agency industry income (earlier)|share measurement|share of total US advertising\u2011agency industry income derived from fees, PR and other sources, ...\nEDGE|media commissions share of agency industry income (current)|SHARE_OF|US advertising\u2011agency industry income|share of total US advertising\u2011agency industry income\nEDGE|media commissions share of agency industry income (earlier)|SHARE_OF|US advertising\u2011agency industry income|share ... in ...\nEDGE|fees and PR share of agency industry income (current)|SHARE_OF|US advertising\u2011agency industry income|share of total US advertising\u2011agency industry income\nEDGE|fees and PR share of agency industry income (earlier)|SHARE_OF|US advertising\u2011agency industry income|share ... in ...\nEDGE|media commissions share of agency industry income (current)|DOWN_FROM|media commissions share of agency industry income (earlier)|down from ... in ...\nEDGE|fees and PR share of agency industry income (current)|UP_FROM|fees and PR share of agency industry income (earlier)|rose from ... to ... over the same five years"
+}

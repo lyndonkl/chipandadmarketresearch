@@ -1,0 +1,121 @@
+{
+ "id": "e5-scale-013",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of total US ad spend",
+ "elapsed_s": 85.3,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct-response advertising",
+   "type": "advertising format",
+   "clause": "Direct-response advertising"
+  },
+  {
+   "name": "total US measured advertising market size",
+   "type": "market-size measurement",
+   "clause": "US measured advertising market"
+  },
+  {
+   "name": "direct-response advertising share of US ad spend",
+   "type": "media-share measurement",
+   "clause": "Direct-response advertising was ... percent of the US measured advertising market"
+  },
+  {
+   "name": "direct-response advertising spend",
+   "type": "spend measurement",
+   "clause": "direct-response advertising ... about $...B"
+  },
+  {
+   "name": "direct mail spend",
+   "type": "spend measurement",
+   "clause": "direct mail $...B"
+  },
+  {
+   "name": "national directories spend",
+   "type": "spend measurement",
+   "clause": "national directories $...B"
+  },
+  {
+   "name": "performance-priced internet spend",
+   "type": "spend measurement",
+   "clause": "performance-priced internet $...B"
+  },
+  {
+   "name": "direct-response money in general media spend",
+   "type": "spend measurement",
+   "clause": "direct-response money bought inside general media $...B"
+  },
+  {
+   "name": "increase over prior floor",
+   "type": "point-difference measurement",
+   "clause": "... points above the floor the record carried before"
+  },
+  {
+   "name": "prior record floor",
+   "type": "benchmark measurement",
+   "clause": "the floor the record carried before"
+  },
+  {
+   "name": "analytic lenses",
+   "type": "analytical perspective",
+   "clause": "every lens moved it up"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct-response advertising share of US ad spend",
+   "type": "SHARE_OF",
+   "to": "total US measured advertising market size",
+   "clause": "percent of the US measured advertising market"
+  },
+  {
+   "from": "direct-response advertising spend",
+   "type": "MEASURES",
+   "to": "direct-response advertising",
+   "clause": "direct-response advertising ... about $...B"
+  },
+  {
+   "from": "direct mail spend",
+   "type": "PART_OF",
+   "to": "direct-response advertising spend",
+   "clause": "direct mail $...B"
+  },
+  {
+   "from": "national directories spend",
+   "type": "PART_OF",
+   "to": "direct-response advertising spend",
+   "clause": "national directories $...B"
+  },
+  {
+   "from": "performance-priced internet spend",
+   "type": "PART_OF",
+   "to": "direct-response advertising spend",
+   "clause": "performance-priced internet $...B"
+  },
+  {
+   "from": "direct-response money in general media spend",
+   "type": "PART_OF",
+   "to": "direct-response advertising spend",
+   "clause": "direct-response money ... $...B"
+  },
+  {
+   "from": "increase over prior floor",
+   "type": "ABOVE",
+   "to": "prior record floor",
+   "clause": "... points above the floor"
+  },
+  {
+   "from": "analytic lenses",
+   "type": "LED_TO",
+   "to": "increase over prior floor",
+   "clause": "every lens moved it up"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct-response advertising|advertising format|Direct-response advertising\nNODE|total US measured advertising market size|market-size measurement|US measured advertising market\nNODE|direct-response advertising share of US ad spend|media-share measurement|Direct-response advertising was ... percent of the US measured advertising market\nNODE|direct-response advertising spend|spend measurement|direct-response advertising ... about $...B\nNODE|direct mail spend|spend measurement|direct mail $...B\nNODE|national directories spend|spend measurement|national directories $...B\nNODE|performance-priced internet spend|spend measurement|performance-priced internet $...B\nNODE|direct-response money in general media spend|spend measurement|direct-response money bought inside general media $...B\nNODE|increase over prior floor|point-difference measurement|... points above the floor the record carried before\nNODE|prior record floor|benchmark measurement|the floor the record carried before\nNODE|analytic lenses|analytical perspective|every lens moved it up\nEDGE|direct-response advertising share of US ad spend|SHARE_OF|total US measured advertising market size|percent of the US measured advertising market\nEDGE|direct-response advertising spend|MEASURES|direct-response advertising|direct-response advertising ... about $...B\nEDGE|direct mail spend|PART_OF|direct-response advertising spend|direct mail $...B\nEDGE|national directories spend|PART_OF|direct-response advertising spend|national directories $...B\nEDGE|performance-priced internet spend|PART_OF|direct-response advertising spend|performance-priced internet $...B\nEDGE|direct-response money in general media spend|PART_OF|direct-response advertising spend|direct-response money ... $...B\nEDGE|increase over prior floor|ABOVE|prior record floor|... points above the floor\nEDGE|analytic lenses|LED_TO|increase over prior floor|every lens moved it up"
+}

@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|2e61398470023484",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Flat 30\u2011second TV spot price",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique flat spot price measure",
+   "child_uids": [
+    "n|e3-pricing-006|secondary compilation quoted flat thirty\u2011second spot price|price measurement"
+   ]
+  },
+  {
+   "name": "Average TV spot price",
+   "type": "average price measurement",
+   "grain": "Measurement",
+   "reason": "same average spot price across sources; year abstracted",
+   "child_uids": [
+    "n|e5-events-007|derived average spot price|average price measurement",
+    "n|e5-events-007|stated average spot price|average price measurement"
+   ]
+  },
+  {
+   "name": "Exercise price",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct financial option price measure",
+   "child_uids": [
+    "n|mech-aol-005|exercise price|price measurement"
+   ]
+  },
+  {
+   "name": "Implied average price per paid introduction",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique implied price for introductions",
+   "child_uids": [
+    "n|mech-ovt-004|implied average price per paid introduction|price measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|c7fca97b9ff6a690",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Television Factbook",
+   "type": "reference publication",
+   "grain": "Entity",
+   "reason": "singleton: a reference publication entity distinct from ad measures",
+   "child_uids": [
+    "n|e3-medium-002|television factbook|reference publication"
+   ]
+  },
+  {
+   "name": "National television advertising spend",
+   "type": "advertising spend",
+   "grain": "Entity",
+   "reason": "same concept across synonyms; both denote national TV ad spend",
+   "child_uids": [
+    "n|e3-medium-008|television national advertising|advertising spend",
+    "n|tu:era:4:event:7|national television money|advertising spend"
+   ]
+  },
+  {
+   "name": "US television advertising market",
+   "type": "advertising market aggregate",
+   "grain": "Entity",
+   "reason": "singleton: aggregate US TV advertising entity distinct from national subset",
+   "child_uids": [
+    "n|e3-sellers-001|us television advertising|advertising market aggregate"
+   ]
+  }
+ ]
+}

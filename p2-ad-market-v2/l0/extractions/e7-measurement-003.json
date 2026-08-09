@@ -1,0 +1,122 @@
+{
+ "id": "e7-measurement-003",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of global web traffic that is bot traffic, 2026",
+ "elapsed_s": 66.2,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "IAB/PwC Full-Year 2025 report",
+   "type": "report",
+   "clause": "IAB/PwC's Full-Year 2025 report"
+  },
+  {
+   "name": "Imperva Bad Bot Report",
+   "type": "report",
+   "clause": "citing Imperva's Bad Bot Report"
+  },
+  {
+   "name": "bot traffic",
+   "type": "automated web traffic",
+   "clause": "bots account for ... of global web traffic"
+  },
+  {
+   "name": "global web traffic",
+   "type": "web traffic aggregate",
+   "clause": "... of global web traffic"
+  },
+  {
+   "name": "bot share of global web traffic",
+   "type": "media-share measurement",
+   "clause": "bots account for ... of global web traffic"
+  },
+  {
+   "name": "malicious bot share of bot traffic",
+   "type": "media-share measurement",
+   "clause": "nearly ... classified as malicious"
+  },
+  {
+   "name": "malicious bot traffic",
+   "type": "malicious automated traffic",
+   "clause": "classified as malicious"
+  },
+  {
+   "name": "attribution",
+   "type": "marketing analysis process",
+   "clause": "complicating attribution"
+  },
+  {
+   "name": "audience modelling",
+   "type": "marketing analysis process",
+   "clause": "complicating audience modelling"
+  },
+  {
+   "name": "campaign optimisation",
+   "type": "marketing optimization activity",
+   "clause": "complicating campaign optimisation"
+  }
+ ],
+ "edges": [
+  {
+   "from": "IAB/PwC Full-Year 2025 report",
+   "type": "CITES",
+   "to": "Imperva Bad Bot Report",
+   "clause": "citing Imperva's Bad Bot Report"
+  },
+  {
+   "from": "IAB/PwC Full-Year 2025 report",
+   "type": "STATES",
+   "to": "bot share of global web traffic",
+   "clause": "states that bots account for ... of global web traffic"
+  },
+  {
+   "from": "bot share of global web traffic",
+   "type": "MEASURES",
+   "to": "bot traffic",
+   "clause": "bots account for ... of global web traffic"
+  },
+  {
+   "from": "bot share of global web traffic",
+   "type": "SHARE_OF",
+   "to": "global web traffic",
+   "clause": "... of global web traffic"
+  },
+  {
+   "from": "malicious bot share of bot traffic",
+   "type": "MEASURES",
+   "to": "malicious bot traffic",
+   "clause": "nearly ... classified as malicious"
+  },
+  {
+   "from": "malicious bot share of bot traffic",
+   "type": "SHARE_OF",
+   "to": "bot traffic",
+   "clause": "... of bot traffic classified as malicious"
+  },
+  {
+   "from": "bot traffic",
+   "type": "COMPLICATES",
+   "to": "attribution",
+   "clause": "complicating attribution"
+  },
+  {
+   "from": "bot traffic",
+   "type": "COMPLICATES",
+   "to": "audience modelling",
+   "clause": "complicating audience modelling"
+  },
+  {
+   "from": "bot traffic",
+   "type": "COMPLICATES",
+   "to": "campaign optimisation",
+   "clause": "complicating campaign optimisation"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|IAB/PwC Full-Year 2025 report|report|IAB/PwC's Full-Year 2025 report\nNODE|Imperva Bad Bot Report|report|citing Imperva's Bad Bot Report\nNODE|bot traffic|automated web traffic|bots account for ... of global web traffic\nNODE|global web traffic|web traffic aggregate|... of global web traffic\nNODE|bot share of global web traffic|media-share measurement|bots account for ... of global web traffic\nNODE|malicious bot share of bot traffic|media-share measurement|nearly ... classified as malicious\nNODE|malicious bot traffic|malicious automated traffic|classified as malicious\nNODE|attribution|marketing analysis process|complicating attribution\nNODE|audience modelling|marketing analysis process|complicating audience modelling\nNODE|campaign optimisation|marketing optimization activity|complicating campaign optimisation\nEDGE|IAB/PwC Full-Year 2025 report|CITES|Imperva Bad Bot Report|citing Imperva's Bad Bot Report\nEDGE|IAB/PwC Full-Year 2025 report|STATES|bot share of global web traffic|states that bots account for ... of global web traffic\nEDGE|bot share of global web traffic|MEASURES|bot traffic|bots account for ... of global web traffic\nEDGE|bot share of global web traffic|SHARE_OF|global web traffic|... of global web traffic\nEDGE|malicious bot share of bot traffic|MEASURES|malicious bot traffic|nearly ... classified as malicious\nEDGE|malicious bot share of bot traffic|SHARE_OF|bot traffic|... of bot traffic classified as malicious\nEDGE|bot traffic|COMPLICATES|attribution|complicating attribution\nEDGE|bot traffic|COMPLICATES|audience modelling|complicating audience modelling\nEDGE|bot traffic|COMPLICATES|campaign optimisation|complicating campaign optimisation"
+}

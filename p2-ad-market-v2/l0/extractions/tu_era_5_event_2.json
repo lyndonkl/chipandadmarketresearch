@@ -1,0 +1,122 @@
+{
+ "id": "tu:era:5:event:2",
+ "kind": "prose:event",
+ "era": 5,
+ "about_year": 1998,
+ "unit": null,
+ "elapsed_s": 61.9,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Bill Gross",
+   "type": "person",
+   "clause": "Bill Gross's GoTo.com"
+  },
+  {
+   "name": "GoTo.com",
+   "type": "search-advertising company",
+   "clause": "GoTo.com sold search placement"
+  },
+  {
+   "name": "open per-click auction",
+   "type": "auction mechanism",
+   "clause": "open auction by which search placed"
+  },
+  {
+   "name": "search placement",
+   "type": "ad product",
+   "clause": "search placement sold"
+  },
+  {
+   "name": "first-price billing",
+   "type": "pricing rule",
+   "clause": "winner paid its own bid"
+  },
+  {
+   "name": "human editorial review",
+   "type": "listing-review process",
+   "clause": "Human editors reviewed every listing"
+  },
+  {
+   "name": "GoTo.com revenue",
+   "type": "revenue measurement",
+   "clause": "It made ... in 1998 and ... in 2001"
+  },
+  {
+   "name": "Google",
+   "type": "search company",
+   "clause": "Google's contribution is quality weighting"
+  },
+  {
+   "name": "quality weighting",
+   "type": "ranking mechanism",
+   "clause": "quality weighting"
+  },
+  {
+   "name": "next-price billing",
+   "type": "pricing rule",
+   "clause": "next-price billing"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Bill Gross",
+   "type": "FOUNDED",
+   "to": "GoTo.com",
+   "clause": "Bill Gross's GoTo.com"
+  },
+  {
+   "from": "GoTo.com",
+   "type": "SOLD_VIA",
+   "to": "open per-click auction",
+   "clause": "sold search placement by open auction"
+  },
+  {
+   "from": "open per-click auction",
+   "type": "SELLS",
+   "to": "search placement",
+   "clause": "open auction sold search placement"
+  },
+  {
+   "from": "open per-click auction",
+   "type": "USES",
+   "to": "first-price billing",
+   "clause": "winner paid its own bid"
+  },
+  {
+   "from": "GoTo.com",
+   "type": "USED",
+   "to": "human editorial review",
+   "clause": "Human editors reviewed every listing"
+  },
+  {
+   "from": "GoTo.com",
+   "type": "REPORTED",
+   "to": "GoTo.com revenue",
+   "clause": "It made ... in 1998 and ... in 2001"
+  },
+  {
+   "from": "Google",
+   "type": "CONTRIBUTED",
+   "to": "quality weighting",
+   "clause": "Google's contribution is quality weighting"
+  },
+  {
+   "from": "Google",
+   "type": "CONTRIBUTED",
+   "to": "next-price billing",
+   "clause": "and next-price billing"
+  },
+  {
+   "from": "Google",
+   "type": "DID_NOT_CONTRIBUTE",
+   "to": "open per-click auction",
+   "clause": "not the auction itself"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Bill Gross|person|Bill Gross's GoTo.com\nNODE|GoTo.com|search-advertising company|GoTo.com sold search placement\nNODE|open per-click auction|auction mechanism|open auction by which search placed\nNODE|search placement|ad product|search placement sold\nNODE|first-price billing|pricing rule|winner paid its own bid\nNODE|human editorial review|listing-review process|Human editors reviewed every listing\nNODE|GoTo.com revenue|revenue measurement|It made ... in 1998 and ... in 2001\nNODE|Google|search company|Google's contribution is quality weighting\nNODE|quality weighting|ranking mechanism|quality weighting\nNODE|next-price billing|pricing rule|next-price billing\nEDGE|Bill Gross|FOUNDED|GoTo.com|Bill Gross's GoTo.com\nEDGE|GoTo.com|SOLD_VIA|open per-click auction|sold search placement by open auction\nEDGE|open per-click auction|SELLS|search placement|open auction sold search placement\nEDGE|open per-click auction|USES|first-price billing|winner paid its own bid\nEDGE|GoTo.com|USED|human editorial review|Human editors reviewed every listing\nEDGE|GoTo.com|REPORTED|GoTo.com revenue|It made ... in 1998 and ... in 2001\nEDGE|Google|CONTRIBUTED|quality weighting|Google's contribution is quality weighting\nEDGE|Google|CONTRIBUTED|next-price billing|and next-price billing\nEDGE|Google|DID_NOT_CONTRIBUTE|open per-click auction|not the auction itself"
+}

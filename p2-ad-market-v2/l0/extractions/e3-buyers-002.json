@@ -1,0 +1,61 @@
+{
+ "id": "e3-buyers-002",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1956,
+ "unit": "percent of US national advertising expenditure",
+ "elapsed_s": 32.8,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "broadcast advertising",
+   "type": "advertising medium",
+   "clause": "Broadcast advertising (television plus radio, network plus national spot)"
+  },
+  {
+   "name": "US national advertising expenditure",
+   "type": "advertising spend aggregate",
+   "clause": "US national advertising expenditure"
+  },
+  {
+   "name": "broadcast advertising share of US national advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "accounted for ... of US national advertising expenditure"
+  },
+  {
+   "name": "sponsorship",
+   "type": "advertising funding model",
+   "clause": "sponsorship was collapsing into participations"
+  },
+  {
+   "name": "participations",
+   "type": "advertising funding model",
+   "clause": "sponsorship was collapsing into participations"
+  }
+ ],
+ "edges": [
+  {
+   "from": "broadcast advertising share of US national advertising expenditure",
+   "type": "MEASURES",
+   "to": "broadcast advertising",
+   "clause": "accounted for ... of US national advertising expenditure"
+  },
+  {
+   "from": "broadcast advertising share of US national advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "US national advertising expenditure",
+   "clause": "accounted for ... of US national advertising expenditure"
+  },
+  {
+   "from": "sponsorship",
+   "type": "COLLAPSED_INTO",
+   "to": "participations",
+   "clause": "sponsorship was collapsing into participations"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|broadcast advertising|advertising medium|Broadcast advertising (television plus radio, network plus national spot)\nNODE|US national advertising expenditure|advertising spend aggregate|US national advertising expenditure\nNODE|broadcast advertising share of US national advertising expenditure|media-share measurement|accounted for ... of US national advertising expenditure\nNODE|sponsorship|advertising funding model|sponsorship was collapsing into participations\nNODE|participations|advertising funding model|sponsorship was collapsing into participations\nEDGE|broadcast advertising share of US national advertising expenditure|MEASURES|broadcast advertising|accounted for ... of US national advertising expenditure\nEDGE|broadcast advertising share of US national advertising expenditure|SHARE_OF|US national advertising expenditure|accounted for ... of US national advertising expenditure\nEDGE|sponsorship|COLLAPSED_INTO|participations|sponsorship was collapsing into participations"
+}

@@ -1,0 +1,72 @@
+{
+ "id": "e6-creators-002",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2003,
+ "unit": "% of advertisers using billings-based agency compensation (2003)",
+ "elapsed_s": 58.7,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertisers",
+   "type": "advertiser group",
+   "clause": "US advertisers"
+  },
+  {
+   "name": "billings\u2011based agency compensation",
+   "type": "agency compensation method",
+   "clause": "billings (commission) basis"
+  },
+  {
+   "name": "share of US advertisers using billings\u2011based agency compensation",
+   "type": "share measurement",
+   "clause": "the share ... fell to about ... by 2003"
+  },
+  {
+   "name": "decline in billings\u2011based agency compensation",
+   "type": "market shift",
+   "clause": "the collapse followed the ... unbundling"
+  },
+  {
+   "name": "unbundling of media buying from creative",
+   "type": "industry restructuring",
+   "clause": "... unbundling of media buying from creative"
+  },
+  {
+   "name": "arrival of search advertising",
+   "type": "advertising channel emergence",
+   "clause": "arrival of search advertising"
+  }
+ ],
+ "edges": [
+  {
+   "from": "share of US advertisers using billings\u2011based agency compensation",
+   "type": "SHARE_OF",
+   "to": "US advertisers",
+   "clause": "share ... of US advertisers"
+  },
+  {
+   "from": "share of US advertisers using billings\u2011based agency compensation",
+   "type": "MEASURES",
+   "to": "billings\u2011based agency compensation",
+   "clause": "using billings\u2011based agency compensation"
+  },
+  {
+   "from": "decline in billings\u2011based agency compensation",
+   "type": "FOLLOWED_BY",
+   "to": "unbundling of media buying from creative",
+   "clause": "the collapse followed the ... unbundling of media buying from creative"
+  },
+  {
+   "from": "decline in billings\u2011based agency compensation",
+   "type": "NOT_CAUSED_BY",
+   "to": "arrival of search advertising",
+   "clause": "not the arrival of search advertising"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertisers|advertiser group|US advertisers\nNODE|billings\u2011based agency compensation|agency compensation method|billings (commission) basis\nNODE|share of US advertisers using billings\u2011based agency compensation|share measurement|the share ... fell to about ... by 2003\nNODE|decline in billings\u2011based agency compensation|market shift|the collapse followed the ... unbundling\nNODE|unbundling of media buying from creative|industry restructuring|... unbundling of media buying from creative\nNODE|arrival of search advertising|advertising channel emergence|arrival of search advertising\nEDGE|share of US advertisers using billings\u2011based agency compensation|SHARE_OF|US advertisers|share ... of US advertisers\nEDGE|share of US advertisers using billings\u2011based agency compensation|MEASURES|billings\u2011based agency compensation|using billings\u2011based agency compensation\nEDGE|decline in billings\u2011based agency compensation|FOLLOWED_BY|unbundling of media buying from creative|the collapse followed the ... unbundling of media buying from creative\nEDGE|decline in billings\u2011based agency compensation|NOT_CAUSED_BY|arrival of search advertising|not the arrival of search advertising"
+}

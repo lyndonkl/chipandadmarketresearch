@@ -1,0 +1,82 @@
+{
+ "id": "e2-medium-007",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1945,
+ "unit": "percent growth in US business-paper advertising, 1942 to 1945",
+ "elapsed_s": 28.1,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "business-paper advertising",
+   "type": "advertising medium",
+   "clause": "business-paper advertising"
+  },
+  {
+   "name": "magazine advertising",
+   "type": "advertising medium",
+   "clause": "magazine advertising"
+  },
+  {
+   "name": "newspaper advertising",
+   "type": "advertising medium",
+   "clause": "newspapers"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising channel",
+   "clause": "direct mail"
+  },
+  {
+   "name": "business-paper advertising growth",
+   "type": "percent growth measurement",
+   "clause": "business-paper advertising grew ..."
+  },
+  {
+   "name": "magazine advertising growth",
+   "type": "percent growth measurement",
+   "clause": "magazine advertising ... percent"
+  },
+  {
+   "name": "newspaper advertising growth",
+   "type": "percent growth measurement",
+   "clause": "newspapers grew ..."
+  },
+  {
+   "name": "direct mail decline",
+   "type": "percent change measurement",
+   "clause": "direct mail fell ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "business-paper advertising growth",
+   "type": "MEASURES",
+   "to": "business-paper advertising",
+   "clause": "business-paper advertising grew ..."
+  },
+  {
+   "from": "magazine advertising growth",
+   "type": "MEASURES",
+   "to": "magazine advertising",
+   "clause": "magazine advertising ... percent"
+  },
+  {
+   "from": "newspaper advertising growth",
+   "type": "MEASURES",
+   "to": "newspaper advertising",
+   "clause": "newspapers grew ..."
+  },
+  {
+   "from": "direct mail decline",
+   "type": "MEASURES",
+   "to": "direct mail",
+   "clause": "direct mail fell ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|business-paper advertising|advertising medium|business-paper advertising\nNODE|magazine advertising|advertising medium|magazine advertising\nNODE|newspaper advertising|advertising medium|newspapers\nNODE|direct mail|advertising channel|direct mail\nNODE|business-paper advertising growth|percent growth measurement|business-paper advertising grew ...\nNODE|magazine advertising growth|percent growth measurement|magazine advertising ... percent\nNODE|newspaper advertising growth|percent growth measurement|newspapers grew ...\nNODE|direct mail decline|percent change measurement|direct mail fell ...\nEDGE|business-paper advertising growth|MEASURES|business-paper advertising|business-paper advertising grew ...\nEDGE|magazine advertising growth|MEASURES|magazine advertising|magazine advertising ... percent\nEDGE|newspaper advertising growth|MEASURES|newspaper advertising|newspapers grew ...\nEDGE|direct mail decline|MEASURES|direct mail|direct mail fell ..."
+}

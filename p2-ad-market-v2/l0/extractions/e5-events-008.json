@@ -1,0 +1,83 @@
+{
+ "id": "e5-events-008",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD per thousand impressions",
+ "elapsed_s": 63.5,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AdWords",
+   "type": "online advertising platform",
+   "clause": "AdWords general-availability announcement"
+  },
+  {
+   "name": "AdWords general-availability announcement",
+   "type": "event",
+   "clause": "the AdWords general-availability announcement of 23 October 2000"
+  },
+  {
+   "name": "top-position CPM",
+   "type": "cpm measurement",
+   "clause": "Top-position CPM at the AdWords general-availability announcement"
+  },
+  {
+   "name": "middle-position CPM",
+   "type": "cpm measurement",
+   "clause": "Middle-position CPM at the AdWords general-availability announcement"
+  },
+  {
+   "name": "bottom-position CPM",
+   "type": "cpm measurement",
+   "clause": "Bottom-position CPM at the AdWords general-availability announcement"
+  },
+  {
+   "name": "businesses and agencies worldwide",
+   "type": "advertiser group",
+   "clause": "roughly ... businesses and agencies worldwide had already adopted the product"
+  },
+  {
+   "name": "AdWords adopters count",
+   "type": "adoption count measurement",
+   "clause": "by which point roughly ... businesses and agencies worldwide had already adopted the product"
+  }
+ ],
+ "edges": [
+  {
+   "from": "top-position CPM",
+   "type": "MEASURED_AT",
+   "to": "AdWords general-availability announcement",
+   "clause": "at the AdWords general-availability announcement ... middle, ... bottom"
+  },
+  {
+   "from": "middle-position CPM",
+   "type": "MEASURED_AT",
+   "to": "AdWords general-availability announcement",
+   "clause": "at the AdWords general-availability announcement ... middle, ... bottom"
+  },
+  {
+   "from": "bottom-position CPM",
+   "type": "MEASURED_AT",
+   "to": "AdWords general-availability announcement",
+   "clause": "at the AdWords general-availability announcement ... middle, ... bottom"
+  },
+  {
+   "from": "businesses and agencies worldwide",
+   "type": "ADOPTED",
+   "to": "AdWords",
+   "clause": "roughly ... businesses and agencies worldwide had already adopted the product"
+  },
+  {
+   "from": "AdWords adopters count",
+   "type": "MEASURES",
+   "to": "businesses and agencies worldwide",
+   "clause": "by which point roughly ... businesses and agencies worldwide had already adopted the product"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AdWords|online advertising platform|AdWords general-availability announcement\nNODE|AdWords general-availability announcement|event|the AdWords general-availability announcement of 23 October 2000\nNODE|top-position CPM|cpm measurement|Top-position CPM at the AdWords general-availability announcement\nNODE|middle-position CPM|cpm measurement|Middle-position CPM at the AdWords general-availability announcement\nNODE|bottom-position CPM|cpm measurement|Bottom-position CPM at the AdWords general-availability announcement\nNODE|businesses and agencies worldwide|advertiser group|roughly ... businesses and agencies worldwide had already adopted the product\nNODE|AdWords adopters count|adoption count measurement|by which point roughly ... businesses and agencies worldwide had already adopted the product\nEDGE|top-position CPM|MEASURED_AT|AdWords general-availability announcement|at the AdWords general-availability announcement ... middle, ... bottom\nEDGE|middle-position CPM|MEASURED_AT|AdWords general-availability announcement|at the AdWords general-availability announcement ... middle, ... bottom\nEDGE|bottom-position CPM|MEASURED_AT|AdWords general-availability announcement|at the AdWords general-availability announcement ... middle, ... bottom\nEDGE|businesses and agencies worldwide|ADOPTED|AdWords|roughly ... businesses and agencies worldwide had already adopted the product\nEDGE|AdWords adopters count|MEASURES|businesses and agencies worldwide|by which point roughly ... businesses and agencies worldwide had already adopted the product"
+}

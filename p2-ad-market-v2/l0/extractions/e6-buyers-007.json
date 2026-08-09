@@ -1,0 +1,56 @@
+{
+ "id": "e6-buyers-007",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "USD millions, US newspaper classified advertising 2008",
+ "elapsed_s": 55.6,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "classified buyers",
+   "type": "buyer group",
+   "clause": "Classified buyers \u2014 the individuals and small firms who had bought by the line since ..."
+  },
+  {
+   "name": "US newspaper classified advertising spend",
+   "type": "spend measurement",
+   "clause": "US newspaper classified advertising spend"
+  },
+  {
+   "name": "US newspaper classified advertising spend decline percent",
+   "type": "percentage change measurement",
+   "clause": "... fall inside the era"
+  },
+  {
+   "name": "US newspaper classified advertising spend below-peak percent",
+   "type": "percentage change measurement",
+   "clause": "... below the ... peak"
+  }
+ ],
+ "edges": [
+  {
+   "from": "classified buyers",
+   "type": "CUT",
+   "to": "US newspaper classified advertising spend",
+   "clause": "cut ... from ... to ..."
+  },
+  {
+   "from": "US newspaper classified advertising spend",
+   "type": "HAS_DECLINE_PERCENT",
+   "to": "US newspaper classified advertising spend decline percent",
+   "clause": "... fall inside the era"
+  },
+  {
+   "from": "US newspaper classified advertising spend",
+   "type": "HAS_BELOW_PEAK_PERCENT",
+   "to": "US newspaper classified advertising spend below-peak percent",
+   "clause": "... below the ... peak"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|classified buyers|buyer group|Classified buyers \u2014 the individuals and small firms who had bought by the line since ...\nNODE|US newspaper classified advertising spend|spend measurement|US newspaper classified advertising spend\nNODE|US newspaper classified advertising spend decline percent|percentage change measurement|... fall inside the era\nNODE|US newspaper classified advertising spend below-peak percent|percentage change measurement|... below the ... peak\nEDGE|classified buyers|CUT|US newspaper classified advertising spend|cut ... from ... to ...\nEDGE|US newspaper classified advertising spend|HAS_DECLINE_PERCENT|US newspaper classified advertising spend decline percent|... fall inside the era\nEDGE|US newspaper classified advertising spend|HAS_BELOW_PEAK_PERCENT|US newspaper classified advertising spend below-peak percent|... below the ... peak"
+}

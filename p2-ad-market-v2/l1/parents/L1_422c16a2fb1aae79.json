@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|422c16a2fb1aae79",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Advertiser programmatic spend reach share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measure of advertiser programmatic spend reaching the publisher",
+   "child_uids": [
+    "n|e7-pricing-004|advertiser programmatic spend reach share|share measurement"
+   ]
+  },
+  {
+   "name": "Consumer reach amount per DSP dollar",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "same consumer reach amount per DSP dollar across measurement types",
+   "child_uids": [
+    "n|e7-pricing-005|consumer reach amount per dsp dollar|share measurement",
+    "n|tu:era:7:field:PRICING|dsp dollar consumer amount|monetary measurement"
+   ]
+  },
+  {
+   "name": "Media productivity loss amount per DSP dollar",
+   "type": "loss measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct loss measure per DSP dollar",
+   "child_uids": [
+    "n|e7-pricing-005|media productivity loss amount per dsp dollar|loss measurement"
+   ]
+  },
+  {
+   "name": "Unreached amount per DSP dollar",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unreached amount per DSP dollar",
+   "child_uids": [
+    "n|e7-pricing-005|unreached amount per dsp dollar|share measurement"
+   ]
+  }
+ ]
+}

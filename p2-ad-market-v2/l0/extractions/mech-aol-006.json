@@ -1,0 +1,111 @@
+{
+ "id": "mech-aol-006",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2009,
+ "unit": "USD millions of realised loss on Google's 2006 $1.0bn AOL equity investment",
+ "elapsed_s": 82.3,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google"
+  },
+  {
+   "name": "AOL",
+   "type": "online media company",
+   "clause": "AOL"
+  },
+  {
+   "name": "Time Warner",
+   "type": "media conglomerate",
+   "clause": "Time Warner"
+  },
+  {
+   "name": "AOL equity purchase price",
+   "type": "cash payment measurement",
+   "clause": "paid ... in cash for a five percent indirect equity interest"
+  },
+  {
+   "name": "AOL equity stake percentage",
+   "type": "equity share measurement",
+   "clause": "five percent indirect equity interest in AOL"
+  },
+  {
+   "name": "other-than-temporary impairment amount",
+   "type": "impairment measurement",
+   "clause": "wrote ... off as an other-than-temporary impairment"
+  },
+  {
+   "name": "sale proceeds amount",
+   "type": "sale price measurement",
+   "clause": "sold the stake back to Time Warner for ..."
+  },
+  {
+   "name": "realised loss amount",
+   "type": "loss measurement",
+   "clause": "realised loss of about ..."
+  },
+  {
+   "name": "2002 cash guarantee",
+   "type": "cash guarantee measurement",
+   "clause": "the 2002 cash guarantee"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "PAID_CASH_FOR",
+   "to": "AOL equity purchase price",
+   "clause": "paid ... in cash for a five percent indirect equity interest"
+  },
+  {
+   "from": "Google",
+   "type": "ACQUIRED_EQUITY_STAKE",
+   "to": "AOL equity stake percentage",
+   "clause": "acquired five percent indirect equity interest in AOL"
+  },
+  {
+   "from": "AOL equity stake percentage",
+   "type": "SHARE_OF",
+   "to": "AOL",
+   "clause": "percentage of AOL equity"
+  },
+  {
+   "from": "Google",
+   "type": "RECOGNIZED_IMPAIRMENT",
+   "to": "other-than-temporary impairment amount",
+   "clause": "wrote ... off as an other-than-temporary impairment"
+  },
+  {
+   "from": "Google",
+   "type": "SOLD_STAKE_FOR",
+   "to": "sale proceeds amount",
+   "clause": "sold the stake back to Time Warner"
+  },
+  {
+   "from": "Time Warner",
+   "type": "PAID_FOR_STAKE",
+   "to": "sale proceeds amount",
+   "clause": "bought the stake for ..."
+  },
+  {
+   "from": "Google",
+   "type": "INCURRED_REALISED_LOSS",
+   "to": "realised loss amount",
+   "clause": "realised loss of about ..."
+  },
+  {
+   "from": "realised loss amount",
+   "type": "MULTIPLIED_BY",
+   "to": "2002 cash guarantee",
+   "clause": "roughly ... times the cash guarantee"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google\nNODE|AOL|online media company|AOL\nNODE|Time Warner|media conglomerate|Time Warner\nNODE|AOL equity purchase price|cash payment measurement|paid ... in cash for a five percent indirect equity interest\nNODE|AOL equity stake percentage|equity share measurement|five percent indirect equity interest in AOL\nNODE|other-than-temporary impairment amount|impairment measurement|wrote ... off as an other-than-temporary impairment\nNODE|sale proceeds amount|sale price measurement|sold the stake back to Time Warner for ...\nNODE|realised loss amount|loss measurement|realised loss of about ...\nNODE|2002 cash guarantee|cash guarantee measurement|the 2002 cash guarantee\nEDGE|Google|PAID_CASH_FOR|AOL equity purchase price|paid ... in cash for a five percent indirect equity interest\nEDGE|Google|ACQUIRED_EQUITY_STAKE|AOL equity stake percentage|acquired five percent indirect equity interest in AOL\nEDGE|AOL equity stake percentage|SHARE_OF|AOL|percentage of AOL equity\nEDGE|Google|RECOGNIZED_IMPAIRMENT|other-than-temporary impairment amount|wrote ... off as an other-than-temporary impairment\nEDGE|Google|SOLD_STAKE_FOR|sale proceeds amount|sold the stake back to Time Warner\nEDGE|Time Warner|PAID_FOR_STAKE|sale proceeds amount|bought the stake for ...\nEDGE|Google|INCURRED_REALISED_LOSS|realised loss amount|realised loss of about ...\nEDGE|realised loss amount|MULTIPLIED_BY|2002 cash guarantee|roughly ... times the cash guarantee"
+}

@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|010e588116fd581c",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "US Yellow Pages advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years; year abstracted to children",
+   "child_uids": [
+    "n|e4-events-001|us yellow pages advertising revenue in 1980|revenue measurement",
+    "n|e4-events-001|us yellow pages advertising revenue in 1993|revenue measurement"
+   ]
+  },
+  {
+   "name": "US directory advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: US directory advertising revenue distinct from Yellow Pages",
+   "child_uids": [
+    "n|e7-medium-006|us directory advertising revenue, 2024|revenue measurement"
+   ]
+  },
+  {
+   "name": "RBOC Yellow Pages advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: RBOC segment of Yellow Pages advertising revenue",
+   "child_uids": [
+    "n|tu:era:4:field:SELLERS|rboc yellow pages advertising revenue|revenue measurement"
+   ]
+  },
+  {
+   "name": "Yellow Pages advertising revenue (early)",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: early period Yellow Pages advertising revenue breakdown",
+   "child_uids": [
+    "n|tu:era:5:field:MEDIUM|yellow pages advertising revenue early|spend measurement"
+   ]
+  },
+  {
+   "name": "Yellow Pages advertising revenue (later)",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: later period Yellow Pages advertising revenue breakdown",
+   "child_uids": [
+    "n|tu:era:5:field:MEDIUM|yellow pages advertising revenue later|spend measurement"
+   ]
+  },
+  {
+   "name": "Yahoo banners and sponsorships revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: Yahoo banners and sponsorships revenue measure",
+   "child_uids": [
+    "n|tu:era:5:field:SELLERS|yahoo banners and sponsorships revenue|revenue measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+{
+ "id": "e6-creators-004",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "Google sales/support offices worldwide, year-end 2008",
+ "elapsed_s": 88.0,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google's own advertiser-facing sales and support footprint grew"
+  },
+  {
+   "name": "advertiser-facing sales and support footprint",
+   "type": "market presence metric",
+   "clause": "Google's own advertiser-facing sales and support footprint"
+  },
+  {
+   "name": "field sales offices count",
+   "type": "office-count measurement",
+   "clause": "field sales offices in ... countries (year-end ...)"
+  },
+  {
+   "name": "global support offices count",
+   "type": "office-count measurement",
+   "clause": "over ... offices in over ... countries on the Global Support measure"
+  },
+  {
+   "name": "sales and support offices count",
+   "type": "office-count measurement",
+   "clause": "over ... offices in over ... countries on the Sales and Support measure"
+  },
+  {
+   "name": "Global Support measure",
+   "type": "measurement definition",
+   "clause": "Global Support measure"
+  },
+  {
+   "name": "Sales and Support measure",
+   "type": "measurement definition",
+   "clause": "Sales and Support measure"
+  },
+  {
+   "name": "seller",
+   "type": "market participant role",
+   "clause": "the seller built the service layer"
+  },
+  {
+   "name": "agency",
+   "type": "intermediary role",
+   "clause": "not the agency built the service layer"
+  },
+  {
+   "name": "service layer",
+   "type": "service component",
+   "clause": "service layer for large accounts"
+  },
+  {
+   "name": "large accounts",
+   "type": "client segment",
+   "clause": "large accounts"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "HAS_FOOTPRINT",
+   "to": "advertiser-facing sales and support footprint",
+   "clause": "Google's own advertiser-facing sales and support footprint grew"
+  },
+  {
+   "from": "field sales offices count",
+   "type": "MEASURES",
+   "to": "advertiser-facing sales and support footprint",
+   "clause": "field sales offices in ... countries"
+  },
+  {
+   "from": "global support offices count",
+   "type": "MEASURES",
+   "to": "advertiser-facing sales and support footprint",
+   "clause": "over ... offices in over ... countries on the Global Support measure"
+  },
+  {
+   "from": "sales and support offices count",
+   "type": "MEASURES",
+   "to": "advertiser-facing sales and support footprint",
+   "clause": "over ... offices in over ... countries on the Sales and Support measure"
+  },
+  {
+   "from": "global support offices count",
+   "type": "BASED_ON",
+   "to": "Global Support measure",
+   "clause": "on the Global Support measure"
+  },
+  {
+   "from": "sales and support offices count",
+   "type": "BASED_ON",
+   "to": "Sales and Support measure",
+   "clause": "on the Sales and Support measure"
+  },
+  {
+   "from": "seller",
+   "type": "BUILT",
+   "to": "service layer",
+   "clause": "the seller built the service layer for large accounts"
+  },
+  {
+   "from": "agency",
+   "type": "DID_NOT_BUILD",
+   "to": "service layer",
+   "clause": "not the agency built the service layer"
+  },
+  {
+   "from": "service layer",
+   "type": "TARGETS",
+   "to": "large accounts",
+   "clause": "built ... for large accounts"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google's own advertiser-facing sales and support footprint grew\nNODE|advertiser-facing sales and support footprint|market presence metric|Google's own advertiser-facing sales and support footprint\nNODE|field sales offices count|office-count measurement|field sales offices in ... countries (year-end ...)\nNODE|global support offices count|office-count measurement|over ... offices in over ... countries on the Global Support measure\nNODE|sales and support offices count|office-count measurement|over ... offices in over ... countries on the Sales and Support measure\nNODE|Global Support measure|measurement definition|Global Support measure\nNODE|Sales and Support measure|measurement definition|Sales and Support measure\nNODE|seller|market participant role|the seller built the service layer\nNODE|agency|intermediary role|not the agency built the service layer\nNODE|service layer|service component|service layer for large accounts\nNODE|large accounts|client segment|large accounts\nEDGE|Google|HAS_FOOTPRINT|advertiser-facing sales and support footprint|Google's own advertiser-facing sales and support footprint grew\nEDGE|field sales offices count|MEASURES|advertiser-facing sales and support footprint|field sales offices in ... countries\nEDGE|global support offices count|MEASURES|advertiser-facing sales and support footprint|over ... offices in over ... countries on the Global Support measure\nEDGE|sales and support offices count|MEASURES|advertiser-facing sales and support footprint|over ... offices in over ... countries on the Sales and Support measure\nEDGE|global support offices count|BASED_ON|Global Support measure|on the Global Support measure\nEDGE|sales and support offices count|BASED_ON|Sales and Support measure|on the Sales and Support measure\nEDGE|seller|BUILT|service layer|the seller built the service layer for large accounts\nEDGE|agency|DID_NOT_BUILD|service layer|not the agency built the service layer\nEDGE|service layer|TARGETS|large accounts|built ... for large accounts"
+}

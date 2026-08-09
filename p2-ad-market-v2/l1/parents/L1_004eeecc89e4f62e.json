@@ -1,0 +1,36 @@
+{
+ "group_id": "L1|004eeecc89e4f62e",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Radio ownership share",
+   "type": "household radio ownership rate",
+   "grain": "Entity",
+   "reason": "same concept across years; year abstracted to children",
+   "child_uids": [
+    "n|e2-targeting-005|radio ownership share 1930|household radio ownership rate",
+    "n|e2-targeting-005|radio ownership share 1940|household radio ownership rate",
+    "n|e2-targeting-005|radio ownership share 1950|household radio ownership rate"
+   ]
+  },
+  {
+   "name": "US families",
+   "type": "population group",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity, no other similar nodes",
+   "child_uids": [
+    "n|e2-measurement-002|us families|population group"
+   ]
+  },
+  {
+   "name": "telephone subscribers",
+   "type": "subscriber group",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity, no other similar nodes",
+   "child_uids": [
+    "n|e2-measurement-002|telephone subscribers|subscriber group"
+   ]
+  }
+ ]
+}

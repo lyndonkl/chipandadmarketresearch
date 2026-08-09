@@ -1,0 +1,26 @@
+{
+ "group_id": "L1|452f8cc565547615",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Yellow Pages publishers",
+   "type": "publisher group",
+   "grain": "Entity",
+   "reason": "same entity across type labels; generic and association combined",
+   "child_uids": [
+    "n|e4-sellers-004|yellow pages directory publishers|publisher group",
+    "n|e5-targeting-005|yellow pages publishers association|industry association"
+   ]
+  },
+  {
+   "name": "Publisher trade associations",
+   "type": "trade association group",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity about publisher trade bodies",
+   "child_uids": [
+    "n|tu:era:3:event:1|publisher trade associations|trade association group"
+   ]
+  }
+ ]
+}

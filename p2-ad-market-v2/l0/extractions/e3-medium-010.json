@@ -1,0 +1,73 @@
+{
+ "id": "e3-medium-010",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "million USD of US Yellow Pages / directory advertising",
+ "elapsed_s": 62.7,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Yellow Pages / directory advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "about ... billion in ..."
+  },
+  {
+   "name": "Yellow Pages / directory advertising share of US advertising spend",
+   "type": "media-share measurement",
+   "clause": "roughly ... percent of all US advertising spend"
+  },
+  {
+   "name": "US advertising spend",
+   "type": "advertising spend aggregate",
+   "clause": "all US advertising spend"
+  },
+  {
+   "name": "Yellow Pages / directory advertising",
+   "type": "advertising segment",
+   "clause": "Yellow Pages / directory advertising"
+  },
+  {
+   "name": "Coen's Miscellaneous category",
+   "type": "advertising-spend dataset category",
+   "clause": "Coen's Miscellaneous category"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Yellow Pages / directory advertising spend",
+   "type": "MEASURES",
+   "to": "Yellow Pages / directory advertising",
+   "clause": "spend measurement of ..."
+  },
+  {
+   "from": "Yellow Pages / directory advertising share of US advertising spend",
+   "type": "MEASURES",
+   "to": "Yellow Pages / directory advertising",
+   "clause": "share measurement of ..."
+  },
+  {
+   "from": "Yellow Pages / directory advertising share of US advertising spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... percent of all US advertising spend"
+  },
+  {
+   "from": "Yellow Pages / directory advertising",
+   "type": "HIDDEN_IN",
+   "to": "Coen's Miscellaneous category",
+   "clause": "hidden inside Coen's Miscellaneous category"
+  },
+  {
+   "from": "Yellow Pages / directory advertising",
+   "type": "BROKE_OUT_OF",
+   "to": "Coen's Miscellaneous category",
+   "clause": "breaks it out separately in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Yellow Pages / directory advertising spend|advertising spend measurement|about ... billion in ...\nNODE|Yellow Pages / directory advertising share of US advertising spend|media-share measurement|roughly ... percent of all US advertising spend\nNODE|US advertising spend|advertising spend aggregate|all US advertising spend\nNODE|Yellow Pages / directory advertising|advertising segment|Yellow Pages / directory advertising\nNODE|Coen's Miscellaneous category|advertising-spend dataset category|Coen's Miscellaneous category\nEDGE|Yellow Pages / directory advertising spend|MEASURES|Yellow Pages / directory advertising|spend measurement of ...\nEDGE|Yellow Pages / directory advertising share of US advertising spend|MEASURES|Yellow Pages / directory advertising|share measurement of ...\nEDGE|Yellow Pages / directory advertising share of US advertising spend|SHARE_OF|US advertising spend|... percent of all US advertising spend\nEDGE|Yellow Pages / directory advertising|HIDDEN_IN|Coen's Miscellaneous category|hidden inside Coen's Miscellaneous category\nEDGE|Yellow Pages / directory advertising|BROKE_OUT_OF|Coen's Miscellaneous category|breaks it out separately in ..."
+}

@@ -1,0 +1,78 @@
+{
+ "id": "e3-scale-009",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "million USD",
+ "elapsed_s": 67.0,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local retail advertising",
+   "type": "advertising segment",
+   "clause": "Local retail advertising"
+  },
+  {
+   "name": "latest local retail advertising spend",
+   "type": "spend measurement",
+   "clause": "was ... in 1975"
+  },
+  {
+   "name": "earlier local retail advertising spend",
+   "type": "spend measurement",
+   "clause": "up from ... in 1950"
+  },
+  {
+   "name": "newspapers",
+   "type": "media outlet",
+   "clause": "newspapers"
+  },
+  {
+   "name": "local spot radio",
+   "type": "radio advertising medium",
+   "clause": "local spot radio"
+  },
+  {
+   "name": "television",
+   "type": "television advertising medium",
+   "clause": "television"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local retail advertising",
+   "type": "HAS_SPEND",
+   "to": "latest local retail advertising spend",
+   "clause": "was ... in 1975"
+  },
+  {
+   "from": "latest local retail advertising spend",
+   "type": "UP_FROM",
+   "to": "earlier local retail advertising spend",
+   "clause": "up from ... in 1950"
+  },
+  {
+   "from": "latest local retail advertising spend",
+   "type": "KEPT_IN_BUSINESS",
+   "to": "newspapers",
+   "clause": "the money that kept newspapers ... in business"
+  },
+  {
+   "from": "latest local retail advertising spend",
+   "type": "KEPT_IN_BUSINESS",
+   "to": "local spot radio",
+   "clause": "the money that kept ... increasingly local spot radio ... in business"
+  },
+  {
+   "from": "latest local retail advertising spend",
+   "type": "KEPT_IN_BUSINESS",
+   "to": "television",
+   "clause": "the money that kept ... television ... in business"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local retail advertising|advertising segment|Local retail advertising\nNODE|latest local retail advertising spend|spend measurement|was ... in 1975\nNODE|earlier local retail advertising spend|spend measurement|up from ... in 1950\nNODE|newspapers|media outlet|newspapers\nNODE|local spot radio|radio advertising medium|local spot radio\nNODE|television|television advertising medium|television\nEDGE|local retail advertising|HAS_SPEND|latest local retail advertising spend|was ... in 1975\nEDGE|latest local retail advertising spend|UP_FROM|earlier local retail advertising spend|up from ... in 1950\nEDGE|latest local retail advertising spend|KEPT_IN_BUSINESS|newspapers|the money that kept newspapers ... in business\nEDGE|latest local retail advertising spend|KEPT_IN_BUSINESS|local spot radio|the money that kept ... increasingly local spot radio ... in business\nEDGE|latest local retail advertising spend|KEPT_IN_BUSINESS|television|the money that kept ... television ... in business"
+}

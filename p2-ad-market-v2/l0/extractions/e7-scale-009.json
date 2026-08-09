@@ -1,0 +1,145 @@
+{
+ "id": "e7-scale-009",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
+ "elapsed_s": 93.5,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 11,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "national direct-response ad spend",
+   "type": "advertising-spend measurement",
+   "clause": "national direct-response money was about ... of US advertising"
+  },
+  {
+   "name": "total US advertising spend",
+   "type": "advertising-spend measurement",
+   "clause": "... of total"
+  },
+  {
+   "name": "national direct-response share of total",
+   "type": "media-share measurement",
+   "clause": "... of total"
+  },
+  {
+   "name": "US advertising",
+   "type": "advertising market",
+   "clause": "US advertising"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising channel",
+   "clause": "direct mail excluded"
+  },
+  {
+   "name": "Machine Market era",
+   "type": "era",
+   "clause": "across the era"
+  },
+  {
+   "name": "search advertising",
+   "type": "advertising channel",
+   "clause": "search built to serve"
+  },
+  {
+   "name": "commerce media",
+   "type": "advertising channel",
+   "clause": "commerce media built to serve"
+  },
+  {
+   "name": "performance social",
+   "type": "advertising channel",
+   "clause": "performance social built to serve"
+  },
+  {
+   "name": "national brand pool",
+   "type": "advertising pool",
+   "clause": "national brand"
+  },
+  {
+   "name": "analytical lenses",
+   "type": "analysis perspective",
+   "clause": "lenses do not agree on direction"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national direct-response ad spend",
+   "type": "MEASURES",
+   "to": "US advertising",
+   "clause": "was about ... of US advertising"
+  },
+  {
+   "from": "total US advertising spend",
+   "type": "MEASURES",
+   "to": "US advertising",
+   "clause": "... of total"
+  },
+  {
+   "from": "national direct-response share of total",
+   "type": "SHARE_OF",
+   "to": "total US advertising spend",
+   "clause": "... of total"
+  },
+  {
+   "from": "national direct-response ad spend",
+   "type": "EXCLUDES",
+   "to": "direct mail",
+   "clause": "basis excludes direct mail"
+  },
+  {
+   "from": "national direct-response ad spend",
+   "type": "FASTEST_GROWTH_IN",
+   "to": "Machine Market era",
+   "clause": "grew fastest across era"
+  },
+  {
+   "from": "search advertising",
+   "type": "BUILT_TO_SERVE",
+   "to": "national direct-response ad spend",
+   "clause": "built to serve"
+  },
+  {
+   "from": "commerce media",
+   "type": "BUILT_TO_SERVE",
+   "to": "national direct-response ad spend",
+   "clause": "built to serve"
+  },
+  {
+   "from": "performance social",
+   "type": "BUILT_TO_SERVE",
+   "to": "national direct-response ad spend",
+   "clause": "built to serve"
+  },
+  {
+   "from": "national direct-response ad spend",
+   "type": "NOT_RANKED_AGAINST",
+   "to": "national brand pool",
+   "clause": "cannot be ranked against national brand"
+  },
+  {
+   "from": "national direct-response ad spend",
+   "type": "SEPARATED_BY_POINTS",
+   "to": "national brand pool",
+   "clause": "sit ... apart"
+  },
+  {
+   "from": "analytical lenses",
+   "type": "DO_NOT_AGREE_ON_DIRECTION",
+   "to": "national direct-response ad spend",
+   "clause": "do not agree on direction"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "DO_NOT_AGREE_ON_DIRECTION",
+   "line": "EDGE|analytical lenses|DO_NOT_AGREE_ON_DIRECTION|national direct-response ad spend|do not agree on direction"
+  }
+ ],
+ "raw": "NODE|national direct-response ad spend|advertising-spend measurement|national direct-response money was about ... of US advertising\nNODE|total US advertising spend|advertising-spend measurement|... of total\nNODE|national direct-response share of total|media-share measurement|... of total\nNODE|US advertising|advertising market|US advertising\nNODE|direct mail|advertising channel|direct mail excluded\nNODE|Machine Market era|era|across the era\nNODE|search advertising|advertising channel|search built to serve\nNODE|commerce media|advertising channel|commerce media built to serve\nNODE|performance social|advertising channel|performance social built to serve\nNODE|national brand pool|advertising pool|national brand\nNODE|analytical lenses|analysis perspective|lenses do not agree on direction\nEDGE|national direct-response ad spend|MEASURES|US advertising|was about ... of US advertising\nEDGE|total US advertising spend|MEASURES|US advertising|... of total\nEDGE|national direct-response share of total|SHARE_OF|total US advertising spend|... of total\nEDGE|national direct-response ad spend|EXCLUDES|direct mail|basis excludes direct mail\nEDGE|national direct-response ad spend|FASTEST_GROWTH_IN|Machine Market era|grew fastest across era\nEDGE|search advertising|BUILT_TO_SERVE|national direct-response ad spend|built to serve\nEDGE|commerce media|BUILT_TO_SERVE|national direct-response ad spend|built to serve\nEDGE|performance social|BUILT_TO_SERVE|national direct-response ad spend|built to serve\nEDGE|national direct-response ad spend|NOT_RANKED_AGAINST|national brand pool|cannot be ranked against national brand\nEDGE|national direct-response ad spend|SEPARATED_BY_POINTS|national brand pool|sit ... apart\nEDGE|analytical lenses|DO_NOT_AGREE_ON_DIRECTION|national direct-response ad spend|do not agree on direction"
+}

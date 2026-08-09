@@ -1,0 +1,80 @@
+{
+ "group_id": "L1|8d6272c9b73056dd",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "Catalogue mailing volume",
+   "type": "mailing volume measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years and sources; year abstracted to children",
+   "child_uids": [
+    "n|e1-medium-004|catalogue mailing volume|distribution-volume measurement",
+    "n|e1-targeting-002|catalogues mailed per year|mailing volume measurement"
+   ]
+  },
+  {
+   "name": "Announcement card mailing volume",
+   "type": "mailing volume measurement",
+   "grain": "Measurement",
+   "reason": "singleton: announcement card mailing volume measurement",
+   "child_uids": [
+    "n|e3-targeting-004|announcement mailing card count|mailing volume measurement"
+   ]
+  },
+  {
+   "name": "Average household mail pieces per year",
+   "type": "mail volume measurement",
+   "grain": "Measurement",
+   "reason": "singleton: average household mail pieces per year measurement",
+   "child_uids": [
+    "n|e4-targeting-003|average household mail pieces per year|mail volume measurement"
+   ]
+  },
+  {
+   "name": "Pieces mailed per day",
+   "type": "mail piece sending measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic pieces mailed per day measurement",
+   "child_uids": [
+    "n|e5-targeting-005|pieces mailed per day|mail piece sending measurement"
+   ]
+  },
+  {
+   "name": "US Standard Mail daily delivery volume",
+   "type": "delivery volume measurement",
+   "grain": "Measurement",
+   "reason": "singleton: US Standard Mail daily delivery volume measurement",
+   "child_uids": [
+    "n|e5-targeting-005|us standard mail daily delivery volume|delivery volume measurement"
+   ]
+  },
+  {
+   "name": "Share of US Standard Mail volume",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of US Standard Mail volume measurement",
+   "child_uids": [
+    "n|e5-targeting-005|share of us standard mail volume|share measurement"
+   ]
+  },
+  {
+   "name": "Subsidised third-class rates",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: subsidised third-class rates price measurement",
+   "child_uids": [
+    "n|tu:era:1:field:SELLERS|subsidised third-class rates|price measurement"
+   ]
+  },
+  {
+   "name": "USPS third-class postage revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: USPS third-class postage revenue measurement",
+   "child_uids": [
+    "n|tu:era:4:field:SELLERS|usps third-class postage revenue|revenue measurement"
+   ]
+  }
+ ]
+}

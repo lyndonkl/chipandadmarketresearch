@@ -1,0 +1,78 @@
+{
+ "id": "e6-pricing-001",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2002,
+ "unit": "year (2002-02-20), launch date of quality-weighted CPC auction",
+ "elapsed_s": 49.8,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AdWords Select",
+   "type": "search-advertising product",
+   "clause": "AdWords Select"
+  },
+  {
+   "name": "quality-weighted ad ranking",
+   "type": "ranking mechanism",
+   "clause": "ranked ads by combination of performance and bid"
+  },
+  {
+   "name": "click-through rate",
+   "type": "performance metric",
+   "clause": "ad performance (click-thru rate)"
+  },
+  {
+   "name": "advertiser bid per click",
+   "type": "bid metric",
+   "clause": "how much an advertiser agrees to pay per click"
+  },
+  {
+   "name": "quality-weighted second-price billing",
+   "type": "pricing rule",
+   "clause": "applied a discounter so advertisers pay the lowest amount possible"
+  },
+  {
+   "name": "quality-weighted CPC auction launch",
+   "type": "product launch event",
+   "clause": "launch of quality-weighted CPC auction"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AdWords Select",
+   "type": "LAUNCHED_ON",
+   "to": "quality-weighted CPC auction launch",
+   "clause": "announced ..."
+  },
+  {
+   "from": "AdWords Select",
+   "type": "RANKS_ADS_BY",
+   "to": "quality-weighted ad ranking",
+   "clause": "ranked ads by combination of performance and bid"
+  },
+  {
+   "from": "quality-weighted ad ranking",
+   "type": "USES_METRIC",
+   "to": "click-through rate",
+   "clause": "includes ad performance (click-thru rate)"
+  },
+  {
+   "from": "quality-weighted ad ranking",
+   "type": "USES_BID",
+   "to": "advertiser bid per click",
+   "clause": "includes how much an advertiser agrees to pay per click"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "APPLIES_DISCOUNTER",
+   "to": "quality-weighted second-price billing",
+   "clause": "applied a discounter so advertisers pay the lowest amount possible"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AdWords Select|search-advertising product|AdWords Select\nNODE|quality-weighted ad ranking|ranking mechanism|ranked ads by combination of performance and bid\nNODE|click-through rate|performance metric|ad performance (click-thru rate)\nNODE|advertiser bid per click|bid metric|how much an advertiser agrees to pay per click\nNODE|quality-weighted second-price billing|pricing rule|applied a discounter so advertisers pay the lowest amount possible\nNODE|quality-weighted CPC auction launch|product launch event|launch of quality-weighted CPC auction\nEDGE|AdWords Select|LAUNCHED_ON|quality-weighted CPC auction launch|announced ...\nEDGE|AdWords Select|RANKS_ADS_BY|quality-weighted ad ranking|ranked ads by combination of performance and bid\nEDGE|quality-weighted ad ranking|USES_METRIC|click-through rate|includes ad performance (click-thru rate)\nEDGE|quality-weighted ad ranking|USES_BID|advertiser bid per click|includes how much an advertiser agrees to pay per click\nEDGE|AdWords Select|APPLIES_DISCOUNTER|quality-weighted second-price billing|applied a discounter so advertisers pay the lowest amount possible"
+}

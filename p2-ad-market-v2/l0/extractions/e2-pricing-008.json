@@ -1,0 +1,56 @@
+{
+ "id": "e2-pricing-008",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1940,
+ "unit": "percent of a sponsor's total network radio outlay spent on program and talent production rather than time",
+ "elapsed_s": 44.9,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "program and talent production",
+   "type": "activity",
+   "clause": "Program and talent production"
+  },
+  {
+   "name": "sponsor total network radio outlay",
+   "type": "advertiser spend aggregate",
+   "clause": "a sponsor's total network radio outlay"
+  },
+  {
+   "name": "program and talent production share of sponsor's total network radio outlay",
+   "type": "media-share measurement",
+   "clause": "Program and talent production was roughly a third of a sponsor's total network radio outlay"
+  },
+  {
+   "name": "rate card",
+   "type": "pricing document",
+   "clause": "the cost the rate card never showed"
+  }
+ ],
+ "edges": [
+  {
+   "from": "program and talent production share of sponsor's total network radio outlay",
+   "type": "SHARE_OF",
+   "to": "sponsor total network radio outlay",
+   "clause": "of a sponsor's total network radio outlay"
+  },
+  {
+   "from": "program and talent production share of sponsor's total network radio outlay",
+   "type": "MEASURES",
+   "to": "program and talent production",
+   "clause": "spent on program and talent production"
+  },
+  {
+   "from": "rate card",
+   "type": "DOES_NOT_SHOW",
+   "to": "program and talent production share of sponsor's total network radio outlay",
+   "clause": "the cost the rate card never showed"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|program and talent production|activity|Program and talent production\nNODE|sponsor total network radio outlay|advertiser spend aggregate|a sponsor's total network radio outlay\nNODE|program and talent production share of sponsor's total network radio outlay|media-share measurement|Program and talent production was roughly a third of a sponsor's total network radio outlay\nNODE|rate card|pricing document|the cost the rate card never showed\nEDGE|program and talent production share of sponsor's total network radio outlay|SHARE_OF|sponsor total network radio outlay|of a sponsor's total network radio outlay\nEDGE|program and talent production share of sponsor's total network radio outlay|MEASURES|program and talent production|spent on program and talent production\nEDGE|rate card|DOES_NOT_SHOW|program and talent production share of sponsor's total network radio outlay|the cost the rate card never showed"
+}

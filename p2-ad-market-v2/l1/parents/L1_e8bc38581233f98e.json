@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|e8bc38581233f98e",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Premiere week",
+   "type": "advertising schedule period",
+   "grain": "Entity",
+   "reason": "singleton: specific scheduling period",
+   "child_uids": [
+    "n|e3-pricing-008|premiere week|advertising schedule period"
+   ]
+  },
+  {
+   "name": "New-season premieres",
+   "type": "program season launch event",
+   "grain": "Entity",
+   "reason": "singleton: distinct premiere event type",
+   "child_uids": [
+    "n|tu:era:3:event:4|new-season premieres|program season launch event"
+   ]
+  },
+  {
+   "name": "September week premiere concentration",
+   "type": "scheduling practice",
+   "grain": "Entity",
+   "reason": "singleton: particular scheduling strategy",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|september week premiere concentration|scheduling practice"
+   ]
+  },
+  {
+   "name": "Upcoming season",
+   "type": "media season",
+   "grain": "Entity",
+   "reason": "singleton: broader media season entity",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|upcoming season|media season"
+   ]
+  }
+ ]
+}

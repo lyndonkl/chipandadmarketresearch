@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|15e4ed82f1b51c6f",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "currency for print-only segment",
+   "type": "(promoted)",
+   "grain": "Entity",
+   "reason": "singleton: unique entity, no other similar items in this group",
+   "child_uids": [
+    "n|tu:era:1:boundary|currency for print-only segment|(promoted)"
+   ]
+  },
+  {
+   "name": "inch",
+   "type": "unit",
+   "grain": "Entity",
+   "reason": "singleton: unit of measurement distinct from other entities here",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|inch|unit"
+   ]
+  },
+  {
+   "name": "cost per order metric",
+   "type": "pricing metric",
+   "grain": "Entity",
+   "reason": "singleton: specific pricing metric not shared with other nodes",
+   "child_uids": [
+    "n|tu:era:4:field:BUYERS|cost per order metric|pricing metric"
+   ]
+  },
+  {
+   "name": "C3 pricing currency",
+   "type": "pricing currency",
+   "grain": "Entity",
+   "reason": "singleton: particular pricing currency isolated from remaining entities",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|c3 pricing currency|pricing currency"
+   ]
+  }
+ ]
+}

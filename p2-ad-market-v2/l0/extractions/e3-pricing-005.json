@@ -1,0 +1,83 @@
+{
+ "id": "e3-pricing-005",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1970,
+ "unit": "USD per thousand television households per commercial minute, 1970",
+ "elapsed_s": 59.7,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "network prime-time cost per thousand television households",
+   "type": "cost-per-impression measurement",
+   "clause": "Derived network prime-time cost per thousand television households"
+  },
+  {
+   "name": "prime-time network television",
+   "type": "advertising slot",
+   "clause": "prime-time network television"
+  },
+  {
+   "name": "television households",
+   "type": "audience unit",
+   "clause": "thousand television households"
+  },
+  {
+   "name": "commercial minute",
+   "type": "time unit",
+   "clause": "per commercial minute"
+  },
+  {
+   "name": "price of attention",
+   "type": "market value concept",
+   "clause": "the price of attention"
+  },
+  {
+   "name": "television",
+   "type": "advertising medium",
+   "clause": "the era's dominant national medium"
+  },
+  {
+   "name": "dominant national medium",
+   "type": "market status",
+   "clause": "dominant national medium in the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "network prime-time cost per thousand television households",
+   "type": "APPLIES_TO",
+   "to": "prime-time network television",
+   "clause": "derived ... cost per thousand television households"
+  },
+  {
+   "from": "network prime-time cost per thousand television households",
+   "type": "BASE_AUDIENCE_UNIT",
+   "to": "television households",
+   "clause": "per thousand television households"
+  },
+  {
+   "from": "network prime-time cost per thousand television households",
+   "type": "TIME_UNIT",
+   "to": "commercial minute",
+   "clause": "per commercial minute"
+  },
+  {
+   "from": "network prime-time cost per thousand television households",
+   "type": "IS_PRICE_OF",
+   "to": "price of attention",
+   "clause": "the price of attention in the era's dominant national medium"
+  },
+  {
+   "from": "television",
+   "type": "HAS_STATUS",
+   "to": "dominant national medium",
+   "clause": "the era's dominant national medium"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|network prime-time cost per thousand television households|cost-per-impression measurement|Derived network prime-time cost per thousand television households\nNODE|prime-time network television|advertising slot|prime-time network television\nNODE|television households|audience unit|thousand television households\nNODE|commercial minute|time unit|per commercial minute\nNODE|price of attention|market value concept|the price of attention\nNODE|television|advertising medium|the era's dominant national medium\nNODE|dominant national medium|market status|dominant national medium in the era\nEDGE|network prime-time cost per thousand television households|APPLIES_TO|prime-time network television|derived ... cost per thousand television households\nEDGE|network prime-time cost per thousand television households|BASE_AUDIENCE_UNIT|television households|per thousand television households\nEDGE|network prime-time cost per thousand television households|TIME_UNIT|commercial minute|per commercial minute\nEDGE|network prime-time cost per thousand television households|IS_PRICE_OF|price of attention|the price of attention in the era's dominant national medium\nEDGE|television|HAS_STATUS|dominant national medium|the era's dominant national medium"
+}

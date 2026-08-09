@@ -1,0 +1,159 @@
+{
+ "id": "tu:era:2:event:7",
+ "kind": "prose:event",
+ "era": 2,
+ "about_year": 1942,
+ "unit": null,
+ "elapsed_s": 108.5,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Act",
+   "type": "tax legislation",
+   "clause": "The Act"
+  },
+  {
+   "name": "Graduated excess-profits schedule rate",
+   "type": "take-rate measurement",
+   "clause": "the graduated ... schedule"
+  },
+  {
+   "name": "Flat excess-profits rate",
+   "type": "take-rate measurement",
+   "clause": "a flat ... rate"
+  },
+  {
+   "name": "Top corporate rate",
+   "type": "corporate tax rate measurement",
+   "clause": "the top corporate rate"
+  },
+  {
+   "name": "IRS",
+   "type": "government agency",
+   "clause": "IRS"
+  },
+  {
+   "name": "IRS clarification",
+   "type": "policy clarification",
+   "clause": "IRS clarification"
+  },
+  {
+   "name": "war-theme non-product goodwill advertising",
+   "type": "advertising category",
+   "clause": "war-theme non-product goodwill advertising"
+  },
+  {
+   "name": "deductible business expense",
+   "type": "tax treatment",
+   "clause": "deductible business expense"
+  },
+  {
+   "name": "company",
+   "type": "business entity",
+   "clause": "a company"
+  },
+  {
+   "name": "excess-profits bracket",
+   "type": "tax bracket",
+   "clause": "excess-profits bracket"
+  },
+  {
+   "name": "Treasury",
+   "type": "government department",
+   "clause": "the Treasury"
+  },
+  {
+   "name": "advertising expense",
+   "type": "ad spend",
+   "clause": "advertising expense"
+  },
+  {
+   "name": "national advertising",
+   "type": "advertising segment",
+   "clause": "national advertising"
+  },
+  {
+   "name": "US ad dollars",
+   "type": "market aggregate",
+   "clause": "all US ad dollars"
+  },
+  {
+   "name": "national advertising share of US ad dollars",
+   "type": "media-share measurement",
+   "clause": "share of all US ad dollars"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Act",
+   "type": "REPLACED",
+   "to": "Graduated excess-profits schedule rate",
+   "clause": "replaced the graduated ... schedule"
+  },
+  {
+   "from": "Act",
+   "type": "INTRODUCED",
+   "to": "Flat excess-profits rate",
+   "clause": "with a flat ... rate"
+  },
+  {
+   "from": "Act",
+   "type": "RAISED",
+   "to": "Top corporate rate",
+   "clause": "raised the top corporate rate"
+  },
+  {
+   "from": "IRS",
+   "type": "ISSUED",
+   "to": "IRS clarification",
+   "clause": "IRS clarification"
+  },
+  {
+   "from": "IRS clarification",
+   "type": "CONFIRMED",
+   "to": "war-theme non-product goodwill advertising",
+   "clause": "confirmed that ... remained deductible"
+  },
+  {
+   "from": "war-theme non-product goodwill advertising",
+   "type": "IS_DEDUCTIBLE_AS",
+   "to": "deductible business expense",
+   "clause": "remained a deductible business expense"
+  },
+  {
+   "from": "company",
+   "type": "BELONGS_TO",
+   "to": "excess-profits bracket",
+   "clause": "company in the excess-profits bracket"
+  },
+  {
+   "from": "Treasury",
+   "type": "PAYS_MOST_OF",
+   "to": "advertising expense",
+   "clause": "Treasury pays most of it"
+  },
+  {
+   "from": "company",
+   "type": "HANDS_MONEY_TO",
+   "to": "Treasury",
+   "clause": "hand the same money to the Treasury anyway"
+  },
+  {
+   "from": "national advertising share of US ad dollars",
+   "type": "SHARE_OF",
+   "to": "US ad dollars",
+   "clause": "share of all US ad dollars"
+  },
+  {
+   "from": "national advertising share of US ad dollars",
+   "type": "MEASURES",
+   "to": "national advertising",
+   "clause": "share ... of US ad dollars"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Act|tax legislation|The Act\nNODE|Graduated excess-profits schedule rate|take-rate measurement|the graduated ... schedule\nNODE|Flat excess-profits rate|take-rate measurement|a flat ... rate\nNODE|Top corporate rate|corporate tax rate measurement|the top corporate rate\nNODE|IRS|government agency|IRS\nNODE|IRS clarification|policy clarification|IRS clarification\nNODE|war-theme non-product goodwill advertising|advertising category|war-theme non-product goodwill advertising\nNODE|deductible business expense|tax treatment|deductible business expense\nNODE|company|business entity|a company\nNODE|excess-profits bracket|tax bracket|excess-profits bracket\nNODE|Treasury|government department|the Treasury\nNODE|advertising expense|ad spend|advertising expense\n NODE|national advertising|advertising segment|national advertising\nNODE|US ad dollars|market aggregate|all US ad dollars\nNODE|national advertising share of US ad dollars|media-share measurement|share of all US ad dollars\nEDGE|Act|REPLACED|Graduated excess-profits schedule rate|replaced the graduated ... schedule\nEDGE|Act|INTRODUCED|Flat excess-profits rate|with a flat ... rate\nEDGE|Act|RAISED|Top corporate rate|raised the top corporate rate\nEDGE|IRS|ISSUED|IRS clarification|IRS clarification\nEDGE|IRS clarification|CONFIRMED|war-theme non-product goodwill advertising|confirmed that ... remained deductible\nEDGE|war-theme non-product goodwill advertising|IS_DEDUCTIBLE_AS|deductible business expense|remained a deductible business expense\nEDGE|company|BELONGS_TO|excess-profits bracket|company in the excess-profits bracket\nEDGE|Treasury|PAYS_MOST_OF|advertising expense|Treasury pays most of it\nEDGE|company|HANDS_MONEY_TO|Treasury|hand the same money to the Treasury anyway\nEDGE|national advertising share of US ad dollars|SHARE_OF|US ad dollars|share of all US ad dollars\nEDGE|national advertising share of US ad dollars|MEASURES|national advertising|share ... of US ad dollars"
+}

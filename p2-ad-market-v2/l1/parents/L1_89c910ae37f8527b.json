@@ -1,0 +1,45 @@
+{
+ "group_id": "L1|89c910ae37f8527b",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "US business advertisers",
+   "type": "advertiser constituency",
+   "grain": "Entity",
+   "reason": "singleton: US business advertisers constituency",
+   "child_uids": [
+    "n|e7-buyers-001|us business advertisers|advertiser constituency"
+   ]
+  },
+  {
+   "name": "US connected-TV ad spend",
+   "type": "advertising spend aggregate",
+   "grain": "Entity",
+   "reason": "singleton: US connected-TV ad spend aggregate",
+   "child_uids": [
+    "n|e7-medium-005|us connected-tv ad spend|advertising spend aggregate"
+   ]
+  },
+  {
+   "name": "US advertising total spend",
+   "type": "advertising market total",
+   "grain": "Entity",
+   "reason": "one total advertising spend concept; year and observation abstracted to children",
+   "child_uids": [
+    "n|e7-scale-006|us advertising total|advertising market total",
+    "n|e7-scale-010|observed us total 2025|advertising spend total",
+    "n|e7-sellers-004|us total media ad spend|advertising market segment"
+   ]
+  },
+  {
+   "name": "US retail media ad spend",
+   "type": "advertising spend",
+   "grain": "Entity",
+   "reason": "singleton: US retail media ad spend segment",
+   "child_uids": [
+    "n|e7-sellers-007|us retail media ad spend|advertising spend"
+   ]
+  }
+ ]
+}

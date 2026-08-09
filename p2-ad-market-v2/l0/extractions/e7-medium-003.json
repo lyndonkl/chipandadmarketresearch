@@ -1,0 +1,56 @@
+{
+ "id": "e7-medium-003",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of US digital ad spend delivered on mobile",
+ "elapsed_s": 53.8,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "mobile placements",
+   "type": "advertising medium",
+   "clause": "Mobile placements"
+  },
+  {
+   "name": "US digital ad spending",
+   "type": "advertising spend aggregate",
+   "clause": "US digital ad spending"
+  },
+  {
+   "name": "mobile share of US digital ad spend",
+   "type": "media-share measurement",
+   "clause": "percent of US ad spend delivered on mobile"
+  },
+  {
+   "name": "EMARKETER",
+   "type": "market research firm",
+   "clause": "EMARKETER"
+  }
+ ],
+ "edges": [
+  {
+   "from": "mobile placements",
+   "type": "HAS_SHARE_MEASUREMENT",
+   "to": "mobile share of US digital ad spend",
+   "clause": "took about ... percent of US ad spending"
+  },
+  {
+   "from": "mobile share of US digital ad spend",
+   "type": "SHARE_OF",
+   "to": "US digital ad spending",
+   "clause": "... percent of US ad spending"
+  },
+  {
+   "from": "EMARKETER",
+   "type": "FORECASTS",
+   "to": "mobile share of US digital ad spend",
+   "clause": "forecasts will stay near ... through ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|mobile placements|advertising medium|Mobile placements\nNODE|US digital ad spending|advertising spend aggregate|US digital ad spending\nNODE|mobile share of US digital ad spend|media-share measurement|percent of US ad spend delivered on mobile\nNODE|EMARKETER|market research firm|EMARKETER\nEDGE|mobile placements|HAS_SHARE_MEASUREMENT|mobile share of US digital ad spend|took about ... percent of US ad spending\nEDGE|mobile share of US digital ad spend|SHARE_OF|US digital ad spending|... percent of US ad spending\nEDGE|EMARKETER|FORECASTS|mobile share of US digital ad spend|forecasts will stay near ... through ..."
+}

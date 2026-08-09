@@ -1,0 +1,137 @@
+{
+ "id": "tu:era:4:event:0",
+ "kind": "prose:event",
+ "era": 4,
+ "about_year": 1976,
+ "unit": null,
+ "elapsed_s": 92.3,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 8,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "Ted Turner",
+   "type": "person",
+   "clause": "Ted Turner"
+  },
+  {
+   "name": "WTCG",
+   "type": "tv channel",
+   "clause": "Atlanta independent station"
+  },
+  {
+   "name": "RCA's Satcom 1",
+   "type": "satellite",
+   "clause": "RCA's Satcom 1 satellite"
+  },
+  {
+   "name": "cable system",
+   "type": "distribution infrastructure",
+   "clause": "cable system"
+  },
+  {
+   "name": "Nebraska",
+   "type": "us state",
+   "clause": "Nebraska"
+  },
+  {
+   "name": "Virginia",
+   "type": "us state",
+   "clause": "Virginia"
+  },
+  {
+   "name": "Alabama",
+   "type": "us state",
+   "clause": "Alabama"
+  },
+  {
+   "name": "Kansas",
+   "type": "us state",
+   "clause": "Kansas"
+  },
+  {
+   "name": "HBO",
+   "type": "media company",
+   "clause": "HBO"
+  },
+  {
+   "name": "satellite",
+   "type": "communication satellite",
+   "clause": "satellite used by HBO"
+  },
+  {
+   "name": "advertising-supported TV station",
+   "type": "station type",
+   "clause": "advertising-supported station"
+  },
+  {
+   "name": "national audience",
+   "type": "audience segment",
+   "clause": "national audience needed by cable advertising"
+  },
+  {
+   "name": "broadcast network",
+   "type": "broadcast network",
+   "clause": "broadcast network"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Ted Turner",
+   "type": "OWNED",
+   "to": "WTCG",
+   "clause": "Ted Turner's Atlanta independent WTCG"
+  },
+  {
+   "from": "WTCG",
+   "type": "LAUNCHED_ON",
+   "to": "RCA's Satcom 1",
+   "clause": "went up on ..."
+  },
+  {
+   "from": "WTCG",
+   "type": "RELAYED_TO",
+   "to": "cable system",
+   "clause": "relayed to cable systems in Nebraska, Virginia, Alabama and Kansas"
+  },
+  {
+   "from": "HBO",
+   "type": "USED",
+   "to": "satellite",
+   "clause": "used satellite first"
+  },
+  {
+   "from": "WTCG",
+   "type": "FIRST_AD_SUPPORTED_STATION_DISTRIBUTED_NATIONALLY_BY",
+   "to": "satellite",
+   "clause": "first advertising-supported station distributed nationally by satellite"
+  },
+  {
+   "from": "WTCG",
+   "type": "REACHED",
+   "to": "cable system",
+   "clause": "reached cable systems in all ... states"
+  },
+  {
+   "from": "WTCG",
+   "type": "CREATED",
+   "to": "national audience",
+   "clause": "created the thing cable advertising needed: a national audience"
+  },
+  {
+   "from": "national audience",
+   "type": "NOT_TYPE",
+   "to": "broadcast network",
+   "clause": "that was not a broadcast network"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "FIRST_AD_SUPPORTED_STATION_DISTRIBUTED_NATIONALLY_BY",
+   "line": "EDGE|WTCG|FIRST_AD_SUPPORTED_STATION_DISTRIBUTED_NATIONALLY_BY|satellite|first advertising-supported station distributed nationally by satellite"
+  }
+ ],
+ "raw": "NODE|Ted Turner|person|Ted Turner\nNODE|WTCG|tv channel|Atlanta independent station\nNODE|RCA's Satcom 1|satellite|RCA's Satcom 1 satellite\nNODE|cable system|distribution infrastructure|cable system\nNODE|Nebraska|us state|Nebraska\nNODE|Virginia|us state|Virginia\nNODE|Alabama|us state|Alabama\nNODE|Kansas|us state|Kansas\nNODE|HBO|media company|HBO\nNODE|satellite|communication satellite|satellite used by HBO\nNODE|advertising-supported TV station|station type|advertising-supported station\nNODE|national audience|audience segment|national audience needed by cable advertising\nNODE|broadcast network|broadcast network|broadcast network\nEDGE|Ted Turner|OWNED|WTCG|Ted Turner's Atlanta independent WTCG\nEDGE|WTCG|LAUNCHED_ON|RCA's Satcom 1|went up on ...\nEDGE|WTCG|RELAYED_TO|cable system|relayed to cable systems in Nebraska, Virginia, Alabama and Kansas\nEDGE|HBO|USED|satellite|used satellite first\nEDGE|WTCG|FIRST_AD_SUPPORTED_STATION_DISTRIBUTED_NATIONALLY_BY|satellite|first advertising-supported station distributed nationally by satellite\nEDGE|WTCG|REACHED|cable system|reached cable systems in all ... states\nEDGE|WTCG|CREATED|national audience|created the thing cable advertising needed: a national audience\nEDGE|national audience|NOT_TYPE|broadcast network|that was not a broadcast network"
+}

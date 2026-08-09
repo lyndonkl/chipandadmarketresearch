@@ -1,0 +1,73 @@
+{
+ "id": "mech-panama-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2007,
+ "unit": "year (2007-02-05), Yahoo Panama launch",
+ "elapsed_s": 46.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Yahoo",
+   "type": "company",
+   "clause": "Yahoo replaced Overture's ranking with Panama"
+  },
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture's pure bid-to-position ranking"
+  },
+  {
+   "name": "pure bid-to-position ranking",
+   "type": "ranking mechanism",
+   "clause": "Overture's pure bid-to-position ranking"
+  },
+  {
+   "name": "Panama",
+   "type": "ranking mechanism",
+   "clause": "Panama, a bid-times-quality ranking"
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google shipped the same idea"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Yahoo",
+   "type": "REPLACED",
+   "to": "pure bid-to-position ranking",
+   "clause": "replaced Overture's ranking with Panama"
+  },
+  {
+   "from": "Yahoo",
+   "type": "ADOPTED",
+   "to": "Panama",
+   "clause": "adopted Panama ranking"
+  },
+  {
+   "from": "Overture",
+   "type": "HAS_RANKING",
+   "to": "pure bid-to-position ranking",
+   "clause": "has pure bid-to-position ranking"
+  },
+  {
+   "from": "Yahoo",
+   "type": "ACQUIRED",
+   "to": "Overture",
+   "clause": "bought Overture"
+  },
+  {
+   "from": "Google",
+   "type": "SHIPPED",
+   "to": "Panama",
+   "clause": "shipped the same idea"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Yahoo|company|Yahoo replaced Overture's ranking with Panama\nNODE|Overture|company|Overture's pure bid-to-position ranking\nNODE|pure bid-to-position ranking|ranking mechanism|Overture's pure bid-to-position ranking\nNODE|Panama|ranking mechanism|Panama, a bid-times-quality ranking\nNODE|Google|company|Google shipped the same idea\nEDGE|Yahoo|REPLACED|pure bid-to-position ranking|replaced Overture's ranking with Panama\nEDGE|Yahoo|ADOPTED|Panama|adopted Panama ranking\nEDGE|Overture|HAS_RANKING|pure bid-to-position ranking|has pure bid-to-position ranking\nEDGE|Yahoo|ACQUIRED|Overture|bought Overture\nEDGE|Google|SHIPPED|Panama|shipped the same idea"
+}

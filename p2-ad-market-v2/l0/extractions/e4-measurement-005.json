@@ -1,0 +1,101 @@
+{
+ "id": "e4-measurement-005",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1980,
+ "unit": "percent of measured US ad spend, direct mail 1980",
+ "elapsed_s": 53.7,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen bottom-up rate-card series",
+   "type": "advertising-spend dataset",
+   "clause": "Coen's bottom-up, rate-card series"
+  },
+  {
+   "name": "Magna later top-down supplier-revenue backcast",
+   "type": "advertising-spend dataset",
+   "clause": "Magna's later top-down supplier-revenue backcast"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail"
+  },
+  {
+   "name": "US ad spend",
+   "type": "aggregate advertising expenditure",
+   "clause": "US ad spend"
+  },
+  {
+   "name": "direct mail share of US ad spend, Coen basis",
+   "type": "media-share measurement",
+   "clause": "Coen's series puts direct mail at ... of US ad spend"
+  },
+  {
+   "name": "direct mail share of US ad spend, Magna basis",
+   "type": "media-share measurement",
+   "clause": "Magna's backcast puts it at ... of US ad spend"
+  },
+  {
+   "name": "direct mail share interval",
+   "type": "share-range measurement",
+   "clause": "the interval spanning the two figures"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct mail share of US ad spend, Coen basis",
+   "type": "SHARE_OF",
+   "to": "US ad spend",
+   "clause": "... of US ad spend"
+  },
+  {
+   "from": "direct mail share of US ad spend, Magna basis",
+   "type": "SHARE_OF",
+   "to": "US ad spend",
+   "clause": "... of US ad spend"
+  },
+  {
+   "from": "direct mail share of US ad spend, Coen basis",
+   "type": "MEASURED_ON",
+   "to": "Coen bottom-up rate-card series",
+   "clause": "Coen's series puts direct mail at ... of US ad spend"
+  },
+  {
+   "from": "direct mail share of US ad spend, Magna basis",
+   "type": "MEASURED_ON",
+   "to": "Magna later top-down supplier-revenue backcast",
+   "clause": "Magna's backcast puts it at ... of US ad spend"
+  },
+  {
+   "from": "Coen bottom-up rate-card series",
+   "type": "DISAGREE_ABOUT",
+   "to": "direct mail",
+   "clause": "disagree about direct mail"
+  },
+  {
+   "from": "Magna later top-down supplier-revenue backcast",
+   "type": "DISAGREE_ABOUT",
+   "to": "direct mail",
+   "clause": "disagree about direct mail"
+  },
+  {
+   "from": "direct mail share interval",
+   "type": "SPANS",
+   "to": "direct mail share of US ad spend, Coen basis",
+   "clause": "the interval spans them"
+  },
+  {
+   "from": "direct mail share interval",
+   "type": "SPANS",
+   "to": "direct mail share of US ad spend, Magna basis",
+   "clause": "the interval spans them"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen bottom-up rate-card series|advertising-spend dataset|Coen's bottom-up, rate-card series\nNODE|Magna later top-down supplier-revenue backcast|advertising-spend dataset|Magna's later top-down supplier-revenue backcast\nNODE|direct mail|advertising medium|direct mail\nNODE|US ad spend|aggregate advertising expenditure|US ad spend\nNODE|direct mail share of US ad spend, Coen basis|media-share measurement|Coen's series puts direct mail at ... of US ad spend\nNODE|direct mail share of US ad spend, Magna basis|media-share measurement|Magna's backcast puts it at ... of US ad spend\nNODE|direct mail share interval|share-range measurement|the interval spanning the two figures\nEDGE|direct mail share of US ad spend, Coen basis|SHARE_OF|US ad spend|... of US ad spend\nEDGE|direct mail share of US ad spend, Magna basis|SHARE_OF|US ad spend|... of US ad spend\nEDGE|direct mail share of US ad spend, Coen basis|MEASURED_ON|Coen bottom-up rate-card series|Coen's series puts direct mail at ... of US ad spend\nEDGE|direct mail share of US ad spend, Magna basis|MEASURED_ON|Magna later top-down supplier-revenue backcast|Magna's backcast puts it at ... of US ad spend\nEDGE|Coen bottom-up rate-card series|DISAGREE_ABOUT|direct mail|disagree about direct mail\nEDGE|Magna later top-down supplier-revenue backcast|DISAGREE_ABOUT|direct mail|disagree about direct mail\nEDGE|direct mail share interval|SPANS|direct mail share of US ad spend, Coen basis|the interval spans them\nEDGE|direct mail share interval|SPANS|direct mail share of US ad spend, Magna basis|the interval spans them"
+}

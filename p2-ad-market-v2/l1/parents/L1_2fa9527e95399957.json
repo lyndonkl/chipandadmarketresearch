@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|2fa9527e95399957",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "The Impression era",
+   "type": "era",
+   "grain": "Entity",
+   "reason": "singleton: an era entity spanning 1995-2000",
+   "child_uids": [
+    "n|e5-medium-004|the impression (1995-2000)|era"
+   ]
+  },
+  {
+   "name": "First year of The Impression era",
+   "type": "temporal marker",
+   "grain": "Entity",
+   "reason": "singleton: a temporal marker for the era's start",
+   "child_uids": [
+    "n|e5-scale-001|first year of the impression era|temporal marker"
+   ]
+  },
+  {
+   "name": "Impression metric",
+   "type": "metric",
+   "grain": "Entity",
+   "reason": "singleton: definition of impression measurement",
+   "child_uids": [
+    "n|tu:era:5:field:MEASUREMENT|impression metric|metric"
+   ]
+  },
+  {
+   "name": "Individual impression",
+   "type": "ad impression",
+   "grain": "Entity",
+   "reason": "singleton: each ad impression event",
+   "child_uids": [
+    "n|tu:era:7:event:1|individual impression|ad impression"
+   ]
+  },
+  {
+   "name": "Unmeasurable impressions",
+   "type": "impression type",
+   "grain": "Entity",
+   "reason": "singleton: category of impressions not measurable",
+   "child_uids": [
+    "n|tu:era:7:field:MEASUREMENT|unmeasurable impressions|impression type"
+   ]
+  }
+ ]
+}

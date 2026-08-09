@@ -1,0 +1,126 @@
+{
+ "group_id": "L1|8499341df9ffc3fd",
+ "source": "kmeans",
+ "n_in": 15,
+ "parents": [
+  {
+   "name": "Owned-site search",
+   "type": "search channel",
+   "grain": "Entity",
+   "reason": "singleton: unique search channel concept",
+   "child_uids": [
+    "n|e6-pricing-004|owned-site search|search channel"
+   ]
+  },
+  {
+   "name": "Google-owned-site query",
+   "type": "ad inventory unit",
+   "grain": "Entity",
+   "reason": "singleton: distinct inventory unit for owned sites",
+   "child_uids": [
+    "n|e6-pricing-008|google-owned-site query|ad inventory unit"
+   ]
+  },
+  {
+   "name": "Google Sites",
+   "type": "search platform",
+   "grain": "Entity",
+   "reason": "singleton: specific Google site-building platform",
+   "child_uids": [
+    "n|e6-sellers-006|google sites|search platform"
+   ]
+  },
+  {
+   "name": "Yahoo Sites",
+   "type": "search platform",
+   "grain": "Entity",
+   "reason": "singleton: Yahoo's site platform entity",
+   "child_uids": [
+    "n|e6-sellers-006|yahoo sites|search platform"
+   ]
+  },
+  {
+   "name": "Microsoft Sites",
+   "type": "search platform",
+   "grain": "Entity",
+   "reason": "singleton: Microsoft's site platform entity",
+   "child_uids": [
+    "n|e6-sellers-006|microsoft sites|search platform"
+   ]
+  },
+  {
+   "name": "Ask",
+   "type": "search platform",
+   "grain": "Entity",
+   "reason": "singleton: Ask search platform entity",
+   "child_uids": [
+    "n|e6-sellers-006|ask|search platform"
+   ]
+  },
+  {
+   "name": "Google owned web properties",
+   "type": "owned web property",
+   "grain": "Entity",
+   "reason": "group of Google's own site collections",
+   "child_uids": [
+    "n|e6-unit_econ-001|google-owned sites|owned web property",
+    "n|mech-default-004|google's own properties|property group",
+    "n|mech-tac-004|google owned sites|owned site inventory"
+   ]
+  },
+  {
+   "name": "Google user",
+   "type": "actor class",
+   "grain": "Entity",
+   "reason": "singleton: individual Google user entity",
+   "child_uids": [
+    "n|e7-measurement-004|google user|actor class"
+   ]
+  },
+  {
+   "name": "Google search queries",
+   "type": "search query pool",
+   "grain": "Entity",
+   "reason": "singleton: pool of all Google queries",
+   "child_uids": [
+    "n|mech-mehta-002|google search queries|search query pool"
+   ]
+  },
+  {
+   "name": "Google Search",
+   "type": "product",
+   "grain": "Entity",
+   "reason": "singleton: Google Search product entity",
+   "child_uids": [
+    "n|mech-mehta-005|google search|product"
+   ]
+  },
+  {
+   "name": "web results",
+   "type": "search result product",
+   "grain": "Entity",
+   "reason": "singleton: generic web search result entity",
+   "child_uids": [
+    "n|tu:era:6:event:1|web results|search result product"
+   ]
+  },
+  {
+   "name": "AOL Europe",
+   "type": "regional search portal",
+   "grain": "Entity",
+   "reason": "singleton: AOL's European search portal",
+   "child_uids": [
+    "n|tu:era:6:field:SELLERS|aol europe|regional search portal"
+   ]
+  },
+  {
+   "name": "US search and paid listings",
+   "type": "ad product",
+   "grain": "Entity",
+   "reason": "singleton: US search plus paid listing product",
+   "child_uids": [
+    "n|tu:era:6:field:SELLERS|us search and paid listings|ad product"
+   ]
+  }
+ ]
+}

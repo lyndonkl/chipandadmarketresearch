@@ -1,0 +1,177 @@
+{
+ "id": "tu:era:5:event:3",
+ "kind": "prose:event",
+ "era": 5,
+ "about_year": 1998,
+ "unit": null,
+ "elapsed_s": 95.5,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 14,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "P&G",
+   "type": "company",
+   "clause": "P&G invited ... leaders"
+  },
+  {
+   "name": "invited leaders count",
+   "type": "count measurement",
+   "clause": "invited ... leaders"
+  },
+  {
+   "name": "leaders",
+   "type": "person group",
+   "clause": "leaders from agencies, media, associations and advertisers"
+  },
+  {
+   "name": "agencies",
+   "type": "actor class",
+   "clause": "from agencies"
+  },
+  {
+   "name": "media",
+   "type": "actor class",
+   "clause": "from media"
+  },
+  {
+   "name": "associations",
+   "type": "actor class",
+   "clause": "from associations"
+  },
+  {
+   "name": "advertisers",
+   "type": "actor class",
+   "clause": "from advertisers"
+  },
+  {
+   "name": "Cincinnati",
+   "type": "city",
+   "clause": "invited ... to Cincinnati"
+  },
+  {
+   "name": "Future of Advertising Stakeholders summit",
+   "type": "event",
+   "clause": "summit organized by P&G"
+  },
+  {
+   "name": "web advertising infrastructure",
+   "type": "advertising infrastructure element",
+   "clause": "aimed at fixing web's measurement, format and buying plumbing"
+  },
+  {
+   "name": "large brand advertisers",
+   "type": "advertiser constituency",
+   "clause": "targeted large brand advertisers"
+  },
+  {
+   "name": "voluntary advertising guidelines",
+   "type": "industry guideline",
+   "clause": "produced voluntary guidelines on ad models, creative formats, ad-impression measurement, standard insertion order and standard reporting template"
+  },
+  {
+   "name": "summit organization",
+   "type": "organisation",
+   "clause": "the organisation that ran the summit"
+  },
+  {
+   "name": "summit dissolution",
+   "type": "event",
+   "clause": "dissolved ..."
+  },
+  {
+   "name": "open questions",
+   "type": "unresolved issue",
+   "clause": "most of its questions were still open when it dissolved"
+  }
+ ],
+ "edges": [
+  {
+   "from": "P&G",
+   "type": "INVITED",
+   "to": "invited leaders count",
+   "clause": "invited ... leaders"
+  },
+  {
+   "from": "invited leaders count",
+   "type": "MEASURES",
+   "to": "leaders",
+   "clause": "count of invited leaders"
+  },
+  {
+   "from": "leaders",
+   "type": "FROM",
+   "to": "agencies",
+   "clause": "from agencies"
+  },
+  {
+   "from": "leaders",
+   "type": "FROM",
+   "to": "media",
+   "clause": "from media"
+  },
+  {
+   "from": "leaders",
+   "type": "FROM",
+   "to": "associations",
+   "clause": "from associations"
+  },
+  {
+   "from": "leaders",
+   "type": "FROM",
+   "to": "advertisers",
+   "clause": "from advertisers"
+  },
+  {
+   "from": "P&G",
+   "type": "INVITED_TO",
+   "to": "Cincinnati",
+   "clause": "invited ... to Cincinnati"
+  },
+  {
+   "from": "P&G",
+   "type": "ORGANIZED",
+   "to": "Future of Advertising Stakeholders summit",
+   "clause": "organized the summit and invited leaders for it"
+  },
+  {
+   "from": "Future of Advertising Stakeholders summit",
+   "type": "HELD_IN",
+   "to": "Cincinnati",
+   "clause": "summit held in Cincinnati"
+  },
+  {
+   "from": "Future of Advertising Stakeholders summit",
+   "type": "AIMED_AT_FIXING",
+   "to": "web advertising infrastructure",
+   "clause": "aimed at fixing web's measurement, format and buying plumbing"
+  },
+  {
+   "from": "Future of Advertising Stakeholders summit",
+   "type": "TARGETED",
+   "to": "large brand advertisers",
+   "clause": "targeted large brand advertisers to spend at scale"
+  },
+  {
+   "from": "summit organization",
+   "type": "PRODUCED",
+   "to": "voluntary advertising guidelines",
+   "clause": "produced voluntary guidelines on ad models, creative formats, ad-impression measurement, standard insertion order and standard reporting template"
+  },
+  {
+   "from": "summit organization",
+   "type": "DISSOLVED",
+   "to": "summit dissolution",
+   "clause": "dissolved ..."
+  },
+  {
+   "from": "summit organization",
+   "type": "LEFT_OPEN",
+   "to": "open questions",
+   "clause": "most of its questions were still open when it dissolved"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|P&G|company|P&G invited ... leaders\nNODE|invited leaders count|count measurement|invited ... leaders\nNODE|leaders|person group|leaders from agencies, media, associations and advertisers\nNODE|agencies|actor class|from agencies\nNODE|media|actor class|from media\nNODE|associations|actor class|from associations\nNODE|advertisers|actor class|from advertisers\nNODE|Cincinnati|city|invited ... to Cincinnati\nNODE|Future of Advertising Stakeholders summit|event|summit organized by P&G\nNODE|web advertising infrastructure|advertising infrastructure element|aimed at fixing web's measurement, format and buying plumbing\nNODE|large brand advertisers|advertiser constituency|targeted large brand advertisers\nNODE|voluntary advertising guidelines|industry guideline|produced voluntary guidelines on ad models, creative formats, ad-impression measurement, standard insertion order and standard reporting template\nNODE|summit organization|organisation|the organisation that ran the summit\nNODE|summit dissolution|event|dissolved ...\nNODE|open questions|unresolved issue|most of its questions were still open when it dissolved\nEDGE|P&G|INVITED|invited leaders count|invited ... leaders\nEDGE|invited leaders count|MEASURES|leaders|count of invited leaders\nEDGE|leaders|FROM|agencies|from agencies\nEDGE|leaders|FROM|media|from media\nEDGE|leaders|FROM|associations|from associations\nEDGE|leaders|FROM|advertisers|from advertisers\nEDGE|P&G|INVITED_TO|Cincinnati|invited ... to Cincinnati\nEDGE|P&G|ORGANIZED|Future of Advertising Stakeholders summit|organized the summit and invited leaders for it\nEDGE|Future of Advertising Stakeholders summit|HELD_IN|Cincinnati|summit held in Cincinnati\nEDGE|Future of Advertising Stakeholders summit|AIMED_AT_FIXING|web advertising infrastructure|aimed at fixing web's measurement, format and buying plumbing\nEDGE|Future of Advertising Stakeholders summit|TARGETED|large brand advertisers|targeted large brand advertisers to spend at scale\nEDGE|summit organization|PRODUCED|voluntary advertising guidelines|produced voluntary guidelines on ad models, creative formats, ad-impression measurement, standard insertion order and standard reporting template\nEDGE|summit organization|DISSOLVED|summit dissolution|dissolved ...\nEDGE|summit organization|LEFT_OPEN|open questions|most of its questions were still open when it dissolved"
+}

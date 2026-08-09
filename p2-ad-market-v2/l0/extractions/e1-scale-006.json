@@ -1,0 +1,45 @@
+{
+ "id": "e1-scale-006",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "USD millions (current)",
+ "elapsed_s": 34.1,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising volume",
+   "type": "advertising spend aggregate",
+   "clause": "total US advertising volume in 1914"
+  },
+  {
+   "name": "Coen US advertising volume estimate",
+   "type": "advertising spend measurement",
+   "clause": "estimated at ... (Coen ...)"
+  },
+  {
+   "name": "Historical Statistics US advertising volume estimate",
+   "type": "advertising spend measurement",
+   "clause": "estimated at ... (Historical Statistics series ...)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising volume",
+   "type": "HAS_MEASUREMENT",
+   "to": "Coen US advertising volume estimate",
+   "clause": "total US advertising volume estimated at ..."
+  },
+  {
+   "from": "US advertising volume",
+   "type": "HAS_MEASUREMENT",
+   "to": "Historical Statistics US advertising volume estimate",
+   "clause": "total US advertising volume estimated at ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising volume|advertising spend aggregate|total US advertising volume in 1914\nNODE|Coen US advertising volume estimate|advertising spend measurement|estimated at ... (Coen ...)\nNODE|Historical Statistics US advertising volume estimate|advertising spend measurement|estimated at ... (Historical Statistics series ...)\nEDGE|US advertising volume|HAS_MEASUREMENT|Coen US advertising volume estimate|total US advertising volume estimated at ...\nEDGE|US advertising volume|HAS_MEASUREMENT|Historical Statistics US advertising volume estimate|total US advertising volume estimated at ..."
+}

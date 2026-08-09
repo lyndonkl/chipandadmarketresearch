@@ -1,0 +1,63 @@
+{
+ "group_id": "L1|e11221fb5befcf24",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Advertising agent",
+   "type": "occupation",
+   "grain": "Entity",
+   "reason": "same entity across occupation and actor class labels",
+   "child_uids": [
+    "n|e1-pricing-001|advertising agent|occupation",
+    "n|tu:era:1:event:3|agent|advertising agent",
+    "n|tu:era:1:event:5|recognised advertising agents|actor class"
+   ]
+  },
+  {
+   "name": "Agency advertising",
+   "type": "advertising content",
+   "grain": "Entity",
+   "reason": "singleton: specific advertising content entity",
+   "child_uids": [
+    "n|e1-creators-002|agency advertising|advertising content"
+   ]
+  },
+  {
+   "name": "Barron Collier's Street Railways Advertising Company",
+   "type": "advertising company",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertising firm",
+   "child_uids": [
+    "n|e1-sellers-006|barron collier's street railways advertising company|advertising company"
+   ]
+  },
+  {
+   "name": "Leading streetcar advertising firms",
+   "type": "advertising firm group",
+   "grain": "Entity",
+   "reason": "singleton: group of streetcar ad firms",
+   "child_uids": [
+    "n|e1-sellers-006|leading streetcar advertising firms|advertising firm group"
+   ]
+  },
+  {
+   "name": "Largest streetcar advertising business in the country",
+   "type": "advertising business",
+   "grain": "Entity",
+   "reason": "singleton: superlative streetcar ad business",
+   "child_uids": [
+    "n|e1-sellers-006|largest streetcar advertising business in the country|advertising business"
+   ]
+  },
+  {
+   "name": "Copy",
+   "type": "agency product",
+   "grain": "Entity",
+   "reason": "singleton: agency-produced copy content",
+   "child_uids": [
+    "n|tu:era:1:event:3|copy|agency product"
+   ]
+  }
+ ]
+}

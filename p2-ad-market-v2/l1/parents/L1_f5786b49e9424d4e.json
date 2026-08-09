@@ -1,0 +1,53 @@
+{
+ "group_id": "L1|f5786b49e9424d4e",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Newspaper membership count",
+   "type": "member-count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: a newspaper member\u2011count measure",
+   "child_uids": [
+    "n|e1-measurement-003|newspaper membership count|member-count measurement"
+   ]
+  },
+  {
+   "name": "Business publication membership count",
+   "type": "member-count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: a business publication member\u2011count measure",
+   "child_uids": [
+    "n|e1-measurement-003|business publication membership count|member-count measurement"
+   ]
+  },
+  {
+   "name": "Buyer targeting menu size",
+   "type": "audience-unit count measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years; menu size abstracted to children",
+   "child_uids": [
+    "n|e1-targeting-001|buyer targeting menu size 1869|audience-unit count measurement",
+    "n|e1-targeting-001|buyer targeting menu size 1914|audience-unit count measurement"
+   ]
+  },
+  {
+   "name": "Ratio of publications to listed newspapers",
+   "type": "selectable audience unit ratio measurement",
+   "grain": "Measurement",
+   "reason": "singleton: ratio of publications to listed newspapers",
+   "child_uids": [
+    "n|e1-targeting-001|ratio of 1914 publications to 1869 listed newspapers|selectable audience unit ratio measurement"
+   ]
+  },
+  {
+   "name": "Publisher-reported circulation figures",
+   "type": "circulation figure measurement",
+   "grain": "Measurement",
+   "reason": "singleton: publisher\u2011reported circulation figure measure",
+   "child_uids": [
+    "n|tu:era:1:field:MEASUREMENT|publisher-reported circulation figures|circulation figure measurement"
+   ]
+  }
+ ]
+}

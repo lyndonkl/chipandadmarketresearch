@@ -1,0 +1,67 @@
+{
+ "id": "e3-scale-008",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "million USD",
+ "elapsed_s": 43.4,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national brand advertising",
+   "type": "advertising category",
+   "clause": "National brand advertising"
+  },
+  {
+   "name": "national brand advertising spend 1975",
+   "type": "spend measurement",
+   "clause": "was ... million in ..."
+  },
+  {
+   "name": "national brand advertising spend 1950",
+   "type": "spend measurement",
+   "clause": "up from ... million in ..."
+  },
+  {
+   "name": "network television",
+   "type": "advertising medium",
+   "clause": "network television"
+  },
+  {
+   "name": "upfront",
+   "type": "advertising purchase mechanism",
+   "clause": "the upfront"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national brand advertising",
+   "type": "HAS_SPEND",
+   "to": "national brand advertising spend 1975",
+   "clause": "was ... million in ..."
+  },
+  {
+   "from": "national brand advertising spend 1975",
+   "type": "UP_FROM",
+   "to": "national brand advertising spend 1950",
+   "clause": "up from ... million in ..."
+  },
+  {
+   "from": "national brand advertising spend 1975",
+   "type": "FUNDED",
+   "to": "network television",
+   "clause": "the pool that funded network television"
+  },
+  {
+   "from": "national brand advertising spend 1975",
+   "type": "FUNDED",
+   "to": "upfront",
+   "clause": "... and the upfront"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national brand advertising|advertising category|National brand advertising\nNODE|national brand advertising spend 1975|spend measurement|was ... million in ...\nNODE|national brand advertising spend 1950|spend measurement|up from ... million in ...\nNODE|network television|advertising medium|network television\nNODE|upfront|advertising purchase mechanism|the upfront\nEDGE|national brand advertising|HAS_SPEND|national brand advertising spend 1975|was ... million in ...\nEDGE|national brand advertising spend 1975|UP_FROM|national brand advertising spend 1950|up from ... million in ...\nEDGE|national brand advertising spend 1975|FUNDED|network television|the pool that funded network television\nEDGE|national brand advertising spend 1975|FUNDED|upfront|... and the upfront"
+}

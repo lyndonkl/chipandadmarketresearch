@@ -1,0 +1,89 @@
+{
+ "id": "e7-creators-004",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "millions of AI-generated ads produced in one month",
+ "elapsed_s": 50.5,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Meta",
+   "type": "company",
+   "clause": "Meta"
+  },
+  {
+   "name": "generative-AI ad creative tool",
+   "type": "advertising technology",
+   "clause": "first generative-AI ad creative tools"
+  },
+  {
+   "name": "advertiser",
+   "type": "market participant",
+   "clause": "advertisers"
+  },
+  {
+   "name": "AI-generated ad",
+   "type": "advertising product",
+   "clause": "AI-generated ads"
+  },
+  {
+   "name": "first-month advertiser usage count",
+   "type": "advertiser usage count measurement",
+   "clause": "... advertisers had used them"
+  },
+  {
+   "name": "first-month AI-generated ads produced count",
+   "type": "ad production volume measurement",
+   "clause": "produce ... ads"
+  },
+  {
+   "name": "Q1 2025 advertiser usage count",
+   "type": "advertiser usage count measurement",
+   "clause": "... advertisers using at least one generative-AI ad tool"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertiser",
+   "type": "USED",
+   "to": "generative-AI ad creative tool",
+   "clause": "... advertisers had used them"
+  },
+  {
+   "from": "advertiser",
+   "type": "PRODUCED",
+   "to": "AI-generated ad",
+   "clause": "produce ... ads"
+  },
+  {
+   "from": "Meta",
+   "type": "REPORTED",
+   "to": "Q1 2025 advertiser usage count",
+   "clause": "Meta reported ... advertisers using at least one generative-AI ad tool"
+  },
+  {
+   "from": "first-month advertiser usage count",
+   "type": "MEASURES",
+   "to": "advertiser",
+   "clause": "... advertisers had used them"
+  },
+  {
+   "from": "first-month AI-generated ads produced count",
+   "type": "MEASURES",
+   "to": "AI-generated ad",
+   "clause": "produce ... ads"
+  },
+  {
+   "from": "Q1 2025 advertiser usage count",
+   "type": "MEASURES",
+   "to": "advertiser",
+   "clause": "... advertisers using at least one generative-AI ad tool"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Meta|company|Meta\nNODE|generative-AI ad creative tool|advertising technology|first generative-AI ad creative tools\nNODE|advertiser|market participant|advertisers\nNODE|AI-generated ad|advertising product|AI-generated ads\nNODE|first-month advertiser usage count|advertiser usage count measurement|... advertisers had used them\nNODE|first-month AI-generated ads produced count|ad production volume measurement|produce ... ads\nNODE|Q1 2025 advertiser usage count|advertiser usage count measurement|... advertisers using at least one generative-AI ad tool\nEDGE|advertiser|USED|generative-AI ad creative tool|... advertisers had used them\nEDGE|advertiser|PRODUCED|AI-generated ad|produce ... ads\nEDGE|Meta|REPORTED|Q1 2025 advertiser usage count|Meta reported ... advertisers using at least one generative-AI ad tool\nEDGE|first-month advertiser usage count|MEASURES|advertiser|... advertisers had used them\nEDGE|first-month AI-generated ads produced count|MEASURES|AI-generated ad|produce ... ads\nEDGE|Q1 2025 advertiser usage count|MEASURES|advertiser|... advertisers using at least one generative-AI ad tool"
+}

@@ -1,0 +1,62 @@
+{
+ "group_id": "L2|bb128728192c06b8",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "ad-impression count measurement",
+   "type": "measurement kind",
+   "grain": "Measurement",
+   "reason": "impression counts share same market role",
+   "child_uids": [
+    "L1|0a64672b1f245783",
+    "L1|e03b32d4f2eb060e"
+   ]
+  },
+  {
+   "name": "ad-impression purchase measurement",
+   "type": "measurement kind",
+   "grain": "Measurement",
+   "reason": "singleton: purchase metric distinct from count and payout",
+   "child_uids": [
+    "L1|df954a7273e3118d"
+   ]
+  },
+  {
+   "name": "publisher payout per impression measurement",
+   "type": "measurement kind",
+   "grain": "Measurement",
+   "reason": "singleton: revenue-per-impression metric, different role",
+   "child_uids": [
+    "L1|042eedd0408dac38"
+   ]
+  },
+  {
+   "name": "ad click measurement",
+   "type": "measurement kind",
+   "grain": "Measurement",
+   "reason": "click\u2011related counts and interactions share same market role",
+   "child_uids": [
+    "L1|83e1776eae55c084",
+    "L1|fc235b9306eccbd8"
+   ]
+  },
+  {
+   "name": "measurement effect",
+   "type": "measurement kind",
+   "grain": "Measurement",
+   "reason": "singleton: captures bias where impressions hidden from logs",
+   "child_uids": [
+    "L1|0c89028ddbdf3a13"
+   ]
+  },
+  {
+   "name": "ad immediate appearance share measurement",
+   "type": "measurement kind",
+   "grain": "Measurement",
+   "reason": "singleton: share metric of ads appearing immediately",
+   "child_uids": [
+    "L1|f91a4ddfa7ea62b0"
+   ]
+  }
+ ]
+}

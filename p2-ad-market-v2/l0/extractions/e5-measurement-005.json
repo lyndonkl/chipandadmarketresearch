@@ -1,0 +1,85 @@
+{
+ "id": "e5-measurement-005",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "million page views per day",
+ "elapsed_s": 68.6,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Yahoo!",
+   "type": "company",
+   "clause": "Yahoo!'s average page views delivered per day"
+  },
+  {
+   "name": "Yahoo! Japan",
+   "type": "subsidiary",
+   "clause": "including Yahoo! Japan's ..."
+  },
+  {
+   "name": "average page views delivered per day",
+   "type": "page view volume measurement",
+   "clause": "Yahoo!'s average page views delivered per day"
+  },
+  {
+   "name": "portal CPM",
+   "type": "cost-per-thousand-impressions metric",
+   "clause": "the denominator behind every portal CPM"
+  },
+  {
+   "name": "external audit",
+   "type": "audit process",
+   "clause": "with no external audit"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Yahoo!",
+   "type": "MEASURES",
+   "to": "average page views delivered per day",
+   "clause": "Yahoo!'s average page views delivered per day"
+  },
+  {
+   "from": "average page views delivered per day",
+   "type": "INCLUDES",
+   "to": "Yahoo! Japan",
+   "clause": "including Yahoo! Japan's ..."
+  },
+  {
+   "from": "average page views delivered per day",
+   "type": "COMPARISON_AGAINST",
+   "to": "average page views delivered per day",
+   "clause": "against ... in December ... and ... in December ..."
+  },
+  {
+   "from": "average page views delivered per day",
+   "type": "DENOMINATOR_FOR",
+   "to": "portal CPM",
+   "clause": "the denominator behind every portal CPM"
+  },
+  {
+   "from": "Yahoo!",
+   "type": "COUNTED",
+   "to": "average page views delivered per day",
+   "clause": "counted ... by the seller itself"
+  },
+  {
+   "from": "Yahoo!",
+   "type": "REPORTED",
+   "to": "average page views delivered per day",
+   "clause": "reported by the seller itself"
+  },
+  {
+   "from": "average page views delivered per day",
+   "type": "NOT_AUDITED_BY",
+   "to": "external audit",
+   "clause": "with no external audit"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Yahoo!|company|Yahoo!'s average page views delivered per day\nNODE|Yahoo! Japan|subsidiary|including Yahoo! Japan's ...\nNODE|average page views delivered per day|page view volume measurement|Yahoo!'s average page views delivered per day\nNODE|portal CPM|cost-per-thousand-impressions metric|the denominator behind every portal CPM\nNODE|external audit|audit process|with no external audit\nEDGE|Yahoo!|MEASURES|average page views delivered per day|Yahoo!'s average page views delivered per day\nEDGE|average page views delivered per day|INCLUDES|Yahoo! Japan|including Yahoo! Japan's ...\nEDGE|average page views delivered per day|COMPARISON_AGAINST|average page views delivered per day|against ... in December ... and ... in December ...\nEDGE|average page views delivered per day|DENOMINATOR_FOR|portal CPM|the denominator behind every portal CPM\nEDGE|Yahoo!|COUNTED|average page views delivered per day|counted ... by the seller itself\nEDGE|Yahoo!|REPORTED|average page views delivered per day|reported by the seller itself\nEDGE|average page views delivered per day|NOT_AUDITED_BY|external audit|with no external audit"
+}

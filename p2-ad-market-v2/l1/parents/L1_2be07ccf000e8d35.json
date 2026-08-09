@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|2be07ccf000e8d35",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "advertising line",
+   "type": "ad placement grouping",
+   "grain": "Entity",
+   "reason": "singleton: distinct ad placement entity",
+   "child_uids": [
+    "n|e1-buyers-006|advertising line|ad placement grouping"
+   ]
+  },
+  {
+   "name": "description line",
+   "type": "ad component",
+   "grain": "Entity",
+   "reason": "singleton: distinct ad component entity",
+   "child_uids": [
+    "n|e6-creators-003|description line|ad component"
+   ]
+  },
+  {
+   "name": "Wanamaker half advertising legend",
+   "type": "myth claim",
+   "grain": "Entity",
+   "reason": "singleton: specific advertising legend entity",
+   "child_uids": [
+    "n|tu:era:1:boundary|wanamaker half advertising legend|myth claim"
+   ]
+  },
+  {
+   "name": "half advertising waste legend",
+   "type": "attributed legend",
+   "grain": "Entity",
+   "reason": "singleton: another advertising legend entity",
+   "child_uids": [
+    "n|tu:era:2:boundary|half advertising waste legend|attributed legend"
+   ]
+  },
+  {
+   "name": "Wan... line complaint",
+   "type": "advertising waste complaint",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertising complaint entity",
+   "child_uids": [
+    "n|tu:era:2:field:MEASUREMENT|wanamaker line complaint|advertising waste complaint"
+   ]
+  }
+ ]
+}

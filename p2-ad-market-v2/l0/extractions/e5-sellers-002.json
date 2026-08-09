@@ -1,0 +1,118 @@
+{
+ "id": "e5-sellers-002",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD millions (Yahoo! net revenues, FY2000)",
+ "elapsed_s": 70.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Yahoo!",
+   "type": "internet company",
+   "clause": "Yahoo!"
+  },
+  {
+   "name": "Yahoo! net revenues FY2000",
+   "type": "revenue measurement",
+   "clause": "Yahoo! net revenues for 2000"
+  },
+  {
+   "name": "Yahoo! net revenues FY2001",
+   "type": "revenue measurement",
+   "clause": "Revenue fell ... to ... in 2001"
+  },
+  {
+   "name": "marketing services revenue FY2000",
+   "type": "advertising service revenue",
+   "clause": "marketing services \u2014 banners and sponsorships \u2014 were ... of it"
+  },
+  {
+   "name": "marketing services revenue FY2001",
+   "type": "advertising service revenue",
+   "clause": "marketing services fell ... to ..."
+  },
+  {
+   "name": "banners and sponsorships",
+   "type": "advertising format",
+   "clause": "banners and sponsorships"
+  },
+  {
+   "name": "Yahoo! net income FY2000",
+   "type": "profit measurement",
+   "clause": "Yahoo swung from ... net income in 2000"
+  },
+  {
+   "name": "Yahoo! net loss FY2001",
+   "type": "loss measurement",
+   "clause": "to a ... net loss in 2001"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Yahoo!",
+   "type": "GENERATES",
+   "to": "Yahoo! net revenues FY2000",
+   "clause": "Yahoo! net revenues for 2000"
+  },
+  {
+   "from": "Yahoo!",
+   "type": "GENERATES",
+   "to": "Yahoo! net revenues FY2001",
+   "clause": "Revenue fell ... to ... in 2001"
+  },
+  {
+   "from": "Yahoo! net revenues FY2000",
+   "type": "INCLUDES",
+   "to": "marketing services revenue FY2000",
+   "clause": "marketing services \u2026 were ... of it"
+  },
+  {
+   "from": "marketing services revenue FY2000",
+   "type": "MEASURES",
+   "to": "banners and sponsorships",
+   "clause": "banners and sponsorships \u2026"
+  },
+  {
+   "from": "marketing services revenue FY2000",
+   "type": "SHARE_OF",
+   "to": "Yahoo! net revenues FY2000",
+   "clause": "... of it"
+  },
+  {
+   "from": "Yahoo! net revenues FY2001",
+   "type": "DECREASED_FROM",
+   "to": "Yahoo! net revenues FY2000",
+   "clause": "Revenue fell ... to ... in 2001"
+  },
+  {
+   "from": "marketing services revenue FY2001",
+   "type": "DECREASED_FROM",
+   "to": "marketing services revenue FY2000",
+   "clause": "marketing services fell ... to ..."
+  },
+  {
+   "from": "Yahoo!",
+   "type": "GENERATES",
+   "to": "Yahoo! net income FY2000",
+   "clause": "Yahoo swung from ... net income in 2000"
+  },
+  {
+   "from": "Yahoo!",
+   "type": "INCURRED",
+   "to": "Yahoo! net loss FY2001",
+   "clause": "to a ... net loss in 2001"
+  },
+  {
+   "from": "Yahoo! net income FY2000",
+   "type": "SWUNG_TO",
+   "to": "Yahoo! net loss FY2001",
+   "clause": "Yahoo swung from ... net income ... to ... net loss ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Yahoo!|internet company|Yahoo!\nNODE|Yahoo! net revenues FY2000|revenue measurement|Yahoo! net revenues for 2000\nNODE|Yahoo! net revenues FY2001|revenue measurement|Revenue fell ... to ... in 2001\nNODE|marketing services revenue FY2000|advertising service revenue|marketing services \u2014 banners and sponsorships \u2014 were ... of it\nNODE|marketing services revenue FY2001|advertising service revenue|marketing services fell ... to ...\nNODE|banners and sponsorships|advertising format|banners and sponsorships\nNODE|Yahoo! net income FY2000|profit measurement|Yahoo swung from ... net income in 2000\nNODE|Yahoo! net loss FY2001|loss measurement|to a ... net loss in 2001\nEDGE|Yahoo!|GENERATES|Yahoo! net revenues FY2000|Yahoo! net revenues for 2000\nEDGE|Yahoo!|GENERATES|Yahoo! net revenues FY2001|Revenue fell ... to ... in 2001\nEDGE|Yahoo! net revenues FY2000|INCLUDES|marketing services revenue FY2000|marketing services \u2026 were ... of it\nEDGE|marketing services revenue FY2000|MEASURES|banners and sponsorships|banners and sponsorships \u2026\nEDGE|marketing services revenue FY2000|SHARE_OF|Yahoo! net revenues FY2000|... of it\nEDGE|Yahoo! net revenues FY2001|DECREASED_FROM|Yahoo! net revenues FY2000|Revenue fell ... to ... in 2001\nEDGE|marketing services revenue FY2001|DECREASED_FROM|marketing services revenue FY2000|marketing services fell ... to ...\nEDGE|Yahoo!|GENERATES|Yahoo! net income FY2000|Yahoo swung from ... net income in 2000\nEDGE|Yahoo!|INCURRED|Yahoo! net loss FY2001|to a ... net loss in 2001\nEDGE|Yahoo! net income FY2000|SWUNG_TO|Yahoo! net loss FY2001|Yahoo swung from ... net income ... to ... net loss ..."
+}

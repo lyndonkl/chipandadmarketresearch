@@ -1,0 +1,74 @@
+{
+ "group_id": "L1|646f884ea8e37f77",
+ "source": "kmeans",
+ "n_in": 11,
+ "parents": [
+  {
+   "name": "Google Network advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years; abstract year",
+   "child_uids": [
+    "n|e6-events-003|google network advertising revenue amount|revenue measurement",
+    "n|e7-sellers-002|google network advertising revenue fy2025 measurement|segment revenue measurement"
+   ]
+  },
+  {
+   "name": "Google advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "same overall revenue across years; abstract year",
+   "child_uids": [
+    "n|e7-sellers-002|google advertising revenue fy2024 measurement|revenue measurement",
+    "n|e7-sellers-002|google advertising revenue fy2025 measurement|revenue measurement",
+    "n|mech-google_rev-001|google advertising revenue fy2008|revenue measurement"
+   ]
+  },
+  {
+   "name": "Google-owned-site advertising revenue",
+   "type": "total-revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique segment revenue measure",
+   "child_uids": [
+    "n|e6-unit_econ-001|google-owned-site advertising revenue|total-revenue measurement"
+   ]
+  },
+  {
+   "name": "Google open-web display revenue share",
+   "type": "revenue share measurement",
+   "grain": "Measurement",
+   "reason": "same percentage share across years; abstract year/source",
+   "child_uids": [
+    "n|e7-pricing-006|google retained amount from open-web display dollar|take-rate measurement",
+    "n|tu:era:7:field:SELLERS|google keep share of open-web display dollar|revenue share measurement"
+   ]
+  },
+  {
+   "name": "Network-site ad revenue retention ratio",
+   "type": "revenue retention measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific retention ratio measure",
+   "child_uids": [
+    "n|mech-tac-004|network-site ad revenue retention ratio|revenue retention measurement"
+   ]
+  },
+  {
+   "name": "Google US advertising revenue",
+   "type": "company revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: geographic subset of Google revenue",
+   "child_uids": [
+    "n|tu:era:6:field:SCALE|google us advertising revenue|company revenue measurement"
+   ]
+  },
+  {
+   "name": "Publisher revenue share when Google internal trade",
+   "type": "revenue share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: publisher side share measure",
+   "child_uids": [
+    "n|tu:era:7:field:SELLERS|publisher revenue share when google internal trade|revenue share measurement"
+   ]
+  }
+ ]
+}

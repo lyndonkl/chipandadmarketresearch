@@ -1,0 +1,107 @@
+{
+ "group_id": "L1|dcfe55e20cbaf490",
+ "source": "kmeans",
+ "n_in": 12,
+ "parents": [
+  {
+   "name": "Major vendor public price list",
+   "type": "price list",
+   "grain": "Entity",
+   "reason": "singleton: specific vendor's public price list",
+   "child_uids": [
+    "n|e7-unit_econ-006|major vendor public price list|price list"
+   ]
+  },
+  {
+   "name": "Google public price list",
+   "type": "price list",
+   "grain": "Entity",
+   "reason": "singleton: Google's own public price list",
+   "child_uids": [
+    "n|e7-unit_econ-007|google public price list|price list"
+   ]
+  },
+  {
+   "name": "rGSP pricing knob",
+   "type": "pricing knob",
+   "grain": "Entity",
+   "reason": "singleton: specific pricing knob named rGSP",
+   "child_uids": [
+    "n|mech-knobs-001|rgsp pricing knob|pricing knob"
+   ]
+  },
+  {
+   "name": "Liability",
+   "type": "risk",
+   "grain": "Entity",
+   "reason": "singleton: generic liability risk concept",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|liability|risk"
+   ]
+  },
+  {
+   "name": "Pricing commodity",
+   "type": "pricing commodity",
+   "grain": "Entity",
+   "reason": "singleton: pricing commodity used across markets",
+   "child_uids": [
+    "n|tu:era:3:field:TARGETING|commodity|pricing commodity"
+   ]
+  },
+  {
+   "name": "Transaction price",
+   "type": "price",
+   "grain": "Entity",
+   "reason": "same underlying transaction price concept, plural and singular forms",
+   "child_uids": [
+    "n|tu:era:4:field:MEASUREMENT|transaction prices|price basis",
+    "n|tu:era:4:field:SCALE|transaction price|price type"
+   ]
+  },
+  {
+   "name": "Received story",
+   "type": "industry anecdote",
+   "grain": "Entity",
+   "reason": "singleton: industry anecdote received story",
+   "child_uids": [
+    "n|tu:era:4:field:PRICING|received story|industry anecdote"
+   ]
+  },
+  {
+   "name": "Economic Census",
+   "type": "statistical source",
+   "grain": "Entity",
+   "reason": "singleton: statistical source Economic Census",
+   "child_uids": [
+    "n|tu:era:4:field:PRICING|economic census|statistical source"
+   ]
+  },
+  {
+   "name": "Format\u2011pricing knobs",
+   "type": "pricing tool",
+   "grain": "Entity",
+   "reason": "singleton: format\u2011pricing knobs pricing tool",
+   "child_uids": [
+    "n|tu:era:6:boundary|format-pricing knobs|pricing tool"
+   ]
+  },
+  {
+   "name": "Google 10-K arithmetic",
+   "type": "document",
+   "grain": "Entity",
+   "reason": "singleton: Google 10-K arithmetic document",
+   "child_uids": [
+    "n|tu:era:6:field:PRICING|google 10-k arithmetic|document"
+   ]
+  },
+  {
+   "name": "ISBA",
+   "type": "organization",
+   "grain": "Entity",
+   "reason": "singleton: ISBA organization referenced in pricing field",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|isba|organization"
+   ]
+  }
+ ]
+}

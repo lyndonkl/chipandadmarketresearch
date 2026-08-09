@@ -1,0 +1,206 @@
+{
+ "id": "tu:era:4:field:BUYERS",
+ "kind": "prose:field:BUYERS",
+ "era": 4,
+ "about_year": null,
+ "unit": null,
+ "elapsed_s": 135.5,
+ "error": null,
+ "n_nodes": 22,
+ "n_edges": 13,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national brand advertisers",
+   "type": "buyer class",
+   "clause": "national brand advertisers"
+  },
+  {
+   "name": "local retail money",
+   "type": "buyer class",
+   "clause": "local retail money"
+  },
+  {
+   "name": "classified money",
+   "type": "buyer class",
+   "clause": "classified money"
+  },
+  {
+   "name": "direct-response money",
+   "type": "buyer class",
+   "clause": "direct-response money"
+  },
+  {
+   "name": "database-driven direct marketer",
+   "type": "buyer class",
+   "clause": "database-driven direct marketer"
+  },
+  {
+   "name": "agencies on commission",
+   "type": "agency pricing model",
+   "clause": "agencies on commission"
+  },
+  {
+   "name": "measured spend",
+   "type": "advertising spend base",
+   "clause": "measured spend"
+  },
+  {
+   "name": "newspaper revenue",
+   "type": "media revenue type",
+   "clause": "newspaper revenue"
+  },
+  {
+   "name": "Yellow Pages revenue",
+   "type": "media revenue type",
+   "clause": "Yellow Pages revenue"
+  },
+  {
+   "name": "cost per order metric",
+   "type": "pricing metric",
+   "clause": "cost per order metric"
+  },
+  {
+   "name": "cost per thousand metric",
+   "type": "pricing metric",
+   "clause": "cost per thousand metric"
+  },
+  {
+   "name": "direct purchase without agency",
+   "type": "purchasing mechanism",
+   "clause": "direct purchase without agency"
+  },
+  {
+   "name": "measured-media total",
+   "type": "measurement aggregate",
+   "clause": "measured-media total"
+  },
+  {
+   "name": "trade promotion",
+   "type": "marketing activity",
+   "clause": "trade promotion"
+  },
+  {
+   "name": "consumer promotion",
+   "type": "marketing activity",
+   "clause": "consumer promotion"
+  },
+  {
+   "name": "packaged-goods marketing-communications budgets",
+   "type": "budget category",
+   "clause": "packaged-goods marketing-communications budgets"
+  },
+  {
+   "name": "national brand share of measured spend",
+   "type": "spend-share measurement",
+   "clause": "national brand share of measured spend"
+  },
+  {
+   "name": "local retail share of measured spend",
+   "type": "spend-share measurement",
+   "clause": "local retail share of measured spend"
+  },
+  {
+   "name": "local share of newspaper revenue",
+   "type": "revenue-share measurement",
+   "clause": "local share of newspaper revenue"
+  },
+  {
+   "name": "local share of Yellow Pages revenue",
+   "type": "revenue-share measurement",
+   "clause": "local share of Yellow Pages revenue"
+  },
+  {
+   "name": "trade promotion share of packaged-goods marketing-communications budgets",
+   "type": "budget-share measurement",
+   "clause": "trade promotion share of packaged-goods marketing-communications budgets"
+  },
+  {
+   "name": "rented list with ZIP-code cluster",
+   "type": "targeting method",
+   "clause": "rented list with ZIP-code cluster"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national brand advertisers",
+   "type": "BOUGHT_VIA",
+   "to": "agencies on commission",
+   "clause": "... through agencies on commission"
+  },
+  {
+   "from": "national brand advertisers",
+   "type": "SUPPLIED_SHARE_OF",
+   "to": "national brand share of measured spend",
+   "clause": "supplied ... of measured spend"
+  },
+  {
+   "from": "national brand share of measured spend",
+   "type": "MEASURES",
+   "to": "measured spend",
+   "clause": "share of measured spend"
+  },
+  {
+   "from": "local retail money",
+   "type": "SUPPLIED_SHARE_OF",
+   "to": "local retail share of measured spend",
+   "clause": "supplied ... of measured spend"
+  },
+  {
+   "from": "local retail share of measured spend",
+   "type": "MEASURES",
+   "to": "measured spend",
+   "clause": "share of measured spend"
+  },
+  {
+   "from": "local share of newspaper revenue",
+   "type": "MEASURES",
+   "to": "newspaper revenue",
+   "clause": "... of newspaper revenue was local"
+  },
+  {
+   "from": "local share of Yellow Pages revenue",
+   "type": "MEASURES",
+   "to": "Yellow Pages revenue",
+   "clause": "... of Yellow Pages revenue was local"
+  },
+  {
+   "from": "classified money",
+   "type": "BOUGHT_DIRECTLY_WITHOUT_AGENCY",
+   "to": "direct purchase without agency",
+   "clause": "buying by the line with no agency"
+  },
+  {
+   "from": "direct-response money",
+   "type": "BOUGHT_AGAINST",
+   "to": "cost per order metric",
+   "clause": "bought against a measured cost per order rather than a cost per thousand"
+  },
+  {
+   "from": "database-driven direct marketer",
+   "type": "BUYS",
+   "to": "rented list with ZIP-code cluster",
+   "clause": "bought a rented list plus a ZIP-code cluster instead of a national audience"
+  },
+  {
+   "from": "measured-media total",
+   "type": "EXCLUDES",
+   "to": "trade promotion",
+   "clause": "excludes trade and consumer promotion"
+  },
+  {
+   "from": "measured-media total",
+   "type": "EXCLUDES",
+   "to": "consumer promotion",
+   "clause": "excludes trade and consumer promotion"
+  },
+  {
+   "from": "trade promotion share of packaged-goods marketing-communications budgets",
+   "type": "MEASURES",
+   "to": "packaged-goods marketing-communications budgets",
+   "clause": "took ... of packaged-goods marketing-communications budgets"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national brand advertisers|buyer class|national brand advertisers\nNODE|local retail money|buyer class|local retail money\nNODE|classified money|buyer class|classified money\nNODE|direct-response money|buyer class|direct-response money\nNODE|database-driven direct marketer|buyer class|database-driven direct marketer\nNODE|agencies on commission|agency pricing model|agencies on commission\nNODE|measured spend|advertising spend base|measured spend\nNODE|newspaper revenue|media revenue type|newspaper revenue\nNODE|Yellow Pages revenue|media revenue type|Yellow Pages revenue\nNODE|cost per order metric|pricing metric|cost per order metric\nNODE|cost per thousand metric|pricing metric|cost per thousand metric\nNODE|direct purchase without agency|purchasing mechanism|direct purchase without agency\nNODE|measured-media total|measurement aggregate|measured-media total\nNODE|trade promotion|marketing activity|trade promotion\nNODE|consumer promotion|marketing activity|consumer promotion\nNODE|packaged-goods marketing-communications budgets|budget category|packaged-goods marketing-communications budgets\nNODE|national brand share of measured spend|spend-share measurement|national brand share of measured spend\nNODE|local retail share of measured spend|spend-share measurement|local retail share of measured spend\nNODE|local share of newspaper revenue|revenue-share measurement|local share of newspaper revenue\nNODE|local share of Yellow Pages revenue|revenue-share measurement|local share of Yellow Pages revenue\nNODE|trade promotion share of packaged-goods marketing-communications budgets|budget-share measurement|trade promotion share of packaged-goods marketing-communications budgets\nNODE|rented list with ZIP-code cluster|targeting method|rented list with ZIP-code cluster\nEDGE|national brand advertisers|BOUGHT_VIA|agencies on commission|... through agencies on commission\nEDGE|national brand advertisers|SUPPLIED_SHARE_OF|national brand share of measured spend|supplied ... of measured spend\nEDGE|national brand share of measured spend|MEASURES|measured spend|share of measured spend\nEDGE|local retail money|SUPPLIED_SHARE_OF|local retail share of measured spend|supplied ... of measured spend\nEDGE|local retail share of measured spend|MEASURES|measured spend|share of measured spend\nEDGE|local share of newspaper revenue|MEASURES|newspaper revenue|... of newspaper revenue was local\nEDGE|local share of Yellow Pages revenue|MEASURES|Yellow Pages revenue|... of Yellow Pages revenue was local\nEDGE|classified money|BOUGHT_DIRECTLY_WITHOUT_AGENCY|direct purchase without agency|buying by the line with no agency\nEDGE|direct-response money|BOUGHT_AGAINST|cost per order metric|bought against a measured cost per order rather than a cost per thousand\nEDGE|database-driven direct marketer|BUYS|rented list with ZIP-code cluster|bought a rented list plus a ZIP-code cluster instead of a national audience\nEDGE|measured-media total|EXCLUDES|trade promotion|excludes trade and consumer promotion\nEDGE|measured-media total|EXCLUDES|consumer promotion|excludes trade and consumer promotion\nEDGE|trade promotion share of packaged-goods marketing-communications budgets|MEASURES|packaged-goods marketing-communications budgets|took ... of packaged-goods marketing-communications budgets"
+}

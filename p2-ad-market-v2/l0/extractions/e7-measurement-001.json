@@ -1,0 +1,105 @@
+{
+ "id": "e7-measurement-001",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2019,
+ "unit": "USD millions, Facebook video-metrics class action settlement",
+ "elapsed_s": 66.7,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Facebook",
+   "type": "technology company",
+   "clause": "Facebook agreed in October ... to pay ..."
+  },
+  {
+   "name": "advertiser class action",
+   "type": "legal proceeding",
+   "clause": "to settle an advertiser class action"
+  },
+  {
+   "name": "Facebook video-metrics class action settlement amount",
+   "type": "monetary settlement measurement",
+   "clause": "agreed ... to pay ... to settle"
+  },
+  {
+   "name": "video metrics",
+   "type": "advertising metric",
+   "clause": "overstated video metrics"
+  },
+  {
+   "name": "video metrics overstatement period",
+   "type": "duration measurement",
+   "clause": "overstated for roughly two years"
+  },
+  {
+   "name": "plaintiffs",
+   "type": "litigant group",
+   "clause": "plaintiffs alleged ..."
+  },
+  {
+   "name": "sub-three-second view",
+   "type": "view-duration segment",
+   "clause": "exclusion of sub-three-second views"
+  },
+  {
+   "name": "exclusion of sub-three-second views",
+   "type": "metric filtering practice",
+   "clause": "excludes sub-three-second view"
+  },
+  {
+   "name": "average watch time inflation",
+   "type": "percentage increase measurement",
+   "clause": "inflated average watch time by up to ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Facebook",
+   "type": "AGREED_TO_PAY",
+   "to": "Facebook video-metrics class action settlement amount",
+   "clause": "agreed in October ... to pay ..."
+  },
+  {
+   "from": "Facebook video-metrics class action settlement amount",
+   "type": "MEASURES",
+   "to": "advertiser class action",
+   "clause": "to settle an advertiser class action"
+  },
+  {
+   "from": "Facebook",
+   "type": "OVERESTIMATED",
+   "to": "video metrics",
+   "clause": "overstated video metrics"
+  },
+  {
+   "from": "video metrics overstatement period",
+   "type": "MEASURES",
+   "to": "video metrics",
+   "clause": "overstated for roughly two years"
+  },
+  {
+   "from": "plaintiffs",
+   "type": "ALLEGED",
+   "to": "average watch time inflation",
+   "clause": "plaintiffs alleged inflation of average watch time"
+  },
+  {
+   "from": "exclusion of sub-three-second views",
+   "type": "EXCLUDES",
+   "to": "sub-three-second view",
+   "clause": "excludes sub-three-second view"
+  },
+  {
+   "from": "exclusion of sub-three-second views",
+   "type": "ALLEGED_INFLATES",
+   "to": "average watch time inflation",
+   "clause": "alleged exclusion inflated average watch time"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Facebook|technology company|Facebook agreed in October ... to pay ...\nNODE|advertiser class action|legal proceeding|to settle an advertiser class action\nNODE|Facebook video-metrics class action settlement amount|monetary settlement measurement|agreed ... to pay ... to settle\nNODE|video metrics|advertising metric|overstated video metrics\nNODE|video metrics overstatement period|duration measurement|overstated for roughly two years\nNODE|plaintiffs|litigant group|plaintiffs alleged ...\nNODE|sub-three-second view|view-duration segment|exclusion of sub-three-second views\nNODE|exclusion of sub-three-second views|metric filtering practice|excludes sub-three-second view\nNODE|average watch time inflation|percentage increase measurement|inflated average watch time by up to ...\n\nEDGE|Facebook|AGREED_TO_PAY|Facebook video-metrics class action settlement amount|agreed in October ... to pay ...\nEDGE|Facebook video-metrics class action settlement amount|MEASURES|advertiser class action|to settle an advertiser class action\nEDGE|Facebook|OVERESTIMATED|video metrics|overstated video metrics\nEDGE|video metrics overstatement period|MEASURES|video metrics|overstated for roughly two years\nEDGE|plaintiffs|ALLEGED|average watch time inflation|plaintiffs alleged inflation of average watch time\nEDGE|exclusion of sub-three-second views|EXCLUDES|sub-three-second view|excludes sub-three-second view\nEDGE|exclusion of sub-three-second views|ALLEGED_INFLATES|average watch time inflation|alleged exclusion inflated average watch time"
+}

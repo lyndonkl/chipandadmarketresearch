@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|0d2fdb075e2e8a58",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Catalogue advertising medium",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: distinct catalogue advertising medium entity",
+   "child_uids": [
+    "n|tu:era:1:field:BUYERS|catalogue advertising medium|advertising medium"
+   ]
+  },
+  {
+   "name": "Publication",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: generic publication medium separate from others",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|publication|advertising medium"
+   ]
+  },
+  {
+   "name": "Magazines advertising",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: magazines as an advertising medium distinct",
+   "child_uids": [
+    "n|tu:era:3:field:MEDIUM|magazines advertising|advertising medium"
+   ]
+  },
+  {
+   "name": "Newspapers overall",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: newspapers overall advertising medium entity",
+   "child_uids": [
+    "n|tu:era:6:field:MEDIUM|newspapers overall|advertising medium"
+   ]
+  },
+  {
+   "name": "Classified advertising",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "same classified advertising entity across type labels",
+   "child_uids": [
+    "n|tu:era:6:field:TARGETING|classified media|intent media",
+    "n|tu:era:7:field:MEDIUM|classifieds advertising|advertising format"
+   ]
+  },
+  {
+   "name": "Newspaper and consumer magazine advertising",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: combined newspaper and consumer magazine advertising entity",
+   "child_uids": [
+    "n|tu:era:7:field:MEDIUM|newspaper and consumer magazine advertising|advertising medium"
+   ]
+  }
+ ]
+}

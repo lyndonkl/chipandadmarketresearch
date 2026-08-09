@@ -1,0 +1,122 @@
+{
+ "id": "e3-sellers-005",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1970,
+ "unit": "million USD of lost annual revenue (Look, 1970)",
+ "elapsed_s": 109.5,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Look magazine",
+   "type": "magazine",
+   "clause": "Look magazine"
+  },
+  {
+   "name": "publisher of Look magazine",
+   "type": "media publisher",
+   "clause": "publisher of Look magazine"
+  },
+  {
+   "name": "Look lost revenue measurement",
+   "type": "revenue loss measurement",
+   "clause": "lost revenue measurement for Look magazine"
+  },
+  {
+   "name": "television advertising",
+   "type": "advertising channel",
+   "clause": "television advertising"
+  },
+  {
+   "name": "slack economy",
+   "type": "economic condition",
+   "clause": "slack economy"
+  },
+  {
+   "name": "postal-rate increase proposal",
+   "type": "policy proposal",
+   "clause": "proposed postal-rate increase"
+  },
+  {
+   "name": "mass-magazine closures",
+   "type": "closure series",
+   "clause": "mass-magazine closures"
+  },
+  {
+   "name": "Saturday Evening Post",
+   "type": "magazine",
+   "clause": "Saturday Evening Post"
+  },
+  {
+   "name": "Life weekly",
+   "type": "magazine",
+   "clause": "Life weekly"
+  },
+  {
+   "name": "television",
+   "type": "medium",
+   "clause": "television"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Look magazine",
+   "type": "CEASED_PUBLICATION",
+   "to": "Look magazine",
+   "clause": "ceased publication with its issue of ..."
+  },
+  {
+   "from": "Look magazine",
+   "type": "HAS_REVENUE_LOSS",
+   "to": "Look lost revenue measurement",
+   "clause": "after losing about ... of revenue in ..."
+  },
+  {
+   "from": "publisher of Look magazine",
+   "type": "BLAMED",
+   "to": "television advertising",
+   "clause": "blamed television advertising first among three causes"
+  },
+  {
+   "from": "publisher of Look magazine",
+   "type": "BLAMED",
+   "to": "slack economy",
+   "clause": "blamed slack economy alongside other causes"
+  },
+  {
+   "from": "publisher of Look magazine",
+   "type": "BLAMED",
+   "to": "postal-rate increase proposal",
+   "clause": "blamed proposed ... postal-rate increase"
+  },
+  {
+   "from": "Look magazine",
+   "type": "PART_OF",
+   "to": "mass-magazine closures",
+   "clause": "one of three mass-magazine closures"
+  },
+  {
+   "from": "Saturday Evening Post",
+   "type": "PART_OF",
+   "to": "mass-magazine closures",
+   "clause": "one of three mass-magazine closures"
+  },
+  {
+   "from": "Life weekly",
+   "type": "PART_OF",
+   "to": "mass-magazine closures",
+   "clause": "one of three mass-magazine closures"
+  },
+  {
+   "from": "mass-magazine closures",
+   "type": "MARKED_SHIFT_TOWARD",
+   "to": "television",
+   "clause": "mark national reach moving to television"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Look magazine|magazine|Look magazine\nNODE|publisher of Look magazine|media publisher|publisher of Look magazine\nNODE|Look lost revenue measurement|revenue loss measurement|lost revenue measurement for Look magazine\nNODE|television advertising|advertising channel|television advertising\nNODE|slack economy|economic condition|slack economy\nNODE|postal-rate increase proposal|policy proposal|proposed postal-rate increase\nNODE|mass-magazine closures|closure series|mass-magazine closures\n NODE|Saturday Evening Post|magazine|Saturday Evening Post\nNODE|Life weekly|magazine|Life weekly\nNODE|television|medium|television\nEDGE|Look magazine|CEASED_PUBLICATION|Look magazine|ceased publication with its issue of ...\nEDGE|Look magazine|HAS_REVENUE_LOSS|Look lost revenue measurement|after losing about ... of revenue in ...\nEDGE|publisher of Look magazine|BLAMED|television advertising|blamed television advertising first among three causes\nEDGE|publisher of Look magazine|BLAMED|slack economy|blamed slack economy alongside other causes\nEDGE|publisher of Look magazine|BLAMED|postal-rate increase proposal|blamed proposed ... postal-rate increase\nEDGE|Look magazine|PART_OF|mass-magazine closures|one of three mass-magazine closures\nEDGE|Saturday Evening Post|PART_OF|mass-magazine closures|one of three mass-magazine closures\nEDGE|Life weekly|PART_OF|mass-magazine closures|one of three mass-magazine closures\nEDGE|mass-magazine closures|MARKED_SHIFT_TOWARD|television|mark national reach moving to television"
+}

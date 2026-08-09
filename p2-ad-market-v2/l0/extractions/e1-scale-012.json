@@ -1,0 +1,84 @@
+{
+ "id": "e1-scale-012",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "percent of total US advertising outlay",
+ "elapsed_s": 47.2,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local retail advertising",
+   "type": "advertising category",
+   "clause": "Local retail advertising, excluding classified"
+  },
+  {
+   "name": "classified advertising",
+   "type": "advertising subcategory",
+   "clause": "excluding classified"
+  },
+  {
+   "name": "total US advertising outlay",
+   "type": "advertising spend aggregate",
+   "clause": "total US advertising outlay"
+  },
+  {
+   "name": "local retail advertising share of total US advertising outlay",
+   "type": "media-share measurement",
+   "clause": "about ... percent of total US advertising outlay"
+  },
+  {
+   "name": "national brand advertising",
+   "type": "advertising category",
+   "clause": "national brand"
+  },
+  {
+   "name": "advertising route",
+   "type": "distribution channel",
+   "clause": "every route that raises one ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "local retail advertising",
+   "type": "EXCLUDES",
+   "to": "classified advertising",
+   "clause": "excluding classified"
+  },
+  {
+   "from": "local retail advertising",
+   "type": "HAS_SHARE",
+   "to": "local retail advertising share of total US advertising outlay",
+   "clause": "was about ... percent ..."
+  },
+  {
+   "from": "local retail advertising share of total US advertising outlay",
+   "type": "SHARE_OF",
+   "to": "total US advertising outlay",
+   "clause": "... percent of total US advertising outlay"
+  },
+  {
+   "from": "local retail advertising",
+   "type": "TIES_WITH",
+   "to": "national brand advertising",
+   "clause": "ties with national brand as joint-largest money type"
+  },
+  {
+   "from": "advertising route",
+   "type": "RAISES",
+   "to": "local retail advertising",
+   "clause": "route that raises one ..."
+  },
+  {
+   "from": "advertising route",
+   "type": "LOWERS",
+   "to": "national brand advertising",
+   "clause": "... lowers the other"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local retail advertising|advertising category|Local retail advertising, excluding classified\nNODE|classified advertising|advertising subcategory|excluding classified\nNODE|total US advertising outlay|advertising spend aggregate|total US advertising outlay\nNODE|local retail advertising share of total US advertising outlay|media-share measurement|about ... percent of total US advertising outlay\nNODE|national brand advertising|advertising category|national brand\nNODE|advertising route|distribution channel|every route that raises one ...\nEDGE|local retail advertising|EXCLUDES|classified advertising|excluding classified\nEDGE|local retail advertising|HAS_SHARE|local retail advertising share of total US advertising outlay|was about ... percent ...\nEDGE|local retail advertising share of total US advertising outlay|SHARE_OF|total US advertising outlay|... percent of total US advertising outlay\nEDGE|local retail advertising|TIES_WITH|national brand advertising|ties with national brand as joint-largest money type\nEDGE|advertising route|RAISES|local retail advertising|route that raises one ...\nEDGE|advertising route|LOWERS|national brand advertising|... lowers the other"
+}

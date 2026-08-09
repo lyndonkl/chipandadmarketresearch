@@ -1,0 +1,78 @@
+{
+ "id": "e4-creators-006",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1992,
+ "unit": "percent of agency income",
+ "elapsed_s": 69.3,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "media commissions",
+   "type": "revenue source",
+   "clause": "Media commissions"
+  },
+  {
+   "name": "US advertising-agency income",
+   "type": "aggregate income",
+   "clause": "US advertising-agency income"
+  },
+  {
+   "name": "media commissions share of US advertising-agency income",
+   "type": "take-rate measurement",
+   "clause": "share of agency income supplied by media commissions"
+  },
+  {
+   "name": "fees for services",
+   "type": "revenue source",
+   "clause": "Fees for services"
+  },
+  {
+   "name": "fees for services share of US advertising-agency income",
+   "type": "take-rate measurement",
+   "clause": "share of agency income supplied by fees for services"
+  },
+  {
+   "name": "earlier years",
+   "type": "time period",
+   "clause": "down from ... in earlier years"
+  }
+ ],
+ "edges": [
+  {
+   "from": "media commissions share of US advertising-agency income",
+   "type": "MEASURES",
+   "to": "media commissions",
+   "clause": "share supplied by media commissions"
+  },
+  {
+   "from": "media commissions share of US advertising-agency income",
+   "type": "SHARE_OF",
+   "to": "US advertising-agency income",
+   "clause": "share of agency income"
+  },
+  {
+   "from": "fees for services share of US advertising-agency income",
+   "type": "MEASURES",
+   "to": "fees for services",
+   "clause": "share supplied by fees for services"
+  },
+  {
+   "from": "fees for services share of US advertising-agency income",
+   "type": "SHARE_OF",
+   "to": "US advertising-agency income",
+   "clause": "share of agency income"
+  },
+  {
+   "from": "media commissions share of US advertising-agency income",
+   "type": "DOWN_FROM",
+   "to": "earlier years",
+   "clause": "down from ... in earlier years"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|media commissions|revenue source|Media commissions\nNODE|US advertising-agency income|aggregate income|US advertising-agency income\nNODE|media commissions share of US advertising-agency income|take-rate measurement|share of agency income supplied by media commissions\nNODE|fees for services|revenue source|Fees for services\nNODE|fees for services share of US advertising-agency income|take-rate measurement|share of agency income supplied by fees for services\nNODE|earlier years|time period|down from ... in earlier years\nEDGE|media commissions share of US advertising-agency income|MEASURES|media commissions|share supplied by media commissions\nEDGE|media commissions share of US advertising-agency income|SHARE_OF|US advertising-agency income|share of agency income\nEDGE|fees for services share of US advertising-agency income|MEASURES|fees for services|share supplied by fees for services\nEDGE|fees for services share of US advertising-agency income|SHARE_OF|US advertising-agency income|share of agency income\nEDGE|media commissions share of US advertising-agency income|DOWN_FROM|earlier years|down from ... in earlier years"
+}

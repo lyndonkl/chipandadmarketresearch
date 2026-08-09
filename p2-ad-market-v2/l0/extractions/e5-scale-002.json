@@ -1,0 +1,121 @@
+{
+ "id": "e5-scale-002",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions",
+ "elapsed_s": 86.5,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "total US advertising expenditure",
+   "type": "aggregate",
+   "clause": "Total US measured advertising expenditure"
+  },
+  {
+   "name": "US measured advertising expenditure",
+   "type": "advertising spend measurement",
+   "clause": "Total US measured advertising expenditure"
+  },
+  {
+   "name": "post-1960 series",
+   "type": "time series",
+   "clause": "post-1960 series"
+  },
+  {
+   "name": "century",
+   "type": "temporal aggregate",
+   "clause": "century"
+  },
+  {
+   "name": "Galbi",
+   "type": "person",
+   "clause": "Galbi's rendering of Coen"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "Coen series"
+  },
+  {
+   "name": "advertising share of US GDP",
+   "type": "share measurement",
+   "clause": "ads at ... percentage of GDP"
+  },
+  {
+   "name": "US GDP",
+   "type": "economic aggregate",
+   "clause": "GDP"
+  },
+  {
+   "name": "Silk & Berndt",
+   "type": "persons",
+   "clause": "Silk & Berndt note"
+  },
+  {
+   "name": "advertising share of National Income",
+   "type": "share measurement",
+   "clause": "advertising's share of National Income peaked above ..."
+  },
+  {
+   "name": "National Income",
+   "type": "economic aggregate",
+   "clause": "National Income"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US measured advertising expenditure",
+   "type": "MEASURES",
+   "to": "total US advertising expenditure",
+   "clause": "Total US measured advertising expenditure"
+  },
+  {
+   "from": "US measured advertising expenditure",
+   "type": "PEAK_OF",
+   "to": "post-1960 series",
+   "clause": "peak of the post-1960 series both as a nominal total and as a share of GDP"
+  },
+  {
+   "from": "US measured advertising expenditure",
+   "type": "NOT_PEAK_OF",
+   "to": "century",
+   "clause": "not of the century"
+  },
+  {
+   "from": "Galbi",
+   "type": "RENDERED",
+   "to": "Coen series",
+   "clause": "rendering of Coen back to 1919"
+  },
+  {
+   "from": "advertising share of US GDP",
+   "type": "SHARE_OF",
+   "to": "US GDP",
+   "clause": "ads at ... percentage of GDP"
+  },
+  {
+   "from": "advertising share of US GDP",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "Galbi's rendering of Coen ... puts ads at ... percentage of GDP"
+  },
+  {
+   "from": "Silk & Berndt",
+   "type": "NOTE",
+   "to": "advertising share of National Income",
+   "clause": "note advertising's share of National Income peaked above ..."
+  },
+  {
+   "from": "advertising share of National Income",
+   "type": "SHARE_OF",
+   "to": "National Income",
+   "clause": "advertising's share of National Income"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|total US advertising expenditure|aggregate|Total US measured advertising expenditure\nNODE|US measured advertising expenditure|advertising spend measurement|Total US measured advertising expenditure\nNODE|post-1960 series|time series|post-1960 series\nNODE|century|temporal aggregate|century\nNODE|Galbi|person|Galbi's rendering of Coen\nNODE|Coen series|advertising-spend dataset|Coen series\nNODE|advertising share of US GDP|share measurement|ads at ... percentage of GDP\nNODE|US GDP|economic aggregate|GDP\nNODE|Silk & Berndt|persons|Silk & Berndt note\nNODE|advertising share of National Income|share measurement|advertising's share of National Income peaked above ...\nNODE|National Income|economic aggregate|National Income\nEDGE|US measured advertising expenditure|MEASURES|total US advertising expenditure|Total US measured advertising expenditure\nEDGE|US measured advertising expenditure|PEAK_OF|post-1960 series|peak of the post-1960 series both as a nominal total and as a share of GDP\nEDGE|US measured advertising expenditure|NOT_PEAK_OF|century|not of the century\nEDGE|Galbi|RENDERED|Coen series|rendering of Coen back to 1919\nEDGE|advertising share of US GDP|SHARE_OF|US GDP|ads at ... percentage of GDP\nEDGE|advertising share of US GDP|MEASURED_ON|Coen series|Galbi's rendering of Coen ... puts ads at ... percentage of GDP\nEDGE|Silk & Berndt|NOTE|advertising share of National Income|note advertising's share of National Income peaked above ...\nEDGE|advertising share of National Income|SHARE_OF|National Income|advertising's share of National Income\n\n"
+}

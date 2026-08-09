@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|7b2a59fc785c671b",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Route D1",
+   "type": "distribution route",
+   "grain": "Entity",
+   "reason": "singleton: unique named route, not same as generic advertising route",
+   "child_uids": [
+    "n|e1-buyers-008|route d1|distribution route"
+   ]
+  },
+  {
+   "name": "Advertising route",
+   "type": "distribution channel",
+   "grain": "Entity",
+   "reason": "singleton: generic distribution channel distinct from specific routes",
+   "child_uids": [
+    "n|e1-scale-012|advertising route|distribution channel"
+   ]
+  },
+  {
+   "name": "Direct-mail line",
+   "type": "advertising rate-card line",
+   "grain": "Entity",
+   "reason": "singleton: unique rate\u2011card line, not comparable to media lines",
+   "child_uids": [
+    "n|e4-pricing-006|direct-mail line|advertising rate-card line"
+   ]
+  }
+ ]
+}

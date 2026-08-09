@@ -1,0 +1,85 @@
+{
+ "id": "ds-seam-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2007,
+ "unit": "percent, Coen internet as a share of IAB internet, 2007",
+ "elapsed_s": 65.8,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen internet line",
+   "type": "advertising spend series",
+   "clause": "Coen's internet line for 2007"
+  },
+  {
+   "name": "IAB/PwC internet figure",
+   "type": "advertising spend series",
+   "clause": "the IAB/PwC figure for the same year"
+  },
+  {
+   "name": "Coen internet share of IAB/PwC internet",
+   "type": "media-share measurement",
+   "clause": "Coen's internet line is ... percent of the IAB/PwC figure"
+  },
+  {
+   "name": "Coen internet revenue measurement",
+   "type": "revenue measurement",
+   "clause": "Coen's internet line amount ..."
+  },
+  {
+   "name": "IAB/PwC internet revenue measurement",
+   "type": "revenue measurement",
+   "clause": "IAB/PwC internet figure amount ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Coen internet share of IAB/PwC internet",
+   "type": "MEASURES",
+   "to": "Coen internet line",
+   "clause": "... percent of ..."
+  },
+  {
+   "from": "Coen internet share of IAB/PwC internet",
+   "type": "SHARE_OF",
+   "to": "IAB/PwC internet figure",
+   "clause": "... of the IAB/PwC figure"
+  },
+  {
+   "from": "Coen internet line",
+   "type": "SHARES_NAME_WITH",
+   "to": "IAB/PwC internet figure",
+   "clause": "the two lines share a name"
+  },
+  {
+   "from": "Coen internet line",
+   "type": "MEASURES_DIFFERENT_FROM",
+   "to": "IAB/PwC internet figure",
+   "clause": "measure different things"
+  },
+  {
+   "from": "Coen internet revenue measurement",
+   "type": "AGAINST",
+   "to": "IAB/PwC internet revenue measurement",
+   "clause": "... against ..."
+  },
+  {
+   "from": "Coen internet revenue measurement",
+   "type": "MEASURES",
+   "to": "Coen internet line",
+   "clause": "... monetary amount for Coen line"
+  },
+  {
+   "from": "IAB/PwC internet revenue measurement",
+   "type": "MEASURES",
+   "to": "IAB/PwC internet figure",
+   "clause": "... monetary amount for IAB/PwC figure"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen internet line|advertising spend series|Coen's internet line for 2007\nNODE|IAB/PwC internet figure|advertising spend series|the IAB/PwC figure for the same year\nNODE|Coen internet share of IAB/PwC internet|media-share measurement|Coen's internet line is ... percent of the IAB/PwC figure\nNODE|Coen internet revenue measurement|revenue measurement|Coen's internet line amount ...\nNODE|IAB/PwC internet revenue measurement|revenue measurement|IAB/PwC internet figure amount ...\n\nEDGE|Coen internet share of IAB/PwC internet|MEASURES|Coen internet line|... percent of ...\nEDGE|Coen internet share of IAB/PwC internet|SHARE_OF|IAB/PwC internet figure|... of the IAB/PwC figure\nEDGE|Coen internet line|SHARES_NAME_WITH|IAB/PwC internet figure|the two lines share a name\nEDGE|Coen internet line|MEASURES_DIFFERENT_FROM|IAB/PwC internet figure|measure different things\nEDGE|Coen internet revenue measurement|AGAINST|IAB/PwC internet revenue measurement|... against ...\nEDGE|Coen internet revenue measurement|MEASURES|Coen internet line|... monetary amount for Coen line\nEDGE|IAB/PwC internet revenue measurement|MEASURES|IAB/PwC internet figure|... monetary amount for IAB/PwC figure"
+}

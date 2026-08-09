@@ -1,0 +1,47 @@
+{
+ "group_id": "L1|895c244a4e7c3867",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "House organ advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years; same subject and quantity",
+   "child_uids": [
+    "n|e1-buyers-008|house organs amount|spend measurement"
+   ]
+  },
+  {
+   "name": "Classified advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "yearly or source-specific classified ad spend, abstracting year and source",
+   "child_uids": [
+    "n|e1-scale-013|classified advertising outlay|spend measurement",
+    "n|e3-scale-010|classified advertising spend (1950)|spend measurement",
+    "n|e3-scale-010|classified advertising spend (1975)|spend measurement",
+    "n|e4-buyers-006|classified advertising spend 1976|advertising spend measurement",
+    "n|e4-buyers-006|classified advertising spend 1993|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Total classified advertising spend",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total aggregate classified ad spend distinct from yearly components",
+   "child_uids": [
+    "n|e5-scale-012|classified advertising spend measurement|revenue measurement"
+   ]
+  },
+  {
+   "name": "Real-estate classified advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: sector-specific classified ad spend separate breakdown",
+   "child_uids": [
+    "n|e6-scale-009|real-estate classified spend|advertising spend measurement"
+   ]
+  }
+ ]
+}

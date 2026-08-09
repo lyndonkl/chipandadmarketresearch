@@ -1,0 +1,194 @@
+{
+ "id": "e5-buyers-005",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "percent of US internet ad revenue",
+ "elapsed_s": 92.8,
+ "error": null,
+ "n_nodes": 16,
+ "n_edges": 16,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "consumer-brand advertisers",
+   "type": "advertiser group",
+   "clause": "Consumer-brand advertisers' share ..."
+  },
+  {
+   "name": "US internet advertising revenue",
+   "type": "ad revenue aggregate",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "consumer-brand advertisers' share of US internet advertising revenue",
+   "type": "share measurement",
+   "clause": "Consumer-brand advertisers' share ... full year ..."
+  },
+  {
+   "name": "computing sector",
+   "type": "industry sector",
+   "clause": "computing ..."
+  },
+  {
+   "name": "media sector",
+   "type": "industry sector",
+   "clause": "media ..."
+  },
+  {
+   "name": "financial services sector",
+   "type": "industry sector",
+   "clause": "financial services ..."
+  },
+  {
+   "name": "business services sector",
+   "type": "industry sector",
+   "clause": "business services ..."
+  },
+  {
+   "name": "consumer sector",
+   "type": "advertiser segment",
+   "clause": "within consumer"
+  },
+  {
+   "name": "retail sector",
+   "type": "industry sector",
+   "clause": "retail ..."
+  },
+  {
+   "name": "music sector",
+   "type": "industry sector",
+   "clause": "music ..."
+  },
+  {
+   "name": "computing share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "sector-share measurement",
+   "clause": "computing ..."
+  },
+  {
+   "name": "media share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "sector-share measurement",
+   "clause": "media ..."
+  },
+  {
+   "name": "financial services share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "sector-share measurement",
+   "clause": "financial services ..."
+  },
+  {
+   "name": "business services share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "sector-share measurement",
+   "clause": "business services ..."
+  },
+  {
+   "name": "retail share of consumer sector",
+   "type": "segment-share measurement",
+   "clause": "retail ..."
+  },
+  {
+   "name": "music share of consumer sector",
+   "type": "segment-share measurement",
+   "clause": "music ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "consumer-brand advertisers' share of US internet advertising revenue",
+   "type": "MEASURES",
+   "to": "consumer-brand advertisers",
+   "clause": "Consumer-brand advertisers' share ..."
+  },
+  {
+   "from": "consumer-brand advertisers' share of US internet advertising revenue",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... of US internet advertising revenue"
+  },
+  {
+   "from": "computing share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "MEASURES",
+   "to": "computing sector",
+   "clause": "computing ..."
+  },
+  {
+   "from": "computing share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "SHARE_OF",
+   "to": "consumer-brand advertisers' share of US internet advertising revenue",
+   "clause": "computing ..."
+  },
+  {
+   "from": "media share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "MEASURES",
+   "to": "media sector",
+   "clause": "media ..."
+  },
+  {
+   "from": "media share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "SHARE_OF",
+   "to": "consumer-brand advertisers' share of US internet advertising revenue",
+   "clause": "media ..."
+  },
+  {
+   "from": "financial services share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "MEASURES",
+   "to": "financial services sector",
+   "clause": "financial services ..."
+  },
+  {
+   "from": "financial services share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "SHARE_OF",
+   "to": "consumer-brand advertisers' share of US internet advertising revenue",
+   "clause": "financial services ..."
+  },
+  {
+   "from": "business services share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "MEASURES",
+   "to": "business services sector",
+   "clause": "business services ..."
+  },
+  {
+   "from": "business services share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "SHARE_OF",
+   "to": "consumer-brand advertisers' share of US internet advertising revenue",
+   "clause": "business services ..."
+  },
+  {
+   "from": "retail share of consumer sector",
+   "type": "MEASURES",
+   "to": "retail sector",
+   "clause": "retail ..."
+  },
+  {
+   "from": "retail share of consumer sector",
+   "type": "SHARE_OF",
+   "to": "consumer sector",
+   "clause": "retail ..."
+  },
+  {
+   "from": "music share of consumer sector",
+   "type": "MEASURES",
+   "to": "music sector",
+   "clause": "music ..."
+  },
+  {
+   "from": "music share of consumer sector",
+   "type": "SHARE_OF",
+   "to": "consumer sector",
+   "clause": "music ..."
+  },
+  {
+   "from": "retail sector",
+   "type": "PART_OF",
+   "to": "consumer sector",
+   "clause": "within consumer, retail ..."
+  },
+  {
+   "from": "music sector",
+   "type": "PART_OF",
+   "to": "consumer sector",
+   "clause": "within consumer, music ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|consumer-brand advertisers|advertiser group|Consumer-brand advertisers' share ...\nNODE|US internet advertising revenue|ad revenue aggregate|US internet advertising revenue\nNODE|consumer-brand advertisers' share of US internet advertising revenue|share measurement|Consumer-brand advertisers' share ... full year ...\nNODE|computing sector|industry sector|computing ...\nNODE|media sector|industry sector|media ...\nNODE|financial services sector|industry sector|financial services ...\nNODE|business services sector|industry sector|business services ...\nNODE|consumer sector|advertiser segment|within consumer\nNODE|retail sector|industry sector|retail ...\nNODE|music sector|industry sector|music ...\n\nNODE|computing share of consumer-brand advertisers' US internet advertising revenue|sector-share measurement|computing ...\nNODE|media share of consumer-brand advertisers' US internet advertising revenue|sector-share measurement|media ...\nNODE|financial services share of consumer-brand advertisers' US internet advertising revenue|sector-share measurement|financial services ...\nNODE|business services share of consumer-brand advertisers' US internet advertising revenue|sector-share measurement|business services ...\n\nNODE|retail share of consumer sector|segment-share measurement|retail ...\nNODE|music share of consumer sector|segment-share measurement|music ...\n\nEDGE|consumer-brand advertisers' share of US internet advertising revenue|MEASURES|consumer-brand advertisers|Consumer-brand advertisers' share ...\nEDGE|consumer-brand advertisers' share of US internet advertising revenue|SHARE_OF|US internet advertising revenue|... of US internet advertising revenue\nEDGE|computing share of consumer-brand advertisers' US internet advertising revenue|MEASURES|computing sector|computing ...\nEDGE|computing share of consumer-brand advertisers' US internet advertising revenue|SHARE_OF|consumer-brand advertisers' share of US internet advertising revenue|computing ...\nEDGE|media share of consumer-brand advertisers' US internet advertising revenue|MEASURES|media sector|media ...\nEDGE|media share of consumer-brand advertisers' US internet advertising revenue|SHARE_OF|consumer-brand advertisers' share of US internet advertising revenue|media ...\nEDGE|financial services share of consumer-brand advertisers' US internet advertising revenue|MEASURES|financial services sector|financial services ...\nEDGE|financial services share of consumer-brand advertisers' US internet advertising revenue|SHARE_OF|consumer-brand advertisers' share of US internet advertising revenue|financial services ...\nEDGE|business services share of consumer-brand advertisers' US internet advertising revenue|MEASURES|business services sector|business services ...\nEDGE|business services share of consumer-brand advertisers' US internet advertising revenue|SHARE_OF|consumer-brand advertisers' share of US internet advertising revenue|business services ...\n\nEDGE|retail share of consumer sector|MEASURES|retail sector|retail ...\nEDGE|retail share of consumer sector|SHARE_OF|consumer sector|retail ...\nEDGE|music share of consumer sector|MEASURES|music sector|music ...\nEDGE|music share of consumer sector|SHARE_OF|consumer sector|music ...\n\nEDGE|retail sector|PART_OF|consumer sector|within consumer, retail ...\nEDGE|music sector|PART_OF|consumer sector|within consumer, music ..."
+}

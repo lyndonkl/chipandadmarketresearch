@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|500094215d86fb8c",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "rGSP auction launch",
+   "type": "event",
+   "grain": "Entity",
+   "reason": "singleton: distinct launch event of rGSP auction",
+   "child_uids": [
+    "n|e7-pricing-001|rgsp auction launch|event"
+   ]
+  },
+  {
+   "name": "Quality-weighted auction",
+   "type": "auction mechanism",
+   "grain": "Entity",
+   "reason": "singleton: generic quality\u2011weighted auction mechanism",
+   "child_uids": [
+    "n|mech-overture-002|quality-weighted auction|auction mechanism"
+   ]
+  },
+  {
+   "name": "Quality-weighted second-price auction (GSP)",
+   "type": "auction mechanism",
+   "grain": "Entity",
+   "reason": "singleton: specific GSP variant of quality\u2011weighted auction",
+   "child_uids": [
+    "n|tu:era:7:boundary|quality-weighted second-price auction (gsp)|auction mechanism"
+   ]
+  },
+  {
+   "name": "Second-price pricing",
+   "type": "pricing practice",
+   "grain": "Entity",
+   "reason": "singleton: pricing practice ending second\u2011price pricing in 2019",
+   "child_uids": [
+    "n|tu:era:7:event:4|second-price pricing|pricing practice"
+   ]
+  }
+ ]
+}

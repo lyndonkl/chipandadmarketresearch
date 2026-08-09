@@ -1,0 +1,50 @@
+{
+ "id": "e1-medium-001",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "USD millions (current), newspaper advertising receipts",
+ "elapsed_s": 42.1,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspapers",
+   "type": "newspaper group",
+   "clause": "US newspapers took ... of advertising receipts"
+  },
+  {
+   "name": "other periodicals",
+   "type": "periodical group",
+   "clause": "all other periodicals took ... of advertising receipts"
+  },
+  {
+   "name": "US newspaper advertising receipts amount",
+   "type": "advertising receipt measurement",
+   "clause": "US newspapers took ... of advertising receipts"
+  },
+  {
+   "name": "other periodicals advertising receipts amount",
+   "type": "advertising receipt measurement",
+   "clause": "all other periodicals took ... of advertising receipts"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US newspapers",
+   "type": "HAS_REVENUE",
+   "to": "US newspaper advertising receipts amount",
+   "clause": "US newspapers took ... of advertising receipts"
+  },
+  {
+   "from": "other periodicals",
+   "type": "HAS_REVENUE",
+   "to": "other periodicals advertising receipts amount",
+   "clause": "all other periodicals took ... of advertising receipts"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspapers|newspaper group|US newspapers took ... of advertising receipts\nNODE|other periodicals|periodical group|all other periodicals took ... of advertising receipts\nNODE|US newspaper advertising receipts amount|advertising receipt measurement|US newspapers took ... of advertising receipts\nNODE|other periodicals advertising receipts amount|advertising receipt measurement|all other periodicals took ... of advertising receipts\nEDGE|US newspapers|HAS_REVENUE|US newspaper advertising receipts amount|US newspapers took ... of advertising receipts\nEDGE|other periodicals|HAS_REVENUE|other periodicals advertising receipts amount|all other periodicals took ... of advertising receipts"
+}

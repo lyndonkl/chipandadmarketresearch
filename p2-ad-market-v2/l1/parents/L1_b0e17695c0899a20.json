@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|b0e17695c0899a20",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Valid click definition",
+   "type": "definition",
+   "grain": "Entity",
+   "reason": "same concept of valid click definition across type labels",
+   "child_uids": [
+    "n|e6-measurement-003|valid click definition|definition",
+    "n|mech-audit-001|valid click|click definition"
+   ]
+  },
+  {
+   "name": "Audited click",
+   "type": "media currency",
+   "grain": "Entity",
+   "reason": "singleton: distinct media currency term audited click",
+   "child_uids": [
+    "n|tu:era:1:event:8|audited click|media currency"
+   ]
+  },
+  {
+   "name": "Click validation decision",
+   "type": "validation outcome",
+   "grain": "Entity",
+   "reason": "singleton: specific validation outcome about click validity",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|click validation decision|validation outcome"
+   ]
+  }
+ ]
+}

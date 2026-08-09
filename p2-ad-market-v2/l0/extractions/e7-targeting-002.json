@@ -1,0 +1,72 @@
+{
+ "id": "e7-targeting-002",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2022,
+ "unit": "percent of users opting in to app tracking, mid-2022",
+ "elapsed_s": 47.9,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "App Tracking Transparency opt-in rate",
+   "type": "opt\u2011in rate measurement",
+   "clause": "ran about ... globally"
+  },
+  {
+   "name": "users opting in to app tracking",
+   "type": "user consent metric",
+   "clause": "what the opt\u2011in rate measures"
+  },
+  {
+   "name": "global user base",
+   "type": "population",
+   "clause": "globally"
+  },
+  {
+   "name": "gaming apps",
+   "type": "app category",
+   "clause": "with gaming apps around ..."
+  },
+  {
+   "name": "gaming app opt-in rate",
+   "type": "opt\u2011in rate measurement",
+   "clause": "around ... for gaming apps"
+  },
+  {
+   "name": "gaming app user base",
+   "type": "population",
+   "clause": "gaming app users"
+  }
+ ],
+ "edges": [
+  {
+   "from": "App Tracking Transparency opt-in rate",
+   "type": "MEASURES",
+   "to": "users opting in to app tracking",
+   "clause": "ran about ... globally"
+  },
+  {
+   "from": "App Tracking Transparency opt-in rate",
+   "type": "SHARE_OF",
+   "to": "global user base",
+   "clause": "ran about ... globally"
+  },
+  {
+   "from": "gaming app opt-in rate",
+   "type": "MEASURES",
+   "to": "users opting in to app tracking",
+   "clause": "around ... for gaming apps"
+  },
+  {
+   "from": "gaming app opt-in rate",
+   "type": "SHARE_OF",
+   "to": "gaming app user base",
+   "clause": "around ... for gaming apps"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|App Tracking Transparency opt-in rate|opt\u2011in rate measurement|ran about ... globally\nNODE|users opting in to app tracking|user consent metric|what the opt\u2011in rate measures\nNODE|global user base|population|globally\nNODE|gaming apps|app category|with gaming apps around ...\nNODE|gaming app opt-in rate|opt\u2011in rate measurement|around ... for gaming apps\nNODE|gaming app user base|population|gaming app users\nEDGE|App Tracking Transparency opt-in rate|MEASURES|users opting in to app tracking|ran about ... globally\nEDGE|App Tracking Transparency opt-in rate|SHARE_OF|global user base|ran about ... globally\nEDGE|gaming app opt-in rate|MEASURES|users opting in to app tracking|around ... for gaming apps\nEDGE|gaming app opt-in rate|SHARE_OF|gaming app user base|around ... for gaming apps"
+}

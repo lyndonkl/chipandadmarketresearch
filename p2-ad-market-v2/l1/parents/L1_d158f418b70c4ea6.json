@@ -1,0 +1,36 @@
+{
+ "group_id": "L1|d158f418b70c4ea6",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Real-time bidding",
+   "type": "ad-tech mechanism",
+   "grain": "Entity",
+   "reason": "same ad-tech mechanism across type labels and phrasing",
+   "child_uids": [
+    "n|e7-events-002|real-time bidding|ad-tech mechanism",
+    "n|tu:era:7:event:1|impression-by-impression real-time bidding|bidding mechanism",
+    "n|tu:era:7:event:1|rtb|bidding technology"
+   ]
+  },
+  {
+   "name": "Page header",
+   "type": "web page element",
+   "grain": "Entity",
+   "reason": "singleton: web page element for parallel auction",
+   "child_uids": [
+    "n|tu:era:7:event:2|page header|web page element"
+   ]
+  },
+  {
+   "name": "Header bidding technique",
+   "type": "advertising technique",
+   "grain": "Entity",
+   "reason": "singleton: advertising technique enabling header auctions",
+   "child_uids": [
+    "n|tu:era:7:event:2|header bidding technique|advertising technique"
+   ]
+  }
+ ]
+}

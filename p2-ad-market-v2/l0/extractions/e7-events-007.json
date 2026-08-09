@@ -1,0 +1,67 @@
+{
+ "id": "e7-events-007",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2019,
+ "unit": "percent of Google search text-ads RPM from format pricing",
+ "elapsed_s": 44.7,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "format pricing",
+   "type": "pricing mechanism",
+   "clause": "Format pricing had grown to ... of Google's search text-ads revenue per thousand queries"
+  },
+  {
+   "name": "rGSP",
+   "type": "pricing mechanism",
+   "clause": "rGSP replaced it in 2019"
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's search text-ads revenue per thousand queries"
+  },
+  {
+   "name": "Google search text-ads revenue per thousand queries",
+   "type": "advertising revenue metric",
+   "clause": "Google's search text-ads revenue per thousand queries"
+  },
+  {
+   "name": "format pricing share of Google search text-ads revenue per thousand queries",
+   "type": "share measurement",
+   "clause": "had grown to ... of Google's search text-ads revenue per thousand queries"
+  }
+ ],
+ "edges": [
+  {
+   "from": "format pricing",
+   "type": "HAS_SHARE",
+   "to": "format pricing share of Google search text-ads revenue per thousand queries",
+   "clause": "had grown to ... of Google's ..."
+  },
+  {
+   "from": "format pricing share of Google search text-ads revenue per thousand queries",
+   "type": "SHARE_OF",
+   "to": "Google search text-ads revenue per thousand queries",
+   "clause": "... of Google's search text-ads revenue per thousand queries"
+  },
+  {
+   "from": "rGSP",
+   "type": "REPLACED",
+   "to": "format pricing",
+   "clause": "rGSP replaced it in 2019"
+  },
+  {
+   "from": "Google",
+   "type": "HAS_REVENUE_METRIC",
+   "to": "Google search text-ads revenue per thousand queries",
+   "clause": "Google's search text-ads revenue per thousand queries"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|format pricing|pricing mechanism|Format pricing had grown to ... of Google's search text-ads revenue per thousand queries\nNODE|rGSP|pricing mechanism|rGSP replaced it in 2019\nNODE|Google|company|Google's search text-ads revenue per thousand queries\nNODE|Google search text-ads revenue per thousand queries|advertising revenue metric|Google's search text-ads revenue per thousand queries\nNODE|format pricing share of Google search text-ads revenue per thousand queries|share measurement|had grown to ... of Google's search text-ads revenue per thousand queries\nEDGE|format pricing|HAS_SHARE|format pricing share of Google search text-ads revenue per thousand queries|had grown to ... of Google's ...\nEDGE|format pricing share of Google search text-ads revenue per thousand queries|SHARE_OF|Google search text-ads revenue per thousand queries|... of Google's search text-ads revenue per thousand queries\nEDGE|rGSP|REPLACED|format pricing|rGSP replaced it in 2019\nEDGE|Google|HAS_REVENUE_METRIC|Google search text-ads revenue per thousand queries|Google's search text-ads revenue per thousand queries"
+}

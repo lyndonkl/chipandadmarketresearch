@@ -1,0 +1,67 @@
+{
+ "id": "e1-events-003",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1899,
+ "unit": "magazine buyers",
+ "elapsed_s": 58.6,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Frank A. Munsey",
+   "type": "person",
+   "clause": "Frank A. Munsey estimated that the ten-cent magazine grew the US magazine-buying public"
+  },
+  {
+   "name": "ten-cent magazine",
+   "type": "magazine type",
+   "clause": "the ten-cent magazine grew the US magazine-buying public"
+  },
+  {
+   "name": "US magazine-buying public",
+   "type": "audience aggregate",
+   "clause": "the US magazine-buying public"
+  },
+  {
+   "name": "US magazine-buying public size",
+   "type": "count measurement",
+   "clause": "size of the US magazine-buying public"
+  },
+  {
+   "name": "independent measurement of US magazine-buying public",
+   "type": "measurement",
+   "clause": "no independent measurement ... exists for these years"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Frank A. Munsey",
+   "type": "ESTIMATED",
+   "to": "US magazine-buying public size",
+   "clause": "estimated that the ten-cent magazine grew ..."
+  },
+  {
+   "from": "ten-cent magazine",
+   "type": "GREW",
+   "to": "US magazine-buying public",
+   "clause": "grew the US magazine-buying public"
+  },
+  {
+   "from": "Frank A. Munsey",
+   "type": "CREATED",
+   "to": "ten-cent magazine",
+   "clause": "publisher who created the ten-cent magazine"
+  },
+  {
+   "from": "independent measurement of US magazine-buying public",
+   "type": "NOT_EXISTS",
+   "to": "US magazine-buying public size",
+   "clause": "no independent measurement ... exists for these years"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Frank A. Munsey|person|Frank A. Munsey estimated that the ten-cent magazine grew the US magazine-buying public\nNODE|ten-cent magazine|magazine type|the ten-cent magazine grew the US magazine-buying public\nNODE|US magazine-buying public|audience aggregate|the US magazine-buying public\nNODE|US magazine-buying public size|count measurement|size of the US magazine-buying public\nNODE|independent measurement of US magazine-buying public|measurement|no independent measurement ... exists for these years\nEDGE|Frank A. Munsey|ESTIMATED|US magazine-buying public size|estimated that the ten-cent magazine grew ...\nEDGE|ten-cent magazine|GREW|US magazine-buying public|grew the US magazine-buying public\nEDGE|Frank A. Munsey|CREATED|ten-cent magazine|publisher who created the ten-cent magazine\nEDGE|independent measurement of US magazine-buying public|NOT_EXISTS|US magazine-buying public size|no independent measurement ... exists for these years"
+}

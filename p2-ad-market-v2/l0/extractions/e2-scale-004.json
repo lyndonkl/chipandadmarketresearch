@@ -1,0 +1,56 @@
+{
+ "id": "e2-scale-004",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1922,
+ "unit": "percent of US GDP spent on advertising, 1922",
+ "elapsed_s": 35.9,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising spend",
+   "type": "advertising expenditure",
+   "clause": "US advertising spend"
+  },
+  {
+   "name": "US GDP",
+   "type": "macro-economic aggregate",
+   "clause": "US GDP"
+  },
+  {
+   "name": "advertising share of US GDP",
+   "type": "share-of-gdp measurement",
+   "clause": "percent of US GDP spent on advertising"
+  },
+  {
+   "name": "Coen/BEA advertising series",
+   "type": "advertising-spend dataset",
+   "clause": "1919-2007 Coen/BEA series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising spend",
+   "type": "HAS_SHARE",
+   "to": "advertising share of US GDP",
+   "clause": "reached ... percent of GDP"
+  },
+  {
+   "from": "advertising share of US GDP",
+   "type": "SHARE_OF",
+   "to": "US GDP",
+   "clause": "... of GDP"
+  },
+  {
+   "from": "advertising share of US GDP",
+   "type": "HIGHEST_IN",
+   "to": "Coen/BEA advertising series",
+   "clause": "the highest reading in the entire ... series"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising spend|advertising expenditure|US advertising spend\nNODE|US GDP|macro-economic aggregate|US GDP\nNODE|advertising share of US GDP|share-of-gdp measurement|percent of US GDP spent on advertising\nNODE|Coen/BEA advertising series|advertising-spend dataset|1919-2007 Coen/BEA series\nEDGE|US advertising spend|HAS_SHARE|advertising share of US GDP|reached ... percent of GDP\nEDGE|advertising share of US GDP|SHARE_OF|US GDP|... of GDP\nEDGE|advertising share of US GDP|HIGHEST_IN|Coen/BEA advertising series|the highest reading in the entire ... series"
+}

@@ -1,0 +1,72 @@
+{
+ "id": "e5-medium-006",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1999,
+ "unit": "ratio (Out of Home / Billboards, 1999)",
+ "elapsed_s": 79.1,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen advertising series",
+   "type": "advertising-spend dataset",
+   "clause": "the Coen series"
+  },
+  {
+   "name": "Coen Out of Home category",
+   "type": "advertising category",
+   "clause": "Coen 'Out of Home' category"
+  },
+  {
+   "name": "Billboards category",
+   "type": "advertising category",
+   "clause": "'Billboards' category it replaced"
+  },
+  {
+   "name": "Coen Out of Home to Billboards ratio",
+   "type": "ratio measurement",
+   "clause": "ratio of the Coen Out of Home category to Billboards category measured on their single overlap year"
+  },
+  {
+   "name": "fabricated jump magnitude",
+   "type": "artificial increase measurement",
+   "clause": "... jump that did not happen"
+  },
+  {
+   "name": "chart splice without annotation",
+   "type": "misleading chart practice",
+   "clause": "any chart that splices the two lines without annotation"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Coen Out of Home to Billboards ratio",
+   "type": "MEASURES_NUMERATOR",
+   "to": "Coen Out of Home category",
+   "clause": "ratio of the Coen Out of Home category to Billboards category"
+  },
+  {
+   "from": "Coen Out of Home to Billboards ratio",
+   "type": "MEASURES_DENOMINATOR",
+   "to": "Billboards category",
+   "clause": "ratio of the Coen Out of Home category to Billboards category"
+  },
+  {
+   "from": "Coen Out of Home to Billboards ratio",
+   "type": "MEASURED_ON",
+   "to": "Coen advertising series",
+   "clause": "measured on their single overlap year"
+  },
+  {
+   "from": "chart splice without annotation",
+   "type": "MANUFACTURES",
+   "to": "fabricated jump magnitude",
+   "clause": "splices the two lines without annotation manufactures a ... jump that did not happen"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen advertising series|advertising-spend dataset|the Coen series\nNODE|Coen Out of Home category|advertising category|Coen 'Out of Home' category\nNODE|Billboards category|advertising category|'Billboards' category it replaced\nNODE|Coen Out of Home to Billboards ratio|ratio measurement|ratio of the Coen Out of Home category to Billboards category measured on their single overlap year\nNODE|fabricated jump magnitude|artificial increase measurement|... jump that did not happen\nNODE|chart splice without annotation|misleading chart practice|any chart that splices the two lines without annotation\nEDGE|Coen Out of Home to Billboards ratio|MEASURES_NUMERATOR|Coen Out of Home category|ratio of the Coen Out of Home category to Billboards category\nEDGE|Coen Out of Home to Billboards ratio|MEASURES_DENOMINATOR|Billboards category|ratio of the Coen Out of Home category to Billboards category\nEDGE|Coen Out of Home to Billboards ratio|MEASURED_ON|Coen advertising series|measured on their single overlap year\nEDGE|chart splice without annotation|MANUFACTURES|fabricated jump magnitude|splices the two lines without annotation manufactures a ... jump that did not happen"
+}

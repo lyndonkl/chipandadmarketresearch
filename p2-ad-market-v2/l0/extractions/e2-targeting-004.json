@@ -1,0 +1,100 @@
+{
+ "id": "e2-targeting-004",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1942,
+ "unit": "sets of interviews per day under the CAB overlap method, 1942",
+ "elapsed_s": 75.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "CAB",
+   "type": "organization",
+   "clause": "the CAB"
+  },
+  {
+   "name": "CAB overlap method",
+   "type": "measurement method",
+   "clause": "the CAB overlap method"
+  },
+  {
+   "name": "time resolution",
+   "type": "abstract concept",
+   "clause": "time resolution"
+  },
+  {
+   "name": "single 24-hour recall call",
+   "type": "data collection format",
+   "clause": "a single 24-hour recall call"
+  },
+  {
+   "name": "daypart count (first increase)",
+   "type": "daypart count measurement",
+   "clause": "four dayparts in 1935"
+  },
+  {
+   "name": "daypart count (second increase)",
+   "type": "daypart count measurement",
+   "clause": "eight dayparts in 1940"
+  },
+  {
+   "name": "interview set count per day",
+   "type": "interview set count measurement",
+   "clause": "32 overlapping interview sets a day by 1942"
+  },
+  {
+   "name": "attention granularity",
+   "type": "abstract concept",
+   "clause": "how finely attention could be sliced"
+  }
+ ],
+ "edges": [
+  {
+   "from": "CAB",
+   "type": "HAS_TIME_RESOLUTION",
+   "to": "time resolution",
+   "clause": "the CAB's time resolution"
+  },
+  {
+   "from": "time resolution",
+   "type": "INITIAL_FORMAT",
+   "to": "single 24-hour recall call",
+   "clause": "went from a single 24-hour recall call"
+  },
+  {
+   "from": "time resolution",
+   "type": "WENT_TO",
+   "to": "daypart count (first increase)",
+   "clause": "to ... dayparts ..."
+  },
+  {
+   "from": "time resolution",
+   "type": "WENT_TO",
+   "to": "daypart count (second increase)",
+   "clause": "to ... dayparts ..."
+  },
+  {
+   "from": "time resolution",
+   "type": "WENT_TO",
+   "to": "interview set count per day",
+   "clause": "... overlapping interview sets a day ..."
+  },
+  {
+   "from": "interview set count per day",
+   "type": "MEASURED_UNDER",
+   "to": "CAB overlap method",
+   "clause": "under the CAB overlap method"
+  },
+  {
+   "from": "interview set count per day",
+   "type": "IS_CEILING_FOR",
+   "to": "attention granularity",
+   "clause": "era's ceiling on how finely attention could be sliced"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|CAB|organization|the CAB\nNODE|CAB overlap method|measurement method|the CAB overlap method\nNODE|time resolution|abstract concept|time resolution\nNODE|single 24-hour recall call|data collection format|a single 24-hour recall call\nNODE|daypart count (first increase)|daypart count measurement|four dayparts in 1935\nNODE|daypart count (second increase)|daypart count measurement|eight dayparts in 1940\nNODE|interview set count per day|interview set count measurement|32 overlapping interview sets a day by 1942\nNODE|attention granularity|abstract concept|how finely attention could be sliced\nEDGE|CAB|HAS_TIME_RESOLUTION|time resolution|the CAB's time resolution\nEDGE|time resolution|INITIAL_FORMAT|single 24-hour recall call|went from a single 24-hour recall call\nEDGE|time resolution|WENT_TO|daypart count (first increase)|to ... dayparts ...\nEDGE|time resolution|WENT_TO|daypart count (second increase)|to ... dayparts ...\nEDGE|time resolution|WENT_TO|interview set count per day|... overlapping interview sets a day ...\nEDGE|interview set count per day|MEASURED_UNDER|CAB overlap method|under the CAB overlap method\nEDGE|interview set count per day|IS_CEILING_FOR|attention granularity|era's ceiling on how finely attention could be sliced"
+}

@@ -1,0 +1,72 @@
+{
+ "group_id": "L1|55707b97f99d9065",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "Single national medium ranking",
+   "type": "ranking metric",
+   "grain": "Entity",
+   "reason": "same concept across type labels and years",
+   "child_uids": [
+    "n|e3-buyers-009|single national medium|advertising medium category",
+    "n|e3-medium-006|single-national advertising mediums|media category",
+    "n|tu:era:3:field:BUYERS|national medium ranking|ranking metric"
+   ]
+  },
+  {
+   "name": "US advertising medium ranking",
+   "type": "market ranking",
+   "grain": "Entity",
+   "reason": "singleton: distinct broader ranking entity",
+   "child_uids": [
+    "n|tu:era:2:field:MEDIUM|us advertising medium ranking|market ranking"
+   ]
+  },
+  {
+   "name": "Medium ranking series",
+   "type": "media ranking series",
+   "grain": "Entity",
+   "reason": "singleton: series of medium rankings",
+   "child_uids": [
+    "n|e2-medium-004|named medium series|media ranking series"
+   ]
+  },
+  {
+   "name": "S&P McCann",
+   "type": "research firm",
+   "grain": "Entity",
+   "reason": "singleton: distinct organization entity",
+   "child_uids": [
+    "n|tu:era:3:field:MEDIUM|s&p/mccann|research firm"
+   ]
+  },
+  {
+   "name": "Best-targeted advertising medium",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: specific targeting ranking",
+   "child_uids": [
+    "n|e4-targeting-004|best-targeted medium|advertising medium"
+   ]
+  },
+  {
+   "name": "Top advertising medium",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: leading medium in market",
+   "child_uids": [
+    "n|tu:era:4:field:MEDIUM|top medium|leading advertising medium"
+   ]
+  },
+  {
+   "name": "Third-largest advertising medium",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: specific rank position",
+   "child_uids": [
+    "n|tu:era:4:field:SELLERS|third-largest medium|advertising medium"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "id": "e2-measurement-008",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ per Hooper rating point per week guaranteed by CBS to Benny's sponsor",
+ "elapsed_s": 64.0,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "CBS",
+   "type": "broadcast network",
+   "clause": "CBS guaranteed ... per Hooper rating point per week"
+  },
+  {
+   "name": "American Tobacco",
+   "type": "sponsor company",
+   "clause": "American Tobacco ..."
+  },
+  {
+   "name": "Jack Benny",
+   "type": "comedian",
+   "clause": "Jack Benny lost rating points"
+  },
+  {
+   "name": "NBC",
+   "type": "broadcast network",
+   "clause": "moving from NBC to CBS"
+  },
+  {
+   "name": "Hooper rating point",
+   "type": "audience measurement unit",
+   "clause": "Hooper rating point"
+  },
+  {
+   "name": "commercial contract",
+   "type": "contract form",
+   "clause": "written directly into a commercial contract"
+  },
+  {
+   "name": "guaranteed payment rate",
+   "type": "take-rate measurement",
+   "clause": "US$ per Hooper rating point per week guaranteed by CBS to Benny's sponsor"
+  }
+ ],
+ "edges": [
+  {
+   "from": "CBS",
+   "type": "HAS_GUARANTEE",
+   "to": "guaranteed payment rate",
+   "clause": "guaranteed ... per Hooper rating point per week"
+  },
+  {
+   "from": "guaranteed payment rate",
+   "type": "PAYABLE_TO",
+   "to": "American Tobacco",
+   "clause": "payment to sponsor"
+  },
+  {
+   "from": "guaranteed payment rate",
+   "type": "BASED_ON",
+   "to": "Hooper rating point",
+   "clause": "per rating point lost"
+  },
+  {
+   "from": "Jack Benny",
+   "type": "LOST_RATING_POINT",
+   "to": "Hooper rating point",
+   "clause": "lost by moving from NBC to CBS"
+  },
+  {
+   "from": "Jack Benny",
+   "type": "MOVED_FROM",
+   "to": "NBC",
+   "clause": "by moving from NBC"
+  },
+  {
+   "from": "Jack Benny",
+   "type": "MOVED_TO",
+   "to": "CBS",
+   "clause": "after moving to CBS"
+  },
+  {
+   "from": "commercial contract",
+   "type": "INCLUDES",
+   "to": "guaranteed payment rate",
+   "clause": "written directly into a commercial contract"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|CBS|broadcast network|CBS guaranteed ... per Hooper rating point per week\nNODE|American Tobacco|sponsor company|American Tobacco ...\nNODE|Jack Benny|comedian|Jack Benny lost rating points\nNODE|NBC|broadcast network|moving from NBC to CBS\nNODE|Hooper rating point|audience measurement unit|Hooper rating point\nNODE|commercial contract|contract form|written directly into a commercial contract\nNODE|guaranteed payment rate|take-rate measurement|US$ per Hooper rating point per week guaranteed by CBS to Benny's sponsor\nEDGE|CBS|HAS_GUARANTEE|guaranteed payment rate|guaranteed ... per Hooper rating point per week\nEDGE|guaranteed payment rate|PAYABLE_TO|American Tobacco|payment to sponsor\nEDGE|guaranteed payment rate|BASED_ON|Hooper rating point|per rating point lost\nEDGE|Jack Benny|LOST_RATING_POINT|Hooper rating point|lost by moving from NBC to CBS\nEDGE|Jack Benny|MOVED_FROM|NBC|by moving from NBC\nEDGE|Jack Benny|MOVED_TO|CBS|after moving to CBS\nEDGE|commercial contract|INCLUDES|guaranteed payment rate|written directly into a commercial contract"
+}

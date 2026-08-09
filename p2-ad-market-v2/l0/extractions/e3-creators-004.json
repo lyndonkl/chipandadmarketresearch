@@ -1,0 +1,94 @@
+{
+ "id": "e3-creators-004",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1960,
+ "unit": "million USD of annual billings (Young & Rubicam)",
+ "elapsed_s": 71.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Young & Rubicam",
+   "type": "advertising agency",
+   "clause": "Young & Rubicam's billings reached \u2026"
+  },
+  {
+   "name": "McCann-Erickson",
+   "type": "advertising agency",
+   "clause": "McCann-Erickson second at close to \u2026"
+  },
+  {
+   "name": "J. Walter Thompson",
+   "type": "advertising agency",
+   "clause": "J. Walter Thompson the largest US agency at over \u2026"
+  },
+  {
+   "name": "agency scale in the era",
+   "type": "market context",
+   "clause": "Agency scale in the era"
+  },
+  {
+   "name": "Young & Rubicam annual billings",
+   "type": "agency revenue measurement",
+   "clause": "Young & Rubicam's billings reached \u2026"
+  },
+  {
+   "name": "Young & Rubicam prior billings",
+   "type": "agency revenue measurement",
+   "clause": "up from \u2026 in 1951"
+  },
+  {
+   "name": "McCann-Erickson annual billings",
+   "type": "agency revenue measurement",
+   "clause": "McCann-Erickson second at close to \u2026"
+  },
+  {
+   "name": "J. Walter Thompson annual billings",
+   "type": "agency revenue measurement",
+   "clause": "J. Walter Thompson the largest US agency at over \u2026"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Young & Rubicam",
+   "type": "HAS_BILLINGS",
+   "to": "Young & Rubicam annual billings",
+   "clause": "Young & Rubicam's billings reached \u2026"
+  },
+  {
+   "from": "Young & Rubicam annual billings",
+   "type": "UP_FROM",
+   "to": "Young & Rubicam prior billings",
+   "clause": "up from \u2026 in 1951"
+  },
+  {
+   "from": "McCann-Erickson",
+   "type": "HAS_BILLINGS",
+   "to": "McCann-Erickson annual billings",
+   "clause": "McCann-Erickson second at close to \u2026"
+  },
+  {
+   "from": "J. Walter Thompson",
+   "type": "HAS_BILLINGS",
+   "to": "J. Walter Thompson annual billings",
+   "clause": "J. Walter Thompson the largest US agency at over \u2026"
+  },
+  {
+   "from": "J. Walter Thompson",
+   "type": "LARGEST_IN",
+   "to": "agency scale in the era",
+   "clause": "largest US agency at over \u2026"
+  },
+  {
+   "from": "McCann-Erickson",
+   "type": "SECOND_IN",
+   "to": "agency scale in the era",
+   "clause": "second at close to \u2026"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Young & Rubicam|advertising agency|Young & Rubicam's billings reached \u2026\nNODE|McCann-Erickson|advertising agency|McCann-Erickson second at close to \u2026\nNODE|J. Walter Thompson|advertising agency|J. Walter Thompson the largest US agency at over \u2026\nNODE|agency scale in the era|market context|Agency scale in the era\nNODE|Young & Rubicam annual billings|agency revenue measurement|Young & Rubicam's billings reached \u2026\nNODE|Young & Rubicam prior billings|agency revenue measurement|up from \u2026 in 1951\nNODE|McCann-Erickson annual billings|agency revenue measurement|McCann-Erickson second at close to \u2026\nNODE|J. Walter Thompson annual billings|agency revenue measurement|J. Walter Thompson the largest US agency at over \u2026\nEDGE|Young & Rubicam|HAS_BILLINGS|Young & Rubicam annual billings|Young & Rubicam's billings reached \u2026\nEDGE|Young & Rubicam annual billings|UP_FROM|Young & Rubicam prior billings|up from \u2026 in 1951\nEDGE|McCann-Erickson|HAS_BILLINGS|McCann-Erickson annual billings|McCann-Erickson second at close to \u2026\nEDGE|J. Walter Thompson|HAS_BILLINGS|J. Walter Thompson annual billings|J. Walter Thompson the largest US agency at over \u2026\nEDGE|J. Walter Thompson|LARGEST_IN|agency scale in the era|largest US agency at over \u2026\nEDGE|McCann-Erickson|SECOND_IN|agency scale in the era|second at close to \u2026"
+}

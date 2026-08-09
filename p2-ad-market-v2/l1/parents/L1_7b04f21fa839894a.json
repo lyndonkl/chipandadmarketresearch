@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|7b04f21fa839894a",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Google IPO share volume",
+   "type": "share-count measurement",
+   "grain": "Measurement",
+   "reason": "one measure of total shares sold in Google IPO across years/sources",
+   "child_uids": [
+    "n|e6-events-005|google share sale volume|share-count measurement"
+   ]
+  },
+  {
+   "name": "Google IPO Class A share volume",
+   "type": "share-count measurement",
+   "grain": "Measurement",
+   "reason": "subset measure of Class A shares sold in Google IPO",
+   "child_uids": [
+    "n|mech-aol-005|class a shares sold in google ipo|share count measurement"
+   ]
+  },
+  {
+   "name": "Google IPO net proceeds",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "revenue measure of net proceeds from Google IPO share sale",
+   "child_uids": [
+    "n|mech-aol-005|net proceeds from google ipo share sale|revenue measurement"
+   ]
+  },
+  {
+   "name": "Google IPO booked gain",
+   "type": "gain measurement",
+   "grain": "Measurement",
+   "reason": "gain measure of booked profit from Google IPO share sale",
+   "child_uids": [
+    "n|mech-aol-005|booked gain from google ipo share sale|gain measurement"
+   ]
+  },
+  {
+   "name": "Yahoo Class A share issuance",
+   "type": "share issuance measurement",
+   "grain": "Measurement",
+   "reason": "singleton: Yahoo Class A shares issued measurement",
+   "child_uids": [
+    "n|tu:era:6:event:4|yahoo class a shares issued|share issuance measurement"
+   ]
+  },
+  {
+   "name": "Google IPO share price",
+   "type": "price per share measurement",
+   "grain": "Measurement",
+   "reason": "price per share measure of Google IPO listing across sources",
+   "child_uids": [
+    "n|tu:era:6:event:4|google ipo share price|price per share measurement",
+    "n|tu:era:6:event:4|google listing share price|price per share measurement"
+   ]
+  }
+ ]
+}

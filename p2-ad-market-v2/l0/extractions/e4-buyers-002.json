@@ -1,0 +1,39 @@
+{
+ "id": "e4-buyers-002",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "percent of measured US ad spend",
+ "elapsed_s": 53.1,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 1,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local advertisers",
+   "type": "advertiser constituency",
+   "clause": "Local advertisers accounted for ..."
+  },
+  {
+   "name": "measured US advertising spend",
+   "type": "advertising expenditure aggregate",
+   "clause": "measured US advertising spend"
+  },
+  {
+   "name": "local advertisers share of measured US advertising spend",
+   "type": "percentage measurement",
+   "clause": "... of measured US advertising spend ... down from ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "local advertisers share of measured US advertising spend",
+   "type": "SHARE_OF",
+   "to": "measured US advertising spend",
+   "clause": "... of measured US advertising spend"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local advertisers|advertiser constituency|Local advertisers accounted for ...\nNODE|measured US advertising spend|advertising expenditure aggregate|measured US advertising spend\nNODE|local advertisers share of measured US advertising spend|percentage measurement|... of measured US advertising spend ... down from ...\nEDGE|local advertisers share of measured US advertising spend|SHARE_OF|measured US advertising spend|... of measured US advertising spend"
+}

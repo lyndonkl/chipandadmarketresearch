@@ -1,0 +1,79 @@
+{
+ "id": "e6-events-010",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "% change in US newspaper classified advertising, 2008",
+ "elapsed_s": 55.6,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspaper classified advertising",
+   "type": "advertising segment",
+   "clause": "US newspaper classified advertising"
+  },
+  {
+   "name": "percent change in US newspaper classified advertising 2008",
+   "type": "percentage change measurement",
+   "clause": "fell ... % in 2008"
+  },
+  {
+   "name": "US newspaper classified advertising spend 2008",
+   "type": "spend measurement",
+   "clause": "to ... million in 2008"
+  },
+  {
+   "name": "US newspaper classified advertising spend 2007",
+   "type": "spend measurement",
+   "clause": "from ... million in 2007"
+  },
+  {
+   "name": "US newspaper classified advertising spend 2000",
+   "type": "spend measurement",
+   "clause": "peak of ... million in 2000"
+  }
+ ],
+ "edges": [
+  {
+   "from": "percent change in US newspaper classified advertising 2008",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "fell ... % in 2008"
+  },
+  {
+   "from": "US newspaper classified advertising spend 2008",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "to ... million in 2008"
+  },
+  {
+   "from": "US newspaper classified advertising spend 2007",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "from ... million in 2007"
+  },
+  {
+   "from": "US newspaper classified advertising spend 2000",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "peak of ... million in 2000"
+  },
+  {
+   "from": "US newspaper classified advertising spend 2008",
+   "type": "FELL_FROM",
+   "to": "US newspaper classified advertising spend 2007",
+   "clause": "fell ... to ... from ..."
+  },
+  {
+   "from": "US newspaper classified advertising spend 2000",
+   "type": "WAS_PEAK_OF",
+   "to": "US newspaper classified advertising",
+   "clause": "peak of ... million in 2000"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspaper classified advertising|advertising segment|US newspaper classified advertising\nNODE|percent change in US newspaper classified advertising 2008|percentage change measurement|fell ... % in 2008\nNODE|US newspaper classified advertising spend 2008|spend measurement|to ... million in 2008\nNODE|US newspaper classified advertising spend 2007|spend measurement|from ... million in 2007\nNODE|US newspaper classified advertising spend 2000|spend measurement|peak of ... million in 2000\nEDGE|percent change in US newspaper classified advertising 2008|MEASURES|US newspaper classified advertising|fell ... % in 2008\nEDGE|US newspaper classified advertising spend 2008|MEASURES|US newspaper classified advertising|to ... million in 2008\nEDGE|US newspaper classified advertising spend 2007|MEASURES|US newspaper classified advertising|from ... million in 2007\nEDGE|US newspaper classified advertising spend 2000|MEASURES|US newspaper classified advertising|peak of ... million in 2000\nEDGE|US newspaper classified advertising spend 2008|FELL_FROM|US newspaper classified advertising spend 2007|fell ... to ... from ...\nEDGE|US newspaper classified advertising spend 2000|WAS_PEAK_OF|US newspaper classified advertising|peak of ... million in 2000"
+}

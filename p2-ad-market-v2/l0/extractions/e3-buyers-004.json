@@ -1,0 +1,90 @@
+{
+ "id": "e3-buyers-004",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1970,
+ "unit": "million USD per year of cigarette broadcast advertising",
+ "elapsed_s": 57.7,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "cigarette manufacturers",
+   "type": "advertiser",
+   "clause": "Cigarette manufacturers were paying US broadcasters ... for television and radio time"
+  },
+  {
+   "name": "US broadcasters",
+   "type": "media outlet",
+   "clause": "Cigarette manufacturers were paying US broadcasters ... for television and radio time"
+  },
+  {
+   "name": "television and radio time",
+   "type": "broadcast ad inventory",
+   "clause": "for television and radio time"
+  },
+  {
+   "name": "cigarette broadcast advertising spend on TV and radio",
+   "type": "spend measurement",
+   "clause": "Cigarette manufacturers were paying US broadcasters ... for television and radio time"
+  },
+  {
+   "name": "newspaper and magazine publishers",
+   "type": "media outlet",
+   "clause": "... against ... going to newspaper and magazine publishers"
+  },
+  {
+   "name": "print advertising spend on newspapers and magazines",
+   "type": "spend measurement",
+   "clause": "... against ... going to newspaper and magazine publishers"
+  }
+ ],
+ "edges": [
+  {
+   "from": "cigarette manufacturers",
+   "type": "PAID",
+   "to": "US broadcasters",
+   "clause": "paying US broadcasters ..."
+  },
+  {
+   "from": "US broadcasters",
+   "type": "RECEIVED",
+   "to": "cigarette broadcast advertising spend on TV and radio",
+   "clause": "receiving ... for television and radio time"
+  },
+  {
+   "from": "cigarette broadcast advertising spend on TV and radio",
+   "type": "MEASURES_SPEND_FOR",
+   "to": "television and radio time",
+   "clause": "for television and radio time"
+  },
+  {
+   "from": "cigarette manufacturers",
+   "type": "PAID",
+   "to": "newspaper and magazine publishers",
+   "clause": "going to newspaper and magazine publishers"
+  },
+  {
+   "from": "newspaper and magazine publishers",
+   "type": "RECEIVED",
+   "to": "print advertising spend on newspapers and magazines",
+   "clause": "receiving ... going to newspaper and magazine publishers"
+  },
+  {
+   "from": "print advertising spend on newspapers and magazines",
+   "type": "MEASURES_SPEND_FOR",
+   "to": "newspaper and magazine publishers",
+   "clause": "going to newspaper and magazine publishers"
+  },
+  {
+   "from": "cigarette broadcast advertising spend on TV and radio",
+   "type": "AGAINST",
+   "to": "print advertising spend on newspapers and magazines",
+   "clause": "against ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|cigarette manufacturers|advertiser|Cigarette manufacturers were paying US broadcasters ... for television and radio time\nNODE|US broadcasters|media outlet|Cigarette manufacturers were paying US broadcasters ... for television and radio time\nNODE|television and radio time|broadcast ad inventory|for television and radio time\nNODE|cigarette broadcast advertising spend on TV and radio|spend measurement|Cigarette manufacturers were paying US broadcasters ... for television and radio time\nNODE|newspaper and magazine publishers|media outlet|... against ... going to newspaper and magazine publishers\nNODE|print advertising spend on newspapers and magazines|spend measurement|... against ... going to newspaper and magazine publishers\nEDGE|cigarette manufacturers|PAID|US broadcasters|paying US broadcasters ...\nEDGE|US broadcasters|RECEIVED|cigarette broadcast advertising spend on TV and radio|receiving ... for television and radio time\nEDGE|cigarette broadcast advertising spend on TV and radio|MEASURES_SPEND_FOR|television and radio time|for television and radio time\nEDGE|cigarette manufacturers|PAID|newspaper and magazine publishers|going to newspaper and magazine publishers\nEDGE|newspaper and magazine publishers|RECEIVED|print advertising spend on newspapers and magazines|receiving ... going to newspaper and magazine publishers\nEDGE|print advertising spend on newspapers and magazines|MEASURES_SPEND_FOR|newspaper and magazine publishers|going to newspaper and magazine publishers\nEDGE|cigarette broadcast advertising spend on TV and radio|AGAINST|print advertising spend on newspapers and magazines|against ..."
+}

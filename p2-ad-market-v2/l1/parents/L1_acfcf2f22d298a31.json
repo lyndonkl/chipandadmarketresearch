@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|acfcf2f22d298a31",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Self-serve no-agency channel",
+   "type": "channel type",
+   "grain": "Entity",
+   "reason": "same concept across channel and purchasing mechanism",
+   "child_uids": [
+    "n|tu:era:1:field:BUYERS|self-serve no-agency channel|channel type",
+    "n|tu:era:4:field:BUYERS|direct purchase without agency|purchasing mechanism"
+   ]
+  },
+  {
+   "name": "Agents",
+   "type": "actor class",
+   "grain": "Entity",
+   "reason": "singleton: distinct actor entity",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|agents|actor class"
+   ]
+  },
+  {
+   "name": "Buyer side",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: distinct role entity",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|buyer side|role"
+   ]
+  },
+  {
+   "name": "Brokers",
+   "type": "intermediary",
+   "grain": "Entity",
+   "reason": "singleton: distinct intermediary entity",
+   "child_uids": [
+    "n|tu:era:1:field:SELLERS|brokers|intermediary"
+   ]
+  },
+  {
+   "name": "Absence of agency",
+   "type": "feature",
+   "grain": "Entity",
+   "reason": "singleton: distinct feature entity",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|absence of agency|feature"
+   ]
+  },
+  {
+   "name": "Agencies on commission",
+   "type": "agency pricing model",
+   "grain": "Entity",
+   "reason": "singleton: distinct pricing-model entity",
+   "child_uids": [
+    "n|tu:era:4:field:BUYERS|agencies on commission|agency pricing model"
+   ]
+  }
+ ]
+}

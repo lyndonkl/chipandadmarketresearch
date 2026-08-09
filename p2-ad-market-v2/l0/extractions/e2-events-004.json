@@ -1,0 +1,56 @@
+{
+ "id": "e2-events-004",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1942,
+ "unit": "US$ raised from agencies and media associations to fund the Advertising Council at launch",
+ "elapsed_s": 34.4,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Advertising Council",
+   "type": "advertising council organization",
+   "clause": "the Council"
+  },
+  {
+   "name": "fundraising amount measurement",
+   "type": "funding amount measurement",
+   "clause": "US$ raised from agencies and media associations to fund the Advertising Council at launch"
+  },
+  {
+   "name": "advertising agencies",
+   "type": "agency class",
+   "clause": "advertising agencies"
+  },
+  {
+   "name": "media associations",
+   "type": "association class",
+   "clause": "media associations"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Advertising Council",
+   "type": "LAUNCHED_WITH_FUNDS",
+   "to": "fundraising amount measurement",
+   "clause": "launched on ... raised ..."
+  },
+  {
+   "from": "fundraising amount measurement",
+   "type": "RAISED_FROM",
+   "to": "advertising agencies",
+   "clause": "raised from advertising agencies"
+  },
+  {
+   "from": "fundraising amount measurement",
+   "type": "RAISED_FROM",
+   "to": "media associations",
+   "clause": "raised from media associations"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Advertising Council|advertising council organization|the Council\nNODE|fundraising amount measurement|funding amount measurement|US$ raised from agencies and media associations to fund the Advertising Council at launch\nNODE|advertising agencies|agency class|advertising agencies\nNODE|media associations|association class|media associations\nEDGE|Advertising Council|LAUNCHED_WITH_FUNDS|fundraising amount measurement|launched on ... raised ...\nEDGE|fundraising amount measurement|RAISED_FROM|advertising agencies|raised from advertising agencies\nEDGE|fundraising amount measurement|RAISED_FROM|media associations|raised from media associations"
+}

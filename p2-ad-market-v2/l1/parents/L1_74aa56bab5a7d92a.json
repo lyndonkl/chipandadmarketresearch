@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|74aa56bab5a7d92a",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "UPC scanner",
+   "type": "device",
+   "grain": "Entity",
+   "reason": "singleton: distinct device entity",
+   "child_uids": [
+    "n|e4-measurement-004|upc scanner|device"
+   ]
+  },
+  {
+   "name": "supermarket",
+   "type": "retail outlet",
+   "grain": "Entity",
+   "reason": "singleton: distinct retail outlet entity",
+   "child_uids": [
+    "n|e4-measurement-004|supermarket|retail outlet"
+   ]
+  },
+  {
+   "name": "measuring instrument",
+   "type": "analytics tool",
+   "grain": "Entity",
+   "reason": "singleton: distinct analytics tool entity",
+   "child_uids": [
+    "n|e6-measurement-004|measuring instrument|analytics tool"
+   ]
+  },
+  {
+   "name": "BehaviorScan",
+   "type": "product",
+   "grain": "Entity",
+   "reason": "singleton: distinct product entity",
+   "child_uids": [
+    "n|tu:era:4:field:MEASUREMENT|behaviorscan|product"
+   ]
+  },
+  {
+   "name": "measurement infrastructure",
+   "type": "analytics platform",
+   "grain": "Entity",
+   "reason": "singleton: distinct analytics platform entity",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|measurement infrastructure|analytics platform"
+   ]
+  }
+ ]
+}

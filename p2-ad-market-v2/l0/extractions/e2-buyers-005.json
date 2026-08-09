@@ -1,0 +1,87 @@
+{
+ "id": "e2-buyers-005",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "percent of US ad spend placed by local advertisers, 1949",
+ "elapsed_s": 42.8,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local advertisers",
+   "type": "advertiser segment",
+   "clause": "Local buyers - retailers, dealers, theatres, services"
+  },
+  {
+   "name": "retailers",
+   "type": "advertiser category",
+   "clause": "retailers"
+  },
+  {
+   "name": "dealers",
+   "type": "advertiser category",
+   "clause": "dealers"
+  },
+  {
+   "name": "theatres",
+   "type": "advertiser category",
+   "clause": "theatres"
+  },
+  {
+   "name": "services",
+   "type": "advertiser category",
+   "clause": "services"
+  },
+  {
+   "name": "US advertising spend",
+   "type": "advertising expenditure",
+   "clause": "all US advertising dollars"
+  },
+  {
+   "name": "local advertisers share of US advertising spend",
+   "type": "media-share measurement",
+   "clause": "accounted for ... percent of all US advertising dollars"
+  },
+  {
+   "name": "newspaper",
+   "type": "print medium",
+   "clause": "every newspaper"
+  },
+  {
+   "name": "stations",
+   "type": "broadcast outlet",
+   "clause": "most stations"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local advertisers",
+   "type": "HAS_SHARE",
+   "to": "local advertisers share of US advertising spend",
+   "clause": "accounted for ... percent of all US advertising dollars"
+  },
+  {
+   "from": "local advertisers share of US advertising spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... of all US advertising dollars"
+  },
+  {
+   "from": "local advertisers",
+   "type": "BASE_LOAD_FOR",
+   "to": "newspaper",
+   "clause": "were the base load of every newspaper"
+  },
+  {
+   "from": "local advertisers",
+   "type": "BASE_LOAD_FOR",
+   "to": "stations",
+   "clause": "were the base load of most stations"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local advertisers|advertiser segment|Local buyers - retailers, dealers, theatres, services\nNODE|retailers|advertiser category|retailers\nNODE|dealers|advertiser category|dealers\nNODE|theatres|advertiser category|theatres\nNODE|services|advertiser category|services\nNODE|US advertising spend|advertising expenditure|all US advertising dollars\nNODE|local advertisers share of US advertising spend|media-share measurement|accounted for ... percent of all US advertising dollars\nNODE|newspaper|print medium|every newspaper\nNODE|stations|broadcast outlet|most stations\nEDGE|local advertisers|HAS_SHARE|local advertisers share of US advertising spend|accounted for ... percent of all US advertising dollars\nEDGE|local advertisers share of US advertising spend|SHARE_OF|US advertising spend|... of all US advertising dollars\nEDGE|local advertisers|BASE_LOAD_FOR|newspaper|were the base load of every newspaper\nEDGE|local advertisers|BASE_LOAD_FOR|stations|were the base load of most stations"
+}

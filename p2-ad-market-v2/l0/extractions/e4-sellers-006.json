@@ -1,0 +1,89 @@
+{
+ "id": "e4-sellers-006",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 54.4,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Newspapers",
+   "type": "advertising medium",
+   "clause": "largest single US advertising medium"
+  },
+  {
+   "name": "Broadcast television",
+   "type": "advertising medium",
+   "clause": "broadcast television"
+  },
+  {
+   "name": "US advertising medium",
+   "type": "medium category",
+   "clause": "US advertising medium"
+  },
+  {
+   "name": "Newspapers advertising spend amount",
+   "type": "advertising spend measurement",
+   "clause": "... at ..."
+  },
+  {
+   "name": "Newspapers share of measured ad spend",
+   "type": "media-share measurement",
+   "clause": "... of measured spend"
+  },
+  {
+   "name": "Broadcast television advertising spend amount",
+   "type": "advertising spend measurement",
+   "clause": "... at ..."
+  },
+  {
+   "name": "US total advertising spend",
+   "type": "advertising spend aggregate",
+   "clause": "measured spend"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Newspapers",
+   "type": "WAS_LARGEST_AMONG",
+   "to": "US advertising medium",
+   "clause": "largest single US advertising medium"
+  },
+  {
+   "from": "Newspapers advertising spend amount",
+   "type": "MEASURES",
+   "to": "Newspapers",
+   "clause": "... at ..."
+  },
+  {
+   "from": "Newspapers share of measured ad spend",
+   "type": "MEASURES",
+   "to": "Newspapers",
+   "clause": "... of measured spend"
+  },
+  {
+   "from": "Newspapers share of measured ad spend",
+   "type": "SHARE_OF",
+   "to": "US total advertising spend",
+   "clause": "... of measured spend"
+  },
+  {
+   "from": "Broadcast television advertising spend amount",
+   "type": "MEASURES",
+   "to": "Broadcast television",
+   "clause": "... at ..."
+  },
+  {
+   "from": "Newspapers",
+   "type": "AHEAD_OF",
+   "to": "Broadcast television",
+   "clause": "ahead of broadcast television"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Newspapers|advertising medium|largest single US advertising medium\nNODE|Broadcast television|advertising medium|broadcast television\nNODE|US advertising medium|medium category|US advertising medium\nNODE|Newspapers advertising spend amount|advertising spend measurement|... at ...\nNODE|Newspapers share of measured ad spend|media-share measurement|... of measured spend\nNODE|Broadcast television advertising spend amount|advertising spend measurement|... at ...\nNODE|US total advertising spend|advertising spend aggregate|measured spend\nEDGE|Newspapers|WAS_LARGEST_AMONG|US advertising medium|largest single US advertising medium\nEDGE|Newspapers advertising spend amount|MEASURES|Newspapers|... at ...\nEDGE|Newspapers share of measured ad spend|MEASURES|Newspapers|... of measured spend\nEDGE|Newspapers share of measured ad spend|SHARE_OF|US total advertising spend|... of measured spend\nEDGE|Broadcast television advertising spend amount|MEASURES|Broadcast television|... at ...\nEDGE|Newspapers|AHEAD_OF|Broadcast television|ahead of broadcast television"
+}

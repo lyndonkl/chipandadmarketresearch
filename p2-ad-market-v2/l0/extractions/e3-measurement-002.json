@@ -1,0 +1,72 @@
+{
+ "id": "e3-measurement-002",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1973,
+ "unit": "metered households in the Nielsen national television panel",
+ "elapsed_s": 51.6,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national metered panel",
+   "type": "audience measurement panel",
+   "clause": "the national metered panel behind every network television price"
+  },
+  {
+   "name": "network television price",
+   "type": "pricing metric",
+   "clause": "behind every network television price in this era"
+  },
+  {
+   "name": "Nielsen",
+   "type": "market research firm",
+   "clause": "in the Nielsen national television panel"
+  },
+  {
+   "name": "metered households in Nielsen national TV panel",
+   "type": "household-count measurement",
+   "clause": "was about ... households"
+  },
+  {
+   "name": "US television homes",
+   "type": "television household population",
+   "clause": "... US television homes"
+  },
+  {
+   "name": "metered household share of US television homes",
+   "type": "share measurement",
+   "clause": "one metered home for every ... US television homes"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national metered panel",
+   "type": "UNDERLIES",
+   "to": "network television price",
+   "clause": "behind every network television price in this era"
+  },
+  {
+   "from": "metered households in Nielsen national TV panel",
+   "type": "MEASURES",
+   "to": "national metered panel",
+   "clause": "was about ... households"
+  },
+  {
+   "from": "metered household share of US television homes",
+   "type": "SHARE_OF",
+   "to": "US television homes",
+   "clause": "one metered home for every ... US television homes"
+  },
+  {
+   "from": "national metered panel",
+   "type": "PROVIDED_BY",
+   "to": "Nielsen",
+   "clause": "in the Nielsen national television panel"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national metered panel|audience measurement panel|the national metered panel behind every network television price\nNODE|network television price|pricing metric|behind every network television price in this era\nNODE|Nielsen|market research firm|in the Nielsen national television panel\nNODE|metered households in Nielsen national TV panel|household-count measurement|was about ... households\nNODE|US television homes|television household population|... US television homes\nNODE|metered household share of US television homes|share measurement|one metered home for every ... US television homes\nEDGE|national metered panel|UNDERLIES|network television price|behind every network television price in this era\nEDGE|metered households in Nielsen national TV panel|MEASURES|national metered panel|was about ... households\nEDGE|metered household share of US television homes|SHARE_OF|US television homes|one metered home for every ... US television homes\nEDGE|national metered panel|PROVIDED_BY|Nielsen|in the Nielsen national television panel"
+}

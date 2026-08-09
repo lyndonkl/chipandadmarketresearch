@@ -1,0 +1,28 @@
+{
+ "group_id": "L1|c4a09fd7749f26ed",
+ "source": "name-block",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Farm publications",
+   "type": "farm publication entity",
+   "grain": "Entity",
+   "reason": "same entity across type labels; all refer to farm publications",
+   "child_uids": [
+    "n|e1-measurement-003|farm publications|publication type",
+    "n|e3-buyers-003|farm publications|advertising medium",
+    "n|tu:era:2:field:MEDIUM|farm publications|advertising medium",
+    "n|tu:era:2:field:TARGETING|farm publications|publication type"
+   ]
+  },
+  {
+   "name": "Farm publications dimension",
+   "type": "advertising medium",
+   "grain": "Dimension",
+   "reason": "singleton: dimension for farm publications advertising medium",
+   "child_uids": [
+    "dim:medium:farm_publications"
+   ]
+  }
+ ]
+}

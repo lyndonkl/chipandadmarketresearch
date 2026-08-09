@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|f2d529f8f065a162",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Direct-mail advertising channel",
+   "type": "advertising channel",
+   "grain": "Entity",
+   "reason": "same advertising channel concept, different labels; years abstracted",
+   "child_uids": [
+    "n|e1-buyers-008|direct-mail line category|advertising channel",
+    "n|e4-scale-010|direct-mail advertising channel|advertising channel"
+   ]
+  },
+  {
+   "name": "US direct-mail advertising services",
+   "type": "advertising services",
+   "grain": "Entity",
+   "reason": "singleton: unique service entity",
+   "child_uids": [
+    "n|e4-creators-005|us direct\u2011mail advertising services|(promoted)"
+   ]
+  },
+  {
+   "name": "Direct mail medium",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: distinct medium entity",
+   "child_uids": [
+    "n|e5-buyers-013|direct mail medium|advertising medium"
+   ]
+  }
+ ]
+}

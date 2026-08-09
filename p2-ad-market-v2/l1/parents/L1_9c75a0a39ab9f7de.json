@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|9c75a0a39ab9f7de",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Hour of time",
+   "type": "media inventory unit",
+   "grain": "Entity",
+   "reason": "singleton: unique inventory duration entity",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|hour of time|media inventory unit"
+   ]
+  },
+  {
+   "name": "Time slots",
+   "type": "media scheduling unit",
+   "grain": "Entity",
+   "reason": "singleton: distinct scheduling unit",
+   "child_uids": [
+    "n|tu:era:2:field:TARGETING|time slots|media scheduling unit"
+   ]
+  },
+  {
+   "name": "Scatter time",
+   "type": "ad inventory type",
+   "grain": "Entity",
+   "reason": "singleton: specific ad inventory classification",
+   "child_uids": [
+    "n|tu:era:4:field:MEASUREMENT|scatter time|ad inventory type"
+   ]
+  },
+  {
+   "name": "Upfront time",
+   "type": "ad inventory type",
+   "grain": "Entity",
+   "reason": "singleton: distinct ad inventory classification",
+   "child_uids": [
+    "n|tu:era:4:field:MEASUREMENT|upfront time|ad inventory type"
+   ]
+  },
+  {
+   "name": "Thirty-second ad slot",
+   "type": "time unit",
+   "grain": "Entity",
+   "reason": "singleton: short-format ad inventory unit",
+   "child_uids": [
+    "n|tu:era:5:event:6|thirty-second ad slot|time unit"
+   ]
+  },
+  {
+   "name": "Average commercial minute plus three days of DVR playback",
+   "type": "currency component",
+   "grain": "Entity",
+   "reason": "singleton: composite measurement definition component",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|average commercial minute plus three days of dvr playback|currency component"
+   ]
+  }
+ ]
+}

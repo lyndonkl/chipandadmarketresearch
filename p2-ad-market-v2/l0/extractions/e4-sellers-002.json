@@ -1,0 +1,61 @@
+{
+ "id": "e4-sellers-002",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1990,
+ "unit": "cable networks",
+ "elapsed_s": 45.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US national cable networks",
+   "type": "cable network set",
+   "clause": "the number of US national cable networks"
+  },
+  {
+   "name": "US national cable networks count",
+   "type": "count measurement",
+   "clause": "grew from ... to ..."
+  },
+  {
+   "name": "separately priced niche audiences",
+   "type": "audience segment",
+   "clause": "supply of separately priced niche audiences"
+  },
+  {
+   "name": "separately priced niche audiences supply",
+   "type": "count measurement",
+   "clause": "roughly tripled in a decade"
+  },
+  {
+   "name": "decade",
+   "type": "time span",
+   "clause": "in a decade"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US national cable networks count",
+   "type": "MEASURES",
+   "to": "US national cable networks",
+   "clause": "the number of US national cable networks"
+  },
+  {
+   "from": "separately priced niche audiences supply",
+   "type": "MEASURES",
+   "to": "separately priced niche audiences",
+   "clause": "supply of separately priced niche audiences"
+  },
+  {
+   "from": "separately priced niche audiences supply",
+   "type": "TRIPLED_IN",
+   "to": "decade",
+   "clause": "roughly tripled in a decade"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US national cable networks|cable network set|the number of US national cable networks\nNODE|US national cable networks count|count measurement|grew from ... to ...\nNODE|separately priced niche audiences|audience segment|supply of separately priced niche audiences\nNODE|separately priced niche audiences supply|count measurement|roughly tripled in a decade\nNODE|decade|time span|in a decade\nEDGE|US national cable networks count|MEASURES|US national cable networks|the number of US national cable networks\nEDGE|separately priced niche audiences supply|MEASURES|separately priced niche audiences|supply of separately priced niche audiences\nEDGE|separately priced niche audiences supply|TRIPLED_IN|decade|roughly tripled in a decade"
+}

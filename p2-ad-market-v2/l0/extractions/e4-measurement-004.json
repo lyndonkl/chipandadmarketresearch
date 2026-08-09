@@ -1,0 +1,144 @@
+{
+ "id": "e4-measurement-004",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1980,
+ "unit": "recruited households per test market",
+ "elapsed_s": 67.1,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 10,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "IRI",
+   "type": "organization",
+   "clause": "IRI's BehaviorScan launched in 1979-80"
+  },
+  {
+   "name": "IRI's BehaviorScan",
+   "type": "market research product",
+   "clause": "IRI's BehaviorScan built the first electronic single-source panel"
+  },
+  {
+   "name": "electronic single-source panel",
+   "type": "panel type",
+   "clause": "the first electronic single-source panel"
+  },
+  {
+   "name": "Marion, Indiana",
+   "type": "town",
+   "clause": "two test towns (Marion, Indiana and Pittsfield, Massachusetts)"
+  },
+  {
+   "name": "Pittsfield, Massachusetts",
+   "type": "town",
+   "clause": "two test towns (Marion, Indiana and Pittsfield, Massachusetts)"
+  },
+  {
+   "name": "test town",
+   "type": "abstract market unit",
+   "clause": "recruited households per town whose television sets could be cut into with test commercials"
+  },
+  {
+   "name": "UPC scanner",
+   "type": "device",
+   "clause": "UPC scanners in 15 supermarkets"
+  },
+  {
+   "name": "supermarket",
+   "type": "retail outlet",
+   "clause": "UPC scanners in 15 supermarkets"
+  },
+  {
+   "name": "test towns count",
+   "type": "count measurement",
+   "clause": "two test towns"
+  },
+  {
+   "name": "UPC scanner deployment count",
+   "type": "count measurement",
+   "clause": "15 supermarkets with UPC scanners"
+  },
+  {
+   "name": "recruited households per test market",
+   "type": "per-household measurement",
+   "clause": "2,000 recruited households per town"
+  },
+  {
+   "name": "household",
+   "type": "(promoted)",
+   "clause": ""
+  }
+ ],
+ "edges": [
+  {
+   "from": "IRI",
+   "type": "OWNS",
+   "to": "IRI's BehaviorScan",
+   "clause": "IRI's BehaviorScan launched in 1979-80"
+  },
+  {
+   "from": "IRI's BehaviorScan",
+   "type": "BUILT",
+   "to": "electronic single-source panel",
+   "clause": "built the first electronic single-source panel"
+  },
+  {
+   "from": "electronic single-source panel",
+   "type": "INCLUDES",
+   "to": "Marion, Indiana",
+   "clause": "two test towns ... Marion, Indiana"
+  },
+  {
+   "from": "electronic single-source panel",
+   "type": "INCLUDES",
+   "to": "Pittsfield, Massachusetts",
+   "clause": "two test towns ... Pittsfield, Massachusetts"
+  },
+  {
+   "from": "electronic single-source panel",
+   "type": "USES",
+   "to": "UPC scanner",
+   "clause": "UPC scanners in supermarkets"
+  },
+  {
+   "from": "UPC scanner",
+   "type": "DEPLOYED_IN",
+   "to": "supermarket",
+   "clause": "UPC scanners in 15 supermarkets"
+  },
+  {
+   "from": "test towns count",
+   "type": "MEASURES",
+   "to": "test town",
+   "clause": "two test towns"
+  },
+  {
+   "from": "UPC scanner deployment count",
+   "type": "MEASURES",
+   "to": "UPC scanner",
+   "clause": "15 supermarkets with UPC scanners"
+  },
+  {
+   "from": "recruited households per test market",
+   "type": "MEASURES",
+   "to": "household",
+   "clause": "2,000 recruited households per town"
+  },
+  {
+   "from": "recruited households per test market",
+   "type": "PER",
+   "to": "test town",
+   "clause": "per town whose television sets could be cut into with test commercials"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "undeclared_endpoint_promoted",
+   "endpoint": "household",
+   "line": "EDGE|recruited households per test market|MEASURES|household|2,000 recruited households per town"
+  }
+ ],
+ "raw": "NODE|IRI|organization|IRI's BehaviorScan launched in 1979-80\nNODE|IRI's BehaviorScan|market research product|IRI's BehaviorScan built the first electronic single-source panel\nNODE|electronic single-source panel|panel type|the first electronic single-source panel\nNODE|Marion, Indiana|town|two test towns (Marion, Indiana and Pittsfield, Massachusetts)\nNODE|Pittsfield, Massachusetts|town|two test towns (Marion, Indiana and Pittsfield, Massachusetts)\nNODE|test town|abstract market unit|recruited households per town whose television sets could be cut into with test commercials\nNODE|UPC scanner|device|UPC scanners in 15 supermarkets\nNODE|supermarket|retail outlet|UPC scanners in 15 supermarkets\nNODE|test towns count|count measurement|two test towns\nNODE|UPC scanner deployment count|count measurement|15 supermarkets with UPC scanners\nNODE|recruited households per test market|per-household measurement|2,000 recruited households per town\nEDGE|IRI|OWNS|IRI's BehaviorScan|IRI's BehaviorScan launched in 1979-80\nEDGE|IRI's BehaviorScan|BUILT|electronic single-source panel|built the first electronic single-source panel\nEDGE|electronic single-source panel|INCLUDES|Marion, Indiana|two test towns ... Marion, Indiana\nEDGE|electronic single-source panel|INCLUDES|Pittsfield, Massachusetts|two test towns ... Pittsfield, Massachusetts\nEDGE|electronic single-source panel|USES|UPC scanner|UPC scanners in supermarkets\nEDGE|UPC scanner|DEPLOYED_IN|supermarket|UPC scanners in 15 supermarkets\nEDGE|test towns count|MEASURES|test town|two test towns\nEDGE|UPC scanner deployment count|MEASURES|UPC scanner|15 supermarkets with UPC scanners\nEDGE|recruited households per test market|MEASURES|household|2,000 recruited households per town\nEDGE|recruited households per test market|PER|test town|per town whose television sets could be cut into with test commercials"
+}

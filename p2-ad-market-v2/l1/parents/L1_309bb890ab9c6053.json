@@ -1,0 +1,100 @@
+{
+ "group_id": "L1|309bb890ab9c6053",
+ "source": "kmeans",
+ "n_in": 13,
+ "parents": [
+  {
+   "name": "Paid introductions volume",
+   "type": "intent-matched click measurement",
+   "grain": "Measurement",
+   "reason": "singleton: volume of paid introductions (intent\u2011matched clicks)",
+   "child_uids": [
+    "n|e5-targeting-004|paid introductions volume|intent-matched click measurement"
+   ]
+  },
+  {
+   "name": "Payment per click",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: advertiser payment amount per click",
+   "child_uids": [
+    "n|e6-pricing-002|payment per click|revenue measurement"
+   ]
+  },
+  {
+   "name": "Overture realized average price per paid click",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "one measure across periods and sources; Overture realized average price per paid click",
+   "child_uids": [
+    "n|e6-pricing-006|overture average realised price per paid click (earlier)|price measurement",
+    "n|e6-pricing-006|overture average realised price per paid click (later)|price measurement",
+    "n|mech-overture-001|realised average price per paid click (earlier period)|average price measurement",
+    "n|mech-overture-001|realised average price per paid click (later period)|average price measurement"
+   ]
+  },
+  {
+   "name": "Top slot price",
+   "type": "price paid measurement",
+   "grain": "Measurement",
+   "reason": "singleton: price for top ad slot per click",
+   "child_uids": [
+    "n|mech-discounter-001|top slot price|price paid measurement"
+   ]
+  },
+  {
+   "name": "Second slot price",
+   "type": "price paid measurement",
+   "grain": "Measurement",
+   "reason": "singleton: price for second ad slot per click",
+   "child_uids": [
+    "n|mech-discounter-001|second slot price|price paid measurement"
+   ]
+  },
+  {
+   "name": "Third slot price",
+   "type": "price paid measurement",
+   "grain": "Measurement",
+   "reason": "singleton: price for third ad slot (minimum bid) per click",
+   "child_uids": [
+    "n|mech-discounter-001|third slot price|price paid measurement"
+   ]
+  },
+  {
+   "name": "Disclosed average price per paid introduction",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: disclosed average price for paid introductions",
+   "child_uids": [
+    "n|mech-ovt-004|disclosed average price per paid introduction|price measurement"
+   ]
+  },
+  {
+   "name": "Average realized price per click",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: overall average realized price per click",
+   "child_uids": [
+    "n|tu:era:5:boundary|average realized price per click|price measurement"
+   ]
+  },
+  {
+   "name": "Minimum click price",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: minimum required price per click",
+   "child_uids": [
+    "n|tu:era:5:field:PRICING|minimum click price|price measurement"
+   ]
+  },
+  {
+   "name": "Overture average click price",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: Overture average price per click",
+   "child_uids": [
+    "n|tu:era:5:field:PRICING|overture average click price|price measurement"
+   ]
+  }
+ ]
+}

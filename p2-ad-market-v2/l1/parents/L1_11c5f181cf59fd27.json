@@ -1,0 +1,63 @@
+{
+ "group_id": "L1|11c5f181cf59fd27",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Ad ranking mechanism",
+   "type": "ranking mechanism",
+   "grain": "Entity",
+   "reason": "multiple naming variants of same concept",
+   "child_uids": [
+    "n|e6-events-001|ad ranking|ranking mechanism",
+    "n|mech-adwords-001|ad ranking method|ranking algorithm",
+    "n|tu:era:6:field:PRICING|ad ranking algorithm|algorithm"
+   ]
+  },
+  {
+   "name": "Bid-to-position model",
+   "type": "ranking mechanism",
+   "grain": "Entity",
+   "reason": "singleton: specific bid-to-position ranking model",
+   "child_uids": [
+    "n|e6-events-008|bid-to-position model|ranking mechanism"
+   ]
+  },
+  {
+   "name": "Bid-times-quality ranking",
+   "type": "ranking mechanism",
+   "grain": "Entity",
+   "reason": "singleton: distinct bid\u2011times\u2011quality ranking approach",
+   "child_uids": [
+    "n|e6-events-008|bid-times-quality ranking|ranking mechanism"
+   ]
+  },
+  {
+   "name": "Quality-weighted ad ranking",
+   "type": "ranking mechanism",
+   "grain": "Entity",
+   "reason": "singleton: quality\u2011weighted ad ranking method",
+   "child_uids": [
+    "n|e6-pricing-001|quality-weighted ad ranking|ranking mechanism"
+   ]
+  },
+  {
+   "name": "CTR-bid combination",
+   "type": "ranking factor",
+   "grain": "Entity",
+   "reason": "singleton: factor combining click\u2011through rate and bid",
+   "child_uids": [
+    "n|tu:era:6:event:0|ctr-bid combination|ranking factor"
+   ]
+  },
+  {
+   "name": "Google-shipped mechanism",
+   "type": "ranking mechanism",
+   "grain": "Entity",
+   "reason": "singleton: Google\u2019s specific ranking mechanism",
+   "child_uids": [
+    "n|tu:era:6:event:7|google-shipped mechanism|ranking mechanism"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,144 @@
+{
+ "id": "tu:era:4:event:3",
+ "kind": "prose:event",
+ "era": 4,
+ "about_year": 1983,
+ "unit": null,
+ "elapsed_s": 74.3,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Postal Service",
+   "type": "organization",
+   "clause": "The Postal Service introduced the nine-digit ZIP+4"
+  },
+  {
+   "name": "nine-digit ZIP+4",
+   "type": "postal code format",
+   "clause": "the nine-digit ZIP+4"
+  },
+  {
+   "name": "five-digit ZIP",
+   "type": "postal code format",
+   "clause": "roughly ... five-digit ZIPs"
+  },
+  {
+   "name": "PRIZM",
+   "type": "market segmentation system",
+   "clause": "that PRIZM had clustered"
+  },
+  {
+   "name": "delivery segment",
+   "type": "postal delivery segment",
+   "clause": "far smaller delivery segments"
+  },
+  {
+   "name": "cheaper computing",
+   "type": "technology condition",
+   "clause": "cheaper computing"
+  },
+  {
+   "name": "merge/purge de-duplication",
+   "type": "data processing technique",
+   "clause": "merge/purge de-duplication"
+  },
+  {
+   "name": "commercial list compilation",
+   "type": "list building practice",
+   "clause": "commercial list compilation"
+  },
+  {
+   "name": "direct-mail targeting",
+   "type": "marketing practice",
+   "clause": "direct-mail targeting"
+  },
+  {
+   "name": "town",
+   "type": "geographic scale",
+   "clause": "the town"
+  },
+  {
+   "name": "block face",
+   "type": "geographic scale",
+   "clause": "the block face"
+  },
+  {
+   "name": "five-digit ZIP count",
+   "type": "count measurement",
+   "clause": "roughly ... five-digit ZIPs"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Postal Service",
+   "type": "INTRODUCED",
+   "to": "nine-digit ZIP+4",
+   "clause": "introduced the nine-digit ZIP+4"
+  },
+  {
+   "from": "nine-digit ZIP+4",
+   "type": "SUBDIVIDES",
+   "to": "five-digit ZIP",
+   "clause": "subdividing ... five-digit ZIPs"
+  },
+  {
+   "from": "PRIZM",
+   "type": "CLUSTERED",
+   "to": "five-digit ZIP",
+   "clause": "had clustered ... five-digit ZIPs"
+  },
+  {
+   "from": "five-digit ZIP",
+   "type": "GROUPED_INTO",
+   "to": "delivery segment",
+   "clause": "into far smaller delivery segments"
+  },
+  {
+   "from": "five-digit ZIP count",
+   "type": "MEASURES",
+   "to": "five-digit ZIP",
+   "clause": "count of roughly ... five-digit ZIPs"
+  },
+  {
+   "from": "nine-digit ZIP+4",
+   "type": "LED_TO",
+   "to": "direct-mail targeting",
+   "clause": "combined effect moved targeting"
+  },
+  {
+   "from": "cheaper computing",
+   "type": "LED_TO",
+   "to": "direct-mail targeting",
+   "clause": "cheaper computing contributed to move"
+  },
+  {
+   "from": "merge/purge de-duplication",
+   "type": "LED_TO",
+   "to": "direct-mail targeting",
+   "clause": "de-duplication contributed to move"
+  },
+  {
+   "from": "commercial list compilation",
+   "type": "LED_TO",
+   "to": "direct-mail targeting",
+   "clause": "list compilation contributed to move"
+  },
+  {
+   "from": "direct-mail targeting",
+   "type": "MOVED_FROM",
+   "to": "town",
+   "clause": "moved ... from the town"
+  },
+  {
+   "from": "direct-mail targeting",
+   "type": "MOVED_TO",
+   "to": "block face",
+   "clause": "moved ... to the block face"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Postal Service|organization|The Postal Service introduced the nine-digit ZIP+4\nNODE|nine-digit ZIP+4|postal code format|the nine-digit ZIP+4\nNODE|five-digit ZIP|postal code format|roughly ... five-digit ZIPs\nNODE|PRIZM|market segmentation system|that PRIZM had clustered\nNODE|delivery segment|postal delivery segment|far smaller delivery segments\nNODE|cheaper computing|technology condition|cheaper computing\nNODE|merge/purge de-duplication|data processing technique|merge/purge de-duplication\nNODE|commercial list compilation|list building practice|commercial list compilation\nNODE|direct-mail targeting|marketing practice|direct-mail targeting\nNODE|town|geographic scale|the town\n NODE|block face|geographic scale|the block face\nNODE|five-digit ZIP count|count measurement|roughly ... five-digit ZIPs\n\nEDGE|Postal Service|INTRODUCED|nine-digit ZIP+4|introduced the nine-digit ZIP+4\nEDGE|nine-digit ZIP+4|SUBDIVIDES|five-digit ZIP|subdividing ... five-digit ZIPs\nEDGE|PRIZM|CLUSTERED|five-digit ZIP|had clustered ... five-digit ZIPs\nEDGE|five-digit ZIP|GROUPED_INTO|delivery segment|into far smaller delivery segments\nEDGE|five-digit ZIP count|MEASURES|five-digit ZIP|count of roughly ... five-digit ZIPs\nEDGE|nine-digit ZIP+4|LED_TO|direct-mail targeting|combined effect moved targeting\nEDGE|cheaper computing|LED_TO|direct-mail targeting|cheaper computing contributed to move\nEDGE|merge/purge de-duplication|LED_TO|direct-mail targeting|de-duplication contributed to move\nEDGE|commercial list compilation|LED_TO|direct-mail targeting|list compilation contributed to move\nEDGE|direct-mail targeting|MOVED_FROM|town|moved ... from the town\nEDGE|direct-mail targeting|MOVED_TO|block face|moved ... to the block face"
+}

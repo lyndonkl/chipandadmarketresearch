@@ -1,0 +1,56 @@
+{
+ "id": "e3-medium-002",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "million USD",
+ "elapsed_s": 72.1,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US television advertising expenditure",
+   "type": "advertising spend measurement",
+   "clause": "US television advertising expenditure was ... million"
+  },
+  {
+   "name": "US television advertising expenditure 1950",
+   "type": "advertising spend measurement",
+   "clause": "...-fold increase on ..."
+  },
+  {
+   "name": "Television Factbook",
+   "type": "reference publication",
+   "clause": "The Television Factbook's narrower 'gross broadcast advertising revenue' measure"
+  },
+  {
+   "name": "Television Factbook gross broadcast advertising revenue",
+   "type": "advertising revenue measurement",
+   "clause": "gives ... million for the same year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US television advertising expenditure",
+   "type": "INCREASED_OVER",
+   "to": "US television advertising expenditure 1950",
+   "clause": "...-fold increase on ..."
+  },
+  {
+   "from": "Television Factbook",
+   "type": "PUBLISHED",
+   "to": "Television Factbook gross broadcast advertising revenue",
+   "clause": "narrower 'gross broadcast advertising revenue' measure gives ... million"
+  },
+  {
+   "from": "US television advertising expenditure",
+   "type": "NOT_AVERAGED",
+   "to": "Television Factbook gross broadcast advertising revenue",
+   "clause": "the two series are not averaged here"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US television advertising expenditure|advertising spend measurement|US television advertising expenditure was ... million\nNODE|US television advertising expenditure 1950|advertising spend measurement|...-fold increase on ...\nNODE|Television Factbook|reference publication|The Television Factbook's narrower 'gross broadcast advertising revenue' measure\nNODE|Television Factbook gross broadcast advertising revenue|advertising revenue measurement|gives ... million for the same year\nEDGE|US television advertising expenditure|INCREASED_OVER|US television advertising expenditure 1950|...-fold increase on ...\nEDGE|Television Factbook|PUBLISHED|Television Factbook gross broadcast advertising revenue|narrower 'gross broadcast advertising revenue' measure gives ... million\nEDGE|US television advertising expenditure|NOT_AVERAGED|Television Factbook gross broadcast advertising revenue|the two series are not averaged here"
+}

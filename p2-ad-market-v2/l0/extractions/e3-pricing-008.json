@@ -1,0 +1,94 @@
+{
+ "id": "e3-pricing-008",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1962,
+ "unit": "year the network television upfront market formed",
+ "elapsed_s": 62.9,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "upfront market",
+   "type": "advertising market segment",
+   "clause": "the upfront market dates from 1962"
+  },
+  {
+   "name": "ABC",
+   "type": "broadcast network",
+   "clause": "ABC"
+  },
+  {
+   "name": "CBS",
+   "type": "broadcast network",
+   "clause": "CBS"
+  },
+  {
+   "name": "NBC",
+   "type": "broadcast network",
+   "clause": "NBC"
+  },
+  {
+   "name": "premiere week",
+   "type": "advertising schedule period",
+   "clause": "one week after Labor Day"
+  },
+  {
+   "name": "spring selling window",
+   "type": "advertising schedule period",
+   "clause": "the spring selling window"
+  },
+  {
+   "name": "television season",
+   "type": "program season",
+   "clause": "the season sold in advance"
+  },
+  {
+   "name": "fixed institution",
+   "type": "status",
+   "clause": "fixed institutions"
+  }
+ ],
+ "edges": [
+  {
+   "from": "ABC",
+   "type": "CONCENTRATED_PREMIERES_IN",
+   "to": "premiere week",
+   "clause": "concentrated all its premieres in one week after Labor Day"
+  },
+  {
+   "from": "ABC",
+   "type": "SOLD_SEASON_IN_ADVANCE",
+   "to": "upfront market",
+   "clause": "sold the season in advance"
+  },
+  {
+   "from": "CBS",
+   "type": "FOLLOWED",
+   "to": "ABC",
+   "clause": "followed"
+  },
+  {
+   "from": "NBC",
+   "type": "FOLLOWED",
+   "to": "ABC",
+   "clause": "followed"
+  },
+  {
+   "from": "premiere week",
+   "type": "BECAME",
+   "to": "fixed institution",
+   "clause": "were fixed institutions"
+  },
+  {
+   "from": "spring selling window",
+   "type": "BECAME",
+   "to": "fixed institution",
+   "clause": "were fixed institutions"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|upfront market|advertising market segment|the upfront market dates from 1962\nNODE|ABC|broadcast network|ABC\nNODE|CBS|broadcast network|CBS\nNODE|NBC|broadcast network|NBC\nNODE|premiere week|advertising schedule period|one week after Labor Day\nNODE|spring selling window|advertising schedule period|the spring selling window\nNODE|television season|program season|the season sold in advance\nNODE|fixed institution|status|fixed institutions\nEDGE|ABC|CONCENTRATED_PREMIERES_IN|premiere week|concentrated all its premieres in one week after Labor Day\nEDGE|ABC|SOLD_SEASON_IN_ADVANCE|upfront market|sold the season in advance\nEDGE|CBS|FOLLOWED|ABC|followed\nEDGE|NBC|FOLLOWED|ABC|followed\nEDGE|premiere week|BECAME|fixed institution|were fixed institutions\nEDGE|spring selling window|BECAME|fixed institution|were fixed institutions"
+}

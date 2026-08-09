@@ -1,0 +1,122 @@
+{
+ "id": "e2-events-003",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1938,
+ "unit": "percent of US unlimited-time stations' nighttime wattage held by stations affiliated with NBC or CBS, end of 1938",
+ "elapsed_s": 102.5,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "NBC",
+   "type": "broadcast network",
+   "clause": "the NBC network"
+  },
+  {
+   "name": "CBS",
+   "type": "broadcast network",
+   "clause": "the CBS network"
+  },
+  {
+   "name": "NBC/CBS-affiliated stations",
+   "type": "station group",
+   "clause": "stations affiliated with NBC or CBS"
+  },
+  {
+   "name": "US unlimited-time stations",
+   "type": "radio station class",
+   "clause": "US unlimited-time stations"
+  },
+  {
+   "name": "nighttime wattage of US unlimited-time stations",
+   "type": "wattage metric",
+   "clause": "nighttime wattage of US unlimited-time stations"
+  },
+  {
+   "name": "total US nighttime wattage",
+   "type": "wattage metric",
+   "clause": "total US nighttime wattage"
+  },
+  {
+   "name": "NBC/CBS-affiliated stations share of US unlimited-time stations nighttime wattage",
+   "type": "media-share measurement",
+   "clause": "held ... of the nighttime wattage of US unlimited-time stations"
+  },
+  {
+   "name": "NBC/CBS-affiliated stations share of all US nighttime wattage",
+   "type": "media-share measurement",
+   "clause": "held ... of all US nighttime wattage"
+  },
+  {
+   "name": "FCC",
+   "type": "government agency",
+   "clause": "The FCC's own published summary"
+  },
+  {
+   "name": "FCC reported NBC/CBS-affiliated stations share of total US nighttime wattage",
+   "type": "media-share measurement",
+   "clause": "said only 'over ... percent'"
+  }
+ ],
+ "edges": [
+  {
+   "from": "NBC/CBS-affiliated stations",
+   "type": "AFFILIATED_WITH",
+   "to": "NBC",
+   "clause": "stations affiliated with NBC"
+  },
+  {
+   "from": "NBC/CBS-affiliated stations",
+   "type": "AFFILIATED_WITH",
+   "to": "CBS",
+   "clause": "stations affiliated with CBS"
+  },
+  {
+   "from": "NBC/CBS-affiliated stations share of US unlimited-time stations nighttime wattage",
+   "type": "MEASURES",
+   "to": "NBC/CBS-affiliated stations",
+   "clause": "held ... of the nighttime wattage ..."
+  },
+  {
+   "from": "NBC/CBS-affiliated stations share of US unlimited-time stations nighttime wattage",
+   "type": "MEASURED_ON",
+   "to": "nighttime wattage of US unlimited-time stations",
+   "clause": "of the nighttime wattage of US unlimited-time stations"
+  },
+  {
+   "from": "NBC/CBS-affiliated stations share of all US nighttime wattage",
+   "type": "MEASURES",
+   "to": "NBC/CBS-affiliated stations",
+   "clause": "held ... of all US nighttime wattage"
+  },
+  {
+   "from": "NBC/CBS-affiliated stations share of all US nighttime wattage",
+   "type": "MEASURED_ON",
+   "to": "total US nighttime wattage",
+   "clause": "of all US nighttime wattage"
+  },
+  {
+   "from": "FCC",
+   "type": "CLAIMED",
+   "to": "FCC reported NBC/CBS-affiliated stations share of total US nighttime wattage",
+   "clause": "said only 'over ... percent'"
+  },
+  {
+   "from": "FCC reported NBC/CBS-affiliated stations share of total US nighttime wattage",
+   "type": "MEASURES",
+   "to": "NBC/CBS-affiliated stations",
+   "clause": "share ... of all US nighttime wattage"
+  },
+  {
+   "from": "FCC reported NBC/CBS-affiliated stations share of total US nighttime wattage",
+   "type": "MEASURED_ON",
+   "to": "total US nighttime wattage",
+   "clause": "of all US nighttime wattage"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|NBC|broadcast network|the NBC network\nNODE|CBS|broadcast network|the CBS network\nNODE|NBC/CBS-affiliated stations|station group|stations affiliated with NBC or CBS\nNODE|US unlimited-time stations|radio station class|US unlimited-time stations\nNODE|nighttime wattage of US unlimited-time stations|wattage metric|nighttime wattage of US unlimited-time stations\nNODE|total US nighttime wattage|wattage metric|total US nighttime wattage\nNODE|NBC/CBS-affiliated stations share of US unlimited-time stations nighttime wattage|media-share measurement|held ... of the nighttime wattage of US unlimited-time stations\nNODE|NBC/CBS-affiliated stations share of all US nighttime wattage|media-share measurement|held ... of all US nighttime wattage\nNODE|FCC|government agency|The FCC's own published summary\nNODE|FCC reported NBC/CBS-affiliated stations share of total US nighttime wattage|media-share measurement|said only 'over ... percent'\nEDGE|NBC/CBS-affiliated stations|AFFILIATED_WITH|NBC|stations affiliated with NBC\nEDGE|NBC/CBS-affiliated stations|AFFILIATED_WITH|CBS|stations affiliated with CBS\nEDGE|NBC/CBS-affiliated stations share of US unlimited-time stations nighttime wattage|MEASURES|NBC/CBS-affiliated stations|held ... of the nighttime wattage ...\nEDGE|NBC/CBS-affiliated stations share of US unlimited-time stations nighttime wattage|MEASURED_ON|nighttime wattage of US unlimited-time stations|of the nighttime wattage of US unlimited-time stations\nEDGE|NBC/CBS-affiliated stations share of all US nighttime wattage|MEASURES|NBC/CBS-affiliated stations|held ... of all US nighttime wattage\nEDGE|NBC/CBS-affiliated stations share of all US nighttime wattage|MEASURED_ON|total US nighttime wattage|of all US nighttime wattage\nEDGE|FCC|CLAIMED|FCC reported NBC/CBS-affiliated stations share of total US nighttime wattage|said only 'over ... percent'\nEDGE|FCC reported NBC/CBS-affiliated stations share of total US nighttime wattage|MEASURES|NBC/CBS-affiliated stations|share ... of all US nighttime wattage\nEDGE|FCC reported NBC/CBS-affiliated stations share of total US nighttime wattage|MEASURED_ON|total US nighttime wattage|of all US nighttime wattage"
+}

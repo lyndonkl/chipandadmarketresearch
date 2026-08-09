@@ -1,0 +1,57 @@
+{
+ "id": "e1-scale-009",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "percent of nominal GDP",
+ "elapsed_s": 70.9,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising outlay",
+   "type": "advertising expenditure",
+   "clause": "US advertising outlay"
+  },
+  {
+   "name": "nominal GDP",
+   "type": "macro-economic aggregate",
+   "clause": "nominal GDP"
+  },
+  {
+   "name": "advertising share of nominal GDP",
+   "type": "media-spend share measurement",
+   "clause": "advertising share of nominal GDP"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising share of nominal GDP",
+   "type": "MEASURES",
+   "to": "US advertising outlay",
+   "clause": "as percent of nominal GDP"
+  },
+  {
+   "from": "advertising share of nominal GDP",
+   "type": "SHARE_OF",
+   "to": "nominal GDP",
+   "clause": "of nominal GDP"
+  },
+  {
+   "from": "advertising share of nominal GDP",
+   "type": "UP_FROM",
+   "to": "advertising share of nominal GDP",
+   "clause": "up from ... in 1880"
+  },
+  {
+   "from": "advertising share of nominal GDP",
+   "type": "UP_FROM",
+   "to": "advertising share of nominal GDP",
+   "clause": "up from ... in 1867"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising outlay|advertising expenditure|US advertising outlay\nNODE|nominal GDP|macro-economic aggregate|nominal GDP\nNODE|advertising share of nominal GDP|media-spend share measurement|advertising share of nominal GDP\nEDGE|advertising share of nominal GDP|MEASURES|US advertising outlay|as percent of nominal GDP\nEDGE|advertising share of nominal GDP|SHARE_OF|nominal GDP|of nominal GDP\nEDGE|advertising share of nominal GDP|UP_FROM|advertising share of nominal GDP|up from ... in 1880\nEDGE|advertising share of nominal GDP|UP_FROM|advertising share of nominal GDP|up from ... in 1867"
+}

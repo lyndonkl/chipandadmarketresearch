@@ -1,0 +1,106 @@
+{
+ "id": "e2-sellers-001",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1938,
+ "unit": "percent of US broadcast-industry net time sales held by the NBC and CBS networks, 1938",
+ "elapsed_s": 66.3,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "NBC network",
+   "type": "broadcast network",
+   "clause": "the NBC network"
+  },
+  {
+   "name": "CBS network",
+   "type": "broadcast network",
+   "clause": "the CBS network"
+  },
+  {
+   "name": "US broadcast industry",
+   "type": "market",
+   "clause": "the US broadcast industry"
+  },
+  {
+   "name": "US broadcast-industry net time sales value",
+   "type": "revenue measurement",
+   "clause": "... of net time sales"
+  },
+  {
+   "name": "NBC and CBS network share of US broadcast-industry net time sales",
+   "type": "media-share measurement",
+   "clause": "taken by NBC and CBS networks"
+  },
+  {
+   "name": "NBC and CBS owned stations",
+   "type": "station group",
+   "clause": "their ... owned stations"
+  },
+  {
+   "name": "owned stations share of US broadcast-industry net time sales",
+   "type": "media-share measurement",
+   "clause": "taken by owned stations"
+  },
+  {
+   "name": "NBC and CBS owned station count",
+   "type": "count measurement",
+   "clause": "... owned stations"
+  }
+ ],
+ "edges": [
+  {
+   "from": "NBC and CBS network share of US broadcast-industry net time sales",
+   "type": "SHARE_OF",
+   "to": "US broadcast-industry net time sales value",
+   "clause": "... of net time sales"
+  },
+  {
+   "from": "NBC and CBS network share of US broadcast-industry net time sales",
+   "type": "MEASURES",
+   "to": "NBC network",
+   "clause": "taken by NBC network"
+  },
+  {
+   "from": "NBC and CBS network share of US broadcast-industry net time sales",
+   "type": "MEASURES",
+   "to": "CBS network",
+   "clause": "taken by CBS network"
+  },
+  {
+   "from": "owned stations share of US broadcast-industry net time sales",
+   "type": "SHARE_OF",
+   "to": "US broadcast-industry net time sales value",
+   "clause": "... of net time sales"
+  },
+  {
+   "from": "owned stations share of US broadcast-industry net time sales",
+   "type": "MEASURES",
+   "to": "NBC and CBS owned stations",
+   "clause": "taken by owned stations"
+  },
+  {
+   "from": "NBC and CBS owned station count",
+   "type": "MEASURES",
+   "to": "NBC and CBS owned stations",
+   "clause": "... owned stations"
+  },
+  {
+   "from": "NBC and CBS owned stations",
+   "type": "OWNED_BY",
+   "to": "NBC network",
+   "clause": "owned stations belong to NBC network"
+  },
+  {
+   "from": "NBC and CBS owned stations",
+   "type": "OWNED_BY",
+   "to": "CBS network",
+   "clause": "owned stations belong to CBS network"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|NBC network|broadcast network|the NBC network\nNODE|CBS network|broadcast network|the CBS network\nNODE|US broadcast industry|market|the US broadcast industry\nNODE|US broadcast-industry net time sales value|revenue measurement|... of net time sales\nNODE|NBC and CBS network share of US broadcast-industry net time sales|media-share measurement|taken by NBC and CBS networks\nNODE|NBC and CBS owned stations|station group|their ... owned stations\nNODE|owned stations share of US broadcast-industry net time sales|media-share measurement|taken by owned stations\nNODE|NBC and CBS owned station count|count measurement|... owned stations\nEDGE|NBC and CBS network share of US broadcast-industry net time sales|SHARE_OF|US broadcast-industry net time sales value|... of net time sales\nEDGE|NBC and CBS network share of US broadcast-industry net time sales|MEASURES|NBC network|taken by NBC network\nEDGE|NBC and CBS network share of US broadcast-industry net time sales|MEASURES|CBS network|taken by CBS network\nEDGE|owned stations share of US broadcast-industry net time sales|SHARE_OF|US broadcast-industry net time sales value|... of net time sales\nEDGE|owned stations share of US broadcast-industry net time sales|MEASURES|NBC and CBS owned stations|taken by owned stations\nEDGE|NBC and CBS owned station count|MEASURES|NBC and CBS owned stations|... owned stations\nEDGE|NBC and CBS owned stations|OWNED_BY|NBC network|owned stations belong to NBC network\nEDGE|NBC and CBS owned stations|OWNED_BY|CBS network|owned stations belong to CBS network"
+}

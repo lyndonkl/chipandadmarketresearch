@@ -1,0 +1,45 @@
+{
+ "id": "e1-events-004",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1921,
+ "unit": "states adopting the original form",
+ "elapsed_s": 30.5,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Printers' Ink model statute",
+   "type": "model statute",
+   "clause": "the Printers' Ink model statute"
+  },
+  {
+   "name": "states adopting original form",
+   "type": "state adoption count measurement",
+   "clause": "adopted ... in ... states in substantially its original form"
+  },
+  {
+   "name": "states adopting modified form",
+   "type": "state adoption count measurement",
+   "clause": "adopted ... in ... more states in modified form"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Printers' Ink model statute",
+   "type": "ADOPTED_IN",
+   "to": "states adopting original form",
+   "clause": "adopted ... in ... states in substantially its original form"
+  },
+  {
+   "from": "Printers' Ink model statute",
+   "type": "ADOPTED_IN",
+   "to": "states adopting modified form",
+   "clause": "adopted ... in ... more states in modified form"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Printers' Ink model statute|model statute|the Printers' Ink model statute\nNODE|states adopting original form|state adoption count measurement|adopted ... in ... states in substantially its original form\nNODE|states adopting modified form|state adoption count measurement|adopted ... in ... more states in modified form\nEDGE|Printers' Ink model statute|ADOPTED_IN|states adopting original form|adopted ... in ... states in substantially its original form\nEDGE|Printers' Ink model statute|ADOPTED_IN|states adopting modified form|adopted ... in ... more states in modified form"
+}

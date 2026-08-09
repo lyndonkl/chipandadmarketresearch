@@ -1,0 +1,120 @@
+{
+ "id": "e3-buyers-003",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1956,
+ "unit": "percent of US national advertising expenditure",
+ "elapsed_s": 68.3,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "1956 consent decree",
+   "type": "advertising consent decree",
+   "clause": "the 1956 consent decree's complaint covered"
+  },
+  {
+   "name": "print media advertising",
+   "type": "advertising medium",
+   "clause": "National advertising in the print media"
+  },
+  {
+   "name": "newspapers",
+   "type": "advertising medium",
+   "clause": "Newspapers"
+  },
+  {
+   "name": "magazines",
+   "type": "advertising medium",
+   "clause": "Magazines"
+  },
+  {
+   "name": "business papers",
+   "type": "advertising medium",
+   "clause": "business papers"
+  },
+  {
+   "name": "farm publications",
+   "type": "advertising medium",
+   "clause": "farm publications"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail"
+  },
+  {
+   "name": "broadcast advertising",
+   "type": "advertising medium",
+   "clause": "broadcast"
+  },
+  {
+   "name": "US national advertising expenditure",
+   "type": "advertising spend aggregate",
+   "clause": "of US national advertising expenditure"
+  },
+  {
+   "name": "print media share of US national advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "was ... of US national advertising expenditure"
+  },
+  {
+   "name": "newspapers and magazines",
+   "type": "advertising medium",
+   "clause": "Newspapers and magazines alone"
+  },
+  {
+   "name": "newspapers and magazines share of US national advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "Newspapers and magazines alone were ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "1956 consent decree",
+   "type": "COVERED",
+   "to": "print media advertising",
+   "clause": "complaint covered"
+  },
+  {
+   "from": "1956 consent decree",
+   "type": "EXCLUDED",
+   "to": "direct mail",
+   "clause": "left direct mail untouched"
+  },
+  {
+   "from": "1956 consent decree",
+   "type": "EXCLUDED",
+   "to": "broadcast advertising",
+   "clause": "left broadcast untouched"
+  },
+  {
+   "from": "print media share of US national advertising expenditure",
+   "type": "MEASURES",
+   "to": "print media advertising",
+   "clause": "was ... of US national advertising expenditure"
+  },
+  {
+   "from": "print media share of US national advertising expenditure",
+   "type": "MEASURED_ON",
+   "to": "US national advertising expenditure",
+   "clause": "of US national advertising expenditure"
+  },
+  {
+   "from": "newspapers and magazines share of US national advertising expenditure",
+   "type": "MEASURES",
+   "to": "newspapers and magazines",
+   "clause": "Newspapers and magazines alone were ..."
+  },
+  {
+   "from": "newspapers and magazines share of US national advertising expenditure",
+   "type": "MEASURED_ON",
+   "to": "US national advertising expenditure",
+   "clause": "of US national advertising expenditure"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|1956 consent decree|advertising consent decree|the 1956 consent decree's complaint covered\nNODE|print media advertising|advertising medium|National advertising in the print media\nNODE|newspapers|advertising medium|Newspapers\nNODE|magazines|advertising medium|Magazines\nNODE|business papers|advertising medium|business papers\nNODE|farm publications|advertising medium|farm publications\nNODE|direct mail|advertising medium|direct mail\nNODE|broadcast advertising|advertising medium|broadcast\nNODE|US national advertising expenditure|advertising spend aggregate|of US national advertising expenditure\nNODE|print media share of US national advertising expenditure|media-share measurement|was ... of US national advertising expenditure\nNODE|newspapers and magazines|advertising medium|Newspapers and magazines alone\nNODE|newspapers and magazines share of US national advertising expenditure|media-share measurement|Newspapers and magazines alone were ...\nEDGE|1956 consent decree|COVERED|print media advertising|complaint covered\nEDGE|1956 consent decree|EXCLUDED|direct mail|left direct mail untouched\nEDGE|1956 consent decree|EXCLUDED|broadcast advertising|left broadcast untouched\nEDGE|print media share of US national advertising expenditure|MEASURES|print media advertising|was ... of US national advertising expenditure\nEDGE|print media share of US national advertising expenditure|MEASURED_ON|US national advertising expenditure|of US national advertising expenditure\nEDGE|newspapers and magazines share of US national advertising expenditure|MEASURES|newspapers and magazines|Newspapers and magazines alone were ...\nEDGE|newspapers and magazines share of US national advertising expenditure|MEASURED_ON|US national advertising expenditure|of US national advertising expenditure"
+}

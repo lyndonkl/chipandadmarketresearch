@@ -1,0 +1,67 @@
+{
+ "id": "e5-sellers-006",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of US internet ad revenue",
+ "elapsed_s": 51.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "search engines and portals",
+   "type": "advertising channel",
+   "clause": "Search engines' and portals' share..."
+  },
+  {
+   "name": "classifieds-related content",
+   "type": "content genre",
+   "clause": "classifiers-related content rose ..."
+  },
+  {
+   "name": "US internet ad revenue",
+   "type": "advertising market revenue",
+   "clause": "share of US internet ad revenue"
+  },
+  {
+   "name": "search engines and portals share of US internet ad revenue",
+   "type": "media-share measurement",
+   "clause": "share of US internet ad revenue by publisher content genre, full year ..."
+  },
+  {
+   "name": "classifieds-related content share of US internet ad revenue",
+   "type": "media-share measurement",
+   "clause": "classifiers-related content share of US internet ad revenue rose from ... to ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "search engines and portals share of US internet ad revenue",
+   "type": "MEASURES",
+   "to": "search engines and portals",
+   "clause": "share of US internet ad revenue by publisher content genre"
+  },
+  {
+   "from": "search engines and portals share of US internet ad revenue",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "share of US internet ad revenue ..."
+  },
+  {
+   "from": "classifieds-related content share of US internet ad revenue",
+   "type": "MEASURES",
+   "to": "classifieds-related content",
+   "clause": "classifiers-related content share ... rose from ... to ..."
+  },
+  {
+   "from": "classifieds-related content share of US internet ad revenue",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "share of US internet ad revenue ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|search engines and portals|advertising channel|Search engines' and portals' share...\nNODE|classifieds-related content|content genre|classifiers-related content rose ...\nNODE|US internet ad revenue|advertising market revenue|share of US internet ad revenue\nNODE|search engines and portals share of US internet ad revenue|media-share measurement|share of US internet ad revenue by publisher content genre, full year ...\nNODE|classifieds-related content share of US internet ad revenue|media-share measurement|classifiers-related content share of US internet ad revenue rose from ... to ...\nEDGE|search engines and portals share of US internet ad revenue|MEASURES|search engines and portals|share of US internet ad revenue by publisher content genre\nEDGE|search engines and portals share of US internet ad revenue|SHARE_OF|US internet ad revenue|share of US internet ad revenue ...\nEDGE|classifieds-related content share of US internet ad revenue|MEASURES|classifieds-related content|classifiers-related content share ... rose from ... to ...\nEDGE|classifieds-related content share of US internet ad revenue|SHARE_OF|US internet ad revenue|share of US internet ad revenue ..."
+}

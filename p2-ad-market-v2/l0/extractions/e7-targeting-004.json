@@ -1,0 +1,111 @@
+{
+ "id": "e7-targeting-004",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "billions of monthly users of Google AI Overviews",
+ "elapsed_s": 74.4,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's AI Overviews"
+  },
+  {
+   "name": "AI Overviews",
+   "type": "advertising format",
+   "clause": "Google's AI Overviews"
+  },
+  {
+   "name": "Google chief business officer",
+   "type": "executive",
+   "clause": "Google's chief business officer said..."
+  },
+  {
+   "name": "AI Overviews monthly user count",
+   "type": "user-count measurement",
+   "clause": "reached more than ... monthly users"
+  },
+  {
+   "name": "AI Overviews country reach count",
+   "type": "country-count measurement",
+   "clause": "across ... countries"
+  },
+  {
+   "name": "AI Overviews language support count",
+   "type": "language-count measurement",
+   "clause": "and ... languages"
+  },
+  {
+   "name": "AI Overviews monetisation rate",
+   "type": "monetisation-rate measurement",
+   "clause": "the format monetises at approx same rate"
+  },
+  {
+   "name": "classic search",
+   "type": "search product",
+   "clause": "same rate as classic search"
+  },
+  {
+   "name": "classic search monetisation rate",
+   "type": "monetisation-rate measurement",
+   "clause": "same rate as classic search"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "PROVIDES",
+   "to": "AI Overviews",
+   "clause": "Google's AI Overviews"
+  },
+  {
+   "from": "AI Overviews monthly user count",
+   "type": "MEASURES",
+   "to": "AI Overviews",
+   "clause": "reached more than ... monthly users"
+  },
+  {
+   "from": "AI Overviews country reach count",
+   "type": "MEASURES",
+   "to": "AI Overviews",
+   "clause": "across ... countries"
+  },
+  {
+   "from": "AI Overviews language support count",
+   "type": "MEASURES",
+   "to": "AI Overviews",
+   "clause": "and ... languages"
+  },
+  {
+   "from": "AI Overviews monetisation rate",
+   "type": "MEASURES",
+   "to": "AI Overviews",
+   "clause": "the format monetises at approx same rate"
+  },
+  {
+   "from": "classic search monetisation rate",
+   "type": "MEASURES",
+   "to": "classic search",
+   "clause": "same rate as classic search"
+  },
+  {
+   "from": "AI Overviews monetisation rate",
+   "type": "SAME_AS",
+   "to": "classic search monetisation rate",
+   "clause": "approximately the same rate as classic search"
+  },
+  {
+   "from": "Google chief business officer",
+   "type": "CLAIMED_SAME_RATE_AS",
+   "to": "classic search monetisation rate",
+   "clause": "said the format monetises at approx the same rate as classic search"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google's AI Overviews\nNODE|AI Overviews|advertising format|Google's AI Overviews\nNODE|Google chief business officer|executive|Google's chief business officer said...\nNODE|AI Overviews monthly user count|user-count measurement|reached more than ... monthly users\nNODE|AI Overviews country reach count|country-count measurement|across ... countries\nNODE|AI Overviews language support count|language-count measurement|and ... languages\nNODE|AI Overviews monetisation rate|monetisation-rate measurement|the format monetises at approx same rate\nNODE|classic search|search product|same rate as classic search\nNODE|classic search monetisation rate|monetisation-rate measurement|same rate as classic search\nEDGE|Google|PROVIDES|AI Overviews|Google's AI Overviews\nEDGE|AI Overviews monthly user count|MEASURES|AI Overviews|reached more than ... monthly users\nEDGE|AI Overviews country reach count|MEASURES|AI Overviews|across ... countries\nEDGE|AI Overviews language support count|MEASURES|AI Overviews|and ... languages\nEDGE|AI Overviews monetisation rate|MEASURES|AI Overviews|the format monetises at approx same rate\nEDGE|classic search monetisation rate|MEASURES|classic search|same rate as classic search\nEDGE|AI Overviews monetisation rate|SAME_AS|classic search monetisation rate|approximately the same rate as classic search\nEDGE|Google chief business officer|CLAIMED_SAME_RATE_AS|classic search monetisation rate|said the format monetises at approx the same rate as classic search"
+}

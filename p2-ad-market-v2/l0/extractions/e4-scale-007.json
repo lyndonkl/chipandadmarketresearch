@@ -1,0 +1,62 @@
+{
+ "id": "e4-scale-007",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 59.9,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national advertising spend",
+   "type": "advertising expenditure aggregate",
+   "clause": "National advertising spend in the US"
+  },
+  {
+   "name": "current national advertising spend amount",
+   "type": "spend measurement",
+   "clause": "was ..."
+  },
+  {
+   "name": "historical national advertising spend amount",
+   "type": "spend measurement",
+   "clause": "... earlier ..."
+  },
+  {
+   "name": "advertising spend growth multiple",
+   "type": "growth factor measurement",
+   "clause": "(...x)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national advertising spend",
+   "type": "HAS_AMOUNT",
+   "to": "current national advertising spend amount",
+   "clause": "was ..."
+  },
+  {
+   "from": "national advertising spend",
+   "type": "HAS_AMOUNT",
+   "to": "historical national advertising spend amount",
+   "clause": "... earlier"
+  },
+  {
+   "from": "current national advertising spend amount",
+   "type": "UP_FROM",
+   "to": "historical national advertising spend amount",
+   "clause": "up from ..."
+  },
+  {
+   "from": "advertising spend growth multiple",
+   "type": "MEASURES_GROWTH_OF",
+   "to": "national advertising spend",
+   "clause": "growth factor ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national advertising spend|advertising expenditure aggregate|National advertising spend in the US\nNODE|current national advertising spend amount|spend measurement|was ... \nNODE|historical national advertising spend amount|spend measurement|... earlier ...\nNODE|advertising spend growth multiple|growth factor measurement|(...x)\nEDGE|national advertising spend|HAS_AMOUNT|current national advertising spend amount|was ...\nEDGE|national advertising spend|HAS_AMOUNT|historical national advertising spend amount|... earlier\nEDGE|current national advertising spend amount|UP_FROM|historical national advertising spend amount|up from ...\nEDGE|advertising spend growth multiple|MEASURES_GROWTH_OF|national advertising spend|growth factor ..."
+}

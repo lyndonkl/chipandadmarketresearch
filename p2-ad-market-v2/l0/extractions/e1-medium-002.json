@@ -1,0 +1,67 @@
+{
+ "id": "e1-medium-002",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "percent of print advertising receipts",
+ "elapsed_s": 49.1,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "newspapers",
+   "type": "print medium",
+   "clause": "Newspapers"
+  },
+  {
+   "name": "US print advertising receipts",
+   "type": "market revenue aggregate",
+   "clause": "all US print advertising receipts"
+  },
+  {
+   "name": "newspapers' share of US print advertising receipts",
+   "type": "media-share measurement",
+   "clause": "Newspapers took ... percent of US print advertising receipts"
+  },
+  {
+   "name": "magazines, farm, trade and business papers",
+   "type": "print media segment",
+   "clause": "magazines, farm, trade and business papers sharing remaining ... percent"
+  },
+  {
+   "name": "magazines share of US print advertising receipts",
+   "type": "media-share measurement",
+   "clause": "magazines, farm, trade and business papers shared remaining ... percent"
+  }
+ ],
+ "edges": [
+  {
+   "from": "newspapers' share of US print advertising receipts",
+   "type": "MEASURES",
+   "to": "newspapers",
+   "clause": "Newspapers took ... percent of US print advertising receipts"
+  },
+  {
+   "from": "newspapers' share of US print advertising receipts",
+   "type": "SHARE_OF",
+   "to": "US print advertising receipts",
+   "clause": "... of US print advertising receipts"
+  },
+  {
+   "from": "magazines, farm, trade and business papers",
+   "type": "MEASURES",
+   "to": "magazines, farm, trade and business papers",
+   "clause": "magazines, farm, trade and business papers shared remaining ... percent"
+  },
+  {
+   "from": "magazines share of US print advertising receipts",
+   "type": "SHARE_OF",
+   "to": "US print advertising receipts",
+   "clause": "... of US print advertising receipts"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|newspapers|print medium|Newspapers\nNODE|US print advertising receipts|market revenue aggregate|all US print advertising receipts\nNODE|newspapers' share of US print advertising receipts|media-share measurement|Newspapers took ... percent of US print advertising receipts\nNODE|magazines, farm, trade and business papers|print media segment|magazines, farm, trade and business papers sharing remaining ... percent\nNODE|magazines share of US print advertising receipts|media-share measurement|magazines, farm, trade and business papers shared remaining ... percent\nEDGE|newspapers' share of US print advertising receipts|MEASURES|newspapers|Newspapers took ... percent of US print advertising receipts\nEDGE|newspapers' share of US print advertising receipts|SHARE_OF|US print advertising receipts|... of US print advertising receipts\nEDGE|magazines, farm, trade and business papers|MEASURES|magazines, farm, trade and business papers|magazines, farm, trade and business papers shared remaining ... percent\nEDGE|magazines share of US print advertising receipts|SHARE_OF|US print advertising receipts|... of US print advertising receipts"
+}

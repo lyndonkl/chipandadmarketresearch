@@ -1,0 +1,118 @@
+{
+ "id": "mech-default-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2022,
+ "unit": "USD billions paid by Google to Apple under the Information Services Agreement, 2022",
+ "elapsed_s": 91.4,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Apple",
+   "type": "company",
+   "clause": "Apple"
+  },
+  {
+   "name": "most recent Google-Apple revenue share payment",
+   "type": "revenue-share payment measurement",
+   "clause": "... revenue share payment amount"
+  },
+  {
+   "name": "earlier Google-Apple revenue share payment",
+   "type": "revenue-share payment measurement",
+   "clause": "... revenue share payment amount"
+  },
+  {
+   "name": "worldwide queries",
+   "type": "query scope",
+   "clause": "worldwide queries"
+  },
+  {
+   "name": "Information Services Agreement",
+   "type": "contract",
+   "clause": "Apple agreement"
+  },
+  {
+   "name": "Google's other revenue-share payments (combined)",
+   "type": "aggregate revenue-share payment measurement",
+   "clause": "Google's other revenue-share payments combined"
+  },
+  {
+   "name": "Apple operating profit",
+   "type": "financial metric",
+   "clause": "Apple's operating profit"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "MADE_PAYMENT",
+   "to": "most recent Google-Apple revenue share payment",
+   "clause": "made ... revenue share payment to Apple"
+  },
+  {
+   "from": "most recent Google-Apple revenue share payment",
+   "type": "PAID_TO",
+   "to": "Apple",
+   "clause": "payment to Apple"
+  },
+  {
+   "from": "most recent Google-Apple revenue share payment",
+   "type": "BASED_ON",
+   "to": "worldwide queries",
+   "clause": "on worldwide queries"
+  },
+  {
+   "from": "most recent Google-Apple revenue share payment",
+   "type": "UNDER",
+   "to": "Information Services Agreement",
+   "clause": "under the Apple agreement"
+  },
+  {
+   "from": "Google",
+   "type": "MADE_PAYMENT",
+   "to": "earlier Google-Apple revenue share payment",
+   "clause": "made ... revenue share payment to Apple"
+  },
+  {
+   "from": "earlier Google-Apple revenue share payment",
+   "type": "PAID_TO",
+   "to": "Apple",
+   "clause": "payment to Apple"
+  },
+  {
+   "from": "most recent Google-Apple revenue share payment",
+   "type": "APPROX_DOUBLE_OF",
+   "to": "earlier Google-Apple revenue share payment",
+   "clause": "nearly double the ... payment"
+  },
+  {
+   "from": "earlier Google-Apple revenue share payment",
+   "type": "SHARE_OF",
+   "to": "Apple operating profit",
+   "clause": "equivalent to ... of Apple's operating profit"
+  },
+  {
+   "from": "most recent Google-Apple revenue share payment",
+   "type": "EXCEEDED",
+   "to": "Google's other revenue-share payments (combined)",
+   "clause": "exceeded all of Google's other revenue-share payments combined"
+  },
+  {
+   "from": "most recent Google-Apple revenue share payment",
+   "type": "APPROX_DOUBLE_OF",
+   "to": "Google's other revenue-share payments (combined)",
+   "clause": "approximately double their combined value"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|Apple|company|Apple\nNODE|most recent Google-Apple revenue share payment|revenue-share payment measurement|... revenue share payment amount\nNODE|earlier Google-Apple revenue share payment|revenue-share payment measurement|... revenue share payment amount\nNODE|worldwide queries|query scope|worldwide queries\nNODE|Information Services Agreement|contract|Apple agreement\nNODE|Google's other revenue-share payments (combined)|aggregate revenue-share payment measurement|Google's other revenue-share payments combined\nNODE|Apple operating profit|financial metric|Apple's operating profit\nEDGE|Google|MADE_PAYMENT|most recent Google-Apple revenue share payment|made ... revenue share payment to Apple\nEDGE|most recent Google-Apple revenue share payment|PAID_TO|Apple|payment to Apple\nEDGE|most recent Google-Apple revenue share payment|BASED_ON|worldwide queries|on worldwide queries\nEDGE|most recent Google-Apple revenue share payment|UNDER|Information Services Agreement|under the Apple agreement\nEDGE|Google|MADE_PAYMENT|earlier Google-Apple revenue share payment|made ... revenue share payment to Apple\nEDGE|earlier Google-Apple revenue share payment|PAID_TO|Apple|payment to Apple\nEDGE|most recent Google-Apple revenue share payment|APPROX_DOUBLE_OF|earlier Google-Apple revenue share payment|nearly double the ... payment\nEDGE|earlier Google-Apple revenue share payment|SHARE_OF|Apple operating profit|equivalent to ... of Apple's operating profit\nEDGE|most recent Google-Apple revenue share payment|EXCEEDED|Google's other revenue-share payments (combined)|exceeded all of Google's other revenue-share payments combined\nEDGE|most recent Google-Apple revenue share payment|APPROX_DOUBLE_OF|Google's other revenue-share payments (combined)|approximately double their combined value"
+}

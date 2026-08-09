@@ -1,0 +1,27 @@
+{
+ "group_id": "L1|1239dfbc9c78b256",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "National advertising spend (US)",
+   "type": "advertising expenditure aggregate",
+   "grain": "Entity",
+   "reason": "same aggregate concept across wording; year abstracted to children",
+   "child_uids": [
+    "n|e4-buyers-003|us national advertising spend|total ad spend",
+    "n|e4-scale-007|national advertising spend|advertising expenditure aggregate",
+    "n|tu:era:3:field:BUYERS|national advertising money|aggregate spend"
+   ]
+  },
+  {
+   "name": "National spot television advertising spend",
+   "type": "spend component",
+   "grain": "Entity",
+   "reason": "singleton: TV spot component of national advertising spend",
+   "child_uids": [
+    "n|e4-buyers-003|national spot television advertising spend|spend component"
+   ]
+  }
+ ]
+}

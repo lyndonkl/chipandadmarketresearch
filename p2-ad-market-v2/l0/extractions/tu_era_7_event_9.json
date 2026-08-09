@@ -1,0 +1,194 @@
+{
+ "id": "tu:era:7:event:9",
+ "kind": "prose:event",
+ "era": 7,
+ "about_year": 2026,
+ "unit": null,
+ "elapsed_s": 124.8,
+ "error": null,
+ "n_nodes": 16,
+ "n_edges": 15,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "OpenAI contextual text ad service",
+   "type": "ad service offering",
+   "clause": "began serving labelled contextual text ads"
+  },
+  {
+   "name": "labelled contextual text ads",
+   "type": "ad format",
+   "clause": "labelled contextual text ads"
+  },
+  {
+   "name": "US adult users",
+   "type": "demographic group",
+   "clause": "for logged-in US adults"
+  },
+  {
+   "name": "response content",
+   "type": "ui element",
+   "clause": "below responses"
+  },
+  {
+   "name": "Free tier",
+   "type": "pricing tier",
+   "clause": "on the Free tier"
+  },
+  {
+   "name": "Go tier",
+   "type": "pricing tier",
+   "clause": "on the ... Go tier"
+  },
+  {
+   "name": "paid tiers",
+   "type": "pricing tier",
+   "clause": "paid tiers staying ad-free"
+  },
+  {
+   "name": "Perplexity",
+   "type": "company",
+   "clause": "Perplexity"
+  },
+  {
+   "name": "sponsored-question product",
+   "type": "advertising product",
+   "clause": "the sponsored-question product it launched in ..."
+  },
+  {
+   "name": "Perplexity ad revenue",
+   "type": "revenue measurement",
+   "clause": "ad revenue had been roughly ... out of about ... of ... revenue"
+  },
+  {
+   "name": "Perplexity total revenue",
+   "type": "revenue measurement",
+   "clause": "total revenue of ..."
+  },
+  {
+   "name": "Meta",
+   "type": "company",
+   "clause": "Meta"
+  },
+  {
+   "name": "Meta AI chat interactions",
+   "type": "ai feature",
+   "clause": "Meta AI chat interactions"
+  },
+  {
+   "name": "ad targeting",
+   "type": "advertising practice",
+   "clause": "ad targeting"
+  },
+  {
+   "name": "opt-out option",
+   "type": "user control mechanism",
+   "clause": "no opt-out"
+  },
+  {
+   "name": "OpenAI",
+   "type": "(promoted)",
+   "clause": ""
+  }
+ ],
+ "edges": [
+  {
+   "from": "OpenAI",
+   "type": "ANNOUNCED",
+   "to": "OpenAI contextual text ad service",
+   "clause": "Announced on ..."
+  },
+  {
+   "from": "OpenAI",
+   "type": "LAUNCHED",
+   "to": "OpenAI contextual text ad service",
+   "clause": "Live from ..."
+  },
+  {
+   "from": "OpenAI",
+   "type": "SERVES",
+   "to": "labelled contextual text ads",
+   "clause": "began serving labelled contextual text ads"
+  },
+  {
+   "from": "labelled contextual text ads",
+   "type": "TARGETED_AT",
+   "to": "US adult users",
+   "clause": "for logged-in US adults"
+  },
+  {
+   "from": "labelled contextual text ads",
+   "type": "PLACED_BELOW",
+   "to": "response content",
+   "clause": "below responses"
+  },
+  {
+   "from": "OpenAI contextual text ad service",
+   "type": "AVAILABLE_ON",
+   "to": "Free tier",
+   "clause": "on the Free tier"
+  },
+  {
+   "from": "OpenAI contextual text ad service",
+   "type": "AVAILABLE_ON",
+   "to": "Go tier",
+   "clause": "on the ... Go tier"
+  },
+  {
+   "from": "paid tiers",
+   "type": "EXCLUDES",
+   "to": "labelled contextual text ads",
+   "clause": "paid tiers staying ad-free"
+  },
+  {
+   "from": "Perplexity",
+   "type": "ABANDONED",
+   "to": "sponsored-question product",
+   "clause": "abandoning the sponsored-question product it launched in ..."
+  },
+  {
+   "from": "Perplexity",
+   "type": "HAS_REVENUE",
+   "to": "Perplexity ad revenue",
+   "clause": "ad revenue had been roughly ... out of about ... of ... revenue"
+  },
+  {
+   "from": "Perplexity",
+   "type": "HAS_TOTAL_REVENUE",
+   "to": "Perplexity total revenue",
+   "clause": "total revenue of ..."
+  },
+  {
+   "from": "Perplexity ad revenue",
+   "type": "SHARE_OF",
+   "to": "Perplexity total revenue",
+   "clause": "... out of about ... of ... revenue"
+  },
+  {
+   "from": "Meta",
+   "type": "USES",
+   "to": "Meta AI chat interactions",
+   "clause": "begun using Meta AI chat interactions for ad targeting on ..."
+  },
+  {
+   "from": "Meta AI chat interactions",
+   "type": "ENABLED_FOR",
+   "to": "ad targeting",
+   "clause": "for ad targeting"
+  },
+  {
+   "from": "ad targeting",
+   "type": "HAS_NO_OPT_OUT",
+   "to": "opt-out option",
+   "clause": "with no opt-out"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "undeclared_endpoint_promoted",
+   "endpoint": "OpenAI",
+   "line": "EDGE|OpenAI|ANNOUNCED|OpenAI contextual text ad service|Announced on ..."
+  }
+ ],
+ "raw": "NODE|OpenAI contextual text ad service|ad service offering|began serving labelled contextual text ads\nNODE|labelled contextual text ads|ad format|labelled contextual text ads\nNODE|US adult users|demographic group|for logged-in US adults\nNODE|response content|ui element|below responses\nNODE|Free tier|pricing tier|on the Free tier\nNODE|Go tier|pricing tier|on the ... Go tier\nNODE|paid tiers|pricing tier|paid tiers staying ad-free\nNODE|Perplexity|company|Perplexity\nNODE|sponsored-question product|advertising product|the sponsored-question product it launched in ...\nNODE|Perplexity ad revenue|revenue measurement|ad revenue had been roughly ... out of about ... of ... revenue\nNODE|Perplexity total revenue|revenue measurement|total revenue of ...\nNODE|Meta|company|Meta\nNODE|Meta AI chat interactions|ai feature|Meta AI chat interactions\nNODE|ad targeting|advertising practice|ad targeting\nNODE|opt-out option|user control mechanism|no opt-out\nEDGE|OpenAI|ANNOUNCED|OpenAI contextual text ad service|Announced on ...\nEDGE|OpenAI|LAUNCHED|OpenAI contextual text ad service|Live from ...\nEDGE|OpenAI|SERVES|labelled contextual text ads|began serving labelled contextual text ads\nEDGE|labelled contextual text ads|TARGETED_AT|US adult users|for logged-in US adults\nEDGE|labelled contextual text ads|PLACED_BELOW|response content|below responses\nEDGE|OpenAI contextual text ad service|AVAILABLE_ON|Free tier|on the Free tier\nEDGE|OpenAI contextual text ad service|AVAILABLE_ON|Go tier|on the ... Go tier\nEDGE|paid tiers|EXCLUDES|labelled contextual text ads|paid tiers staying ad-free\nEDGE|Perplexity|ABANDONED|sponsored-question product|abandoning the sponsored-question product it launched in ...\nEDGE|Perplexity|HAS_REVENUE|Perplexity ad revenue|ad revenue had been roughly ... out of about ... of ... revenue\nEDGE|Perplexity|HAS_TOTAL_REVENUE|Perplexity total revenue|total revenue of ...\nEDGE|Perplexity ad revenue|SHARE_OF|Perplexity total revenue|... out of about ... of ... revenue\nEDGE|Meta|USES|Meta AI chat interactions|begun using Meta AI chat interactions for ad targeting on ...\nEDGE|Meta AI chat interactions|ENABLED_FOR|ad targeting|for ad targeting\nEDGE|ad targeting|HAS_NO_OPT_OUT|opt-out option|with no opt-out"
+}

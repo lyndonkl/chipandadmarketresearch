@@ -1,0 +1,143 @@
+{
+ "id": "e6-buyers-005",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "% of US ad spend classified as national, 2007",
+ "elapsed_s": 146.1,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "National advertisers",
+   "type": "advertiser group",
+   "clause": "national advertisers supplied ..."
+  },
+  {
+   "name": "US advertising market",
+   "type": "advertising market",
+   "clause": "all US advertising dollars"
+  },
+  {
+   "name": "National ad spend share of US advertising dollars",
+   "type": "media-share measurement",
+   "clause": "66.3% of all US advertising dollars in 2007"
+  },
+  {
+   "name": "Total US advertising dollars amount",
+   "type": "market size measurement",
+   "clause": "$279.6bn total US advertising dollars"
+  },
+  {
+   "name": "National advertising spend amount",
+   "type": "advertising spend measurement",
+   "clause": "$185.3bn national advertisers supplied"
+  },
+  {
+   "name": "National spending growth rate",
+   "type": "spending growth rate measurement",
+   "clause": "national spending grew ... across the era"
+  },
+  {
+   "name": "Local advertising spend",
+   "type": "spending aggregate",
+   "clause": "local advertising (implied)"
+  },
+  {
+   "name": "Local spending growth rate",
+   "type": "spending growth rate measurement",
+   "clause": "local grew ... across the era"
+  },
+  {
+   "name": "Local ad share of US advertising dollars",
+   "type": "media-share measurement",
+   "clause": "local's share fell by about an eighth"
+  },
+  {
+   "name": "Local ad share decline",
+   "type": "change measurement",
+   "clause": "local's share fell by about an eighth"
+  },
+  {
+   "name": "National/local balance",
+   "type": "spend composition",
+   "clause": "balance shifted toward national"
+  },
+  {
+   "name": "Search eats local budgets story",
+   "type": "market narrative",
+   "clause": "'search eats local budgets' story"
+  },
+  {
+   "name": "National ad share increase",
+   "type": "change measurement",
+   "clause": "up 4.9 points from 2002"
+  }
+ ],
+ "edges": [
+  {
+   "from": "National advertisers",
+   "type": "HAS_SHARE",
+   "to": "National ad spend share of US advertising dollars",
+   "clause": "national advertisers supplied ... of all US advertising dollars"
+  },
+  {
+   "from": "National ad spend share of US advertising dollars",
+   "type": "SHARE_OF",
+   "to": "US advertising market",
+   "clause": "... of all US advertising dollars"
+  },
+  {
+   "from": "National advertisers",
+   "type": "PROVIDED_SPEND_AMOUNT",
+   "to": "National advertising spend amount",
+   "clause": "$185.3bn ..."
+  },
+  {
+   "from": "Total US advertising dollars amount",
+   "type": "MEASURES",
+   "to": "US advertising market",
+   "clause": "total market size $279.6bn"
+  },
+  {
+   "from": "National ad spend share of US advertising dollars",
+   "type": "INCREASED_BY",
+   "to": "National ad share increase",
+   "clause": "up ... points from 2002"
+  },
+  {
+   "from": "National spending growth rate",
+   "type": "APPLIES_TO",
+   "to": "National advertising spend amount",
+   "clause": "national spending grew ... across the era"
+  },
+  {
+   "from": "Local spending growth rate",
+   "type": "APPLIES_TO",
+   "to": "Local advertising spend",
+   "clause": "local grew ... across the era"
+  },
+  {
+   "from": "Local ad share of US advertising dollars",
+   "type": "DECREASED_BY",
+   "to": "Local ad share decline",
+   "clause": "local's share fell by about an eighth"
+  },
+  {
+   "from": "National/local balance",
+   "type": "SHIFTED_TOWARD",
+   "to": "National advertisers",
+   "clause": "balance shifted toward national"
+  },
+  {
+   "from": "National/local balance",
+   "type": "OPPOSITE_OF",
+   "to": "Search eats local budgets story",
+   "clause": "the opposite of what ... would predict"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|National advertisers|advertiser group|national advertisers supplied ...\nNODE|US advertising market|advertising market|all US advertising dollars\nNODE|National ad spend share of US advertising dollars|media-share measurement|66.3% of all US advertising dollars in 2007\nNODE|Total US advertising dollars amount|market size measurement|$279.6bn total US advertising dollars\nNODE|National advertising spend amount|advertising spend measurement|$185.3bn national advertisers supplied\nNODE|National spending growth rate|spending growth rate measurement|national spending grew ... across the era\nNODE|Local advertising spend|spending aggregate|local advertising (implied)\nNODE|Local spending growth rate|spending growth rate measurement|local grew ... across the era\nNODE|Local ad share of US advertising dollars|media-share measurement|local's share fell by about an eighth\nNODE|Local ad share decline|change measurement|local's share fell by about an eighth\nNODE|National/local balance|spend composition|balance shifted toward national\n NODE|Search eats local budgets story|market narrative|'search eats local budgets' story\nNODE|National ad share increase|change measurement|up 4.9 points from 2002\nEDGE|National advertisers|HAS_SHARE|National ad spend share of US advertising dollars|national advertisers supplied ... of all US advertising dollars\nEDGE|National ad spend share of US advertising dollars|SHARE_OF|US advertising market|... of all US advertising dollars\nEDGE|National advertisers|PROVIDED_SPEND_AMOUNT|National advertising spend amount|$185.3bn ...\nEDGE|Total US advertising dollars amount|MEASURES|US advertising market|total market size $279.6bn\nEDGE|National ad spend share of US advertising dollars|INCREASED_BY|National ad share increase|up ... points from 2002\nEDGE|National spending growth rate|APPLIES_TO|National advertising spend amount|national spending grew ... across the era\nEDGE|Local spending growth rate|APPLIES_TO|Local advertising spend|local grew ... across the era\nEDGE|Local ad share of US advertising dollars|DECREASED_BY|Local ad share decline|local's share fell by about an eighth\nEDGE|National/local balance|SHIFTED_TOWARD|National advertisers|balance shifted toward national\nEDGE|National/local balance|OPPOSITE_OF|Search eats local budgets story|the opposite of what ... would predict"
+}

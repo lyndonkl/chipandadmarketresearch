@@ -1,0 +1,45 @@
+{
+ "id": "e4-pricing-004",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "US cents per third-class piece",
+ "elapsed_s": 29.4,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US third-class postage",
+   "type": "postal rate",
+   "clause": "US third-class postage"
+  },
+  {
+   "name": "average US third-class postage per piece",
+   "type": "postage cost measurement",
+   "clause": "average US third-class postage paid per piece"
+  },
+  {
+   "name": "direct-mail campaign",
+   "type": "advertising tactic",
+   "clause": "every direct-mail campaign in the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "average US third-class postage per piece",
+   "type": "MEASURES",
+   "to": "US third-class postage",
+   "clause": "average US third-class postage paid per piece"
+  },
+  {
+   "from": "average US third-class postage per piece",
+   "type": "BASE_COST_FOR",
+   "to": "direct-mail campaign",
+   "clause": "the base cost under every direct-mail campaign"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US third-class postage|postal rate|US third-class postage\nNODE|average US third-class postage per piece|postage cost measurement|average US third-class postage paid per piece\nNODE|direct-mail campaign|advertising tactic|every direct-mail campaign in the era\nEDGE|average US third-class postage per piece|MEASURES|US third-class postage|average US third-class postage paid per piece\nEDGE|average US third-class postage per piece|BASE_COST_FOR|direct-mail campaign|the base cost under every direct-mail campaign"
+}

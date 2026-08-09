@@ -1,0 +1,73 @@
+{
+ "id": "e2-medium-003",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1932,
+ "unit": "percent of US ad spend taken by radio, 1932",
+ "elapsed_s": 40.9,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "radio advertising",
+   "type": "advertising medium",
+   "clause": "... of all US advertising"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "... on the Coen series"
+  },
+  {
+   "name": "national-media base",
+   "type": "measurement base",
+   "clause": "... narrower national-media base"
+  },
+  {
+   "name": "radio share of US ad spend, Coen basis",
+   "type": "media-share measurement",
+   "clause": "... on the Coen series"
+  },
+  {
+   "name": "radio share of US ad spend, national-media basis",
+   "type": "media-share measurement",
+   "clause": "... on a narrower national-media base"
+  }
+ ],
+ "edges": [
+  {
+   "from": "radio share of US ad spend, Coen basis",
+   "type": "MEASURES",
+   "to": "radio advertising",
+   "clause": "... of all US advertising"
+  },
+  {
+   "from": "radio share of US ad spend, Coen basis",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "... on the Coen series"
+  },
+  {
+   "from": "radio share of US ad spend, national-media basis",
+   "type": "MEASURES",
+   "to": "radio advertising",
+   "clause": "... on a narrower national-media base"
+  },
+  {
+   "from": "radio share of US ad spend, national-media basis",
+   "type": "MEASURED_ON",
+   "to": "national-media base",
+   "clause": "... on a narrower national-media base"
+  },
+  {
+   "from": "radio share of US ad spend, Coen basis",
+   "type": "CONFLICTS_WITH",
+   "to": "radio share of US ad spend, national-media basis",
+   "clause": "the conflict is not resolved"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|radio advertising|advertising medium|... of all US advertising\nNODE|Coen series|advertising-spend dataset|... on the Coen series\nNODE|national-media base|measurement base|... narrower national-media base\nNODE|radio share of US ad spend, Coen basis|media-share measurement|... on the Coen series\nNODE|radio share of US ad spend, national-media basis|media-share measurement|... on a narrower national-media base\nEDGE|radio share of US ad spend, Coen basis|MEASURES|radio advertising|... of all US advertising\nEDGE|radio share of US ad spend, Coen basis|MEASURED_ON|Coen series|... on the Coen series\nEDGE|radio share of US ad spend, national-media basis|MEASURES|radio advertising|... on a narrower national-media base\nEDGE|radio share of US ad spend, national-media basis|MEASURED_ON|national-media base|... on a narrower national-media base\nEDGE|radio share of US ad spend, Coen basis|CONFLICTS_WITH|radio share of US ad spend, national-media basis|the conflict is not resolved"
+}

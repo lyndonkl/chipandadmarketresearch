@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|c13d50649f4c9f41",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "US newspaper advertising receipts",
+   "type": "aggregate revenue metric",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity for US newspaper advertising receipts",
+   "child_uids": [
+    "n|e1-buyers-007|us newspaper advertising receipts|aggregate revenue metric"
+   ]
+  },
+  {
+   "name": "US print advertising receipts",
+   "type": "market revenue aggregate",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity for US print advertising receipts",
+   "child_uids": [
+    "n|e1-medium-002|us print advertising receipts|market revenue aggregate"
+   ]
+  },
+  {
+   "name": "Advertising receipts",
+   "type": "advertising revenue",
+   "grain": "Entity",
+   "reason": "singleton: generic advertising receipts entity across markets",
+   "child_uids": [
+    "n|e1-scale-008|advertising receipts|advertising revenue"
+   ]
+  },
+  {
+   "name": "US newspaper gross income",
+   "type": "aggregate revenue",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity for US newspaper gross income metric",
+   "child_uids": [
+    "n|e1-sellers-003|us newspaper gross income|aggregate revenue"
+   ]
+  },
+  {
+   "name": "Census of Manufactures enumeration",
+   "type": "advertising receipts dataset",
+   "grain": "Entity",
+   "reason": "singleton: dataset enumerating newspaper and periodical advertising receipts",
+   "child_uids": [
+    "n|tu:era:1:field:SCALE|census of manufactures enumeration|advertising receipts dataset"
+   ]
+  }
+ ]
+}

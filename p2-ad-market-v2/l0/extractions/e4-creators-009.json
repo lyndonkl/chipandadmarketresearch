@@ -1,0 +1,73 @@
+{
+ "id": "e4-creators-009",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1989,
+ "unit": "million USD",
+ "elapsed_s": 54.8,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "WPP",
+   "type": "company",
+   "clause": "WPP acquired The Ogilvy Group"
+  },
+  {
+   "name": "The Ogilvy Group",
+   "type": "advertising agency",
+   "clause": "acquired by WPP"
+  },
+  {
+   "name": "agency acquisition cost",
+   "type": "acquisition cost measurement",
+   "clause": "for ... total purchase price"
+  },
+  {
+   "name": "price per share cash",
+   "type": "share price measurement",
+   "clause": "... a share in cash"
+  },
+  {
+   "name": "holding-company land grab",
+   "type": "industry consolidation practice",
+   "clause": "era's holding-company land grab"
+  }
+ ],
+ "edges": [
+  {
+   "from": "WPP",
+   "type": "ACQUIRED",
+   "to": "The Ogilvy Group",
+   "clause": "acquired ... in ..."
+  },
+  {
+   "from": "The Ogilvy Group",
+   "type": "HAS_ACQUISITION_COST",
+   "to": "agency acquisition cost",
+   "clause": "for ... total purchase price"
+  },
+  {
+   "from": "price per share cash",
+   "type": "PART_OF",
+   "to": "agency acquisition cost",
+   "clause": "... a share in cash"
+  },
+  {
+   "from": "agency acquisition cost",
+   "type": "WAS_LARGEST_FOR",
+   "to": "The Ogilvy Group",
+   "clause": "largest sum ever paid for an advertising agency"
+  },
+  {
+   "from": "agency acquisition cost",
+   "type": "COMPLETED",
+   "to": "holding-company land grab",
+   "clause": "completing the era's holding-company land grab"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|WPP|company|WPP acquired The Ogilvy Group\nNODE|The Ogilvy Group|advertising agency|acquired by WPP\nNODE|agency acquisition cost|acquisition cost measurement|for ... total purchase price\nNODE|price per share cash|share price measurement|... a share in cash\nNODE|holding-company land grab|industry consolidation practice|era's holding-company land grab\nEDGE|WPP|ACQUIRED|The Ogilvy Group|acquired ... in ...\nEDGE|The Ogilvy Group|HAS_ACQUISITION_COST|agency acquisition cost|for ... total purchase price\nEDGE|price per share cash|PART_OF|agency acquisition cost|... a share in cash\nEDGE|agency acquisition cost|WAS_LARGEST_FOR|The Ogilvy Group|largest sum ever paid for an advertising agency\nEDGE|agency acquisition cost|COMPLETED|holding-company land grab|completing the era's holding-company land grab"
+}

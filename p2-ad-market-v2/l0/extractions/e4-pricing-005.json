@@ -1,0 +1,116 @@
+{
+ "id": "e4-pricing-005",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "USD per thousand names (response lists)",
+ "elapsed_s": 66.0,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US mailing-list rental card rates",
+   "type": "mailing-list rental service",
+   "clause": "Early-1990s US mailing-list rental card rates"
+  },
+  {
+   "name": "response list",
+   "type": "list type",
+   "clause": "for response lists"
+  },
+  {
+   "name": "compiled list",
+   "type": "list type",
+   "clause": "for compiled lists"
+  },
+  {
+   "name": "business list",
+   "type": "list type",
+   "clause": "for business lists"
+  },
+  {
+   "name": "response list rental rate",
+   "type": "price measurement",
+   "clause": "ran ... per thousand names for response lists"
+  },
+  {
+   "name": "compiled list rental rate",
+   "type": "price measurement",
+   "clause": "ran ... per thousand for compiled lists"
+  },
+  {
+   "name": "business list rental rate",
+   "type": "price measurement",
+   "clause": "... for business lists"
+  },
+  {
+   "name": "production cost per piece",
+   "type": "cost measurement",
+   "clause": "with production at least ... a piece"
+  },
+  {
+   "name": "response success rate",
+   "type": "percentage measurement",
+   "clause": "a ... response counted as a success"
+  },
+  {
+   "name": "success",
+   "type": "outcome definition",
+   "clause": "counted as a success"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US mailing-list rental card rates",
+   "type": "HAS_RATE",
+   "to": "response list rental rate",
+   "clause": "ran ... per thousand names for response lists"
+  },
+  {
+   "from": "response list rental rate",
+   "type": "APPLIES_TO",
+   "to": "response list",
+   "clause": "for response lists"
+  },
+  {
+   "from": "US mailing-list rental card rates",
+   "type": "HAS_RATE",
+   "to": "compiled list rental rate",
+   "clause": "ran ... per thousand for compiled lists"
+  },
+  {
+   "from": "compiled list rental rate",
+   "type": "APPLIES_TO",
+   "to": "compiled list",
+   "clause": "for compiled lists"
+  },
+  {
+   "from": "US mailing-list rental card rates",
+   "type": "HAS_RATE",
+   "to": "business list rental rate",
+   "clause": "... for business lists"
+  },
+  {
+   "from": "business list rental rate",
+   "type": "APPLIES_TO",
+   "to": "business list",
+   "clause": "for business lists"
+  },
+  {
+   "from": "production cost per piece",
+   "type": "COST_OF",
+   "to": "US mailing-list rental card rates",
+   "clause": "with production at least ... a piece"
+  },
+  {
+   "from": "response success rate",
+   "type": "COUNTED_AS",
+   "to": "success",
+   "clause": "a ... response counted as a success"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US mailing-list rental card rates|mailing-list rental service|Early-1990s US mailing-list rental card rates\nNODE|response list|list type|for response lists\nNODE|compiled list|list type|for compiled lists\nNODE|business list|list type|for business lists\nNODE|response list rental rate|price measurement|ran ... per thousand names for response lists\nNODE|compiled list rental rate|price measurement|ran ... per thousand for compiled lists\nNODE|business list rental rate|price measurement|... for business lists\nNODE|production cost per piece|cost measurement|with production at least ... a piece\nNODE|response success rate|percentage measurement|a ... response counted as a success\nNODE|success|outcome definition|counted as a success\nEDGE|US mailing-list rental card rates|HAS_RATE|response list rental rate|ran ... per thousand names for response lists\nEDGE|response list rental rate|APPLIES_TO|response list|for response lists\nEDGE|US mailing-list rental card rates|HAS_RATE|compiled list rental rate|ran ... per thousand for compiled lists\nEDGE|compiled list rental rate|APPLIES_TO|compiled list|for compiled lists\nEDGE|US mailing-list rental card rates|HAS_RATE|business list rental rate|... for business lists\nEDGE|business list rental rate|APPLIES_TO|business list|for business lists\nEDGE|production cost per piece|COST_OF|US mailing-list rental card rates|with production at least ... a piece\nEDGE|response success rate|COUNTED_AS|success|a ... response counted as a success"
+}

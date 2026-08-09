@@ -1,0 +1,222 @@
+{
+ "id": "e5-scale-004",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of nominal US GDP",
+ "elapsed_s": 137.5,
+ "error": null,
+ "n_nodes": 18,
+ "n_edges": 19,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising expenditure",
+   "type": "advertising spend",
+   "clause": "US advertising expenditure"
+  },
+  {
+   "name": "nominal US GDP",
+   "type": "gross domestic product measure",
+   "clause": "nominal US GDP"
+  },
+  {
+   "name": "advertising share of nominal US GDP",
+   "type": "media-share measurement",
+   "clause": "US advertising expenditure as a share of nominal GDP"
+  },
+  {
+   "name": "post-1960 series",
+   "type": "advertising-share time series",
+   "clause": "peak of the post-1960 series"
+  },
+  {
+   "name": "whole record",
+   "type": "complete historical advertising share record",
+   "clause": "not peak of the whole record"
+  },
+  {
+   "name": "Silk & Berndt",
+   "type": "research firm",
+   "clause": "Silk & Berndt, whose MCE and IRS series both begin in 1960"
+  },
+  {
+   "name": "MCE series",
+   "type": "advertising-share dataset",
+   "clause": "MCE series"
+  },
+  {
+   "name": "IRS series",
+   "type": "advertising-share dataset",
+   "clause": "IRS series"
+  },
+  {
+   "name": "Galbi",
+   "type": "researcher",
+   "clause": "Galbi's rendering of Coen gives ..."
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "Coen series"
+  },
+  {
+   "name": "Galbi series",
+   "type": "advertising-share dataset",
+   "clause": "Galbi's series back to 1919"
+  },
+  {
+   "name": "National Income",
+   "type": "national income measure",
+   "clause": "National Income"
+  },
+  {
+   "name": "advertising share of National Income",
+   "type": "media-share measurement",
+   "clause": "advertising's share of National Income peaking above ..."
+  },
+  {
+   "name": "post-2000 period",
+   "type": "time period",
+   "clause": "after 2000"
+  },
+  {
+   "name": "MCE advertising share of nominal US GDP",
+   "type": "media-share measurement",
+   "clause": "MCE series puts the 2000 share at ..."
+  },
+  {
+   "name": "IRS advertising share of nominal US GDP",
+   "type": "media-share measurement",
+   "clause": "IRS series puts the 2000 share at ..."
+  },
+  {
+   "name": "Coen advertising share of nominal US GDP",
+   "type": "media-share measurement",
+   "clause": "Galbi's rendering of Coen gives ..."
+  },
+  {
+   "name": "Galbi advertising share of nominal US GDP",
+   "type": "media-share measurement",
+   "clause": "Galbi's series shows higher shares through the 1920s"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising share of nominal US GDP",
+   "type": "PEAK_OF",
+   "to": "post-1960 series",
+   "clause": "peak of the post-1960 series"
+  },
+  {
+   "from": "advertising share of nominal US GDP",
+   "type": "NOT_PEAK_OF",
+   "to": "whole record",
+   "clause": "not peak of the whole record"
+  },
+  {
+   "from": "MCE advertising share of nominal US GDP",
+   "type": "MEASURES",
+   "to": "US advertising expenditure",
+   "clause": "MCE series puts the 2000 share at ..."
+  },
+  {
+   "from": "MCE advertising share of nominal US GDP",
+   "type": "SHARE_OF",
+   "to": "nominal US GDP",
+   "clause": "share of nominal US GDP"
+  },
+  {
+   "from": "MCE advertising share of nominal US GDP",
+   "type": "MEASURED_ON",
+   "to": "MCE series",
+   "clause": "MCE series ..."
+  },
+  {
+   "from": "IRS advertising share of nominal US GDP",
+   "type": "MEASURES",
+   "to": "US advertising expenditure",
+   "clause": "IRS series puts the 2000 share at ..."
+  },
+  {
+   "from": "IRS advertising share of nominal US GDP",
+   "type": "SHARE_OF",
+   "to": "nominal US GDP",
+   "clause": "share of nominal US GDP"
+  },
+  {
+   "from": "IRS advertising share of nominal US GDP",
+   "type": "MEASURED_ON",
+   "to": "IRS series",
+   "clause": "IRS series ..."
+  },
+  {
+   "from": "Coen advertising share of nominal US GDP",
+   "type": "MEASURES",
+   "to": "US advertising expenditure",
+   "clause": "Galbi's rendering of Coen gives ..."
+  },
+  {
+   "from": "Coen advertising share of nominal US GDP",
+   "type": "SHARE_OF",
+   "to": "nominal US GDP",
+   "clause": "share of nominal US GDP"
+  },
+  {
+   "from": "Coen advertising share of nominal US GDP",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "Galbi's rendering of Coen ..."
+  },
+  {
+   "from": "Galbi advertising share of nominal US GDP",
+   "type": "MEASURES",
+   "to": "US advertising expenditure",
+   "clause": "Galbi's series shows higher shares through the 1920s"
+  },
+  {
+   "from": "Galbi advertising share of nominal US GDP",
+   "type": "SHARE_OF",
+   "to": "nominal US GDP",
+   "clause": "share of nominal US GDP"
+  },
+  {
+   "from": "Galbi advertising share of nominal US GDP",
+   "type": "MEASURED_ON",
+   "to": "Galbi series",
+   "clause": "Galbi's series back to 1919 ..."
+  },
+  {
+   "from": "advertising share of National Income",
+   "type": "SHARE_OF",
+   "to": "National Income",
+   "clause": "advertising's share of National Income peaking above ..."
+  },
+  {
+   "from": "advertising share of National Income",
+   "type": "MEASURES",
+   "to": "US advertising expenditure",
+   "clause": "Silk & Berndt record advertising's share of National Income..."
+  },
+  {
+   "from": "advertising share of National Income",
+   "type": "RECORDED_BY",
+   "to": "Silk & Berndt",
+   "clause": "recorded by Silk & Berndt"
+  },
+  {
+   "from": "advertising share of nominal US GDP",
+   "type": "FELL_BELOW",
+   "to": "post-2000 period",
+   "clause": "share fell below ... after 2000"
+  },
+  {
+   "from": "advertising share of nominal US GDP",
+   "type": "DID_NOT_RETURN",
+   "to": "post-2000 period",
+   "clause": "did not return"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising expenditure|advertising spend|US advertising expenditure\nNODE|nominal US GDP|gross domestic product measure|nominal US GDP\nNODE|advertising share of nominal US GDP|media-share measurement|US advertising expenditure as a share of nominal GDP\nNODE|post-1960 series|advertising-share time series|peak of the post-1960 series\nNODE|whole record|complete historical advertising share record|not peak of the whole record\nNODE|Silk & Berndt|research firm|Silk & Berndt, whose MCE and IRS series both begin in 1960\nNODE|MCE series|advertising-share dataset|MCE series\nNODE|IRS series|advertising-share dataset|IRS series\nNODE|Galbi|researcher|Galbi's rendering of Coen gives ...\nNODE|Coen series|advertising-spend dataset|Coen series\nNODE|Galbi series|advertising-share dataset|Galbi's series back to 1919\nNODE|National Income|national income measure|National Income\nNODE|advertising share of National Income|media-share measurement|advertising's share of National Income peaking above ...\nNODE|post-2000 period|time period|after 2000\nNODE|MCE advertising share of nominal US GDP|media-share measurement|MCE series puts the 2000 share at ...\nNODE|IRS advertising share of nominal US GDP|media-share measurement|IRS series puts the 2000 share at ...\nNODE|Coen advertising share of nominal US GDP|media-share measurement|Galbi's rendering of Coen gives ...\nNODE|Galbi advertising share of nominal US GDP|media-share measurement|Galbi's series shows higher shares through the 1920s\nEDGE|advertising share of nominal US GDP|PEAK_OF|post-1960 series|peak of the post-1960 series\nEDGE|advertising share of nominal US GDP|NOT_PEAK_OF|whole record|not peak of the whole record\nEDGE|MCE advertising share of nominal US GDP|MEASURES|US advertising expenditure|MCE series puts the 2000 share at ...\nEDGE|MCE advertising share of nominal US GDP|SHARE_OF|nominal US GDP|share of nominal US GDP\nEDGE|MCE advertising share of nominal US GDP|MEASURED_ON|MCE series|MCE series ...\nEDGE|IRS advertising share of nominal US GDP|MEASURES|US advertising expenditure|IRS series puts the 2000 share at ...\nEDGE|IRS advertising share of nominal US GDP|SHARE_OF|nominal US GDP|share of nominal US GDP\nEDGE|IRS advertising share of nominal US GDP|MEASURED_ON|IRS series|IRS series ...\nEDGE|Coen advertising share of nominal US GDP|MEASURES|US advertising expenditure|Galbi's rendering of Coen gives ...\nEDGE|Coen advertising share of nominal US GDP|SHARE_OF|nominal US GDP|share of nominal US GDP\nEDGE|Coen advertising share of nominal US GDP|MEASURED_ON|Coen series|Galbi's rendering of Coen ...\nEDGE|Galbi advertising share of nominal US GDP|MEASURES|US advertising expenditure|Galbi's series shows higher shares through the 1920s\nEDGE|Galbi advertising share of nominal US GDP|SHARE_OF|nominal US GDP|share of nominal US GDP\nEDGE|Galbi advertising share of nominal US GDP|MEASURED_ON|Galbi series|Galbi's series back to 1919 ...\nEDGE|advertising share of National Income|SHARE_OF|National Income|advertising's share of National Income peaking above ...\nEDGE|advertising share of National Income|MEASURES|US advertising expenditure|Silk & Berndt record advertising's share of National Income...\nEDGE|advertising share of National Income|RECORDED_BY|Silk & Berndt|recorded by Silk & Berndt\nEDGE|advertising share of nominal US GDP|FELL_BELOW|post-2000 period|share fell below ... after 2000\nEDGE|advertising share of nominal US GDP|DID_NOT_RETURN|post-2000 period|did not return"
+}

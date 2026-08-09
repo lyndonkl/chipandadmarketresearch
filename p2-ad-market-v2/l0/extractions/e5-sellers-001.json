@@ -1,0 +1,88 @@
+{
+ "id": "e5-sellers-001",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "percent of quarterly US internet ad revenue",
+ "elapsed_s": 78.4,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet advertising revenue",
+   "type": "market",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "ten largest ad-selling companies",
+   "type": "seller cohort",
+   "clause": "the ten largest ad-selling companies"
+  },
+  {
+   "name": "top twenty-five ad-selling companies",
+   "type": "seller cohort",
+   "clause": "the top twenty-five ad-selling companies"
+  },
+  {
+   "name": "top fifty ad-selling companies",
+   "type": "seller cohort",
+   "clause": "the top fifty ad-selling companies"
+  },
+  {
+   "name": "share of US internet advertising revenue by ten largest sellers in Q4 2001",
+   "type": "ad-revenue share measurement",
+   "clause": "share ... taken by the ten largest ... in Q4 ..."
+  },
+  {
+   "name": "share of US internet advertising revenue by ten largest sellers in Q4 2000",
+   "type": "ad-revenue share measurement",
+   "clause": "share ... taken by the ten largest ... in Q4 ..."
+  },
+  {
+   "name": "share of US internet advertising revenue by top twenty-five sellers in Q4 2001",
+   "type": "ad-revenue share measurement",
+   "clause": "share ... taken by the top ... in Q4 ..."
+  },
+  {
+   "name": "share of US internet advertising revenue by top fifty sellers in Q4 2001",
+   "type": "ad-revenue share measurement",
+   "clause": "share ... taken by the top ... in Q4 ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "share of US internet advertising revenue by ten largest sellers in Q4 2001",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... of US internet advertising revenue"
+  },
+  {
+   "from": "share of US internet advertising revenue by ten largest sellers in Q4 2000",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... of US internet advertising revenue"
+  },
+  {
+   "from": "share of US internet advertising revenue by top twenty-five sellers in Q4 2001",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... of US internet advertising revenue"
+  },
+  {
+   "from": "share of US internet advertising revenue by top fifty sellers in Q4 2001",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... of US internet advertising revenue"
+  },
+  {
+   "from": "share of US internet advertising revenue by ten largest sellers in Q4 2001",
+   "type": "UP_FROM",
+   "to": "share of US internet advertising revenue by ten largest sellers in Q4 2000",
+   "clause": "up from ... in Q4 ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet advertising revenue|market|US internet advertising revenue\nNODE|ten largest ad-selling companies|seller cohort|the ten largest ad-selling companies\nNODE|top twenty-five ad-selling companies|seller cohort|the top twenty-five ad-selling companies\nNODE|top fifty ad-selling companies|seller cohort|the top fifty ad-selling companies\nNODE|share of US internet advertising revenue by ten largest sellers in Q4 2001|ad-revenue share measurement|share ... taken by the ten largest ... in Q4 ...\nNODE|share of US internet advertising revenue by ten largest sellers in Q4 2000|ad-revenue share measurement|share ... taken by the ten largest ... in Q4 ...\nNODE|share of US internet advertising revenue by top twenty-five sellers in Q4 2001|ad-revenue share measurement|share ... taken by the top ... in Q4 ...\nNODE|share of US internet advertising revenue by top fifty sellers in Q4 2001|ad-revenue share measurement|share ... taken by the top ... in Q4 ...\nEDGE|share of US internet advertising revenue by ten largest sellers in Q4 2001|SHARE_OF|US internet advertising revenue|... of US internet advertising revenue\nEDGE|share of US internet advertising revenue by ten largest sellers in Q4 2000|SHARE_OF|US internet advertising revenue|... of US internet advertising revenue\nEDGE|share of US internet advertising revenue by top twenty-five sellers in Q4 2001|SHARE_OF|US internet advertising revenue|... of US internet advertising revenue\nEDGE|share of US internet advertising revenue by top fifty sellers in Q4 2001|SHARE_OF|US internet advertising revenue|... of US internet advertising revenue\nEDGE|share of US internet advertising revenue by ten largest sellers in Q4 2001|UP_FROM|share of US internet advertising revenue by ten largest sellers in Q4 2000|up from ... in Q4 ..."
+}

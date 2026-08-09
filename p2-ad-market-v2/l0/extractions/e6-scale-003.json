@@ -1,0 +1,171 @@
+{
+ "id": "e6-scale-003",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "% of US GDP spent on advertising, 2007",
+ "elapsed_s": 122.3,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 13,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising share of GDP",
+   "type": "metric",
+   "clause": "the US advertising share of GDP"
+  },
+  {
+   "name": "US advertising share of GDP measurement",
+   "type": "share-of-gdp measurement",
+   "clause": "the % of US GDP spent on advertising"
+  },
+  {
+   "name": "auction era",
+   "type": "period",
+   "clause": "the auction era (2000-2009)"
+  },
+  {
+   "name": "Silk & Berndt series",
+   "type": "research series",
+   "clause": "Silk & Berndt put the peak at ..."
+  },
+  {
+   "name": "McCann series",
+   "type": "advertising spend dataset",
+   "clause": "the McCann series"
+  },
+  {
+   "name": "IRS series",
+   "type": "advertising spend dataset",
+   "clause": "the IRS series"
+  },
+  {
+   "name": "Galbi series",
+   "type": "research column",
+   "clause": "Galbi's own %-of-GDP column"
+  },
+  {
+   "name": "Coen series",
+   "type": "research column",
+   "clause": "Coen's own %-of-GDP column"
+  },
+  {
+   "name": "McCann series peak share measurement",
+   "type": "media-share measurement",
+   "clause": "peak at ... for McCann series"
+  },
+  {
+   "name": "IRS series peak share measurement",
+   "type": "media-share measurement",
+   "clause": "peak at ... for IRS series"
+  },
+  {
+   "name": "McCann series 2000 share measurement",
+   "type": "media-share measurement",
+   "clause": "shows the McCann series at ... in ..."
+  },
+  {
+   "name": "advertising share gap measurement",
+   "type": "share-difference measurement",
+   "clause": "the ... pp gap is a GDP-vintage difference"
+  },
+  {
+   "name": "GDP-vintage difference",
+   "type": "concept",
+   "clause": "a GDP-vintage difference"
+  },
+  {
+   "name": "data conflict",
+   "type": "concept",
+   "clause": "a data conflict"
+  },
+  {
+   "name": "Coen series 2002 share measurement",
+   "type": "media-share measurement",
+   "clause": "shows ... in ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising share of GDP measurement",
+   "type": "MEASURES",
+   "to": "US advertising share of GDP",
+   "clause": "the % of US GDP spent on advertising"
+  },
+  {
+   "from": "US advertising share of GDP measurement",
+   "type": "FELL_DURING",
+   "to": "auction era",
+   "clause": "fell during the auction era"
+  },
+  {
+   "from": "McCann series peak share measurement",
+   "type": "MEASURES",
+   "to": "McCann series",
+   "clause": "peak at ... for McCann series"
+  },
+  {
+   "from": "McCann series peak share measurement",
+   "type": "REPORTED_BY",
+   "to": "Silk & Berndt series",
+   "clause": "put the peak at ... (McCann)"
+  },
+  {
+   "from": "IRS series peak share measurement",
+   "type": "MEASURES",
+   "to": "IRS series",
+   "clause": "peak at ... for IRS series"
+  },
+  {
+   "from": "IRS series peak share measurement",
+   "type": "REPORTED_BY",
+   "to": "Silk & Berndt series",
+   "clause": "put the peak at ... (IRS)"
+  },
+  {
+   "from": "McCann series 2000 share measurement",
+   "type": "MEASURES",
+   "to": "McCann series",
+   "clause": "shows the McCann series at ... in ..."
+  },
+  {
+   "from": "McCann series 2000 share measurement",
+   "type": "REPORTED_BY",
+   "to": "Galbi series",
+   "clause": "Galbi's own column shows ..."
+  },
+  {
+   "from": "advertising share gap measurement",
+   "type": "IS_A",
+   "to": "GDP-vintage difference",
+   "clause": "the ... pp gap is a GDP-vintage difference"
+  },
+  {
+   "from": "advertising share gap measurement",
+   "type": "NOT_A",
+   "to": "data conflict",
+   "clause": "not a data conflict"
+  },
+  {
+   "from": "US advertising share of GDP measurement",
+   "type": "REPORTED_BY",
+   "to": "Coen series",
+   "clause": "Coen's own column showing ... in ..."
+  },
+  {
+   "from": "Coen series 2002 share measurement",
+   "type": "MEASURES",
+   "to": "US advertising share of GDP",
+   "clause": "Coen's own column shows ... in ..."
+  },
+  {
+   "from": "Coen series 2002 share measurement",
+   "type": "REPORTED_BY",
+   "to": "Coen series",
+   "clause": "Coen's own column shows ... in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising share of GDP|metric|the US advertising share of GDP\nNODE|US advertising share of GDP measurement|share-of-gdp measurement|the % of US GDP spent on advertising\nNODE|auction era|period|the auction era (2000-2009)\nNODE|Silk & Berndt series|research series|Silk & Berndt put the peak at ...\nNODE|McCann series|advertising spend dataset|the McCann series\nNODE|IRS series|advertising spend dataset|the IRS series\nNODE|Galbi series|research column|Galbi's own %-of-GDP column\nNODE|Coen series|research column|Coen's own %-of-GDP column\nNODE|McCann series peak share measurement|media-share measurement|peak at ... for McCann series\nNODE|IRS series peak share measurement|media-share measurement|peak at ... for IRS series\nNODE|McCann series 2000 share measurement|media-share measurement|shows the McCann series at ... in ...\nNODE|advertising share gap measurement|share-difference measurement|the ... pp gap is a GDP-vintage difference\nNODE|GDP-vintage difference|concept|a GDP-vintage difference\nNODE|data conflict|concept|a data conflict\nNODE|Coen series 2002 share measurement|media-share measurement|shows ... in ...\nEDGE|US advertising share of GDP measurement|MEASURES|US advertising share of GDP|the % of US GDP spent on advertising\nEDGE|US advertising share of GDP measurement|FELL_DURING|auction era|fell during the auction era\nEDGE|McCann series peak share measurement|MEASURES|McCann series|peak at ... for McCann series\nEDGE|McCann series peak share measurement|REPORTED_BY|Silk & Berndt series|put the peak at ... (McCann)\nEDGE|IRS series peak share measurement|MEASURES|IRS series|peak at ... for IRS series\nEDGE|IRS series peak share measurement|REPORTED_BY|Silk & Berndt series|put the peak at ... (IRS)\nEDGE|McCann series 2000 share measurement|MEASURES|McCann series|shows the McCann series at ... in ...\nEDGE|McCann series 2000 share measurement|REPORTED_BY|Galbi series|Galbi's own column shows ...\nEDGE|advertising share gap measurement|IS_A|GDP-vintage difference|the ... pp gap is a GDP-vintage difference\nEDGE|advertising share gap measurement|NOT_A|data conflict|not a data conflict\nEDGE|US advertising share of GDP measurement|REPORTED_BY|Coen series|Coen's own column showing ... in ...\nEDGE|Coen series 2002 share measurement|MEASURES|US advertising share of GDP|Coen's own column shows ... in ...\nEDGE|Coen series 2002 share measurement|REPORTED_BY|Coen series|Coen's own column shows ... in ..."
+}

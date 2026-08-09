@@ -1,0 +1,71 @@
+{
+ "group_id": "L1|ab64e99f2b0b9d97",
+ "source": "name-block",
+ "n_in": 24,
+ "parents": [
+  {
+   "name": "Newspapers (advertising medium)",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "newspapers as advertising medium across eras and roles; includes print and generic medium",
+   "child_uids": [
+    "n|e1-medium-002|newspapers|print medium",
+    "n|e2-medium-001|newspapers|advertising medium",
+    "n|e3-buyers-003|newspapers|advertising medium",
+    "n|e3-buyers-007|newspapers|advertising medium",
+    "n|e3-medium-003|newspapers|advertising medium",
+    "n|e3-medium-005|newspapers|advertising medium",
+    "n|e4-medium-001|newspapers|advertising medium",
+    "n|e4-medium-002|newspapers|advertising medium",
+    "n|e4-medium-003|newspapers|advertising medium",
+    "n|e4-sellers-006|newspapers|advertising medium",
+    "n|tu:era:1:field:MEDIUM|newspapers|advertising medium",
+    "n|tu:era:2:field:MEDIUM|newspapers|advertising medium",
+    "n|tu:era:3:field:BUYERS|newspapers|medium",
+    "n|tu:era:4:field:MEDIUM|newspapers|advertising medium",
+    "n|tu:era:4:field:SELLERS|newspapers|advertising medium",
+    "n|tu:era:5:boundary|newspapers|advertising medium",
+    "n|tu:era:5:field:MEDIUM|newspapers|medium"
+   ]
+  },
+  {
+   "name": "Newspapers (media outlet)",
+   "type": "media outlet",
+   "grain": "Entity",
+   "reason": "newspapers as media outlets and outlet groups",
+   "child_uids": [
+    "n|e3-scale-009|newspapers|media outlet",
+    "n|tu:era:1:event:6|newspapers|media outlet",
+    "n|tu:era:2:field:SELLERS|newspapers|media outlet",
+    "n|tu:era:3:field:SELLERS|newspapers|media outlet group"
+   ]
+  },
+  {
+   "name": "Newspaper dimension",
+   "type": "adspend:dimensions",
+   "grain": "Dimension",
+   "reason": "singleton: dimension node for newspapers used in adspend modeling",
+   "child_uids": [
+    "dim:medium:newspapers"
+   ]
+  },
+  {
+   "name": "Newspapers (publication type)",
+   "type": "publication type",
+   "grain": "Entity",
+   "reason": "singleton: newspapers classified as a publication type",
+   "child_uids": [
+    "n|e1-measurement-003|newspapers|publication type"
+   ]
+  },
+  {
+   "name": "Newspapers (publisher type)",
+   "type": "publisher type",
+   "grain": "Entity",
+   "reason": "singleton: newspapers identified as publisher type",
+   "child_uids": [
+    "n|tu:era:6:field:SELLERS|newspapers|publisher type"
+   ]
+  }
+ ]
+}

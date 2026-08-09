@@ -1,0 +1,100 @@
+{
+ "id": "e4-scale-006",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1990,
+ "unit": "percent revision between vintages",
+ "elapsed_s": 81.0,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen total",
+   "type": "advertising-spend dataset",
+   "clause": "the same Coen total for 1990"
+  },
+  {
+   "name": "DMA 2001 edition",
+   "type": "publication edition",
+   "clause": "printed as ... in the DMA's 2001 edition"
+  },
+  {
+   "name": "2009 workbook",
+   "type": "publication edition",
+   "clause": "printed as ... in the 2009 workbook"
+  },
+  {
+   "name": "Coen total amount 2001",
+   "type": "monetary total measurement",
+   "clause": "... printed in the DMA's 2001 edition"
+  },
+  {
+   "name": "Coen total amount 2009",
+   "type": "monetary total measurement",
+   "clause": "... printed in the 2009 workbook"
+  },
+  {
+   "name": "Revision percentage",
+   "type": "percent revision measurement",
+   "clause": "a ... upward revision"
+  },
+  {
+   "name": "smoothed revision",
+   "type": "data smoothing method",
+   "clause": "smoothed"
+  },
+  {
+   "name": "movement between vintages",
+   "type": "series variability indicator",
+   "clause": "how much this series moves between vintages"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Coen total amount 2001",
+   "type": "MEASURES",
+   "to": "Coen total",
+   "clause": "... printed in the DMA's 2001 edition"
+  },
+  {
+   "from": "Coen total amount 2009",
+   "type": "MEASURES",
+   "to": "Coen total",
+   "clause": "... printed in the 2009 workbook"
+  },
+  {
+   "from": "DMA 2001 edition",
+   "type": "CONTAINS",
+   "to": "Coen total amount 2001",
+   "clause": "printed as ... in the DMA's 2001 edition"
+  },
+  {
+   "from": "2009 workbook",
+   "type": "CONTAINS",
+   "to": "Coen total amount 2009",
+   "clause": "printed as ... in the 2009 workbook"
+  },
+  {
+   "from": "Revision percentage",
+   "type": "SHARE_OF",
+   "to": "Coen total",
+   "clause": "a ... upward revision"
+  },
+  {
+   "from": "Revision percentage",
+   "type": "MARKER_OF",
+   "to": "movement between vintages",
+   "clause": "as a marker of how much this series moves between vintages"
+  },
+  {
+   "from": "Revision percentage",
+   "type": "EXCLUDES",
+   "to": "smoothed revision",
+   "clause": "recorded rather than smoothed"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen total|advertising-spend dataset|the same Coen total for 1990\nNODE|DMA 2001 edition|publication edition|printed as ... in the DMA's 2001 edition\nNODE|2009 workbook|publication edition|printed as ... in the 2009 workbook\nNODE|Coen total amount 2001|monetary total measurement|... printed in the DMA's 2001 edition\nNODE|Coen total amount 2009|monetary total measurement|... printed in the 2009 workbook\nNODE|Revision percentage|percent revision measurement|a ... upward revision\nNODE|smoothed revision|data smoothing method|smoothed\nNODE|movement between vintages|series variability indicator|how much this series moves between vintages\nEDGE|Coen total amount 2001|MEASURES|Coen total|... printed in the DMA's 2001 edition\nEDGE|Coen total amount 2009|MEASURES|Coen total|... printed in the 2009 workbook\nEDGE|DMA 2001 edition|CONTAINS|Coen total amount 2001|printed as ... in the DMA's 2001 edition\nEDGE|2009 workbook|CONTAINS|Coen total amount 2009|printed as ... in the 2009 workbook\nEDGE|Revision percentage|SHARE_OF|Coen total|a ... upward revision\nEDGE|Revision percentage|MARKER_OF|movement between vintages|as a marker of how much this series moves between vintages\nEDGE|Revision percentage|EXCLUDES|smoothed revision|recorded rather than smoothed"
+}

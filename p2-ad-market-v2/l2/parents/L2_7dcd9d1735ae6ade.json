@@ -1,0 +1,359 @@
+{
+ "group_id": "L2|7dcd9d1735ae6ade",
+ "n_in": 57,
+ "parents": [
+  {
+   "name": "advertising channel",
+   "type": "advertising channel kind",
+   "grain": "Entity",
+   "reason": "all are distinct channels delivering ads across media",
+   "child_uids": [
+    "L1|0b947040dda5b3b9",
+    "L1|13a18f6e7d64029f",
+    "L1|13fe49050a03f3ff",
+    "L1|308695d762646c1c",
+    "L1|91f6ac388293ec24",
+    "L1|9e2f481d462e98ca",
+    "L1|a6e878776b05d8cb",
+    "L1|bad9e81b747a5b0e",
+    "L1|cb2af69c91cb7054",
+    "L1|e64ce8b610078179",
+    "L1|eec7aeec22d73cbc"
+   ]
+  },
+  {
+   "name": "advertising channel entrants",
+   "type": "advertising channel entrants kind",
+   "grain": "Entity",
+   "reason": "singleton: unique role of channel entrants",
+   "child_uids": [
+    "L1|8cade869114c26d2"
+   ]
+  },
+  {
+   "name": "advertising channel type",
+   "type": "advertising channel type kind",
+   "grain": "Entity",
+   "reason": "singleton: defines a specific channel classification",
+   "child_uids": [
+    "L1|c1c2b84b05b3e0e2"
+   ]
+  },
+  {
+   "name": "ad type",
+   "type": "ad type kind",
+   "grain": "Entity",
+   "reason": "both specify concrete formats of advertisements",
+   "child_uids": [
+    "L1|19497dd7cb0a6153",
+    "L1|636b4e7fb62bbfb2"
+   ]
+  },
+  {
+   "name": "advertising segment",
+   "type": "advertising segment kind",
+   "grain": "Entity",
+   "reason": "segments partition the market by audience or format",
+   "child_uids": [
+    "L1|225716a155ead084",
+    "L1|3f7e11c54eb223a9",
+    "L1|890c38589a54d636"
+   ]
+  },
+  {
+   "name": "specialized service",
+   "type": "specialized service kind",
+   "grain": "Entity",
+   "reason": "singleton: niche service for media buying",
+   "child_uids": [
+    "L1|7cb6742f672b0bff"
+   ]
+  },
+  {
+   "name": "media service",
+   "type": "media service kind",
+   "grain": "Entity",
+   "reason": "singleton: provides general media\u2011buying capabilities",
+   "child_uids": [
+    "L1|680ea4d5bafbfff4"
+   ]
+  },
+  {
+   "name": "inventory category",
+   "type": "inventory category kind",
+   "grain": "Entity",
+   "reason": "singleton: classifies sites built for advertising inventory",
+   "child_uids": [
+    "L1|1c57f6d11a8b2e54"
+   ]
+  },
+  {
+   "name": "advertising medium",
+   "type": "advertising medium kind",
+   "grain": "Entity",
+   "reason": "singleton: represents a distinct ad delivery medium",
+   "child_uids": [
+    "L1|9bc1458bb5dade5c"
+   ]
+  },
+  {
+   "name": "advertising medium composition",
+   "type": "advertising medium composition kind",
+   "grain": "Entity",
+   "reason": "singleton: mixes multiple media into a spend plan",
+   "child_uids": [
+    "L1|099c579786e27c13"
+   ]
+  },
+  {
+   "name": "advertising series",
+   "type": "advertising series kind",
+   "grain": "Entity",
+   "reason": "singleton: collection of related advertising studies",
+   "child_uids": [
+    "L1|47ac49eae356e686"
+   ]
+  },
+  {
+   "name": "ad category",
+   "type": "ad category kind",
+   "grain": "Entity",
+   "reason": "categories group ads by product or promotional purpose",
+   "child_uids": [
+    "L1|10b4953b88bdd099",
+    "L1|a33248f3f0bc159b",
+    "L1|ee350d596e6ce6c5"
+   ]
+  },
+  {
+   "name": "advertising product",
+   "type": "advertising product kind",
+   "grain": "Entity",
+   "reason": "products define specific ad formats sold to advertisers",
+   "child_uids": [
+    "L1|10c9f88d01c04d8f",
+    "L1|2d24f69baaca9759"
+   ]
+  },
+  {
+   "name": "price",
+   "type": "price kind",
+   "grain": "Entity",
+   "reason": "singleton: monetary value attached to TV advertising slots",
+   "child_uids": [
+    "L1|8b210e7cd5eaf352"
+   ]
+  },
+  {
+   "name": "policy",
+   "type": "policy kind",
+   "grain": "Entity",
+   "reason": "singleton: governing rules for US advertising practice",
+   "child_uids": [
+    "L1|6d5f11a83d5958d7"
+   ]
+  },
+  {
+   "name": "title",
+   "type": "title kind",
+   "grain": "Entity",
+   "reason": "singleton: standardized naming convention for ad titles",
+   "child_uids": [
+    "L1|8d2ec60074283829"
+   ]
+  },
+  {
+   "name": "distribution channel",
+   "type": "distribution channel kind",
+   "grain": "Entity",
+   "reason": "singleton: pathway through which ads reach audiences",
+   "child_uids": [
+    "L1|c5d6cbf5fb95be70"
+   ]
+  },
+  {
+   "name": "advertising rate\u2011card line",
+   "type": "advertising rate\u2011card line kind",
+   "grain": "Entity",
+   "reason": "singleton: line item on a direct\u2011mail pricing sheet",
+   "child_uids": [
+    "L1|87c73820e868a88e"
+   ]
+  },
+  {
+   "name": "advertising market",
+   "type": "advertising market kind",
+   "grain": "Entity",
+   "reason": "singleton: defines the overall search\u2011text ad ecosystem",
+   "child_uids": [
+    "L1|91247c55238f2500"
+   ]
+  },
+  {
+   "name": "advertising program",
+   "type": "advertising program kind",
+   "grain": "Entity",
+   "reason": "singleton: organized set of campaign activities",
+   "child_uids": [
+    "L1|b3e0a1fc05b0b665"
+   ]
+  },
+  {
+   "name": "advertising business",
+   "type": "advertising business kind",
+   "grain": "Entity",
+   "reason": "singleton: commercial entity operating in the ad industry",
+   "child_uids": [
+    "L1|0b1c8dfb84ba9d7a"
+   ]
+  },
+  {
+   "name": "advertising purchase method",
+   "type": "advertising purchase method kind",
+   "grain": "Entity",
+   "reason": "methods describe how advertisers acquire inventory",
+   "child_uids": [
+    "L1|aee627a8d714446b",
+    "L1|ebce88bce60a673f"
+   ]
+  },
+  {
+   "name": "advertising pool",
+   "type": "advertising pool kind",
+   "grain": "Entity",
+   "reason": "pools aggregate inventory for targeting or budgeting purposes",
+   "child_uids": [
+    "L1|1df7f571627bd9b2",
+    "L1|6ad4ce737f1fd743",
+    "L1|a181b6396dcf8367",
+    "L1|aabf62013900b47d"
+   ]
+  },
+  {
+   "name": "advertising demand",
+   "type": "advertising demand kind",
+   "grain": "Entity",
+   "reason": "singleton: represents market need for ad placements",
+   "child_uids": [
+    "L1|1a3695c516888a72"
+   ]
+  },
+  {
+   "name": "advertising contract type",
+   "type": "advertising contract type kind",
+   "grain": "Entity",
+   "reason": "singleton: defines legal framework of distribution deals",
+   "child_uids": [
+    "L1|c3cd4ee01f4f453b"
+   ]
+  },
+  {
+   "name": "media collection",
+   "type": "media collection kind",
+   "grain": "Entity",
+   "reason": "singleton: curated set of media assets for analysis",
+   "child_uids": [
+    "L1|a9af27bc2fefa9b4"
+   ]
+  },
+  {
+   "name": "advertising content",
+   "type": "advertising content kind",
+   "grain": "Entity",
+   "reason": "singleton: actual programming used in broadcast ads",
+   "child_uids": [
+    "L1|d8766aa215a870f4"
+   ]
+  },
+  {
+   "name": "ad buying method",
+   "type": "ad buying method kind",
+   "grain": "Entity",
+   "reason": "singleton: automated approach to purchasing ad inventory",
+   "child_uids": [
+    "L1|ed4a106a93154cb5"
+   ]
+  },
+  {
+   "name": "advertising buying structure",
+   "type": "advertising buying structure kind",
+   "grain": "Entity",
+   "reason": "singleton: framework governing how buys are organized",
+   "child_uids": [
+    "L1|01cfbf037d3584af"
+   ]
+  },
+  {
+   "name": "advertising transaction type",
+   "type": "advertising transaction type kind",
+   "grain": "Entity",
+   "reason": "singleton: classification of barter versus cash deals",
+   "child_uids": [
+    "L1|c9fab703a0efb5ea"
+   ]
+  },
+  {
+   "name": "advertising deal type",
+   "type": "advertising deal type kind",
+   "grain": "Entity",
+   "reason": "singleton: performance\u2011priced arrangements for ad purchases",
+   "child_uids": [
+    "L1|75eb52eb8d4177ac"
+   ]
+  },
+  {
+   "name": "advertising schedule period",
+   "type": "advertising schedule period kind",
+   "grain": "Entity",
+   "reason": "singleton: defined window for seasonal selling activity",
+   "child_uids": [
+    "L1|e8df42ed2670959e"
+   ]
+  },
+  {
+   "name": "advertising seller group",
+   "type": "advertising seller group kind",
+   "grain": "Entity",
+   "reason": "singleton: collective of sellers forming a market segment",
+   "child_uids": [
+    "L1|74ce7f5b460a846e"
+   ]
+  },
+  {
+   "name": "pool category",
+   "type": "pool category kind",
+   "grain": "Entity",
+   "reason": "singleton: taxonomy for classifying different ad pools",
+   "child_uids": [
+    "L1|9ce20f7d3468da84"
+   ]
+  },
+  {
+   "name": "advertising medium dimension",
+   "type": "advertising medium dimension kind",
+   "grain": "Dimension",
+   "reason": "singleton: dimensional attribute describing a media type",
+   "child_uids": [
+    "L1|3e406714e97e00e7"
+   ]
+  },
+  {
+   "name": "advertising services",
+   "type": "advertising services kind",
+   "grain": "Entity",
+   "reason": "singleton: specialized offerings supporting direct\u2011mail campaigns",
+   "child_uids": [
+    "L1|f9d78e3e3d1ec8a7"
+   ]
+  },
+  {
+   "name": "Upper-funnel digital",
+   "type": "advertising channel",
+   "grain": "Entity",
+   "reason": "singleton: unplaced by model",
+   "child_uids": [
+    "L1|a1d11beebf983fee"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,83 @@
+{
+ "id": "e2-targeting-005",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1940,
+ "unit": "percent of US households owning a radio set, 1940",
+ "elapsed_s": 70.4,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US households",
+   "type": "household group",
+   "clause": "US households"
+  },
+  {
+   "name": "radio set",
+   "type": "device",
+   "clause": "radio set"
+  },
+  {
+   "name": "radio ownership share 1940",
+   "type": "household radio ownership rate",
+   "clause": "percent of US households owning a radio set by ..."
+  },
+  {
+   "name": "radio ownership share 1930",
+   "type": "household radio ownership rate",
+   "clause": "percent of US households owning a radio set in ..."
+  },
+  {
+   "name": "radio ownership share 1950",
+   "type": "household radio ownership rate",
+   "clause": "percent of US households owning a radio set by ..."
+  },
+  {
+   "name": "addressable household base",
+   "type": "advertising audience base",
+   "clause": "addressable base"
+  },
+  {
+   "name": "national broadcast targeting",
+   "type": "targeting practice",
+   "clause": "national broadcast targeting"
+  }
+ ],
+ "edges": [
+  {
+   "from": "radio ownership share 1940",
+   "type": "SHARE_OF",
+   "to": "US households",
+   "clause": "percent of US households owning a radio set"
+  },
+  {
+   "from": "radio ownership share 1930",
+   "type": "SHARE_OF",
+   "to": "US households",
+   "clause": "percent of US households owning a radio set"
+  },
+  {
+   "from": "radio ownership share 1950",
+   "type": "SHARE_OF",
+   "to": "US households",
+   "clause": "percent of US households owning a radio set"
+  },
+  {
+   "from": "radio ownership share 1940",
+   "type": "UP_FROM",
+   "to": "radio ownership share 1930",
+   "clause": "up from ... in ..."
+  },
+  {
+   "from": "addressable household base",
+   "type": "ENABLED",
+   "to": "national broadcast targeting",
+   "clause": "made ... possible"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US households|household group|US households\nNODE|radio set|device|radio set\nNODE|radio ownership share 1940|household radio ownership rate|percent of US households owning a radio set by ...\nNODE|radio ownership share 1930|household radio ownership rate|percent of US households owning a radio set in ...\nNODE|radio ownership share 1950|household radio ownership rate|percent of US households owning a radio set by ...\nNODE|addressable household base|advertising audience base|addressable base\nNODE|national broadcast targeting|targeting practice|national broadcast targeting\nEDGE|radio ownership share 1940|SHARE_OF|US households|percent of US households owning a radio set\nEDGE|radio ownership share 1930|SHARE_OF|US households|percent of US households owning a radio set\nEDGE|radio ownership share 1950|SHARE_OF|US households|percent of US households owning a radio set\nEDGE|radio ownership share 1940|UP_FROM|radio ownership share 1930|up from ... in ...\nEDGE|addressable household base|ENABLED|national broadcast targeting|made ... possible"
+}

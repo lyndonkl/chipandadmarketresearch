@@ -1,0 +1,143 @@
+{
+ "id": "mech-mehta-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2017,
+ "unit": "% of Google's overall search revenue driven by default placements, on Google's own 2017 estimate",
+ "elapsed_s": 97.0,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google itself estimated"
+  },
+  {
+   "name": "Google search queries",
+   "type": "search query pool",
+   "clause": "all queries entered on Google"
+  },
+  {
+   "name": "default placements",
+   "type": "ad placement method",
+   "clause": "defaults flowed through defaults"
+  },
+  {
+   "name": "iOS queries",
+   "type": "mobile operating system query pool",
+   "clause": "iOS queries via the Safari default"
+  },
+  {
+   "name": "Android queries",
+   "type": "mobile operating system query pool",
+   "clause": "Android queries via distribution-deal defaults"
+  },
+  {
+   "name": "Safari default",
+   "type": "default ad placement",
+   "clause": "the Safari default"
+  },
+  {
+   "name": "distribution-deal defaults",
+   "type": "default ad placement",
+   "clause": "distribution-deal defaults"
+  },
+  {
+   "name": "overall search revenue",
+   "type": "revenue stream",
+   "clause": "its overall search revenue"
+  },
+  {
+   "name": "default query flow share",
+   "type": "query share measurement",
+   "clause": "over ... of all queries flowed through defaults"
+  },
+  {
+   "name": "iOS default query share",
+   "type": "query share measurement",
+   "clause": "... of iOS queries via the Safari default"
+  },
+  {
+   "name": "Android default query share",
+   "type": "query share measurement",
+   "clause": "... of Android queries via distribution-deal defaults"
+  },
+  {
+   "name": "default placement revenue share",
+   "type": "revenue share measurement",
+   "clause": "default placements drove ... of its overall search revenue"
+  },
+  {
+   "name": "since 2014",
+   "type": "time reference",
+   "clause": "had grown since ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "default query flow share",
+   "type": "SHARE_OF",
+   "to": "Google search queries",
+   "clause": "over ... of all queries flowed through defaults"
+  },
+  {
+   "from": "default query flow share",
+   "type": "FLOWED_THROUGH",
+   "to": "default placements",
+   "clause": "flowed through defaults"
+  },
+  {
+   "from": "iOS default query share",
+   "type": "SHARE_OF",
+   "to": "iOS queries",
+   "clause": "... of iOS queries via the Safari default"
+  },
+  {
+   "from": "iOS default query share",
+   "type": "VIA",
+   "to": "Safari default",
+   "clause": "via the Safari default"
+  },
+  {
+   "from": "Android default query share",
+   "type": "SHARE_OF",
+   "to": "Android queries",
+   "clause": "... of Android queries via distribution-deal defaults"
+  },
+  {
+   "from": "Android default query share",
+   "type": "VIA",
+   "to": "distribution-deal defaults",
+   "clause": "via distribution-deal defaults"
+  },
+  {
+   "from": "Google",
+   "type": "ESTIMATED",
+   "to": "default placement revenue share",
+   "clause": "estimated that default placements drove ..."
+  },
+  {
+   "from": "default placement revenue share",
+   "type": "SHARE_OF",
+   "to": "overall search revenue",
+   "clause": "default placements drove ... of its overall search revenue"
+  },
+  {
+   "from": "default placement revenue share",
+   "type": "DRIVEN_BY",
+   "to": "default placements",
+   "clause": "driven by default placements"
+  },
+  {
+   "from": "default placement revenue share",
+   "type": "GROWN_SINCE",
+   "to": "since 2014",
+   "clause": "had grown since ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google itself estimated\nNODE|Google search queries|search query pool|all queries entered on Google\nNODE|default placements|ad placement method|defaults flowed through defaults\nNODE|iOS queries|mobile operating system query pool|iOS queries via the Safari default\nNODE|Android queries|mobile operating system query pool|Android queries via distribution-deal defaults\nNODE|Safari default|default ad placement|the Safari default\nNODE|distribution-deal defaults|default ad placement|distribution-deal defaults\nNODE|overall search revenue|revenue stream|its overall search revenue\nNODE|default query flow share|query share measurement|over ... of all queries flowed through defaults\nNODE|iOS default query share|query share measurement|... of iOS queries via the Safari default\nNODE|Android default query share|query share measurement|... of Android queries via distribution-deal defaults\nNODE|default placement revenue share|revenue share measurement|default placements drove ... of its overall search revenue\nNODE|since 2014|time reference|had grown since ...\nEDGE|default query flow share|SHARE_OF|Google search queries|over ... of all queries flowed through defaults\nEDGE|default query flow share|FLOWED_THROUGH|default placements|flowed through defaults\nEDGE|iOS default query share|SHARE_OF|iOS queries|... of iOS queries via the Safari default\nEDGE|iOS default query share|VIA|Safari default|via the Safari default\nEDGE|Android default query share|SHARE_OF|Android queries|... of Android queries via distribution-deal defaults\nEDGE|Android default query share|VIA|distribution-deal defaults|via distribution-deal defaults\nEDGE|Google|ESTIMATED|default placement revenue share|estimated that default placements drove ...\nEDGE|default placement revenue share|SHARE_OF|overall search revenue|default placements drove ... of its overall search revenue\nEDGE|default placement revenue share|DRIVEN_BY|default placements|driven by default placements\nEDGE|default placement revenue share|GROWN_SINCE|since 2014|had grown since ..."
+}

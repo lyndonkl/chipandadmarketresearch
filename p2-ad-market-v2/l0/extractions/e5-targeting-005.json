@@ -1,0 +1,188 @@
+{
+ "id": "e5-targeting-005",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "million commercial leads per day (company estimate)",
+ "elapsed_s": 145.9,
+ "error": null,
+ "n_nodes": 16,
+ "n_edges": 15,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "the company Overture"
+  },
+  {
+   "name": "commercial leads per day",
+   "type": "lead generation volume",
+   "clause": "commercial leads per day that Overture estimated could generate"
+  },
+  {
+   "name": "Overture lead estimate",
+   "type": "lead generation measurement",
+   "clause": "Overture estimated commercial leads per day"
+  },
+  {
+   "name": "searches per day",
+   "type": "search query volume",
+   "clause": "... searches per day"
+  },
+  {
+   "name": "Yellow Pages Publishers Association",
+   "type": "industry association",
+   "clause": "per the Yellow Pages Publishers Association"
+  },
+  {
+   "name": "Yellow Pages call volume per day",
+   "type": "call volume measurement",
+   "clause": "... calls per day"
+  },
+  {
+   "name": "Direct Marketing Association",
+   "type": "industry association",
+   "clause": "per the Direct Marketing Association"
+  },
+  {
+   "name": "direct mail response volume per day",
+   "type": "response volume measurement",
+   "clause": "... responses per day"
+  },
+  {
+   "name": "pieces read per day",
+   "type": "mail piece consumption measurement",
+   "clause": "... pieces READ per day"
+  },
+  {
+   "name": "pieces mailed per day",
+   "type": "mail piece sending measurement",
+   "clause": "pieces mailed (contrast base)"
+  },
+  {
+   "name": "US Standard Mail",
+   "type": "postal service",
+   "clause": "US Standard Mail ran about ... pieces in FY2000"
+  },
+  {
+   "name": "US Standard Mail daily delivery volume",
+   "type": "delivery volume measurement",
+   "clause": "... a day"
+  },
+  {
+   "name": "share of US Standard Mail volume",
+   "type": "share measurement",
+   "clause": "roughly ... percent of delivered volume"
+  },
+  {
+   "name": "response rate on pieces read",
+   "type": "response rate measurement",
+   "clause": "implied ... percent response rate among pieces read"
+  },
+  {
+   "name": "response rate on pieces mailed",
+   "type": "response rate measurement",
+   "clause": "... percent response rate on pieces mailed"
+  },
+  {
+   "name": "directory and mail pool",
+   "type": "target audience pool",
+   "clause": "the directory and mail pool intended for search"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "ESTIMATES",
+   "to": "Overture lead estimate",
+   "clause": "Overture estimated commercial leads per day"
+  },
+  {
+   "from": "Overture lead estimate",
+   "type": "MEASURES",
+   "to": "commercial leads per day",
+   "clause": "estimate of commercial leads per day"
+  },
+  {
+   "from": "Overture lead estimate",
+   "type": "BASED_ON",
+   "to": "searches per day",
+   "clause": "based on ... searches per day"
+  },
+  {
+   "from": "Overture lead estimate",
+   "type": "COMPARED_WITH",
+   "to": "Yellow Pages call volume per day",
+   "clause": "set directly against Yellow Pages calls per day"
+  },
+  {
+   "from": "Overture lead estimate",
+   "type": "COMPARED_WITH",
+   "to": "direct mail response volume per day",
+   "clause": "set directly against direct mail responses per day"
+  },
+  {
+   "from": "Yellow Pages Publishers Association",
+   "type": "REPORTED",
+   "to": "Yellow Pages call volume per day",
+   "clause": "per the Yellow Pages Publishers Association"
+  },
+  {
+   "from": "Direct Marketing Association",
+   "type": "REPORTED",
+   "to": "direct mail response volume per day",
+   "clause": "per the Direct Marketing Association"
+  },
+  {
+   "from": "direct mail response volume per day",
+   "type": "BASED_ON",
+   "to": "pieces read per day",
+   "clause": "responses per ... pieces READ per day"
+  },
+  {
+   "from": "pieces read per day",
+   "type": "EXCLUDES",
+   "to": "pieces mailed per day",
+   "clause": "base: 'pieces read', not pieces mailed"
+  },
+  {
+   "from": "US Standard Mail",
+   "type": "HAS_DELIVERY_VOLUME",
+   "to": "US Standard Mail daily delivery volume",
+   "clause": "ran about ... a day"
+  },
+  {
+   "from": "share of US Standard Mail volume",
+   "type": "BASED_ON",
+   "to": "US Standard Mail daily delivery volume",
+   "clause": "roughly ... percent of delivered volume"
+  },
+  {
+   "from": "response rate on pieces read",
+   "type": "MEASURED_ON",
+   "to": "pieces read per day",
+   "clause": "response rate among pieces actually read"
+  },
+  {
+   "from": "response rate on pieces mailed",
+   "type": "MEASURED_ON",
+   "to": "pieces mailed per day",
+   "clause": "response rate on pieces mailed"
+  },
+  {
+   "from": "response rate on pieces read",
+   "type": "NOT_COMPARED_WITH",
+   "to": "response rate on pieces mailed",
+   "clause": "must not be compared with ..."
+  },
+  {
+   "from": "Overture",
+   "type": "AIMED_AT",
+   "to": "directory and mail pool",
+   "clause": "the intent pool search was aiming at the directory and mail pool, stated by the company itself"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|company|the company Overture\nNODE|commercial leads per day|lead generation volume|commercial leads per day that Overture estimated could generate\nNODE|Overture lead estimate|lead generation measurement|Overture estimated commercial leads per day\nNODE|searches per day|search query volume|... searches per day\nNODE|Yellow Pages Publishers Association|industry association|per the Yellow Pages Publishers Association\nNODE|Yellow Pages call volume per day|call volume measurement|... calls per day\nNODE|Direct Marketing Association|industry association|per the Direct Marketing Association\nNODE|direct mail response volume per day|response volume measurement|... responses per day\nNODE|pieces read per day|mail piece consumption measurement|... pieces READ per day\nNODE|pieces mailed per day|mail piece sending measurement|pieces mailed (contrast base)\nNODE|US Standard Mail|postal service|US Standard Mail ran about ... pieces in FY2000\nNODE|US Standard Mail daily delivery volume|delivery volume measurement|... a day\nNODE|share of US Standard Mail volume|share measurement|roughly ... percent of delivered volume\nNODE|response rate on pieces read|response rate measurement|implied ... percent response rate among pieces read\nNODE|response rate on pieces mailed|response rate measurement|... percent response rate on pieces mailed\nNODE|directory and mail pool|target audience pool|the directory and mail pool intended for search\nEDGE|Overture|ESTIMATES|Overture lead estimate|Overture estimated commercial leads per day\nEDGE|Overture lead estimate|MEASURES|commercial leads per day|estimate of commercial leads per day\nEDGE|Overture lead estimate|BASED_ON|searches per day|based on ... searches per day\nEDGE|Overture lead estimate|COMPARED_WITH|Yellow Pages call volume per day|set directly against Yellow Pages calls per day\nEDGE|Overture lead estimate|COMPARED_WITH|direct mail response volume per day|set directly against direct mail responses per day\nEDGE|Yellow Pages Publishers Association|REPORTED|Yellow Pages call volume per day|per the Yellow Pages Publishers Association\nEDGE|Direct Marketing Association|REPORTED|direct mail response volume per day|per the Direct Marketing Association\nEDGE|direct mail response volume per day|BASED_ON|pieces read per day|responses per ... pieces READ per day\nEDGE|pieces read per day|EXCLUDES|pieces mailed per day|base: 'pieces read', not pieces mailed\nEDGE|US Standard Mail|HAS_DELIVERY_VOLUME|US Standard Mail daily delivery volume|ran about ... a day\nEDGE|share of US Standard Mail volume|BASED_ON|US Standard Mail daily delivery volume|roughly ... percent of delivered volume\nEDGE|response rate on pieces read|MEASURED_ON|pieces read per day|response rate among pieces actually read\nEDGE|response rate on pieces mailed|MEASURED_ON|pieces mailed per day|response rate on pieces mailed\nEDGE|response rate on pieces read|NOT_COMPARED_WITH|response rate on pieces mailed|must not be compared with ...\nEDGE|Overture|AIMED_AT|directory and mail pool|the intent pool search was aiming at the directory and mail pool, stated by the company itself"
+}

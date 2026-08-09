@@ -1,0 +1,56 @@
+{
+ "id": "e4-events-001",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 57.5,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US Yellow Pages advertising revenue",
+   "type": "advertising revenue",
+   "clause": "US Yellow Pages advertising revenue"
+  },
+  {
+   "name": "US Yellow Pages advertising revenue in 1980",
+   "type": "revenue measurement",
+   "clause": "from ... in 1980"
+  },
+  {
+   "name": "US Yellow Pages advertising revenue in 1993",
+   "type": "revenue measurement",
+   "clause": "to ... in 1993"
+  },
+  {
+   "name": "advertising revenue rise multiple",
+   "type": "growth factor measurement",
+   "clause": "a ... rise across the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US Yellow Pages advertising revenue",
+   "type": "HAS_MEASUREMENT",
+   "to": "US Yellow Pages advertising revenue in 1980",
+   "clause": "grew from ... in 1980"
+  },
+  {
+   "from": "US Yellow Pages advertising revenue",
+   "type": "HAS_MEASUREMENT",
+   "to": "US Yellow Pages advertising revenue in 1993",
+   "clause": "grew to ... in 1993"
+  },
+  {
+   "from": "US Yellow Pages advertising revenue",
+   "type": "HAS_GROWTH_FACTOR",
+   "to": "advertising revenue rise multiple",
+   "clause": "a ... rise across the era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US Yellow Pages advertising revenue|advertising revenue|US Yellow Pages advertising revenue\nNODE|US Yellow Pages advertising revenue in 1980|revenue measurement|from ... in 1980\nNODE|US Yellow Pages advertising revenue in 1993|revenue measurement|to ... in 1993\nNODE|advertising revenue rise multiple|growth factor measurement|a ... rise across the era\nEDGE|US Yellow Pages advertising revenue|HAS_MEASUREMENT|US Yellow Pages advertising revenue in 1980|grew from ... in 1980\nEDGE|US Yellow Pages advertising revenue|HAS_MEASUREMENT|US Yellow Pages advertising revenue in 1993|grew to ... in 1993\nEDGE|US Yellow Pages advertising revenue|HAS_GROWTH_FACTOR|advertising revenue rise multiple|a ... rise across the era"
+}

@@ -1,0 +1,84 @@
+{
+ "id": "e4-creators-005",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 45.1,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "US direct-mail advertising services",
+   "type": "advertising service sector",
+   "clause": "US direct\u2011mail advertising services (SIC 7331)"
+  },
+  {
+   "name": "direct-mail advertising services annual receipts (1993)",
+   "type": "revenue measurement",
+   "clause": "annual receipts in 1993"
+  },
+  {
+   "name": "direct-mail advertising services annual receipts (1985)",
+   "type": "revenue measurement",
+   "clause": "annual receipts in 1985"
+  },
+  {
+   "name": "direct-mail advertising services establishments count",
+   "type": "establishment count measurement",
+   "clause": "counted establishments in 1992"
+  },
+  {
+   "name": "direct-mail advertising services employees count",
+   "type": "employee count measurement",
+   "clause": "counted employees in 1992"
+  },
+  {
+   "name": "US direct\u2011mail advertising services",
+   "type": "(promoted)",
+   "clause": ""
+  }
+ ],
+ "edges": [
+  {
+   "from": "US direct\u2011mail advertising services",
+   "type": "HAS_MEASUREMENT",
+   "to": "direct-mail advertising services annual receipts (1993)",
+   "clause": "annual receipts in 1993"
+  },
+  {
+   "from": "US direct\u2011mail advertising services",
+   "type": "HAS_MEASUREMENT",
+   "to": "direct-mail advertising services annual receipts (1985)",
+   "clause": "annual receipts in 1985"
+  },
+  {
+   "from": "direct-mail advertising services annual receipts (1993)",
+   "type": "UP_FROM",
+   "to": "direct-mail advertising services annual receipts (1985)",
+   "clause": "up from ... in 1985"
+  },
+  {
+   "from": "US direct\u2011mail advertising services",
+   "type": "HAS_MEASUREMENT",
+   "to": "direct-mail advertising services establishments count",
+   "clause": "counted establishments in 1992"
+  },
+  {
+   "from": "US direct\u2011mail advertising services",
+   "type": "HAS_MEASUREMENT",
+   "to": "direct-mail advertising services employees count",
+   "clause": "counted employees in 1992"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "undeclared_endpoint_promoted",
+   "endpoint": "US direct\u2011mail advertising services",
+   "line": "EDGE|US direct\u2011mail advertising services|HAS_MEASUREMENT|direct-mail advertising services annual receipts (1993)|annual receipts in 1993"
+  }
+ ],
+ "raw": "NODE|US direct-mail advertising services|advertising service sector|US direct\u2011mail advertising services (SIC 7331)\nNODE|direct-mail advertising services annual receipts (1993)|revenue measurement|annual receipts in 1993\nNODE|direct-mail advertising services annual receipts (1985)|revenue measurement|annual receipts in 1985\nNODE|direct-mail advertising services establishments count|establishment count measurement|counted establishments in 1992\nNODE|direct-mail advertising services employees count|employee count measurement|counted employees in 1992\nEDGE|US direct\u2011mail advertising services|HAS_MEASUREMENT|direct-mail advertising services annual receipts (1993)|annual receipts in 1993\nEDGE|US direct\u2011mail advertising services|HAS_MEASUREMENT|direct-mail advertising services annual receipts (1985)|annual receipts in 1985\nEDGE|direct-mail advertising services annual receipts (1993)|UP_FROM|direct-mail advertising services annual receipts (1985)|up from ... in 1985\nEDGE|US direct\u2011mail advertising services|HAS_MEASUREMENT|direct-mail advertising services establishments count|counted establishments in 1992\nEDGE|US direct\u2011mail advertising services|HAS_MEASUREMENT|direct-mail advertising services employees count|counted employees in 1992"
+}

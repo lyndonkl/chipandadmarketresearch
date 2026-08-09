@@ -1,0 +1,56 @@
+{
+ "id": "e6-events-007",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2006,
+ "unit": "USD millions, Lane's Gifts settlement value",
+ "elapsed_s": 47.0,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "agreed ... to a settlement"
+  },
+  {
+   "name": "settlement agreement",
+   "type": "legal settlement",
+   "clause": "the settlement"
+  },
+  {
+   "name": "Lane's Gifts settlement value",
+   "type": "settlement value measurement",
+   "clause": "valued at ... covering advertiser claims of invalid clicks from ... onward"
+  },
+  {
+   "name": "advertiser claims of invalid clicks",
+   "type": "market claim",
+   "clause": "advertiser claims of invalid clicks"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "AGREED_TO",
+   "to": "settlement agreement",
+   "clause": "agreed ... to a settlement"
+  },
+  {
+   "from": "settlement agreement",
+   "type": "HAS_VALUE",
+   "to": "Lane's Gifts settlement value",
+   "clause": "valued at ..."
+  },
+  {
+   "from": "settlement agreement",
+   "type": "COVERS",
+   "to": "advertiser claims of invalid clicks",
+   "clause": "covering advertiser claims of invalid clicks from ... onward"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|agreed ... to a settlement\nNODE|settlement agreement|legal settlement|the settlement\nNODE|Lane's Gifts settlement value|settlement value measurement|valued at ... covering advertiser claims of invalid clicks from ... onward\nNODE|advertiser claims of invalid clicks|market claim|advertiser claims of invalid clicks\nEDGE|Google|AGREED_TO|settlement agreement|agreed ... to a settlement\nEDGE|settlement agreement|HAS_VALUE|Lane's Gifts settlement value|valued at ...\nEDGE|settlement agreement|COVERS|advertiser claims of invalid clicks|covering advertiser claims of invalid clicks from ... onward"
+}

@@ -1,0 +1,312 @@
+{
+ "id": "tu:era:5:field:SCALE",
+ "kind": "prose:field:SCALE",
+ "era": 5,
+ "about_year": null,
+ "unit": null,
+ "elapsed_s": 168.1,
+ "error": null,
+ "n_nodes": 30,
+ "n_edges": 23,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "US measured advertising",
+   "type": "advertising spend aggregate",
+   "clause": "US measured advertising"
+  },
+  {
+   "name": "U.S. advertising amount measurement",
+   "type": "spend measurement",
+   "clause": "growth of US measured advertising"
+  },
+  {
+   "name": "Advertising share of GDP",
+   "type": "share measurement",
+   "clause": "Advertising's share of GDP peaked ..."
+  },
+  {
+   "name": "Internet advertising",
+   "type": "digital advertising medium",
+   "clause": "Internet advertising"
+  },
+  {
+   "name": "Internet ad amount measurement",
+   "type": "spend measurement",
+   "clause": "Internet advertising spend grew ..."
+  },
+  {
+   "name": "Quarterly decline series",
+   "type": "decline measurement",
+   "clause": "four consecutive quarterly declines from Q4 peak"
+  },
+  {
+   "name": "Money-type split 2000",
+   "type": "market segmentation",
+   "clause": "market split by money type in 2000"
+  },
+  {
+   "name": "National brand pool",
+   "type": "advertising segment",
+   "clause": "national brand"
+  },
+  {
+   "name": "Local retail pool",
+   "type": "advertising segment",
+   "clause": "local retail"
+  },
+  {
+   "name": "Direct response pool",
+   "type": "advertising segment",
+   "clause": "direct response"
+  },
+  {
+   "name": "Classified pool",
+   "type": "advertising segment",
+   "clause": "classified"
+  },
+  {
+   "name": "Search pools combined value",
+   "type": "spend measurement",
+   "clause": "combined worth of classified and direct response search pools"
+  },
+  {
+   "name": "Entire internet ad market",
+   "type": "market total",
+   "clause": "entire internet ad market worth ..."
+  },
+  {
+   "name": "Newspaper classified share",
+   "type": "share measurement",
+   "clause": "Newspaper classified's share of US advertising peaked ..."
+  },
+  {
+   "name": "Taxonomy seam",
+   "type": "taxonomy issue",
+   "clause": "Taxonomy seam declared rather than resolved"
+  },
+  {
+   "name": "Resolution status",
+   "type": "status",
+   "clause": "resolution status"
+  },
+  {
+   "name": "Era-native money-type split",
+   "type": "segmentation rule",
+   "clause": "era-native split divides directory money by advertiser geography"
+  },
+  {
+   "name": "Directory money by advertiser geography",
+   "type": "money categorization",
+   "clause": "directory money divided by advertiser geography"
+  },
+  {
+   "name": "Local Yellow Pages",
+   "type": "directory type",
+   "clause": "local Yellow Pages"
+  },
+  {
+   "name": "National directories",
+   "type": "directory type",
+   "clause": "national directories"
+  },
+  {
+   "name": "Cross-era comparable split",
+   "type": "segmentation rule",
+   "clause": "cross-era comparable split puts all directory money in response pool"
+  },
+  {
+   "name": "by_money_type_alt",
+   "type": "dataset variable",
+   "clause": "by_money_type_alt variable used for split"
+  },
+  {
+   "name": "Rule era 6",
+   "type": "rule identifier",
+   "clause": "rule era 6 uses comparable split"
+  },
+  {
+   "name": "Rule era 7",
+   "type": "rule identifier",
+   "clause": "rule era 7 uses comparable split"
+  },
+  {
+   "name": "MAGNA",
+   "type": "organization",
+   "clause": "MAGNA uses comparable split"
+  },
+  {
+   "name": "Geographic rule",
+   "type": "segmentation rule",
+   "clause": "geographic rule ranks local retail ahead of direct response"
+  },
+  {
+   "name": "Unified rule",
+   "type": "segmentation rule",
+   "clause": "unified rule ranks direct response ahead of local retail"
+  },
+  {
+   "name": "Editorial rule",
+   "type": "rule classification",
+   "clause": "editorial rule not a finding"
+  },
+  {
+   "name": "Finding",
+   "type": "research conclusion",
+   "clause": "finding"
+  },
+  {
+   "name": "Money-type split difference 2000",
+   "type": "difference measurement",
+   "clause": "difference worth ... in 2000"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US measured advertising",
+   "type": "HAS_MEASUREMENT",
+   "to": "U.S. advertising amount measurement",
+   "clause": "growth from ... to ..."
+  },
+  {
+   "from": "Internet advertising",
+   "type": "HAS_MEASUREMENT",
+   "to": "Internet ad amount measurement",
+   "clause": "went from ... to ..."
+  },
+  {
+   "from": "Quarterly decline series",
+   "type": "FROM_PEAK_OF",
+   "to": "Internet ad amount measurement",
+   "clause": "four consecutive quarterly declines from Q4 peak"
+  },
+  {
+   "from": "Money-type split 2000",
+   "type": "CONTAINS_SEGMENT",
+   "to": "National brand pool",
+   "clause": "market split includes national brand ..."
+  },
+  {
+   "from": "Money-type split 2000",
+   "type": "CONTAINS_SEGMENT",
+   "to": "Local retail pool",
+   "clause": "... local retail ..."
+  },
+  {
+   "from": "Money-type split 2000",
+   "type": "CONTAINS_SEGMENT",
+   "to": "Direct response pool",
+   "clause": "... direct response ..."
+  },
+  {
+   "from": "Money-type split 2000",
+   "type": "CONTAINS_SEGMENT",
+   "to": "Classified pool",
+   "clause": "... classified ..."
+  },
+  {
+   "from": "Search pools combined value",
+   "type": "COMPOSED_OF",
+   "to": "Classified pool",
+   "clause": "combined worth of classified and direct response"
+  },
+  {
+   "from": "Search pools combined value",
+   "type": "COMPOSED_OF",
+   "to": "Direct response pool",
+   "clause": "..."
+  },
+  {
+   "from": "Entire internet ad market",
+   "type": "TOTAL_VALUE_MEASUREMENT",
+   "to": "Internet ad amount measurement",
+   "clause": "entire internet ad market was worth ..."
+  },
+  {
+   "from": "Taxonomy seam",
+   "type": "DECLARED_NOT_RESOLVED",
+   "to": "Resolution status",
+   "clause": "declared rather than resolved"
+  },
+  {
+   "from": "Era-native money-type split",
+   "type": "DIVIDES_DIRECTORY_MONEY_INTO",
+   "to": "Directory money by advertiser geography",
+   "clause": "divides directory money by advertiser geography"
+  },
+  {
+   "from": "Directory money by advertiser geography",
+   "type": "ASSIGNS_LOCAL",
+   "to": "Local Yellow Pages",
+   "clause": "local Yellow Pages counts as local money"
+  },
+  {
+   "from": "Directory money by advertiser geography",
+   "type": "ASSIGNS_RESPONSE",
+   "to": "National directories",
+   "clause": "national directories count as response money"
+  },
+  {
+   "from": "Cross-era comparable split",
+   "type": "PUTS_ALL_DIRECTORY_MONEY_IN",
+   "to": "Direct response pool",
+   "clause": "puts all directory money in response pool"
+  },
+  {
+   "from": "by_money_type_alt",
+   "type": "APPLIES_TO",
+   "to": "Cross-era comparable split",
+   "clause": "variable used for split"
+  },
+  {
+   "from": "Rule era 6",
+   "type": "USES",
+   "to": "Cross-era comparable split",
+   "clause": "rule era 6 uses comparable split"
+  },
+  {
+   "from": "Rule era 7",
+   "type": "USES",
+   "to": "Cross-era comparable split",
+   "clause": "rule era 7 uses comparable split"
+  },
+  {
+   "from": "MAGNA",
+   "type": "USES",
+   "to": "Cross-era comparable split",
+   "clause": "MAGNA uses comparable split"
+  },
+  {
+   "from": "Geographic rule",
+   "type": "RANKS_AHEAD",
+   "to": "Local retail pool",
+   "clause": "local retail leads on geographic rule"
+  },
+  {
+   "from": "Unified rule",
+   "type": "RANKS_AHEAD",
+   "to": "Direct response pool",
+   "clause": "direct response leads on unified rule"
+  },
+  {
+   "from": "Editorial rule",
+   "type": "NOT_A_FINDING",
+   "to": "Finding",
+   "clause": "editorial rule not a finding"
+  },
+  {
+   "from": "Era-native money-type split",
+   "type": "HAS_DIFFERENCE",
+   "to": "Money-type split difference 2000",
+   "clause": "difference worth ... in 2000"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "PUTS_ALL_DIRECTORY_MONEY_IN",
+   "line": "EDGE|Cross-era comparable split|PUTS_ALL_DIRECTORY_MONEY_IN|Direct response pool|puts all directory money in response pool"
+  }
+ ],
+ "raw": "NODE|US measured advertising|advertising spend aggregate|US measured advertising\nNODE|U.S. advertising amount measurement|spend measurement|growth of US measured advertising\nNODE|Advertising share of GDP|share measurement|Advertising's share of GDP peaked ...\nNODE|Internet advertising|digital advertising medium|Internet advertising\nNODE|Internet ad amount measurement|spend measurement|Internet advertising spend grew ...\nNODE|Quarterly decline series|decline measurement|four consecutive quarterly declines from Q4 peak\nNODE|Money-type split 2000|market segmentation|market split by money type in 2000\nNODE|National brand pool|advertising segment|national brand\nNODE|Local retail pool|advertising segment|local retail\nNODE|Direct response pool|advertising segment|direct response\nNODE|Classified pool|advertising segment|classified\nNODE|Search pools combined value|spend measurement|combined worth of classified and direct response search pools\nNODE|Entire internet ad market|market total|entire internet ad market worth ...\nNODE|Newspaper classified share|share measurement|Newspaper classified's share of US advertising peaked ...\nNODE|Taxonomy seam|taxonomy issue|Taxonomy seam declared rather than resolved\nNODE|Resolution status|status|resolution status\n NODE|Era-native money-type split|segmentation rule|era-native split divides directory money by advertiser geography\nNODE|Directory money by advertiser geography|money categorization|directory money divided by advertiser geography\nNODE|Local Yellow Pages|directory type|local Yellow Pages\nNODE|National directories|directory type|national directories\nNODE|Cross-era comparable split|segmentation rule|cross-era comparable split puts all directory money in response pool\nNODE|by_money_type_alt|dataset variable|by_money_type_alt variable used for split\nNODE|Rule era 6|rule identifier|rule era 6 uses comparable split\nNODE|Rule era 7|rule identifier|rule era 7 uses comparable split\nNODE|MAGNA|organization|MAGNA uses comparable split\nNODE|Geographic rule|segmentation rule|geographic rule ranks local retail ahead of direct response\nNODE|Unified rule|segmentation rule|unified rule ranks direct response ahead of local retail\nNODE|Editorial rule|rule classification|editorial rule not a finding\nNODE|Finding|research conclusion|finding\nNODE|Money-type split difference 2000|difference measurement|difference worth ... in 2000\nEDGE|US measured advertising|HAS_MEASUREMENT|U.S. advertising amount measurement|growth from ... to ...\nEDGE|Internet advertising|HAS_MEASUREMENT|Internet ad amount measurement|went from ... to ...\nEDGE|Quarterly decline series|FROM_PEAK_OF|Internet ad amount measurement|four consecutive quarterly declines from Q4 peak\nEDGE|Money-type split 2000|CONTAINS_SEGMENT|National brand pool|market split includes national brand ...\nEDGE|Money-type split 2000|CONTAINS_SEGMENT|Local retail pool|... local retail ...\nEDGE|Money-type split 2000|CONTAINS_SEGMENT|Direct response pool|... direct response ...\nEDGE|Money-type split 2000|CONTAINS_SEGMENT|Classified pool|... classified ...\nEDGE|Search pools combined value|COMPOSED_OF|Classified pool|combined worth of classified and direct response\nEDGE|Search pools combined value|COMPOSED_OF|Direct response pool|...\nEDGE|Entire internet ad market|TOTAL_VALUE_MEASUREMENT|Internet ad amount measurement|entire internet ad market was worth ...\nEDGE|Taxonomy seam|DECLARED_NOT_RESOLVED|Resolution status|declared rather than resolved\nEDGE|Era-native money-type split|DIVIDES_DIRECTORY_MONEY_INTO|Directory money by advertiser geography|divides directory money by advertiser geography\nEDGE|Directory money by advertiser geography|ASSIGNS_LOCAL|Local Yellow Pages|local Yellow Pages counts as local money\nEDGE|Directory money by advertiser geography|ASSIGNS_RESPONSE|National directories|national directories count as response money\nEDGE|Cross-era comparable split|PUTS_ALL_DIRECTORY_MONEY_IN|Direct response pool|puts all directory money in response pool\nEDGE|by_money_type_alt|APPLIES_TO|Cross-era comparable split|variable used for split\nEDGE|Rule era 6|USES|Cross-era comparable split|rule era 6 uses comparable split\nEDGE|Rule era 7|USES|Cross-era comparable split|rule era 7 uses comparable split\nEDGE|MAGNA|USES|Cross-era comparable split|MAGNA uses comparable split\nEDGE|Geographic rule|RANKS_AHEAD|Local retail pool|local retail leads on geographic rule\nEDGE|Unified rule|RANKS_AHEAD|Direct response pool|direct response leads on unified rule\nEDGE|Editorial rule|NOT_A_FINDING|Finding|editorial rule not a finding\nEDGE|Era-native money-type split|HAS_DIFFERENCE|Money-type split difference 2000|difference worth ... in 2000"
+}

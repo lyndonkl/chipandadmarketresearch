@@ -1,0 +1,71 @@
+{
+ "group_id": "L1|41c353c4643a295f",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Default revenue share amount",
+   "type": "amount measurement",
+   "grain": "Measurement",
+   "reason": "same amount measure about default revenue share; year/source abstracted to children",
+   "child_uids": [
+    "n|e7-events-009|search default revenue share amount|revenue measurement",
+    "n|tu:era:7:field:SELLERS|google default revenue share amount|payment measurement"
+   ]
+  },
+  {
+   "name": "Google search default spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: a spend measure about Google search default spend",
+   "child_uids": [
+    "n|e7-sellers-006|google search default spend|spend measurement"
+   ]
+  },
+  {
+   "name": "Google's other revenue-share payments (combined)",
+   "type": "aggregate payment measurement",
+   "grain": "Measurement",
+   "reason": "singleton: aggregate payment measure of Google's other revenue-share payments",
+   "child_uids": [
+    "n|mech-default-002|google's other revenue-share payments (combined)|aggregate revenue-share payment measurement"
+   ]
+  },
+  {
+   "name": "Google-to-Apple Safari search ad revenue share",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: take-rate measure of Google-to-Apple Safari search ad revenue share",
+   "child_uids": [
+    "n|mech-default-003|google-to-apple safari search ad revenue share|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Google traffic acquisition cost default spend share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share measure of Google traffic acquisition cost default spend",
+   "child_uids": [
+    "n|mech-default-004|google traffic acquisition cost default spend share|share measurement"
+   ]
+  },
+  {
+   "name": "Google Search and other revenue amount",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: revenue amount measure of Google Search and other revenue FY2022",
+   "child_uids": [
+    "n|mech-default-005|google search and other revenue amount|revenue measurement"
+   ]
+  },
+  {
+   "name": "Default placement revenue share",
+   "type": "revenue share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: revenue share percentage of Google's overall search revenue from default placements",
+   "child_uids": [
+    "n|mech-mehta-002|default placement revenue share|revenue share measurement"
+   ]
+  }
+ ]
+}

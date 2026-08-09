@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|ffc298bc3fdd97c1",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "low-spend weekly advertiser category",
+   "type": "advertiser spend segment",
+   "grain": "Entity",
+   "reason": "singleton: low\u2011spend weekly category distinct from other advertiser segments",
+   "child_uids": [
+    "n|e2-pricing-005|low-spend weekly advertiser category|advertiser spend segment"
+   ]
+  },
+  {
+   "name": "high-spend annual advertiser category",
+   "type": "advertiser spend segment",
+   "grain": "Entity",
+   "reason": "singleton: high\u2011spend annual category separate from other spend categories",
+   "child_uids": [
+    "n|e2-pricing-005|high-spend annual advertiser category|advertiser spend segment"
+   ]
+  },
+  {
+   "name": "comparison shopping sites",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: comparison shopping sites a specific advertiser segment",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|comparison shopping sites|advertiser segment"
+   ]
+  },
+  {
+   "name": "era-6 heavy spenders",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: era\u20116 heavy spenders distinct advertiser segment",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|era-6 heavy spenders|advertiser segment"
+   ]
+  },
+  {
+   "name": "claim e7-medium-003",
+   "type": "ad spend claim",
+   "grain": "Entity",
+   "reason": "singleton: claim e7-medium-003 is an ad spend claim entity",
+   "child_uids": [
+    "n|tu:era:7:boundary|claim e7-medium-003|ad spend claim"
+   ]
+  }
+ ]
+}

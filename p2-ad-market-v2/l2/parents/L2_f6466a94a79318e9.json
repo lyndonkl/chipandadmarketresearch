@@ -1,0 +1,107 @@
+{
+ "group_id": "L2|f6466a94a79318e9",
+ "n_in": 21,
+ "parents": [
+  {
+   "name": "sales method",
+   "type": "method kind",
+   "grain": "Entity",
+   "reason": "Scatter, Participation sales, pitch and Sponsorship mode are selling methods",
+   "child_uids": [
+    "L1|5e2c79f786f9fb40",
+    "L1|86dbb2ddd033ad5a",
+    "L1|8f6068b8c66d9c24",
+    "L1|dc5827012fd39c71"
+   ]
+  },
+  {
+   "name": "seller grouping",
+   "type": "grouping kind",
+   "grain": "Entity",
+   "reason": "Classified publishers, seller group, top ten sellers, bill posters, segment all group sellers",
+   "child_uids": [
+    "L1|1002ae2351849732",
+    "L1|2997a3bac7034758",
+    "L1|77283a02a1cc394d",
+    "L1|cb0d5068671ffee3",
+    "L1|cc056ecea5fa0c35"
+   ]
+  },
+  {
+   "name": "seller type",
+   "type": "type kind",
+   "grain": "Entity",
+   "reason": "singleton: a distinct seller type",
+   "child_uids": [
+    "L1|ef02e69ee596c5f7"
+   ]
+  },
+  {
+   "name": "predictive model",
+   "type": "model kind",
+   "grain": "Entity",
+   "reason": "Seller model and advertiser-side model are predictive models for selling",
+   "child_uids": [
+    "L1|73887f66e0d30e3d",
+    "L1|ecdf3319e2ac63a5"
+   ]
+  },
+  {
+   "name": "sales personnel",
+   "type": "personnel kind",
+   "grain": "Entity",
+   "reason": "singleton: sales personnel are individuals, not groups or models",
+   "child_uids": [
+    "L1|ea83cd836d108544"
+   ]
+  },
+  {
+   "name": "vendor group",
+   "type": "group kind",
+   "grain": "Entity",
+   "reason": "singleton: vendor group is a distinct seller category",
+   "child_uids": [
+    "L1|f8af0be504e0cf73"
+   ]
+  },
+  {
+   "name": "sales channel",
+   "type": "channel kind",
+   "grain": "Entity",
+   "reason": "singleton: door-to-door sales force is a specific channel",
+   "child_uids": [
+    "L1|676866124fed0026"
+   ]
+  },
+  {
+   "name": "seller data record",
+   "type": "record kind",
+   "grain": "Entity",
+   "reason": "singleton: seller log records transactional data",
+   "child_uids": [
+    "L1|55c387b2f67092a0"
+   ]
+  },
+  {
+   "name": "data seller",
+   "type": "seller kind",
+   "grain": "Entity",
+   "reason": "Donnelley, R.L. Polk, list brokers and compilers sell data",
+   "child_uids": [
+    "L1|310508dbeaca92bf",
+    "L1|521d2c64e76fbc88",
+    "L1|636d4893d76d0f57",
+    "L1|f8dc91deba01908a"
+   ]
+  },
+  {
+   "name": "paid-search seller",
+   "type": "seller kind",
+   "grain": "Entity",
+   "reason": "singleton: paid-search seller is a specific market participant",
+   "child_uids": [
+    "L1|25f73b3161b5efa5"
+   ]
+  }
+ ]
+}

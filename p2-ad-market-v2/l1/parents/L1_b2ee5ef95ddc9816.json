@@ -1,0 +1,65 @@
+{
+ "group_id": "L1|b2ee5ef95ddc9816",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Sponsorship era",
+   "type": "advertising era",
+   "grain": "Entity",
+   "reason": "same era entity across sources; years abstracted to children",
+   "child_uids": [
+    "n|e2-buyers-006|sponsorship era (1918-1949)|advertising era",
+    "n|tu:era:2:field:BUYERS|sponsorship era|era"
+   ]
+  },
+  {
+   "name": "Sponsorship pricing mechanism",
+   "type": "pricing mechanism",
+   "grain": "Entity",
+   "reason": "pricing mechanism concept across type labels; year details in children",
+   "child_uids": [
+    "n|tu:era:1:boundary|sponsorship mechanism|pricing mechanism",
+    "n|tu:era:2:field:PRICING|sponsorship pricing model|pricing model"
+   ]
+  },
+  {
+   "name": "Sponsorship model",
+   "type": "sponsorship model",
+   "grain": "Entity",
+   "reason": "general sponsorship model/practice grouping distinct specific variants",
+   "child_uids": [
+    "n|tu:era:2:boundary|sponsorship model at boundary|sponsorship practice",
+    "n|tu:era:3:field:PRICING|single sponsorship|sponsorship model",
+    "n|tu:era:3:field:PRICING|sponsorship model|advertising arrangement"
+   ]
+  },
+  {
+   "name": "Portal anchor tenancy",
+   "type": "sponsorship contract",
+   "grain": "Entity",
+   "reason": "singleton: unique contract type",
+   "child_uids": [
+    "n|e5-pricing-008|portal anchor tenancy|sponsorship contract"
+   ]
+  },
+  {
+   "name": "Participations",
+   "type": "advertising funding model",
+   "grain": "Entity",
+   "reason": "singleton: distinct funding model",
+   "child_uids": [
+    "n|e3-buyers-002|participations|advertising funding model"
+   ]
+  },
+  {
+   "name": "Sponsorship dominant network selling mode",
+   "type": "selling mode practice",
+   "grain": "Entity",
+   "reason": "singleton: specific selling mode practice",
+   "child_uids": [
+    "n|tu:era:3:boundary|sponsorship dominant network selling mode (1950)|selling mode practice"
+   ]
+  }
+ ]
+}

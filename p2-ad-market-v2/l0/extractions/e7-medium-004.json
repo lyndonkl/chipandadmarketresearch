@@ -1,0 +1,167 @@
+{
+ "id": "e7-medium-004",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of US search advertising revenue, 2025",
+ "elapsed_s": 98.9,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 14,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet advertising revenue",
+   "type": "aggregate market",
+   "clause": "US internet ad revenue split"
+  },
+  {
+   "name": "search advertising",
+   "type": "advertising medium",
+   "clause": "search category"
+  },
+  {
+   "name": "display advertising",
+   "type": "advertising medium",
+   "clause": "display category"
+  },
+  {
+   "name": "digital video advertising",
+   "type": "advertising medium",
+   "clause": "digital video category"
+  },
+  {
+   "name": "digital audio advertising",
+   "type": "advertising medium",
+   "clause": "digital audio category"
+  },
+  {
+   "name": "other internet advertising",
+   "type": "advertising medium",
+   "clause": "'other' (classifieds, directories, lead generation)"
+  },
+  {
+   "name": "US search advertising revenue measurement",
+   "type": "revenue measurement",
+   "clause": "search ... in 2025"
+  },
+  {
+   "name": "US display advertising revenue measurement",
+   "type": "revenue measurement",
+   "clause": "display ... in 2025"
+  },
+  {
+   "name": "US digital video advertising revenue measurement",
+   "type": "revenue measurement",
+   "clause": "digital video ... in 2025"
+  },
+  {
+   "name": "US digital audio advertising revenue measurement",
+   "type": "revenue measurement",
+   "clause": "digital audio ... in 2025"
+  },
+  {
+   "name": "US other internet advertising revenue measurement",
+   "type": "revenue measurement",
+   "clause": "'other' ... in 2025"
+  },
+  {
+   "name": "search advertising share of US internet ad revenue",
+   "type": "share measurement",
+   "clause": "search ... percent"
+  },
+  {
+   "name": "other internet advertising share of US internet ad revenue",
+   "type": "share measurement",
+   "clause": "'other' ... percent"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US internet advertising revenue",
+   "type": "INCLUDES",
+   "to": "search advertising",
+   "clause": "includes search category"
+  },
+  {
+   "from": "US internet advertising revenue",
+   "type": "INCLUDES",
+   "to": "display advertising",
+   "clause": "includes display category"
+  },
+  {
+   "from": "US internet advertising revenue",
+   "type": "INCLUDES",
+   "to": "digital video advertising",
+   "clause": "includes digital video category"
+  },
+  {
+   "from": "US internet advertising revenue",
+   "type": "INCLUDES",
+   "to": "digital audio advertising",
+   "clause": "includes digital audio category"
+  },
+  {
+   "from": "US internet advertising revenue",
+   "type": "INCLUDES",
+   "to": "other internet advertising",
+   "clause": "includes 'other' category"
+  },
+  {
+   "from": "search advertising",
+   "type": "HAS_REVENUE",
+   "to": "US search advertising revenue measurement",
+   "clause": "has revenue measurement"
+  },
+  {
+   "from": "display advertising",
+   "type": "HAS_REVENUE",
+   "to": "US display advertising revenue measurement",
+   "clause": "has revenue measurement"
+  },
+  {
+   "from": "digital video advertising",
+   "type": "HAS_REVENUE",
+   "to": "US digital video advertising revenue measurement",
+   "clause": "has revenue measurement"
+  },
+  {
+   "from": "digital audio advertising",
+   "type": "HAS_REVENUE",
+   "to": "US digital audio advertising revenue measurement",
+   "clause": "has revenue measurement"
+  },
+  {
+   "from": "other internet advertising",
+   "type": "HAS_REVENUE",
+   "to": "US other internet advertising revenue measurement",
+   "clause": "has revenue measurement"
+  },
+  {
+   "from": "search advertising share of US internet ad revenue",
+   "type": "MEASURES",
+   "to": "search advertising",
+   "clause": "measures search advertising"
+  },
+  {
+   "from": "search advertising share of US internet ad revenue",
+   "type": "MEASURED_ON",
+   "to": "US internet advertising revenue",
+   "clause": "measured on total internet ad revenue"
+  },
+  {
+   "from": "other internet advertising share of US internet ad revenue",
+   "type": "MEASURES",
+   "to": "other internet advertising",
+   "clause": "measures other internet advertising"
+  },
+  {
+   "from": "other internet advertising share of US internet ad revenue",
+   "type": "MEASURED_ON",
+   "to": "US internet advertising revenue",
+   "clause": "measured on total internet ad revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet advertising revenue|aggregate market|US internet ad revenue split\nNODE|search advertising|advertising medium|search category\nNODE|display advertising|advertising medium|display category\nNODE|digital video advertising|advertising medium|digital video category\nNODE|digital audio advertising|advertising medium|digital audio category\nNODE|other internet advertising|advertising medium|'other' (classifieds, directories, lead generation)\nNODE|US search advertising revenue measurement|revenue measurement|search ... in 2025\nNODE|US display advertising revenue measurement|revenue measurement|display ... in 2025\nNODE|US digital video advertising revenue measurement|revenue measurement|digital video ... in 2025\nNODE|US digital audio advertising revenue measurement|revenue measurement|digital audio ... in 2025\nNODE|US other internet advertising revenue measurement|revenue measurement|'other' ... in 2025\nNODE|search advertising share of US internet ad revenue|share measurement|search ... percent\nNODE|other internet advertising share of US internet ad revenue|share measurement|'other' ... percent\nEDGE|US internet advertising revenue|INCLUDES|search advertising|includes search category\nEDGE|US internet advertising revenue|INCLUDES|display advertising|includes display category\nEDGE|US internet advertising revenue|INCLUDES|digital video advertising|includes digital video category\nEDGE|US internet advertising revenue|INCLUDES|digital audio advertising|includes digital audio category\nEDGE|US internet advertising revenue|INCLUDES|other internet advertising|includes 'other' category\nEDGE|search advertising|HAS_REVENUE|US search advertising revenue measurement|has revenue measurement\nEDGE|display advertising|HAS_REVENUE|US display advertising revenue measurement|has revenue measurement\nEDGE|digital video advertising|HAS_REVENUE|US digital video advertising revenue measurement|has revenue measurement\nEDGE|digital audio advertising|HAS_REVENUE|US digital audio advertising revenue measurement|has revenue measurement\nEDGE|other internet advertising|HAS_REVENUE|US other internet advertising revenue measurement|has revenue measurement\nEDGE|search advertising share of US internet ad revenue|MEASURES|search advertising|measures search advertising\nEDGE|search advertising share of US internet ad revenue|MEASURED_ON|US internet advertising revenue|measured on total internet ad revenue\nEDGE|other internet advertising share of US internet ad revenue|MEASURES|other internet advertising|measures other internet advertising\nEDGE|other internet advertising share of US internet ad revenue|MEASURED_ON|US internet advertising revenue|measured on total internet ad revenue"
+}

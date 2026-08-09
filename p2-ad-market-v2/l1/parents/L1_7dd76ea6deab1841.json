@@ -1,0 +1,73 @@
+{
+ "group_id": "L1|7dd76ea6deab1841",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Search auction",
+   "type": "auction mechanism",
+   "grain": "Entity",
+   "reason": "same concept across paid-search and generic search terms",
+   "child_uids": [
+    "n|ds-money_type-003|paid-search auction|auction mechanism",
+    "n|mech-classified-001|search auction|auction mechanism"
+   ]
+  },
+  {
+   "name": "Pay-per-click auction",
+   "type": "auction mechanism",
+   "grain": "Entity",
+   "reason": "covers CPC, open per\u2011click and keyword auctions",
+   "child_uids": [
+    "n|tu:era:5:event:2|open per-click auction|auction mechanism",
+    "n|tu:era:6:boundary|cpc auction|auction mechanism",
+    "n|tu:era:6:boundary|pay-per-click keyword auction|auction mechanism"
+   ]
+  },
+  {
+   "name": "Click-selling auction",
+   "type": "advertising auction model",
+   "grain": "Entity",
+   "reason": "singleton: distinct click\u2011selling auction model",
+   "child_uids": [
+    "n|tu:era:5:event:8|click-selling auction|advertising auction model"
+   ]
+  },
+  {
+   "name": "Better auction",
+   "type": "auction mechanism",
+   "grain": "Entity",
+   "reason": "singleton: distinct improved auction concept",
+   "child_uids": [
+    "n|tu:era:6:field:SELLERS|better auction|auction mechanism"
+   ]
+  },
+  {
+   "name": "Panama auction",
+   "type": "auction name",
+   "grain": "Entity",
+   "reason": "singleton: Yahoo's renamed version of the auction",
+   "child_uids": [
+    "n|tu:era:6:field:SELLERS|panama auction|auction name"
+   ]
+  },
+  {
+   "name": "Second-price auction",
+   "type": "auction mechanism",
+   "grain": "Entity",
+   "reason": "singleton: pricing rule for open\u2011web display auctions",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|second-price auction|auction mechanism"
+   ]
+  },
+  {
+   "name": "Auction mechanism",
+   "type": "auction system",
+   "grain": "Entity",
+   "reason": "singleton: generic auction system referenced in source",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|auction mechanism|auction system"
+   ]
+  }
+ ]
+}

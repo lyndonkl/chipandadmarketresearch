@@ -1,0 +1,126 @@
+{
+ "id": "tu:era:6:event:7",
+ "kind": "prose:event",
+ "era": 6,
+ "about_year": 2007,
+ "unit": null,
+ "elapsed_s": 49.5,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Yahoo",
+   "type": "company",
+   "clause": "Yahoo"
+  },
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture"
+  },
+  {
+   "name": "pure bid-to-position ranking",
+   "type": "ranking mechanism",
+   "clause": "Overture's pure bid-to-position ranking"
+  },
+  {
+   "name": "Panama",
+   "type": "ranking system",
+   "clause": "Panama"
+  },
+  {
+   "name": "ad quality",
+   "type": "quality metric",
+   "clause": "ad quality"
+  },
+  {
+   "name": "click-through rate",
+   "type": "metric component",
+   "clause": "click-through rate"
+  },
+  {
+   "name": "relevance",
+   "type": "metric component",
+   "clause": "relevance"
+  },
+  {
+   "name": "landing-page quality",
+   "type": "metric component",
+   "clause": "landing-page quality"
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Google-shipped mechanism",
+   "type": "ranking mechanism",
+   "clause": "the mechanism Google shipped ..."
+  },
+  {
+   "name": "industry standard",
+   "type": "status",
+   "clause": "industry standard"
+  },
+  {
+   "name": "distribution war",
+   "type": "market competition event",
+   "clause": "distribution war"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Yahoo",
+   "type": "REPLACES",
+   "to": "pure bid-to-position ranking",
+   "clause": "replaces Overture's pure bid-to-position ranking with Panama"
+  },
+  {
+   "from": "Panama",
+   "type": "WEIGHTS_BY",
+   "to": "ad quality",
+   "clause": "which weights bids by ad quality"
+  },
+  {
+   "from": "ad quality",
+   "type": "HAS_COMPONENT",
+   "to": "click-through rate",
+   "clause": "component of ad quality"
+  },
+  {
+   "from": "ad quality",
+   "type": "HAS_COMPONENT",
+   "to": "relevance",
+   "clause": "component of ad quality"
+  },
+  {
+   "from": "ad quality",
+   "type": "HAS_COMPONENT",
+   "to": "landing-page quality",
+   "clause": "component of ad quality"
+  },
+  {
+   "from": "Google",
+   "type": "SHIPPED",
+   "to": "Google-shipped mechanism",
+   "clause": "the mechanism Google shipped ..."
+  },
+  {
+   "from": "Google-shipped mechanism",
+   "type": "BECAME_STANDARD",
+   "to": "industry standard",
+   "clause": "becomes the industry standard ..."
+  },
+  {
+   "from": "industry standard",
+   "type": "AFTER",
+   "to": "distribution war",
+   "clause": "after the distribution war had already been decided"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Yahoo|company|Yahoo\nNODE|Overture|company|Overture\nNODE|pure bid-to-position ranking|ranking mechanism|Overture's pure bid-to-position ranking\nNODE|Panama|ranking system|Panama\nNODE|ad quality|quality metric|ad quality\nNODE|click-through rate|metric component|click-through rate\nNODE|relevance|metric component|relevance\nNODE|landing-page quality|metric component|landing-page quality\nNODE|Google|company|Google\nNODE|Google-shipped mechanism|ranking mechanism|the mechanism Google shipped ...\nNODE|industry standard|status|industry standard\nNODE|distribution war|market competition event|distribution war\nEDGE|Yahoo|REPLACES|pure bid-to-position ranking|replaces Overture's pure bid-to-position ranking with Panama\nEDGE|Panama|WEIGHTS_BY|ad quality|which weights bids by ad quality\nEDGE|ad quality|HAS_COMPONENT|click-through rate|component of ad quality\nEDGE|ad quality|HAS_COMPONENT|relevance|component of ad quality\nEDGE|ad quality|HAS_COMPONENT|landing-page quality|component of ad quality\nEDGE|Google|SHIPPED|Google-shipped mechanism|the mechanism Google shipped ...\nEDGE|Google-shipped mechanism|BECAME_STANDARD|industry standard|becomes the industry standard ...\nEDGE|industry standard|AFTER|distribution war|after the distribution war had already been decided"
+}

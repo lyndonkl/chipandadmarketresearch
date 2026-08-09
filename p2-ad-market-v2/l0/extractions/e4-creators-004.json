@@ -1,0 +1,83 @@
+{
+ "id": "e4-creators-004",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1992,
+ "unit": "employees",
+ "elapsed_s": 67.3,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising agency industry",
+   "type": "market",
+   "clause": "the industry shed staff through the 1990-91 recession"
+  },
+  {
+   "name": "US advertising-agency employment",
+   "type": "employee-count measurement",
+   "clause": "US advertising-agency employment was about ... in ..."
+  },
+  {
+   "name": "1990-91 recession",
+   "type": "economic downturn",
+   "clause": "through the 1990-91 recession"
+  },
+  {
+   "name": "advertising-agency establishment count",
+   "type": "establishment-count measurement",
+   "clause": "its establishment count kept rising"
+  },
+  {
+   "name": "County Business Patterns",
+   "type": "data source",
+   "clause": "County Business Patterns gives ..."
+  },
+  {
+   "name": "1992 Census of Service Industries",
+   "type": "data source",
+   "clause": "the 1992 Census of Service Industries gives ... paid employees"
+  },
+  {
+   "name": "US advertising-agency paid employee count",
+   "type": "employee-count measurement",
+   "clause": "paid employees reported by the census"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising agency industry",
+   "type": "SHED_STAFF_DURING",
+   "to": "1990-91 recession",
+   "clause": "the industry shed staff through the 1990-91 recession"
+  },
+  {
+   "from": "US advertising-agency employment",
+   "type": "DECREASED_DURING",
+   "to": "1990-91 recession",
+   "clause": "down from ... while ... recession"
+  },
+  {
+   "from": "advertising-agency establishment count",
+   "type": "RISING_DURING",
+   "to": "1990-91 recession",
+   "clause": "its establishment count kept rising"
+  },
+  {
+   "from": "County Business Patterns",
+   "type": "REPORTS",
+   "to": "US advertising-agency employment",
+   "clause": "gives ..."
+  },
+  {
+   "from": "1992 Census of Service Industries",
+   "type": "REPORTS",
+   "to": "US advertising-agency paid employee count",
+   "clause": "gives ... paid employees"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising agency industry|market|the industry shed staff through the 1990-91 recession\nNODE|US advertising-agency employment|employee-count measurement|US advertising-agency employment was about ... in ...\nNODE|1990-91 recession|economic downturn|through the 1990-91 recession\nNODE|advertising-agency establishment count|establishment-count measurement|its establishment count kept rising\nNODE|County Business Patterns|data source|County Business Patterns gives ...\nNODE|1992 Census of Service Industries|data source|the 1992 Census of Service Industries gives ... paid employees\nNODE|US advertising-agency paid employee count|employee-count measurement|paid employees reported by the census\nEDGE|US advertising agency industry|SHED_STAFF_DURING|1990-91 recession|the industry shed staff through the 1990-91 recession\nEDGE|US advertising-agency employment|DECREASED_DURING|1990-91 recession|down from ... while ... recession\nEDGE|advertising-agency establishment count|RISING_DURING|1990-91 recession|its establishment count kept rising\nEDGE|County Business Patterns|REPORTS|US advertising-agency employment|gives ...\nEDGE|1992 Census of Service Industries|REPORTS|US advertising-agency paid employee count|gives ... paid employees"
+}

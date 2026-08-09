@@ -1,0 +1,100 @@
+{
+ "id": "e2-measurement-001",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1930,
+ "unit": "US$ of CAB first-year subscription revenue, 1930",
+ "elapsed_s": 65.7,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Cooperative Analysis of Broadcasting",
+   "type": "audience ratings organization",
+   "clause": "the Cooperative Analysis of Broadcasting earned ... in its first year"
+  },
+  {
+   "name": "CAB first-year subscription revenue",
+   "type": "revenue measurement",
+   "clause": "US$ ... first\u2011year subscription revenue"
+  },
+  {
+   "name": "advertiser subscriber count",
+   "type": "count measurement",
+   "clause": "... advertiser subscribers"
+  },
+  {
+   "name": "advertiser subscriber",
+   "type": "advertiser",
+   "clause": "advertiser subscribers paying ... a month"
+  },
+  {
+   "name": "advertiser monthly subscription rate",
+   "type": "price measurement",
+   "clause": "paying ... a month"
+  },
+  {
+   "name": "ANA members",
+   "type": "member group",
+   "clause": "... for ANA members"
+  },
+  {
+   "name": "ANA member monthly subscription rate",
+   "type": "price measurement",
+   "clause": "... a month for ANA members"
+  },
+  {
+   "name": "national audience\u2011ratings business",
+   "type": "business type",
+   "clause": "the first national audience\u2011ratings business"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Cooperative Analysis of Broadcasting",
+   "type": "EARNED",
+   "to": "CAB first-year subscription revenue",
+   "clause": "earned ... in its first year"
+  },
+  {
+   "from": "CAB first-year subscription revenue",
+   "type": "MEASURES",
+   "to": "Cooperative Analysis of Broadcasting",
+   "clause": "... revenue measurement"
+  },
+  {
+   "from": "Cooperative Analysis of Broadcasting",
+   "type": "EARNED_FROM",
+   "to": "advertiser subscriber",
+   "clause": "earned ... from ... advertiser subscribers"
+  },
+  {
+   "from": "advertiser subscriber",
+   "type": "HAS_COUNT",
+   "to": "advertiser subscriber count",
+   "clause": "... advertiser subscribers"
+  },
+  {
+   "from": "advertiser subscriber",
+   "type": "PAID",
+   "to": "advertiser monthly subscription rate",
+   "clause": "paying ... a month"
+  },
+  {
+   "from": "ANA members",
+   "type": "PAID",
+   "to": "ANA member monthly subscription rate",
+   "clause": "... a month for ANA members"
+  },
+  {
+   "from": "Cooperative Analysis of Broadcasting",
+   "type": "WAS_FIRST_IN",
+   "to": "national audience\u2011ratings business",
+   "clause": "the first national audience\u2011ratings business"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Cooperative Analysis of Broadcasting|audience ratings organization|the Cooperative Analysis of Broadcasting earned ... in its first year\nNODE|CAB first-year subscription revenue|revenue measurement|US$ ... first\u2011year subscription revenue\nNODE|advertiser subscriber count|count measurement|... advertiser subscribers\nNODE|advertiser subscriber|advertiser|advertiser subscribers paying ... a month\nNODE|advertiser monthly subscription rate|price measurement|paying ... a month\nNODE|ANA members|member group|... for ANA members\nNODE|ANA member monthly subscription rate|price measurement|... a month for ANA members\nNODE|national audience\u2011ratings business|business type|the first national audience\u2011ratings business\nEDGE|Cooperative Analysis of Broadcasting|EARNED|CAB first-year subscription revenue|earned ... in its first year\nEDGE|CAB first-year subscription revenue|MEASURES|Cooperative Analysis of Broadcasting|... revenue measurement\nEDGE|Cooperative Analysis of Broadcasting|EARNED_FROM|advertiser subscriber|earned ... from ... advertiser subscribers\nEDGE|advertiser subscriber|HAS_COUNT|advertiser subscriber count|... advertiser subscribers\nEDGE|advertiser subscriber|PAID|advertiser monthly subscription rate|paying ... a month\nEDGE|ANA members|PAID|ANA member monthly subscription rate|... a month for ANA members\nEDGE|Cooperative Analysis of Broadcasting|WAS_FIRST_IN|national audience\u2011ratings business|the first national audience\u2011ratings business"
+}

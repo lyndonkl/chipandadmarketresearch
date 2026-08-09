@@ -1,0 +1,133 @@
+{
+ "id": "e7-buyers-003",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of Google advertisers running Performance Max",
+ "elapsed_s": 98.0,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "vendor survey",
+   "type": "market research survey",
+   "clause": "vendor survey of ... advertisers"
+  },
+  {
+   "name": "advertisers",
+   "type": "advertiser group",
+   "clause": "... advertisers"
+  },
+  {
+   "name": "Google advertisers",
+   "type": "advertiser group",
+   "clause": "... percent of Google advertisers..."
+  },
+  {
+   "name": "Performance Max campaigns",
+   "type": "ad format",
+   "clause": "running Performance Max campaigns"
+  },
+  {
+   "name": "Performance Max adoption rate (latest survey)",
+   "type": "adoption-rate measurement",
+   "clause": "... percent of Google advertisers..."
+  },
+  {
+   "name": "US advertiser respondents",
+   "type": "advertiser subgroup",
+   "clause": "... percent of US respondents..."
+  },
+  {
+   "name": "Performance Max adoption rate among US respondents (latest survey)",
+   "type": "adoption-rate measurement",
+   "clause": "... percent of US respondents..."
+  },
+  {
+   "name": "Performance Max adoption rate (prior year)",
+   "type": "adoption-rate measurement",
+   "clause": "... percent of Google advertisers in ... 2024"
+  },
+  {
+   "name": "Google full advertiser base",
+   "type": "advertiser group",
+   "clause": "population-level figure for Google advertisers"
+  },
+  {
+   "name": "population-level figure for Google advertisers",
+   "type": "advertiser-base measurement",
+   "clause": "population-level figure for Google advertisers"
+  },
+  {
+   "name": "public record",
+   "type": "information source",
+   "clause": "no ... figure ... is published"
+  }
+ ],
+ "edges": [
+  {
+   "from": "vendor survey",
+   "type": "SURVEYED",
+   "to": "advertisers",
+   "clause": "vendor survey of ... advertisers"
+  },
+  {
+   "from": "Performance Max adoption rate (latest survey)",
+   "type": "SHARE_OF",
+   "to": "Google advertisers",
+   "clause": "... percent of Google advertisers..."
+  },
+  {
+   "from": "Performance Max adoption rate (latest survey)",
+   "type": "MEASURES",
+   "to": "Performance Max campaigns",
+   "clause": "running Performance Max campaigns"
+  },
+  {
+   "from": "Performance Max adoption rate among US respondents (latest survey)",
+   "type": "SHARE_OF",
+   "to": "US advertiser respondents",
+   "clause": "... percent of US respondents..."
+  },
+  {
+   "from": "Performance Max adoption rate among US respondents (latest survey)",
+   "type": "MEASURES",
+   "to": "Performance Max campaigns",
+   "clause": "... percent of US respondents..."
+  },
+  {
+   "from": "Performance Max adoption rate (prior year)",
+   "type": "SHARE_OF",
+   "to": "Google advertisers",
+   "clause": "... percent of Google advertisers in ... 2024"
+  },
+  {
+   "from": "Performance Max adoption rate (prior year)",
+   "type": "MEASURES",
+   "to": "Performance Max campaigns",
+   "clause": "... percent of Google advertisers in ... 2024"
+  },
+  {
+   "from": "Performance Max adoption rate (latest survey)",
+   "type": "UP_FROM",
+   "to": "Performance Max adoption rate (prior year)",
+   "clause": "up from ..."
+  },
+  {
+   "from": "population-level figure for Google advertisers",
+   "type": "MEASURES",
+   "to": "Google full advertiser base",
+   "clause": "population-level figure for Google advertisers"
+  },
+  {
+   "from": "population-level figure for Google advertisers",
+   "type": "NOT_PUBLISHED",
+   "to": "public record",
+   "clause": "no ... figure ... is published"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|vendor survey|market research survey|vendor survey of ... advertisers\nNODE|advertisers|advertiser group|... advertisers\nNODE|Google advertisers|advertiser group|... percent of Google advertisers...\nNODE|Performance Max campaigns|ad format|running Performance Max campaigns\nNODE|Performance Max adoption rate (latest survey)|adoption-rate measurement|... percent of Google advertisers...\nNODE|US advertiser respondents|advertiser subgroup|... percent of US respondents...\nNODE|Performance Max adoption rate among US respondents (latest survey)|adoption-rate measurement|... percent of US respondents...\nNODE|Performance Max adoption rate (prior year)|adoption-rate measurement|... percent of Google advertisers in ... 2024\nNODE|Google full advertiser base|advertiser group|population-level figure for Google advertisers\nNODE|population-level figure for Google advertisers|advertiser-base measurement|population-level figure for Google advertisers\nNODE|public record|information source|no ... figure ... is published\nEDGE|vendor survey|SURVEYED|advertisers|vendor survey of ... advertisers\nEDGE|Performance Max adoption rate (latest survey)|SHARE_OF|Google advertisers|... percent of Google advertisers...\nEDGE|Performance Max adoption rate (latest survey)|MEASURES|Performance Max campaigns|running Performance Max campaigns\nEDGE|Performance Max adoption rate among US respondents (latest survey)|SHARE_OF|US advertiser respondents|... percent of US respondents...\nEDGE|Performance Max adoption rate among US respondents (latest survey)|MEASURES|Performance Max campaigns|... percent of US respondents...\nEDGE|Performance Max adoption rate (prior year)|SHARE_OF|Google advertisers|... percent of Google advertisers in ... 2024\nEDGE|Performance Max adoption rate (prior year)|MEASURES|Performance Max campaigns|... percent of Google advertisers in ... 2024\nEDGE|Performance Max adoption rate (latest survey)|UP_FROM|Performance Max adoption rate (prior year)|up from ...\nEDGE|population-level figure for Google advertisers|MEASURES|Google full advertiser base|population-level figure for Google advertisers\nEDGE|population-level figure for Google advertisers|NOT_PUBLISHED|public record|no ... figure ... is published"
+}

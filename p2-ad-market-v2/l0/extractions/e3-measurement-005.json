@@ -1,0 +1,85 @@
+{
+ "id": "e3-measurement-005",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "television households per national rating point",
+ "elapsed_s": 78.2,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 6,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "national household rating point",
+   "type": "rating metric",
+   "clause": "one national household rating point"
+  },
+  {
+   "name": "television households",
+   "type": "audience unit",
+   "clause": "television households"
+  },
+  {
+   "name": "contemporary TV households per rating point",
+   "type": "rate measurement",
+   "clause": "value in 1975"
+  },
+  {
+   "name": "historical TV households per rating point",
+   "type": "rate measurement",
+   "clause": "value in 1960"
+  },
+  {
+   "name": "network inventory",
+   "type": "advertising inventory",
+   "clause": "network inventory"
+  }
+ ],
+ "edges": [
+  {
+   "from": "contemporary TV households per rating point",
+   "type": "MEASURES",
+   "to": "television households",
+   "clause": "one rating point was worth ... television households"
+  },
+  {
+   "from": "contemporary TV households per rating point",
+   "type": "PER_UNIT_OF",
+   "to": "national household rating point",
+   "clause": "per national rating point"
+  },
+  {
+   "from": "historical TV households per rating point",
+   "type": "MEASURES",
+   "to": "television households",
+   "clause": "against ... in 1960 ..."
+  },
+  {
+   "from": "historical TV households per rating point",
+   "type": "PER_UNIT_OF",
+   "to": "national household rating point",
+   "clause": "per national rating point"
+  },
+  {
+   "from": "contemporary TV households per rating point",
+   "type": "AGAINST",
+   "to": "historical TV households per rating point",
+   "clause": "contrast against 1960 figure"
+  },
+  {
+   "from": "contemporary TV households per rating point",
+   "type": "USED_AS_PRICING_UNIT_FOR",
+   "to": "network inventory",
+   "clause": "unit in which network inventory was actually priced"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "USED_AS_PRICING_UNIT_FOR",
+   "line": "EDGE|contemporary TV households per rating point|USED_AS_PRICING_UNIT_FOR|network inventory|unit in which network inventory was actually priced"
+  }
+ ],
+ "raw": "NODE|national household rating point|rating metric|one national household rating point\nNODE|television households|audience unit|television households\nNODE|contemporary TV households per rating point|rate measurement|value in 1975\nNODE|historical TV households per rating point|rate measurement|value in 1960\nNODE|network inventory|advertising inventory|network inventory\nEDGE|contemporary TV households per rating point|MEASURES|television households|one rating point was worth ... television households\nEDGE|contemporary TV households per rating point|PER_UNIT_OF|national household rating point|per national rating point\nEDGE|historical TV households per rating point|MEASURES|television households|against ... in 1960 ...\nEDGE|historical TV households per rating point|PER_UNIT_OF|national household rating point|per national rating point\nEDGE|contemporary TV households per rating point|AGAINST|historical TV households per rating point|contrast against 1960 figure\nEDGE|contemporary TV households per rating point|USED_AS_PRICING_UNIT_FOR|network inventory|unit in which network inventory was actually priced"
+}

@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|1e4202301b86a938",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Google traffic acquisition cost",
+   "type": "cost",
+   "grain": "Entity",
+   "reason": "same Google cost concept across type labels",
+   "child_uids": [
+    "n|mech-default-004|google traffic acquisition cost|cost category",
+    "n|tu:era:7:field:SELLERS|google total traffic acquisition costs|cost"
+   ]
+  },
+  {
+   "name": "Total traffic acquisition cost",
+   "type": "aggregate cost",
+   "grain": "Entity",
+   "reason": "singleton: aggregate cost across all firms",
+   "child_uids": [
+    "n|mech-tac-002|total traffic acquisition cost|aggregate cost"
+   ]
+  },
+  {
+   "name": "Service fees paid to web publishers",
+   "type": "cost component",
+   "grain": "Entity",
+   "reason": "singleton: specific cost component to web publishers",
+   "child_uids": [
+    "n|e5-sellers-004|service fees paid to web publishers|cost component"
+   ]
+  }
+ ]
+}

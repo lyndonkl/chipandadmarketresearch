@@ -1,0 +1,55 @@
+{
+ "id": "e1-scale-007",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1917,
+ "unit": "USD millions (current)",
+ "elapsed_s": 38.3,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "total US advertising volume",
+   "type": "advertising spend measurement",
+   "clause": "total US advertising volume in 1917"
+  },
+  {
+   "name": "US advertising volume estimate (Coen 1999)",
+   "type": "spend estimate measurement",
+   "clause": "estimated at ... from Coen 1999"
+  },
+  {
+   "name": "US advertising volume estimate (Historical Statistics series T 444)",
+   "type": "spend estimate measurement",
+   "clause": "estimated at ... from Historical Statistics series T 444"
+  },
+  {
+   "name": "Coen 1999",
+   "type": "data series",
+   "clause": "Coen 1999"
+  },
+  {
+   "name": "Historical Statistics series T 444",
+   "type": "data series",
+   "clause": "Historical Statistics series T 444"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising volume estimate (Coen 1999)",
+   "type": "MEASURES",
+   "to": "total US advertising volume",
+   "clause": "estimated at ... from Coen 1999"
+  },
+  {
+   "from": "US advertising volume estimate (Historical Statistics series T 444)",
+   "type": "MEASURES",
+   "to": "total US advertising volume",
+   "clause": "estimated at ... from Historical Statistics series T 444"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|total US advertising volume|advertising spend measurement|total US advertising volume in 1917\nNODE|US advertising volume estimate (Coen 1999)|spend estimate measurement|estimated at ... from Coen 1999\nNODE|US advertising volume estimate (Historical Statistics series T 444)|spend estimate measurement|estimated at ... from Historical Statistics series T 444\nNODE|Coen 1999|data series|Coen 1999\nNODE|Historical Statistics series T 444|data series|Historical Statistics series T 444\nEDGE|US advertising volume estimate (Coen 1999)|MEASURES|total US advertising volume|estimated at ... from Coen 1999\nEDGE|US advertising volume estimate (Historical Statistics series T 444)|MEASURES|total US advertising volume|estimated at ... from Historical Statistics series T 444"
+}

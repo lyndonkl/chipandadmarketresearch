@@ -1,0 +1,96 @@
+{
+ "id": "e6-medium-003",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2005,
+ "unit": "USD millions, US newspaper advertising (print + online) 2005 peak",
+ "elapsed_s": 100.6,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "us newspaper advertising",
+   "type": "advertising medium",
+   "clause": "US newspaper advertising"
+  },
+  {
+   "name": "naa print-plus-online basis",
+   "type": "measurement basis",
+   "clause": "on the NAA print-plus-online basis"
+  },
+  {
+   "name": "auction era",
+   "type": "advertising era",
+   "clause": "the era (2000-2009)"
+  },
+  {
+   "name": "us newspaper advertising spend (naa print-plus-online)",
+   "type": "advertising spend measurement",
+   "clause": "US newspaper advertising on NAA print-plus-online basis"
+  },
+  {
+   "name": "print newspaper advertising",
+   "type": "advertising medium",
+   "clause": "print alone newspaper advertising"
+  },
+  {
+   "name": "print-only newspaper advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "print-only newspaper advertising spend"
+  }
+ ],
+ "edges": [
+  {
+   "from": "us newspaper advertising",
+   "type": "MEASURES",
+   "to": "us newspaper advertising spend (naa print-plus-online)",
+   "clause": "on the NAA print-plus-online basis"
+  },
+  {
+   "from": "us newspaper advertising spend (naa print-plus-online)",
+   "type": "MEASURED_ON",
+   "to": "naa print-plus-online basis",
+   "clause": "on the NAA print-plus-online basis"
+  },
+  {
+   "from": "us newspaper advertising",
+   "type": "PEAKED_AT",
+   "to": "us newspaper advertising spend (naa print-plus-online)",
+   "clause": "peaked ... at ... in ..."
+  },
+  {
+   "from": "us newspaper advertising",
+   "type": "FELL_TO",
+   "to": "us newspaper advertising spend (naa print-plus-online)",
+   "clause": "fell to ... in ..."
+  },
+  {
+   "from": "us newspaper advertising",
+   "type": "FELL_TO",
+   "to": "us newspaper advertising spend (naa print-plus-online)",
+   "clause": "fell to ... in ..."
+  },
+  {
+   "from": "us newspaper advertising",
+   "type": "PEAKED_IN",
+   "to": "auction era",
+   "clause": "peaked inside the era"
+  },
+  {
+   "from": "print newspaper advertising",
+   "type": "MEASURES",
+   "to": "print-only newspaper advertising spend",
+   "clause": "print alone ..."
+  },
+  {
+   "from": "print newspaper advertising",
+   "type": "PEAKED_AT",
+   "to": "print-only newspaper advertising spend",
+   "clause": "peaked ... at ... in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|us newspaper advertising|advertising medium|US newspaper advertising\nNODE|naa print-plus-online basis|measurement basis|on the NAA print-plus-online basis\nNODE|auction era|advertising era|the era (2000-2009)\nNODE|us newspaper advertising spend (naa print-plus-online)|advertising spend measurement|US newspaper advertising on NAA print-plus-online basis\nNODE|print newspaper advertising|advertising medium|print alone newspaper advertising\nNODE|print-only newspaper advertising spend|advertising spend measurement|print-only newspaper advertising spend\nEDGE|us newspaper advertising|MEASURES|us newspaper advertising spend (naa print-plus-online)|on the NAA print-plus-online basis\nEDGE|us newspaper advertising spend (naa print-plus-online)|MEASURED_ON|naa print-plus-online basis|on the NAA print-plus-online basis\nEDGE|us newspaper advertising|PEAKED_AT|us newspaper advertising spend (naa print-plus-online)|peaked ... at ... in ...\nEDGE|us newspaper advertising|FELL_TO|us newspaper advertising spend (naa print-plus-online)|fell to ... in ...\nEDGE|us newspaper advertising|FELL_TO|us newspaper advertising spend (naa print-plus-online)|fell to ... in ...\nEDGE|us newspaper advertising|PEAKED_IN|auction era|peaked inside the era\nEDGE|print newspaper advertising|MEASURES|print-only newspaper advertising spend|print alone ...\nEDGE|print newspaper advertising|PEAKED_AT|print-only newspaper advertising spend|peaked ... at ... in ..."
+}

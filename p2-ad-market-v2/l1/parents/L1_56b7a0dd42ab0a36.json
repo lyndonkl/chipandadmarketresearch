@@ -1,0 +1,54 @@
+{
+ "group_id": "L1|56b7a0dd42ab0a36",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Lane's Gifts settlement amount",
+   "type": "settlement measurement",
+   "grain": "Measurement",
+   "reason": "same subject and quantity, different wording; years abstracted",
+   "child_uids": [
+    "n|e6-events-007|lane's gifts settlement value|settlement value measurement",
+    "n|e6-measurement-001|lane's gifts settlement amount|monetary settlement measurement"
+   ]
+  },
+  {
+   "name": "Google-Apple revenue share payment",
+   "type": "revenue-share measurement",
+   "grain": "Measurement",
+   "reason": "same payment measure across time points; year abstracted",
+   "child_uids": [
+    "n|mech-default-002|earlier google-apple revenue share payment|revenue-share payment measurement",
+    "n|mech-default-002|most recent google-apple revenue share payment|revenue-share payment measurement"
+   ]
+  },
+  {
+   "name": "Challenged distribution contracts coverage share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct share measure of US general search query coverage",
+   "child_uids": [
+    "n|mech-mehta-001|challenged distribution contracts coverage share|share measurement"
+   ]
+  },
+  {
+   "name": "Non-click revenue share",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: separate percentage measure of non\u2011click revenue removal",
+   "child_uids": [
+    "n|mech-ovt-004|non-click revenue share|percentage measurement"
+   ]
+  },
+  {
+   "name": "Payments to distribution partners",
+   "type": "monetary amount measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique monetary measure of partner payments for query routing",
+   "child_uids": [
+    "n|mech-tac-002|payments to distribution partners|monetary amount measurement"
+   ]
+  }
+ ]
+}

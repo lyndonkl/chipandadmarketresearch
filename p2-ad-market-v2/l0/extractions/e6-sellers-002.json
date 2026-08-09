@@ -1,0 +1,78 @@
+{
+ "id": "e6-sellers-002",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "USD millions, Google total revenue FY2008",
+ "elapsed_s": 67.9,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "google total revenue fy2008",
+   "type": "revenue measurement",
+   "clause": "Google's revenue ... in ..."
+  },
+  {
+   "name": "google total revenue 2002",
+   "type": "revenue measurement",
+   "clause": "... in ..."
+  },
+  {
+   "name": "google revenue growth multiple",
+   "type": "growth-factor measurement",
+   "clause": "grew ... across the era"
+  },
+  {
+   "name": "google us revenue fy2008",
+   "type": "revenue measurement",
+   "clause": "US revenue alone was ..."
+  },
+  {
+   "name": "auction era",
+   "type": "era",
+   "clause": "the Auction (2000-2009)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "google",
+   "type": "HAS_REVENUE",
+   "to": "google total revenue fy2008",
+   "clause": "revenue ... in ..."
+  },
+  {
+   "from": "google",
+   "type": "HAD_REVENUE",
+   "to": "google total revenue 2002",
+   "clause": "revenue ... in ..."
+  },
+  {
+   "from": "google",
+   "type": "GREW_BY_FACTOR",
+   "to": "google revenue growth multiple",
+   "clause": "grew ... across the era"
+  },
+  {
+   "from": "google revenue growth multiple",
+   "type": "ACROSS",
+   "to": "auction era",
+   "clause": "across the era"
+  },
+  {
+   "from": "google",
+   "type": "HAS_US_REVENUE",
+   "to": "google us revenue fy2008",
+   "clause": "US revenue alone was ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|google|company|Google\nNODE|google total revenue fy2008|revenue measurement|Google's revenue ... in ...\nNODE|google total revenue 2002|revenue measurement|... in ...\nNODE|google revenue growth multiple|growth-factor measurement|grew ... across the era\nNODE|google us revenue fy2008|revenue measurement|US revenue alone was ...\nNODE|auction era|era|the Auction (2000-2009)\nEDGE|google|HAS_REVENUE|google total revenue fy2008|revenue ... in ...\nEDGE|google|HAD_REVENUE|google total revenue 2002|revenue ... in ...\nEDGE|google|GREW_BY_FACTOR|google revenue growth multiple|grew ... across the era\nEDGE|google revenue growth multiple|ACROSS|auction era|across the era\nEDGE|google|HAS_US_REVENUE|google us revenue fy2008|US revenue alone was ..."
+}

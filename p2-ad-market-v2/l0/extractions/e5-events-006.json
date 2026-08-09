@@ -1,0 +1,122 @@
+{
+ "id": "e5-events-006",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions",
+ "elapsed_s": 82.4,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AOL-Time Warner merger",
+   "type": "merger",
+   "clause": "the AOL-Time Warner merger"
+  },
+  {
+   "name": "announced merger value measurement",
+   "type": "monetary valuation measurement",
+   "clause": "announced value of the AOL-Time Warner merger"
+  },
+  {
+   "name": "ABC News",
+   "type": "news organization",
+   "clause": "ABC News reports ..."
+  },
+  {
+   "name": "ABC News reported merger value measurement",
+   "type": "monetary valuation measurement",
+   "clause": "... reported by ABC News"
+  },
+  {
+   "name": "History.com",
+   "type": "website",
+   "clause": "History.com reports ..."
+  },
+  {
+   "name": "History.com stock and debt measurement",
+   "type": "monetary valuation measurement",
+   "clause": "... in stock and debt reported by History.com"
+  },
+  {
+   "name": "combined entity valuation measurement",
+   "type": "monetary valuation measurement",
+   "clause": "... valued near ... reported by History.com"
+  },
+  {
+   "name": "contemporaneous figure",
+   "type": "valuation set",
+   "clause": "contemporaneous figures"
+  },
+  {
+   "name": "retrospective figure",
+   "type": "valuation set",
+   "clause": "retrospective figures"
+  },
+  {
+   "name": "retrospective cited equity value measurement",
+   "type": "monetary valuation measurement",
+   "clause": "... most commonly cited in retrospective accounts"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AOL-Time Warner merger",
+   "type": "HAS_ANNOUNCED_VALUE",
+   "to": "announced merger value measurement",
+   "clause": "announced value of the AOL-Time Warner merger"
+  },
+  {
+   "from": "ABC News",
+   "type": "REPORTED",
+   "to": "ABC News reported merger value measurement",
+   "clause": "ABC News reports ..."
+  },
+  {
+   "from": "History.com",
+   "type": "REPORTED",
+   "to": "History.com stock and debt measurement",
+   "clause": "History.com reports ... in stock and debt"
+  },
+  {
+   "from": "History.com",
+   "type": "REPORTED",
+   "to": "combined entity valuation measurement",
+   "clause": "... valued near ..."
+  },
+  {
+   "from": "History.com stock and debt measurement",
+   "type": "COMPONENT_OF",
+   "to": "combined entity valuation measurement",
+   "clause": "... for a combined entity valued near ..."
+  },
+  {
+   "from": "contemporaneous figure",
+   "type": "DIFFER_FROM",
+   "to": "retrospective figure",
+   "clause": "Contemporaneous and retrospective figures differ by the treatment of debt and the stock price used"
+  },
+  {
+   "from": "contemporaneous figure",
+   "type": "REPRESENTS",
+   "to": "ABC News reported merger value measurement",
+   "clause": "ABC News reports ..."
+  },
+  {
+   "from": "retrospective figure",
+   "type": "INCLUDES",
+   "to": "History.com stock and debt measurement",
+   "clause": "History.com reports ... in stock and debt"
+  },
+  {
+   "from": "retrospective figure",
+   "type": "INCLUDES",
+   "to": "retrospective cited equity value measurement",
+   "clause": "... is the figure most commonly cited in retrospective accounts"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AOL-Time Warner merger|merger|the AOL-Time Warner merger\nNODE|announced merger value measurement|monetary valuation measurement|announced value of the AOL-Time Warner merger\nNODE|ABC News|news organization|ABC News reports ...\nNODE|ABC News reported merger value measurement|monetary valuation measurement|... reported by ABC News\nNODE|History.com|website|History.com reports ...\nNODE|History.com stock and debt measurement|monetary valuation measurement|... in stock and debt reported by History.com\nNODE|combined entity valuation measurement|monetary valuation measurement|... valued near ... reported by History.com\nNODE|contemporaneous figure|valuation set|contemporaneous figures\nNODE|retrospective figure|valuation set|retrospective figures\nNODE|retrospective cited equity value measurement|monetary valuation measurement|... most commonly cited in retrospective accounts\nEDGE|AOL-Time Warner merger|HAS_ANNOUNCED_VALUE|announced merger value measurement|announced value of the AOL-Time Warner merger\nEDGE|ABC News|REPORTED|ABC News reported merger value measurement|ABC News reports ...\nEDGE|History.com|REPORTED|History.com stock and debt measurement|History.com reports ... in stock and debt\nEDGE|History.com|REPORTED|combined entity valuation measurement|... valued near ...\nEDGE|History.com stock and debt measurement|COMPONENT_OF|combined entity valuation measurement|... for a combined entity valued near ...\nEDGE|contemporaneous figure|DIFFER_FROM|retrospective figure|Contemporaneous and retrospective figures differ by the treatment of debt and the stock price used\nEDGE|contemporaneous figure|REPRESENTS|ABC News reported merger value measurement|ABC News reports ...\nEDGE|retrospective figure|INCLUDES|History.com stock and debt measurement|History.com reports ... in stock and debt\nEDGE|retrospective figure|INCLUDES|retrospective cited equity value measurement|... is the figure most commonly cited in retrospective accounts"
+}

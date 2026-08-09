@@ -1,0 +1,56 @@
+{
+ "id": "e2-events-005",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1943,
+ "unit": "US$ after-tax cost to an excess-profits-tax-paying corporation of $1.00 of deductible advertising, 1943-45",
+ "elapsed_s": 43.0,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "excess-profits-tax-paying corporation",
+   "type": "corporation paying wartime excess-profits tax",
+   "clause": "a corporation paying the wartime excess-profits tax"
+  },
+  {
+   "name": "wartime excess-profits tax",
+   "type": "tax",
+   "clause": "wartime excess-profits tax"
+  },
+  {
+   "name": "deductible advertising cost",
+   "type": "advertising expense",
+   "clause": "deductible advertising cost"
+  },
+  {
+   "name": "after-tax cost per dollar of deductible advertising",
+   "type": "after-tax cost measurement",
+   "clause": "a dollar of deductible advertising cost roughly ... after tax"
+  }
+ ],
+ "edges": [
+  {
+   "from": "excess-profits-tax-paying corporation",
+   "type": "PAY_TAX",
+   "to": "wartime excess-profits tax",
+   "clause": "paying the wartime excess-profits tax"
+  },
+  {
+   "from": "excess-profits-tax-paying corporation",
+   "type": "HAS_COST_MEASUREMENT",
+   "to": "after-tax cost per dollar of deductible advertising",
+   "clause": "a dollar ... cost roughly ... after tax"
+  },
+  {
+   "from": "after-tax cost per dollar of deductible advertising",
+   "type": "MEASURES",
+   "to": "deductible advertising cost",
+   "clause": "cost of a dollar of deductible advertising"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|excess-profits-tax-paying corporation|corporation paying wartime excess-profits tax|a corporation paying the wartime excess-profits tax\nNODE|wartime excess-profits tax|tax|wartime excess-profits tax\nNODE|deductible advertising cost|advertising expense|deductible advertising cost\nNODE|after-tax cost per dollar of deductible advertising|after-tax cost measurement|a dollar of deductible advertising cost roughly ... after tax\nEDGE|excess-profits-tax-paying corporation|PAY_TAX|wartime excess-profits tax|paying the wartime excess-profits tax\nEDGE|excess-profits-tax-paying corporation|HAS_COST_MEASUREMENT|after-tax cost per dollar of deductible advertising|a dollar ... cost roughly ... after tax\nEDGE|after-tax cost per dollar of deductible advertising|MEASURES|deductible advertising cost|cost of a dollar of deductible advertising"
+}

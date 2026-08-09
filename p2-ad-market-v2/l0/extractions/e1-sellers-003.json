@@ -1,0 +1,78 @@
+{
+ "id": "e1-sellers-003",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "percent of newspaper gross income",
+ "elapsed_s": 60.0,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Advertising",
+   "type": "revenue source",
+   "clause": "Advertising supplied ..."
+  },
+  {
+   "name": "advertising share of US newspaper gross income",
+   "type": "media-share measurement",
+   "clause": "... percent of US newspapers' gross income"
+  },
+  {
+   "name": "US newspaper gross income",
+   "type": "aggregate revenue",
+   "clause": "US newspapers' gross income"
+  },
+  {
+   "name": "advertising revenue measurement",
+   "type": "revenue measurement",
+   "clause": "... of advertising"
+  },
+  {
+   "name": "subscriptions and sales revenue measurement",
+   "type": "revenue measurement",
+   "clause": "... of subscriptions and sales"
+  },
+  {
+   "name": "subscriptions and sales",
+   "type": "non-advertising revenue source",
+   "clause": "subscriptions and sales"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Advertising",
+   "type": "SUPPLIED",
+   "to": "advertising share of US newspaper gross income",
+   "clause": "Advertising supplied ..."
+  },
+  {
+   "from": "advertising share of US newspaper gross income",
+   "type": "SHARE_OF",
+   "to": "US newspaper gross income",
+   "clause": "... percent of US newspapers' gross income"
+  },
+  {
+   "from": "Advertising",
+   "type": "GENERATES",
+   "to": "advertising revenue measurement",
+   "clause": "... of advertising"
+  },
+  {
+   "from": "subscriptions and sales",
+   "type": "GENERATES",
+   "to": "subscriptions and sales revenue measurement",
+   "clause": "... of subscriptions and sales"
+  },
+  {
+   "from": "advertising revenue measurement",
+   "type": "AGAINST",
+   "to": "subscriptions and sales revenue measurement",
+   "clause": "against ... of subscriptions and sales"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Advertising|revenue source|Advertising supplied ...\nNODE|advertising share of US newspaper gross income|media-share measurement|... percent of US newspapers' gross income\nNODE|US newspaper gross income|aggregate revenue|US newspapers' gross income\nNODE|advertising revenue measurement|revenue measurement|... of advertising\nNODE|subscriptions and sales revenue measurement|revenue measurement|... of subscriptions and sales\nNODE|subscriptions and sales|non-advertising revenue source|subscriptions and sales\nEDGE|Advertising|SUPPLIED|advertising share of US newspaper gross income|Advertising supplied ...\nEDGE|advertising share of US newspaper gross income|SHARE_OF|US newspaper gross income|... percent of US newspapers' gross income\nEDGE|Advertising|GENERATES|advertising revenue measurement|... of advertising\nEDGE|subscriptions and sales|GENERATES|subscriptions and sales revenue measurement|... of subscriptions and sales\nEDGE|advertising revenue measurement|AGAINST|subscriptions and sales revenue measurement|against ... of subscriptions and sales"
+}

@@ -1,0 +1,62 @@
+{
+ "id": "e2-events-001",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1926,
+ "unit": "US$ millions paid by RCA for AT&T's Broadcasting Co. of America",
+ "elapsed_s": 55.0,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "RCA",
+   "type": "company",
+   "clause": "RCA"
+  },
+  {
+   "name": "AT&T's Broadcasting Co. of America",
+   "type": "broadcasting company",
+   "clause": "for AT&T's Broadcasting Co. of America"
+  },
+  {
+   "name": "WEAF",
+   "type": "radio station",
+   "clause": "including station WEAF"
+  },
+  {
+   "name": "RCA payment amount",
+   "type": "spend measurement",
+   "clause": "US$ millions paid by RCA for AT&T's Broadcasting Co. of America"
+  }
+ ],
+ "edges": [
+  {
+   "from": "RCA",
+   "type": "PAID_FOR",
+   "to": "AT&T's Broadcasting Co. of America",
+   "clause": "RCA paid ... for AT&T's Broadcasting Co. of America"
+  },
+  {
+   "from": "AT&T's Broadcasting Co. of America",
+   "type": "INCLUDES",
+   "to": "WEAF",
+   "clause": "including station WEAF"
+  },
+  {
+   "from": "RCA payment amount",
+   "type": "PAID_BY",
+   "to": "RCA",
+   "clause": "US$ millions paid by RCA for AT&T's Broadcasting Co. of America"
+  },
+  {
+   "from": "RCA payment amount",
+   "type": "PAID_TO",
+   "to": "AT&T's Broadcasting Co. of America",
+   "clause": "US$ millions paid by RCA for AT&T's Broadcasting Co. of America"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|RCA|company|RCA\nNODE|AT&T's Broadcasting Co. of America|broadcasting company|for AT&T's Broadcasting Co. of America\nNODE|WEAF|radio station|including station WEAF\nNODE|RCA payment amount|spend measurement|US$ millions paid by RCA for AT&T's Broadcasting Co. of America\nEDGE|RCA|PAID_FOR|AT&T's Broadcasting Co. of America|RCA paid ... for AT&T's Broadcasting Co. of America\nEDGE|AT&T's Broadcasting Co. of America|INCLUDES|WEAF|including station WEAF\nEDGE|RCA payment amount|PAID_BY|RCA|US$ millions paid by RCA for AT&T's Broadcasting Co. of America\nEDGE|RCA payment amount|PAID_TO|AT&T's Broadcasting Co. of America|US$ millions paid by RCA for AT&T's Broadcasting Co. of America"
+}

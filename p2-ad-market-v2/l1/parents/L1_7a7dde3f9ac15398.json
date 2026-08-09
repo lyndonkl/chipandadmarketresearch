@@ -1,0 +1,94 @@
+{
+ "group_id": "L1|7a7dde3f9ac15398",
+ "source": "kmeans",
+ "n_in": 15,
+ "parents": [
+  {
+   "name": "National advertisers share of newspaper advertising",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of newspaper ad by national advertisers",
+   "child_uids": [
+    "n|e1-buyers-005|national advertisers share of newspaper advertising|share measurement"
+   ]
+  },
+  {
+   "name": "Newspaper share of US print advertising receipts",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: newspapers' portion of US print ad receipts",
+   "child_uids": [
+    "n|e1-medium-002|newspapers' share of us print advertising receipts|media-share measurement"
+   ]
+  },
+  {
+   "name": "Magazine share of US print advertising receipts",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: magazines' portion of US print ad receipts",
+   "child_uids": [
+    "n|e1-medium-002|magazines share of us print advertising receipts|media-share measurement"
+   ]
+  },
+  {
+   "name": "Advertising share of US newspaper gross income",
+   "type": "percentage-of-revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: ads as percent of newspaper gross income",
+   "child_uids": [
+    "n|e1-sellers-003|advertising share of us newspaper gross income|media-share measurement"
+   ]
+  },
+  {
+   "name": "Advertising share of US newspaper revenue",
+   "type": "percentage-of-revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: ads as percent of newspaper revenue",
+   "child_uids": [
+    "n|e1-sellers-004|advertising share of us newspaper revenue|percentage-of-revenue measurement"
+   ]
+  },
+  {
+   "name": "Newspaper share of US advertising spend",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "newspapers' percentage of total US ad spending across sources",
+   "child_uids": [
+    "n|e2-medium-001|newspaper share of us advertising spend|media-share measurement",
+    "n|e2-medium-002|newspaper share of us advertising|media-share measurement",
+    "n|e3-medium-003|newspapers share of total us advertising expenditure|media-share measurement",
+    "n|e3-medium-005|newspaper advertising spend share|media-share measurement",
+    "n|tu:era:2:field:MEDIUM|newspaper share of us ad spend|share measurement",
+    "n|tu:era:4:boundary|newspaper share of advertising spend|media-share measurement",
+    "n|tu:era:4:field:MEDIUM|newspapers share of us measured spend|percentage measurement"
+   ]
+  },
+  {
+   "name": "Newspapers and magazines share of US national advertising expenditure",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: combined medium share of national ad spend",
+   "child_uids": [
+    "n|e3-buyers-003|newspapers and magazines share of us national advertising expenditure|media-share measurement"
+   ]
+  },
+  {
+   "name": "Newspapers and magazines advertising share of total US advertising expenditure",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: combined medium share of total ad spend",
+   "child_uids": [
+    "n|e3-events-001|newspapers and magazines advertising share of total us advertising expenditure|media-share measurement"
+   ]
+  },
+  {
+   "name": "Local-to-national advertising ratio in newspapers",
+   "type": "ratio measurement",
+   "grain": "Measurement",
+   "reason": "singleton: ratio of local vs national ads within newspapers",
+   "child_uids": [
+    "n|tu:era:1:field:BUYERS|local to national advertising ratio in newspapers|ratio measurement"
+   ]
+  }
+ ]
+}

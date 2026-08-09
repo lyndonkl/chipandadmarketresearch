@@ -1,0 +1,99 @@
+{
+ "group_id": "L1|a91aa07ceaa94e77",
+ "source": "kmeans",
+ "n_in": 12,
+ "parents": [
+  {
+   "name": "Total advertising spend",
+   "type": "aggregate spending metric",
+   "grain": "Entity",
+   "reason": "multiple synonyms for overall ad expenditure",
+   "child_uids": [
+    "n|e1-buyers-007|advertiser outlay|aggregate spending metric",
+    "n|tu:era:2:field:MEDIUM|all ad spend|total advertising expenditure",
+    "n|tu:era:2:field:PRICING|total advertising outlay|expenditure aggregate"
+   ]
+  },
+  {
+   "name": "IAB series",
+   "type": "advertising-spend dataset",
+   "grain": "Entity",
+   "reason": "singleton: specific IAB advertising spend dataset series",
+   "child_uids": [
+    "n|e5-medium-004|iab series|advertising-spend dataset"
+   ]
+  },
+  {
+   "name": "WARC series",
+   "type": "advertising spend dataset",
+   "grain": "Entity",
+   "reason": "singleton: WARC advertising spend dataset series",
+   "child_uids": [
+    "n|e5-scale-009|warc series|advertising spend dataset"
+   ]
+  },
+  {
+   "name": "Worldwide advertising spending",
+   "type": "advertising spend aggregate",
+   "grain": "Entity",
+   "reason": "singleton: global total ad expenditure measure",
+   "child_uids": [
+    "n|e6-scale-006|worldwide advertising spending|advertising spend aggregate"
+   ]
+  },
+  {
+   "name": "Galbi's revision table",
+   "type": "advertising-spend dataset",
+   "grain": "Entity",
+   "reason": "singleton: Galbi's revision table of advertising spend",
+   "child_uids": [
+    "n|tu:era:1:boundary|galbi's revision table|advertising-spend dataset"
+   ]
+  },
+  {
+   "name": "Starch INRA Hooper Survey",
+   "type": "world advertising survey",
+   "grain": "Entity",
+   "reason": "singleton: comprehensive world advertising expenditure survey",
+   "child_uids": [
+    "n|tu:era:1:field:SCALE|starch inra hooper survey of world advertising expenditures|world advertising survey"
+   ]
+  },
+  {
+   "name": "Advertising spend type split (end of era)",
+   "type": "spending composition",
+   "grain": "Entity",
+   "reason": "singleton: breakdown of ad spend types at era end",
+   "child_uids": [
+    "n|tu:era:2:field:SCALE|advertising spend type split end of era|spending composition"
+   ]
+  },
+  {
+   "name": "IAB/PwC internet series",
+   "type": "advertising spend dataset",
+   "grain": "Entity",
+   "reason": "singleton: IAB PwC series focusing on internet advertising",
+   "child_uids": [
+    "n|tu:era:6:field:MEDIUM|iab/pwc internet series|advertising spend dataset"
+   ]
+  },
+  {
+   "name": "Coen/McCann Structured Advertising Expenditure Dataset",
+   "type": "advertising expenditure dataset",
+   "grain": "Entity",
+   "reason": "singleton: continuous US by\u2011medium structured ad expenditure data",
+   "child_uids": [
+    "n|tu:era:7:boundary|coen/mccann structured advertising expenditure dataset|advertising expenditure dataset"
+   ]
+  },
+  {
+   "name": "Lead-generation spend",
+   "type": "advertising category",
+   "grain": "Entity",
+   "reason": "singleton: advertising spend dedicated to lead generation",
+   "child_uids": [
+    "n|tu:era:7:field:SCALE|lead-generation spend|advertising category"
+   ]
+  }
+ ]
+}

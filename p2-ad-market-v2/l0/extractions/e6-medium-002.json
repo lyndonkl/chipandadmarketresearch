@@ -1,0 +1,127 @@
+{
+ "id": "e6-medium-002",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions, US Yellow Pages / directory advertising 2007",
+ "elapsed_s": 107.2,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US Yellow Pages / directory advertising",
+   "type": "advertising medium",
+   "clause": "US Yellow Pages / directory advertising"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising spend dataset",
+   "clause": "the Coen series"
+  },
+  {
+   "name": "trade sources",
+   "type": "information source",
+   "clause": "trade sources"
+  },
+  {
+   "name": "ancestor of paid search",
+   "type": "market ancestor concept",
+   "clause": "the ancestor of paid search"
+  },
+  {
+   "name": "IAB/PwC",
+   "type": "research organisation",
+   "clause": "IAB/PwC"
+  },
+  {
+   "name": "cross-media chart",
+   "type": "advertising spend chart",
+   "clause": "2008 cross-media chart"
+  },
+  {
+   "name": "US Yellow Pages advertising market value 2002",
+   "type": "market value measurement",
+   "clause": "... at ... on the Coen series"
+  },
+  {
+   "name": "US Yellow Pages advertising market value 2007",
+   "type": "market value measurement",
+   "clause": "... rising to ... on the Coen series"
+  },
+  {
+   "name": "US Yellow Pages advertising peak value 2005 trade sources",
+   "type": "market value measurement",
+   "clause": "trade sources place the peak at ..."
+  },
+  {
+   "name": "ancestor of paid search market size",
+   "type": "market value measurement",
+   "clause": "... was a ... market still at or near its peak when the era closed"
+  },
+  {
+   "name": "Directory market value IAB/PwC chart",
+   "type": "market value measurement",
+   "clause": "IAB/PwC's ... chart puts Directory at ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "US Yellow Pages / directory advertising",
+   "type": "HAS_VALUE",
+   "to": "US Yellow Pages advertising market value 2002",
+   "clause": "was still near its all-time high ... at ... on the Coen series"
+  },
+  {
+   "from": "US Yellow Pages / directory advertising",
+   "type": "HAS_VALUE",
+   "to": "US Yellow Pages advertising market value 2007",
+   "clause": "rising to ... on the Coen series"
+  },
+  {
+   "from": "US Yellow Pages advertising market value 2002",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "on the Coen series"
+  },
+  {
+   "from": "US Yellow Pages advertising market value 2007",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "on the Coen series"
+  },
+  {
+   "from": "US Yellow Pages advertising peak value 2005 trade sources",
+   "type": "REPORTED_BY",
+   "to": "trade sources",
+   "clause": "trade sources place the peak at ..."
+  },
+  {
+   "from": "ancestor of paid search",
+   "type": "HAS_VALUE",
+   "to": "ancestor of paid search market size",
+   "clause": "... was a ... market still at or near its peak when the era closed"
+  },
+  {
+   "from": "IAB/PwC",
+   "type": "REPORTED",
+   "to": "Directory market value IAB/PwC chart",
+   "clause": "IAB/PwC's ... chart puts Directory at ..."
+  },
+  {
+   "from": "cross-media chart",
+   "type": "PRODUCES",
+   "to": "Directory market value IAB/PwC chart",
+   "clause": "... chart puts Directory at ..."
+  },
+  {
+   "from": "US Yellow Pages / directory advertising",
+   "type": "HAS_VALUE",
+   "to": "Directory market value IAB/PwC chart",
+   "clause": "... chart puts Directory at ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US Yellow Pages / directory advertising|advertising medium|US Yellow Pages / directory advertising\nNODE|Coen series|advertising spend dataset|the Coen series\nNODE|trade sources|information source|trade sources\nNODE|ancestor of paid search|market ancestor concept|the ancestor of paid search\nNODE|IAB/PwC|research organisation|IAB/PwC\nNODE|cross-media chart|advertising spend chart|2008 cross-media chart\nNODE|US Yellow Pages advertising market value 2002|market value measurement|... at ... on the Coen series\nNODE|US Yellow Pages advertising market value 2007|market value measurement|... rising to ... on the Coen series\nNODE|US Yellow Pages advertising peak value 2005 trade sources|market value measurement|trade sources place the peak at ...\nNODE|ancestor of paid search market size|market value measurement|... was a ... market still at or near its peak when the era closed\nNODE|Directory market value IAB/PwC chart|market value measurement|IAB/PwC's ... chart puts Directory at ...\n\nEDGE|US Yellow Pages / directory advertising|HAS_VALUE|US Yellow Pages advertising market value 2002|was still near its all-time high ... at ... on the Coen series\nEDGE|US Yellow Pages / directory advertising|HAS_VALUE|US Yellow Pages advertising market value 2007|rising to ... on the Coen series\nEDGE|US Yellow Pages advertising market value 2002|MEASURED_ON|Coen series|on the Coen series\nEDGE|US Yellow Pages advertising market value 2007|MEASURED_ON|Coen series|on the Coen series\nEDGE|US Yellow Pages advertising peak value 2005 trade sources|REPORTED_BY|trade sources|trade sources place the peak at ...\nEDGE|ancestor of paid search|HAS_VALUE|ancestor of paid search market size|... was a ... market still at or near its peak when the era closed\nEDGE|IAB/PwC|REPORTED|Directory market value IAB/PwC chart|IAB/PwC's ... chart puts Directory at ...\nEDGE|cross-media chart|PRODUCES|Directory market value IAB/PwC chart|... chart puts Directory at ...\nEDGE|US Yellow Pages / directory advertising|HAS_VALUE|Directory market value IAB/PwC chart|... chart puts Directory at ..."
+}

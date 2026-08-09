@@ -1,0 +1,133 @@
+{
+ "id": "e7-scale-006",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
+ "elapsed_s": 110.7,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national brand advertising spend",
+   "type": "advertising segment",
+   "clause": "National brand money was about ... of US advertising"
+  },
+  {
+   "name": "national brand advertising spend amount",
+   "type": "spend measurement",
+   "clause": "National brand money was about ..."
+  },
+  {
+   "name": "US advertising total",
+   "type": "advertising market total",
+   "clause": "US advertising market"
+  },
+  {
+   "name": "MAGNA media-owner",
+   "type": "media owner entity",
+   "clause": "MAGNA media-owner"
+  },
+  {
+   "name": "MAGNA advertising spend total amount",
+   "type": "spend measurement",
+   "clause": "... MAGNA media-owner total"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail excluded"
+  },
+  {
+   "name": "advertising pools",
+   "type": "pool category",
+   "clause": "largest or joint-largest pool, not the smallest"
+  },
+  {
+   "name": "local pool",
+   "type": "advertising pool",
+   "clause": "local pool measured by inventory geography"
+  },
+  {
+   "name": "inventory geography",
+   "type": "measurement basis",
+   "clause": "measured by inventory geography"
+  },
+  {
+   "name": "superseded reading",
+   "type": "prior measurement",
+   "clause": "superseded reading subtracted a local pool"
+  },
+  {
+   "name": "national brand share of MAGNA total",
+   "type": "share measurement",
+   "clause": "... of the ... MAGNA media-owner total"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national brand advertising spend amount",
+   "type": "MEASURES",
+   "to": "national brand advertising spend",
+   "clause": "National brand money was about ... of US advertising"
+  },
+  {
+   "from": "national brand share of MAGNA total",
+   "type": "SHARE_OF",
+   "to": "MAGNA advertising spend total amount",
+   "clause": "... of the ... MAGNA media-owner total"
+  },
+  {
+   "from": "national brand share of MAGNA total",
+   "type": "MEASURES",
+   "to": "national brand advertising spend",
+   "clause": "share of national brand money"
+  },
+  {
+   "from": "MAGNA advertising spend total amount",
+   "type": "EXCLUDES",
+   "to": "direct mail",
+   "clause": "excludes direct mail from the total"
+  },
+  {
+   "from": "national brand advertising spend amount",
+   "type": "EXCLUDES",
+   "to": "direct mail",
+   "clause": "excludes direct mail from every pool"
+  },
+  {
+   "from": "national brand advertising spend",
+   "type": "IS_AMONG_LARGEST",
+   "to": "advertising pools",
+   "clause": "largest or joint-largest pool"
+  },
+  {
+   "from": "national brand advertising spend",
+   "type": "NOT_SMALLEST",
+   "to": "advertising pools",
+   "clause": "not the smallest"
+  },
+  {
+   "from": "superseded reading",
+   "type": "SUBTRACTED",
+   "to": "local pool",
+   "clause": "superseded reading subtracted a local pool"
+  },
+  {
+   "from": "superseded reading",
+   "type": "TREATED_DIRECT_MAIL_INCONSISTENTLY",
+   "to": "direct mail",
+   "clause": "treated direct mail inconsistently on two sides"
+  },
+  {
+   "from": "local pool",
+   "type": "MEASURED_BY",
+   "to": "inventory geography",
+   "clause": "local pool measured by inventory geography"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national brand advertising spend|advertising segment|National brand money was about ... of US advertising\nNODE|national brand advertising spend amount|spend measurement|National brand money was about ...\nNODE|US advertising total|advertising market total|US advertising market\nNODE|MAGNA media-owner|media owner entity|MAGNA media-owner\nNODE|MAGNA advertising spend total amount|spend measurement|... MAGNA media-owner total\nNODE|direct mail|advertising medium|direct mail excluded\nNODE|advertising pools|pool category|largest or joint-largest pool, not the smallest\nNODE|local pool|advertising pool|local pool measured by inventory geography\nNODE|inventory geography|measurement basis|measured by inventory geography\nNODE|superseded reading|prior measurement|superseded reading subtracted a local pool\nNODE|national brand share of MAGNA total|share measurement|... of the ... MAGNA media-owner total\nEDGE|national brand advertising spend amount|MEASURES|national brand advertising spend|National brand money was about ... of US advertising\nEDGE|national brand share of MAGNA total|SHARE_OF|MAGNA advertising spend total amount|... of the ... MAGNA media-owner total\nEDGE|national brand share of MAGNA total|MEASURES|national brand advertising spend|share of national brand money\nEDGE|MAGNA advertising spend total amount|EXCLUDES|direct mail|excludes direct mail from the total\nEDGE|national brand advertising spend amount|EXCLUDES|direct mail|excludes direct mail from every pool\nEDGE|national brand advertising spend|IS_AMONG_LARGEST|advertising pools|largest or joint-largest pool\nEDGE|national brand advertising spend|NOT_SMALLEST|advertising pools|not the smallest\nEDGE|superseded reading|SUBTRACTED|local pool|superseded reading subtracted a local pool\nEDGE|superseded reading|TREATED_DIRECT_MAIL_INCONSISTENTLY|direct mail|treated direct mail inconsistently on two sides\nEDGE|local pool|MEASURED_BY|inventory geography|local pool measured by inventory geography"
+}

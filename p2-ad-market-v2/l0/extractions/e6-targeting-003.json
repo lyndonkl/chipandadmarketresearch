@@ -1,0 +1,138 @@
+{
+ "id": "e6-targeting-003",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2005,
+ "unit": "year (2005-08), introduction of Quality Score and quality-based minimum bids",
+ "elapsed_s": 58.5,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "quality-based bidding",
+   "type": "bidding mechanism",
+   "clause": "Google's quality-based bidding"
+  },
+  {
+   "name": "dynamic minimum bid",
+   "type": "bid amount measurement",
+   "clause": "dynamic minimum bid"
+  },
+  {
+   "name": "keyword",
+   "type": "ad unit",
+   "clause": "each keyword"
+  },
+  {
+   "name": "Quality Score",
+   "type": "scoring measurement",
+   "clause": "Quality Score"
+  },
+  {
+   "name": "click-through rate",
+   "type": "performance metric",
+   "clause": "click-through rate"
+  },
+  {
+   "name": "ad-text relevance",
+   "type": "relevance metric",
+   "clause": "ad-text relevance"
+  },
+  {
+   "name": "historical keyword performance",
+   "type": "performance metric",
+   "clause": "historical keyword performance"
+  },
+  {
+   "name": "landing-page quality",
+   "type": "quality metric",
+   "clause": "landing-page quality"
+  },
+  {
+   "name": "measured relevance",
+   "type": "targeting attribute",
+   "clause": "measured relevance"
+  },
+  {
+   "name": "targeting filter",
+   "type": "targeting mechanism",
+   "clause": "targeting filter"
+  },
+  {
+   "name": "ranking weight",
+   "type": "ranking factor",
+   "clause": "ranking weight"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "OPERATES",
+   "to": "quality-based bidding",
+   "clause": "Google's quality-based bidding"
+  },
+  {
+   "from": "quality-based bidding",
+   "type": "ASSIGNS",
+   "to": "dynamic minimum bid",
+   "clause": "assigned each keyword a dynamic minimum bid"
+  },
+  {
+   "from": "dynamic minimum bid",
+   "type": "DERIVED_FROM",
+   "to": "Quality Score",
+   "clause": "from its Quality Score"
+  },
+  {
+   "from": "Quality Score",
+   "type": "HAS_COMPONENT",
+   "to": "click-through rate",
+   "clause": "component of Quality Score"
+  },
+  {
+   "from": "Quality Score",
+   "type": "HAS_COMPONENT",
+   "to": "ad-text relevance",
+   "clause": "component of Quality Score"
+  },
+  {
+   "from": "Quality Score",
+   "type": "HAS_COMPONENT",
+   "to": "historical keyword performance",
+   "clause": "component of Quality Score"
+  },
+  {
+   "from": "Quality Score",
+   "type": "HAS_COMPONENT",
+   "to": "landing-page quality",
+   "clause": "component of Quality Score"
+  },
+  {
+   "from": "Google",
+   "type": "INTRODUCED",
+   "to": "quality-based bidding",
+   "clause": "from ..."
+  },
+  {
+   "from": "measured relevance",
+   "type": "BECAME",
+   "to": "targeting filter",
+   "clause": "making measured relevance a targeting filter"
+  },
+  {
+   "from": "measured relevance",
+   "type": "BECAME",
+   "to": "ranking weight",
+   "clause": "making measured relevance a ranking weight"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|quality-based bidding|bidding mechanism|Google's quality-based bidding\nNODE|dynamic minimum bid|bid amount measurement|dynamic minimum bid\nNODE|keyword|ad unit|each keyword\nNODE|Quality Score|scoring measurement|Quality Score\nNODE|click-through rate|performance metric|click-through rate\nNODE|ad-text relevance|relevance metric|ad-text relevance\nNODE|historical keyword performance|performance metric|historical keyword performance\nNODE|landing-page quality|quality metric|landing-page quality\nNODE|measured relevance|targeting attribute|measured relevance\nNODE|targeting filter|targeting mechanism|targeting filter\nNODE|ranking weight|ranking factor|ranking weight\nEDGE|Google|OPERATES|quality-based bidding|Google's quality-based bidding\nEDGE|quality-based bidding|ASSIGNS|dynamic minimum bid|assigned each keyword a dynamic minimum bid\nEDGE|dynamic minimum bid|DERIVED_FROM|Quality Score|from its Quality Score\nEDGE|Quality Score|HAS_COMPONENT|click-through rate|component of Quality Score\nEDGE|Quality Score|HAS_COMPONENT|ad-text relevance|component of Quality Score\nEDGE|Quality Score|HAS_COMPONENT|historical keyword performance|component of Quality Score\nEDGE|Quality Score|HAS_COMPONENT|landing-page quality|component of Quality Score\nEDGE|Google|INTRODUCED|quality-based bidding|from ...\nEDGE|measured relevance|BECAME|targeting filter|making measured relevance a targeting filter\nEDGE|measured relevance|BECAME|ranking weight|making measured relevance a ranking weight"
+}

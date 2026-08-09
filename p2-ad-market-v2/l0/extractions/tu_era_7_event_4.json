@@ -1,0 +1,126 @@
+{
+ "id": "tu:era:7:event:4",
+ "kind": "prose:event",
+ "era": 7,
+ "about_year": 2019,
+ "unit": null,
+ "elapsed_s": 80.4,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "pricing mechanism change",
+   "type": "market change",
+   "clause": "the change ended second-price pricing"
+  },
+  {
+   "name": "second-price pricing",
+   "type": "pricing practice",
+   "clause": "ended second-price pricing for Google's open-web display exchange"
+  },
+  {
+   "name": "Google open-web display exchange",
+   "type": "advertising channel",
+   "clause": "Google's open-web display exchange"
+  },
+  {
+   "name": "publisher price floors",
+   "type": "seller reserve price",
+   "clause": "publisher price floors folded into unified pricing rules"
+  },
+  {
+   "name": "unified pricing rules",
+   "type": "pricing rule set",
+   "clause": "folded publisher price floors into unified pricing rules"
+  },
+  {
+   "name": "test traffic share",
+   "type": "share measurement",
+   "clause": "tested ... on ... of Ad Exchange traffic"
+  },
+  {
+   "name": "Ad Exchange traffic",
+   "type": "traffic volume",
+   "clause": "... of Ad Exchange traffic"
+  },
+  {
+   "name": "buyers",
+   "type": "actor class",
+   "clause": "Buyers responded with bid shading"
+  },
+  {
+   "name": "bid shading",
+   "type": "bidding strategy",
+   "clause": "Buyers responded with bid shading"
+  },
+  {
+   "name": "clearing price",
+   "type": "price measure",
+   "clause": "clearing price became a function of the buyer's model"
+  },
+  {
+   "name": "buyer model",
+   "type": "pricing model",
+   "clause": "function of the buyer's model"
+  },
+  {
+   "name": "runner-up bid",
+   "type": "competitor bid",
+   "clause": "rather than of the runner-up's bid"
+  }
+ ],
+ "edges": [
+  {
+   "from": "pricing mechanism change",
+   "type": "ENDED",
+   "to": "second-price pricing",
+   "clause": "ended second-price pricing for Google's open-web display exchange"
+  },
+  {
+   "from": "pricing mechanism change",
+   "type": "TARGETED_AT",
+   "to": "Google open-web display exchange",
+   "clause": "ended ... for Google's open-web display exchange"
+  },
+  {
+   "from": "pricing mechanism change",
+   "type": "FOLDED",
+   "to": "publisher price floors",
+   "clause": "folded publisher price floors into unified pricing rules"
+  },
+  {
+   "from": "publisher price floors",
+   "type": "INTEGRATED_INTO",
+   "to": "unified pricing rules",
+   "clause": "folded ... into unified pricing rules"
+  },
+  {
+   "from": "test traffic share",
+   "type": "SHARE_OF",
+   "to": "Ad Exchange traffic",
+   "clause": "on ... of Ad Exchange traffic"
+  },
+  {
+   "from": "buyers",
+   "type": "RESPONDED_WITH",
+   "to": "bid shading",
+   "clause": "Buyers responded with bid shading"
+  },
+  {
+   "from": "clearing price",
+   "type": "FUNCTION_OF",
+   "to": "buyer model",
+   "clause": "became a function of the buyer's model"
+  },
+  {
+   "from": "clearing price",
+   "type": "NOT_FUNCTION_OF",
+   "to": "runner-up bid",
+   "clause": "rather than of the runner-up's bid"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|pricing mechanism change|market change|the change ended second-price pricing\nNODE|second-price pricing|pricing practice|ended second-price pricing for Google's open-web display exchange\nNODE|Google open-web display exchange|advertising channel|Google's open-web display exchange\nNODE|publisher price floors|seller reserve price|publisher price floors folded into unified pricing rules\nNODE|unified pricing rules|pricing rule set|folded publisher price floors into unified pricing rules\nNODE|test traffic share|share measurement|tested ... on ... of Ad Exchange traffic\nNODE|Ad Exchange traffic|traffic volume|... of Ad Exchange traffic\nNODE|buyers|actor class|Buyers responded with bid shading\nNODE|bid shading|bidding strategy|Buyers responded with bid shading\nNODE|clearing price|price measure|clearing price became a function of the buyer's model\nNODE|buyer model|pricing model|function of the buyer's model\nNODE|runner-up bid|competitor bid|rather than of the runner-up's bid\nEDGE|pricing mechanism change|ENDED|second-price pricing|ended second-price pricing for Google's open-web display exchange\nEDGE|pricing mechanism change|TARGETED_AT|Google open-web display exchange|ended ... for Google's open-web display exchange\nEDGE|pricing mechanism change|FOLDED|publisher price floors|folded publisher price floors into unified pricing rules\nEDGE|publisher price floors|INTEGRATED_INTO|unified pricing rules|folded ... into unified pricing rules\nEDGE|test traffic share|SHARE_OF|Ad Exchange traffic|on ... of Ad Exchange traffic\nEDGE|buyers|RESPONDED_WITH|bid shading|Buyers responded with bid shading\nEDGE|clearing price|FUNCTION_OF|buyer model|became a function of the buyer's model\nEDGE|clearing price|NOT_FUNCTION_OF|runner-up bid|rather than of the runner-up's bid"
+}

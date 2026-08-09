@@ -1,0 +1,73 @@
+{
+ "id": "e3-medium-003",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent of total US advertising expenditure",
+ "elapsed_s": 55.4,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "television",
+   "type": "advertising medium",
+   "clause": "Television advertising medium"
+  },
+  {
+   "name": "newspapers",
+   "type": "advertising medium",
+   "clause": "Newspapers advertising medium"
+  },
+  {
+   "name": "total US advertising expenditure",
+   "type": "advertising spend aggregate",
+   "clause": "Total US advertising expenditure"
+  },
+  {
+   "name": "television share of total US advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "Television's share rose from ... to ..."
+  },
+  {
+   "name": "newspapers share of total US advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "newspapers' ... at era end"
+  }
+ ],
+ "edges": [
+  {
+   "from": "television share of total US advertising expenditure",
+   "type": "MEASURES",
+   "to": "television",
+   "clause": "Television's share measurement"
+  },
+  {
+   "from": "television share of total US advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "share of total US advertising expenditure"
+  },
+  {
+   "from": "newspapers share of total US advertising expenditure",
+   "type": "MEASURES",
+   "to": "newspapers",
+   "clause": "Newspapers' share measurement"
+  },
+  {
+   "from": "newspapers share of total US advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "share of total US advertising expenditure"
+  },
+  {
+   "from": "television share of total US advertising expenditure",
+   "type": "BELOW",
+   "to": "newspapers share of total US advertising expenditure",
+   "clause": "still below newspapers' share"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|television|advertising medium|Television advertising medium\nNODE|newspapers|advertising medium|Newspapers advertising medium\nNODE|total US advertising expenditure|advertising spend aggregate|Total US advertising expenditure\nNODE|television share of total US advertising expenditure|media-share measurement|Television's share rose from ... to ...\nNODE|newspapers share of total US advertising expenditure|media-share measurement|newspapers' ... at era end\nEDGE|television share of total US advertising expenditure|MEASURES|television|Television's share measurement\nEDGE|television share of total US advertising expenditure|SHARE_OF|total US advertising expenditure|share of total US advertising expenditure\nEDGE|newspapers share of total US advertising expenditure|MEASURES|newspapers|Newspapers' share measurement\nEDGE|newspapers share of total US advertising expenditure|SHARE_OF|total US advertising expenditure|share of total US advertising expenditure\nEDGE|television share of total US advertising expenditure|BELOW|newspapers share of total US advertising expenditure|still below newspapers' share"
+}

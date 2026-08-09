@@ -1,0 +1,105 @@
+{
+ "id": "e4-medium-005",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 88.3,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Yellow Pages advertising",
+   "type": "advertising medium",
+   "clause": "Yellow Pages advertising grew ..."
+  },
+  {
+   "name": "Yellow Pages advertising spend (early)",
+   "type": "advertising spend measurement",
+   "clause": "grew from ..."
+  },
+  {
+   "name": "Yellow Pages advertising spend (later)",
+   "type": "advertising spend measurement",
+   "clause": "grew to ..."
+  },
+  {
+   "name": "Yellow Pages share of US advertising spend (later)",
+   "type": "media-share measurement",
+   "clause": "share of measured US spend"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising data series",
+   "clause": "the first year Coen breaks the category out"
+  },
+  {
+   "name": "US advertising spend (total)",
+   "type": "market total spend",
+   "clause": "measured US spend"
+  },
+  {
+   "name": "radio advertising",
+   "type": "advertising medium",
+   "clause": "more than radio"
+  },
+  {
+   "name": "magazine advertising",
+   "type": "advertising medium",
+   "clause": "more than magazines"
+  },
+  {
+   "name": "cable advertising",
+   "type": "advertising medium",
+   "clause": "all cable advertising"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Yellow Pages advertising spend (early)",
+   "type": "MEASURES",
+   "to": "Yellow Pages advertising",
+   "clause": "grew from ..."
+  },
+  {
+   "from": "Yellow Pages advertising spend (later)",
+   "type": "MEASURES",
+   "to": "Yellow Pages advertising",
+   "clause": "grew to ..."
+  },
+  {
+   "from": "Yellow Pages advertising spend (early)",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "first year Coen breaks the category out"
+  },
+  {
+   "from": "Yellow Pages share of US advertising spend (later)",
+   "type": "SHARE_OF",
+   "to": "US advertising spend (total)",
+   "clause": "share of measured US spend"
+  },
+  {
+   "from": "Yellow Pages advertising",
+   "type": "GREATER_THAN",
+   "to": "radio advertising",
+   "clause": "more than radio"
+  },
+  {
+   "from": "Yellow Pages advertising",
+   "type": "GREATER_THAN",
+   "to": "magazine advertising",
+   "clause": "more than magazines"
+  },
+  {
+   "from": "Yellow Pages advertising",
+   "type": "GREATER_THAN_TWICE",
+   "to": "cable advertising",
+   "clause": "more than twice all cable advertising"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Yellow Pages advertising|advertising medium|Yellow Pages advertising grew ...\nNODE|Yellow Pages advertising spend (early)|advertising spend measurement|grew from ...\nNODE|Yellow Pages advertising spend (later)|advertising spend measurement|grew to ...\nNODE|Yellow Pages share of US advertising spend (later)|media-share measurement|share of measured US spend\nNODE|Coen series|advertising data series|the first year Coen breaks the category out\nNODE|US advertising spend (total)|market total spend|measured US spend\nNODE|radio advertising|advertising medium|more than radio\nNODE|magazine advertising|advertising medium|more than magazines\nNODE|cable advertising|advertising medium|all cable advertising\nEDGE|Yellow Pages advertising spend (early)|MEASURES|Yellow Pages advertising|grew from ...\nEDGE|Yellow Pages advertising spend (later)|MEASURES|Yellow Pages advertising|grew to ...\nEDGE|Yellow Pages advertising spend (early)|MEASURED_ON|Coen series|first year Coen breaks the category out\nEDGE|Yellow Pages share of US advertising spend (later)|SHARE_OF|US advertising spend (total)|share of measured US spend\nEDGE|Yellow Pages advertising|GREATER_THAN|radio advertising|more than radio\nEDGE|Yellow Pages advertising|GREATER_THAN|magazine advertising|more than magazines\nEDGE|Yellow Pages advertising|GREATER_THAN_TWICE|cable advertising|more than twice all cable advertising"
+}

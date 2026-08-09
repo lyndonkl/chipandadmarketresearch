@@ -1,0 +1,111 @@
+{
+ "id": "e6-pricing-007",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2002,
+ "unit": "USD millions, revenue guarantee in the May 2002 Google-AOL agreement",
+ "elapsed_s": 70.1,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AOL distribution deal",
+   "type": "distribution purchase agreement",
+   "clause": "the AOL deal of May 2002 \u2014 the era's decisive distribution purchase"
+  },
+  {
+   "name": "AOL deal revenue guarantee",
+   "type": "revenue guarantee measurement",
+   "clause": "was reported to carry ... revenue guarantee"
+  },
+  {
+   "name": "AOL deal revenue share",
+   "type": "revenue share measurement",
+   "clause": "... revenue share to AOL"
+  },
+  {
+   "name": "AOL",
+   "type": "media company",
+   "clause": "revenue share to AOL"
+  },
+  {
+   "name": "SEC",
+   "type": "organization",
+   "clause": "terms were never filed with the SEC"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google's disclosed ... network economics"
+  },
+  {
+   "name": "Google 2002\u20112003 network economics",
+   "type": "network economics dataset",
+   "clause": "Google's disclosed ... network economics"
+  },
+  {
+   "name": "Google TAC rate",
+   "type": "take-away commission measurement",
+   "clause": "TAC at ..."
+  },
+  {
+   "name": "Google network revenue share",
+   "type": "revenue share measurement",
+   "clause": "... of network revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AOL distribution deal",
+   "type": "HAS_GUARANTEE",
+   "to": "AOL deal revenue guarantee",
+   "clause": "was reported to carry ... revenue guarantee"
+  },
+  {
+   "from": "AOL distribution deal",
+   "type": "HAS_REVENUE_SHARE",
+   "to": "AOL deal revenue share",
+   "clause": "... revenue share to AOL"
+  },
+  {
+   "from": "AOL distribution deal",
+   "type": "NOT_FILED_WITH",
+   "to": "SEC",
+   "clause": "terms were never filed with the SEC"
+  },
+  {
+   "from": "Google",
+   "type": "DISLOSED",
+   "to": "Google 2002\u20112003 network economics",
+   "clause": "Google's disclosed ... network economics"
+  },
+  {
+   "from": "Google 2002\u20112003 network economics",
+   "type": "MEASURES",
+   "to": "Google TAC rate",
+   "clause": "TAC at ..."
+  },
+  {
+   "from": "Google 2002\u20112003 network economics",
+   "type": "MEASURES",
+   "to": "Google network revenue share",
+   "clause": "... of network revenue"
+  },
+  {
+   "from": "Google 2002\u20112003 network economics",
+   "type": "CONSISTENT_WITH",
+   "to": "AOL deal revenue share",
+   "clause": "are consistent with ... share in that range"
+  },
+  {
+   "from": "AOL deal revenue share",
+   "type": "TO",
+   "to": "AOL",
+   "clause": "... revenue share to AOL"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AOL distribution deal|distribution purchase agreement|the AOL deal of May 2002 \u2014 the era's decisive distribution purchase\nNODE|AOL deal revenue guarantee|revenue guarantee measurement|was reported to carry ... revenue guarantee\nNODE|AOL deal revenue share|revenue share measurement|... revenue share to AOL\nNODE|AOL|media company|revenue share to AOL\nNODE|SEC|organization|terms were never filed with the SEC\nNODE|Google|technology company|Google's disclosed ... network economics\nNODE|Google 2002\u20112003 network economics|network economics dataset|Google's disclosed ... network economics\nNODE|Google TAC rate|take-away commission measurement|TAC at ...\nNODE|Google network revenue share|revenue share measurement|... of network revenue\nEDGE|AOL distribution deal|HAS_GUARANTEE|AOL deal revenue guarantee|was reported to carry ... revenue guarantee\nEDGE|AOL distribution deal|HAS_REVENUE_SHARE|AOL deal revenue share|... revenue share to AOL\nEDGE|AOL distribution deal|NOT_FILED_WITH|SEC|terms were never filed with the SEC\nEDGE|Google|DISLOSED|Google 2002\u20112003 network economics|Google's disclosed ... network economics\nEDGE|Google 2002\u20112003 network economics|MEASURES|Google TAC rate|TAC at ...\nEDGE|Google 2002\u20112003 network economics|MEASURES|Google network revenue share|... of network revenue\nEDGE|Google 2002\u20112003 network economics|CONSISTENT_WITH|AOL deal revenue share|are consistent with ... share in that range\nEDGE|AOL deal revenue share|TO|AOL|... revenue share to AOL"
+}

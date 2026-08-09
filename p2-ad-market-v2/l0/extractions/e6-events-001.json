@@ -1,0 +1,94 @@
+{
+ "id": "e6-events-001",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2002,
+ "unit": "year (2002-02-20)",
+ "elapsed_s": 50.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's ... press release"
+  },
+  {
+   "name": "press release",
+   "type": "corporate communication",
+   "clause": "Google's ... press release"
+  },
+  {
+   "name": "ad ranking",
+   "type": "ranking mechanism",
+   "clause": "press release describes ranking"
+  },
+  {
+   "name": "ad performance metric",
+   "type": "performance metric",
+   "clause": "determined by a combination of ad performance"
+  },
+  {
+   "name": "click-through rate",
+   "type": "specific metric",
+   "clause": "ad performance (click-thru rate)"
+  },
+  {
+   "name": "advertiser cost-per-click bid",
+   "type": "price offer",
+   "clause": "how much an advertiser agrees to pay per click"
+  },
+  {
+   "name": "discounter",
+   "type": "pricing adjustment mechanism",
+   "clause": "discounter ensuring advertisers ..."
+  },
+  {
+   "name": "advertisers",
+   "type": "actor class",
+   "clause": "advertisers pay the lowest amount possible"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "ISSUED",
+   "to": "press release",
+   "clause": "Google's ... press release"
+  },
+  {
+   "from": "press release",
+   "type": "DESCRIBES",
+   "to": "ad ranking",
+   "clause": "press release describes ranking"
+  },
+  {
+   "from": "ad ranking",
+   "type": "DETERMINED_BY",
+   "to": "ad performance metric",
+   "clause": "ranking determined by a combination of ad performance"
+  },
+  {
+   "from": "ad ranking",
+   "type": "DETERMINED_BY",
+   "to": "advertiser cost-per-click bid",
+   "clause": "and how much an advertiser agrees to pay per click"
+  },
+  {
+   "from": "ad performance metric",
+   "type": "INCLUDES",
+   "to": "click-through rate",
+   "clause": "ad performance (click-thru rate)"
+  },
+  {
+   "from": "discounter",
+   "type": "ENSURES_LOWEST_PAYMENT_FOR",
+   "to": "advertisers",
+   "clause": "discounter ensuring advertisers pay the lowest amount possible"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google's ... press release\nNODE|press release|corporate communication|Google's ... press release\nNODE|ad ranking|ranking mechanism|press release describes ranking\nNODE|ad performance metric|performance metric|determined by a combination of ad performance\nNODE|click-through rate|specific metric|ad performance (click-thru rate)\nNODE|advertiser cost-per-click bid|price offer|how much an advertiser agrees to pay per click\nNODE|discounter|pricing adjustment mechanism|discounter ensuring advertisers ...\nNODE|advertisers|actor class|advertisers pay the lowest amount possible\nEDGE|Google|ISSUED|press release|Google's ... press release\nEDGE|press release|DESCRIBES|ad ranking|press release describes ranking\nEDGE|ad ranking|DETERMINED_BY|ad performance metric|ranking determined by a combination of ad performance\nEDGE|ad ranking|DETERMINED_BY|advertiser cost-per-click bid|and how much an advertiser agrees to pay per click\nEDGE|ad performance metric|INCLUDES|click-through rate|ad performance (click-thru rate)\nEDGE|discounter|ENSURES_LOWEST_PAYMENT_FOR|advertisers|discounter ensuring advertisers pay the lowest amount possible"
+}

@@ -1,0 +1,66 @@
+{
+ "id": "e6-buyers-004",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions, US broadcast TV advertising 2007",
+ "elapsed_s": 55.9,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "brand television buyers",
+   "type": "advertiser group",
+   "clause": "Brand television buyers did not leave during the era"
+  },
+  {
+   "name": "Auction era",
+   "type": "advertising era",
+   "clause": "during the era"
+  },
+  {
+   "name": "US broadcast television advertising",
+   "type": "advertising market",
+   "clause": "US broadcast television advertising was ... in 2002 and ... in 2007"
+  },
+  {
+   "name": "US broadcast TV advertising spend",
+   "type": "spend measurement",
+   "clause": "US broadcast television advertising was ... in 2002 and ... in 2007"
+  },
+  {
+   "name": "cable television advertising",
+   "type": "advertising market",
+   "clause": "cable television rose from ... to ... over the same years"
+  },
+  {
+   "name": "cable television advertising spend",
+   "type": "spend measurement",
+   "clause": "cable television rose from ... to ... over the same years"
+  }
+ ],
+ "edges": [
+  {
+   "from": "brand television buyers",
+   "type": "NOT_LEAVE",
+   "to": "Auction era",
+   "clause": "did not leave during the era"
+  },
+  {
+   "from": "US broadcast TV advertising spend",
+   "type": "MEASURES",
+   "to": "US broadcast television advertising",
+   "clause": "was ... in 2002 and ... in 2007"
+  },
+  {
+   "from": "cable television advertising spend",
+   "type": "MEASURES",
+   "to": "cable television advertising",
+   "clause": "rose from ... to ... over the same years"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|brand television buyers|advertiser group|Brand television buyers did not leave during the era\nNODE|Auction era|advertising era|during the era\nNODE|US broadcast television advertising|advertising market|US broadcast television advertising was ... in 2002 and ... in 2007\nNODE|US broadcast TV advertising spend|spend measurement|US broadcast television advertising was ... in 2002 and ... in 2007\nNODE|cable television advertising|advertising market|cable television rose from ... to ... over the same years\nNODE|cable television advertising spend|spend measurement|cable television rose from ... to ... over the same years\nEDGE|brand television buyers|NOT_LEAVE|Auction era|did not leave during the era\nEDGE|US broadcast TV advertising spend|MEASURES|US broadcast television advertising|was ... in 2002 and ... in 2007\nEDGE|cable television advertising spend|MEASURES|cable television advertising|rose from ... to ... over the same years"
+}

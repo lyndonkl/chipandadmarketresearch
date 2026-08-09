@@ -1,0 +1,173 @@
+{
+ "id": "e4-buyers-003",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "percent of US national ad spend",
+ "elapsed_s": 105.1,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 15,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "Direct mail"
+  },
+  {
+   "name": "US national advertising spend",
+   "type": "total ad spend",
+   "clause": "all US national advertising spend"
+  },
+  {
+   "name": "direct mail share of US national advertising spend",
+   "type": "media-share measurement",
+   "clause": "direct mail took ... of all US national advertising spend"
+  },
+  {
+   "name": "direct mail advertising spend",
+   "type": "spend measurement",
+   "clause": "direct mail ... of ..."
+  },
+  {
+   "name": "national television combined advertising spend",
+   "type": "spend measurement",
+   "clause": "... of national television combined"
+  },
+  {
+   "name": "network television advertising spend",
+   "type": "spend component",
+   "clause": "network ..."
+  },
+  {
+   "name": "national spot television advertising spend",
+   "type": "spend component",
+   "clause": "national spot ..."
+  },
+  {
+   "name": "syndication television advertising spend",
+   "type": "spend component",
+   "clause": "syndication ..."
+  },
+  {
+   "name": "cable networks television advertising spend",
+   "type": "spend component",
+   "clause": "cable networks ..."
+  },
+  {
+   "name": "national television",
+   "type": "advertising medium",
+   "clause": "all national television"
+  },
+  {
+   "name": "Coen advertising series",
+   "type": "advertising-spend dataset",
+   "clause": "Coen books direct mail as entirely national"
+  },
+  {
+   "name": "postage and production costs",
+   "type": "cost component",
+   "clause": "figure includes postage and production"
+  },
+  {
+   "name": "media rate",
+   "type": "cost component",
+   "clause": "not just a media rate"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct mail share of US national advertising spend",
+   "type": "MEASURES",
+   "to": "direct mail",
+   "clause": "direct mail took ... of all US national advertising spend"
+  },
+  {
+   "from": "direct mail share of US national advertising spend",
+   "type": "SHARE_OF",
+   "to": "US national advertising spend",
+   "clause": "... of all US national advertising spend"
+  },
+  {
+   "from": "direct mail advertising spend",
+   "type": "MEASURES",
+   "to": "direct mail",
+   "clause": "direct mail ... of ..."
+  },
+  {
+   "from": "direct mail advertising spend",
+   "type": "COMPONENT_OF",
+   "to": "US national advertising spend",
+   "clause": "direct mail ... of total spend"
+  },
+  {
+   "from": "direct mail advertising spend",
+   "type": "INCLUDES",
+   "to": "postage and production costs",
+   "clause": "figure includes postage and production"
+  },
+  {
+   "from": "direct mail advertising spend",
+   "type": "NOT_INCLUDES",
+   "to": "media rate",
+   "clause": "not just a media rate"
+  },
+  {
+   "from": "direct mail advertising spend",
+   "type": "GREATER_THAN",
+   "to": "national television combined advertising spend",
+   "clause": "more than all national television combined"
+  },
+  {
+   "from": "national television combined advertising spend",
+   "type": "MEASURES",
+   "to": "national television",
+   "clause": "... of national television combined"
+  },
+  {
+   "from": "national television combined advertising spend",
+   "type": "COMPONENT_OF",
+   "to": "US national advertising spend",
+   "clause": "... of total US national advertising spend"
+  },
+  {
+   "from": "network television advertising spend",
+   "type": "PART_OF",
+   "to": "national television combined advertising spend",
+   "clause": "network ... part of combined TV spend"
+  },
+  {
+   "from": "national spot television advertising spend",
+   "type": "PART_OF",
+   "to": "national television combined advertising spend",
+   "clause": "national spot ... part of combined TV spend"
+  },
+  {
+   "from": "syndication television advertising spend",
+   "type": "PART_OF",
+   "to": "national television combined advertising spend",
+   "clause": "syndication ... part of combined TV spend"
+  },
+  {
+   "from": "cable networks television advertising spend",
+   "type": "PART_OF",
+   "to": "national television combined advertising spend",
+   "clause": "cable networks ... part of combined TV spend"
+  },
+  {
+   "from": "direct mail share of US national advertising spend",
+   "type": "MEASURED_ON",
+   "to": "Coen advertising series",
+   "clause": "figure from Coen books"
+  },
+  {
+   "from": "direct mail advertising spend",
+   "type": "MEASURED_ON",
+   "to": "Coen advertising series",
+   "clause": "figure from Coen books"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct mail|advertising medium|Direct mail\nNODE|US national advertising spend|total ad spend|all US national advertising spend\nNODE|direct mail share of US national advertising spend|media-share measurement|direct mail took ... of all US national advertising spend\nNODE|direct mail advertising spend|spend measurement|direct mail ... of ...\nNODE|national television combined advertising spend|spend measurement|... of national television combined\nNODE|network television advertising spend|spend component|network ...\nNODE|national spot television advertising spend|spend component|national spot ...\nNODE|syndication television advertising spend|spend component|syndication ...\nNODE|cable networks television advertising spend|spend component|cable networks ...\nNODE|national television|advertising medium|all national television\nNODE|Coen advertising series|advertising-spend dataset|Coen books direct mail as entirely national\nNODE|postage and production costs|cost component|figure includes postage and production\nNODE|media rate|cost component|not just a media rate\nEDGE|direct mail share of US national advertising spend|MEASURES|direct mail|direct mail took ... of all US national advertising spend\nEDGE|direct mail share of US national advertising spend|SHARE_OF|US national advertising spend|... of all US national advertising spend\nEDGE|direct mail advertising spend|MEASURES|direct mail|direct mail ... of ...\nEDGE|direct mail advertising spend|COMPONENT_OF|US national advertising spend|direct mail ... of total spend\nEDGE|direct mail advertising spend|INCLUDES|postage and production costs|figure includes postage and production\nEDGE|direct mail advertising spend|NOT_INCLUDES|media rate|not just a media rate\nEDGE|direct mail advertising spend|GREATER_THAN|national television combined advertising spend|more than all national television combined\nEDGE|national television combined advertising spend|MEASURES|national television|... of national television combined\nEDGE|national television combined advertising spend|COMPONENT_OF|US national advertising spend|... of total US national advertising spend\nEDGE|network television advertising spend|PART_OF|national television combined advertising spend|network ... part of combined TV spend\nEDGE|national spot television advertising spend|PART_OF|national television combined advertising spend|national spot ... part of combined TV spend\nEDGE|syndication television advertising spend|PART_OF|national television combined advertising spend|syndication ... part of combined TV spend\nEDGE|cable networks television advertising spend|PART_OF|national television combined advertising spend|cable networks ... part of combined TV spend\nEDGE|direct mail share of US national advertising spend|MEASURED_ON|Coen advertising series|figure from Coen books\nEDGE|direct mail advertising spend|MEASURED_ON|Coen advertising series|figure from Coen books"
+}

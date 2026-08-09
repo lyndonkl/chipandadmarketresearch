@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|6c7c6ef5507db0ca",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "National spot price",
+   "type": "spot price",
+   "grain": "Entity",
+   "reason": "singleton: unique spot price concept",
+   "child_uids": [
+    "n|e2-pricing-003|national spot price|spot price"
+   ]
+  },
+  {
+   "name": "Average unit rate",
+   "type": "unit price",
+   "grain": "Entity",
+   "reason": "singleton: unique unit rate concept",
+   "child_uids": [
+    "n|e2-pricing-007|average unit rate|unit price"
+   ]
+  },
+  {
+   "name": "Nominal terms",
+   "type": "price basis",
+   "grain": "Entity",
+   "reason": "singleton: distinct price basis term",
+   "child_uids": [
+    "n|e3-scale-003|nominal terms|price basis"
+   ]
+  },
+  {
+   "name": "Standardized comparable-priced commodity",
+   "type": "commodity type",
+   "grain": "Entity",
+   "reason": "singleton: specific standardized commodity type",
+   "child_uids": [
+    "n|tu:era:3:event:6|standardized comparable-priced commodity|commodity type"
+   ]
+  }
+ ]
+}

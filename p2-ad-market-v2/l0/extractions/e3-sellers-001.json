@@ -1,0 +1,66 @@
+{
+ "id": "e3-sellers-001",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent of total US advertising expenditure captured by network television",
+ "elapsed_s": 38.4,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "three television networks",
+   "type": "media owner group",
+   "clause": "the three television networks"
+  },
+  {
+   "name": "network television ad sales revenue",
+   "type": "advertising revenue measurement",
+   "clause": "sold ... of advertising in ..."
+  },
+  {
+   "name": "US television advertising",
+   "type": "advertising market aggregate",
+   "clause": "all US television advertising"
+  },
+  {
+   "name": "total US advertising expenditure",
+   "type": "advertising spend aggregate",
+   "clause": "total US advertising expenditure"
+  },
+  {
+   "name": "network television share of US television advertising",
+   "type": "media-share measurement",
+   "clause": "... of all US television advertising"
+  },
+  {
+   "name": "network television share of total US advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "... of total US advertising expenditure"
+  }
+ ],
+ "edges": [
+  {
+   "from": "three television networks",
+   "type": "GENERATED_REVENUE",
+   "to": "network television ad sales revenue",
+   "clause": "sold ... of advertising in ..."
+  },
+  {
+   "from": "network television share of US television advertising",
+   "type": "SHARE_OF",
+   "to": "US television advertising",
+   "clause": "of all US television advertising"
+  },
+  {
+   "from": "network television share of total US advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "of total US advertising expenditure"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|three television networks|media owner group|the three television networks\nNODE|network television ad sales revenue|advertising revenue measurement|sold ... of advertising in ...\nNODE|US television advertising|advertising market aggregate|all US television advertising\nNODE|total US advertising expenditure|advertising spend aggregate|total US advertising expenditure\nNODE|network television share of US television advertising|media-share measurement|... of all US television advertising\nNODE|network television share of total US advertising expenditure|media-share measurement|... of total US advertising expenditure\nEDGE|three television networks|GENERATED_REVENUE|network television ad sales revenue|sold ... of advertising in ...\nEDGE|network television share of US television advertising|SHARE_OF|US television advertising|of all US television advertising\nEDGE|network television share of total US advertising expenditure|SHARE_OF|total US advertising expenditure|of total US advertising expenditure"
+}

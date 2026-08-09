@@ -1,0 +1,26 @@
+{
+ "group_id": "L1|1616cd02923b9019",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Agency population growth percent",
+   "type": "growth-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: only one node for this agency population growth measure",
+   "child_uids": [
+    "n|e4-creators-001|agency population growth percent|growth-rate measurement"
+   ]
+  },
+  {
+   "name": "Pandemic-era undercount rate",
+   "type": "measurement",
+   "grain": "Measurement",
+   "reason": "same measure across sources; year abstracted to children",
+   "child_uids": [
+    "n|e7-measurement-002|pandemic-era undercount rate|share measurement",
+    "n|tu:era:7:field:MEASUREMENT|pandemic\u2011era undercount rate|measurement"
+   ]
+  }
+ ]
+}

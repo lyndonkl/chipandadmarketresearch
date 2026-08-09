@@ -1,0 +1,27 @@
+{
+ "group_id": "L1|70b27cf586c44e74",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Meta global active advertiser count",
+   "type": "advertiser-count measurement",
+   "grain": "Measurement",
+   "reason": "same global active advertiser measure across sources; year abstracted to children",
+   "child_uids": [
+    "n|e7-buyers-001|global active advertisers on meta|advertiser-count measurement",
+    "n|tu:era:7:field:BUYERS|active advertisers count for meta|count measurement"
+   ]
+  },
+  {
+   "name": "Meta US business advertiser monthly count",
+   "type": "advertiser-count measurement",
+   "grain": "Measurement",
+   "reason": "same US business monthly advertiser measure across sources; geography and segment fixed",
+   "child_uids": [
+    "n|e7-buyers-001|us business advertisers monthly on meta|advertiser-count measurement",
+    "n|tu:era:7:field:BUYERS|us business advertisers monthly count|count measurement"
+   ]
+  }
+ ]
+}

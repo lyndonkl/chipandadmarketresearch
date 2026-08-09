@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|62c555120bf33e9b",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Browsers",
+   "type": "traffic channel",
+   "grain": "Entity",
+   "reason": "singleton: generic traffic channel category",
+   "child_uids": [
+    "n|e5-sellers-005|browsers|traffic channel"
+   ]
+  },
+  {
+   "name": "Mozilla",
+   "type": "organization",
+   "grain": "Entity",
+   "reason": "singleton: specific organization entity",
+   "child_uids": [
+    "n|mech-default-001|mozilla|organization"
+   ]
+  },
+  {
+   "name": "Chrome",
+   "type": "web browser",
+   "grain": "Entity",
+   "reason": "singleton: Chrome web browser distinct from corporate actions",
+   "child_uids": [
+    "n|mech-mehta-001|user-downloaded chrome|web browser"
+   ]
+  },
+  {
+   "name": "Safari",
+   "type": "software product",
+   "grain": "Entity",
+   "reason": "singleton: Safari software product separate from other browsers",
+   "child_uids": [
+    "n|mech-mehta-003|safari product|software product"
+   ]
+  },
+  {
+   "name": "Chrome divestiture",
+   "type": "corporate action",
+   "grain": "Entity",
+   "reason": "singleton: corporate action concerning Chrome, not the browser itself",
+   "child_uids": [
+    "n|mech-mehta-005|chrome divestiture|corporate action"
+   ]
+  }
+ ]
+}

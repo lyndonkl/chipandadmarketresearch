@@ -1,0 +1,45 @@
+{
+ "group_id": "L1|3a98a4622c564c82",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Auction era",
+   "type": "era",
+   "grain": "Entity",
+   "reason": "grouping start, end, and period of the auction era",
+   "child_uids": [
+    "n|e6-pricing-003|end of the auction era|time period",
+    "n|e6-pricing-003|start of the auction era|time period",
+    "n|e6-scale-008|auction era (2000-2009)|era"
+   ]
+  },
+  {
+   "name": "Yield effect of the auction",
+   "type": "market effect",
+   "grain": "Entity",
+   "reason": "singleton: distinct market effect concept",
+   "child_uids": [
+    "n|e6-pricing-008|yield effect of the auction|market effect"
+   ]
+  },
+  {
+   "name": "Auction death",
+   "type": "concept",
+   "grain": "Entity",
+   "reason": "singleton: separate conceptual boundary entity",
+   "child_uids": [
+    "n|tu:era:6:boundary|auction death|concept"
+   ]
+  },
+  {
+   "name": "Parallel auction",
+   "type": "auction format",
+   "grain": "Entity",
+   "reason": "singleton: specific auction format instance",
+   "child_uids": [
+    "n|tu:era:7:event:2|parallel auction|auction format"
+   ]
+  }
+ ]
+}

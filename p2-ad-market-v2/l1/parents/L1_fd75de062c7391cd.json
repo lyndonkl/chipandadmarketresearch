@@ -1,0 +1,80 @@
+{
+ "group_id": "L1|fd75de062c7391cd",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "National brands",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "same advertiser segment concept; national brand buyers and national brands",
+   "child_uids": [
+    "n|e7-buyers-005|national brand buyers|advertiser segment",
+    "n|tu:era:6:field:BUYERS|national brands|advertiser segment"
+   ]
+  },
+  {
+   "name": "National packaged-goods advertiser",
+   "type": "advertiser category",
+   "grain": "Entity",
+   "reason": "singleton: distinct packaged-goods advertiser",
+   "child_uids": [
+    "n|tu:era:2:field:BUYERS|national packaged-goods advertiser|advertiser category"
+   ]
+  },
+  {
+   "name": "National brand money",
+   "type": "advertising money type",
+   "grain": "Entity",
+   "reason": "singleton: specific advertising money type",
+   "child_uids": [
+    "n|tu:era:2:field:BUYERS|national brand money|advertising money type"
+   ]
+  },
+  {
+   "name": "National brand budgets",
+   "type": "budget type",
+   "grain": "Entity",
+   "reason": "singleton: specific budget type for national brands",
+   "child_uids": [
+    "n|tu:era:3:field:SCALE|national brand budgets|budget type"
+   ]
+  },
+  {
+   "name": "Pricing power over national audience",
+   "type": "market power",
+   "grain": "Entity",
+   "reason": "singleton: market power concept regarding national audience",
+   "child_uids": [
+    "n|tu:era:1:field:SELLERS|pricing power over national audience|market power"
+   ]
+  },
+  {
+   "name": "National and regional leg of local audience inventory",
+   "type": "advertising segment",
+   "grain": "Entity",
+   "reason": "singleton: inventory segment spanning national and regional legs",
+   "child_uids": [
+    "n|e7-scale-007|national and regional leg of local audience inventory|advertising segment"
+   ]
+  },
+  {
+   "name": "Scarce nationally simultaneous good",
+   "type": "advertising inventory",
+   "grain": "Entity",
+   "reason": "singleton: scarce inventory available simultaneously nationwide",
+   "child_uids": [
+    "n|tu:era:3:field:SELLERS|scarce nationally simultaneous good|advertising inventory"
+   ]
+  },
+  {
+   "name": "National spot buying",
+   "type": "advertising purchase method",
+   "grain": "Entity",
+   "reason": "singleton: specific national spot purchasing method",
+   "child_uids": [
+    "n|tu:era:3:field:TARGETING|national spot buying|advertising purchase method"
+   ]
+  }
+ ]
+}

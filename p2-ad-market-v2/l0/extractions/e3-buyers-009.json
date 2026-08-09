@@ -1,0 +1,78 @@
+{
+ "id": "e3-buyers-009",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent of total US advertising expenditure",
+ "elapsed_s": 90.2,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct-response buyers",
+   "type": "buyer segment",
+   "clause": "Direct-response buyers"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail"
+  },
+  {
+   "name": "total US advertising expenditure",
+   "type": "aggregate spend",
+   "clause": "all US advertising spend"
+  },
+  {
+   "name": "direct-response buyers share of total US advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "share of total US advertising expenditure"
+  },
+  {
+   "name": "direct-response buyers spend amount",
+   "type": "spend measurement",
+   "clause": "advertising spend amount"
+  },
+  {
+   "name": "single national medium",
+   "type": "advertising medium category",
+   "clause": "largest single national medium at era end"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct-response buyers",
+   "type": "PROXIED_BY",
+   "to": "direct mail",
+   "clause": "proxied by direct mail"
+  },
+  {
+   "from": "direct-response buyers share of total US advertising expenditure",
+   "type": "MEASURES",
+   "to": "direct-response buyers",
+   "clause": "accounted for ... percent of all US advertising spend"
+  },
+  {
+   "from": "direct-response buyers share of total US advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "share of total US advertising expenditure"
+  },
+  {
+   "from": "direct-response buyers spend amount",
+   "type": "MEASURES",
+   "to": "direct-response buyers",
+   "clause": "... bn spend amount"
+  },
+  {
+   "from": "direct-response buyers",
+   "type": "LARGEST_MEDIUM",
+   "to": "single national medium",
+   "clause": "largest single national medium at era end"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct-response buyers|buyer segment|Direct-response buyers\nNODE|direct mail|advertising medium|direct mail\nNODE|total US advertising expenditure|aggregate spend|all US advertising spend\nNODE|direct-response buyers share of total US advertising expenditure|media-share measurement|share of total US advertising expenditure\nNODE|direct-response buyers spend amount|spend measurement|advertising spend amount\nNODE|single national medium|advertising medium category|largest single national medium at era end\nEDGE|direct-response buyers|PROXIED_BY|direct mail|proxied by direct mail\nEDGE|direct-response buyers share of total US advertising expenditure|MEASURES|direct-response buyers|accounted for ... percent of all US advertising spend\nEDGE|direct-response buyers share of total US advertising expenditure|SHARE_OF|total US advertising expenditure|share of total US advertising expenditure\nEDGE|direct-response buyers spend amount|MEASURES|direct-response buyers|... bn spend amount\nEDGE|direct-response buyers|LARGEST_MEDIUM|single national medium|largest single national medium at era end"
+}

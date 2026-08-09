@@ -1,0 +1,99 @@
+{
+ "group_id": "L1|884f28044dd0378e",
+ "source": "kmeans",
+ "n_in": 12,
+ "parents": [
+  {
+   "name": "National advertisers share of US advertising spend",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measure without earlier/later qualifier",
+   "child_uids": [
+    "n|e4-buyers-001|national advertisers share of measured us advertising spend|media-share measurement"
+   ]
+  },
+  {
+   "name": "Earlier national advertisers share of US advertising spend",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct earlier\u2011period share measure",
+   "child_uids": [
+    "n|e4-buyers-001|earlier national advertisers share of measured us advertising spend|media-share measurement"
+   ]
+  },
+  {
+   "name": "Local advertisers share of US advertising spend",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "two nodes share same local\u2011share concept across wording variants",
+   "child_uids": [
+    "n|e4-buyers-002|local advertisers share of measured us advertising spend|percentage measurement",
+    "n|e4-buyers-008|local buyers share of all measured us ad spend|media-share measurement"
+   ]
+  },
+  {
+   "name": "Radio share of US advertising spend",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "two readings of the same radio\u2011share measure grouped together",
+   "child_uids": [
+    "n|e4-medium-006|radio share of us measured ad spend (reading 1)|media-share measurement",
+    "n|e4-medium-006|radio share of us measured ad spend (reading 2)|media-share measurement"
+   ]
+  },
+  {
+   "name": "US advertising spend amount (later)",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: later\u2011period amount separate from earlier",
+   "child_uids": [
+    "n|e4-scale-002|us advertising spend amount (later)|spend measurement"
+   ]
+  },
+  {
+   "name": "US advertising spend amount (earlier)",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: earlier\u2011period amount separate from later",
+   "child_uids": [
+    "n|e4-scale-002|us advertising spend amount (earlier)|spend measurement"
+   ]
+  },
+  {
+   "name": "US advertising spend nominal compound annual growth rate",
+   "type": "growth-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique growth\u2011rate measure",
+   "child_uids": [
+    "n|e4-scale-002|us advertising spend nominal compound annual growth rate|growth-rate measurement"
+   ]
+  },
+  {
+   "name": "US advertising spend share of GDP",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct share of GDP metric",
+   "child_uids": [
+    "n|e4-scale-003|us advertising spend share of gdp|share measurement"
+   ]
+  },
+  {
+   "name": "US five-media advertising spend",
+   "type": "national ad spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total across five media",
+   "child_uids": [
+    "n|e4-scale-005|us five-media advertising spend|national ad spend measurement"
+   ]
+  },
+  {
+   "name": "US advertising expenditure",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: overall expenditure measure for 1994",
+   "child_uids": [
+    "n|e5-scale-001|us advertising expenditure measurement|spend measurement"
+   ]
+  }
+ ]
+}

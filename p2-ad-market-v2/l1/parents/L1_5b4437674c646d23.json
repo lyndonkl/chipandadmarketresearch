@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|5b4437674c646d23",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Cost-per-click bid",
+   "type": "bidding entity",
+   "grain": "Entity",
+   "reason": "same concept across type labels; advertiser and generic CPC bids unified",
+   "child_uids": [
+    "n|e6-events-001|advertiser cost-per-click bid|price offer",
+    "n|tu:era:6:field:PRICING|cost-per-click bid|bidding metric"
+   ]
+  },
+  {
+   "name": "Search cost-per-click",
+   "type": "advertising metric",
+   "grain": "Entity",
+   "reason": "singleton: distinct search CPC metric",
+   "child_uids": [
+    "n|e7-pricing-007|search cost-per-click|advertising metric"
+   ]
+  },
+  {
+   "name": "Ad performance metric",
+   "type": "performance metric",
+   "grain": "Entity",
+   "reason": "singleton: ad performance measurement concept",
+   "child_uids": [
+    "n|e6-events-001|ad performance metric|performance metric"
+   ]
+  }
+ ]
+}

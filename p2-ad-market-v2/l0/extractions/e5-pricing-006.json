@@ -1,0 +1,89 @@
+{
+ "id": "e5-pricing-006",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "percent of revenue",
+ "elapsed_s": 74.9,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture's traffic acquisition cost"
+  },
+  {
+   "name": "traffic acquisition cost rate",
+   "type": "take-rate measurement",
+   "clause": "traffic acquisition cost as a percentage of revenue"
+  },
+  {
+   "name": "distribution layer in paid search",
+   "type": "advertising distribution component",
+   "clause": "distribution layer in paid search"
+  },
+  {
+   "name": "search serving cost rate",
+   "type": "take-rate measurement",
+   "clause": "search serving cost only ... of revenue"
+  },
+  {
+   "name": "search serving cost",
+   "type": "cost category",
+   "clause": "Search serving cost"
+  },
+  {
+   "name": "click",
+   "type": "advertising interaction",
+   "clause": "cost of a click"
+  },
+  {
+   "name": "technology",
+   "type": "advertising technology component",
+   "clause": "technology"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "HAS_COST_RATE",
+   "to": "traffic acquisition cost rate",
+   "clause": "Overture's traffic acquisition cost as a percentage of revenue"
+  },
+  {
+   "from": "traffic acquisition cost rate",
+   "type": "MEASURES",
+   "to": "distribution layer in paid search",
+   "clause": "the take rate of the distribution layer in paid search"
+  },
+  {
+   "from": "traffic acquisition cost rate",
+   "type": "COMPARED_AGAINST",
+   "to": "traffic acquisition cost rate",
+   "clause": "against ... in 2000"
+  },
+  {
+   "from": "search serving cost rate",
+   "type": "MEASURES",
+   "to": "search serving cost",
+   "clause": "Search serving cost only ... of revenue"
+  },
+  {
+   "from": "distribution layer in paid search",
+   "type": "DOMINANT_COST_OF",
+   "to": "click",
+   "clause": "distribution ... was the dominant cost of a click"
+  },
+  {
+   "from": "technology",
+   "type": "NOT_DOMINANT_COST_OF",
+   "to": "click",
+   "clause": "not technology, was the dominant cost of a click"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|company|Overture's traffic acquisition cost\nNODE|traffic acquisition cost rate|take-rate measurement|traffic acquisition cost as a percentage of revenue\nNODE|distribution layer in paid search|advertising distribution component|distribution layer in paid search\nNODE|search serving cost rate|take-rate measurement|search serving cost only ... of revenue\nNODE|search serving cost|cost category|Search serving cost\nNODE|click|advertising interaction|cost of a click\nNODE|technology|advertising technology component|technology\nEDGE|Overture|HAS_COST_RATE|traffic acquisition cost rate|Overture's traffic acquisition cost as a percentage of revenue\nEDGE|traffic acquisition cost rate|MEASURES|distribution layer in paid search|the take rate of the distribution layer in paid search\nEDGE|traffic acquisition cost rate|COMPARED_AGAINST|traffic acquisition cost rate|against ... in 2000\nEDGE|search serving cost rate|MEASURES|search serving cost|Search serving cost only ... of revenue\nEDGE|distribution layer in paid search|DOMINANT_COST_OF|click|distribution ... was the dominant cost of a click\nEDGE|technology|NOT_DOMINANT_COST_OF|click|not technology, was the dominant cost of a click"
+}

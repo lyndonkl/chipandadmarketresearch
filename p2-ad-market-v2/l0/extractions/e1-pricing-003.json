@@ -1,0 +1,78 @@
+{
+ "id": "e1-pricing-003",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1887,
+ "unit": "USD per agate line",
+ "elapsed_s": 43.7,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Ladies' Home Journal",
+   "type": "magazine",
+   "clause": "Ladies' Home Journal"
+  },
+  {
+   "name": "advertising rate per agate line",
+   "type": "rate measurement",
+   "clause": "advertising rate per agate line"
+  },
+  {
+   "name": "advertising rate per column inch",
+   "type": "rate measurement",
+   "clause": "advertising rate per column inch"
+  },
+  {
+   "name": "annual advertising revenue",
+   "type": "revenue measurement",
+   "clause": "advertising revenue per year"
+  },
+  {
+   "name": "agate line",
+   "type": "ad unit",
+   "clause": "per agate line"
+  },
+  {
+   "name": "column inch",
+   "type": "ad unit",
+   "clause": "per column inch"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Ladies' Home Journal",
+   "type": "RAISED_RATE",
+   "to": "advertising rate per agate line",
+   "clause": "raised its advertising rate to ... per agate line"
+  },
+  {
+   "from": "Ladies' Home Journal",
+   "type": "ALSO_RAISED_RATE",
+   "to": "advertising rate per column inch",
+   "clause": "or ... per column inch"
+  },
+  {
+   "from": "Ladies' Home Journal",
+   "type": "ACHIEVED_REVENUE",
+   "to": "annual advertising revenue",
+   "clause": "advertising revenue reached ... a year"
+  },
+  {
+   "from": "advertising rate per agate line",
+   "type": "MEASURES_UNIT",
+   "to": "agate line",
+   "clause": "per agate line"
+  },
+  {
+   "from": "advertising rate per column inch",
+   "type": "MEASURES_UNIT",
+   "to": "column inch",
+   "clause": "per column inch"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Ladies' Home Journal|magazine|Ladies' Home Journal\nNODE|advertising rate per agate line|rate measurement|advertising rate per agate line\nNODE|advertising rate per column inch|rate measurement|advertising rate per column inch\nNODE|annual advertising revenue|revenue measurement|advertising revenue per year\nNODE|agate line|ad unit|per agate line\nNODE|column inch|ad unit|per column inch\nEDGE|Ladies' Home Journal|RAISED_RATE|advertising rate per agate line|raised its advertising rate to ... per agate line\nEDGE|Ladies' Home Journal|ALSO_RAISED_RATE|advertising rate per column inch|or ... per column inch\nEDGE|Ladies' Home Journal|ACHIEVED_REVENUE|annual advertising revenue|advertising revenue reached ... a year\nEDGE|advertising rate per agate line|MEASURES_UNIT|agate line|per agate line\nEDGE|advertising rate per column inch|MEASURES_UNIT|column inch|per column inch"
+}

@@ -1,0 +1,98 @@
+{
+ "id": "mech-tac-004",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2008,
+ "unit": "ratio of owned-site to syndicated revenue retention, 2008",
+ "elapsed_s": 95.8,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google"
+  },
+  {
+   "name": "syndicated ad dollar",
+   "type": "advertising revenue stream",
+   "clause": "syndicated ad dollar"
+  },
+  {
+   "name": "owned ad dollar",
+   "type": "advertising revenue stream",
+   "clause": "owned ad dollar"
+  },
+  {
+   "name": "Google owned sites",
+   "type": "owned site inventory",
+   "clause": "its own sites"
+  },
+  {
+   "name": "Google Network sites",
+   "type": "network site inventory",
+   "clause": "Google Network sites"
+  },
+  {
+   "name": "owned-site ad revenue retention ratio",
+   "type": "revenue retention measurement",
+   "clause": "retention on its own sites"
+  },
+  {
+   "name": "network-site ad revenue retention ratio",
+   "type": "revenue retention measurement",
+   "clause": "retention on Google Network sites"
+  },
+  {
+   "name": "distribution TAC amount",
+   "type": "cost measurement",
+   "clause": "distribution TAC"
+  },
+  {
+   "name": "retention gap multiplier 2008",
+   "type": "gap ratio measurement",
+   "clause": "... gap in retention (2008)"
+  },
+  {
+   "name": "retention gap multiplier 2002",
+   "type": "gap ratio measurement",
+   "clause": "gap was ... in 2002"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "HAS_RETENTION_RATE",
+   "to": "owned-site ad revenue retention ratio",
+   "clause": "Google retained ... on its own sites"
+  },
+  {
+   "from": "Google",
+   "type": "HAS_RETENTION_RATE",
+   "to": "network-site ad revenue retention ratio",
+   "clause": "Google retained ... on Google Network sites"
+  },
+  {
+   "from": "owned-site ad revenue retention ratio",
+   "type": "HAS_GAP_FACTOR",
+   "to": "retention gap multiplier 2008",
+   "clause": "... gap in retention"
+  },
+  {
+   "from": "Google",
+   "type": "PAID",
+   "to": "distribution TAC amount",
+   "clause": "after ... distribution TAC"
+  },
+  {
+   "from": "syndicated ad dollar",
+   "type": "NOT_SAME_AS",
+   "to": "owned ad dollar",
+   "clause": "not the same business"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google\nNODE|syndicated ad dollar|advertising revenue stream|syndicated ad dollar\nNODE|owned ad dollar|advertising revenue stream|owned ad dollar\nNODE|Google owned sites|owned site inventory|its own sites\nNODE|Google Network sites|network site inventory|Google Network sites\nNODE|owned-site ad revenue retention ratio|revenue retention measurement|retention on its own sites\nNODE|network-site ad revenue retention ratio|revenue retention measurement|retention on Google Network sites\nNODE|distribution TAC amount|cost measurement|distribution TAC\nNODE|retention gap multiplier 2008|gap ratio measurement|... gap in retention (2008)\nNODE|retention gap multiplier 2002|gap ratio measurement|gap was ... in 2002\nEDGE|Google|HAS_RETENTION_RATE|owned-site ad revenue retention ratio|Google retained ... on its own sites\nEDGE|Google|HAS_RETENTION_RATE|network-site ad revenue retention ratio|Google retained ... on Google Network sites\nEDGE|owned-site ad revenue retention ratio|HAS_GAP_FACTOR|retention gap multiplier 2008|... gap in retention\nEDGE|Google|PAID|distribution TAC amount|after ... distribution TAC\nEDGE|syndicated ad dollar|NOT_SAME_AS|owned ad dollar|not the same business"
+}

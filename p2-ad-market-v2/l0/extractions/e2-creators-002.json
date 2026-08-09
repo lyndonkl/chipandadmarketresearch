@@ -1,0 +1,72 @@
+{
+ "id": "e2-creators-002",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1930,
+ "unit": "percent of gross media billing retained by the agency",
+ "elapsed_s": 29.0,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "agency commission",
+   "type": "intermediary pricing practice",
+   "clause": "the standard agency commission"
+  },
+  {
+   "name": "agency commission rate",
+   "type": "take-rate measurement",
+   "clause": "held at ... of gross media billing"
+  },
+  {
+   "name": "gross media billing",
+   "type": "advertising spend aggregate",
+   "clause": "of gross media billing"
+  },
+  {
+   "name": "radio",
+   "type": "advertising medium",
+   "clause": "on radio"
+  },
+  {
+   "name": "program production",
+   "type": "media service",
+   "clause": "program production"
+  },
+  {
+   "name": "media buying",
+   "type": "media service",
+   "clause": "media buying"
+  }
+ ],
+ "edges": [
+  {
+   "from": "agency commission",
+   "type": "HAS_RATE",
+   "to": "agency commission rate",
+   "clause": "held at ... of gross media billing"
+  },
+  {
+   "from": "agency commission rate",
+   "type": "SHARE_OF",
+   "to": "gross media billing",
+   "clause": "... of gross media billing"
+  },
+  {
+   "from": "agency commission",
+   "type": "COVERS",
+   "to": "program production",
+   "clause": "on radio it covered program production"
+  },
+  {
+   "from": "agency commission",
+   "type": "COVERS",
+   "to": "media buying",
+   "clause": "on radio it covered media buying"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|agency commission|intermediary pricing practice|the standard agency commission\nNODE|agency commission rate|take-rate measurement|held at ... of gross media billing\nNODE|gross media billing|advertising spend aggregate|of gross media billing\nNODE|radio|advertising medium|on radio\nNODE|program production|media service|program production\nNODE|media buying|media service|media buying\nEDGE|agency commission|HAS_RATE|agency commission rate|held at ... of gross media billing\nEDGE|agency commission rate|SHARE_OF|gross media billing|... of gross media billing\nEDGE|agency commission|COVERS|program production|on radio it covered program production\nEDGE|agency commission|COVERS|media buying|on radio it covered media buying"
+}

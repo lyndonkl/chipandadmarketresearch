@@ -1,0 +1,72 @@
+{
+ "id": "e4-pricing-003",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1992,
+ "unit": "percent real increase in media unit prices, 1977-1992",
+ "elapsed_s": 64.2,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US media unit prices",
+   "type": "advertising cost metric",
+   "clause": "US media unit prices rose ... faster than general prices"
+  },
+  {
+   "name": "media unit price real increase percent",
+   "type": "take-rate measurement",
+   "clause": "about ... faster than general prices"
+  },
+  {
+   "name": "Universal McCann composite media unit cost index",
+   "type": "price index",
+   "clause": "Universal McCann composite media unit cost index went from ... to ..."
+  },
+  {
+   "name": "Universal McCann composite media unit cost index change percent",
+   "type": "percent change measurement",
+   "clause": "... (+158%) change in index"
+  },
+  {
+   "name": "GDP implicit price deflator",
+   "type": "price index",
+   "clause": "GDP implicit price deflator went from ... to ..."
+  },
+  {
+   "name": "GDP implicit price deflator change percent",
+   "type": "percent change measurement",
+   "clause": "... (+103%) change in deflator"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US media unit prices",
+   "type": "MEASURED_BY",
+   "to": "media unit price real increase percent",
+   "clause": "rose ... faster than general prices"
+  },
+  {
+   "from": "media unit price real increase percent",
+   "type": "FASTER_THAN",
+   "to": "GDP implicit price deflator change percent",
+   "clause": "about ... faster than general prices"
+  },
+  {
+   "from": "Universal McCann composite media unit cost index change percent",
+   "type": "MEASURES",
+   "to": "Universal McCann composite media unit cost index",
+   "clause": "... (+158%) change in index"
+  },
+  {
+   "from": "GDP implicit price deflator change percent",
+   "type": "MEASURES",
+   "to": "GDP implicit price deflator",
+   "clause": "... (+103%) change in deflator"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US media unit prices|advertising cost metric|US media unit prices rose ... faster than general prices\nNODE|media unit price real increase percent|take-rate measurement|about ... faster than general prices\nNODE|Universal McCann composite media unit cost index|price index|Universal McCann composite media unit cost index went from ... to ...\nNODE|Universal McCann composite media unit cost index change percent|percent change measurement|... (+158%) change in index\nNODE|GDP implicit price deflator|price index|GDP implicit price deflator went from ... to ...\nNODE|GDP implicit price deflator change percent|percent change measurement|... (+103%) change in deflator\nEDGE|US media unit prices|MEASURED_BY|media unit price real increase percent|rose ... faster than general prices\nEDGE|media unit price real increase percent|FASTER_THAN|GDP implicit price deflator change percent|about ... faster than general prices\nEDGE|Universal McCann composite media unit cost index change percent|MEASURES|Universal McCann composite media unit cost index|... (+158%) change in index\nEDGE|GDP implicit price deflator change percent|MEASURES|GDP implicit price deflator|... (+103%) change in deflator"
+}

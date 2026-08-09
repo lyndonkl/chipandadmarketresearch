@@ -1,0 +1,76 @@
+{
+ "group_id": "L2|7f08aae41d1990b3",
+ "n_in": 14,
+ "parents": [
+  {
+   "name": "cost category",
+   "type": "cost category kind",
+   "grain": "Entity",
+   "reason": "search serving and creation costs are abstract cost categories, not specific components",
+   "child_uids": [
+    "L1|324769d82bf86543",
+    "L1|95f0af7457457bba"
+   ]
+  },
+  {
+   "name": "cost component",
+   "type": "cost component kind",
+   "grain": "Entity",
+   "reason": "these entries represent individual cost line\u2011items or components of overall spend",
+   "child_uids": [
+    "L1|0f94fae3b3c19602",
+    "L1|1134a7e0d3d4cadc",
+    "L1|39ce24e1c97d4e65",
+    "L1|5c1f32fc9cb91b9d",
+    "L1|7ab9466ffecc2002",
+    "L1|d5f249b8b21bab65"
+   ]
+  },
+  {
+   "name": "aggregate cost",
+   "type": "aggregate cost kind",
+   "grain": "Entity",
+   "reason": "total traffic acquisition cost aggregates multiple underlying cost components",
+   "child_uids": [
+    "L1|09da5d507e19ed52"
+   ]
+  },
+  {
+   "name": "media cost",
+   "type": "media cost kind",
+   "grain": "Entity",
+   "reason": "net media cost is the net amount spent on media buying",
+   "child_uids": [
+    "L1|ed4db5d594fbc661"
+   ]
+  },
+  {
+   "name": "financial metric",
+   "type": "financial metric kind",
+   "grain": "Entity",
+   "reason": "TAC is a financial performance metric, not a direct cost",
+   "child_uids": [
+    "L1|f53098b80d1c7309"
+   ]
+  },
+  {
+   "name": "cost concept",
+   "type": "cost concept kind",
+   "grain": "Entity",
+   "reason": "business and marginal costs are conceptual cost categories rather than line items",
+   "child_uids": [
+    "L1|208c0f5ff699f029",
+    "L1|61f58323a5ee69f4"
+   ]
+  },
+  {
+   "name": "production cost factor",
+   "type": "production cost factor kind",
+   "grain": "Entity",
+   "reason": "production costs denote a factor influencing overall cost calculations",
+   "child_uids": [
+    "L1|e990fdf4e46932d0"
+   ]
+  }
+ ]
+}

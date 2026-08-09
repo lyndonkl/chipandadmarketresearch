@@ -1,0 +1,133 @@
+{
+ "id": "e2-measurement-003",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1946,
+ "unit": "percent by which Hooper's coincidental ratings exceeded the CAB's coincidental ratings on average, 1944-46",
+ "elapsed_s": 75.4,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "CAB",
+   "type": "organization",
+   "clause": "the CAB"
+  },
+  {
+   "name": "Hooper's coincidental telephone technique",
+   "type": "rating method",
+   "clause": "Hooper's coincidental telephone technique"
+  },
+  {
+   "name": "Hooper's ratings",
+   "type": "rating series",
+   "clause": "Hooper's ratings"
+  },
+  {
+   "name": "CAB's ratings",
+   "type": "rating series",
+   "clause": "the CAB's ratings"
+  },
+  {
+   "name": "Hans Zeisel",
+   "type": "person",
+   "clause": "Hans Zeisel"
+  },
+  {
+   "name": "McCann-Erickson study",
+   "type": "research study",
+   "clause": "McCann-Erickson study"
+  },
+  {
+   "name": "rating gap",
+   "type": "difference measurement",
+   "clause": "the residual gap"
+  },
+  {
+   "name": "percent excess of Hooper over CAB",
+   "type": "percentage difference measurement",
+   "clause": "about ... above the CAB's on average"
+  },
+  {
+   "name": "ring counts",
+   "type": "measurement factor",
+   "clause": "ring counts"
+  },
+  {
+   "name": "unidentified-program handling",
+   "type": "process",
+   "clause": "unidentified-program handling"
+  },
+  {
+   "name": "busy-signal treatment",
+   "type": "process",
+   "clause": "busy-signal treatment"
+  }
+ ],
+ "edges": [
+  {
+   "from": "CAB",
+   "type": "ADOPTED",
+   "to": "Hooper's coincidental telephone technique",
+   "clause": "... adopted Hooper's coincidental telephone technique"
+  },
+  {
+   "from": "Hooper's ratings",
+   "type": "EXCEEDS_BY",
+   "to": "percent excess of Hooper over CAB",
+   "clause": "still ran about ... above the CAB's on average"
+  },
+  {
+   "from": "percent excess of Hooper over CAB",
+   "type": "MEASURES",
+   "to": "rating gap",
+   "clause": "percent excess ... measures the residual gap"
+  },
+  {
+   "from": "Hans Zeisel",
+   "type": "AUTHORED",
+   "to": "McCann-Erickson study",
+   "clause": "Hans Zeisel's McCann-Erickson study"
+  },
+  {
+   "from": "McCann-Erickson study",
+   "type": "TRACE_TO",
+   "to": "ring counts",
+   "clause": "traced the residual gap to ring counts"
+  },
+  {
+   "from": "McCann-Erickson study",
+   "type": "TRACE_TO",
+   "to": "unidentified-program handling",
+   "clause": "... to unidentified-program handling"
+  },
+  {
+   "from": "McCann-Erickson study",
+   "type": "TRACE_TO",
+   "to": "busy-signal treatment",
+   "clause": "... to busy-signal treatment"
+  },
+  {
+   "from": "Hooper's ratings",
+   "type": "USES",
+   "to": "Hooper's coincidental telephone technique",
+   "clause": "the two services were ... using the same method"
+  },
+  {
+   "from": "CAB's ratings",
+   "type": "USES",
+   "to": "Hooper's coincidental telephone technique",
+   "clause": "the two services were ... using the same method"
+  },
+  {
+   "from": "Hooper's ratings",
+   "type": "DISAGREES_WITH",
+   "to": "CAB's ratings",
+   "clause": "still disagreed"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|CAB|organization|the CAB\nNODE|Hooper's coincidental telephone technique|rating method|Hooper's coincidental telephone technique\nNODE|Hooper's ratings|rating series|Hooper's ratings\nNODE|CAB's ratings|rating series|the CAB's ratings\nNODE|Hans Zeisel|person|Hans Zeisel\nNODE|McCann-Erickson study|research study|McCann-Erickson study\nNODE|rating gap|difference measurement|the residual gap\nNODE|percent excess of Hooper over CAB|percentage difference measurement|about ... above the CAB's on average\nNODE|ring counts|measurement factor|ring counts\nNODE|unidentified-program handling|process|unidentified-program handling\nNODE|busy-signal treatment|process|busy-signal treatment\nEDGE|CAB|ADOPTED|Hooper's coincidental telephone technique|... adopted Hooper's coincidental telephone technique\nEDGE|Hooper's ratings|EXCEEDS_BY|percent excess of Hooper over CAB|still ran about ... above the CAB's on average\nEDGE|percent excess of Hooper over CAB|MEASURES|rating gap|percent excess ... measures the residual gap\nEDGE|Hans Zeisel|AUTHORED|McCann-Erickson study|Hans Zeisel's McCann-Erickson study\nEDGE|McCann-Erickson study|TRACE_TO|ring counts|traced the residual gap to ring counts\nEDGE|McCann-Erickson study|TRACE_TO|unidentified-program handling|... to unidentified-program handling\nEDGE|McCann-Erickson study|TRACE_TO|busy-signal treatment|... to busy-signal treatment\nEDGE|Hooper's ratings|USES|Hooper's coincidental telephone technique|the two services were ... using the same method\nEDGE|CAB's ratings|USES|Hooper's coincidental telephone technique|the two services were ... using the same method\nEDGE|Hooper's ratings|DISAGREES_WITH|CAB's ratings|still disagreed"
+}

@@ -1,0 +1,50 @@
+{
+ "id": "e7-buyers-004",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2024,
+ "unit": "USD billions of US direct-mail ad spend (2024)",
+ "elapsed_s": 46.8,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US direct-mail advertising",
+   "type": "advertising medium",
+   "clause": "US direct-mail advertising spend was about ... in 2024"
+  },
+  {
+   "name": "US direct-mail ad spend amount",
+   "type": "spend measurement",
+   "clause": "US direct-mail advertising spend was about ... in 2024"
+  },
+  {
+   "name": "USPS Marketing Mail",
+   "type": "mail service",
+   "clause": "USPS Marketing Mail volume fell to ... in FY2025, down from ... in FY2008"
+  },
+  {
+   "name": "USPS Marketing Mail volume amount",
+   "type": "volume measurement",
+   "clause": "USPS Marketing Mail volume fell to ... in FY2025, down from ... in FY2008"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US direct-mail advertising",
+   "type": "HAS_SPEND",
+   "to": "US direct-mail ad spend amount",
+   "clause": "advertising spend was about ... in 2024"
+  },
+  {
+   "from": "USPS Marketing Mail",
+   "type": "HAS_VOLUME",
+   "to": "USPS Marketing Mail volume amount",
+   "clause": "volume fell to ... in FY2025, down from ... in FY2008"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US direct-mail advertising|advertising medium|US direct-mail advertising spend was about ... in 2024\nNODE|US direct-mail ad spend amount|spend measurement|US direct-mail advertising spend was about ... in 2024\nNODE|USPS Marketing Mail|mail service|USPS Marketing Mail volume fell to ... in FY2025, down from ... in FY2008\nNODE|USPS Marketing Mail volume amount|volume measurement|USPS Marketing Mail volume fell to ... in FY2025, down from ... in FY2008\nEDGE|US direct-mail advertising|HAS_SPEND|US direct-mail ad spend amount|advertising spend was about ... in 2024\nEDGE|USPS Marketing Mail|HAS_VOLUME|USPS Marketing Mail volume amount|volume fell to ... in FY2025, down from ... in FY2008"
+}

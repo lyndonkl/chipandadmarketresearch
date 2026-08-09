@@ -1,0 +1,73 @@
+{
+ "id": "e3-scale-003",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent compound annual nominal growth rate, 1950-1975",
+ "elapsed_s": 31.2,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising expenditure",
+   "type": "advertising spend aggregate",
+   "clause": "US advertising expenditure"
+  },
+  {
+   "name": "advertising expenditure compound annual nominal growth rate",
+   "type": "compound annual growth rate measurement",
+   "clause": "compounded at ... a year in nominal terms across ..."
+  },
+  {
+   "name": "nominal terms",
+   "type": "price basis",
+   "clause": "in nominal terms"
+  },
+  {
+   "name": "1950-1975 period",
+   "type": "time span",
+   "clause": "across ..."
+  },
+  {
+   "name": "advertising expenditure fold increase over twenty-five years",
+   "type": "fold-increase measurement",
+   "clause": "a ...-fold increase over ... years"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising expenditure compound annual nominal growth rate",
+   "type": "MEASURES",
+   "to": "US advertising expenditure",
+   "clause": "compounded at ... a year in nominal terms across ..."
+  },
+  {
+   "from": "advertising expenditure compound annual nominal growth rate",
+   "type": "HAS_BASIS",
+   "to": "nominal terms",
+   "clause": "in nominal terms"
+  },
+  {
+   "from": "advertising expenditure compound annual nominal growth rate",
+   "type": "OVER_PERIOD",
+   "to": "1950-1975 period",
+   "clause": "across ..."
+  },
+  {
+   "from": "advertising expenditure fold increase over twenty-five years",
+   "type": "MEASURES",
+   "to": "US advertising expenditure",
+   "clause": "a ...-fold increase over ... years"
+  },
+  {
+   "from": "advertising expenditure fold increase over twenty-five years",
+   "type": "OVER_PERIOD",
+   "to": "1950-1975 period",
+   "clause": "over ... years"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising expenditure|advertising spend aggregate|US advertising expenditure\nNODE|advertising expenditure compound annual nominal growth rate|compound annual growth rate measurement|compounded at ... a year in nominal terms across ...\nNODE|nominal terms|price basis|in nominal terms\nNODE|1950-1975 period|time span|across ...\nNODE|advertising expenditure fold increase over twenty-five years|fold-increase measurement|a ...-fold increase over ... years\nEDGE|advertising expenditure compound annual nominal growth rate|MEASURES|US advertising expenditure|compounded at ... a year in nominal terms across ...\nEDGE|advertising expenditure compound annual nominal growth rate|HAS_BASIS|nominal terms|in nominal terms\nEDGE|advertising expenditure compound annual nominal growth rate|OVER_PERIOD|1950-1975 period|across ...\nEDGE|advertising expenditure fold increase over twenty-five years|MEASURES|US advertising expenditure|a ...-fold increase over ... years\nEDGE|advertising expenditure fold increase over twenty-five years|OVER_PERIOD|1950-1975 period|over ... years"
+}

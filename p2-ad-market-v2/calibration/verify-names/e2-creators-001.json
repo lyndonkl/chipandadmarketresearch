@@ -1,0 +1,99 @@
+{
+ "id": "e2-creators-001",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1933,
+ "unit": "weekly network radio programs sponsored by JWT clients, 1933",
+ "elapsed_s": 103.7,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "J. Walter Thompson",
+   "type": "advertising agency",
+   "clause": "J. Walter Thompson"
+  },
+  {
+   "name": "JWT client sponsorship of weekly network radio shows",
+   "type": "sponsorship practice",
+   "clause": "JWT clients sponsored weekly network radio shows"
+  },
+  {
+   "name": "weekly network radio programs sponsored by JWT clients",
+   "type": "count measurement",
+   "clause": "measurement of weekly network radio shows"
+  },
+  {
+   "name": "weekly network radio shows",
+   "type": "radio program schedule",
+   "clause": "weekly network radio shows"
+  },
+  {
+   "name": "Kraft Music Hall",
+   "type": "radio program",
+   "clause": "Kraft Music Hall"
+  },
+  {
+   "name": "Fleischmann Yeast Hour",
+   "type": "radio program",
+   "clause": "Fleischmann Yeast Hour"
+  },
+  {
+   "name": "advertising agencies",
+   "type": "agency class",
+   "clause": "advertising agencies"
+  },
+  {
+   "name": "networks",
+   "type": "broadcaster class",
+   "clause": "networks"
+  },
+  {
+   "name": "nationally sponsored network programs",
+   "type": "radio program category",
+   "clause": "nationally sponsored network programs"
+  }
+ ],
+ "edges": [
+  {
+   "from": "JWT client sponsorship of weekly network radio shows",
+   "type": "HAS_COUNT",
+   "to": "weekly network radio programs sponsored by JWT clients",
+   "clause": "by ... JWT clients sponsored ..."
+  },
+  {
+   "from": "weekly network radio programs sponsored by JWT clients",
+   "type": "MEASURES",
+   "to": "weekly network radio shows",
+   "clause": "measurement of weekly network radio shows"
+  },
+  {
+   "from": "weekly network radio programs sponsored by JWT clients",
+   "type": "INCLUDES",
+   "to": "Kraft Music Hall",
+   "clause": "including ..."
+  },
+  {
+   "from": "weekly network radio programs sponsored by JWT clients",
+   "type": "INCLUDES",
+   "to": "Fleischmann Yeast Hour",
+   "clause": "including ..."
+  },
+  {
+   "from": "advertising agencies",
+   "type": "PRODUCED",
+   "to": "nationally sponsored network programs",
+   "clause": "were producing most nationally sponsored programs"
+  },
+  {
+   "from": "advertising agencies",
+   "type": "EXCLUDES",
+   "to": "networks",
+   "clause": "... not networks ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|J. Walter Thompson|advertising agency|J. Walter Thompson\nNODE|JWT client sponsorship of weekly network radio shows|sponsorship practice|JWT clients sponsored weekly network radio shows\nNODE|weekly network radio programs sponsored by JWT clients|count measurement|measurement of weekly network radio shows\nNODE|weekly network radio shows|radio program schedule|weekly network radio shows\nNODE|Kraft Music Hall|radio program|Kraft Music Hall\nNODE|Fleischmann Yeast Hour|radio program|Fleischmann Yeast Hour\nNODE|advertising agencies|agency class|advertising agencies\nNODE|networks|broadcaster class|networks\nNODE|nationally sponsored network programs|radio program category|nationally sponsored network programs\nEDGE|JWT client sponsorship of weekly network radio shows|HAS_COUNT|weekly network radio programs sponsored by JWT clients|by ... JWT clients sponsored ...\nEDGE|weekly network radio programs sponsored by JWT clients|MEASURES|weekly network radio shows|measurement of weekly network radio shows\nEDGE|weekly network radio programs sponsored by JWT clients|INCLUDES|Kraft Music Hall|including ...\nEDGE|weekly network radio programs sponsored by JWT clients|INCLUDES|Fleischmann Yeast Hour|including ...\nEDGE|advertising agencies|PRODUCED|nationally sponsored network programs|were producing most nationally sponsored programs\nEDGE|advertising agencies|EXCLUDES|networks|... not networks ..."
+}

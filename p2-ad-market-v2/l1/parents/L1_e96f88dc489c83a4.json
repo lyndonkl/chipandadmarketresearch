@@ -1,0 +1,27 @@
+{
+ "group_id": "L1|e96f88dc489c83a4",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Television advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years and periods; year abstracted to children",
+   "child_uids": [
+    "n|tu:era:2:boundary|television advertising spend 1949|revenue measurement",
+    "n|tu:era:3:boundary|television advertising spend (1949-1950)|medium spend measurement",
+    "n|tu:era:3:boundary|television advertising spend (1975-1976)|medium spend measurement"
+   ]
+  },
+  {
+   "name": "Television advertising share",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: TV proportion of total ad spend",
+   "child_uids": [
+    "n|tu:era:4:boundary|television share of advertising spend|media-share measurement"
+   ]
+  }
+ ]
+}

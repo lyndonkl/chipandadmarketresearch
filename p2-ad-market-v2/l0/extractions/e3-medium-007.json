@@ -1,0 +1,106 @@
+{
+ "id": "e3-medium-007",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1954,
+ "unit": "year television overtook radio and magazines",
+ "elapsed_s": 63.4,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "television",
+   "type": "medium",
+   "clause": "Television passed both radio and magazines"
+  },
+  {
+   "name": "radio",
+   "type": "medium",
+   "clause": "Radio had still been marginally ahead in ..."
+  },
+  {
+   "name": "magazines",
+   "type": "media type",
+   "clause": "Magazines were overtaken by television in ..."
+  },
+  {
+   "name": "television advertising spend 1954",
+   "type": "advertising spend measurement",
+   "clause": "... in ..."
+  },
+  {
+   "name": "radio advertising spend 1954",
+   "type": "advertising spend measurement",
+   "clause": "... in ..."
+  },
+  {
+   "name": "magazine advertising spend 1954",
+   "type": "advertising spend measurement",
+   "clause": "... in ..."
+  },
+  {
+   "name": "radio advertising spend 1953",
+   "type": "advertising spend measurement",
+   "clause": "... in ..."
+  },
+  {
+   "name": "television advertising spend 1953",
+   "type": "advertising spend measurement",
+   "clause": "... in ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "television advertising spend 1954",
+   "type": "MEASURES",
+   "to": "television",
+   "clause": "... in ..."
+  },
+  {
+   "from": "radio advertising spend 1954",
+   "type": "MEASURES",
+   "to": "radio",
+   "clause": "... in ..."
+  },
+  {
+   "from": "magazine advertising spend 1954",
+   "type": "MEASURES",
+   "to": "magazines",
+   "clause": "... in ..."
+  },
+  {
+   "from": "radio advertising spend 1953",
+   "type": "MEASURES",
+   "to": "radio",
+   "clause": "... in ..."
+  },
+  {
+   "from": "television advertising spend 1953",
+   "type": "MEASURES",
+   "to": "television",
+   "clause": "... in ..."
+  },
+  {
+   "from": "television",
+   "type": "OVERTAKED",
+   "to": "radio",
+   "clause": "Television passed radio in total US advertising expenditure in ..."
+  },
+  {
+   "from": "television",
+   "type": "OVERTAKED",
+   "to": "magazines",
+   "clause": "Television passed magazines in total US advertising expenditure in ..."
+  },
+  {
+   "from": "radio",
+   "type": "AHEAD_OF",
+   "to": "television",
+   "clause": "Radio had still been marginally ahead in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|television|medium|Television passed both radio and magazines\nNODE|radio|medium|Radio had still been marginally ahead in ...\nNODE|magazines|media type|Magazines were overtaken by television in ...\nNODE|television advertising spend 1954|advertising spend measurement|... in ...\nNODE|radio advertising spend 1954|advertising spend measurement|... in ...\nNODE|magazine advertising spend 1954|advertising spend measurement|... in ...\nNODE|radio advertising spend 1953|advertising spend measurement|... in ...\nNODE|television advertising spend 1953|advertising spend measurement|... in ...\nEDGE|television advertising spend 1954|MEASURES|television|... in ...\nEDGE|radio advertising spend 1954|MEASURES|radio|... in ...\nEDGE|magazine advertising spend 1954|MEASURES|magazines|... in ...\nEDGE|radio advertising spend 1953|MEASURES|radio|... in ...\nEDGE|television advertising spend 1953|MEASURES|television|... in ...\nEDGE|television|OVERTAKED|radio|Television passed radio in total US advertising expenditure in ...\nEDGE|television|OVERTAKED|magazines|Television passed magazines in total US advertising expenditure in ...\nEDGE|radio|AHEAD_OF|television|Radio had still been marginally ahead in ..."
+}

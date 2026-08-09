@@ -1,0 +1,45 @@
+{
+ "id": "e4-scale-008",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 59.4,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US local advertising spend",
+   "type": "advertising spend aggregate",
+   "clause": "local advertising spend in the US"
+  },
+  {
+   "name": "local advertising spend 1993",
+   "type": "spend measurement",
+   "clause": "was ..."
+  },
+  {
+   "name": "local advertising spend 1976",
+   "type": "spend measurement",
+   "clause": "up from ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "US local advertising spend",
+   "type": "HAS_SPEND",
+   "to": "local advertising spend 1993",
+   "clause": "was ..."
+  },
+  {
+   "from": "local advertising spend 1993",
+   "type": "UP_FROM",
+   "to": "local advertising spend 1976",
+   "clause": "up from ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US local advertising spend|advertising spend aggregate|local advertising spend in the US\nNODE|local advertising spend 1993|spend measurement|was ...\nNODE|local advertising spend 1976|spend measurement|up from ...\nEDGE|US local advertising spend|HAS_SPEND|local advertising spend 1993|was ...\nEDGE|local advertising spend 1993|UP_FROM|local advertising spend 1976|up from ..."
+}

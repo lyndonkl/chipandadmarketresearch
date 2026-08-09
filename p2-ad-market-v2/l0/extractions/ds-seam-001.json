@@ -1,0 +1,84 @@
+{
+ "id": "ds-seam-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 1999,
+ "unit": "ratio of the out-of-home line to the billboards line, 1999",
+ "elapsed_s": 69.6,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "out-of-home advertising",
+   "type": "advertising segment",
+   "clause": "the 2000 out-of-home category"
+  },
+  {
+   "name": "billboard advertising",
+   "type": "advertising medium",
+   "clause": "billboards"
+  },
+  {
+   "name": "out-of-home spend measurement",
+   "type": "spend measurement",
+   "clause": "... on the same ... data"
+  },
+  {
+   "name": "billboard spend measurement",
+   "type": "spend measurement",
+   "clause": "... on the same ... data"
+  },
+  {
+   "name": "out-of-home to billboard spend ratio",
+   "type": "ratio measurement",
+   "clause": "ratio of the out-of-home line to the billboards line"
+  },
+  {
+   "name": "advertising data set",
+   "type": "data set",
+   "clause": "the same ... data"
+  }
+ ],
+ "edges": [
+  {
+   "from": "out-of-home advertising",
+   "type": "REPLACED",
+   "to": "billboard advertising",
+   "clause": "replaced billboards at ... times the level"
+  },
+  {
+   "from": "out-of-home spend measurement",
+   "type": "MEASURES",
+   "to": "out-of-home advertising",
+   "clause": "on same ... data"
+  },
+  {
+   "from": "billboard spend measurement",
+   "type": "MEASURES",
+   "to": "billboard advertising",
+   "clause": "on same ... data"
+  },
+  {
+   "from": "out-of-home spend measurement",
+   "type": "ON_DATASET",
+   "to": "advertising data set",
+   "clause": "on same ... data"
+  },
+  {
+   "from": "billboard spend measurement",
+   "type": "ON_DATASET",
+   "to": "advertising data set",
+   "clause": "on same ... data"
+  },
+  {
+   "from": "out-of-home to billboard spend ratio",
+   "type": "SHARE_OF",
+   "to": "billboard advertising",
+   "clause": "ratio of the out-of-home line to the billboards line"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|out-of-home advertising|advertising segment|the 2000 out-of-home category\nNODE|billboard advertising|advertising medium|billboards\nNODE|out-of-home spend measurement|spend measurement|... on the same ... data\nNODE|billboard spend measurement|spend measurement|... on the same ... data\nNODE|out-of-home to billboard spend ratio|ratio measurement|ratio of the out-of-home line to the billboards line\nNODE|advertising data set|data set|the same ... data\nEDGE|out-of-home advertising|REPLACED|billboard advertising|replaced billboards at ... times the level\nEDGE|out-of-home spend measurement|MEASURES|out-of-home advertising|on same ... data\nEDGE|billboard spend measurement|MEASURES|billboard advertising|on same ... data\nEDGE|out-of-home spend measurement|ON_DATASET|advertising data set|on same ... data\nEDGE|billboard spend measurement|ON_DATASET|advertising data set|on same ... data\nEDGE|out-of-home to billboard spend ratio|SHARE_OF|billboard advertising|ratio of the out-of-home line to the billboards line"
+}

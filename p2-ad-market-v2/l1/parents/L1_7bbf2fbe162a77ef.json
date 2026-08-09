@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|7bbf2fbe162a77ef",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Red and Blue billings combined",
+   "type": "billing aggregate",
+   "grain": "Entity",
+   "reason": "singleton: distinct billing concept",
+   "child_uids": [
+    "n|e2-pricing-005|red and blue billings combined|billing aggregate"
+   ]
+  },
+  {
+   "name": "gross network radio billing",
+   "type": "advertising revenue pool",
+   "grain": "Entity",
+   "reason": "singleton: distinct billing concept",
+   "child_uids": [
+    "n|e2-sellers-005|gross network radio billing|advertising revenue pool"
+   ]
+  },
+  {
+   "name": "billings-versus-revenue price basis",
+   "type": "pricing-basis component",
+   "grain": "Entity",
+   "reason": "singleton: distinct billing concept",
+   "child_uids": [
+    "n|ds-bridge-002|billings-versus-revenue price basis|pricing-basis component"
+   ]
+  },
+  {
+   "name": "advertiser billings",
+   "type": "revenue source",
+   "grain": "Entity",
+   "reason": "singleton: distinct billing concept",
+   "child_uids": [
+    "n|e5-scale-005|advertiser billings|revenue source"
+   ]
+  },
+  {
+   "name": "percentage-of-billings payment",
+   "type": "payment practice",
+   "grain": "Entity",
+   "reason": "singleton: distinct billing concept",
+   "child_uids": [
+    "n|tu:era:6:field:CREATORS|percentage-of-billings payment|payment practice"
+   ]
+  }
+ ]
+}

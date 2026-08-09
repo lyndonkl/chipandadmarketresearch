@@ -1,0 +1,26 @@
+{
+ "group_id": "L1|ca4fd10ebdcc9748",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "AdWords general-availability announcement",
+   "type": "event",
+   "grain": "Entity",
+   "reason": "singleton: distinct event about AdWords",
+   "child_uids": [
+    "n|e5-events-008|adwords general-availability announcement|event"
+   ]
+  },
+  {
+   "name": "AdSense",
+   "type": "advertising platform",
+   "grain": "Entity",
+   "reason": "same product family across launch event and product",
+   "child_uids": [
+    "n|e6-targeting-001|adsense for content launch|product launch event",
+    "n|tu:era:6:event:2|adsense for search|ad-serving product"
+   ]
+  }
+ ]
+}

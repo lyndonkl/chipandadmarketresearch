@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|01dd895d62da2832",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Amazon.com impression purchases",
+   "type": "ad-impression-purchase measurement",
+   "grain": "Measurement",
+   "reason": "singleton: measure of Amazon impressions bought in quarter",
+   "child_uids": [
+    "n|e5-measurement-002|amazon.com impression purchase measurement|ad-impression-purchase measurement"
+   ]
+  },
+  {
+   "name": "Impression selling cost",
+   "type": "cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: cost to sell an impression",
+   "child_uids": [
+    "n|e5-unit_econ-003|selling impression cost|cost measurement"
+   ]
+  },
+  {
+   "name": "Impression serving cost",
+   "type": "cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: cost to serve an impression",
+   "child_uids": [
+    "n|e5-unit_econ-003|serving impression cost|cost measurement"
+   ]
+  },
+  {
+   "name": "Publisher payment per impression",
+   "type": "payout measurement",
+   "grain": "Measurement",
+   "reason": "singleton: payout to publisher for each impression",
+   "child_uids": [
+    "n|e5-unit_econ-003|publisher payment per impression|payout measurement"
+   ]
+  },
+  {
+   "name": "Incremental creative production cost",
+   "type": "cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: cost of producing incremental creative content",
+   "child_uids": [
+    "n|e6-creators-003|incremental creative production cost|cost measurement"
+   ]
+  },
+  {
+   "name": "Impression pricing duration",
+   "type": "time-duration measurement",
+   "grain": "Measurement",
+   "reason": "singleton: time length of impression pricing period",
+   "child_uids": [
+    "n|tu:era:5:event:7|impression pricing duration|time-duration measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "id": "e2-scale-006",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "percent of US GDP spent on advertising, 1949",
+ "elapsed_s": 42.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "advertising",
+   "type": "activity",
+   "clause": "Advertising"
+  },
+  {
+   "name": "US GDP",
+   "type": "economic aggregate",
+   "clause": "US GDP"
+  },
+  {
+   "name": "advertising share of US GDP",
+   "type": "media-share measurement",
+   "clause": "percent of US GDP spent on advertising"
+  },
+  {
+   "name": "advertising market",
+   "type": "market",
+   "clause": "the market carried the level into the television era"
+  },
+  {
+   "name": "television era",
+   "type": "historical period",
+   "clause": "television era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising share of US GDP",
+   "type": "MEASURES",
+   "to": "advertising",
+   "clause": "Advertising was ... percent of US GDP"
+  },
+  {
+   "from": "advertising share of US GDP",
+   "type": "SHARE_OF",
+   "to": "US GDP",
+   "clause": "... of US GDP"
+  },
+  {
+   "from": "advertising market",
+   "type": "CARRIED",
+   "to": "advertising share of US GDP",
+   "clause": "the market carried the level into the television era"
+  },
+  {
+   "from": "advertising share of US GDP",
+   "type": "CARRIED_INTO",
+   "to": "television era",
+   "clause": "the level ... carried into the television era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|advertising|activity|Advertising\nNODE|US GDP|economic aggregate|US GDP\nNODE|advertising share of US GDP|media-share measurement|percent of US GDP spent on advertising\nNODE|advertising market|market|the market carried the level into the television era\nNODE|television era|historical period|television era\nEDGE|advertising share of US GDP|MEASURES|advertising|Advertising was ... percent of US GDP\nEDGE|advertising share of US GDP|SHARE_OF|US GDP|... of US GDP\nEDGE|advertising market|CARRIED|advertising share of US GDP|the market carried the level into the television era\nEDGE|advertising share of US GDP|CARRIED_INTO|television era|the level ... carried into the television era"
+}

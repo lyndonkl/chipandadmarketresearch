@@ -1,0 +1,72 @@
+{
+ "id": "e6-pricing-008",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2002,
+ "unit": "USD advertising revenue per Google-owned-site query, 2002",
+ "elapsed_s": 60.5,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google"
+  },
+  {
+   "name": "Google-owned-site query",
+   "type": "ad inventory unit",
+   "clause": "search on its own properties"
+  },
+  {
+   "name": "advertising revenue per Google-owned-site query",
+   "type": "revenue-per-query measurement",
+   "clause": "advertising revenue per search on its own properties"
+  },
+  {
+   "name": "revenue growth multiple of advertising revenue per query",
+   "type": "growth-multiple measurement",
+   "clause": "rose roughly ... across the era"
+  },
+  {
+   "name": "yield effect of the auction",
+   "type": "market effect",
+   "clause": "the yield effect of the auction"
+  },
+  {
+   "name": "volume effect of distribution",
+   "type": "market effect",
+   "clause": "the volume effect of distribution"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "PROVIDES",
+   "to": "Google-owned-site query",
+   "clause": "search on its own properties"
+  },
+  {
+   "from": "advertising revenue per Google-owned-site query",
+   "type": "MEASURES",
+   "to": "Google-owned-site query",
+   "clause": "advertising revenue per search on its own properties"
+  },
+  {
+   "from": "revenue growth multiple of advertising revenue per query",
+   "type": "MEASURES_CHANGE_OF",
+   "to": "advertising revenue per Google-owned-site query",
+   "clause": "rose roughly ... across the era"
+  },
+  {
+   "from": "yield effect of the auction",
+   "type": "DISTINCT_FROM",
+   "to": "volume effect of distribution",
+   "clause": "distinct from the volume effect of distribution"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google\nNODE|Google-owned-site query|ad inventory unit|search on its own properties\nNODE|advertising revenue per Google-owned-site query|revenue-per-query measurement|advertising revenue per search on its own properties\nNODE|revenue growth multiple of advertising revenue per query|growth-multiple measurement|rose roughly ... across the era\nNODE|yield effect of the auction|market effect|the yield effect of the auction\nNODE|volume effect of distribution|market effect|the volume effect of distribution\nEDGE|Google|PROVIDES|Google-owned-site query|search on its own properties\nEDGE|advertising revenue per Google-owned-site query|MEASURES|Google-owned-site query|advertising revenue per search on its own properties\nEDGE|revenue growth multiple of advertising revenue per query|MEASURES_CHANGE_OF|advertising revenue per Google-owned-site query|rose roughly ... across the era\nEDGE|yield effect of the auction|DISTINCT_FROM|volume effect of distribution|distinct from the volume effect of distribution"
+}

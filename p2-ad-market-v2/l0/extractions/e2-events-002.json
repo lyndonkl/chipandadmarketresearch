@@ -1,0 +1,89 @@
+{
+ "id": "e2-events-002",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1930,
+ "unit": "radio families covered per CAB report in its first year",
+ "elapsed_s": 60.3,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "CAB",
+   "type": "organization",
+   "clause": "the CAB's first-year design"
+  },
+  {
+   "name": "first-year design",
+   "type": "report design",
+   "clause": "CAB's first-year design"
+  },
+  {
+   "name": "radio families coverage per report",
+   "type": "audience coverage measurement",
+   "clause": "covered ... radio families per report"
+  },
+  {
+   "name": "CAB report",
+   "type": "market report",
+   "clause": "per report"
+  },
+  {
+   "name": "cities covered count",
+   "type": "geographic coverage count",
+   "clause": "across ..."
+  },
+  {
+   "name": "first-year report count",
+   "type": "report frequency measurement",
+   "clause": "in ... reports"
+  },
+  {
+   "name": "report duration",
+   "type": "time span measurement",
+   "clause": "...-month reports"
+  }
+ ],
+ "edges": [
+  {
+   "from": "CAB",
+   "type": "HAS_DESIGN",
+   "to": "first-year design",
+   "clause": "the CAB's first-year design"
+  },
+  {
+   "from": "first-year design",
+   "type": "COVERS",
+   "to": "radio families coverage per report",
+   "clause": "covered ... radio families per report"
+  },
+  {
+   "from": "radio families coverage per report",
+   "type": "MEASURED_PER",
+   "to": "CAB report",
+   "clause": "per report"
+  },
+  {
+   "from": "first-year design",
+   "type": "COVERS_IN",
+   "to": "cities covered count",
+   "clause": "across ..."
+  },
+  {
+   "from": "first-year design",
+   "type": "PRODUCED",
+   "to": "first-year report count",
+   "clause": "in ... reports"
+  },
+  {
+   "from": "first-year design",
+   "type": "REPORT_DURATION",
+   "to": "report duration",
+   "clause": "...-month reports"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|CAB|organization|the CAB's first-year design\nNODE|first-year design|report design|CAB's first-year design\nNODE|radio families coverage per report|audience coverage measurement|covered ... radio families per report\nNODE|CAB report|market report|per report\nNODE|cities covered count|geographic coverage count|across ...\nNODE|first-year report count|report frequency measurement|in ... reports\nNODE|report duration|time span measurement|...-month reports\nEDGE|CAB|HAS_DESIGN|first-year design|the CAB's first-year design\nEDGE|first-year design|COVERS|radio families coverage per report|covered ... radio families per report\nEDGE|radio families coverage per report|MEASURED_PER|CAB report|per report\nEDGE|first-year design|COVERS_IN|cities covered count|across ...\nEDGE|first-year design|PRODUCED|first-year report count|in ... reports\nEDGE|first-year design|REPORT_DURATION|report duration|...-month reports"
+}

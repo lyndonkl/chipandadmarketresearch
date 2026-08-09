@@ -1,0 +1,95 @@
+{
+ "id": "e5-medium-003",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions",
+ "elapsed_s": 74.9,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Yellow Pages directory advertising",
+   "type": "advertising category",
+   "clause": "Yellow Pages / directory advertising expenditure"
+  },
+  {
+   "name": "local Yellow Pages directory advertising expenditure",
+   "type": "spend measurement",
+   "clause": "local ... in 2000"
+  },
+  {
+   "name": "national Yellow Pages directory advertising expenditure",
+   "type": "spend measurement",
+   "clause": "national ... in 2000"
+  },
+  {
+   "name": "Yellow Pages directory advertising expenditure 1994",
+   "type": "spend measurement",
+   "clause": "... in 1994"
+  },
+  {
+   "name": "intent-matched directory pool",
+   "type": "advertising inventory pool",
+   "clause": "the intent-matched directory pool"
+  },
+  {
+   "name": "web arrival",
+   "type": "technological event",
+   "clause": "the web's arrival"
+  },
+  {
+   "name": "mid-2000s",
+   "type": "time period",
+   "clause": "mid-2000s"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local Yellow Pages directory advertising expenditure",
+   "type": "MEASURES",
+   "to": "Yellow Pages directory advertising",
+   "clause": "local ... measurement"
+  },
+  {
+   "from": "national Yellow Pages directory advertising expenditure",
+   "type": "MEASURES",
+   "to": "Yellow Pages directory advertising",
+   "clause": "national ... measurement"
+  },
+  {
+   "from": "Yellow Pages directory advertising expenditure 1994",
+   "type": "MEASURES",
+   "to": "Yellow Pages directory advertising",
+   "clause": "... in 1994"
+  },
+  {
+   "from": "local Yellow Pages directory advertising expenditure",
+   "type": "UP_FROM",
+   "to": "Yellow Pages directory advertising expenditure 1994",
+   "clause": "up from ..."
+  },
+  {
+   "from": "national Yellow Pages directory advertising expenditure",
+   "type": "UP_FROM",
+   "to": "Yellow Pages directory advertising expenditure 1994",
+   "clause": "up from ..."
+  },
+  {
+   "from": "intent-matched directory pool",
+   "type": "GROWED_DURING",
+   "to": "web arrival",
+   "clause": "kept growing right through the web's arrival"
+  },
+  {
+   "from": "intent-matched directory pool",
+   "type": "NOT_PEAKED_UNTIL",
+   "to": "mid-2000s",
+   "clause": "did not peak until ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Yellow Pages directory advertising|advertising category|Yellow Pages / directory advertising expenditure\nNODE|local Yellow Pages directory advertising expenditure|spend measurement|local ... in 2000\nNODE|national Yellow Pages directory advertising expenditure|spend measurement|national ... in 2000\nNODE|Yellow Pages directory advertising expenditure 1994|spend measurement|... in 1994\nNODE|intent-matched directory pool|advertising inventory pool|the intent-matched directory pool\nNODE|web arrival|technological event|the web's arrival\nNODE|mid-2000s|time period|mid-2000s\nEDGE|local Yellow Pages directory advertising expenditure|MEASURES|Yellow Pages directory advertising|local ... measurement\nEDGE|national Yellow Pages directory advertising expenditure|MEASURES|Yellow Pages directory advertising|national ... measurement\nEDGE|Yellow Pages directory advertising expenditure 1994|MEASURES|Yellow Pages directory advertising|... in 1994\nEDGE|local Yellow Pages directory advertising expenditure|UP_FROM|Yellow Pages directory advertising expenditure 1994|up from ...\nEDGE|national Yellow Pages directory advertising expenditure|UP_FROM|Yellow Pages directory advertising expenditure 1994|up from ...\nEDGE|intent-matched directory pool|GROWED_DURING|web arrival|kept growing right through the web's arrival\nEDGE|intent-matched directory pool|NOT_PEAKED_UNTIL|mid-2000s|did not peak until ..."
+}

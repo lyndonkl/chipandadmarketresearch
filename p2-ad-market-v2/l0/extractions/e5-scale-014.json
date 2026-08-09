@@ -1,0 +1,89 @@
+{
+ "id": "e5-scale-014",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percentage points of the observed 2000 US total; negative means the four pools over-allocate",
+ "elapsed_s": 52.9,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "four reconciled money-type pools",
+   "type": "pool collection",
+   "clause": "the four reconciled money-type pools"
+  },
+  {
+   "name": "allocation share of observed US total",
+   "type": "percentage-point measurement",
+   "clause": "sum to ... percent of the observed ... US total"
+  },
+  {
+   "name": "observed US total 2000",
+   "type": "advertising spend aggregate",
+   "clause": "observed ... US total for ..."
+  },
+  {
+   "name": "over-allocation amount",
+   "type": "dollar measurement",
+   "clause": "over-allocating it by ... million"
+  },
+  {
+   "name": "median-of-partitions method",
+   "type": "allocation calculation method",
+   "clause": "taking a median pool by pool"
+  },
+  {
+   "name": "individual lens partition",
+   "type": "partition unit",
+   "clause": "each lens's own partition closes exactly"
+  },
+  {
+   "name": "smoothing",
+   "type": "adjustment method",
+   "clause": "smoothed away"
+  }
+ ],
+ "edges": [
+  {
+   "from": "four reconciled money-type pools",
+   "type": "SUMS_TO",
+   "to": "allocation share of observed US total",
+   "clause": "sum to ... percent of the observed ... US total"
+  },
+  {
+   "from": "allocation share of observed US total",
+   "type": "SHARE_OF",
+   "to": "observed US total 2000",
+   "clause": "... percent of the observed ... US total"
+  },
+  {
+   "from": "over-allocation amount",
+   "type": "OVER_ALLOCS",
+   "to": "observed US total 2000",
+   "clause": "over-allocating it by ... million"
+  },
+  {
+   "from": "over-allocation amount",
+   "type": "ARTEFACT_OF",
+   "to": "median-of-partitions method",
+   "clause": "over-allocation is an artefact of taking a median pool by pool"
+  },
+  {
+   "from": "median-of-partitions method",
+   "type": "NOT_EQUIVALENT_TO",
+   "to": "individual lens partition",
+   "clause": "median of a partition is not itself a partition"
+  },
+  {
+   "from": "over-allocation amount",
+   "type": "REPORTED_INSTEAD_OF",
+   "to": "smoothing",
+   "clause": "it is reported rather than smoothed away"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|four reconciled money-type pools|pool collection|the four reconciled money-type pools\nNODE|allocation share of observed US total|percentage-point measurement|sum to ... percent of the observed ... US total\nNODE|observed US total 2000|advertising spend aggregate|observed ... US total for ...\nNODE|over-allocation amount|dollar measurement|over-allocating it by ... million\nNODE|median-of-partitions method|allocation calculation method|taking a median pool by pool\nNODE|individual lens partition|partition unit|each lens's own partition closes exactly\nNODE|smoothing|adjustment method|smoothed away\nEDGE|four reconciled money-type pools|SUMS_TO|allocation share of observed US total|sum to ... percent of the observed ... US total\nEDGE|allocation share of observed US total|SHARE_OF|observed US total 2000|... percent of the observed ... US total\nEDGE|over-allocation amount|OVER_ALLOCS|observed US total 2000|over-allocating it by ... million\nEDGE|over-allocation amount|ARTEFACT_OF|median-of-partitions method|over-allocation is an artefact of taking a median pool by pool\nEDGE|median-of-partitions method|NOT_EQUIVALENT_TO|individual lens partition|median of a partition is not itself a partition\nEDGE|over-allocation amount|REPORTED_INSTEAD_OF|smoothing|it is reported rather than smoothed away"
+}

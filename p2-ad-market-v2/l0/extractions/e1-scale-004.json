@@ -1,0 +1,85 @@
+{
+ "id": "e1-scale-004",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1900,
+ "unit": "USD millions (current)",
+ "elapsed_s": 70.8,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "total US advertising volume",
+   "type": "advertising spend aggregate",
+   "clause": "Total US advertising volume in 1900"
+  },
+  {
+   "name": "Coen 1999 revision estimate",
+   "type": "advertising spend measurement",
+   "clause": "estimate of total US advertising volume by Coen's 1999 revision"
+  },
+  {
+   "name": "Printers' Ink figure estimate",
+   "type": "advertising spend measurement",
+   "clause": "estimate of total US advertising volume by the Printers' Ink figure carried in Historical Statistics"
+  },
+  {
+   "name": "Coen's 1999 revision",
+   "type": "advertising-spend dataset",
+   "clause": "Coen's 1999 revision"
+  },
+  {
+   "name": "Printers' Ink figure (Historical Statistics)",
+   "type": "advertising-spend dataset",
+   "clause": "the Printers' Ink figure carried in Historical Statistics"
+  }
+ ],
+ "edges": [
+  {
+   "from": "total US advertising volume",
+   "type": "MEASURED_BY",
+   "to": "Coen 1999 revision estimate",
+   "clause": "estimate by Coen's 1999 revision"
+  },
+  {
+   "from": "total US advertising volume",
+   "type": "MEASURED_BY",
+   "to": "Printers' Ink figure estimate",
+   "clause": "estimate by Printers' Ink figure"
+  },
+  {
+   "from": "Coen's 1999 revision",
+   "type": "PROVIDES",
+   "to": "Coen 1999 revision estimate",
+   "clause": "Coen's 1999 revision"
+  },
+  {
+   "from": "Printers' Ink figure (Historical Statistics)",
+   "type": "PROVIDES",
+   "to": "Printers' Ink figure estimate",
+   "clause": "Printers' Ink figure carried in Historical Statistics"
+  },
+  {
+   "from": "Coen 1999 revision estimate",
+   "type": "CONFLICTS_WITH",
+   "to": "Printers' Ink figure estimate",
+   "clause": "disagree by ... percent"
+  },
+  {
+   "from": "Coen's 1999 revision",
+   "type": "CARRIED",
+   "to": "Coen 1999 revision estimate",
+   "clause": "both carried"
+  },
+  {
+   "from": "Printers' Ink figure (Historical Statistics)",
+   "type": "CARRIED",
+   "to": "Printers' Ink figure estimate",
+   "clause": "both carried"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|total US advertising volume|advertising spend aggregate|Total US advertising volume in 1900\nNODE|Coen 1999 revision estimate|advertising spend measurement|estimate of total US advertising volume by Coen's 1999 revision\nNODE|Printers' Ink figure estimate|advertising spend measurement|estimate of total US advertising volume by the Printers' Ink figure carried in Historical Statistics\nNODE|Coen's 1999 revision|advertising-spend dataset|Coen's 1999 revision\nNODE|Printers' Ink figure (Historical Statistics)|advertising-spend dataset|the Printers' Ink figure carried in Historical Statistics\nEDGE|total US advertising volume|MEASURED_BY|Coen 1999 revision estimate|estimate by Coen's 1999 revision\nEDGE|total US advertising volume|MEASURED_BY|Printers' Ink figure estimate|estimate by Printers' Ink figure\nEDGE|Coen's 1999 revision|PROVIDES|Coen 1999 revision estimate|Coen's 1999 revision\nEDGE|Printers' Ink figure (Historical Statistics)|PROVIDES|Printers' Ink figure estimate|Printers' Ink figure carried in Historical Statistics\nEDGE|Coen 1999 revision estimate|CONFLICTS_WITH|Printers' Ink figure estimate|disagree by ... percent\nEDGE|Coen's 1999 revision|CARRIED|Coen 1999 revision estimate|both carried\nEDGE|Printers' Ink figure (Historical Statistics)|CARRIED|Printers' Ink figure estimate|both carried"
+}

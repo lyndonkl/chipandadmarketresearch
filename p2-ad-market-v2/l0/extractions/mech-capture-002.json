@@ -1,0 +1,145 @@
+{
+ "id": "mech-capture-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2007,
+ "unit": "% of Google owned-site revenue growth 2002-2007 attributable to query volume rather than yield (log decomposition)",
+ "elapsed_s": 75.8,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 12,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "owned-site revenue growth 2002-2007",
+   "type": "revenue-growth series",
+   "clause": "within owned-site growth ..."
+  },
+  {
+   "name": "owned-site growth factor 2002-2007",
+   "type": "multiplicative growth measurement",
+   "clause": "within owned-site growth ... (factor)"
+  },
+  {
+   "name": "log decomposition",
+   "type": "analytical method",
+   "clause": "a log decomposition attributes ..."
+  },
+  {
+   "name": "share of growth attributable to query volume",
+   "type": "share attribution measurement",
+   "clause": "attributes ... to query volume"
+  },
+  {
+   "name": "share of growth attributable to revenue per query",
+   "type": "share attribution measurement",
+   "clause": "attributes ... to revenue per query"
+  },
+  {
+   "name": "first path query count increase",
+   "type": "query-count change measurement",
+   "clause": "65.7bn to 483bn queries ..."
+  },
+  {
+   "name": "first path yield increase",
+   "type": "yield change measurement",
+   "clause": "yield rising from $0.0047 to $0.022 ..."
+  },
+  {
+   "name": "first path volume attribution share",
+   "type": "share attribution measurement",
+   "clause": "gives ... volume"
+  },
+  {
+   "name": "second path query count increase",
+   "type": "query-count change measurement",
+   "clause": "65.7bn to 415bn queries ..."
+  },
+  {
+   "name": "second path yield increase",
+   "type": "yield change measurement",
+   "clause": "yield rising to $0.0256 ..."
+  },
+  {
+   "name": "second path volume attribution share",
+   "type": "share attribution measurement",
+   "clause": "gives ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "owned-site revenue growth 2002-2007",
+   "type": "HAS_MEASUREMENT",
+   "to": "owned-site growth factor 2002-2007",
+   "clause": "within owned-site growth ..."
+  },
+  {
+   "from": "log decomposition",
+   "type": "ATTRIBUTES_PERCENT_TO",
+   "to": "share of growth attributable to query volume",
+   "clause": "attributes ... to query volume"
+  },
+  {
+   "from": "log decomposition",
+   "type": "ATTRIBUTES_PERCENT_TO",
+   "to": "share of growth attributable to revenue per query",
+   "clause": "attributes ... to revenue per query"
+  },
+  {
+   "from": "share of growth attributable to query volume",
+   "type": "MEASURES",
+   "to": "owned-site revenue growth 2002-2007",
+   "clause": "measures ..."
+  },
+  {
+   "from": "share of growth attributable to revenue per query",
+   "type": "MEASURES",
+   "to": "owned-site revenue growth 2002-2007",
+   "clause": "measures ..."
+  },
+  {
+   "from": "first path query count increase",
+   "type": "CONTRIBUTES_TO",
+   "to": "first path volume attribution share",
+   "clause": "gives ..."
+  },
+  {
+   "from": "first path yield increase",
+   "type": "CONTRIBUTES_TO",
+   "to": "first path volume attribution share",
+   "clause": "gives ..."
+  },
+  {
+   "from": "second path query count increase",
+   "type": "CONTRIBUTES_TO",
+   "to": "second path volume attribution share",
+   "clause": "gives ..."
+  },
+  {
+   "from": "second path yield increase",
+   "type": "CONTRIBUTES_TO",
+   "to": "second path volume attribution share",
+   "clause": "gives ..."
+  },
+  {
+   "from": "first path query count increase",
+   "type": "DIFFERENT_FROM",
+   "to": "second path query count increase",
+   "clause": "differ only in the query denominator"
+  },
+  {
+   "from": "first path volume attribution share",
+   "type": "DERIVED_FROM",
+   "to": "log decomposition",
+   "clause": "derived from log decomposition"
+  },
+  {
+   "from": "second path volume attribution share",
+   "type": "DERIVED_FROM",
+   "to": "log decomposition",
+   "clause": "derived from log decomposition"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|owned-site revenue growth 2002-2007|revenue-growth series|within owned-site growth ...\nNODE|owned-site growth factor 2002-2007|multiplicative growth measurement|within owned-site growth ... (factor)\nNODE|log decomposition|analytical method|a log decomposition attributes ... \nNODE|share of growth attributable to query volume|share attribution measurement|attributes ... to query volume\nNODE|share of growth attributable to revenue per query|share attribution measurement|attributes ... to revenue per query\nNODE|first path query count increase|query-count change measurement|65.7bn to 483bn queries ...\nNODE|first path yield increase|yield change measurement|yield rising from $0.0047 to $0.022 ...\nNODE|first path volume attribution share|share attribution measurement|gives ... volume\nNODE|second path query count increase|query-count change measurement|65.7bn to 415bn queries ...\nNODE|second path yield increase|yield change measurement|yield rising to $0.0256 ...\nNODE|second path volume attribution share|share attribution measurement|gives ... \n\nEDGE|owned-site revenue growth 2002-2007|HAS_MEASUREMENT|owned-site growth factor 2002-2007|within owned-site growth ...\nEDGE|log decomposition|ATTRIBUTES_PERCENT_TO|share of growth attributable to query volume|attributes ... to query volume\nEDGE|log decomposition|ATTRIBUTES_PERCENT_TO|share of growth attributable to revenue per query|attributes ... to revenue per query\nEDGE|share of growth attributable to query volume|MEASURES|owned-site revenue growth 2002-2007|measures ...\nEDGE|share of growth attributable to revenue per query|MEASURES|owned-site revenue growth 2002-2007|measures ...\nEDGE|first path query count increase|CONTRIBUTES_TO|first path volume attribution share|gives ... \nEDGE|first path yield increase|CONTRIBUTES_TO|first path volume attribution share|gives ... \nEDGE|second path query count increase|CONTRIBUTES_TO|second path volume attribution share|gives ... \nEDGE|second path yield increase|CONTRIBUTES_TO|second path volume attribution share|gives ... \nEDGE|first path query count increase|DIFFERENT_FROM|second path query count increase|differ only in the query denominator\nEDGE|first path volume attribution share|DERIVED_FROM|log decomposition|derived from log decomposition\nEDGE|second path volume attribution share|DERIVED_FROM|log decomposition|derived from log decomposition"
+}

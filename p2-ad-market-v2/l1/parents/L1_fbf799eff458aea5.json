@@ -1,0 +1,45 @@
+{
+ "group_id": "L1|fbf799eff458aea5",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "National advertising spend amount",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "one measure across wording and years; current/historical abstracted",
+   "child_uids": [
+    "n|e4-scale-007|current national advertising spend amount|spend measurement",
+    "n|e4-scale-007|historical national advertising spend amount|spend measurement",
+    "n|e4-scale-009|national advertising amount|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "National-brand advertisers media spend",
+   "type": "media spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique media spend measure for national\u2011brand advertisers",
+   "child_uids": [
+    "n|e5-buyers-010|national-brand advertisers media spend|media spend measurement"
+   ]
+  },
+  {
+   "name": "National brand advertising spend amount",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: spend amount measure for national\u2011brand advertising",
+   "child_uids": [
+    "n|e7-scale-006|national brand advertising spend amount|spend measurement"
+   ]
+  },
+  {
+   "name": "National advertising spend share of total",
+   "type": "share of total measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of total measure for national advertising spend",
+   "child_uids": [
+    "n|tu:era:4:field:SCALE|national advertising spend share of total|share of total measurement"
+   ]
+  }
+ ]
+}

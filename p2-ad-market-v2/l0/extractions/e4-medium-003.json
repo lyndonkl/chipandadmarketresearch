@@ -1,0 +1,111 @@
+{
+ "id": "e4-medium-003",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 79.2,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "Direct mail grew..."
+  },
+  {
+   "name": "direct mail advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "grew from ... to ..."
+  },
+  {
+   "name": "direct mail share of US ad spend",
+   "type": "media-share measurement",
+   "clause": "share percentages ..."
+  },
+  {
+   "name": "US advertising spend",
+   "type": "aggregate market measure",
+   "clause": "measured US ad spend"
+  },
+  {
+   "name": "newspapers",
+   "type": "advertising medium",
+   "clause": "behind newspapers"
+  },
+  {
+   "name": "broadcast television",
+   "type": "advertising medium",
+   "clause": "behind broadcast television"
+  },
+  {
+   "name": "advertising media",
+   "type": "media category",
+   "clause": "third-largest medium behind..."
+  },
+  {
+   "name": "segmentation era",
+   "type": "era",
+   "clause": "for the whole era"
+  },
+  {
+   "name": "1991 recession",
+   "type": "economic recession",
+   "clause": "including the 1991 recession"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct mail",
+   "type": "HAS_SPEND",
+   "to": "direct mail advertising spend",
+   "clause": "grew from ... to ..."
+  },
+  {
+   "from": "direct mail",
+   "type": "HAS_SHARE",
+   "to": "direct mail share of US ad spend",
+   "clause": "share percentages ..."
+  },
+  {
+   "from": "direct mail share of US ad spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "share of measured US ad spend"
+  },
+  {
+   "from": "direct mail",
+   "type": "THIRD_LARGEST_IN",
+   "to": "advertising media",
+   "clause": "third-largest medium for the whole era"
+  },
+  {
+   "from": "newspapers",
+   "type": "LARGER_THAN",
+   "to": "direct mail",
+   "clause": "behind newspapers"
+  },
+  {
+   "from": "broadcast television",
+   "type": "LARGER_THAN",
+   "to": "direct mail",
+   "clause": "behind broadcast television"
+  },
+  {
+   "from": "direct mail",
+   "type": "RISING_EVERY_YEAR",
+   "to": "segmentation era",
+   "clause": "rising every single year"
+  },
+  {
+   "from": "direct mail",
+   "type": "RISING_DURING",
+   "to": "1991 recession",
+   "clause": "including the 1991 recession"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct mail|advertising medium|Direct mail grew...\nNODE|direct mail advertising spend|advertising spend measurement|grew from ... to ...\nNODE|direct mail share of US ad spend|media-share measurement|share percentages ...\nNODE|US advertising spend|aggregate market measure|measured US ad spend\nNODE|newspapers|advertising medium|behind newspapers\nNODE|broadcast television|advertising medium|behind broadcast television\nNODE|advertising media|media category|third-largest medium behind...\nNODE|segmentation era|era|for the whole era\nNODE|1991 recession|economic recession|including the 1991 recession\nEDGE|direct mail|HAS_SPEND|direct mail advertising spend|grew from ... to ...\nEDGE|direct mail|HAS_SHARE|direct mail share of US ad spend|share percentages ...\nEDGE|direct mail share of US ad spend|SHARE_OF|US advertising spend|share of measured US ad spend\nEDGE|direct mail|THIRD_LARGEST_IN|advertising media|third-largest medium for the whole era\nEDGE|newspapers|LARGER_THAN|direct mail|behind newspapers\nEDGE|broadcast television|LARGER_THAN|direct mail|behind broadcast television\nEDGE|direct mail|RISING_EVERY_YEAR|segmentation era|rising every single year\nEDGE|direct mail|RISING_DURING|1991 recession|including the 1991 recession"
+}

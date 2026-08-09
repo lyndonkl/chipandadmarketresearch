@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|594a6c15f93f1659",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Leaders invited count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "same measure across estimate and exact count; year/source abstracted",
+   "child_uids": [
+    "n|e5-measurement-004|attendance invitation estimate|attendance count measurement",
+    "n|tu:era:5:event:3|invited leaders count|count measurement"
+   ]
+  },
+  {
+   "name": "Attendance participation estimate",
+   "type": "attendance count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: attendance participants estimate measurement",
+   "child_uids": [
+    "n|e5-measurement-004|attendance participation estimate|attendance count measurement"
+   ]
+  },
+  {
+   "name": "Study participants count",
+   "type": "participant count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: study participants count measurement",
+   "child_uids": [
+    "n|e7-pricing-005|study participants count|participant count measurement"
+   ]
+  },
+  {
+   "name": "Self-serve signup participants count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: self\u2011serve signup participants count measurement",
+   "child_uids": [
+    "n|tu:era:5:event:7|self-serve signup participants count|count measurement"
+   ]
+  }
+ ]
+}

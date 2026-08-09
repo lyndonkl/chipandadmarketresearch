@@ -1,0 +1,100 @@
+{
+ "id": "e6-measurement-001",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2006,
+ "unit": "USD millions, Lane's Gifts v. Google click-fraud settlement (March 2006)",
+ "elapsed_s": 65.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Lane's Gifts v. Google click-fraud class action",
+   "type": "legal case",
+   "clause": "the Lane's Gifts v. Google click-fraud class action"
+  },
+  {
+   "name": "Lane's Gifts settlement",
+   "type": "legal settlement",
+   "clause": "the settlement"
+  },
+  {
+   "name": "Lane's Gifts settlement amount",
+   "type": "monetary settlement measurement",
+   "clause": "for up to ..."
+  },
+  {
+   "name": "advertising credits",
+   "type": "ad credit",
+   "clause": "mostly in advertising credits"
+  },
+  {
+   "name": "Tuzhilin report",
+   "type": "examination report",
+   "clause": "the Tuzhilin report"
+  },
+  {
+   "name": "Google's invalid-click detection",
+   "type": "fraud detection practice",
+   "clause": "Google's invalid-click detection"
+  },
+  {
+   "name": "independent industry auditor",
+   "type": "audit entity",
+   "clause": "an independent industry auditor"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "SETTLED",
+   "to": "Lane's Gifts v. Google click-fraud class action",
+   "clause": "settled the ... class action"
+  },
+  {
+   "from": "Lane's Gifts settlement",
+   "type": "HAS_AMOUNT",
+   "to": "Lane's Gifts settlement amount",
+   "clause": "for up to ..."
+  },
+  {
+   "from": "Lane's Gifts settlement",
+   "type": "PAID_IN",
+   "to": "advertising credits",
+   "clause": "mostly in advertising credits"
+  },
+  {
+   "from": "Lane's Gifts settlement",
+   "type": "PRODUCED",
+   "to": "Tuzhilin report",
+   "clause": "produced the Tuzhilin report"
+  },
+  {
+   "from": "Tuzhilin report",
+   "type": "EXAMINES",
+   "to": "Google's invalid-click detection",
+   "clause": "examination of Google's invalid-click detection"
+  },
+  {
+   "from": "Tuzhilin report",
+   "type": "COMMISSIONED_THROUGH",
+   "to": "Lane's Gifts settlement",
+   "clause": "commissioned through the settlement"
+  },
+  {
+   "from": "Tuzhilin report",
+   "type": "EXCLUDES",
+   "to": "independent industry auditor",
+   "clause": "rather than by an independent industry auditor"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|Lane's Gifts v. Google click-fraud class action|legal case|the Lane's Gifts v. Google click-fraud class action\nNODE|Lane's Gifts settlement|legal settlement|the settlement\nNODE|Lane's Gifts settlement amount|monetary settlement measurement|for up to ...\nNODE|advertising credits|ad credit|mostly in advertising credits\nNODE|Tuzhilin report|examination report|the Tuzhilin report\nNODE|Google's invalid-click detection|fraud detection practice|Google's invalid-click detection\nNODE|independent industry auditor|audit entity|an independent industry auditor\nEDGE|Google|SETTLED|Lane's Gifts v. Google click-fraud class action|settled the ... class action\nEDGE|Lane's Gifts settlement|HAS_AMOUNT|Lane's Gifts settlement amount|for up to ...\nEDGE|Lane's Gifts settlement|PAID_IN|advertising credits|mostly in advertising credits\nEDGE|Lane's Gifts settlement|PRODUCED|Tuzhilin report|produced the Tuzhilin report\nEDGE|Tuzhilin report|EXAMINES|Google's invalid-click detection|examination of Google's invalid-click detection\nEDGE|Tuzhilin report|COMMISSIONED_THROUGH|Lane's Gifts settlement|commissioned through the settlement\nEDGE|Tuzhilin report|EXCLUDES|independent industry auditor|rather than by an independent industry auditor"
+}

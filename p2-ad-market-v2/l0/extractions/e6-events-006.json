@@ -1,0 +1,89 @@
+{
+ "id": "e6-events-006",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2005,
+ "unit": "year (2005-08), quality-based bidding introduced",
+ "elapsed_s": 37.5,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AdWords keywords",
+   "type": "search advertising keyword pool",
+   "clause": "AdWords keywords carried dynamic minimum bids"
+  },
+  {
+   "name": "dynamic minimum bids",
+   "type": "minimum bid mechanism",
+   "clause": "dynamic minimum bids set by Quality Score"
+  },
+  {
+   "name": "Quality Score",
+   "type": "ad relevance metric",
+   "clause": "set by Quality Score (click-through rate, ad relevance, historical performance, landing-page quality)"
+  },
+  {
+   "name": "click-through rate",
+   "type": "performance metric",
+   "clause": "component of Quality Score"
+  },
+  {
+   "name": "ad relevance",
+   "type": "relevance factor",
+   "clause": "component of Quality Score"
+  },
+  {
+   "name": "historical performance",
+   "type": "historical performance metric",
+   "clause": "component of Quality Score"
+  },
+  {
+   "name": "landing-page quality",
+   "type": "landing page quality factor",
+   "clause": "component of Quality Score"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AdWords keywords",
+   "type": "CARRIED",
+   "to": "dynamic minimum bids",
+   "clause": "AdWords keywords carried dynamic minimum bids"
+  },
+  {
+   "from": "dynamic minimum bids",
+   "type": "SET_BY",
+   "to": "Quality Score",
+   "clause": "dynamic minimum bids set by Quality Score"
+  },
+  {
+   "from": "Quality Score",
+   "type": "HAS_COMPONENT",
+   "to": "click-through rate",
+   "clause": "Quality Score includes click-through rate"
+  },
+  {
+   "from": "Quality Score",
+   "type": "HAS_COMPONENT",
+   "to": "ad relevance",
+   "clause": "Quality Score includes ad relevance"
+  },
+  {
+   "from": "Quality Score",
+   "type": "HAS_COMPONENT",
+   "to": "historical performance",
+   "clause": "Quality Score includes historical performance"
+  },
+  {
+   "from": "Quality Score",
+   "type": "HAS_COMPONENT",
+   "to": "landing-page quality",
+   "clause": "Quality Score includes landing-page quality"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AdWords keywords|search advertising keyword pool|AdWords keywords carried dynamic minimum bids\nNODE|dynamic minimum bids|minimum bid mechanism|dynamic minimum bids set by Quality Score\nNODE|Quality Score|ad relevance metric|set by Quality Score (click-through rate, ad relevance, historical performance, landing-page quality)\nNODE|click-through rate|performance metric|component of Quality Score\nNODE|ad relevance|relevance factor|component of Quality Score\nNODE|historical performance|historical performance metric|component of Quality Score\nNODE|landing-page quality|landing page quality factor|component of Quality Score\nEDGE|AdWords keywords|CARRIED|dynamic minimum bids|AdWords keywords carried dynamic minimum bids\nEDGE|dynamic minimum bids|SET_BY|Quality Score|dynamic minimum bids set by Quality Score\nEDGE|Quality Score|HAS_COMPONENT|click-through rate|Quality Score includes click-through rate\nEDGE|Quality Score|HAS_COMPONENT|ad relevance|Quality Score includes ad relevance\nEDGE|Quality Score|HAS_COMPONENT|historical performance|Quality Score includes historical performance\nEDGE|Quality Score|HAS_COMPONENT|landing-page quality|Quality Score includes landing-page quality"
+}

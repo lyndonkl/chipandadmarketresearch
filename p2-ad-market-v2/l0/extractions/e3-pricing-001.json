@@ -1,0 +1,106 @@
+{
+ "id": "e3-pricing-001",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent of gross media billings",
+ "elapsed_s": 61.9,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "agency commission",
+   "type": "intermediary pricing practice",
+   "clause": "the agency commission was ... of gross media billings"
+  },
+  {
+   "name": "agency commission rate",
+   "type": "take-rate measurement",
+   "clause": "the agency commission was ... of gross media billings"
+  },
+  {
+   "name": "gross media billings amount",
+   "type": "revenue measurement",
+   "clause": "media billed the agency ... gross"
+  },
+  {
+   "name": "media",
+   "type": "media entity",
+   "clause": "media billed the agency ... gross"
+  },
+  {
+   "name": "advertising agency",
+   "type": "actor class",
+   "clause": "the agency paid ... and billed the client ..."
+  },
+  {
+   "name": "agency payment amount",
+   "type": "payment measurement",
+   "clause": "the agency paid ..."
+  },
+  {
+   "name": "client",
+   "type": "advertiser",
+   "clause": "billed the client ..."
+  },
+  {
+   "name": "agency client billing amount",
+   "type": "billing measurement",
+   "clause": "billed the client ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "agency commission",
+   "type": "HAS_RATE",
+   "to": "agency commission rate",
+   "clause": "the agency commission was ... of gross media billings"
+  },
+  {
+   "from": "agency commission rate",
+   "type": "SHARE_OF",
+   "to": "gross media billings amount",
+   "clause": "... of gross media billings"
+  },
+  {
+   "from": "media",
+   "type": "BILLED",
+   "to": "advertising agency",
+   "clause": "media billed the agency ... gross"
+  },
+  {
+   "from": "gross media billings amount",
+   "type": "MEASURED_FOR",
+   "to": "media",
+   "clause": "media billed the agency ... gross"
+  },
+  {
+   "from": "advertising agency",
+   "type": "PAID",
+   "to": "media",
+   "clause": "the agency paid ..."
+  },
+  {
+   "from": "agency payment amount",
+   "type": "MEASURED_FOR",
+   "to": "advertising agency",
+   "clause": "the agency paid ..."
+  },
+  {
+   "from": "advertising agency",
+   "type": "BILLED",
+   "to": "client",
+   "clause": "billed the client ..."
+  },
+  {
+   "from": "agency client billing amount",
+   "type": "MEASURED_FOR",
+   "to": "client",
+   "clause": "billed the client ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|agency commission|intermediary pricing practice|the agency commission was ... of gross media billings\nNODE|agency commission rate|take-rate measurement|the agency commission was ... of gross media billings\nNODE|gross media billings amount|revenue measurement|media billed the agency ... gross\nNODE|media|media entity|media billed the agency ... gross\nNODE|advertising agency|actor class|the agency paid ... and billed the client ...\nNODE|agency payment amount|payment measurement|the agency paid ...\nNODE|client|advertiser|billed the client ...\nNODE|agency client billing amount|billing measurement|billed the client ...\n\nEDGE|agency commission|HAS_RATE|agency commission rate|the agency commission was ... of gross media billings\nEDGE|agency commission rate|SHARE_OF|gross media billings amount|... of gross media billings\nEDGE|media|BILLED|advertising agency|media billed the agency ... gross\nEDGE|gross media billings amount|MEASURED_FOR|media|media billed the agency ... gross\nEDGE|advertising agency|PAID|media|the agency paid ...\nEDGE|agency payment amount|MEASURED_FOR|advertising agency|the agency paid ...\nEDGE|advertising agency|BILLED|client|billed the client ...\nEDGE|agency client billing amount|MEASURED_FOR|client|billed the client ..."
+}

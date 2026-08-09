@@ -1,0 +1,72 @@
+{
+ "id": "mech-capture-003",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2007,
+ "unit": "% of Google owned-site advertising revenue paid out as distribution TAC, 2007",
+ "elapsed_s": 61.7,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "the company paying for queries"
+  },
+  {
+   "name": "distribution TAC share",
+   "type": "revenue-share measurement",
+   "clause": "percentage of owned-site advertising revenue paid out as distribution TAC"
+  },
+  {
+   "name": "owned-site advertising revenue",
+   "type": "advertising revenue stream",
+   "clause": "owned-site advertising revenue"
+  },
+  {
+   "name": "era-6 owned-query volume",
+   "type": "query volume",
+   "clause": "owned-query volume in era-6"
+  },
+  {
+   "name": "bought owned-query volume",
+   "type": "query volume portion",
+   "clause": "portion of owned-query volume that was bought"
+  },
+  {
+   "name": "won owned-query volume",
+   "type": "query volume portion",
+   "clause": "portion of owned-query volume that was won"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "PAID",
+   "to": "distribution TAC share",
+   "clause": "money Google paid ..."
+  },
+  {
+   "from": "distribution TAC share",
+   "type": "SHARE_OF",
+   "to": "owned-site advertising revenue",
+   "clause": "... of owned-site advertising revenue"
+  },
+  {
+   "from": "distribution TAC share",
+   "type": "MEASURES",
+   "to": "bought owned-query volume",
+   "clause": "measure of how much ... was bought"
+  },
+  {
+   "from": "bought owned-query volume",
+   "type": "EXCLUDES",
+   "to": "won owned-query volume",
+   "clause": "bought rather than won"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|the company paying for queries\nNODE|distribution TAC share|revenue-share measurement|percentage of owned-site advertising revenue paid out as distribution TAC\nNODE|owned-site advertising revenue|advertising revenue stream|owned-site advertising revenue\nNODE|era-6 owned-query volume|query volume|owned-query volume in era-6\nNODE|bought owned-query volume|query volume portion|portion of owned-query volume that was bought\nNODE|won owned-query volume|query volume portion|portion of owned-query volume that was won\nEDGE|Google|PAID|distribution TAC share|money Google paid ...\nEDGE|distribution TAC share|SHARE_OF|owned-site advertising revenue|... of owned-site advertising revenue\nEDGE|distribution TAC share|MEASURES|bought owned-query volume|measure of how much ... was bought\nEDGE|bought owned-query volume|EXCLUDES|won owned-query volume|bought rather than won"
+}

@@ -1,0 +1,89 @@
+{
+ "id": "e3-buyers-001",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1956,
+ "unit": "percent of US national advertising expenditure",
+ "elapsed_s": 44.5,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "Direct mail accounted for ..."
+  },
+  {
+   "name": "broadcast",
+   "type": "advertising medium",
+   "clause": "larger share than broadcast"
+  },
+  {
+   "name": "US national advertising expenditure",
+   "type": "advertising spend aggregate",
+   "clause": "all US national advertising expenditure"
+  },
+  {
+   "name": "direct mail share of US national advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "share of all US national advertising expenditure"
+  },
+  {
+   "name": "broadcast share of US national advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "share of all US national advertising expenditure"
+  },
+  {
+   "name": "direct-response buyers",
+   "type": "buyer segment",
+   "clause": "direct-response buyers cannot be treated as a later-era phenomenon"
+  },
+  {
+   "name": "later-era phenomenon",
+   "type": "market concept",
+   "clause": "cannot be treated as a later-era phenomenon"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct mail share of US national advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "US national advertising expenditure",
+   "clause": "share of all US national advertising expenditure"
+  },
+  {
+   "from": "broadcast share of US national advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "US national advertising expenditure",
+   "clause": "share of all US national advertising expenditure"
+  },
+  {
+   "from": "direct mail share of US national advertising expenditure",
+   "type": "LARGER_THAN",
+   "to": "broadcast share of US national advertising expenditure",
+   "clause": "a larger share than broadcast"
+  },
+  {
+   "from": "direct mail share of US national advertising expenditure",
+   "type": "MEASURES",
+   "to": "direct mail",
+   "clause": "Direct mail accounted for ..."
+  },
+  {
+   "from": "broadcast share of US national advertising expenditure",
+   "type": "MEASURES",
+   "to": "broadcast",
+   "clause": "larger share than broadcast"
+  },
+  {
+   "from": "direct-response buyers",
+   "type": "NOT_TREATED_AS",
+   "to": "later-era phenomenon",
+   "clause": "cannot be treated as a later-era phenomenon"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct mail|advertising medium|Direct mail accounted for ...\nNODE|broadcast|advertising medium|larger share than broadcast\nNODE|US national advertising expenditure|advertising spend aggregate|all US national advertising expenditure\nNODE|direct mail share of US national advertising expenditure|media-share measurement|share of all US national advertising expenditure\nNODE|broadcast share of US national advertising expenditure|media-share measurement|share of all US national advertising expenditure\nNODE|direct-response buyers|buyer segment|direct-response buyers cannot be treated as a later-era phenomenon\nNODE|later-era phenomenon|market concept|cannot be treated as a later-era phenomenon\nEDGE|direct mail share of US national advertising expenditure|SHARE_OF|US national advertising expenditure|share of all US national advertising expenditure\nEDGE|broadcast share of US national advertising expenditure|SHARE_OF|US national advertising expenditure|share of all US national advertising expenditure\nEDGE|direct mail share of US national advertising expenditure|LARGER_THAN|broadcast share of US national advertising expenditure|a larger share than broadcast\nEDGE|direct mail share of US national advertising expenditure|MEASURES|direct mail|Direct mail accounted for ...\nEDGE|broadcast share of US national advertising expenditure|MEASURES|broadcast|larger share than broadcast\nEDGE|direct-response buyers|NOT_TREATED_AS|later-era phenomenon|cannot be treated as a later-era phenomenon"
+}

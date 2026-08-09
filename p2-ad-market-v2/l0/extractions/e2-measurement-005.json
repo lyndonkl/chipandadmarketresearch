@@ -1,0 +1,121 @@
+{
+ "id": "e2-measurement-005",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1942,
+ "unit": "metered homes in the Nielsen Radio Index at commercial launch, December 1942 (sample drawn from an east-central region holding ~25 percent of US households)",
+ "elapsed_s": 90.4,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Nielsen Radio Index",
+   "type": "advertising index",
+   "clause": "the Nielsen Radio Index went commercial"
+  },
+  {
+   "name": "Audimeter sample",
+   "type": "audience measurement sample",
+   "clause": "800-home Audimeter sample confined to east central United States"
+  },
+  {
+   "name": "east central United States",
+   "type": "geographic region",
+   "clause": "east central United States region"
+  },
+  {
+   "name": "US households",
+   "type": "household population",
+   "clause": "US households"
+  },
+  {
+   "name": "region share of US households",
+   "type": "share measurement",
+   "clause": "region's share of US households"
+  },
+  {
+   "name": "sample coverage of US households",
+   "type": "coverage measurement",
+   "clause": "sample's coverage of US households"
+  },
+  {
+   "name": "Nielsen Radio Index metered home count",
+   "type": "metered-home count measurement",
+   "clause": "...-home Audimeter sample size measurement"
+  },
+  {
+   "name": "Nielsen Radio Index subscriber count",
+   "type": "subscriber count measurement",
+   "clause": "acquired ... subscribers by ..."
+  },
+  {
+   "name": "Beville",
+   "type": "person",
+   "clause": "Beville notes acceptance was limited"
+  },
+  {
+   "name": "acceptance",
+   "type": "market acceptance",
+   "clause": "acceptance was limited"
+  },
+  {
+   "name": "limited geography",
+   "type": "geographic limitation",
+   "clause": "service predicated on such limited geography"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Audimeter sample",
+   "type": "CONFined_TO",
+   "to": "east central United States",
+   "clause": "confined to east central United States"
+  },
+  {
+   "from": "region share of US households",
+   "type": "SHARE_OF",
+   "to": "US households",
+   "clause": "region's share of US households"
+  },
+  {
+   "from": "Audimeter sample",
+   "type": "HAS_SIZE_MEASUREMENT",
+   "to": "Nielsen Radio Index metered home count",
+   "clause": "...-home Audimeter sample size measurement"
+  },
+  {
+   "from": "Nielsen Radio Index",
+   "type": "HAS_SUBSCRIBER_COUNT_MEASUREMENT",
+   "to": "Nielsen Radio Index subscriber count",
+   "clause": "acquired ... subscribers by ..."
+  },
+  {
+   "from": "region share of US households",
+   "type": "NOT_EQUIVALENT_TO",
+   "to": "sample coverage of US households",
+   "clause": "not the sample's coverage of them"
+  },
+  {
+   "from": "Beville",
+   "type": "NOTED",
+   "to": "acceptance",
+   "clause": "notes acceptance limited"
+  },
+  {
+   "from": "acceptance",
+   "type": "LIMITED_BY",
+   "to": "limited geography",
+   "clause": "acceptance was limited because of limited geography"
+  },
+  {
+   "from": "Nielsen Radio Index",
+   "type": "PREDICATED_ON",
+   "to": "limited geography",
+   "clause": "service predicated on such limited geography"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Nielsen Radio Index|advertising index|the Nielsen Radio Index went commercial\nNODE|Audimeter sample|audience measurement sample|800-home Audimeter sample confined to east central United States\nNODE|east central United States|geographic region|east central United States region\nNODE|US households|household population|US households\nNODE|region share of US households|share measurement|region's share of US households\nNODE|sample coverage of US households|coverage measurement|sample's coverage of US households\nNODE|Nielsen Radio Index metered home count|metered-home count measurement|...-home Audimeter sample size measurement\nNODE|Nielsen Radio Index subscriber count|subscriber count measurement|acquired ... subscribers by ...\nNODE|Beville|person|Beville notes acceptance was limited\nNODE|acceptance|market acceptance|acceptance was limited\nNODE|limited geography|geographic limitation|service predicated on such limited geography\nEDGE|Audimeter sample|CONFined_TO|east central United States|confined to east central United States\nEDGE|region share of US households|SHARE_OF|US households|region's share of US households\nEDGE|Audimeter sample|HAS_SIZE_MEASUREMENT|Nielsen Radio Index metered home count|...-home Audimeter sample size measurement\nEDGE|Nielsen Radio Index|HAS_SUBSCRIBER_COUNT_MEASUREMENT|Nielsen Radio Index subscriber count|acquired ... subscribers by ...\nEDGE|region share of US households|NOT_EQUIVALENT_TO|sample coverage of US households|not the sample's coverage of them\nEDGE|Beville|NOTED|acceptance|notes acceptance limited\nEDGE|acceptance|LIMITED_BY|limited geography|acceptance was limited because of limited geography\nEDGE|Nielsen Radio Index|PREDICATED_ON|limited geography|service predicated on such limited geography"
+}

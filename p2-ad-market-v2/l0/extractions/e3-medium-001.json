@@ -1,0 +1,50 @@
+{
+ "id": "e3-medium-001",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1950,
+ "unit": "million USD",
+ "elapsed_s": 39.1,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US television advertising expenditure",
+   "type": "advertising expenditure",
+   "clause": "US television advertising expenditure was ... million USD"
+  },
+  {
+   "name": "all US advertising spend",
+   "type": "advertising aggregate",
+   "clause": "all US advertising spend"
+  },
+  {
+   "name": "TV advertising expenditure amount",
+   "type": "expenditure measurement",
+   "clause": "... was ... million USD in 1950"
+  },
+  {
+   "name": "television advertising share of US advertising spend",
+   "type": "share measurement",
+   "clause": "... 3.0% of all US advertising spend"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US television advertising expenditure",
+   "type": "HAS_MEASUREMENT",
+   "to": "TV advertising expenditure amount",
+   "clause": "US television advertising expenditure was ..."
+  },
+  {
+   "from": "television advertising share of US advertising spend",
+   "type": "SHARE_OF",
+   "to": "all US advertising spend",
+   "clause": "... of all US advertising spend"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US television advertising expenditure|advertising expenditure|US television advertising expenditure was ... million USD\nNODE|all US advertising spend|advertising aggregate|all US advertising spend\nNODE|TV advertising expenditure amount|expenditure measurement|... was ... million USD in 1950\nNODE|television advertising share of US advertising spend|share measurement|... 3.0% of all US advertising spend\nEDGE|US television advertising expenditure|HAS_MEASUREMENT|TV advertising expenditure amount|US television advertising expenditure was ...\nEDGE|television advertising share of US advertising spend|SHARE_OF|all US advertising spend|... of all US advertising spend"
+}

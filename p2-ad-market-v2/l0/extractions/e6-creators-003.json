@@ -1,0 +1,121 @@
+{
+ "id": "e6-creators-003",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "characters of advertiser-written ad copy per AdWords text ad",
+ "elapsed_s": 71.2,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "standard AdWords text ad",
+   "type": "advertising format",
+   "clause": "standard AdWords text ad"
+  },
+  {
+   "name": "character limit of advertiser-written copy",
+   "type": "character count measurement",
+   "clause": "capped at ... characters"
+  },
+  {
+   "name": "advertiser-written copy",
+   "type": "ad copy",
+   "clause": "advertiser-written copy"
+  },
+  {
+   "name": "headline character limit",
+   "type": "character count measurement",
+   "clause": "...-character headline"
+  },
+  {
+   "name": "headline",
+   "type": "ad component",
+   "clause": "headline"
+  },
+  {
+   "name": "description line character limit",
+   "type": "character count measurement",
+   "clause": "...-character description lines"
+  },
+  {
+   "name": "description line",
+   "type": "ad component",
+   "clause": "description line"
+  },
+  {
+   "name": "advertiser",
+   "type": "actor class",
+   "clause": "the advertiser"
+  },
+  {
+   "name": "self-serve form",
+   "type": "creation tool",
+   "clause": "self-serve form"
+  },
+  {
+   "name": "automated approval",
+   "type": "approval mechanism",
+   "clause": "automated approval"
+  },
+  {
+   "name": "incremental creative production cost",
+   "type": "cost measurement",
+   "clause": "incremental creative production cost was effectively zero"
+  }
+ ],
+ "edges": [
+  {
+   "from": "standard AdWords text ad",
+   "type": "HAS_LIMIT",
+   "to": "character limit of advertiser-written copy",
+   "clause": "capped at ... characters"
+  },
+  {
+   "from": "character limit of advertiser-written copy",
+   "type": "MEASURES",
+   "to": "advertiser-written copy",
+   "clause": "of advertiser-written copy"
+  },
+  {
+   "from": "headline character limit",
+   "type": "MEASURES",
+   "to": "headline",
+   "clause": "...-character headline"
+  },
+  {
+   "from": "description line character limit",
+   "type": "MEASURES",
+   "to": "description line",
+   "clause": "...-character description lines"
+  },
+  {
+   "from": "advertiser",
+   "type": "CREATED",
+   "to": "standard AdWords text ad",
+   "clause": "created by the advertiser"
+  },
+  {
+   "from": "standard AdWords text ad",
+   "type": "CREATED_IN",
+   "to": "self-serve form",
+   "clause": "in a self-serve form"
+  },
+  {
+   "from": "self-serve form",
+   "type": "HAS_FEATURE",
+   "to": "automated approval",
+   "clause": "with automated approval"
+  },
+  {
+   "from": "incremental creative production cost",
+   "type": "COST_FOR",
+   "to": "standard AdWords text ad",
+   "clause": "was effectively zero"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|standard AdWords text ad|advertising format|standard AdWords text ad\nNODE|character limit of advertiser-written copy|character count measurement|capped at ... characters\nNODE|advertiser-written copy|ad copy|advertiser-written copy\nNODE|headline character limit|character count measurement|...-character headline\nNODE|headline|ad component|headline\nNODE|description line character limit|character count measurement|...-character description lines\nNODE|description line|ad component|description line\nNODE|advertiser|actor class|the advertiser\nNODE|self-serve form|creation tool|self-serve form\nNODE|automated approval|approval mechanism|automated approval\nNODE|incremental creative production cost|cost measurement|incremental creative production cost was effectively zero\nEDGE|standard AdWords text ad|HAS_LIMIT|character limit of advertiser-written copy|capped at ... characters\nEDGE|character limit of advertiser-written copy|MEASURES|advertiser-written copy|of advertiser-written copy\nEDGE|headline character limit|MEASURES|headline|...-character headline\nEDGE|description line character limit|MEASURES|description line|...-character description lines\nEDGE|advertiser|CREATED|standard AdWords text ad|created by the advertiser\nEDGE|standard AdWords text ad|CREATED_IN|self-serve form|in a self-serve form\nEDGE|self-serve form|HAS_FEATURE|automated approval|with automated approval\nEDGE|incremental creative production cost|COST_FOR|standard AdWords text ad|was effectively zero"
+}

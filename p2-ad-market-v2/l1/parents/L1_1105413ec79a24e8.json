@@ -1,0 +1,99 @@
+{
+ "group_id": "L1|1105413ec79a24e8",
+ "source": "kmeans",
+ "n_in": 12,
+ "parents": [
+  {
+   "name": "Compiled list rental rate",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "same price measure for compiled lists; years abstracted",
+   "child_uids": [
+    "n|e4-pricing-005|compiled list rental rate|price measurement",
+    "n|tu:era:4:field:PRICING|list rental rate for compiled names|price measurement"
+   ]
+  },
+  {
+   "name": "Response list rental rate",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "same price measure for response lists; years abstracted",
+   "child_uids": [
+    "n|e4-pricing-005|response list rental rate|price measurement",
+    "n|tu:era:4:field:PRICING|list rental rate for response names|price measurement"
+   ]
+  },
+  {
+   "name": "Business list rental rate",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique business\u2011list rental price measure",
+   "child_uids": [
+    "n|e4-pricing-005|business list rental rate|price measurement"
+   ]
+  },
+  {
+   "name": "Classified flat rate per line",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific classified per\u2011line pricing",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|classified flat rate per line|price measurement"
+   ]
+  },
+  {
+   "name": "Per-line rate",
+   "type": "pricing measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic per\u2011line pricing measure",
+   "child_uids": [
+    "n|tu:era:3:field:BUYERS|per-line rate|pricing measurement"
+   ]
+  },
+  {
+   "name": "Cost per reply",
+   "type": "response cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: cost per reply metric",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|cost per reply|response cost measurement"
+   ]
+  },
+  {
+   "name": "List-price index ratio",
+   "type": "ratio measurement",
+   "grain": "Measurement",
+   "reason": "singleton: index ratio between list prices",
+   "child_uids": [
+    "n|e7-unit_econ-005|list-price index ratio|ratio measurement"
+   ]
+  },
+  {
+   "name": "Fixed percentage of list price",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: disclosed fixed take\u2011rate of list price",
+   "child_uids": [
+    "n|tu:era:1:event:3|fixed percentage of list price|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Spot business take rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: negotiated spot business take\u2011rate",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|spot business take rate|take\u2011rate measurement"
+   ]
+  },
+  {
+   "name": "Rival take rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: rival firms\u2019 take\u2011rate measure",
+   "child_uids": [
+    "n|tu:era:7:field:SELLERS|rival take rate|take-rate measurement"
+   ]
+  }
+ ]
+}

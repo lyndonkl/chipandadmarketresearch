@@ -1,0 +1,114 @@
+{
+ "group_id": "L2|da1ddec37f696d10",
+ "n_in": 28,
+ "parents": [
+  {
+   "name": "measurement provider",
+   "type": "measurement kind",
+   "grain": "Measurement",
+   "reason": "singleton: measurement provider role distinct from count metrics",
+   "child_uids": [
+    "L1|687a36a38ec08eba"
+   ]
+  },
+  {
+   "name": "ad delivery count",
+   "type": "count measurement kind",
+   "grain": "Measurement",
+   "reason": "ad delivery counts share same market role of measuring delivered ads",
+   "child_uids": [
+    "L1|c1beeba8028a4431",
+    "L1|c66ad27e7464de3f",
+    "L1|c813b9ef62641a03"
+   ]
+  },
+  {
+   "name": "advertiser count",
+   "type": "advertiser-count measurement kind",
+   "grain": "Measurement",
+   "reason": "all advertiser-count measurements quantify number of advertisers, regardless of source",
+   "child_uids": [
+    "L1|0220fa9467496050",
+    "L1|1b490a2dbec63e10",
+    "L1|338127899682a608",
+    "L1|3409c618c035ab43",
+    "L1|347d7a8c59b5fd26",
+    "L1|405416a2b4dc300b",
+    "L1|40d430d90c51cd28",
+    "L1|550ab9482a975255",
+    "L1|81af00c5705ef6ee",
+    "L1|b1171eff0f1be388",
+    "L1|c8153d4607b593f3",
+    "L1|cd7ed57fe985e6f3",
+    "L1|ee7036f3d68669db"
+   ]
+  },
+  {
+   "name": "ad count",
+   "type": "generic ad-count measurement kind",
+   "grain": "Measurement",
+   "reason": "generic ad count measures total ads produced or existing, distinct from delivery",
+   "child_uids": [
+    "L1|4a31f7d454d31d9a"
+   ]
+  },
+  {
+   "name": "advertiser reach count",
+   "type": "reach measurement kind",
+   "grain": "Measurement",
+   "reason": "measures how many advertisers are reached, a distinct audience metric",
+   "child_uids": [
+    "L1|8c73f73d97ade47b"
+   ]
+  },
+  {
+   "name": "range measurement",
+   "type": "range measurement kind",
+   "grain": "Measurement",
+   "reason": "captures interval values, a different measurement type than simple counts",
+   "child_uids": [
+    "L1|de3fc9ee42e9ebbe"
+   ]
+  },
+  {
+   "name": "advertiser base measurement",
+   "type": "base-count measurement kind",
+   "grain": "Measurement",
+   "reason": "counts advertiser base size, separate from total advertiser counts",
+   "child_uids": [
+    "L1|755a6989e4540dc1",
+    "L1|b6e7c01ace8a06b7"
+   ]
+  },
+  {
+   "name": "advertiser usage count",
+   "type": "usage measurement kind",
+   "grain": "Measurement",
+   "reason": "tracks usage frequency of advertisers, a distinct usage metric",
+   "child_uids": [
+    "L1|57fe7b2747babd8a",
+    "L1|848a0d8c2c63978c",
+    "L1|efdc13eb0ce1f5cc"
+   ]
+  },
+  {
+   "name": "ad production volume measurement",
+   "type": "production-count measurement kind",
+   "grain": "Measurement",
+   "reason": "measures number of ads produced, separate from generic ad counts",
+   "child_uids": [
+    "L1|27904240c0d33903",
+    "L1|e9ef0bd04a4654e5"
+   ]
+  },
+  {
+   "name": "advertiser subscriber count",
+   "type": "subscriber-count measurement kind",
+   "grain": "Measurement",
+   "reason": "counts advertisers who are subscribers, a specific subscriber metric",
+   "child_uids": [
+    "L1|a18b998c6be1d338"
+   ]
+  }
+ ]
+}

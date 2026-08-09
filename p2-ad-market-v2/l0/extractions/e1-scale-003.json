@@ -1,0 +1,34 @@
+{
+ "id": "e1-scale-003",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1890,
+ "unit": "USD millions (current)",
+ "elapsed_s": 22.4,
+ "error": null,
+ "n_nodes": 2,
+ "n_edges": 1,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising volume",
+   "type": "advertising spend measurement",
+   "clause": "total US advertising volume ... estimated at ..."
+  },
+  {
+   "name": "United States advertising market",
+   "type": "advertising market",
+   "clause": "total US advertising volume"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising volume",
+   "type": "MEASURES",
+   "to": "United States advertising market",
+   "clause": "total US advertising volume"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising volume|advertising spend measurement|total US advertising volume ... estimated at ...\nNODE|United States advertising market|advertising market|total US advertising volume\nEDGE|US advertising volume|MEASURES|United States advertising market|total US advertising volume"
+}

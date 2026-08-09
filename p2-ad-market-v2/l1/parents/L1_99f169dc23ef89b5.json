@@ -1,0 +1,70 @@
+{
+ "group_id": "L1|99f169dc23ef89b5",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "distribution layer",
+   "type": "supply-chain tier",
+   "grain": "Entity",
+   "reason": "singleton: distinct supply-chain tier concept",
+   "child_uids": [
+    "n|e5-sellers-005|distribution layer|supply-chain tier"
+   ]
+  },
+  {
+   "name": "syndication engine",
+   "type": "technology component",
+   "grain": "Entity",
+   "reason": "singleton: distinct technology component concept",
+   "child_uids": [
+    "n|e6-events-003|syndication engine|technology component"
+   ]
+  },
+  {
+   "name": "AOL distribution deal",
+   "type": "distribution purchase agreement",
+   "grain": "Entity",
+   "reason": "singleton: specific distribution purchase agreement (AOL deal)",
+   "child_uids": [
+    "n|e6-pricing-007|aol distribution deal|distribution purchase agreement"
+   ]
+  },
+  {
+   "name": "volume effect of distribution",
+   "type": "market effect",
+   "grain": "Entity",
+   "reason": "singleton: distinct market effect of distribution",
+   "child_uids": [
+    "n|e6-pricing-008|volume effect of distribution|market effect"
+   ]
+  },
+  {
+   "name": "revenue share paid on syndicated inventory",
+   "type": "revenue sharing practice",
+   "grain": "Entity",
+   "reason": "singleton: revenue sharing practice on syndicated inventory",
+   "child_uids": [
+    "n|e6-unit_econ-003|revenue share paid on syndicated inventory|revenue sharing practice"
+   ]
+  },
+  {
+   "name": "syndication and distribution partners",
+   "type": "partner group",
+   "grain": "Entity",
+   "reason": "singleton: partner group for syndication and distribution",
+   "child_uids": [
+    "n|tu:era:6:field:PRICING|syndication and distribution partners|partner group"
+   ]
+  },
+  {
+   "name": "MSN",
+   "type": "distribution partner",
+   "grain": "Entity",
+   "reason": "singleton: specific distribution partner (MSN)",
+   "child_uids": [
+    "n|tu:era:6:field:SELLERS|msn|distribution partner"
+   ]
+  }
+ ]
+}

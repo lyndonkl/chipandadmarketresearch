@@ -1,0 +1,95 @@
+{
+ "id": "e6-buyers-002",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "AdWords advertisers worldwide, year-end 2008",
+ "elapsed_s": 72.8,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's worldwide AdWords advertiser base"
+  },
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture's roughly ... in ..."
+  },
+  {
+   "name": "Google AdWords advertiser base",
+   "type": "advertiser base",
+   "clause": "Google's worldwide AdWords advertiser base at the end of the era"
+  },
+  {
+   "name": "Google AdWords advertiser count",
+   "type": "count measurement",
+   "clause": "was on the order of ..."
+  },
+  {
+   "name": "Overture advertiser base",
+   "type": "advertiser base",
+   "clause": "Overture's advertiser base"
+  },
+  {
+   "name": "Overture advertiser count",
+   "type": "count measurement",
+   "clause": "roughly ... in ..."
+  },
+  {
+   "name": "AdWords advertiser count interval",
+   "type": "range measurement",
+   "clause": "interval wide enough to span ... to ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "OWNS",
+   "to": "Google AdWords advertiser base",
+   "clause": "Google's worldwide AdWords advertiser base"
+  },
+  {
+   "from": "Google AdWords advertiser base",
+   "type": "HAS_COUNT",
+   "to": "Google AdWords advertiser count",
+   "clause": "was on the order of ..."
+  },
+  {
+   "from": "Overture",
+   "type": "OWNS",
+   "to": "Overture advertiser base",
+   "clause": "Overture's roughly ... in ..."
+  },
+  {
+   "from": "Overture advertiser base",
+   "type": "HAS_COUNT",
+   "to": "Overture advertiser count",
+   "clause": "roughly ... in ..."
+  },
+  {
+   "from": "Google AdWords advertiser count",
+   "type": "ABOVE",
+   "to": "Overture advertiser count",
+   "clause": "more than an order of magnitude above ..."
+  },
+  {
+   "from": "Google AdWords advertiser count",
+   "type": "HAS_INTERVAL",
+   "to": "AdWords advertiser count interval",
+   "clause": "on an interval wide enough to span ..."
+  },
+  {
+   "from": "Google",
+   "type": "DID_NOT_DISCLOSE",
+   "to": "Google AdWords advertiser count",
+   "clause": "Google never disclosed the figure"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google's worldwide AdWords advertiser base\nNODE|Overture|company|Overture's roughly ... in ...\nNODE|Google AdWords advertiser base|advertiser base|Google's worldwide AdWords advertiser base at the end of the era\nNODE|Google AdWords advertiser count|count measurement|was on the order of ...\nNODE|Overture advertiser base|advertiser base|Overture's advertiser base\nNODE|Overture advertiser count|count measurement|roughly ... in ...\nNODE|AdWords advertiser count interval|range measurement|interval wide enough to span ... to ...\nEDGE|Google|OWNS|Google AdWords advertiser base|Google's worldwide AdWords advertiser base\nEDGE|Google AdWords advertiser base|HAS_COUNT|Google AdWords advertiser count|was on the order of ...\nEDGE|Overture|OWNS|Overture advertiser base|Overture's roughly ... in ...\nEDGE|Overture advertiser base|HAS_COUNT|Overture advertiser count|roughly ... in ...\nEDGE|Google AdWords advertiser count|ABOVE|Overture advertiser count|more than an order of magnitude above ...\nEDGE|Google AdWords advertiser count|HAS_INTERVAL|AdWords advertiser count interval|on an interval wide enough to span ...\nEDGE|Google|DID_NOT_DISCLOSE|Google AdWords advertiser count|Google never disclosed the figure"
+}

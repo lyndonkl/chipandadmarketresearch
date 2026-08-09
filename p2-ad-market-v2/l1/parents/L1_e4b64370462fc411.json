@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|e4b64370462fc411",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Households",
+   "type": "population unit",
+   "grain": "Entity",
+   "reason": "singleton: entity representing the panel's households",
+   "child_uids": [
+    "n|tu:era:3:field:MEASUREMENT|households|population unit"
+   ]
+  },
+  {
+   "name": "Panel composition",
+   "type": "audience panel characteristic",
+   "grain": "Entity",
+   "reason": "singleton: characteristic describing the audience panel composition",
+   "child_uids": [
+    "n|tu:era:4:field:MEASUREMENT|panel composition|audience panel characteristic"
+   ]
+  },
+  {
+   "name": "User-panel meters",
+   "type": "counting institution",
+   "grain": "Entity",
+   "reason": "singleton: institution that counts user-panel meters",
+   "child_uids": [
+    "n|tu:era:5:field:MEASUREMENT|user-panel meters|counting institution"
+   ]
+  },
+  {
+   "name": "RelevantKnowledge",
+   "type": "panel organization",
+   "grain": "Entity",
+   "reason": "singleton: specific organization named RelevantKnowledge within the panel",
+   "child_uids": [
+    "n|tu:era:5:field:MEASUREMENT|relevantknowledge|panel organization"
+   ]
+  }
+ ]
+}

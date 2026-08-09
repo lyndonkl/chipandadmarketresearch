@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|77080ed68aefd1e4",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Increase over prior record floor",
+   "type": "point-difference measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct increase measure above prior floor",
+   "child_uids": [
+    "n|e5-scale-013|increase over prior floor|point-difference measurement"
+   ]
+  },
+  {
+   "name": "Prior record floor",
+   "type": "benchmark measurement",
+   "grain": "Measurement",
+   "reason": "singleton: benchmark value of the record floor",
+   "child_uids": [
+    "n|e5-scale-013|prior record floor|benchmark measurement"
+   ]
+  },
+  {
+   "name": "Superseded reading",
+   "type": "prior measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct prior reading measure",
+   "child_uids": [
+    "n|e7-scale-006|superseded reading|prior measurement"
+   ]
+  }
+ ]
+}

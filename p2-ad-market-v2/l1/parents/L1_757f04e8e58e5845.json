@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|757f04e8e58e5845",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Commission rate 15%",
+   "type": "commission rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct commission rate measure",
+   "child_uids": [
+    "n|tu:era:1:boundary|15 percent commission|commission rate measurement"
+   ]
+  },
+  {
+   "name": "Commission share of space price",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct share-of-price measure",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|commission share of space price|share measurement"
+   ]
+  },
+  {
+   "name": "Mutual commission rate",
+   "type": "commission measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct commission rate for Mutual",
+   "child_uids": [
+    "n|tu:era:2:field:PRICING|mutual commission rate|commission measurement"
+   ]
+  },
+  {
+   "name": "Agency media commission rate",
+   "type": "commission rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct agency media commission rate",
+   "child_uids": [
+    "n|tu:era:4:boundary|agency media commission rate (intact)|commission rate measurement"
+   ]
+  },
+  {
+   "name": "Agency income commission and markup share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct agency income share measure",
+   "child_uids": [
+    "n|tu:era:5:field:CREATORS|agency income from commissions and markups share|share measurement"
+   ]
+  }
+ ]
+}

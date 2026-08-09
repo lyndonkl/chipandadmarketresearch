@@ -1,0 +1,111 @@
+{
+ "id": "mech-quality_score-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2005,
+ "unit": "year (2005-08), introduction of quality-based minimum bids",
+ "elapsed_s": 60.0,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AdWords keyword",
+   "type": "advertising keyword",
+   "clause": "each AdWords keyword"
+  },
+  {
+   "name": "dynamic minimum bid",
+   "type": "price floor measurement",
+   "clause": "dynamic minimum bid"
+  },
+  {
+   "name": "Quality Score",
+   "type": "relevance metric",
+   "clause": "Quality Score"
+  },
+  {
+   "name": "click-through rate",
+   "type": "performance metric",
+   "clause": "click-through rate"
+  },
+  {
+   "name": "ad-text relevance",
+   "type": "relevance factor",
+   "clause": "ad-text relevance"
+  },
+  {
+   "name": "historical keyword performance",
+   "type": "performance factor",
+   "clause": "historical keyword performance"
+  },
+  {
+   "name": "landing-page quality",
+   "type": "quality factor",
+   "clause": "landing-page quality"
+  },
+  {
+   "name": "seller-set price floor",
+   "type": "pricing mechanism",
+   "clause": "seller-set price floor"
+  },
+  {
+   "name": "ranking weight",
+   "type": "ranking mechanism",
+   "clause": "ranking weight"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AdWords keyword",
+   "type": "CARRIED",
+   "to": "dynamic minimum bid",
+   "clause": "each ... carried a dynamic minimum bid"
+  },
+  {
+   "from": "dynamic minimum bid",
+   "type": "SET_BY",
+   "to": "Quality Score",
+   "clause": "dynamic minimum bid set by its Quality Score"
+  },
+  {
+   "from": "Quality Score",
+   "type": "INCLUDES",
+   "to": "click-through rate",
+   "clause": "click-through rate, ad-text relevance, historical keyword performance, landing-page quality"
+  },
+  {
+   "from": "Quality Score",
+   "type": "INCLUDES",
+   "to": "ad-text relevance",
+   "clause": "click-through rate, ad-text relevance, historical keyword performance, landing-page quality"
+  },
+  {
+   "from": "Quality Score",
+   "type": "INCLUDES",
+   "to": "historical keyword performance",
+   "clause": "click-through rate, ad-text relevance, historical keyword performance, landing-page quality"
+  },
+  {
+   "from": "Quality Score",
+   "type": "INCLUDES",
+   "to": "landing-page quality",
+   "clause": "click-through rate, ad-text relevance, historical keyword performance, landing-page quality"
+  },
+  {
+   "from": "Quality Score",
+   "type": "BECAME_PRICE_FLOOR",
+   "to": "seller-set price floor",
+   "clause": "measured relevance became a seller-set price floor"
+  },
+  {
+   "from": "Quality Score",
+   "type": "BECAME_RANKING_WEIGHT",
+   "to": "ranking weight",
+   "clause": "became ... as well as a ranking weight"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AdWords keyword|advertising keyword|each AdWords keyword\nNODE|dynamic minimum bid|price floor measurement|dynamic minimum bid\nNODE|Quality Score|relevance metric|Quality Score\nNODE|click-through rate|performance metric|click-through rate\nNODE|ad-text relevance|relevance factor|ad-text relevance\nNODE|historical keyword performance|performance factor|historical keyword performance\nNODE|landing-page quality|quality factor|landing-page quality\nNODE|seller-set price floor|pricing mechanism|seller-set price floor\nNODE|ranking weight|ranking mechanism|ranking weight\nEDGE|AdWords keyword|CARRIED|dynamic minimum bid|each ... carried a dynamic minimum bid\nEDGE|dynamic minimum bid|SET_BY|Quality Score|dynamic minimum bid set by its Quality Score\nEDGE|Quality Score|INCLUDES|click-through rate|click-through rate, ad-text relevance, historical keyword performance, landing-page quality\nEDGE|Quality Score|INCLUDES|ad-text relevance|click-through rate, ad-text relevance, historical keyword performance, landing-page quality\nEDGE|Quality Score|INCLUDES|historical keyword performance|click-through rate, ad-text relevance, historical keyword performance, landing-page quality\nEDGE|Quality Score|INCLUDES|landing-page quality|click-through rate, ad-text relevance, historical keyword performance, landing-page quality\nEDGE|Quality Score|BECAME_PRICE_FLOOR|seller-set price floor|measured relevance became a seller-set price floor\nEDGE|Quality Score|BECAME_RANKING_WEIGHT|ranking weight|became ... as well as a ranking weight"
+}

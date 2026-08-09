@@ -1,0 +1,115 @@
+{
+ "id": "e7-scale-010",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percentage points of the $398B observed 2025 US total; negative means the four pools over-allocate",
+ "elapsed_s": 75.4,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "four reconciled money-type pools",
+   "type": "advertising pool set",
+   "clause": "the four reconciled money-type pools"
+  },
+  {
+   "name": "observed US total 2025",
+   "type": "advertising spend total",
+   "clause": "the $398B observed US total for 2025"
+  },
+  {
+   "name": "aggregate share of four reconciled money-type pools",
+   "type": "share measurement",
+   "clause": "sum to ... percent of the observed US total"
+  },
+  {
+   "name": "over-allocation amount",
+   "type": "allocation excess measurement",
+   "clause": "over-allocating it by ..."
+  },
+  {
+   "name": "aggregation residual",
+   "type": "aggregation residual measurement",
+   "clause": "The residual is negative"
+  },
+  {
+   "name": "aggregation process",
+   "type": "data aggregation method",
+   "clause": "artefact of the aggregation"
+  },
+  {
+   "name": "evidence",
+   "type": "market evidence",
+   "clause": "rather than the evidence"
+  },
+  {
+   "name": "national brand pool",
+   "type": "advertising pool type",
+   "clause": "national brand ... constructed complement"
+  },
+  {
+   "name": "direct response pool",
+   "type": "advertising pool type",
+   "clause": "direct response ... constructed complement"
+  },
+  {
+   "name": "median calculation per pool",
+   "type": "statistical operation",
+   "clause": "taking each pool's median independently"
+  },
+  {
+   "name": "individual lens",
+   "type": "analytical lens",
+   "clause": "every individual lens enforced"
+  }
+ ],
+ "edges": [
+  {
+   "from": "four reconciled money-type pools",
+   "type": "HAS_AGGREGATE_SHARE",
+   "to": "aggregate share of four reconciled money-type pools",
+   "clause": "sum to ... percent of the observed US total"
+  },
+  {
+   "from": "aggregate share of four reconciled money-type pools",
+   "type": "SHARE_OF",
+   "to": "observed US total 2025",
+   "clause": "... percent of the observed US total"
+  },
+  {
+   "from": "over-allocation amount",
+   "type": "OVER_ALLOCATES",
+   "to": "observed US total 2025",
+   "clause": "over-allocating it by ..."
+  },
+  {
+   "from": "aggregation residual",
+   "type": "ARTIFACT_OF",
+   "to": "aggregation process",
+   "clause": "it is an artefact of the aggregation"
+  },
+  {
+   "from": "aggregation residual",
+   "type": "NOT_BASED_ON",
+   "to": "evidence",
+   "clause": "rather than the evidence"
+  },
+  {
+   "from": "national brand pool",
+   "type": "COMPLEMENTARY_WITH",
+   "to": "direct response pool",
+   "clause": "constructed complements"
+  },
+  {
+   "from": "median calculation per pool",
+   "type": "BREAKS",
+   "to": "individual lens",
+   "clause": "breaks the closure every individual lens enforced"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|four reconciled money-type pools|advertising pool set|the four reconciled money-type pools\nNODE|observed US total 2025|advertising spend total|the $398B observed US total for 2025\nNODE|aggregate share of four reconciled money-type pools|share measurement|sum to ... percent of the observed US total\nNODE|over-allocation amount|allocation excess measurement|over-allocating it by ...\nNODE|aggregation residual|aggregation residual measurement|The residual is negative\nNODE|aggregation process|data aggregation method|artefact of the aggregation\nNODE|evidence|market evidence|rather than the evidence\nNODE|national brand pool|advertising pool type|national brand ... constructed complement\nNODE|direct response pool|advertising pool type|direct response ... constructed complement\nNODE|median calculation per pool|statistical operation|taking each pool's median independently\nNODE|individual lens|analytical lens|every individual lens enforced\nEDGE|four reconciled money-type pools|HAS_AGGREGATE_SHARE|aggregate share of four reconciled money-type pools|sum to ... percent of the observed US total\nEDGE|aggregate share of four reconciled money-type pools|SHARE_OF|observed US total 2025|... percent of the observed US total\nEDGE|over-allocation amount|OVER_ALLOCATES|observed US total 2025|over-allocating it by ...\nEDGE|aggregation residual|ARTIFACT_OF|aggregation process|it is an artefact of the aggregation\nEDGE|aggregation residual|NOT_BASED_ON|evidence|rather than the evidence\nEDGE|national brand pool|COMPLEMENTARY_WITH|direct response pool|constructed complements\nEDGE|median calculation per pool|BREAKS|individual lens|breaks the closure every individual lens enforced"
+}

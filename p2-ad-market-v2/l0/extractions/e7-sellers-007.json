@@ -1,0 +1,94 @@
+{
+ "id": "e7-sellers-007",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of US retail media ad spend, 2025",
+ "elapsed_s": 67.5,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US retail media ad spend",
+   "type": "advertising spend",
+   "clause": "US retail media ad spend"
+  },
+  {
+   "name": "US retail media ad spend amount",
+   "type": "spend measurement",
+   "clause": "reached ... in ..."
+  },
+  {
+   "name": "Amazon",
+   "type": "company",
+   "clause": "Amazon taking more than ... of it"
+  },
+  {
+   "name": "Amazon share of US retail media ad spend",
+   "type": "share measurement",
+   "clause": "Amazon taking more than ... of it"
+  },
+  {
+   "name": "commerce media (IAB/PwC definition)",
+   "type": "advertising spend",
+   "clause": "commerce media measured on IAB/PwC's definition was ..."
+  },
+  {
+   "name": "IAB/PwC definition",
+   "type": "measurement definition",
+   "clause": "measured on IAB/PwC's definition"
+  },
+  {
+   "name": "commerce media spend amount",
+   "type": "spend measurement",
+   "clause": "... was ... up ... year on year"
+  },
+  {
+   "name": "Commerce media YoY growth rate",
+   "type": "growth-rate measurement",
+   "clause": "up ... year on year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US retail media ad spend amount",
+   "type": "MEASURES",
+   "to": "US retail media ad spend",
+   "clause": "reached ... in ..."
+  },
+  {
+   "from": "Amazon share of US retail media ad spend",
+   "type": "SHARE_OF",
+   "to": "US retail media ad spend",
+   "clause": "Amazon taking more than ... of it"
+  },
+  {
+   "from": "Amazon share of US retail media ad spend",
+   "type": "HELD_BY",
+   "to": "Amazon",
+   "clause": "Amazon taking more than ... of it"
+  },
+  {
+   "from": "commerce media spend amount",
+   "type": "MEASURES",
+   "to": "commerce media (IAB/PwC definition)",
+   "clause": "... was ... up ... year on year"
+  },
+  {
+   "from": "commerce media spend amount",
+   "type": "BASED_ON",
+   "to": "IAB/PwC definition",
+   "clause": "measured on IAB/PwC's definition"
+  },
+  {
+   "from": "Commerce media YoY growth rate",
+   "type": "MEASURES",
+   "to": "commerce media (IAB/PwC definition)",
+   "clause": "up ... year on year"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US retail media ad spend|advertising spend|US retail media ad spend\nNODE|US retail media ad spend amount|spend measurement|reached ... in ...\nNODE|Amazon|company|Amazon taking more than ... of it\nNODE|Amazon share of US retail media ad spend|share measurement|Amazon taking more than ... of it\nNODE|commerce media (IAB/PwC definition)|advertising spend|commerce media measured on IAB/PwC's definition was ...\nNODE|IAB/PwC definition|measurement definition|measured on IAB/PwC's definition\nNODE|commerce media spend amount|spend measurement|... was ... up ... year on year\nNODE|Commerce media YoY growth rate|growth-rate measurement|up ... year on year\nEDGE|US retail media ad spend amount|MEASURES|US retail media ad spend|reached ... in ...\nEDGE|Amazon share of US retail media ad spend|SHARE_OF|US retail media ad spend|Amazon taking more than ... of it\nEDGE|Amazon share of US retail media ad spend|HELD_BY|Amazon|Amazon taking more than ... of it\nEDGE|commerce media spend amount|MEASURES|commerce media (IAB/PwC definition)|... was ... up ... year on year\nEDGE|commerce media spend amount|BASED_ON|IAB/PwC definition|measured on IAB/PwC's definition\nEDGE|Commerce media YoY growth rate|MEASURES|commerce media (IAB/PwC definition)|up ... year on year"
+}

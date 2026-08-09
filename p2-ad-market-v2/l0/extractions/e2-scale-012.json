@@ -1,0 +1,67 @@
+{
+ "id": "e2-scale-012",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ millions of US newspaper classified advertising, 1949",
+ "elapsed_s": 54.0,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspaper classified advertising",
+   "type": "advertising segment",
+   "clause": "US newspaper classified advertising"
+  },
+  {
+   "name": "US newspaper classified advertising spend",
+   "type": "currency amount measurement",
+   "clause": "was about ..."
+  },
+  {
+   "name": "total US advertising spend",
+   "type": "advertising aggregate",
+   "clause": "all US advertising spend"
+  },
+  {
+   "name": "share of US newspaper classified advertising in total US advertising spend",
+   "type": "percentage share measurement",
+   "clause": "roughly ... of all US advertising spend"
+  },
+  {
+   "name": "advertising data sources",
+   "type": "source class",
+   "clause": "no source reports it separately before ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "US newspaper classified advertising spend",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "was about ..."
+  },
+  {
+   "from": "share of US newspaper classified advertising in total US advertising spend",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "roughly ... of all US advertising spend"
+  },
+  {
+   "from": "share of US newspaper classified advertising in total US advertising spend",
+   "type": "SHARE_OF",
+   "to": "total US advertising spend",
+   "clause": "roughly ... of all US advertising spend"
+  },
+  {
+   "from": "US newspaper classified advertising spend",
+   "type": "NOT_REPORTED_BY",
+   "to": "advertising data sources",
+   "clause": "no source reports it separately before ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspaper classified advertising|advertising segment|US newspaper classified advertising\nNODE|US newspaper classified advertising spend|currency amount measurement|was about ...\nNODE|total US advertising spend|advertising aggregate|all US advertising spend\nNODE|share of US newspaper classified advertising in total US advertising spend|percentage share measurement|roughly ... of all US advertising spend\nNODE|advertising data sources|source class|no source reports it separately before ...\nEDGE|US newspaper classified advertising spend|MEASURES|US newspaper classified advertising|was about ...\nEDGE|share of US newspaper classified advertising in total US advertising spend|MEASURES|US newspaper classified advertising|roughly ... of all US advertising spend\nEDGE|share of US newspaper classified advertising in total US advertising spend|SHARE_OF|total US advertising spend|roughly ... of all US advertising spend\nEDGE|US newspaper classified advertising spend|NOT_REPORTED_BY|advertising data sources|no source reports it separately before ..."
+}

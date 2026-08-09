@@ -1,0 +1,92 @@
+{
+ "group_id": "L1|0da6fedf5b0969b3",
+ "source": "kmeans",
+ "n_in": 13,
+ "parents": [
+  {
+   "name": "DoubleClick DART ad server",
+   "type": "ad server",
+   "grain": "Entity",
+   "reason": "same server across type labels",
+   "child_uids": [
+    "n|e5-measurement-003|dart ad server|ad server",
+    "n|tu:era:5:field:MEASUREMENT|doubleclick dart|ad server product"
+   ]
+  },
+  {
+   "name": "Unsold inventory",
+   "type": "advertising inventory",
+   "grain": "Entity",
+   "reason": "singleton: unsold advertising inventory concept",
+   "child_uids": [
+    "n|e5-unit_econ-001|unsold inventory|advertising inventory"
+   ]
+  },
+  {
+   "name": "Open-web programmatic advertising market",
+   "type": "advertising market",
+   "grain": "Entity",
+   "reason": "singleton: specific open\u2011web programmatic market",
+   "child_uids": [
+    "n|e7-pricing-005|open-web programmatic market|advertising market"
+   ]
+  },
+  {
+   "name": "Google Open-Web Display Exchange",
+   "type": "ad exchange platform",
+   "grain": "Entity",
+   "reason": "same Google exchange across labels",
+   "child_uids": [
+    "n|mech-first_price-001|google ad manager|display ad exchange",
+    "n|tu:era:7:event:4|google open-web display exchange|advertising channel"
+   ]
+  },
+  {
+   "name": "Generic Ad Exchange",
+   "type": "marketplace platform",
+   "grain": "Entity",
+   "reason": "generic exchange across naming variants",
+   "child_uids": [
+    "n|tu:era:7:event:0|ad exchange|marketplace platform",
+    "n|tu:era:7:event:2|exchange|ad exchange",
+    "n|tu:era:7:field:PRICING|ad exchanges|platform"
+   ]
+  },
+  {
+   "name": "DoubleClick exchange",
+   "type": "ad exchange platform",
+   "grain": "Entity",
+   "reason": "singleton: DoubleClick\u2011specific ad exchange",
+   "child_uids": [
+    "n|tu:era:7:event:1|doubleclick exchange|ad exchange platform"
+   ]
+  },
+  {
+   "name": "AdExchanger",
+   "type": "publication",
+   "grain": "Entity",
+   "reason": "singleton: AdExchanger publication entity",
+   "child_uids": [
+    "n|tu:era:7:event:2|adexchanger|publication"
+   ]
+  },
+  {
+   "name": "Ad exchange markets",
+   "type": "advertising market",
+   "grain": "Entity",
+   "reason": "singleton: market of ad exchanges",
+   "child_uids": [
+    "n|tu:era:7:field:SELLERS|ad exchange markets|advertising market"
+   ]
+  },
+  {
+   "name": "DoubleClick ad\u2011serving arm",
+   "type": "ad serving division",
+   "grain": "Entity",
+   "reason": "singleton: DoubleClick\u2019s ad\u2011serving division",
+   "child_uids": [
+    "n|tu:era:5:field:SELLERS|doubleclick ad-serving arm|ad serving division"
+   ]
+  }
+ ]
+}

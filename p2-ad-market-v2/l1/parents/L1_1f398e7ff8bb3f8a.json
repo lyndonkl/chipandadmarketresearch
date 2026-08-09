@@ -1,0 +1,45 @@
+{
+ "group_id": "L1|1f398e7ff8bb3f8a",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Relevance",
+   "type": "concept",
+   "grain": "Entity",
+   "reason": "same underlying concept across different type labels; year details in children",
+   "child_uids": [
+    "n|e6-events-006|ad relevance|relevance factor",
+    "n|e6-targeting-003|measured relevance|targeting attribute",
+    "n|tu:era:6:field:PRICING|relevance price floor|pricing rule"
+   ]
+  },
+  {
+   "name": "Quality weighting",
+   "type": "ranking mechanism",
+   "grain": "Entity",
+   "reason": "singleton: distinct ranking mechanism unrelated to other concepts",
+   "child_uids": [
+    "n|tu:era:5:event:2|quality weighting|ranking mechanism"
+   ]
+  },
+  {
+   "name": "Barely dented ranking",
+   "type": "market impact",
+   "grain": "Entity",
+   "reason": "singleton: unique market impact phrase about ranking",
+   "child_uids": [
+    "n|tu:era:5:field:MEDIUM|barely dented ranking|market impact"
+   ]
+  },
+  {
+   "name": "Fixed priority order",
+   "type": "ordering mechanism",
+   "grain": "Entity",
+   "reason": "singleton: separate ordering mechanism distinct from others",
+   "child_uids": [
+    "n|tu:era:7:event:2|fixed priority order|ordering mechanism"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "id": "e2-buyers-002",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1945,
+ "unit": "percent of US ad spend classified as national, 1944 and 1945",
+ "elapsed_s": 89.2,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national advertisers share of US ad spend (peak 1944-45)",
+   "type": "media-share measurement",
+   "clause": "National advertisers' peak share"
+  },
+  {
+   "name": "national advertisers share of US ad spend (1935)",
+   "type": "media-share measurement",
+   "clause": "National advertisers' earlier share"
+  },
+  {
+   "name": "US advertising spend",
+   "type": "advertising expenditure total",
+   "clause": "all US ad spend"
+  },
+  {
+   "name": "national advertisers",
+   "type": "advertiser classification",
+   "clause": "National advertisers"
+  },
+  {
+   "name": "wartime institutional-advertising signature",
+   "type": "advertising pattern",
+   "clause": "the wartime institutional-advertising signature"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national advertisers share of US ad spend (peak 1944-45)",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... of all US ad spend"
+  },
+  {
+   "from": "national advertisers share of US ad spend (peak 1944-45)",
+   "type": "FOR",
+   "to": "national advertisers",
+   "clause": "National advertisers' share"
+  },
+  {
+   "from": "national advertisers share of US ad spend (1935)",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... of all US ad spend"
+  },
+  {
+   "from": "national advertisers share of US ad spend (1935)",
+   "type": "FOR",
+   "to": "national advertisers",
+   "clause": "National advertisers' share"
+  },
+  {
+   "from": "national advertisers share of US ad spend (peak 1944-45)",
+   "type": "UP_FROM",
+   "to": "national advertisers share of US ad spend (1935)",
+   "clause": "up from ..."
+  },
+  {
+   "from": "national advertisers share of US ad spend (peak 1944-45)",
+   "type": "IS_SIGNATURE_OF",
+   "to": "wartime institutional-advertising signature",
+   "clause": "wartime institutional-advertising signature"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national advertisers share of US ad spend (peak 1944-45)|media-share measurement|National advertisers' peak share\nNODE|national advertisers share of US ad spend (1935)|media-share measurement|National advertisers' earlier share\nNODE|US advertising spend|advertising expenditure total|all US ad spend\nNODE|national advertisers|advertiser classification|National advertisers\nNODE|wartime institutional-advertising signature|advertising pattern|the wartime institutional-advertising signature\nEDGE|national advertisers share of US ad spend (peak 1944-45)|SHARE_OF|US advertising spend|... of all US ad spend\nEDGE|national advertisers share of US ad spend (peak 1944-45)|FOR|national advertisers|National advertisers' share\nEDGE|national advertisers share of US ad spend (1935)|SHARE_OF|US advertising spend|... of all US ad spend\nEDGE|national advertisers share of US ad spend (1935)|FOR|national advertisers|National advertisers' share\nEDGE|national advertisers share of US ad spend (peak 1944-45)|UP_FROM|national advertisers share of US ad spend (1935)|up from ...\nEDGE|national advertisers share of US ad spend (peak 1944-45)|IS_SIGNATURE_OF|wartime institutional-advertising signature|wartime institutional-advertising signature"
+}

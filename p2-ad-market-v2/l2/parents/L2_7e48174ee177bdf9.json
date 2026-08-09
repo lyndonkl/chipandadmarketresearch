@@ -1,0 +1,64 @@
+{
+ "group_id": "L2|7e48174ee177bdf9",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "pricing unit",
+   "type": "price role",
+   "grain": "Entity",
+   "reason": "currency, impression and copy units share pricing-unit role",
+   "child_uids": [
+    "L1|20e9c3e356db3d76",
+    "L1|542426d4de2bc1f6",
+    "L1|557990a8bea480f3",
+    "L1|a4bbd1ae73771585"
+   ]
+  },
+  {
+   "name": "price point",
+   "type": "price role",
+   "grain": "Entity",
+   "reason": "national broadcast and clearing prices are generic price points",
+   "child_uids": [
+    "L1|3c3269fe655c9cd5",
+    "L1|976aad76c3d8d517"
+   ]
+  },
+  {
+   "name": "spot price",
+   "type": "price role",
+   "grain": "Entity",
+   "reason": "singleton: a specific spot-price concept distinct from general price points",
+   "child_uids": [
+    "L1|e129d78dea6b1afc"
+   ]
+  },
+  {
+   "name": "price basis",
+   "type": "price role",
+   "grain": "Entity",
+   "reason": "singleton: defines the pricing basis, different from units or points",
+   "child_uids": [
+    "L1|019e01b515bb5ff2"
+   ]
+  },
+  {
+   "name": "pricing commodity",
+   "type": "price role",
+   "grain": "Entity",
+   "reason": "singleton: a commodity used to express prices, separate market role",
+   "child_uids": [
+    "L1|032e01fc0367cd3b"
+   ]
+  },
+  {
+   "name": "priced quantity",
+   "type": "price role",
+   "grain": "Entity",
+   "reason": "singleton: the quantity being priced, distinct from price or unit concepts",
+   "child_uids": [
+    "L1|a15e3808d36c1c04"
+   ]
+  }
+ ]
+}

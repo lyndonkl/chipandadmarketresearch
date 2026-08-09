@@ -1,0 +1,111 @@
+{
+ "id": "e1-buyers-006",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1915,
+ "unit": "USD millions (current), newspaper space",
+ "elapsed_s": 69.8,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local advertisers",
+   "type": "advertiser group",
+   "clause": "Local advertisers (retailers plus classified)"
+  },
+  {
+   "name": "national advertisers",
+   "type": "advertiser group",
+   "clause": "national-advertiser total"
+  },
+  {
+   "name": "newspaper space",
+   "type": "ad inventory",
+   "clause": "of newspaper space"
+  },
+  {
+   "name": "local advertisers' newspaper space spend",
+   "type": "advertising spend measurement",
+   "clause": "Local advertisers ... bought ..."
+  },
+  {
+   "name": "national advertisers' newspaper space spend",
+   "type": "advertising spend measurement",
+   "clause": "... times the national-advertiser total"
+  },
+  {
+   "name": "advertising line",
+   "type": "ad placement grouping",
+   "clause": "The line bundles classified with retail display"
+  },
+  {
+   "name": "classified ads",
+   "type": "ad category",
+   "clause": "bundles classified with retail display"
+  },
+  {
+   "name": "retail display ads",
+   "type": "ad category",
+   "clause": "bundles classified with retail display"
+  },
+  {
+   "name": "compiler",
+   "type": "data compiler",
+   "clause": "no compiler has ever separated the two"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local advertisers",
+   "type": "BOUGHT_SPEND",
+   "to": "local advertisers' newspaper space spend",
+   "clause": "Local advertisers ... bought ..."
+  },
+  {
+   "from": "local advertisers' newspaper space spend",
+   "type": "MEASURES",
+   "to": "newspaper space",
+   "clause": "... of newspaper space"
+  },
+  {
+   "from": "national advertisers",
+   "type": "TOTAL_SPEND",
+   "to": "national advertisers' newspaper space spend",
+   "clause": "national-advertiser total"
+  },
+  {
+   "from": "national advertisers' newspaper space spend",
+   "type": "MEASURES",
+   "to": "newspaper space",
+   "clause": "... of newspaper space"
+  },
+  {
+   "from": "local advertisers' newspaper space spend",
+   "type": "TIMES",
+   "to": "national advertisers' newspaper space spend",
+   "clause": "... times the national-advertiser total"
+  },
+  {
+   "from": "advertising line",
+   "type": "BUNDLES",
+   "to": "classified ads",
+   "clause": "bundles classified with retail display"
+  },
+  {
+   "from": "advertising line",
+   "type": "BUNDLES",
+   "to": "retail display ads",
+   "clause": "bundles classified with retail display"
+  },
+  {
+   "from": "compiler",
+   "type": "HAS_NEVER_SEPARATED",
+   "to": "advertising line",
+   "clause": "no compiler has ever separated the two"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local advertisers|advertiser group|Local advertisers (retailers plus classified)\nNODE|national advertisers|advertiser group|national-advertiser total\nNODE|newspaper space|ad inventory|of newspaper space\nNODE|local advertisers' newspaper space spend|advertising spend measurement|Local advertisers ... bought ...\nNODE|national advertisers' newspaper space spend|advertising spend measurement|... times the national-advertiser total\nNODE|advertising line|ad placement grouping|The line bundles classified with retail display\nNODE|classified ads|ad category|bundles classified with retail display\nNODE|retail display ads|ad category|bundles classified with retail display\nNODE|compiler|data compiler|no compiler has ever separated the two\nEDGE|local advertisers|BOUGHT_SPEND|local advertisers' newspaper space spend|Local advertisers ... bought ...\nEDGE|local advertisers' newspaper space spend|MEASURES|newspaper space|... of newspaper space\nEDGE|national advertisers|TOTAL_SPEND|national advertisers' newspaper space spend|national-advertiser total\nEDGE|national advertisers' newspaper space spend|MEASURES|newspaper space|... of newspaper space\nEDGE|local advertisers' newspaper space spend|TIMES|national advertisers' newspaper space spend|... times the national-advertiser total\nEDGE|advertising line|BUNDLES|classified ads|bundles classified with retail display\nEDGE|advertising line|BUNDLES|retail display ads|bundles classified with retail display\nEDGE|compiler|HAS_NEVER_SEPARATED|advertising line|no compiler has ever separated the two"
+}

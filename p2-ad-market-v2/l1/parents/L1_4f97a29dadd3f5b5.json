@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|4f97a29dadd3f5b5",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "John Dimling",
+   "type": "person",
+   "grain": "Entity",
+   "reason": "singleton: a person entity, not grouped with other nodes",
+   "child_uids": [
+    "n|e4-measurement-003|john dimling|person"
+   ]
+  },
+  {
+   "name": "US cable and pay-TV industry revenue",
+   "type": "market revenue",
+   "grain": "Entity",
+   "reason": "singleton: market revenue entity distinct from industry entity",
+   "child_uids": [
+    "n|e4-sellers-003|us cable and pay-tv industry revenue|market revenue"
+   ]
+  },
+  {
+   "name": "Cable industry",
+   "type": "distribution platform",
+   "grain": "Entity",
+   "reason": "singleton: distribution platform entity separate from revenue concept",
+   "child_uids": [
+    "n|e4-sellers-003|cable industry|distribution platform"
+   ]
+  }
+ ]
+}

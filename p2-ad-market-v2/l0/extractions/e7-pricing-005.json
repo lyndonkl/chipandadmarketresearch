@@ -1,0 +1,254 @@
+{
+ "id": "e7-pricing-005",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2023,
+ "unit": "cents of each DSP dollar reaching the consumer",
+ "elapsed_s": 186.1,
+ "error": null,
+ "n_nodes": 22,
+ "n_edges": 21,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "ANA",
+   "type": "organization",
+   "clause": "The ANA"
+  },
+  {
+   "name": "ANA programmatic transparency study",
+   "type": "research study",
+   "clause": "the ANA's programmatic transparency study"
+  },
+  {
+   "name": "demand-side platform",
+   "type": "advertising technology",
+   "clause": "demand-side platform"
+  },
+  {
+   "name": "DSP dollar",
+   "type": "monetary unit",
+   "clause": "each DSP dollar"
+  },
+  {
+   "name": "consumer reach amount per DSP dollar",
+   "type": "share measurement",
+   "clause": "cents of each DSP dollar reaching the consumer"
+  },
+  {
+   "name": "transaction cost amount per DSP dollar",
+   "type": "cost measurement",
+   "clause": "transaction costs took ... cents"
+  },
+  {
+   "name": "media productivity loss amount per DSP dollar",
+   "type": "loss measurement",
+   "clause": "media-productivity loss took ... cents"
+  },
+  {
+   "name": "open-web programmatic market",
+   "type": "advertising market",
+   "clause": "open-web programmatic pool"
+  },
+  {
+   "name": "open-web programmatic pool size",
+   "type": "total value measurement",
+   "clause": "size of the open-web programmatic pool"
+  },
+  {
+   "name": "recoverable efficiency gain amount",
+   "type": "efficiency gain measurement",
+   "clause": "recoverable efficiency gain identified by the ANA"
+  },
+  {
+   "name": "unreached amount per DSP dollar",
+   "type": "share measurement",
+   "clause": "cents on the dollar that fails to reach a consumer"
+  },
+  {
+   "name": "unreached total value",
+   "type": "total value measurement",
+   "clause": "total value of dollars failing to reach a consumer in the pool"
+  },
+  {
+   "name": "Made-for-advertising sites",
+   "type": "inventory category",
+   "clause": "Made-for-advertising sites"
+  },
+  {
+   "name": "June 2023 first look spend",
+   "type": "period spend",
+   "clause": "spend on the June ... first look"
+  },
+  {
+   "name": "MAA site spend share June 2023",
+   "type": "percentage measurement",
+   "clause": "share of spend absorbed by made-for-advertising sites in June ..."
+  },
+  {
+   "name": "December full report pool amount",
+   "type": "total value measurement",
+   "clause": "amount of the pool absorbed by made-for-advertising sites in December"
+  },
+  {
+   "name": "MAA site absorbed amount December",
+   "type": "value measurement",
+   "clause": "value absorbed by made-for-advertising sites in December"
+  },
+  {
+   "name": "study participants count",
+   "type": "participant count measurement",
+   "clause": "count of study participants"
+  },
+  {
+   "name": "study participants",
+   "type": "participant group",
+   "clause": "US marketers participating in the study"
+  },
+  {
+   "name": "CTV",
+   "type": "advertising channel",
+   "clause": "CTV"
+  },
+  {
+   "name": "CTV excluded size",
+   "type": "exclusion size measurement",
+   "clause": "size of CTV excluded from the pool"
+  },
+  {
+   "name": "US total",
+   "type": "geographic aggregate",
+   "clause": "US total advertising market"
+  }
+ ],
+ "edges": [
+  {
+   "from": "ANA",
+   "type": "CONDUCTED",
+   "to": "ANA programmatic transparency study",
+   "clause": "the ANA's programmatic transparency study"
+  },
+  {
+   "from": "ANA programmatic transparency study",
+   "type": "REPORTED",
+   "to": "consumer reach amount per DSP dollar",
+   "clause": "found about ... cents reaching a consumer"
+  },
+  {
+   "from": "ANA programmatic transparency study",
+   "type": "REPORTED",
+   "to": "transaction cost amount per DSP dollar",
+   "clause": "transaction costs took ... cents"
+  },
+  {
+   "from": "ANA programmatic transparency study",
+   "type": "REPORTED",
+   "to": "media productivity loss amount per DSP dollar",
+   "clause": "media-productivity loss took ... cents"
+  },
+  {
+   "from": "consumer reach amount per DSP dollar",
+   "type": "SHARE_OF",
+   "to": "DSP dollar",
+   "clause": "cents of each DSP dollar reaching the consumer"
+  },
+  {
+   "from": "transaction cost amount per DSP dollar",
+   "type": "SHARE_OF",
+   "to": "DSP dollar",
+   "clause": "transaction costs ... of each DSP dollar"
+  },
+  {
+   "from": "media productivity loss amount per DSP dollar",
+   "type": "SHARE_OF",
+   "to": "DSP dollar",
+   "clause": "media-productivity loss ... of each DSP dollar"
+  },
+  {
+   "from": "ANA programmatic transparency study",
+   "type": "REPORTED",
+   "to": "open-web programmatic pool size",
+   "clause": "sized the open-web programmatic pool"
+  },
+  {
+   "from": "open-web programmatic pool size",
+   "type": "MEASURES",
+   "to": "open-web programmatic market",
+   "clause": "size of the open-web programmatic pool"
+  },
+  {
+   "from": "recoverable efficiency gain amount",
+   "type": "SHARE_OF",
+   "to": "open-web programmatic market",
+   "clause": "recoverable efficiency gain as share of market"
+  },
+  {
+   "from": "unreached amount per DSP dollar",
+   "type": "SHARE_OF",
+   "to": "DSP dollar",
+   "clause": "cents on the dollar that fails to reach a consumer"
+  },
+  {
+   "from": "unreached total value",
+   "type": "PART_OF",
+   "to": "open-web programmatic market",
+   "clause": "total value of unreached dollars in the pool"
+  },
+  {
+   "from": "recoverable efficiency gain amount",
+   "type": "NOT_SAME_AS",
+   "to": "unreached amount per DSP dollar",
+   "clause": "gain not same as unreached share"
+  },
+  {
+   "from": "Made-for-advertising sites",
+   "type": "ABSORBED_SHARE",
+   "to": "MAA site spend share June 2023",
+   "clause": "absorbed about ... of spend in June look"
+  },
+  {
+   "from": "MAA site spend share June 2023",
+   "type": "MEASURES",
+   "to": "June 2023 first look spend",
+   "clause": "share measures June first look spend"
+  },
+  {
+   "from": "Made-for-advertising sites",
+   "type": "ABSORBED_AMOUNT",
+   "to": "December full report pool amount",
+   "clause": "absorbed about ... of the pool in December"
+  },
+  {
+   "from": "December full report pool amount",
+   "type": "MEASURES",
+   "to": "open-web programmatic market",
+   "clause": "amount measured against the market"
+  },
+  {
+   "from": "study participants count",
+   "type": "MEASURES",
+   "to": "study participants",
+   "clause": "count measures US marketers participating"
+  },
+  {
+   "from": "open-web programmatic market",
+   "type": "EXCLUDES",
+   "to": "CTV",
+   "clause": "market excludes CTV"
+  },
+  {
+   "from": "CTV excluded size",
+   "type": "MEASURES",
+   "to": "CTV",
+   "clause": "size measures excluded CTV amount"
+  },
+  {
+   "from": "open-web programmatic market",
+   "type": "NOT_US_TOTAL",
+   "to": "US total",
+   "clause": "do not treat as US total"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|ANA|organization|The ANA\nNODE|ANA programmatic transparency study|research study|the ANA's programmatic transparency study\nNODE|demand-side platform|advertising technology|demand-side platform\nNODE|DSP dollar|monetary unit|each DSP dollar\nNODE|consumer reach amount per DSP dollar|share measurement|cents of each DSP dollar reaching the consumer\nNODE|transaction cost amount per DSP dollar|cost measurement|transaction costs took ... cents\nNODE|media productivity loss amount per DSP dollar|loss measurement|media-productivity loss took ... cents\nNODE|open-web programmatic market|advertising market|open-web programmatic pool\nNODE|open-web programmatic pool size|total value measurement|size of the open-web programmatic pool\nNODE|recoverable efficiency gain amount|efficiency gain measurement|recoverable efficiency gain identified by the ANA\nNODE|unreached amount per DSP dollar|share measurement|cents on the dollar that fails to reach a consumer\nNODE|unreached total value|total value measurement|total value of dollars failing to reach a consumer in the pool\nNODE|Made-for-advertising sites|inventory category|Made-for-advertising sites\nNODE|June 2023 first look spend|period spend|spend on the June ... first look\nNODE|MAA site spend share June 2023|percentage measurement|share of spend absorbed by made-for-advertising sites in June ...\nNODE|December full report pool amount|total value measurement|amount of the pool absorbed by made-for-advertising sites in December\nNODE|MAA site absorbed amount December|value measurement|value absorbed by made-for-advertising sites in December\nNODE|study participants count|participant count measurement|count of study participants\nNODE|study participants|participant group|US marketers participating in the study\nNODE|CTV|advertising channel|CTV\nNODE|CTV excluded size|exclusion size measurement|size of CTV excluded from the pool\nNODE|US total|geographic aggregate|US total advertising market\nEDGE|ANA|CONDUCTED|ANA programmatic transparency study|the ANA's programmatic transparency study\nEDGE|ANA programmatic transparency study|REPORTED|consumer reach amount per DSP dollar|found about ... cents reaching a consumer\nEDGE|ANA programmatic transparency study|REPORTED|transaction cost amount per DSP dollar|transaction costs took ... cents\nEDGE|ANA programmatic transparency study|REPORTED|media productivity loss amount per DSP dollar|media-productivity loss took ... cents\nEDGE|consumer reach amount per DSP dollar|SHARE_OF|DSP dollar|cents of each DSP dollar reaching the consumer\nEDGE|transaction cost amount per DSP dollar|SHARE_OF|DSP dollar|transaction costs ... of each DSP dollar\nEDGE|media productivity loss amount per DSP dollar|SHARE_OF|DSP dollar|media-productivity loss ... of each DSP dollar\nEDGE|ANA programmatic transparency study|REPORTED|open-web programmatic pool size|sized the open-web programmatic pool\nEDGE|open-web programmatic pool size|MEASURES|open-web programmatic market|size of the open-web programmatic pool\nEDGE|recoverable efficiency gain amount|SHARE_OF|open-web programmatic market|recoverable efficiency gain as share of market\nEDGE|unreached amount per DSP dollar|SHARE_OF|DSP dollar|cents on the dollar that fails to reach a consumer\nEDGE|unreached total value|PART_OF|open-web programmatic market|total value of unreached dollars in the pool\nEDGE|recoverable efficiency gain amount|NOT_SAME_AS|unreached amount per DSP dollar|gain not same as unreached share\nEDGE|Made-for-advertising sites|ABSORBED_SHARE|MAA site spend share June 2023|absorbed about ... of spend in June look\nEDGE|MAA site spend share June 2023|MEASURES|June 2023 first look spend|share measures June first look spend\nEDGE|Made-for-advertising sites|ABSORBED_AMOUNT|December full report pool amount|absorbed about ... of the pool in December\nEDGE|December full report pool amount|MEASURES|open-web programmatic market|amount measured against the market\nEDGE|study participants count|MEASURES|study participants|count measures US marketers participating\nEDGE|open-web programmatic market|EXCLUDES|CTV|market excludes CTV\nEDGE|CTV excluded size|MEASURES|CTV|size measures excluded CTV amount\nEDGE|open-web programmatic market|NOT_US_TOTAL|US total|do not treat as US total"
+}

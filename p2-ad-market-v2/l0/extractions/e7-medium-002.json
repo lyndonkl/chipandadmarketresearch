@@ -1,0 +1,56 @@
+{
+ "id": "e7-medium-002",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of US total ad spend that is digital, 2025, on the MAGNA/IAB rail",
+ "elapsed_s": 30.0,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "digital advertising",
+   "type": "advertising medium",
+   "clause": "Digital accounted for roughly ... of total US advertising spend"
+  },
+  {
+   "name": "US total ad spend",
+   "type": "advertising spend aggregate",
+   "clause": "total US advertising spend"
+  },
+  {
+   "name": "digital share of US total ad spend",
+   "type": "media-share measurement",
+   "clause": "percent of US total ad spend that is digital, on the MAGNA/IAB rail"
+  },
+  {
+   "name": "MAGNA/IAB rail",
+   "type": "measurement series",
+   "clause": "on the MAGNA/IAB rail"
+  }
+ ],
+ "edges": [
+  {
+   "from": "digital share of US total ad spend",
+   "type": "MEASURES",
+   "to": "digital advertising",
+   "clause": "Digital accounted for roughly ... of total US advertising spend"
+  },
+  {
+   "from": "digital share of US total ad spend",
+   "type": "SHARE_OF",
+   "to": "US total ad spend",
+   "clause": "... of total US advertising spend"
+  },
+  {
+   "from": "digital share of US total ad spend",
+   "type": "MEASURED_ON",
+   "to": "MAGNA/IAB rail",
+   "clause": "on the MAGNA/IAB rail"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|digital advertising|advertising medium|Digital accounted for roughly ... of total US advertising spend\nNODE|US total ad spend|advertising spend aggregate|total US advertising spend\nNODE|digital share of US total ad spend|media-share measurement|percent of US total ad spend that is digital, on the MAGNA/IAB rail\nNODE|MAGNA/IAB rail|measurement series|on the MAGNA/IAB rail\nEDGE|digital share of US total ad spend|MEASURES|digital advertising|Digital accounted for roughly ... of total US advertising spend\nEDGE|digital share of US total ad spend|SHARE_OF|US total ad spend|... of total US advertising spend\nEDGE|digital share of US total ad spend|MEASURED_ON|MAGNA/IAB rail|on the MAGNA/IAB rail"
+}

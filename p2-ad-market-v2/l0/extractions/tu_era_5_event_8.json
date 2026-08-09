@@ -1,0 +1,183 @@
+{
+ "id": "tu:era:5:event:8",
+ "kind": "prose:event",
+ "era": 5,
+ "about_year": 2001,
+ "unit": null,
+ "elapsed_s": 112.1,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 15,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Excite@Home",
+   "type": "company",
+   "clause": "Excite@Home formed by ... merger"
+  },
+  {
+   "name": "AT&T",
+   "type": "telecommunications company",
+   "clause": "buyer of Excite@Home network"
+  },
+  {
+   "name": "GoTo.com",
+   "type": "search\u2011advertising company",
+   "clause": "renamed itself ..."
+  },
+  {
+   "name": "Overture Services",
+   "type": "advertising company",
+   "clause": "new name after rename"
+  },
+  {
+   "name": "Excite@Home merger",
+   "type": "company merger",
+   "clause": "formed by ... merger"
+  },
+  {
+   "name": "Excite@Home merger value measurement",
+   "type": "take\u2011value measurement",
+   "clause": "... merger"
+  },
+  {
+   "name": "Excite@Home valuation measurement",
+   "type": "valuation measurement",
+   "clause": "once worth ..."
+  },
+  {
+   "name": "Excite@Home bankruptcy filing",
+   "type": "bankruptcy filing event",
+   "clause": "filed for Chapter 11"
+  },
+  {
+   "name": "Excite@Home network sale",
+   "type": "asset transaction",
+   "clause": "sell its network to AT&T"
+  },
+  {
+   "name": "Excite@Home network sale price measurement",
+   "type": "sale\u2011price measurement",
+   "clause": "... sale price"
+  },
+  {
+   "name": "GoTo.com rename",
+   "type": "renaming event",
+   "clause": "renamed itself ..."
+  },
+  {
+   "name": "era hinge",
+   "type": "historical turning point",
+   "clause": "two events together are the era's hinge"
+  },
+  {
+   "name": "impression-selling portal",
+   "type": "advertising business model",
+   "clause": "failed while ..."
+  },
+  {
+   "name": "click-selling auction",
+   "type": "advertising auction model",
+   "clause": "survived and grew through ... downturn"
+  },
+  {
+   "name": "same downturn",
+   "type": "economic downturn",
+   "clause": "same downturn referenced in contrast"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Excite@Home",
+   "type": "FORMED_BY",
+   "to": "Excite@Home merger",
+   "clause": "formed by ... merger"
+  },
+  {
+   "from": "Excite@Home merger value measurement",
+   "type": "MEASURES",
+   "to": "Excite@Home merger",
+   "clause": "... merger"
+  },
+  {
+   "from": "Excite@Home",
+   "type": "HAS_VALUATION",
+   "to": "Excite@Home valuation measurement",
+   "clause": "once worth ..."
+  },
+  {
+   "from": "Excite@Home valuation measurement",
+   "type": "MEASURES",
+   "to": "Excite@Home",
+   "clause": "company valuation"
+  },
+  {
+   "from": "Excite@Home",
+   "type": "FILED_FOR",
+   "to": "Excite@Home bankruptcy filing",
+   "clause": "filed for Chapter 11"
+  },
+  {
+   "from": "Excite@Home",
+   "type": "SELLS",
+   "to": "Excite@Home network sale",
+   "clause": "sell its network to AT&T"
+  },
+  {
+   "from": "Excite@Home network sale",
+   "type": "TO_BUYER",
+   "to": "AT&T",
+   "clause": "sell its network to AT&T"
+  },
+  {
+   "from": "Excite@Home network sale price measurement",
+   "type": "MEASURES",
+   "to": "Excite@Home network sale",
+   "clause": "... sale price"
+  },
+  {
+   "from": "GoTo.com",
+   "type": "RENAMED_TO",
+   "to": "Overture Services",
+   "clause": "renamed itself ..."
+  },
+  {
+   "from": "Excite@Home bankruptcy filing",
+   "type": "PART_OF",
+   "to": "era hinge",
+   "clause": "two events together are the era's hinge"
+  },
+  {
+   "from": "GoTo.com rename",
+   "type": "PART_OF",
+   "to": "era hinge",
+   "clause": "two events together are the era's hinge"
+  },
+  {
+   "from": "Excite@Home",
+   "type": "IS_INSTANCE_OF",
+   "to": "impression-selling portal",
+   "clause": "impression\u2011selling portal failed"
+  },
+  {
+   "from": "impression-selling portal",
+   "type": "FAILED_DURING",
+   "to": "same downturn",
+   "clause": "failed while ... same downturn"
+  },
+  {
+   "from": "click-selling auction",
+   "type": "SURVIVED_DURING",
+   "to": "same downturn",
+   "clause": "survived while ... same downturn"
+  },
+  {
+   "from": "click-selling auction",
+   "type": "GREW_DURING",
+   "to": "same downturn",
+   "clause": "grew through ... downturn"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Excite@Home|company|Excite@Home formed by ... merger\nNODE|AT&T|telecommunications company|buyer of Excite@Home network\nNODE|GoTo.com|search\u2011advertising company|renamed itself ...\nNODE|Overture Services|advertising company|new name after rename\nNODE|Excite@Home merger|company merger|formed by ... merger\nNODE|Excite@Home merger value measurement|take\u2011value measurement|... merger\nNODE|Excite@Home valuation measurement|valuation measurement|once worth ...\nNODE|Excite@Home bankruptcy filing|bankruptcy filing event|filed for Chapter 11\nNODE|Excite@Home network sale|asset transaction|sell its network to AT&T\nNODE|Excite@Home network sale price measurement|sale\u2011price measurement|... sale price\nNODE|GoTo.com rename|renaming event|renamed itself ...\nNODE|era hinge|historical turning point|two events together are the era's hinge\nNODE|impression-selling portal|advertising business model|failed while ...\nNODE|click-selling auction|advertising auction model|survived and grew through ... downturn\nNODE|same downturn|economic downturn|same downturn referenced in contrast\nEDGE|Excite@Home|FORMED_BY|Excite@Home merger|formed by ... merger\nEDGE|Excite@Home merger value measurement|MEASURES|Excite@Home merger|... merger\nEDGE|Excite@Home|HAS_VALUATION|Excite@Home valuation measurement|once worth ...\nEDGE|Excite@Home valuation measurement|MEASURES|Excite@Home|company valuation\nEDGE|Excite@Home|FILED_FOR|Excite@Home bankruptcy filing|filed for Chapter 11\nEDGE|Excite@Home|SELLS|Excite@Home network sale|sell its network to AT&T\nEDGE|Excite@Home network sale|TO_BUYER|AT&T|sell its network to AT&T\nEDGE|Excite@Home network sale price measurement|MEASURES|Excite@Home network sale|... sale price\nEDGE|GoTo.com|RENAMED_TO|Overture Services|renamed itself ...\nEDGE|Excite@Home bankruptcy filing|PART_OF|era hinge|two events together are the era's hinge\nEDGE|GoTo.com rename|PART_OF|era hinge|two events together are the era's hinge\nEDGE|Excite@Home|IS_INSTANCE_OF|impression-selling portal|impression\u2011selling portal failed\nEDGE|impression-selling portal|FAILED_DURING|same downturn|failed while ... same downturn\nEDGE|click-selling auction|SURVIVED_DURING|same downturn|survived while ... same downturn\nEDGE|click-selling auction|GREW_DURING|same downturn|grew through ... downturn"
+}

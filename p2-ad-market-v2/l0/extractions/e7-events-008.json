@@ -1,0 +1,71 @@
+{
+ "id": "e7-events-008",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of AI-summary search visits producing a result click",
+ "elapsed_s": 54.7,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "AI summary",
+   "type": "search result feature",
+   "clause": "an AI summary appeared"
+  },
+  {
+   "name": "search result click",
+   "type": "user action",
+   "clause": "a search result was clicked"
+  },
+  {
+   "name": "Google visits with AI summary",
+   "type": "search session subset",
+   "clause": "Google visits where an AI summary appeared"
+  },
+  {
+   "name": "Google visits without AI summary",
+   "type": "search session subset",
+   "clause": "Google visits where none did"
+  },
+  {
+   "name": "AI-summary visit click rate",
+   "type": "percentage measurement",
+   "clause": "percent of AI-summary search visits producing a result click"
+  },
+  {
+   "name": "non-AI-summary visit click rate",
+   "type": "percentage measurement",
+   "clause": "percent ... where none did"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AI-summary visit click rate",
+   "type": "SHARE_OF",
+   "to": "Google visits with AI summary",
+   "clause": "percent of AI-summary search visits producing a result click"
+  },
+  {
+   "from": "non-AI-summary visit click rate",
+   "type": "SHARE_OF",
+   "to": "Google visits without AI summary",
+   "clause": "percent ... where none did"
+  },
+  {
+   "from": "AI-summary visit click rate",
+   "type": "COMPARED_TO",
+   "to": "non-AI-summary visit click rate",
+   "clause": "against ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|AI summary|search result feature|an AI summary appeared\nNODE|search result click|user action|a search result was clicked\nNODE|Google visits with AI summary|search session subset|Google visits where an AI summary appeared\nNODE|Google visits without AI summary|search session subset|Google visits where none did\nNODE|AI-summary visit click rate|percentage measurement|percent of AI-summary search visits producing a result click\nNODE|non-AI-summary visit click rate|percentage measurement|percent ... where none did\nEDGE|AI-summary visit click rate|SHARE_OF|Google visits with AI summary|percent of AI-summary search visits producing a result click\nEDGE|non-AI-summary visit click rate|SHARE_OF|Google visits without AI summary|percent ... where none did\nEDGE|AI-summary visit click rate|COMPARED_TO|non-AI-summary visit click rate|against ..."
+}

@@ -1,0 +1,121 @@
+{
+ "id": "tu:era:3:event:9",
+ "kind": "prose:event",
+ "era": 3,
+ "about_year": 1973,
+ "unit": null,
+ "elapsed_s": 79.1,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Nielsen",
+   "type": "company",
+   "clause": "Nielsen"
+  },
+  {
+   "name": "Nielsen computer centre",
+   "type": "facility",
+   "clause": "its computer centre"
+  },
+  {
+   "name": "metered household count",
+   "type": "count measurement",
+   "clause": "... metered households"
+  },
+  {
+   "name": "national ratings turnaround time",
+   "type": "duration measurement",
+   "clause": "national ratings turnaround"
+  },
+  {
+   "name": "periodic black weeks",
+   "type": "phenomenon",
+   "clause": "periodic 'black weeks'"
+  },
+  {
+   "name": "faster counting",
+   "type": "process speed",
+   "clause": "faster counting"
+  },
+  {
+   "name": "faster repricing",
+   "type": "pricing adjustment process",
+   "clause": "faster repricing"
+  },
+  {
+   "name": "make-goods",
+   "type": "pricing mechanism",
+   "clause": "make-goods"
+  },
+  {
+   "name": "scatter pricing",
+   "type": "pricing mechanism",
+   "clause": "scatter pricing"
+  },
+  {
+   "name": "in-season audience guarantees",
+   "type": "guarantee type",
+   "clause": "in-season audience guarantees"
+  },
+  {
+   "name": "administrable status",
+   "type": "state",
+   "clause": "administrable"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Nielsen",
+   "type": "WIRES_TO",
+   "to": "Nielsen computer centre",
+   "clause": "wires ... households directly to its computer centre"
+  },
+  {
+   "from": "Nielsen",
+   "type": "HAS_MEASUREMENT",
+   "to": "metered household count",
+   "clause": "wires ... households"
+  },
+  {
+   "from": "Nielsen",
+   "type": "CUTS",
+   "to": "national ratings turnaround time",
+   "clause": "cutting national ratings turnaround from ... weeks to ... hours"
+  },
+  {
+   "from": "Nielsen",
+   "type": "ENDS",
+   "to": "periodic black weeks",
+   "clause": "ending the periodic 'black weeks' when no national ratings existed"
+  },
+  {
+   "from": "faster counting",
+   "type": "ENABLED",
+   "to": "faster repricing",
+   "clause": "faster counting made faster repricing possible"
+  },
+  {
+   "from": "make-goods",
+   "type": "BECAME_ADMINISTRABLE",
+   "to": "administrable status",
+   "clause": "make-goods ... became administrable"
+  },
+  {
+   "from": "scatter pricing",
+   "type": "BECOME_ADMINISTRABLE",
+   "to": "administrable status",
+   "clause": "scatter pricing ... became administrable"
+  },
+  {
+   "from": "in-season audience guarantees",
+   "type": "BECAME_ADMINISTRABLE",
+   "to": "administrable status",
+   "clause": "in-season audience guarantees ... became administrable"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Nielsen|company|Nielsen\nNODE|Nielsen computer centre|facility|its computer centre\nNODE|metered household count|count measurement|... metered households\nNODE|national ratings turnaround time|duration measurement|national ratings turnaround\nNODE|periodic black weeks|phenomenon|periodic 'black weeks'\nNODE|faster counting|process speed|faster counting\nNODE|faster repricing|pricing adjustment process|faster repricing\nNODE|make-goods|pricing mechanism|make-goods\nNODE|scatter pricing|pricing mechanism|scatter pricing\nNODE|in-season audience guarantees|guarantee type|in-season audience guarantees\nNODE|administrable status|state|administrable\nEDGE|Nielsen|WIRES_TO|Nielsen computer centre|wires ... households directly to its computer centre\nEDGE|Nielsen|HAS_MEASUREMENT|metered household count|wires ... households\nEDGE|Nielsen|CUTS|national ratings turnaround time|cutting national ratings turnaround from ... weeks to ... hours\nEDGE|Nielsen|ENDS|periodic black weeks|ending the periodic 'black weeks' when no national ratings existed\nEDGE|faster counting|ENABLED|faster repricing|faster counting made faster repricing possible\nEDGE|make-goods|BECAME_ADMINISTRABLE|administrable status|make-goods ... became administrable\nEDGE|scatter pricing|BECOME_ADMINISTRABLE|administrable status|scatter pricing ... became administrable\nEDGE|in-season audience guarantees|BECAME_ADMINISTRABLE|administrable status|in-season audience guarantees ... became administrable"
+}

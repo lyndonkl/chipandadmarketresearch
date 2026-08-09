@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|cbb9aafadee66259",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "US newspapers total count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total US newspaper count abstracted from year/source",
+   "child_uids": [
+    "n|e1-creators-002|total us newspapers count|count measurement"
+   ]
+  },
+  {
+   "name": "American listed newspapers count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: count of American newspapers that were listed",
+   "child_uids": [
+    "n|e1-measurement-001|count of american newspapers listed|count measurement"
+   ]
+  },
+  {
+   "name": "US daily newspaper groups count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: number of groups owning US daily newspapers",
+   "child_uids": [
+    "n|e3-sellers-004|daily newspaper groups count|count measurement"
+   ]
+  },
+  {
+   "name": "US daily newspapers group ownership share",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: percent of US dailies owned by groups",
+   "child_uids": [
+    "n|e3-sellers-004|group ownership share of us daily newspapers|media-share measurement"
+   ]
+  },
+  {
+   "name": "US daily newspapers total count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total number of US daily newspapers published",
+   "child_uids": [
+    "n|e3-sellers-004|daily newspapers count|count measurement"
+   ]
+  },
+  {
+   "name": "US newspaper groups count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: overall count of newspaper ownership groups (1975)",
+   "child_uids": [
+    "n|tu:era:3:field:SELLERS|newspaper groups count 1975|count measurement"
+   ]
+  }
+ ]
+}

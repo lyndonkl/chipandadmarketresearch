@@ -1,0 +1,89 @@
+{
+ "group_id": "L1|72e84eaf7483c20b",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Network reach",
+   "type": "reach concept",
+   "grain": "Entity",
+   "reason": "singleton: distinct network reach concept",
+   "child_uids": [
+    "n|e5-targeting-002|network reach|reach concept"
+   ]
+  },
+  {
+   "name": "Data centre",
+   "type": "infrastructure component",
+   "grain": "Entity",
+   "reason": "singleton: specific data centre infrastructure component",
+   "child_uids": [
+    "n|e6-unit_econ-002|data centre|infrastructure component"
+   ]
+  },
+  {
+   "name": "Bandwidth",
+   "type": "network resource",
+   "grain": "Entity",
+   "reason": "singleton: distinct bandwidth resource",
+   "child_uids": [
+    "n|e6-unit_econ-002|bandwidth|network resource"
+   ]
+  },
+  {
+   "name": "Microsoft-supplied traffic",
+   "type": "traffic source",
+   "grain": "Entity",
+   "reason": "singleton: traffic source supplied by Microsoft",
+   "child_uids": [
+    "n|mech-ovt-002|microsoft-supplied traffic|traffic source"
+   ]
+  },
+  {
+   "name": "CompuServe",
+   "type": "online service",
+   "grain": "Entity",
+   "reason": "singleton: online service CompuServe",
+   "child_uids": [
+    "n|mech-ovt-003|compuserve|online service"
+   ]
+  },
+  {
+   "name": "Earthlink",
+   "type": "internet service provider",
+   "grain": "Entity",
+   "reason": "singleton: ISP Earthlink",
+   "child_uids": [
+    "n|mech-ovt-003|earthlink|internet service provider"
+   ]
+  },
+  {
+   "name": "Red and Blue networks combined",
+   "type": "network group",
+   "grain": "Entity",
+   "reason": "combined Red and Blue networks; business unity same underlying entity",
+   "child_uids": [
+    "n|tu:era:2:field:PRICING|red and blue networks combined|network group",
+    "n|tu:era:2:field:PRICING|two networks business unity|concept"
+   ]
+  },
+  {
+   "name": "Network-owned status",
+   "type": "ownership attribute",
+   "grain": "Entity",
+   "reason": "singleton: network-owned status attribute",
+   "child_uids": [
+    "n|tu:era:3:event:4|network-owned status|ownership attribute"
+   ]
+  },
+  {
+   "name": "Work and school access",
+   "type": "internet context",
+   "grain": "Entity",
+   "reason": "singleton: work and school access context",
+   "child_uids": [
+    "n|tu:era:5:field:MEASUREMENT|work and school access|internet context"
+   ]
+  }
+ ]
+}

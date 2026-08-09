@@ -1,0 +1,124 @@
+{
+ "group_id": "L1|ab3de52d59d1d805",
+ "source": "kmeans",
+ "n_in": 21,
+ "parents": [
+  {
+   "name": "Newspaper space spend by national advertisers",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years and sources; breakdown national advertisers",
+   "child_uids": [
+    "n|e1-buyers-005|national advertisers newspaper space spend|spend measurement",
+    "n|e1-buyers-006|national advertisers' newspaper space spend|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Newspaper space spend by local advertisers",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years and sources; breakdown local advertisers",
+   "child_uids": [
+    "n|e1-buyers-005|local advertisers newspaper space spend|spend measurement",
+    "n|e1-buyers-006|local advertisers' newspaper space spend|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Print advertising spend on newspapers and magazines",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: combined print ad spend for newspapers\u202f+\u202fmagazines",
+   "child_uids": [
+    "n|e3-buyers-004|print advertising spend on newspapers and magazines|spend measurement"
+   ]
+  },
+  {
+   "name": "Newspaper national advertising amount",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total national advertising amount for newspapers",
+   "child_uids": [
+    "n|e3-medium-008|newspaper national advertising amount|spend measurement"
+   ]
+  },
+  {
+   "name": "Newspaper total advertising spend",
+   "type": "ad spend measurement",
+   "grain": "Measurement",
+   "reason": "overall newspaper ad spend; multiple years and sources abstracted",
+   "child_uids": [
+    "n|e4-medium-001|newspapers ad spend|ad spend measurement",
+    "n|e4-sellers-006|newspapers advertising spend amount|advertising spend measurement",
+    "n|e5-medium-001|newspaper advertising expenditure|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Magazine advertising sales",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: magazine\u2011only advertising revenue measure",
+   "child_uids": [
+    "n|e4-sellers-004|magazine advertising sales|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Newspaper share of total ad spend",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "percentage of total measured ad spend accounted for by newspapers",
+   "child_uids": [
+    "n|e4-sellers-006|newspapers share of measured ad spend|media-share measurement",
+    "n|tu:era:3:field:MEDIUM|newspaper advertising share of total ad spend|share measurement"
+   ]
+  },
+  {
+   "name": "Newspaper classified advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "classified ads spend in newspapers; years and sources abstracted",
+   "child_uids": [
+    "n|e5-buyers-012|newspaper classified advertising spend|advertising spend measurement",
+    "n|e5-scale-012|newspaper classified spend measurement|revenue measurement",
+    "n|tu:era:4:boundary|newspaper classified advertising expenditure|advertising spend measurement",
+    "n|tu:era:6:field:MEDIUM|newspaper classified spend|spend measurement"
+   ]
+  },
+  {
+   "name": "Non\u2011newspaper print classified advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "classified ads spend in non\u2011newspaper print media",
+   "child_uids": [
+    "n|e5-buyers-012|non-newspaper print classified advertising spend|advertising spend measurement",
+    "n|e5-scale-012|non-newspaper print classified spend measurement|revenue measurement"
+   ]
+  },
+  {
+   "name": "Newspaper retail advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: retail advertising component of newspaper ad spend",
+   "child_uids": [
+    "n|e6-buyers-006|newspaper retail advertising spend|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Print\u2011only newspaper advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: newspaper ad spend limited to print format",
+   "child_uids": [
+    "n|e6-medium-003|print-only newspaper advertising spend|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Newspaper expenditure",
+   "type": "media-spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic newspaper expenditure measure (non\u2011ad specific)",
+   "child_uids": [
+    "n|e5-medium-002|newspaper expenditure|media-spend measurement"
+   ]
+  }
+ ]
+}

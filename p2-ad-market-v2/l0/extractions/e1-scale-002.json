@@ -1,0 +1,34 @@
+{
+ "id": "e1-scale-002",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1880,
+ "unit": "USD millions (current)",
+ "elapsed_s": 40.0,
+ "error": null,
+ "n_nodes": 2,
+ "n_edges": 1,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "total US advertising volume",
+   "type": "advertising spend measurement",
+   "clause": "Total US advertising volume in 1880"
+  },
+  {
+   "name": "US dollars",
+   "type": "currency",
+   "clause": "USD millions (current)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "total US advertising volume",
+   "type": "MEASURED_IN",
+   "to": "US dollars",
+   "clause": "is estimated at ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|total US advertising volume|advertising spend measurement|Total US advertising volume in 1880\nNODE|US dollars|currency|USD millions (current)\nEDGE|total US advertising volume|MEASURED_IN|US dollars|is estimated at ..."
+}

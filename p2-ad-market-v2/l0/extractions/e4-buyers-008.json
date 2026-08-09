@@ -1,0 +1,111 @@
+{
+ "id": "e4-buyers-008",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "percent of newspaper ad revenue",
+ "elapsed_s": 74.2,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Local buyers",
+   "type": "actor class",
+   "clause": "Local buyers supplied ..."
+  },
+  {
+   "name": "US newspaper advertising revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "US newspaper advertising revenue"
+  },
+  {
+   "name": "Yellow Pages revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "Yellow Pages revenue"
+  },
+  {
+   "name": "all measured US ad spend",
+   "type": "advertising spend aggregate",
+   "clause": "all measured US ad spend"
+  },
+  {
+   "name": "local buyers share of US newspaper advertising revenue",
+   "type": "media-share measurement",
+   "clause": "percent of US newspaper advertising revenue"
+  },
+  {
+   "name": "local buyers share of Yellow Pages revenue",
+   "type": "media-share measurement",
+   "clause": "percent of Yellow Pages revenue"
+  },
+  {
+   "name": "local buyers share of all measured US ad spend",
+   "type": "media-share measurement",
+   "clause": "percent of all measured US ad spend"
+  },
+  {
+   "name": "digital media",
+   "type": "advertising medium",
+   "clause": "media digital would later take"
+  },
+  {
+   "name": "local money",
+   "type": "advertising spend",
+   "clause": "local money was concentrated"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Local buyers",
+   "type": "HAS_SHARE",
+   "to": "local buyers share of US newspaper advertising revenue",
+   "clause": "supplied ... percent of US newspaper advertising revenue"
+  },
+  {
+   "from": "local buyers share of US newspaper advertising revenue",
+   "type": "SHARE_OF",
+   "to": "US newspaper advertising revenue",
+   "clause": "... percent of US newspaper advertising revenue"
+  },
+  {
+   "from": "Local buyers",
+   "type": "HAS_SHARE",
+   "to": "local buyers share of Yellow Pages revenue",
+   "clause": "supplied ... percent of Yellow Pages revenue"
+  },
+  {
+   "from": "local buyers share of Yellow Pages revenue",
+   "type": "SHARE_OF",
+   "to": "Yellow Pages revenue",
+   "clause": "... percent of Yellow Pages revenue"
+  },
+  {
+   "from": "Local buyers",
+   "type": "HAS_SHARE",
+   "to": "local buyers share of all measured US ad spend",
+   "clause": "against ... percent of all measured US ad spend"
+  },
+  {
+   "from": "local buyers share of all measured US ad spend",
+   "type": "SHARE_OF",
+   "to": "all measured US ad spend",
+   "clause": "... percent of all measured US ad spend"
+  },
+  {
+   "from": "local buyers share of US newspaper advertising revenue",
+   "type": "AGAINST",
+   "to": "local buyers share of all measured US ad spend",
+   "clause": "against ..."
+  },
+  {
+   "from": "local money",
+   "type": "CONCENTRATED_IN",
+   "to": "digital media",
+   "clause": "local money was concentrated in exactly the media digital would later take"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Local buyers|actor class|Local buyers supplied ...\nNODE|US newspaper advertising revenue|advertising revenue aggregate|US newspaper advertising revenue\nNODE|Yellow Pages revenue|advertising revenue aggregate|Yellow Pages revenue\nNODE|all measured US ad spend|advertising spend aggregate|all measured US ad spend\nNODE|local buyers share of US newspaper advertising revenue|media-share measurement|percent of US newspaper advertising revenue\nNODE|local buyers share of Yellow Pages revenue|media-share measurement|percent of Yellow Pages revenue\nNODE|local buyers share of all measured US ad spend|media-share measurement|percent of all measured US ad spend\nNODE|digital media|advertising medium|media digital would later take\nNODE|local money|advertising spend|local money was concentrated\nEDGE|Local buyers|HAS_SHARE|local buyers share of US newspaper advertising revenue|supplied ... percent of US newspaper advertising revenue\nEDGE|local buyers share of US newspaper advertising revenue|SHARE_OF|US newspaper advertising revenue|... percent of US newspaper advertising revenue\nEDGE|Local buyers|HAS_SHARE|local buyers share of Yellow Pages revenue|supplied ... percent of Yellow Pages revenue\nEDGE|local buyers share of Yellow Pages revenue|SHARE_OF|Yellow Pages revenue|... percent of Yellow Pages revenue\nEDGE|Local buyers|HAS_SHARE|local buyers share of all measured US ad spend|against ... percent of all measured US ad spend\nEDGE|local buyers share of all measured US ad spend|SHARE_OF|all measured US ad spend|... percent of all measured US ad spend\nEDGE|local buyers share of US newspaper advertising revenue|AGAINST|local buyers share of all measured US ad spend|against ...\nEDGE|local money|CONCENTRATED_IN|digital media|local money was concentrated in exactly the media digital would later take"
+}

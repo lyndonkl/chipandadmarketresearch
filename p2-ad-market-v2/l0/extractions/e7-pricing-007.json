@@ -1,0 +1,94 @@
+{
+ "id": "e7-pricing-007",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent year-on-year change in Google Search & other cost-per-click, 2025",
+ "elapsed_s": 58.8,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "search engine company",
+   "clause": "Google"
+  },
+  {
+   "name": "search cost-per-click",
+   "type": "advertising metric",
+   "clause": "search cost-per-click metric"
+  },
+  {
+   "name": "paid clicks",
+   "type": "click count metric",
+   "clause": "paid clicks metric"
+  },
+  {
+   "name": "mobile mix",
+   "type": "device composition factor",
+   "clause": "mobile mix factor"
+  },
+  {
+   "name": "average click price",
+   "type": "average CPC metric",
+   "clause": "average click price metric"
+  },
+  {
+   "name": "price decline pattern of 2010s",
+   "type": "historical pricing trend",
+   "clause": "long 2010s pattern of price decline"
+  },
+  {
+   "name": "search CPC YoY change measurement",
+   "type": "year-on-year change measurement",
+   "clause": "percent year-on-year change in search cost-per-click"
+  },
+  {
+   "name": "paid clicks YoY change measurement",
+   "type": "year-on-year change measurement",
+   "clause": "percent year-on-year change in paid clicks"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "HAS_METRIC",
+   "to": "search cost-per-click",
+   "clause": "Google's search cost-per-click rose ..."
+  },
+  {
+   "from": "Google",
+   "type": "HAS_METRIC",
+   "to": "paid clicks",
+   "clause": "Google's paid clicks rose ..."
+  },
+  {
+   "from": "search cost-per-click",
+   "type": "MEASURED_BY",
+   "to": "search CPC YoY change measurement",
+   "clause": "search cost-per-click rose ..."
+  },
+  {
+   "from": "paid clicks",
+   "type": "MEASURED_BY",
+   "to": "paid clicks YoY change measurement",
+   "clause": "paid clicks rose ..."
+  },
+  {
+   "from": "search CPC YoY change measurement",
+   "type": "REVERSES",
+   "to": "price decline pattern of 2010s",
+   "clause": "reversing the long 2010s pattern"
+  },
+  {
+   "from": "mobile mix",
+   "type": "PUSHED_DOWN",
+   "to": "average click price",
+   "clause": "mobile mix pushed average click prices down"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|search engine company|Google\nNODE|search cost-per-click|advertising metric|search cost-per-click metric\nNODE|paid clicks|click count metric|paid clicks metric\nNODE|mobile mix|device composition factor|mobile mix factor\nNODE|average click price|average CPC metric|average click price metric\nNODE|price decline pattern of 2010s|historical pricing trend|long 2010s pattern of price decline\nNODE|search CPC YoY change measurement|year-on-year change measurement|percent year-on-year change in search cost-per-click\nNODE|paid clicks YoY change measurement|year-on-year change measurement|percent year-on-year change in paid clicks\nEDGE|Google|HAS_METRIC|search cost-per-click|Google's search cost-per-click rose ...\nEDGE|Google|HAS_METRIC|paid clicks|Google's paid clicks rose ...\nEDGE|search cost-per-click|MEASURED_BY|search CPC YoY change measurement|search cost-per-click rose ...\nEDGE|paid clicks|MEASURED_BY|paid clicks YoY change measurement|paid clicks rose ...\nEDGE|search CPC YoY change measurement|REVERSES|price decline pattern of 2010s|reversing the long 2010s pattern\nEDGE|mobile mix|PUSHED_DOWN|average click price|mobile mix pushed average click prices down"
+}

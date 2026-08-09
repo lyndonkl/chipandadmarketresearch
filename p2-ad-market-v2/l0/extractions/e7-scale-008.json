@@ -1,0 +1,94 @@
+{
+ "id": "e7-scale-008",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
+ "elapsed_s": 73.8,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "classified and directory advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "Classified and directory money counted as advertising"
+  },
+  {
+   "name": "US total advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "the ... US total"
+  },
+  {
+   "name": "MAGNA media-owner rail",
+   "type": "data source",
+   "clause": "MAGNA media-owner rail"
+  },
+  {
+   "name": "IAB",
+   "type": "industry association",
+   "clause": "IAB"
+  },
+  {
+   "name": "IAB Other bucket",
+   "type": "data category",
+   "clause": "IAB's 'Other' bucket"
+  },
+  {
+   "name": "lead generation advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "Lead generation, roughly ... of IAB's 'Other' bucket"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail excluded"
+  },
+  {
+   "name": "direct response",
+   "type": "advertising strategy",
+   "clause": "lead generation sits with direct response"
+  }
+ ],
+ "edges": [
+  {
+   "from": "classified and directory advertising spend",
+   "type": "SHARE_OF",
+   "to": "US total advertising spend",
+   "clause": "... of the US total"
+  },
+  {
+   "from": "classified and directory advertising spend",
+   "type": "DERIVED_FROM",
+   "to": "MAGNA media-owner rail",
+   "clause": "source MAGNA media-owner rail"
+  },
+  {
+   "from": "US total advertising spend",
+   "type": "EXCLUDES",
+   "to": "direct mail",
+   "clause": "direct mail excluded"
+  },
+  {
+   "from": "lead generation advertising spend",
+   "type": "BELONGS_TO",
+   "to": "IAB Other bucket",
+   "clause": "of IAB's 'Other' bucket"
+  },
+  {
+   "from": "lead generation advertising spend",
+   "type": "NOT_INCLUDED_IN",
+   "to": "classified and directory advertising spend",
+   "clause": "rather than here"
+  },
+  {
+   "from": "lead generation advertising spend",
+   "type": "SITS_WITH",
+   "to": "direct response",
+   "clause": "mostly sits with direct response"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|classified and directory advertising spend|advertising spend measurement|Classified and directory money counted as advertising\nNODE|US total advertising spend|advertising spend measurement|the ... US total\nNODE|MAGNA media-owner rail|data source|MAGNA media-owner rail\nNODE|IAB|industry association|IAB\nNODE|IAB Other bucket|data category|IAB's 'Other' bucket\nNODE|lead generation advertising spend|advertising spend measurement|Lead generation, roughly ... of IAB's 'Other' bucket\nNODE|direct mail|advertising medium|direct mail excluded\nNODE|direct response|advertising strategy|lead generation sits with direct response\nEDGE|classified and directory advertising spend|SHARE_OF|US total advertising spend|... of the US total\nEDGE|classified and directory advertising spend|DERIVED_FROM|MAGNA media-owner rail|source MAGNA media-owner rail\nEDGE|US total advertising spend|EXCLUDES|direct mail|direct mail excluded\nEDGE|lead generation advertising spend|BELONGS_TO|IAB Other bucket|of IAB's 'Other' bucket\nEDGE|lead generation advertising spend|NOT_INCLUDED_IN|classified and directory advertising spend|rather than here\nEDGE|lead generation advertising spend|SITS_WITH|direct response|mostly sits with direct response"
+}

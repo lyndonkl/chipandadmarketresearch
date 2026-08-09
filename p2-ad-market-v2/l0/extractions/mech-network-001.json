@@ -1,0 +1,50 @@
+{
+ "id": "mech-network-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2004,
+ "unit": "% of Google total revenue from Google Network sites, peak year 2004",
+ "elapsed_s": 40.6,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's total revenue"
+  },
+  {
+   "name": "Google Network sites",
+   "type": "web property group",
+   "clause": "Google Network sites produced ... of Google's total revenue"
+  },
+  {
+   "name": "Google total revenue",
+   "type": "revenue aggregate",
+   "clause": "Google's total revenue"
+  },
+  {
+   "name": "Google Network sites share of Google total revenue",
+   "type": "share-of-revenue measurement",
+   "clause": "produced ... % of Google's total revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google Network sites share of Google total revenue",
+   "type": "MEASURES",
+   "to": "Google Network sites",
+   "clause": "produced ... % of Google's total revenue"
+  },
+  {
+   "from": "Google Network sites share of Google total revenue",
+   "type": "SHARE_OF",
+   "to": "Google total revenue",
+   "clause": "... % of Google's total revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google's total revenue\nNODE|Google Network sites|web property group|Google Network sites produced ... of Google's total revenue\nNODE|Google total revenue|revenue aggregate|Google's total revenue\nNODE|Google Network sites share of Google total revenue|share-of-revenue measurement|produced ... % of Google's total revenue\nEDGE|Google Network sites share of Google total revenue|MEASURES|Google Network sites|produced ... % of Google's total revenue\nEDGE|Google Network sites share of Google total revenue|SHARE_OF|Google total revenue|... % of Google's total revenue"
+}

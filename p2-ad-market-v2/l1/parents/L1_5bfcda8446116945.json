@@ -1,0 +1,54 @@
+{
+ "group_id": "L1|5bfcda8446116945",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Annual advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total ad revenue per year, no further grouping",
+   "child_uids": [
+    "n|e1-pricing-003|annual advertising revenue|revenue measurement"
+   ]
+  },
+  {
+   "name": "Classified advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years; year abstracted to children",
+   "child_uids": [
+    "n|e3-buyers-005|classified advertising revenue 1950|revenue measurement",
+    "n|e3-buyers-005|classified advertising revenue 1975|revenue measurement"
+   ]
+  },
+  {
+   "name": "US newspaper classified advertising revenue peak amount",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: peak value of classified revenue for US newspapers",
+   "child_uids": [
+    "n|ds-money_type-001|us newspaper classified revenue peak amount|revenue measurement"
+   ]
+  },
+  {
+   "name": "US newspaper classified advertising revenue amount",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific year amount, separate from peak measure",
+   "child_uids": [
+    "n|ds-money_type-001|us newspaper classified revenue 2010 amount|revenue measurement"
+   ]
+  },
+  {
+   "name": "Classified advertising share of total newspaper advertising revenue",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "share measure across early and late periods; period abstracted",
+   "child_uids": [
+    "n|e3-scale-010|classified advertising share early|media-share measurement",
+    "n|e3-scale-010|classified advertising share late|media-share measurement"
+   ]
+  }
+ ]
+}

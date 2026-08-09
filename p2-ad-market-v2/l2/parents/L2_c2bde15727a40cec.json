@@ -1,0 +1,44 @@
+{
+ "group_id": "L2|c2bde15727a40cec",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "advertising spend category",
+   "type": "advertising spend category kind",
+   "grain": "Entity",
+   "reason": "national, total and amount nodes are same ad\u2011spend entity role",
+   "child_uids": [
+    "L1|26a0349f949229e0",
+    "L1|7e179ca2207e7bc7",
+    "L1|b68e95b7d9af31c2"
+   ]
+  },
+  {
+   "name": "advertising revenue aggregate",
+   "type": "revenue aggregate kind",
+   "grain": "Entity",
+   "reason": "singleton: revenue total, distinct from spend categories",
+   "child_uids": [
+    "L1|a508233b9f1c3779"
+   ]
+  },
+  {
+   "name": "advertising medium",
+   "type": "media dimension kind",
+   "grain": "Entity",
+   "reason": "singleton: defines newspaper as advertising medium",
+   "child_uids": [
+    "L1|eac909b401177b1a"
+   ]
+  },
+  {
+   "name": "promoted advertising spend",
+   "type": "promotion ad\u2011spend kind",
+   "grain": "Entity",
+   "reason": "singleton: promoted spend node, unique role",
+   "child_uids": [
+    "L1|4ce81d1e975f52c2"
+   ]
+  }
+ ]
+}

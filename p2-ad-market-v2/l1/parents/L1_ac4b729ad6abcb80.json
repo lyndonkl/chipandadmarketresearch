@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|ac4b729ad6abcb80",
+ "source": "name-block",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Agencies adopting Google AdWords",
+   "type": "entity",
+   "grain": "Entity",
+   "reason": "singleton: specific subset of agencies in 2000",
+   "child_uids": [
+    "n|e5-buyers-003|agencies|entity"
+   ]
+  },
+  {
+   "name": "Advertising agencies",
+   "type": "entity",
+   "grain": "Entity",
+   "reason": "singleton: distinct type of agency (advertising)",
+   "child_uids": [
+    "n|tu:era:1:event:3|agencies|advertising agencies"
+   ]
+  },
+  {
+   "name": "Agency constituency",
+   "type": "entity",
+   "grain": "Entity",
+   "reason": "singleton: collective funded by advertisers, agencies, publishers",
+   "child_uids": [
+    "n|tu:era:1:field:MEASUREMENT|agencies|agency constituency"
+   ]
+  },
+  {
+   "name": "Agency actor class",
+   "type": "entity",
+   "grain": "Entity",
+   "reason": "singleton: classification of actors that are agencies",
+   "child_uids": [
+    "n|tu:era:5:event:3|agencies|actor class"
+   ]
+  }
+ ]
+}

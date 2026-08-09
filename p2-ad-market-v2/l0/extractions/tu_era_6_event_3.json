@@ -1,0 +1,126 @@
+{
+ "id": "tu:era:6:event:3",
+ "kind": "prose:event",
+ "era": 6,
+ "about_year": 2004,
+ "unit": null,
+ "elapsed_s": 69.0,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google reverses US policy"
+  },
+  {
+   "name": "US advertising policy",
+   "type": "policy",
+   "clause": "US policy reversed by Google"
+  },
+  {
+   "name": "advertisers",
+   "type": "actor class",
+   "clause": "advertisers permitted to bid on trademarks"
+  },
+  {
+   "name": "third-party trademark keyword",
+   "type": "ad keyword",
+   "clause": "third parties' trademarks as keywords"
+  },
+  {
+   "name": "GEICO",
+   "type": "insurance company",
+   "clause": "GEICO sues"
+  },
+  {
+   "name": "court",
+   "type": "legal body",
+   "clause": "court rules that keyword sale does not infringe"
+  },
+  {
+   "name": "keyword sale",
+   "type": "ad transaction",
+   "clause": "keyword sale alone does not infringe"
+  },
+  {
+   "name": "ads with trademark in text",
+   "type": "advertisement",
+   "clause": "ads using the mark may infringe"
+  },
+  {
+   "name": "brand names",
+   "type": "brand asset",
+   "clause": "brand names converted into priced entry point"
+  },
+  {
+   "name": "priced entry point",
+   "type": "pricing mechanism",
+   "clause": "priced entry point for brand names"
+  },
+  {
+   "name": "policy change",
+   "type": "policy shift",
+   "clause": "the change converts brand names..."
+  },
+  {
+   "name": "brand owners",
+   "type": "actor class",
+   "clause": "brand owners forced to bid on themselves"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "REVERSES",
+   "to": "US advertising policy",
+   "clause": "Google reverses US policy"
+  },
+  {
+   "from": "Google",
+   "type": "PERMITS",
+   "to": "advertisers",
+   "clause": "Google permits advertisers"
+  },
+  {
+   "from": "advertisers",
+   "type": "BIDS_ON",
+   "to": "third-party trademark keyword",
+   "clause": "advertisers bid on third parties' trademarks as keywords"
+  },
+  {
+   "from": "GEICO",
+   "type": "SUES",
+   "to": "Google",
+   "clause": "GEICO sues"
+  },
+  {
+   "from": "court",
+   "type": "RULED_NOT_INFRINGE",
+   "to": "keyword sale",
+   "clause": "court rules that keyword sale alone does not infringe"
+  },
+  {
+   "from": "ads with trademark in text",
+   "type": "MAY_INFRINGE",
+   "to": "brand names",
+   "clause": "ads using the mark may infringe"
+  },
+  {
+   "from": "policy change",
+   "type": "CONVERTS",
+   "to": "brand names",
+   "clause": "the change converts brand names into a priced entry point"
+  },
+  {
+   "from": "policy change",
+   "type": "FORCES",
+   "to": "brand owners",
+   "clause": "the change forces brand owners to bid on themselves"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google reverses US policy\nNODE|US advertising policy|policy|US policy reversed by Google\nNODE|advertisers|actor class|advertisers permitted to bid on trademarks\nNODE|third-party trademark keyword|ad keyword|third parties' trademarks as keywords\nNODE|GEICO|insurance company|GEICO sues\nNODE|court|legal body|court rules that keyword sale does not infringe\nNODE|keyword sale|ad transaction|keyword sale alone does not infringe\nNODE|ads with trademark in text|advertisement|ads using the mark may infringe\nNODE|brand names|brand asset|brand names converted into priced entry point\nNODE|priced entry point|pricing mechanism|priced entry point for brand names\nNODE|policy change|policy shift|the change converts brand names...\nNODE|brand owners|actor class|brand owners forced to bid on themselves\nEDGE|Google|REVERSES|US advertising policy|Google reverses US policy\nEDGE|Google|PERMITS|advertisers|Google permits advertisers\nEDGE|advertisers|BIDS_ON|third-party trademark keyword|advertisers bid on third parties' trademarks as keywords\nEDGE|GEICO|SUES|Google|GEICO sues\nEDGE|court|RULED_NOT_INFRINGE|keyword sale|court rules that keyword sale alone does not infringe\nEDGE|ads with trademark in text|MAY_INFRINGE|brand names|ads using the mark may infringe\nEDGE|policy change|CONVERTS|brand names|the change converts brand names into a priced entry point\nEDGE|policy change|FORCES|brand owners|the change forces brand owners to bid on themselves"
+}

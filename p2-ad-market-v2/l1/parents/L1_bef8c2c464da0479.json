@@ -1,0 +1,28 @@
+{
+ "group_id": "L1|bef8c2c464da0479",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Money-type split",
+   "type": "money\u2011type classification",
+   "grain": "Entity",
+   "reason": "same classification across names/versions",
+   "child_uids": [
+    "n|tu:era:3:boundary|four-way money-type split categories|money\u2011type classification",
+    "n|tu:era:5:field:SCALE|by_money_type_alt|dataset variable",
+    "n|tu:era:5:field:SCALE|money-type split 2000|market segmentation"
+   ]
+  },
+  {
+   "name": "Era-native split",
+   "type": "buyer-pool taxonomy",
+   "grain": "Entity",
+   "reason": "same geography-based split across labels",
+   "child_uids": [
+    "n|tu:era:5:field:BUYERS|era-native split|buyer-pool taxonomy",
+    "n|tu:era:5:field:SCALE|era-native money-type split|segmentation rule"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "id": "e2-buyers-006",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "percent of US newspaper advertising revenue coming from classified, 1949",
+ "elapsed_s": 63.1,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "individuals and very small firms",
+   "type": "buyer segment",
+   "clause": "Individuals and very small firms buying want ads by the line"
+  },
+  {
+   "name": "US newspaper advertising revenue",
+   "type": "advertising revenue",
+   "clause": "US newspaper advertising revenue"
+  },
+  {
+   "name": "classified share of US newspaper advertising revenue",
+   "type": "share measurement",
+   "clause": "percent of US newspaper advertising revenue coming from classified"
+  },
+  {
+   "name": "Sponsorship era (1918-1949)",
+   "type": "advertising era",
+   "clause": "the era (1918-1949)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "individuals and very small firms",
+   "type": "SUPPLIED",
+   "to": "classified share of US newspaper advertising revenue",
+   "clause": "supplied ... of US newspaper advertising revenue"
+  },
+  {
+   "from": "classified share of US newspaper advertising revenue",
+   "type": "SHARE_OF",
+   "to": "US newspaper advertising revenue",
+   "clause": "... coming from classified"
+  },
+  {
+   "from": "individuals and very small firms",
+   "type": "ONLY_IN",
+   "to": "Sponsorship era (1918-1949)",
+   "clause": "the era's only self-serve, intent-driven buyer class"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|individuals and very small firms|buyer segment|Individuals and very small firms buying want ads by the line\nNODE|US newspaper advertising revenue|advertising revenue|US newspaper advertising revenue\nNODE|classified share of US newspaper advertising revenue|share measurement|percent of US newspaper advertising revenue coming from classified\nNODE|Sponsorship era (1918-1949)|advertising era|the era (1918-1949)\nEDGE|individuals and very small firms|SUPPLIED|classified share of US newspaper advertising revenue|supplied ... of US newspaper advertising revenue\nEDGE|classified share of US newspaper advertising revenue|SHARE_OF|US newspaper advertising revenue|... coming from classified\nEDGE|individuals and very small firms|ONLY_IN|Sponsorship era (1918-1949)|the era's only self-serve, intent-driven buyer class"
+}

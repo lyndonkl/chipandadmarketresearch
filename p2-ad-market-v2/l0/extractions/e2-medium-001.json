@@ -1,0 +1,78 @@
+{
+ "id": "e2-medium-001",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "percent of US ad spend taken by newspapers, 1949",
+ "elapsed_s": 44.5,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "newspapers",
+   "type": "advertising medium",
+   "clause": "Newspapers took ... percent of US advertising spend"
+  },
+  {
+   "name": "US advertising spend",
+   "type": "market aggregate",
+   "clause": "US advertising spend"
+  },
+  {
+   "name": "named medium",
+   "type": "advertising medium",
+   "clause": "every named medium"
+  },
+  {
+   "name": "1935-1949 medium-split window",
+   "type": "time window",
+   "clause": "within the 1935-1949 medium-split window"
+  },
+  {
+   "name": "estimate-grade early years",
+   "type": "time period",
+   "clause": "the estimate-grade early years"
+  },
+  {
+   "name": "newspaper share of US advertising spend",
+   "type": "media-share measurement",
+   "clause": "percent of US ad spend taken by newspapers"
+  }
+ ],
+ "edges": [
+  {
+   "from": "newspapers",
+   "type": "HAS_SHARE",
+   "to": "newspaper share of US advertising spend",
+   "clause": "took ... percent in 1949"
+  },
+  {
+   "from": "newspaper share of US advertising spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "percent of US ad spend taken by newspapers"
+  },
+  {
+   "from": "newspapers",
+   "type": "OUTRANKED_OVER",
+   "to": "named medium",
+   "clause": "outranked every named medium in every year of the era"
+  },
+  {
+   "from": "newspaper share of US advertising spend",
+   "type": "BOTTOMED_IN",
+   "to": "1935-1949 medium-split window",
+   "clause": "bottomed at ... percent in 1945 within the ... window"
+  },
+  {
+   "from": "newspaper share of US advertising spend",
+   "type": "RAN_LOWER_IN",
+   "to": "estimate-grade early years",
+   "clause": "ran lower still in the estimate-grade early years - ... percent in 1919 and ... percent in 1920"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|newspapers|advertising medium|Newspapers took ... percent of US advertising spend\nNODE|US advertising spend|market aggregate|US advertising spend\nNODE|named medium|advertising medium|every named medium\nNODE|1935-1949 medium-split window|time window|within the 1935-1949 medium-split window\nNODE|estimate-grade early years|time period|the estimate-grade early years\nNODE|newspaper share of US advertising spend|media-share measurement|percent of US ad spend taken by newspapers\nEDGE|newspapers|HAS_SHARE|newspaper share of US advertising spend|took ... percent in 1949\nEDGE|newspaper share of US advertising spend|SHARE_OF|US advertising spend|percent of US ad spend taken by newspapers\nEDGE|newspapers|OUTRANKED_OVER|named medium|outranked every named medium in every year of the era\nEDGE|newspaper share of US advertising spend|BOTTOMED_IN|1935-1949 medium-split window|bottomed at ... percent in 1945 within the ... window\nEDGE|newspaper share of US advertising spend|RAN_LOWER_IN|estimate-grade early years|ran lower still in the estimate-grade early years - ... percent in 1919 and ... percent in 1920"
+}

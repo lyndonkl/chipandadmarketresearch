@@ -1,0 +1,82 @@
+{
+ "group_id": "L1|955e4be78038af3e",
+ "source": "kmeans",
+ "n_in": 11,
+ "parents": [
+  {
+   "name": "Direct-response buyers total spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "same spend measure; year/source abstracted",
+   "child_uids": [
+    "n|e3-buyers-009|direct-response buyers spend amount|spend measurement",
+    "n|e4-buyers-007|direct-response buyer spend|spend measurement",
+    "n|tu:era:5:field:BUYERS|direct-response spend under unified rule|spend measurement"
+   ]
+  },
+  {
+   "name": "Out-of-home spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct OOH spend measure",
+   "child_uids": [
+    "n|ds-seam-001|out-of-home spend measurement|spend measurement"
+   ]
+  },
+  {
+   "name": "Online classified advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: online classified ad spend",
+   "child_uids": [
+    "n|e5-buyers-012|online classified advertising spend|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Online classified revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: online classified revenue measure",
+   "child_uids": [
+    "n|e5-scale-012|online classified spend measurement|revenue measurement"
+   ]
+  },
+  {
+   "name": "Classified buyers total advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "same spend across inclusive variants",
+   "child_uids": [
+    "n|e7-buyers-007|classified buyers advertising spend|spend measurement",
+    "n|e7-buyers-007|inclusive classified buyers advertising spend|spend measurement"
+   ]
+  },
+  {
+   "name": "Classified buyers spend outside published series",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct breakdown outside series",
+   "child_uids": [
+    "n|e7-buyers-007|classified buyers spend outside published advertising series|spend measurement"
+   ]
+  },
+  {
+   "name": "National direct-response buyers revenue spend",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: national DRB revenue spend",
+   "child_uids": [
+    "n|e7-buyers-008|national direct-response buyers spend|revenue measurement"
+   ]
+  },
+  {
+   "name": "Lead generation advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: lead gen ad spend",
+   "child_uids": [
+    "n|e7-scale-008|lead generation advertising spend|advertising spend measurement"
+   ]
+  }
+ ]
+}

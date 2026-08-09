@@ -1,0 +1,61 @@
+{
+ "group_id": "L2|7849ba4e9436dc75",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "magazine production cost",
+   "type": "cost concept kind",
+   "grain": "Entity",
+   "reason": "production cost and cost basis are same cost concept",
+   "child_uids": [
+    "L1|25a7fc225a62e337",
+    "L1|3ab43d7c14cc147f"
+   ]
+  },
+  {
+   "name": "magazine cover price",
+   "type": "price concept kind",
+   "grain": "Entity",
+   "reason": "singleton: issue price, distinct from production cost",
+   "child_uids": [
+    "L1|0b8e53daa83dac6d"
+   ]
+  },
+  {
+   "name": "rate card",
+   "type": "advertising pricing practice kind",
+   "grain": "Entity",
+   "reason": "singleton: rate-card defines ad rates for magazines",
+   "child_uids": [
+    "L1|832981c02f062a19"
+   ]
+  },
+  {
+   "name": "magazine format",
+   "type": "format type kind",
+   "grain": "Entity",
+   "reason": "singleton: ten\u2011cent monthlies describe a specific format",
+   "child_uids": [
+    "L1|3a737ab52680ddb0"
+   ]
+  },
+  {
+   "name": "magazine closure",
+   "type": "closure event kind",
+   "grain": "Entity",
+   "reason": "singleton: mass\u2011magazine closures are a distinct closure series",
+   "child_uids": [
+    "L1|2773dca0d9367ad7"
+   ]
+  },
+  {
+   "name": "below\u2011cost publishing model",
+   "type": "business model kind",
+   "grain": "Entity",
+   "reason": "singleton: selling below production cost is a unique business model",
+   "child_uids": [
+    "L1|53e418dda35a1b03"
+   ]
+  }
+ ]
+}

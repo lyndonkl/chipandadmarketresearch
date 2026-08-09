@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|21ebba45084a9d63",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Direct mail amount",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: amount measure of direct mail, not monetary spend",
+   "child_uids": [
+    "n|e1-buyers-008|direct mail amount|spend measurement"
+   ]
+  },
+  {
+   "name": "Direct mail advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "direct mail monetary spend/revenue grouped; year and source abstracted",
+   "child_uids": [
+    "n|e5-scale-016|direct mail spend amount|spend measurement",
+    "n|tu:era:5:field:MEDIUM|direct mail advertising revenue|spend measurement"
+   ]
+  },
+  {
+   "name": "Direct mail share difference",
+   "type": "share difference measurement",
+   "grain": "Measurement",
+   "reason": "share difference measure of direct mail market position",
+   "child_uids": [
+    "n|tu:era:4:field:MEASUREMENT|direct mail share difference|share difference measurement"
+   ]
+  },
+  {
+   "name": "Direct mail market share",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "market share percentage of direct mail advertising",
+   "child_uids": [
+    "n|tu:era:4:field:MEDIUM|direct mail share of market|percentage measurement"
+   ]
+  }
+ ]
+}

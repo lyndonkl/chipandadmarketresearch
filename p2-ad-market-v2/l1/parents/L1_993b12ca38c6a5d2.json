@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|993b12ca38c6a5d2",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Court",
+   "type": "legal entity",
+   "grain": "Entity",
+   "reason": "singleton: distinct legal institution entity",
+   "child_uids": [
+    "n|mech-default-001|the court|legal entity"
+   ]
+  },
+  {
+   "name": "Open court",
+   "type": "legal venue",
+   "grain": "Entity",
+   "reason": "singleton: specific courtroom setting entity",
+   "child_uids": [
+    "n|mech-default-003|open court|legal venue"
+   ]
+  },
+  {
+   "name": "Court case",
+   "type": "legal proceeding",
+   "grain": "Entity",
+   "reason": "singleton: individual legal proceeding entity",
+   "child_uids": [
+    "n|tu:era:7:event:8|court case|legal proceeding"
+   ]
+  }
+ ]
+}

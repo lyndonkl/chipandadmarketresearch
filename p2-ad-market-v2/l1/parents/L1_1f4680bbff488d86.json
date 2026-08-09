@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|1f4680bbff488d86",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Businesses that adopted Google AdWords",
+   "type": "entity",
+   "grain": "Entity",
+   "reason": "singleton: early snapshot of adopters",
+   "child_uids": [
+    "n|e5-buyers-003|businesses|entity"
+   ]
+  },
+  {
+   "name": "Businesses and agencies worldwide that adopted Google AdWords",
+   "type": "advertiser group",
+   "grain": "Entity",
+   "reason": "singleton: global adopters including agencies",
+   "child_uids": [
+    "n|e5-events-008|businesses and agencies worldwide|advertiser group"
+   ]
+  },
+  {
+   "name": "Google global advertiser base",
+   "type": "advertiser group",
+   "grain": "Entity",
+   "reason": "same concept across years; abstracts time dimension",
+   "child_uids": [
+    "n|e6-buyers-002|google adwords advertiser base|advertiser base",
+    "n|e7-buyers-003|google full advertiser base|advertiser group"
+   ]
+  },
+  {
+   "name": "Google advertiser-facing sales and support footprint",
+   "type": "market presence metric",
+   "grain": "Entity",
+   "reason": "singleton: Google\u2019s own sales/support footprint",
+   "child_uids": [
+    "n|e6-creators-004|advertiser-facing sales and support footprint|market presence metric"
+   ]
+  },
+  {
+   "name": "Google field sales offices",
+   "type": "organizational unit",
+   "grain": "Entity",
+   "reason": "singleton: field sales and support office network",
+   "child_uids": [
+    "n|tu:era:6:field:CREATORS|google field sales offices|organizational unit"
+   ]
+  },
+  {
+   "name": "US Google advertisers",
+   "type": "advertiser group",
+   "grain": "Entity",
+   "reason": "singleton: US subset of Google advertiser base",
+   "child_uids": [
+    "n|tu:era:7:field:BUYERS|us google advertisers|advertiser group"
+   ]
+  }
+ ]
+}

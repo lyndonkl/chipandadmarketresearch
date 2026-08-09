@@ -1,0 +1,132 @@
+{
+ "id": "e6-events-005",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2004,
+ "unit": "USD millions, non-cash charge for the Overture/Yahoo settlement",
+ "elapsed_s": 71.7,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "organization",
+   "clause": "Google"
+  },
+  {
+   "name": "Yahoo",
+   "type": "organization",
+   "clause": "Yahoo"
+  },
+  {
+   "name": "Class A shares",
+   "type": "share class",
+   "clause": "Class A shares"
+  },
+  {
+   "name": "Overture patent suit",
+   "type": "legal dispute",
+   "clause": "Overture patent suit"
+  },
+  {
+   "name": "related warrant dispute",
+   "type": "legal dispute",
+   "clause": "related warrant dispute"
+  },
+  {
+   "name": "non-cash charge amount",
+   "type": "financial measurement",
+   "clause": "non-recurring non-cash charge"
+  },
+  {
+   "name": "share valuation amount",
+   "type": "financial measurement",
+   "clause": "share valuation amount"
+  },
+  {
+   "name": "Google IPO",
+   "type": "public offering event",
+   "clause": "Google IPO"
+  },
+  {
+   "name": "IPO total share count",
+   "type": "share-count measurement",
+   "clause": "total shares registered in the IPO"
+  },
+  {
+   "name": "IPO price per share",
+   "type": "price measurement",
+   "clause": "IPO price per share"
+  },
+  {
+   "name": "base offering amount",
+   "type": "monetary measurement",
+   "clause": "base offering amount"
+  },
+  {
+   "name": "Google share sale volume",
+   "type": "share-count measurement",
+   "clause": "shares sold by Google in the IPO"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "ISSUED",
+   "to": "Class A shares",
+   "clause": "issued ... Class A shares to Yahoo"
+  },
+  {
+   "from": "Class A shares",
+   "type": "SETTLED",
+   "to": "Overture patent suit",
+   "clause": "settled the Overture patent suit"
+  },
+  {
+   "from": "Class A shares",
+   "type": "SETTLED",
+   "to": "related warrant dispute",
+   "clause": "settled the related warrant dispute"
+  },
+  {
+   "from": "Google",
+   "type": "RECORDED",
+   "to": "non-cash charge amount",
+   "clause": "recorded a non-cash charge in Q3 ..."
+  },
+  {
+   "from": "Class A shares",
+   "type": "VALUED_AT",
+   "to": "share valuation amount",
+   "clause": "valued at ... at IPO price"
+  },
+  {
+   "from": "Google IPO",
+   "type": "REGISTERED_SHARES",
+   "to": "IPO total share count",
+   "clause": "registered ... shares at ... per share"
+  },
+  {
+   "from": "Google IPO",
+   "type": "SET_PRICE_PER_SHARE",
+   "to": "IPO price per share",
+   "clause": "set IPO price at ..."
+  },
+  {
+   "from": "Google IPO",
+   "type": "BASE_OFFERING_AMOUNT",
+   "to": "base offering amount",
+   "clause": "base offering of ..."
+  },
+  {
+   "from": "Google",
+   "type": "SOLD",
+   "to": "Google share sale volume",
+   "clause": "sold ... shares"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|organization|Google\nNODE|Yahoo|organization|Yahoo\nNODE|Class A shares|share class|Class A shares\nNODE|Overture patent suit|legal dispute|Overture patent suit\nNODE|related warrant dispute|legal dispute|related warrant dispute\nNODE|non-cash charge amount|financial measurement|non-recurring non-cash charge\nNODE|share valuation amount|financial measurement|share valuation amount\nNODE|Google IPO|public offering event|Google IPO\nNODE|IPO total share count|share-count measurement|total shares registered in the IPO\nNODE|IPO price per share|price measurement|IPO price per share\nNODE|base offering amount|monetary measurement|base offering amount\nNODE|Google share sale volume|share-count measurement|shares sold by Google in the IPO\nEDGE|Google|ISSUED|Class A shares|issued ... Class A shares to Yahoo\nEDGE|Class A shares|SETTLED|Overture patent suit|settled the Overture patent suit\nEDGE|Class A shares|SETTLED|related warrant dispute|settled the related warrant dispute\nEDGE|Google|RECORDED|non-cash charge amount|recorded a non-cash charge in Q3 ...\nEDGE|Class A shares|VALUED_AT|share valuation amount|valued at ... at IPO price\nEDGE|Google IPO|REGISTERED_SHARES|IPO total share count|registered ... shares at ... per share\nEDGE|Google IPO|SET_PRICE_PER_SHARE|IPO price per share|set IPO price at ...\nEDGE|Google IPO|BASE_OFFERING_AMOUNT|base offering amount|base offering of ...\nEDGE|Google|SOLD|Google share sale volume|sold ... shares"
+}

@@ -1,0 +1,78 @@
+{
+ "id": "e7-events-001",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2008,
+ "unit": "USD billions, acquisition price",
+ "elapsed_s": 52.2,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "DoubleClick",
+   "type": "company",
+   "clause": "DoubleClick"
+  },
+  {
+   "name": "Google acquisition of DoubleClick",
+   "type": "acquisition event",
+   "clause": "Google completed its acquisition of DoubleClick"
+  },
+  {
+   "name": "acquisition price measurement",
+   "type": "acquisition-price measurement",
+   "clause": "... acquisition price"
+  },
+  {
+   "name": "European Commission",
+   "type": "regulator",
+   "clause": "European Commission"
+  },
+  {
+   "name": "European Commission investigation",
+   "type": "regulatory investigation",
+   "clause": "its investigation"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "COMPLETED",
+   "to": "Google acquisition of DoubleClick",
+   "clause": "completed its acquisition of DoubleClick"
+  },
+  {
+   "from": "Google acquisition of DoubleClick",
+   "type": "ACQUIRED",
+   "to": "DoubleClick",
+   "clause": "acquisition of DoubleClick"
+  },
+  {
+   "from": "acquisition price measurement",
+   "type": "MEASURES",
+   "to": "Google acquisition of DoubleClick",
+   "clause": "... acquisition price"
+  },
+  {
+   "from": "European Commission",
+   "type": "CLOSED",
+   "to": "European Commission investigation",
+   "clause": "closed its investigation"
+  },
+  {
+   "from": "Google acquisition of DoubleClick",
+   "type": "AFTER",
+   "to": "European Commission investigation",
+   "clause": "hours after ... investigation"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|DoubleClick|company|DoubleClick\nNODE|Google acquisition of DoubleClick|acquisition event|Google completed its acquisition of DoubleClick\nNODE|acquisition price measurement|acquisition-price measurement|... acquisition price\nNODE|European Commission|regulator|European Commission\nNODE|European Commission investigation|regulatory investigation|its investigation\nEDGE|Google|COMPLETED|Google acquisition of DoubleClick|completed its acquisition of DoubleClick\nEDGE|Google acquisition of DoubleClick|ACQUIRED|DoubleClick|acquisition of DoubleClick\nEDGE|acquisition price measurement|MEASURES|Google acquisition of DoubleClick|... acquisition price\nEDGE|European Commission|CLOSED|European Commission investigation|closed its investigation\nEDGE|Google acquisition of DoubleClick|AFTER|European Commission investigation|hours after ... investigation"
+}

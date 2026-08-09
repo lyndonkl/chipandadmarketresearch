@@ -1,0 +1,85 @@
+{
+ "id": "e7-buyers-002",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2024,
+ "unit": "USD billions, full 2023-24 US political cycle",
+ "elapsed_s": 52.9,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US political advertising",
+   "type": "advertising market segment",
+   "clause": "US political advertising"
+  },
+  {
+   "name": "2023-24 election cycle",
+   "type": "political election cycle",
+   "clause": "2023-24 election cycle"
+  },
+  {
+   "name": "2020 election cycle",
+   "type": "political election cycle",
+   "clause": "2020 election cycle"
+  },
+  {
+   "name": "US political advertising spend 2023-24",
+   "type": "advertising spend measurement",
+   "clause": "totalled a record ..."
+  },
+  {
+   "name": "US political advertising spend 2020",
+   "type": "advertising spend measurement",
+   "clause": "... in the 2020 cycle"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US political advertising",
+   "type": "HAS_SPEND",
+   "to": "US political advertising spend 2023-24",
+   "clause": "totalled a record ..."
+  },
+  {
+   "from": "US political advertising",
+   "type": "HAS_SPEND",
+   "to": "US political advertising spend 2020",
+   "clause": "... in the 2020 cycle"
+  },
+  {
+   "from": "US political advertising spend 2023-24",
+   "type": "MEASURES",
+   "to": "US political advertising",
+   "clause": "totalled a record ..."
+  },
+  {
+   "from": "US political advertising spend 2020",
+   "type": "MEASURES",
+   "to": "US political advertising",
+   "clause": "... in the 2020 cycle"
+  },
+  {
+   "from": "US political advertising spend 2023-24",
+   "type": "FOR",
+   "to": "2023-24 election cycle",
+   "clause": "totalled a record ..."
+  },
+  {
+   "from": "US political advertising spend 2020",
+   "type": "FOR",
+   "to": "2020 election cycle",
+   "clause": "... in the 2020 cycle"
+  },
+  {
+   "from": "US political advertising spend 2023-24",
+   "type": "UP_FROM",
+   "to": "US political advertising spend 2020",
+   "clause": "up from ... in the 2020 cycle"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US political advertising|advertising market segment|US political advertising\nNODE|2023-24 election cycle|political election cycle|2023-24 election cycle\nNODE|2020 election cycle|political election cycle|2020 election cycle\nNODE|US political advertising spend 2023-24|advertising spend measurement|totalled a record ...\nNODE|US political advertising spend 2020|advertising spend measurement|... in the 2020 cycle\nEDGE|US political advertising|HAS_SPEND|US political advertising spend 2023-24|totalled a record ...\nEDGE|US political advertising|HAS_SPEND|US political advertising spend 2020|... in the 2020 cycle\nEDGE|US political advertising spend 2023-24|MEASURES|US political advertising|totalled a record ...\nEDGE|US political advertising spend 2020|MEASURES|US political advertising|... in the 2020 cycle\nEDGE|US political advertising spend 2023-24|FOR|2023-24 election cycle|totalled a record ...\nEDGE|US political advertising spend 2020|FOR|2020 election cycle|... in the 2020 cycle\nEDGE|US political advertising spend 2023-24|UP_FROM|US political advertising spend 2020|up from ... in the 2020 cycle"
+}

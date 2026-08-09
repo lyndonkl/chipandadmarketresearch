@@ -1,0 +1,78 @@
+{
+ "id": "e6-measurement-005",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "year (2007-05-31), first availability of Nielsen commercial ratings",
+ "elapsed_s": 52.1,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "television pricing currency",
+   "type": "pricing concept",
+   "clause": "Television's pricing currency"
+  },
+  {
+   "name": "Nielsen",
+   "type": "organization",
+   "clause": "Nielsen first delivered commercial-minute ratings"
+  },
+  {
+   "name": "commercial-minute ratings",
+   "type": "rating series",
+   "clause": "commercial-minute ratings delivered by Nielsen"
+  },
+  {
+   "name": "US national TV advertising",
+   "type": "advertising market segment",
+   "clause": "US national TV advertising"
+  },
+  {
+   "name": "C3 metric",
+   "type": "negotiation basis measurement",
+   "clause": "C3 \u2014 average commercial-minute ratings plus ... days of DVR playback"
+  },
+  {
+   "name": "programme ratings",
+   "type": "rating type",
+   "clause": "programme ratings"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Nielsen",
+   "type": "DELIVERED_FIRST",
+   "to": "commercial-minute ratings",
+   "clause": "first delivered ... on ..."
+  },
+  {
+   "from": "television pricing currency",
+   "type": "CHANGED_TO",
+   "to": "C3 metric",
+   "clause": "changed inside the era, negotiated on C3"
+  },
+  {
+   "from": "US national TV advertising",
+   "type": "NEGOTIATED_ON",
+   "to": "C3 metric",
+   "clause": "was negotiated on C3"
+  },
+  {
+   "from": "C3 metric",
+   "type": "DEFINED_AS",
+   "to": "commercial-minute ratings",
+   "clause": "average commercial-minute ratings plus ... days of DVR playback"
+  },
+  {
+   "from": "C3 metric",
+   "type": "EXCLUDES",
+   "to": "programme ratings",
+   "clause": "rather than on programme ratings"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|television pricing currency|pricing concept|Television's pricing currency\nNODE|Nielsen|organization|Nielsen first delivered commercial-minute ratings\nNODE|commercial-minute ratings|rating series|commercial-minute ratings delivered by Nielsen\nNODE|US national TV advertising|advertising market segment|US national TV advertising\nNODE|C3 metric|negotiation basis measurement|C3 \u2014 average commercial-minute ratings plus ... days of DVR playback\nNODE|programme ratings|rating type|programme ratings\nEDGE|Nielsen|DELIVERED_FIRST|commercial-minute ratings|first delivered ... on ...\nEDGE|television pricing currency|CHANGED_TO|C3 metric|changed inside the era, negotiated on C3\nEDGE|US national TV advertising|NEGOTIATED_ON|C3 metric|was negotiated on C3\nEDGE|C3 metric|DEFINED_AS|commercial-minute ratings|average commercial-minute ratings plus ... days of DVR playback\nEDGE|C3 metric|EXCLUDES|programme ratings|rather than on programme ratings"
+}

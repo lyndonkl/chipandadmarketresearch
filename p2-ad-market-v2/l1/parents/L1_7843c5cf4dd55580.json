@@ -1,0 +1,63 @@
+{
+ "group_id": "L1|7843c5cf4dd55580",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "US mailing-list rental card rates",
+   "type": "mailing-list rental service",
+   "grain": "Entity",
+   "reason": "singleton: unique entity not shared with others",
+   "child_uids": [
+    "n|e4-pricing-005|us mailing-list rental card rates|mailing-list rental service"
+   ]
+  },
+  {
+   "name": "Catalogue house",
+   "type": "advertiser type",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertiser category",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|catalogue house|advertiser type"
+   ]
+  },
+  {
+   "name": "Direct-mail advertiser",
+   "type": "advertiser type",
+   "grain": "Entity",
+   "reason": "group of advertisers using direct mail",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|direct-mail advertiser|advertiser type",
+    "n|tu:era:3:field:TARGETING|mailers|advertiser using direct mail",
+    "n|tu:era:4:field:TARGETING|mailer|marketing actor"
+   ]
+  },
+  {
+   "name": "Mailing lists",
+   "type": "audience list",
+   "grain": "Entity",
+   "reason": "singleton: generic audience list product",
+   "child_uids": [
+    "n|tu:era:2:field:TARGETING|mailing lists|audience list"
+   ]
+  },
+  {
+   "name": "Rented and merged lists",
+   "type": "address list product",
+   "grain": "Entity",
+   "reason": "singleton: specific rented/merged address list",
+   "child_uids": [
+    "n|tu:era:3:field:TARGETING|rented and merged lists|address list product"
+   ]
+  },
+  {
+   "name": "Rented list with ZIP-code cluster",
+   "type": "targeting method",
+   "grain": "Entity",
+   "reason": "singleton: ZIP-code clustering targeting method",
+   "child_uids": [
+    "n|tu:era:4:field:BUYERS|rented list with zip-code cluster|targeting method"
+   ]
+  }
+ ]
+}

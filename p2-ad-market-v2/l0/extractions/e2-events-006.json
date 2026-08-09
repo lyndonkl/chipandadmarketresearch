@@ -1,0 +1,56 @@
+{
+ "id": "e2-events-006",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1943,
+ "unit": "US$ millions paid by Edward J. Noble for the Blue Network",
+ "elapsed_s": 49.0,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Edward J. Noble",
+   "type": "person",
+   "clause": "Edward J. Noble"
+  },
+  {
+   "name": "NBC",
+   "type": "broadcasting company",
+   "clause": "NBC's Blue Network"
+  },
+  {
+   "name": "Blue Network",
+   "type": "broadcast network",
+   "clause": "NBC's Blue Network"
+  },
+  {
+   "name": "Blue Network purchase price",
+   "type": "spend measurement",
+   "clause": "US$ millions paid by Edward J. Noble for the Blue Network"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Edward J. Noble",
+   "type": "PAID_FOR",
+   "to": "Blue Network",
+   "clause": "Edward J. Noble paid ... for NBC's Blue Network"
+  },
+  {
+   "from": "Blue Network purchase price",
+   "type": "MEASURES",
+   "to": "Blue Network",
+   "clause": "... $8 million ... for Blue Network"
+  },
+  {
+   "from": "Blue Network",
+   "type": "BELONGS_TO",
+   "to": "NBC",
+   "clause": "NBC's Blue Network"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Edward J. Noble|person|Edward J. Noble\nNODE|NBC|broadcasting company|NBC's Blue Network\nNODE|Blue Network|broadcast network|NBC's Blue Network\nNODE|Blue Network purchase price|spend measurement|US$ millions paid by Edward J. Noble for the Blue Network\nEDGE|Edward J. Noble|PAID_FOR|Blue Network|Edward J. Noble paid ... for NBC's Blue Network\nEDGE|Blue Network purchase price|MEASURES|Blue Network|... $8 million ... for Blue Network\nEDGE|Blue Network|BELONGS_TO|NBC|NBC's Blue Network"
+}

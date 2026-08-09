@@ -1,0 +1,181 @@
+{
+ "id": "ds-gdp-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 1922,
+ "unit": "percent of nominal GDP on the Coen/Galbi basis, 1922",
+ "elapsed_s": 159.1,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 18,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "advertising",
+   "type": "industry",
+   "clause": "Advertising sector"
+  },
+  {
+   "name": "US nominal GDP",
+   "type": "economic aggregate",
+   "clause": "US nominal GDP"
+  },
+  {
+   "name": "Coen/Galbi series",
+   "type": "advertising-spend dataset",
+   "clause": "on the Coen/Galbi basis"
+  },
+  {
+   "name": "advertising share of US nominal GDP (early twenties peak)",
+   "type": "media-share measurement",
+   "clause": "Advertising's share ... highest in the early 1920s"
+  },
+  {
+   "name": "advertising share of US nominal GDP (twenties range)",
+   "type": "media-share measurement",
+   "clause": "... 2.7\u20112.9% through the twenties"
+  },
+  {
+   "name": "advertising share of US nominal GDP (world war two decline)",
+   "type": "media-share measurement",
+   "clause": "... fell to ... during the Second World War"
+  },
+  {
+   "name": "advertising share of US nominal GDP (post\u20111960 maximum)",
+   "type": "media-share measurement",
+   "clause": "... recovered to a post\u20111960 maximum ... in 2000"
+  },
+  {
+   "name": "advertising share of US nominal GDP (late 2000s level)",
+   "type": "media-share measurement",
+   "clause": "... falling to ... by 2007"
+  },
+  {
+   "name": "Second World War",
+   "type": "war",
+   "clause": "the Second World War"
+  },
+  {
+   "name": "constant 2% of GDP folklore",
+   "type": "belief",
+   "clause": "'constant 2% of GDP' folklore"
+  },
+  {
+   "name": "post\u20111960 window",
+   "type": "time period",
+   "clause": "post\u20111960 window"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising share of US nominal GDP (early twenties peak)",
+   "type": "MEASURES",
+   "to": "advertising",
+   "clause": "advertising's share of US GDP"
+  },
+  {
+   "from": "advertising share of US nominal GDP (early twenties peak)",
+   "type": "SHARE_OF",
+   "to": "US nominal GDP",
+   "clause": "share of US nominal GDP"
+  },
+  {
+   "from": "advertising share of US nominal GDP (early twenties peak)",
+   "type": "BASED_ON",
+   "to": "Coen/Galbi series",
+   "clause": "on the Coen/Galbi basis"
+  },
+  {
+   "from": "advertising share of US nominal GDP (twenties range)",
+   "type": "MEASURES",
+   "to": "advertising",
+   "clause": "advertising's share of US GDP"
+  },
+  {
+   "from": "advertising share of US nominal GDP (twenties range)",
+   "type": "SHARE_OF",
+   "to": "US nominal GDP",
+   "clause": "share of US nominal GDP"
+  },
+  {
+   "from": "advertising share of US nominal GDP (twenties range)",
+   "type": "BASED_ON",
+   "to": "Coen/Galbi series",
+   "clause": "on the Coen/Galbi basis"
+  },
+  {
+   "from": "advertising share of US nominal GDP (world war two decline)",
+   "type": "MEASURES",
+   "to": "advertising",
+   "clause": "advertising's share of US GDP"
+  },
+  {
+   "from": "advertising share of US nominal GDP (world war two decline)",
+   "type": "SHARE_OF",
+   "to": "US nominal GDP",
+   "clause": "share of US nominal GDP"
+  },
+  {
+   "from": "advertising share of US nominal GDP (world war two decline)",
+   "type": "BASED_ON",
+   "to": "Coen/Galbi series",
+   "clause": "on the Coen/Galbi basis"
+  },
+  {
+   "from": "advertising share of US nominal GDP (world war two decline)",
+   "type": "DURING",
+   "to": "Second World War",
+   "clause": "during the Second World War"
+  },
+  {
+   "from": "advertising share of US nominal GDP (post\u20111960 maximum)",
+   "type": "MEASURES",
+   "to": "advertising",
+   "clause": "advertising's share of US GDP"
+  },
+  {
+   "from": "advertising share of US nominal GDP (post\u20111960 maximum)",
+   "type": "SHARE_OF",
+   "to": "US nominal GDP",
+   "clause": "share of US nominal GDP"
+  },
+  {
+   "from": "advertising share of US nominal GDP (post\u20111960 maximum)",
+   "type": "BASED_ON",
+   "to": "Coen/Galbi series",
+   "clause": "on the Coen/Galbi basis"
+  },
+  {
+   "from": "advertising share of US nominal GDP (post\u20111960 maximum)",
+   "type": "DURING",
+   "to": "post\u20111960 window",
+   "clause": "in the post\u20111960 window"
+  },
+  {
+   "from": "advertising share of US nominal GDP (late 2000s level)",
+   "type": "MEASURES",
+   "to": "advertising",
+   "clause": "advertising's share of US GDP"
+  },
+  {
+   "from": "advertising share of US nominal GDP (late 2000s level)",
+   "type": "SHARE_OF",
+   "to": "US nominal GDP",
+   "clause": "share of US nominal GDP"
+  },
+  {
+   "from": "advertising share of US nominal GDP (late 2000s level)",
+   "type": "BASED_ON",
+   "to": "Coen/Galbi series",
+   "clause": "on the Coen/Galbi basis"
+  },
+  {
+   "from": "constant 2% of GDP folklore",
+   "type": "IS_ARTIFACT_OF",
+   "to": "post\u20111960 window",
+   "clause": "'constant 2% of GDP' folklore is an artefact of quoting the post\u20111960 window only"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|advertising|industry|Advertising sector\nNODE|US nominal GDP|economic aggregate|US nominal GDP\nNODE|Coen/Galbi series|advertising-spend dataset|on the Coen/Galbi basis\nNODE|advertising share of US nominal GDP (early twenties peak)|media-share measurement|Advertising's share ... highest in the early 1920s\nNODE|advertising share of US nominal GDP (twenties range)|media-share measurement|... 2.7\u20112.9% through the twenties\nNODE|advertising share of US nominal GDP (world war two decline)|media-share measurement|... fell to ... during the Second World War\nNODE|advertising share of US nominal GDP (post\u20111960 maximum)|media-share measurement|... recovered to a post\u20111960 maximum ... in 2000\nNODE|advertising share of US nominal GDP (late 2000s level)|media-share measurement|... falling to ... by 2007\nNODE|Second World War|war|the Second World War\nNODE|constant 2% of GDP folklore|belief|'constant 2% of GDP' folklore\nNODE|post\u20111960 window|time period|post\u20111960 window\nEDGE|advertising share of US nominal GDP (early twenties peak)|MEASURES|advertising|advertising's share of US GDP\nEDGE|advertising share of US nominal GDP (early twenties peak)|SHARE_OF|US nominal GDP|share of US nominal GDP\nEDGE|advertising share of US nominal GDP (early twenties peak)|BASED_ON|Coen/Galbi series|on the Coen/Galbi basis\nEDGE|advertising share of US nominal GDP (twenties range)|MEASURES|advertising|advertising's share of US GDP\nEDGE|advertising share of US nominal GDP (twenties range)|SHARE_OF|US nominal GDP|share of US nominal GDP\nEDGE|advertising share of US nominal GDP (twenties range)|BASED_ON|Coen/Galbi series|on the Coen/Galbi basis\nEDGE|advertising share of US nominal GDP (world war two decline)|MEASURES|advertising|advertising's share of US GDP\nEDGE|advertising share of US nominal GDP (world war two decline)|SHARE_OF|US nominal GDP|share of US nominal GDP\nEDGE|advertising share of US nominal GDP (world war two decline)|BASED_ON|Coen/Galbi series|on the Coen/Galbi basis\nEDGE|advertising share of US nominal GDP (world war two decline)|DURING|Second World War|during the Second World War\nEDGE|advertising share of US nominal GDP (post\u20111960 maximum)|MEASURES|advertising|advertising's share of US GDP\nEDGE|advertising share of US nominal GDP (post\u20111960 maximum)|SHARE_OF|US nominal GDP|share of US nominal GDP\nEDGE|advertising share of US nominal GDP (post\u20111960 maximum)|BASED_ON|Coen/Galbi series|on the Coen/Galbi basis\nEDGE|advertising share of US nominal GDP (post\u20111960 maximum)|DURING|post\u20111960 window|in the post\u20111960 window\nEDGE|advertising share of US nominal GDP (late 2000s level)|MEASURES|advertising|advertising's share of US GDP\nEDGE|advertising share of US nominal GDP (late 2000s level)|SHARE_OF|US nominal GDP|share of US nominal GDP\nEDGE|advertising share of US nominal GDP (late 2000s level)|BASED_ON|Coen/Galbi series|on the Coen/Galbi basis\nEDGE|constant 2% of GDP folklore|IS_ARTIFACT_OF|post\u20111960 window|'constant 2% of GDP' folklore is an artefact of quoting the post\u20111960 window only"
+}

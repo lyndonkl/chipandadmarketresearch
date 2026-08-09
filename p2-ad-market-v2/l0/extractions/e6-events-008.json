@@ -1,0 +1,83 @@
+{
+ "id": "e6-events-008",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "year (2007-02-05), Yahoo Panama launch",
+ "elapsed_s": 50.7,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Panama",
+   "type": "place",
+   "clause": "Panama"
+  },
+  {
+   "name": "Yahoo Panama",
+   "type": "localized web portal",
+   "clause": "Yahoo Panama launch"
+  },
+  {
+   "name": "Yahoo",
+   "type": "internet company",
+   "clause": "Yahoo"
+  },
+  {
+   "name": "Overture",
+   "type": "search advertising company",
+   "clause": "Overture"
+  },
+  {
+   "name": "Google",
+   "type": "internet company",
+   "clause": "Google"
+  },
+  {
+   "name": "bid-to-position model",
+   "type": "ranking mechanism",
+   "clause": "Overture's bid-to-position model"
+  },
+  {
+   "name": "bid-times-quality ranking",
+   "type": "ranking mechanism",
+   "clause": "bid-times-quality ranking similar to Google's"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Panama",
+   "type": "LAUNCHED",
+   "to": "Yahoo Panama",
+   "clause": "Panama launched ..."
+  },
+  {
+   "from": "Yahoo",
+   "type": "MOVED_FROM",
+   "to": "bid-to-position model",
+   "clause": "moving Yahoo from ... model"
+  },
+  {
+   "from": "Yahoo",
+   "type": "ADOPTED",
+   "to": "bid-times-quality ranking",
+   "clause": "to a ... ranking"
+  },
+  {
+   "from": "bid-times-quality ranking",
+   "type": "SIMILAR_TO",
+   "to": "Google",
+   "clause": "similar to Google's"
+  },
+  {
+   "from": "Overture",
+   "type": "OWNS",
+   "to": "bid-to-position model",
+   "clause": "Overture's ... model"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Panama|place|Panama\nNODE|Yahoo Panama|localized web portal|Yahoo Panama launch\nNODE|Yahoo|internet company|Yahoo\nNODE|Overture|search advertising company|Overture\nNODE|Google|internet company|Google\nNODE|bid-to-position model|ranking mechanism|Overture's bid-to-position model\nNODE|bid-times-quality ranking|ranking mechanism|bid-times-quality ranking similar to Google's\nEDGE|Panama|LAUNCHED|Yahoo Panama|Panama launched ...\nEDGE|Yahoo|MOVED_FROM|bid-to-position model|moving Yahoo from ... model\nEDGE|Yahoo|ADOPTED|bid-times-quality ranking|to a ... ranking\nEDGE|bid-times-quality ranking|SIMILAR_TO|Google|similar to Google's\nEDGE|Overture|OWNS|bid-to-position model|Overture's ... model"
+}

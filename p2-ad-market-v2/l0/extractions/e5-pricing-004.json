@@ -1,0 +1,100 @@
+{
+ "id": "e5-pricing-004",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "USD per click (paid introduction)",
+ "elapsed_s": 59.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture"
+  },
+  {
+   "name": "average realised price per paid introduction",
+   "type": "price measurement",
+   "clause": "average realised price per paid introduction"
+  },
+  {
+   "name": "pure first-price pure-bid auction",
+   "type": "auction mechanism",
+   "clause": "pure first-price, pure-bid auction"
+  },
+  {
+   "name": "descending bid ranking rule",
+   "type": "ordering rule",
+   "clause": "search results ranked in descending order of bid price"
+  },
+  {
+   "name": "advertiser pays own bid pricing rule",
+   "type": "pricing rule",
+   "clause": "each advertiser pays Overture the amount of its bid"
+  },
+  {
+   "name": "minimum bid amount per keyword",
+   "type": "price floor measurement",
+   "clause": "minimum bid was ... per keyword"
+  },
+  {
+   "name": "human editorial approval requirement",
+   "type": "listing requirement",
+   "clause": "listings required human editorial approval"
+  },
+  {
+   "name": "advertisers",
+   "type": "actor class",
+   "clause": "advertisers"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "HAS_MEASUREMENT",
+   "to": "average realised price per paid introduction",
+   "clause": "Overture's average realised price per paid introduction"
+  },
+  {
+   "from": "Overture",
+   "type": "UTILIZES",
+   "to": "pure first-price pure-bid auction",
+   "clause": "The mechanism was a pure first-price, pure-bid auction"
+  },
+  {
+   "from": "pure first-price pure-bid auction",
+   "type": "HAS_RANKING_RULE",
+   "to": "descending bid ranking rule",
+   "clause": "search results ranked in descending order of bid price"
+  },
+  {
+   "from": "pure first-price pure-bid auction",
+   "type": "HAS_PRICING_RULE",
+   "to": "advertiser pays own bid pricing rule",
+   "clause": "Each advertiser pays Overture the amount of its bid"
+  },
+  {
+   "from": "advertisers",
+   "type": "PAY",
+   "to": "Overture",
+   "clause": "Each advertiser pays Overture the amount of its bid"
+  },
+  {
+   "from": "pure first-price pure-bid auction",
+   "type": "HAS_MINIMUM_BID",
+   "to": "minimum bid amount per keyword",
+   "clause": "Minimum bid was ... per keyword"
+  },
+  {
+   "from": "pure first-price pure-bid auction",
+   "type": "REQUIRES",
+   "to": "human editorial approval requirement",
+   "clause": "listings required human editorial approval"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|company|Overture\nNODE|average realised price per paid introduction|price measurement|average realised price per paid introduction\nNODE|pure first-price pure-bid auction|auction mechanism|pure first-price, pure-bid auction\nNODE|descending bid ranking rule|ordering rule|search results ranked in descending order of bid price\nNODE|advertiser pays own bid pricing rule|pricing rule|each advertiser pays Overture the amount of its bid\nNODE|minimum bid amount per keyword|price floor measurement|minimum bid was ... per keyword\nNODE|human editorial approval requirement|listing requirement|listings required human editorial approval\nNODE|advertisers|actor class|advertisers\nEDGE|Overture|HAS_MEASUREMENT|average realised price per paid introduction|Overture's average realised price per paid introduction\nEDGE|Overture|UTILIZES|pure first-price pure-bid auction|The mechanism was a pure first-price, pure-bid auction\nEDGE|pure first-price pure-bid auction|HAS_RANKING_RULE|descending bid ranking rule|search results ranked in descending order of bid price\nEDGE|pure first-price pure-bid auction|HAS_PRICING_RULE|advertiser pays own bid pricing rule|Each advertiser pays Overture the amount of its bid\nEDGE|advertisers|PAY|Overture|Each advertiser pays Overture the amount of its bid\nEDGE|pure first-price pure-bid auction|HAS_MINIMUM_BID|minimum bid amount per keyword|Minimum bid was ... per keyword\nEDGE|pure first-price pure-bid auction|REQUIRES|human editorial approval requirement|listings required human editorial approval"
+}

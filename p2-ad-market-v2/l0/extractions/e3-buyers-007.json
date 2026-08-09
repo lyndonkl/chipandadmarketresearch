@@ -1,0 +1,73 @@
+{
+ "id": "e3-buyers-007",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent of total US advertising expenditure",
+ "elapsed_s": 71.7,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local retail advertisers",
+   "type": "advertiser group",
+   "clause": "Local retail advertisers accounted for ..."
+  },
+  {
+   "name": "total US advertising expenditure",
+   "type": "advertising market aggregate",
+   "clause": "of all US advertising spend"
+  },
+  {
+   "name": "local retail advertisers share of US advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "accounted for ... of total US advertising expenditure"
+  },
+  {
+   "name": "local retail advertisers prior share of US advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "up from ... in 1950"
+  },
+  {
+   "name": "newspapers",
+   "type": "advertising medium",
+   "clause": "kept newspapers the largest medium in the country all era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local retail advertisers",
+   "type": "HAS_SHARE",
+   "to": "local retail advertisers share of US advertising expenditure",
+   "clause": "accounted for ..."
+  },
+  {
+   "from": "local retail advertisers share of US advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "accounted for ..."
+  },
+  {
+   "from": "local retail advertisers prior share of US advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "up from ... in 1950"
+  },
+  {
+   "from": "local retail advertisers share of US advertising expenditure",
+   "type": "UP_FROM",
+   "to": "local retail advertisers prior share of US advertising expenditure",
+   "clause": "up from ... in 1950"
+  },
+  {
+   "from": "local retail advertisers share of US advertising expenditure",
+   "type": "KEPT",
+   "to": "newspapers",
+   "clause": "kept newspapers the largest medium in the country all era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local retail advertisers|advertiser group|Local retail advertisers accounted for ...  \nNODE|total US advertising expenditure|advertising market aggregate|of all US advertising spend  \nNODE|local retail advertisers share of US advertising expenditure|media-share measurement|accounted for ... of total US advertising expenditure  \nNODE|local retail advertisers prior share of US advertising expenditure|media-share measurement|up from ... in 1950  \nNODE|newspapers|advertising medium|kept newspapers the largest medium in the country all era  \nEDGE|local retail advertisers|HAS_SHARE|local retail advertisers share of US advertising expenditure|accounted for ...  \nEDGE|local retail advertisers share of US advertising expenditure|SHARE_OF|total US advertising expenditure|accounted for ...  \nEDGE|local retail advertisers prior share of US advertising expenditure|SHARE_OF|total US advertising expenditure|up from ... in 1950  \nEDGE|local retail advertisers share of US advertising expenditure|UP_FROM|local retail advertisers prior share of US advertising expenditure|up from ... in 1950  \nEDGE|local retail advertisers share of US advertising expenditure|KEPT|newspapers|kept newspapers the largest medium in the country all era"
+}

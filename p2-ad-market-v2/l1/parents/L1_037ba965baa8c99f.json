@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|037ba965baa8c99f",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "AdRelevance measurement provider",
+   "type": "measurement provider",
+   "grain": "Measurement",
+   "reason": "singleton: provider measurement node, distinct from others",
+   "child_uids": [
+    "n|e5-measurement-002|adrelevance (jupiter media metrix)|measurement provider"
+   ]
+  },
+  {
+   "name": "Impressions end-to-end traceability share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of impressions traceability, unique measure",
+   "child_uids": [
+    "n|e7-pricing-004|impressions end-to-end traceability share|share measurement"
+   ]
+  },
+  {
+   "name": "Measured-media total",
+   "type": "measurement aggregate",
+   "grain": "Measurement",
+   "reason": "singleton: total measured-media aggregate, no matching sibling",
+   "child_uids": [
+    "n|tu:era:4:field:BUYERS|measured-media total|measurement aggregate"
+   ]
+  },
+  {
+   "name": "Ads delivered count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: count of ads delivered worldwide, unique metric",
+   "child_uids": [
+    "n|tu:era:5:field:MEASUREMENT|ads delivered count|count measurement"
+   ]
+  },
+  {
+   "name": "Impression count metric",
+   "type": "measurement",
+   "grain": "Measurement",
+   "reason": "singleton: count of impressions metric, distinct from others",
+   "child_uids": [
+    "n|tu:era:7:field:MEASUREMENT|impression count metric|measurement"
+   ]
+  }
+ ]
+}

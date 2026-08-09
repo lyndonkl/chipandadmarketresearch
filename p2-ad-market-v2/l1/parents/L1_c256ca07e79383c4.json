@@ -1,0 +1,71 @@
+{
+ "group_id": "L1|c256ca07e79383c4",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Alcohol",
+   "type": "substance",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity, no higher-level grouping",
+   "child_uids": [
+    "n|tu:era:1:event:6|alcohol|substance"
+   ]
+  },
+  {
+   "name": "Circuit",
+   "type": "communication service",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity, no higher-level grouping",
+   "child_uids": [
+    "n|tu:era:2:event:0|circuit|communication service"
+   ]
+  },
+  {
+   "name": "Pipe",
+   "type": "infrastructure component",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity, no higher-level grouping",
+   "child_uids": [
+    "n|tu:era:2:event:0|pipe|infrastructure component"
+   ]
+  },
+  {
+   "name": "Wire assets",
+   "type": "infrastructure asset",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity, no higher-level grouping",
+   "child_uids": [
+    "n|tu:era:2:event:1|wire assets|infrastructure asset"
+   ]
+  },
+  {
+   "name": "Cable system",
+   "type": "distribution infrastructure",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity, no higher-level grouping",
+   "child_uids": [
+    "n|tu:era:4:event:0|cable system|distribution infrastructure"
+   ]
+  },
+  {
+   "name": "Dial",
+   "type": "broadcast dial",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity, no higher-level grouping",
+   "child_uids": [
+    "n|tu:era:4:event:2|dial|broadcast dial"
+   ]
+  },
+  {
+   "name": "Plumbing",
+   "type": "infrastructure",
+   "grain": "Entity",
+   "reason": "same entity across type labels; specific display plumbing is a subtype",
+   "child_uids": [
+    "n|tu:era:6:event:8|plumbing|infrastructure",
+    "n|tu:era:7:event:0|display plumbing|infrastructure component"
+   ]
+  }
+ ]
+}

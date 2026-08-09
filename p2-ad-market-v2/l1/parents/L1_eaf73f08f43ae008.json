@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|eaf73f08f43ae008",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Advertiser monthly subscription rate",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct price measure for advertiser subscriptions",
+   "child_uids": [
+    "n|e2-measurement-001|advertiser monthly subscription rate|price measurement"
+   ]
+  },
+  {
+   "name": "Full banner rate card price",
+   "type": "price-per-thousand measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique CPM price for full banner ads",
+   "child_uids": [
+    "n|e5-unit_econ-001|full banner rate card price|price-per-thousand measurement"
+   ]
+  },
+  {
+   "name": "Effective advertising cost after tax",
+   "type": "cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific cost measure after tax on advertising",
+   "child_uids": [
+    "n|tu:era:2:field:PRICING|effective advertising cost after tax|cost measurement"
+   ]
+  },
+  {
+   "name": "AdX fee percentage",
+   "type": "fee percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: separate fee percentage measurement for AdX",
+   "child_uids": [
+    "n|tu:era:7:boundary|adx fee measurement|fee percentage measurement"
+   ]
+  }
+ ]
+}

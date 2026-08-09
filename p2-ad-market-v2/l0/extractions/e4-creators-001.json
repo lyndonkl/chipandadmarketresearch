@@ -1,0 +1,67 @@
+{
+ "id": "e4-creators-001",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1992,
+ "unit": "establishments",
+ "elapsed_s": 70.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising-agency establishments",
+   "type": "establishment aggregate",
+   "clause": "US advertising-agency establishments with payroll"
+  },
+  {
+   "name": "US advertising-agency establishments count",
+   "type": "count measurement",
+   "clause": "numbered ... in ..."
+  },
+  {
+   "name": "US advertising-agency establishments prior count",
+   "type": "count measurement",
+   "clause": "up from ... in ..."
+  },
+  {
+   "name": "agency population growth percent",
+   "type": "growth-rate measurement",
+   "clause": "agency population grew about ... across the era"
+  },
+  {
+   "name": "ownership concentration",
+   "type": "market concentration metric",
+   "clause": "ownership concentrated"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising-agency establishments",
+   "type": "HAS_COUNT",
+   "to": "US advertising-agency establishments count",
+   "clause": "numbered ... in ..."
+  },
+  {
+   "from": "US advertising-agency establishments count",
+   "type": "UP_FROM",
+   "to": "US advertising-agency establishments prior count",
+   "clause": "up from ... in ..."
+  },
+  {
+   "from": "US advertising-agency establishments",
+   "type": "GROWTH_RATE",
+   "to": "agency population growth percent",
+   "clause": "grew about ... across the era"
+  },
+  {
+   "from": "US advertising-agency establishments",
+   "type": "OWNERSHIP_CONCENTRATED",
+   "to": "ownership concentration",
+   "clause": "even as ownership concentrated"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising-agency establishments|establishment aggregate|US advertising-agency establishments with payroll\nNODE|US advertising-agency establishments count|count measurement|numbered ... in ...\nNODE|US advertising-agency establishments prior count|count measurement|up from ... in ...\nNODE|agency population growth percent|growth-rate measurement|agency population grew about ... across the era\nNODE|ownership concentration|market concentration metric|ownership concentrated\nEDGE|US advertising-agency establishments|HAS_COUNT|US advertising-agency establishments count|numbered ... in ...\nEDGE|US advertising-agency establishments count|UP_FROM|US advertising-agency establishments prior count|up from ... in ...\nEDGE|US advertising-agency establishments|GROWTH_RATE|agency population growth percent|grew about ... across the era\nEDGE|US advertising-agency establishments|OWNERSHIP_CONCENTRATED|ownership concentration|even as ownership concentrated"
+}

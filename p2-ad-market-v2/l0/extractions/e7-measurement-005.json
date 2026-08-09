@@ -1,0 +1,56 @@
+{
+ "id": "e7-measurement-005",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2026,
+ "unit": "USD billions of misallocated US media investment identified as recoverable",
+ "elapsed_s": 46.6,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "IAB State of Data 2026 work",
+   "type": "industry report",
+   "clause": "the IAB's State of Data 2026 work estimates"
+  },
+  {
+   "name": "AI-driven measurement improvements",
+   "type": "measurement improvement technology",
+   "clause": "AI-driven measurement improvements could unlock ..."
+  },
+  {
+   "name": "recoverable misallocated US media investment",
+   "type": "misallocation measurement",
+   "clause": "misallocated US media investment ... within one to two years"
+  },
+  {
+   "name": "era's measurement failure",
+   "type": "market measurement failure",
+   "clause": "era's measurement failure moving money to wrong places"
+  }
+ ],
+ "edges": [
+  {
+   "from": "IAB State of Data 2026 work",
+   "type": "ESTIMATES",
+   "to": "AI-driven measurement improvements",
+   "clause": "estimates that AI-driven measurement improvements could unlock ..."
+  },
+  {
+   "from": "AI-driven measurement improvements",
+   "type": "UNLOCKS",
+   "to": "recoverable misallocated US media investment",
+   "clause": "could unlock misallocated US media investment"
+  },
+  {
+   "from": "era's measurement failure",
+   "type": "MOVES_MONEY",
+   "to": "recoverable misallocated US media investment",
+   "clause": "measurement failure is moving money to wrong places"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|IAB State of Data 2026 work|industry report|the IAB's State of Data 2026 work estimates\nNODE|AI-driven measurement improvements|measurement improvement technology|AI-driven measurement improvements could unlock ...\nNODE|recoverable misallocated US media investment|misallocation measurement|misallocated US media investment ... within one to two years\nNODE|era's measurement failure|market measurement failure|era's measurement failure moving money to wrong places\nEDGE|IAB State of Data 2026 work|ESTIMATES|AI-driven measurement improvements|estimates that AI-driven measurement improvements could unlock ...\nEDGE|AI-driven measurement improvements|UNLOCKS|recoverable misallocated US media investment|could unlock misallocated US media investment\nEDGE|era's measurement failure|MOVES_MONEY|recoverable misallocated US media investment|measurement failure is moving money to wrong places"
+}

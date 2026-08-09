@@ -1,0 +1,79 @@
+{
+ "id": "e3-scale-011",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "million USD",
+ "elapsed_s": 80.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct-response advertising",
+   "type": "advertising medium",
+   "clause": "Direct-response advertising, proxied by direct mail"
+  },
+  {
+   "name": "direct mail",
+   "type": "media channel",
+   "clause": "proxied by direct mail"
+  },
+  {
+   "name": "direct-response advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "was ... in ..."
+  },
+  {
+   "name": "previous direct-response advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "was ... in ..."
+  },
+  {
+   "name": "advertising media",
+   "type": "medium collection",
+   "clause": "third-largest medium"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct-response advertising",
+   "type": "PROXIED_BY",
+   "to": "direct mail",
+   "clause": "proxied by direct mail"
+  },
+  {
+   "from": "direct-response advertising spend",
+   "type": "MEASURES",
+   "to": "direct-response advertising",
+   "clause": "was ... in ..."
+  },
+  {
+   "from": "previous direct-response advertising spend",
+   "type": "MEASURES",
+   "to": "direct-response advertising",
+   "clause": "was ... in ..."
+  },
+  {
+   "from": "direct-response advertising spend",
+   "type": "UP_FROM",
+   "to": "previous direct-response advertising spend",
+   "clause": "up from ... in ..."
+  },
+  {
+   "from": "direct-response advertising",
+   "type": "RANKED_THIRD_LARGEST",
+   "to": "advertising media",
+   "clause": "third-largest medium"
+  },
+  {
+   "from": "direct-response advertising",
+   "type": "LARGEST_NATIONAL_MEDIUM",
+   "to": "advertising media",
+   "clause": "largest national medium at era end"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct-response advertising|advertising medium|Direct-response advertising, proxied by direct mail\nNODE|direct mail|media channel|proxied by direct mail\nNODE|direct-response advertising spend|advertising spend measurement|was ... in ...\nNODE|previous direct-response advertising spend|advertising spend measurement|was ... in ...\nNODE|advertising media|medium collection|third-largest medium\nEDGE|direct-response advertising|PROXIED_BY|direct mail|proxied by direct mail\nEDGE|direct-response advertising spend|MEASURES|direct-response advertising|was ... in ...\nEDGE|previous direct-response advertising spend|MEASURES|direct-response advertising|was ... in ...\nEDGE|direct-response advertising spend|UP_FROM|previous direct-response advertising spend|up from ... in ...\nEDGE|direct-response advertising|RANKED_THIRD_LARGEST|advertising media|third-largest medium\nEDGE|direct-response advertising|LARGEST_NATIONAL_MEDIUM|advertising media|largest national medium at era end"
+}

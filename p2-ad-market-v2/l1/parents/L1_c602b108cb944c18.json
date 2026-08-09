@@ -1,0 +1,81 @@
+{
+ "group_id": "L1|c602b108cb944c18",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Google aggregate paid-click growth rate",
+   "type": "year-over-year growth measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique growth measure about Google paid clicks",
+   "child_uids": [
+    "n|e6-measurement-006|google aggregate paid-click growth rate|year-over-year growth measurement"
+   ]
+  },
+  {
+   "name": "Non-TAC cost of revenue per Google query",
+   "type": "cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct cost metric not grouped elsewhere",
+   "child_uids": [
+    "n|e6-unit_econ-002|non-tac cost of revenue per google query|cost measurement"
+   ]
+  },
+  {
+   "name": "Revenue per monetised Google-owned search query",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific revenue per owned query",
+   "child_uids": [
+    "n|e6-unit_econ-003|revenue per monetised google-owned search query|revenue measurement"
+   ]
+  },
+  {
+   "name": "Serving cost per monetised Google-owned search query",
+   "type": "cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique serving cost metric for monetised queries",
+   "child_uids": [
+    "n|e6-unit_econ-003|serving cost per monetised google-owned search query|cost measurement"
+   ]
+  },
+  {
+   "name": "Google mobile share of US general search queries",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: mobile\u2011query share distinct from overall share",
+   "child_uids": [
+    "n|e7-sellers-005|google mobile share of us general search queries|share measurement"
+   ]
+  },
+  {
+   "name": "Google share of general search text advertising",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "same share measure across years and sources; source abstracted to children",
+   "child_uids": [
+    "n|e7-sellers-005|google share of general search text advertising market|share measurement",
+    "n|tu:era:7:event:8|google share of general search text advertising|share measurement"
+   ]
+  },
+  {
+   "name": "Advertising revenue per search query",
+   "type": "revenue-per-query measurement",
+   "grain": "Measurement",
+   "reason": "combines similar ad\u2011revenue per query measures, abstracts year and source",
+   "child_uids": [
+    "n|e7-unit_econ-001|advertising revenue per search query measurement|revenue-per-query measurement",
+    "n|e7-unit_econ-004|advertising revenue per google search query|ad-revenue measurement"
+   ]
+  },
+  {
+   "name": "Direct operating cost per query",
+   "type": "cost-per-query measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct direct operating cost metric per query",
+   "child_uids": [
+    "n|e7-unit_econ-002|direct operating cost per query 2020|cost-per-query measurement"
+   ]
+  }
+ ]
+}

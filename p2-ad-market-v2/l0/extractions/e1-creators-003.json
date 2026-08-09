@@ -1,0 +1,45 @@
+{
+ "id": "e1-creators-003",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1917,
+ "unit": "USD millions (current)",
+ "elapsed_s": 42.3,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "N. W. Ayer & Son",
+   "type": "advertising agency",
+   "clause": "proper name"
+  },
+  {
+   "name": "gross receipts (billings)",
+   "type": "revenue measurement",
+   "clause": "gross receipts (billings) reached ... in ..."
+  },
+  {
+   "name": "gross receipts prior amount",
+   "type": "revenue measurement",
+   "clause": "up from ... in ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "N. W. Ayer & Son",
+   "type": "HAS_REVENUE",
+   "to": "gross receipts (billings)",
+   "clause": "gross receipts (billings) reached ... in ..."
+  },
+  {
+   "from": "gross receipts (billings)",
+   "type": "INCREASED_FROM",
+   "to": "gross receipts prior amount",
+   "clause": "up from ... in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|N. W. Ayer & Son|advertising agency|proper name\nNODE|gross receipts (billings)|revenue measurement|gross receipts (billings) reached ... in ...\nNODE|gross receipts prior amount|revenue measurement|up from ... in ...\nEDGE|N. W. Ayer & Son|HAS_REVENUE|gross receipts (billings)|gross receipts (billings) reached ... in ...\nEDGE|gross receipts (billings)|INCREASED_FROM|gross receipts prior amount|up from ... in ..."
+}

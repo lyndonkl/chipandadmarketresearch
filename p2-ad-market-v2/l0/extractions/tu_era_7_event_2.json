@@ -1,0 +1,219 @@
+{
+ "id": "tu:era:7:event:2",
+ "kind": "prose:event",
+ "era": 7,
+ "about_year": 2015,
+ "unit": null,
+ "elapsed_s": 118.3,
+ "error": null,
+ "n_nodes": 21,
+ "n_edges": 16,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "publishers",
+   "type": "actor class",
+   "clause": "Publishers began running a parallel auction"
+  },
+  {
+   "name": "parallel auction",
+   "type": "auction format",
+   "clause": "parallel auction in the page header"
+  },
+  {
+   "name": "page header",
+   "type": "web page element",
+   "clause": "parallel auction in the page header"
+  },
+  {
+   "name": "ad server",
+   "type": "technology component",
+   "clause": "before calling the ad server"
+  },
+  {
+   "name": "exchange",
+   "type": "ad exchange",
+   "clause": "every exchange bid at once"
+  },
+  {
+   "name": "fixed priority order",
+   "type": "ordering mechanism",
+   "clause": "instead of in a fixed priority order"
+  },
+  {
+   "name": "Prebid.js",
+   "type": "software tool",
+   "clause": "created ... by Matt Kendall and Paul Yang with Nick Jacob"
+  },
+  {
+   "name": "Matt Kendall",
+   "type": "person",
+   "clause": "created ... by Matt Kendall"
+  },
+  {
+   "name": "Paul Yang",
+   "type": "person",
+   "clause": "created ... by Paul Yang"
+  },
+  {
+   "name": "AppNexus",
+   "type": "company",
+   "clause": "... at AppNexus"
+  },
+  {
+   "name": "Nick Jacob",
+   "type": "person",
+   "clause": "with Nick Jacob of Aplus"
+  },
+  {
+   "name": "Aplus",
+   "type": "company",
+   "clause": "of Aplus"
+  },
+  {
+   "name": "header bidding technique",
+   "type": "advertising technique",
+   "clause": "standardised the technique"
+  },
+  {
+   "name": "AdExchanger",
+   "type": "publication",
+   "clause": "AdExchanger's ... piece"
+  },
+  {
+   "name": "The Rise of Header Bidding and the End of the Publisher Waterfall",
+   "type": "article",
+   "clause": "is the trade-press marker"
+  },
+  {
+   "name": "trade-press marker",
+   "type": "abstract concept",
+   "clause": "is the trade-press marker"
+  },
+  {
+   "name": "publisher waterfall",
+   "type": "advertising practice",
+   "clause": "sequential price discrimination was over"
+  },
+  {
+   "name": "sequential price discrimination",
+   "type": "pricing practice",
+   "clause": "sequential price discrimination was over"
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's ad server had to compete on price"
+  },
+  {
+   "name": "Google ad server",
+   "type": "ad server component",
+   "clause": "Google's ad server"
+  },
+  {
+   "name": "price",
+   "type": "abstract concept",
+   "clause": "had to compete on price"
+  }
+ ],
+ "edges": [
+  {
+   "from": "publishers",
+   "type": "BEGAN_RUNNING",
+   "to": "parallel auction",
+   "clause": "began running a parallel auction in the page header before calling the ad server"
+  },
+  {
+   "from": "parallel auction",
+   "type": "IN",
+   "to": "page header",
+   "clause": "parallel auction in the page header"
+  },
+  {
+   "from": "exchange",
+   "type": "BID_SIMULTANEOUSLY",
+   "to": "parallel auction",
+   "clause": "every exchange bid at once instead of in a fixed priority order"
+  },
+  {
+   "from": "exchange",
+   "type": "NOT_BID_IN",
+   "to": "fixed priority order",
+   "clause": "instead of in a fixed priority order"
+  },
+  {
+   "from": "Prebid.js",
+   "type": "CREATED_BY",
+   "to": "Matt Kendall",
+   "clause": "created ... by Matt Kendall"
+  },
+  {
+   "from": "Prebid.js",
+   "type": "CREATED_BY",
+   "to": "Paul Yang",
+   "clause": "created ... by Paul Yang"
+  },
+  {
+   "from": "Matt Kendall",
+   "type": "WORKED_AT",
+   "to": "AppNexus",
+   "clause": "... at AppNexus"
+  },
+  {
+   "from": "Paul Yang",
+   "type": "WORKED_AT",
+   "to": "AppNexus",
+   "clause": "... at AppNexus"
+  },
+  {
+   "from": "Prebid.js",
+   "type": "CREATED_WITH",
+   "to": "Nick Jacob",
+   "clause": "with Nick Jacob of Aplus"
+  },
+  {
+   "from": "Nick Jacob",
+   "type": "AFFILIATED_WITH",
+   "to": "Aplus",
+   "clause": "of Aplus"
+  },
+  {
+   "from": "Prebid.js",
+   "type": "STANDARDISED",
+   "to": "header bidding technique",
+   "clause": "standardised the technique"
+  },
+  {
+   "from": "The Rise of Header Bidding and the End of the Publisher Waterfall",
+   "type": "PUBLISHED_BY",
+   "to": "AdExchanger",
+   "clause": "AdExchanger's ... piece"
+  },
+  {
+   "from": "The Rise of Header Bidding and the End of the Publisher Waterfall",
+   "type": "IS_MARKER_OF",
+   "to": "trade-press marker",
+   "clause": "is the trade-press marker"
+  },
+  {
+   "from": "publisher waterfall",
+   "type": "PRICE_DISCRIMINATION_OVER",
+   "to": "sequential price discrimination",
+   "clause": "sequential price discrimination was over"
+  },
+  {
+   "from": "Google",
+   "type": "OWNS",
+   "to": "Google ad server",
+   "clause": "Google's ad server"
+  },
+  {
+   "from": "Google ad server",
+   "type": "COMPETE_ON",
+   "to": "price",
+   "clause": "had to compete on price"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|publishers|actor class|Publishers began running a parallel auction\nNODE|parallel auction|auction format|parallel auction in the page header\nNODE|page header|web page element|parallel auction in the page header\nNODE|ad server|technology component|before calling the ad server\nNODE|exchange|ad exchange|every exchange bid at once\nNODE|fixed priority order|ordering mechanism|instead of in a fixed priority order\nNODE|Prebid.js|software tool|created ... by Matt Kendall and Paul Yang with Nick Jacob\nNODE|Matt Kendall|person|created ... by Matt Kendall\nNODE|Paul Yang|person|created ... by Paul Yang\nNODE|AppNexus|company|... at AppNexus\nNODE|Nick Jacob|person|with Nick Jacob of Aplus\nNODE|Aplus|company|of Aplus\nNODE|header bidding technique|advertising technique|standardised the technique\nNODE|AdExchanger|publication|AdExchanger's ... piece\nNODE|The Rise of Header Bidding and the End of the Publisher Waterfall|article|is the trade-press marker\nNODE|trade-press marker|abstract concept|is the trade-press marker\nNODE|publisher waterfall|advertising practice|sequential price discrimination was over\nNODE|sequential price discrimination|pricing practice|sequential price discrimination was over\nNODE|Google|company|Google's ad server had to compete on price\nNODE|Google ad server|ad server component|Google's ad server\nNODE|price|abstract concept|had to compete on price\nEDGE|publishers|BEGAN_RUNNING|parallel auction|began running a parallel auction in the page header before calling the ad server\nEDGE|parallel auction|IN|page header|parallel auction in the page header\nEDGE|exchange|BID_SIMULTANEOUSLY|parallel auction|every exchange bid at once instead of in a fixed priority order\nEDGE|exchange|NOT_BID_IN|fixed priority order|instead of in a fixed priority order\nEDGE|Prebid.js|CREATED_BY|Matt Kendall|created ... by Matt Kendall\nEDGE|Prebid.js|CREATED_BY|Paul Yang|created ... by Paul Yang\nEDGE|Matt Kendall|WORKED_AT|AppNexus|... at AppNexus\nEDGE|Paul Yang|WORKED_AT|AppNexus|... at AppNexus\nEDGE|Prebid.js|CREATED_WITH|Nick Jacob|with Nick Jacob of Aplus\nEDGE|Nick Jacob|AFFILIATED_WITH|Aplus|of Aplus\nEDGE|Prebid.js|STANDARDISED|header bidding technique|standardised the technique\nEDGE|The Rise of Header Bidding and the End of the Publisher Waterfall|PUBLISHED_BY|AdExchanger|AdExchanger's ... piece\nEDGE|The Rise of Header Bidding and the End of the Publisher Waterfall|IS_MARKER_OF|trade-press marker|is the trade-press marker\nEDGE|publisher waterfall|PRICE_DISCRIMINATION_OVER|sequential price discrimination|sequential price discrimination was over\nEDGE|Google|OWNS|Google ad server|Google's ad server\nEDGE|Google ad server|COMPETE_ON|price|had to compete on price"
+}

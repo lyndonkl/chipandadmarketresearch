@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|98d01b289eed1901",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Market participants",
+   "type": "industry actors",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity concept not shared with others",
+   "child_uids": [
+    "n|e7-pricing-004|market participants|industry actors"
+   ]
+  },
+  {
+   "name": "Downstream partners",
+   "type": "market participants",
+   "grain": "Entity",
+   "reason": "singleton: specific downstream partners entity separate from other concepts",
+   "child_uids": [
+    "n|mech-mehta-005|downstream partners|market participants"
+   ]
+  },
+  {
+   "name": "Middleman",
+   "type": "market intermediary",
+   "grain": "Entity",
+   "reason": "singleton: middleman role unique among entities in this set",
+   "child_uids": [
+    "n|tu:era:1:event:3|middleman|market intermediary"
+   ]
+  },
+  {
+   "name": "Structural invention of the era",
+   "type": "industry innovation",
+   "grain": "Entity",
+   "reason": "singleton: structural invention distinct innovation entity not overlapping others",
+   "child_uids": [
+    "n|tu:era:1:field:SELLERS|structural invention of the era|industry innovation"
+   ]
+  }
+ ]
+}

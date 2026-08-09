@@ -1,0 +1,67 @@
+{
+ "id": "e2-scale-005",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1944,
+ "unit": "percent of US GDP spent on advertising, 1944",
+ "elapsed_s": 72.0,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "advertising share of US GDP",
+   "type": "media-share measurement",
+   "clause": "Advertising's share of GDP"
+  },
+  {
+   "name": "advertising share of US GDP series 1919-2007",
+   "type": "time-series dataset",
+   "clause": "the 1919-2007 series"
+  },
+  {
+   "name": "US GDP",
+   "type": "gross domestic product",
+   "clause": "GDP"
+  },
+  {
+   "name": "wartime",
+   "type": "historical period",
+   "clause": "the war"
+  },
+  {
+   "name": "advertising spend",
+   "type": "advertising expenditure",
+   "clause": "ad spend"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising share of US GDP",
+   "type": "LOWEST_IN",
+   "to": "advertising share of US GDP series 1919-2007",
+   "clause": "the lowest reading in the series"
+  },
+  {
+   "from": "US GDP",
+   "type": "DOUBLED_DURING",
+   "to": "wartime",
+   "clause": "GDP more than doubled during the war"
+  },
+  {
+   "from": "advertising spend",
+   "type": "ROSE_MODERATELY_DURING",
+   "to": "wartime",
+   "clause": "ad spend rose only moderately"
+  },
+  {
+   "from": "US GDP",
+   "type": "LED_TO_DECREASE",
+   "to": "advertising share of US GDP",
+   "clause": "because GDP more than doubled during the war"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|advertising share of US GDP|media-share measurement|Advertising's share of GDP\nNODE|advertising share of US GDP series 1919-2007|time-series dataset|the 1919-2007 series\nNODE|US GDP|gross domestic product|GDP\nNODE|wartime|historical period|the war\nNODE|advertising spend|advertising expenditure|ad spend\nEDGE|advertising share of US GDP|LOWEST_IN|advertising share of US GDP series 1919-2007|the lowest reading in the series\nEDGE|US GDP|DOUBLED_DURING|wartime|GDP more than doubled during the war\nEDGE|advertising spend|ROSE_MODERATELY_DURING|wartime|ad spend rose only moderately\nEDGE|US GDP|LED_TO_DECREASE|advertising share of US GDP|because GDP more than doubled during the war"
+}

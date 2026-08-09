@@ -1,0 +1,67 @@
+{
+ "id": "e1-targeting-002",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1904,
+ "unit": "millions of catalogues mailed per year",
+ "elapsed_s": 53.7,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Montgomery Ward",
+   "type": "company",
+   "clause": "Montgomery Ward"
+  },
+  {
+   "name": "catalogues mailed per year",
+   "type": "mailing volume measurement",
+   "clause": "about ... catalogues a year"
+  },
+  {
+   "name": "catalogue",
+   "type": "advertising medium",
+   "clause": "each addressed to a named household"
+  },
+  {
+   "name": "named household",
+   "type": "household entity",
+   "clause": "addressed to a named household"
+  },
+  {
+   "name": "individually addressable medium",
+   "type": "medium attribute",
+   "clause": "the era's only individually addressable medium"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Montgomery Ward",
+   "type": "MAILED",
+   "to": "catalogues mailed per year",
+   "clause": "was mailing about ... catalogues a year"
+  },
+  {
+   "from": "catalogues mailed per year",
+   "type": "MEASURES",
+   "to": "catalogue",
+   "clause": "of catalogues mailed per year"
+  },
+  {
+   "from": "catalogue",
+   "type": "ADDRESSED_TO",
+   "to": "named household",
+   "clause": "each addressed to a named household"
+  },
+  {
+   "from": "catalogue",
+   "type": "IS_ONLY_IN_ERA",
+   "to": "individually addressable medium",
+   "clause": "the era's only individually addressable medium"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Montgomery Ward|company|Montgomery Ward\nNODE|catalogues mailed per year|mailing volume measurement|about ... catalogues a year\nNODE|catalogue|advertising medium|each addressed to a named household\nNODE|named household|household entity|addressed to a named household\nNODE|individually addressable medium|medium attribute|the era's only individually addressable medium\nEDGE|Montgomery Ward|MAILED|catalogues mailed per year|was mailing about ... catalogues a year\nEDGE|catalogues mailed per year|MEASURES|catalogue|of catalogues mailed per year\nEDGE|catalogue|ADDRESSED_TO|named household|each addressed to a named household\nEDGE|catalogue|IS_ONLY_IN_ERA|individually addressable medium|the era's only individually addressable medium"
+}

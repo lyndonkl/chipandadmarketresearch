@@ -1,0 +1,100 @@
+{
+ "id": "ds-gap-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2011,
+ "unit": "years of the window with no free by-medium series",
+ "elapsed_s": 78.4,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising by\u2011medium series",
+   "type": "advertising data series",
+   "clause": "by\u2011medium US advertising series"
+  },
+  {
+   "name": "2011\u20112025 window",
+   "type": "time period",
+   "clause": "for ... window"
+  },
+  {
+   "name": "free",
+   "type": "attribute",
+   "clause": "free"
+  },
+  {
+   "name": "consistent",
+   "type": "attribute",
+   "clause": "consistent"
+  },
+  {
+   "name": "years without free, consistent by\u2011medium US advertising series",
+   "type": "year-count measurement",
+   "clause": "years of the window with no free by\u2011medium series"
+  },
+  {
+   "name": "project",
+   "type": "research project",
+   "clause": "the project"
+  },
+  {
+   "name": "priority fifteen-year span",
+   "type": "priority time span",
+   "clause": "fifteen years the project cares most about"
+  },
+  {
+   "name": "commercial licence",
+   "type": "licence",
+   "clause": "commercial licence"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising by\u2011medium series",
+   "type": "NOT_PRESENT_IN",
+   "to": "2011\u20112025 window",
+   "clause": "... series exists for ..."
+  },
+  {
+   "from": "US advertising by\u2011medium series",
+   "type": "NOT_FREE",
+   "to": "free",
+   "clause": "no free ... series"
+  },
+  {
+   "from": "US advertising by\u2011medium series",
+   "type": "NOT_CONSISTENT",
+   "to": "consistent",
+   "clause": "no ... consistent ... series"
+  },
+  {
+   "from": "years without free, consistent by\u2011medium US advertising series",
+   "type": "COUNT_OF_YEARS_WITHOUT",
+   "to": "US advertising by\u2011medium series",
+   "clause": "... years ... without ..."
+  },
+  {
+   "from": "project",
+   "type": "CARES_MOST_ABOUT",
+   "to": "priority fifteen-year span",
+   "clause": "the ... years the project cares most about"
+  },
+  {
+   "from": "priority fifteen-year span",
+   "type": "LEAST_MEASURABLE_IN",
+   "to": "2011\u20112025 window",
+   "clause": "are the least measurable in the whole window"
+  },
+  {
+   "from": "priority fifteen-year span",
+   "type": "LACKS_LICENSE",
+   "to": "commercial licence",
+   "clause": "without a commercial licence"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising by\u2011medium series|advertising data series|by\u2011medium US advertising series\nNODE|2011\u20112025 window|time period|for ... window\nNODE|free|attribute|free\nNODE|consistent|attribute|consistent\nNODE|years without free, consistent by\u2011medium US advertising series|year-count measurement|years of the window with no free by\u2011medium series\nNODE|project|research project|the project\nNODE|priority fifteen-year span|priority time span|fifteen years the project cares most about\nNODE|commercial licence|licence|commercial licence\nEDGE|US advertising by\u2011medium series|NOT_PRESENT_IN|2011\u20112025 window|... series exists for ...\nEDGE|US advertising by\u2011medium series|NOT_FREE|free|no free ... series\nEDGE|US advertising by\u2011medium series|NOT_CONSISTENT|consistent|no ... consistent ... series\nEDGE|years without free, consistent by\u2011medium US advertising series|COUNT_OF_YEARS_WITHOUT|US advertising by\u2011medium series|... years ... without ...\nEDGE|project|CARES_MOST_ABOUT|priority fifteen-year span|the ... years the project cares most about\nEDGE|priority fifteen-year span|LEAST_MEASURABLE_IN|2011\u20112025 window|are the least measurable in the whole window\nEDGE|priority fifteen-year span|LACKS_LICENSE|commercial licence|without a commercial licence"
+}

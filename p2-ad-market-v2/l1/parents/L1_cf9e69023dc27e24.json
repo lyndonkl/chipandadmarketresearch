@@ -1,0 +1,80 @@
+{
+ "group_id": "L1|cf9e69023dc27e24",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "Radio program",
+   "type": "radio program",
+   "grain": "Entity",
+   "reason": "multiple specific programs share same higher-level concept",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|chase and sanborn hour|radio program",
+    "n|tu:era:2:field:CREATORS|lux radio theatre|radio program"
+   ]
+  },
+  {
+   "name": "Radio set",
+   "type": "device",
+   "grain": "Entity",
+   "reason": "singleton: distinct device entity not shared with others",
+   "child_uids": [
+    "n|e2-targeting-005|radio set|device"
+   ]
+  },
+  {
+   "name": "Broadcast radio",
+   "type": "media type",
+   "grain": "Entity",
+   "reason": "singleton: the broadcast radio medium as a media type",
+   "child_uids": [
+    "n|tu:era:1:event:0|broadcast radio|media type"
+   ]
+  },
+  {
+   "name": "Radio medium split 1926",
+   "type": "medium split year",
+   "grain": "Entity",
+   "reason": "singleton: historical split event of the radio medium",
+   "child_uids": [
+    "n|tu:era:2:boundary|radio medium split year 1926|medium split year"
+   ]
+  },
+  {
+   "name": "Broadcaster",
+   "type": "media actor",
+   "grain": "Entity",
+   "reason": "singleton: generic broadcasting organization entity",
+   "child_uids": [
+    "n|tu:era:2:event:0|broadcaster|media actor"
+   ]
+  },
+  {
+   "name": "Airtime",
+   "type": "broadcast medium",
+   "grain": "Entity",
+   "reason": "singleton: resource slot for broadcast content",
+   "child_uids": [
+    "n|tu:era:2:event:0|airtime|broadcast medium"
+   ]
+  },
+  {
+   "name": "Radio department",
+   "type": "business unit",
+   "grain": "Entity",
+   "reason": "singleton: internal business unit handling radio activities",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|radio department|business unit"
+   ]
+  },
+  {
+   "name": "AM stations",
+   "type": "radio station group",
+   "grain": "Entity",
+   "reason": "singleton: group of AM radio stations",
+   "child_uids": [
+    "n|tu:era:2:field:SELLERS|am stations|radio station group"
+   ]
+  }
+ ]
+}

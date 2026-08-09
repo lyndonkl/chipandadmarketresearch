@@ -1,0 +1,159 @@
+{
+ "id": "tu:era:2:event:5",
+ "kind": "prose:event",
+ "era": 2,
+ "about_year": 1941,
+ "unit": null,
+ "elapsed_s": 83.5,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Commission",
+   "type": "regulatory body",
+   "clause": "The Commission published audited financials"
+  },
+  {
+   "name": "audited financials",
+   "type": "financial audit report",
+   "clause": "published audited financials for the whole industry"
+  },
+  {
+   "name": "whole industry",
+   "type": "advertising market",
+   "clause": "for the whole industry"
+  },
+  {
+   "name": "two companies",
+   "type": "advertising company",
+   "clause": "two companies handled ... kept ... locked affiliates"
+  },
+  {
+   "name": "business",
+   "type": "advertising business",
+   "clause": "more than half the business"
+  },
+  {
+   "name": "business share handled by two companies",
+   "type": "share measurement",
+   "clause": "handled more than half the business"
+  },
+  {
+   "name": "network time-sales proceeds",
+   "type": "revenue stream",
+   "clause": "kept nearly three quarters of network time-sales proceeds"
+  },
+  {
+   "name": "network proceeds share kept by two companies",
+   "type": "share measurement",
+   "clause": "kept nearly three quarters of network time-sales proceeds"
+  },
+  {
+   "name": "affiliates",
+   "type": "affiliate broadcaster",
+   "clause": "locked affiliates in with exclusive contracts and open-ended time options"
+  },
+  {
+   "name": "exclusive contracts",
+   "type": "contract type",
+   "clause": "with exclusive contracts"
+  },
+  {
+   "name": "open-ended time options",
+   "type": "contract option",
+   "clause": "with open-ended time options"
+  },
+  {
+   "name": "chain-broadcasting rules",
+   "type": "broadcasting regulation",
+   "clause": "the chain-broadcasting rules that followed forced RCA..."
+  },
+  {
+   "name": "RCA",
+   "type": "electronics company",
+   "clause": "forced RCA to divest one of its two networks"
+  },
+  {
+   "name": "network",
+   "type": "broadcast network",
+   "clause": "one of its two networks"
+  },
+  {
+   "name": "RCA network count",
+   "type": "count measurement",
+   "clause": "its two networks"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Commission",
+   "type": "PUBLISHED",
+   "to": "audited financials",
+   "clause": "published audited financials for the whole industry"
+  },
+  {
+   "from": "audited financials",
+   "type": "MEASURES",
+   "to": "whole industry",
+   "clause": "audited financials ... for the whole industry"
+  },
+  {
+   "from": "two companies",
+   "type": "HANDLED",
+   "to": "business share handled by two companies",
+   "clause": "handled more than half the business"
+  },
+  {
+   "from": "business share handled by two companies",
+   "type": "SHARE_OF",
+   "to": "business",
+   "clause": "more than half the business"
+  },
+  {
+   "from": "two companies",
+   "type": "KEPT",
+   "to": "network proceeds share kept by two companies",
+   "clause": "kept nearly three quarters of network time-sales proceeds"
+  },
+  {
+   "from": "network proceeds share kept by two companies",
+   "type": "SHARE_OF",
+   "to": "network time-sales proceeds",
+   "clause": "nearly three quarters of network time-sales proceeds"
+  },
+  {
+   "from": "two companies",
+   "type": "LOCKED_WITH",
+   "to": "exclusive contracts",
+   "clause": "locked affiliates in with exclusive contracts"
+  },
+  {
+   "from": "two companies",
+   "type": "LOCKED_WITH",
+   "to": "open-ended time options",
+   "clause": "locked affiliates in with open-ended time options"
+  },
+  {
+   "from": "chain-broadcasting rules",
+   "type": "FORCED_TO_DIVEST",
+   "to": "RCA",
+   "clause": "forced RCA to divest one of its two networks"
+  },
+  {
+   "from": "RCA",
+   "type": "HAS_COUNT",
+   "to": "RCA network count",
+   "clause": "its two networks"
+  },
+  {
+   "from": "RCA",
+   "type": "DIVESTED",
+   "to": "network",
+   "clause": "divested one of its two networks"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Commission|regulatory body|The Commission published audited financials\nNODE|audited financials|financial audit report|published audited financials for the whole industry\nNODE|whole industry|advertising market|for the whole industry\nNODE|two companies|advertising company|two companies handled ... kept ... locked affiliates\nNODE|business|advertising business|more than half the business\nNODE|business share handled by two companies|share measurement|handled more than half the business\nNODE|network time-sales proceeds|revenue stream|kept nearly three quarters of network time-sales proceeds\nNODE|network proceeds share kept by two companies|share measurement|kept nearly three quarters of network time-sales proceeds\nNODE|affiliates|affiliate broadcaster|locked affiliates in with exclusive contracts and open-ended time options\nNODE|exclusive contracts|contract type|with exclusive contracts\nNODE|open-ended time options|contract option|with open-ended time options\nNODE|chain-broadcasting rules|broadcasting regulation|the chain-broadcasting rules that followed forced RCA...\nNODE|RCA|electronics company|forced RCA to divest one of its two networks\nNODE|network|broadcast network|one of its two networks\nNODE|RCA network count|count measurement|its two networks\nEDGE|Commission|PUBLISHED|audited financials|published audited financials for the whole industry\nEDGE|audited financials|MEASURES|whole industry|audited financials ... for the whole industry\nEDGE|two companies|HANDLED|business share handled by two companies|handled more than half the business\nEDGE|business share handled by two companies|SHARE_OF|business|more than half the business\nEDGE|two companies|KEPT|network proceeds share kept by two companies|kept nearly three quarters of network time-sales proceeds\nEDGE|network proceeds share kept by two companies|SHARE_OF|network time-sales proceeds|nearly three quarters of network time-sales proceeds\nEDGE|two companies|LOCKED_WITH|exclusive contracts|locked affiliates in with exclusive contracts\nEDGE|two companies|LOCKED_WITH|open-ended time options|locked affiliates in with open-ended time options\nEDGE|chain-broadcasting rules|FORCED_TO_DIVEST|RCA|forced RCA to divest one of its two networks\nEDGE|RCA|HAS_COUNT|RCA network count|its two networks\nEDGE|RCA|DIVESTED|network|divested one of its two networks"
+}

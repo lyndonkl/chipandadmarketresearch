@@ -1,0 +1,73 @@
+{
+ "group_id": "L1|e5017e35cbc8f7ff",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Long-term stickage factor",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "same factor across sources; year abstracted",
+   "child_uids": [
+    "n|e7-pricing-001|long-term stickage factor|percentage measurement",
+    "n|mech-rgsp-001|long-term stickage factor measurement|percentage stickage measurement"
+   ]
+  },
+  {
+   "name": "Format-price experiment long-term retention rate",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "same metric, different wording; years abstracted",
+   "child_uids": [
+    "n|e7-pricing-002|format-price experiment long-term retention rate|percentage measurement",
+    "n|mech-format_pricing-001|format-price experiment retained share|percentage measurement"
+   ]
+  },
+  {
+   "name": "Retention gap multiplier",
+   "type": "gap ratio measurement",
+   "grain": "Measurement",
+   "reason": "same ratio across years; year abstracted to children",
+   "child_uids": [
+    "n|mech-tac-004|retention gap multiplier 2002|gap ratio measurement",
+    "n|mech-tac-004|retention gap multiplier 2008|gap ratio measurement"
+   ]
+  },
+  {
+   "name": "Undocumented gap share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique share measure about undocumented gap",
+   "child_uids": [
+    "n|e1-scale-017|undocumented gap share|share measurement"
+   ]
+  },
+  {
+   "name": "Yahoo loss amount",
+   "type": "loss measurement",
+   "grain": "Measurement",
+   "reason": "singleton: loss specific to Yahoo",
+   "child_uids": [
+    "n|e5-unit_econ-003|yahoo loss amount|loss measurement"
+   ]
+  },
+  {
+   "name": "Realised loss amount",
+   "type": "loss measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic realised loss amount",
+   "child_uids": [
+    "n|mech-aol-006|realised loss amount|loss measurement"
+   ]
+  },
+  {
+   "name": "2002 cash guarantee",
+   "type": "cash guarantee measurement",
+   "grain": "Measurement",
+   "reason": "singleton: cash guarantee for 2002",
+   "child_uids": [
+    "n|mech-aol-006|2002 cash guarantee|cash guarantee measurement"
+   ]
+  }
+ ]
+}

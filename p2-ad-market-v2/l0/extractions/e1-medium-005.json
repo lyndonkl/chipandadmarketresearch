@@ -1,0 +1,61 @@
+{
+ "id": "e1-medium-005",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "percent of total US advertising outlay",
+ "elapsed_s": 33.1,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "print media",
+   "type": "advertising medium",
+   "clause": "Print (newspapers plus all other periodicals)"
+  },
+  {
+   "name": "total US advertising outlay",
+   "type": "advertising spend aggregate",
+   "clause": "the era's broad total-outlay benchmark"
+  },
+  {
+   "name": "print share of total US advertising outlay",
+   "type": "media-share measurement",
+   "clause": "roughly ... percent of the ... benchmark"
+  },
+  {
+   "name": "pre-1919 totals",
+   "type": "advertising spend aggregate",
+   "clause": "the pre-1919 totals"
+  },
+  {
+   "name": "media-only measure",
+   "type": "measurement scope",
+   "clause": "a media\u2011only measure"
+  }
+ ],
+ "edges": [
+  {
+   "from": "print media",
+   "type": "HAS_SHARE",
+   "to": "print share of total US advertising outlay",
+   "clause": "Print accounted for ..."
+  },
+  {
+   "from": "print share of total US advertising outlay",
+   "type": "SHARE_OF",
+   "to": "total US advertising outlay",
+   "clause": "... percent of the ... benchmark"
+  },
+  {
+   "from": "pre-1919 totals",
+   "type": "NOT_READ_AS",
+   "to": "media-only measure",
+   "clause": "cannot be read as a media\u2011only measure"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|print media|advertising medium|Print (newspapers plus all other periodicals)\nNODE|total US advertising outlay|advertising spend aggregate|the era's broad total-outlay benchmark\nNODE|print share of total US advertising outlay|media-share measurement|roughly ... percent of the ... benchmark\nNODE|pre-1919 totals|advertising spend aggregate|the pre-1919 totals\nNODE|media-only measure|measurement scope|a media\u2011only measure\nEDGE|print media|HAS_SHARE|print share of total US advertising outlay|Print accounted for ...\nEDGE|print share of total US advertising outlay|SHARE_OF|total US advertising outlay|... percent of the ... benchmark\nEDGE|pre-1919 totals|NOT_READ_AS|media-only measure|cannot be read as a media\u2011only measure"
+}

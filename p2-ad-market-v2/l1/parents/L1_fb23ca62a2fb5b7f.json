@@ -1,0 +1,27 @@
+{
+ "group_id": "L1|fb23ca62a2fb5b7f",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Metered home count",
+   "type": "home-count measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years and naming variants; year abstracted to children",
+   "child_uids": [
+    "n|e2-measurement-007|home deployment count measurement|home count measurement",
+    "n|tu:era:2:field:MEASUREMENT|metered homes|home-count measurement",
+    "n|tu:era:3:event:9|metered household count|count measurement"
+   ]
+  },
+  {
+   "name": "Audimeter panel size",
+   "type": "panel-size measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct panel-size measurement separate from total metered homes count",
+   "child_uids": [
+    "n|tu:era:3:field:MEASUREMENT|audimeter panel size measurement|panel-size measurement"
+   ]
+  }
+ ]
+}

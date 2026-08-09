@@ -1,0 +1,34 @@
+{
+ "id": "e2-scale-002",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ millions of total US advertising spend, 1949",
+ "elapsed_s": 20.7,
+ "error": null,
+ "n_nodes": 2,
+ "n_edges": 1,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising spend",
+   "type": "advertising expenditure aggregate",
+   "clause": "US advertising spend was ... in ..."
+  },
+  {
+   "name": "total US advertising spend measurement",
+   "type": "spend measurement",
+   "clause": "... million in ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising spend",
+   "type": "HAS_AMOUNT",
+   "to": "total US advertising spend measurement",
+   "clause": "US advertising spend was ... in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising spend|advertising expenditure aggregate|US advertising spend was ... in ...\nNODE|total US advertising spend measurement|spend measurement|... million in ...\nEDGE|US advertising spend|HAS_AMOUNT|total US advertising spend measurement|US advertising spend was ... in ..."
+}

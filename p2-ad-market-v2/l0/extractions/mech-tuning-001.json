@@ -1,0 +1,100 @@
+{
+ "id": "mech-tuning-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2023,
+ "unit": "percent average price change from Google auction 'tunings'",
+ "elapsed_s": 53.3,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google adjusted..."
+  },
+  {
+   "name": "search ad auction",
+   "type": "auction mechanism",
+   "clause": "search ad auction"
+  },
+  {
+   "name": "reserve prices",
+   "type": "pricing element",
+   "clause": "reserve prices"
+  },
+  {
+   "name": "quarterly revenue target",
+   "type": "business objective",
+   "clause": "quarterly revenue targets"
+  },
+  {
+   "name": "advertisers",
+   "type": "advertiser constituency",
+   "clause": "advertisers"
+  },
+  {
+   "name": "Jerry Dischler",
+   "type": "person",
+   "clause": "Jerry Dischler testified"
+  },
+  {
+   "name": "price increase measurement",
+   "type": "price change measurement",
+   "clause": "raised prices by ... on average"
+  },
+  {
+   "name": "potential price increase measurement",
+   "type": "price increase possibility measurement",
+   "clause": "a ... increase was possible in some instances"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "ADJUSTED",
+   "to": "search ad auction",
+   "clause": "adjusted search ad auction"
+  },
+  {
+   "from": "Google",
+   "type": "ADJUSTED",
+   "to": "reserve prices",
+   "clause": "adjusted reserve prices"
+  },
+  {
+   "from": "Google",
+   "type": "ADJUSTED_FOR",
+   "to": "quarterly revenue target",
+   "clause": "to meet quarterly revenue targets"
+  },
+  {
+   "from": "Google",
+   "type": "NOT_DISCLOSED_TO",
+   "to": "advertisers",
+   "clause": "without disclosing changes to advertisers"
+  },
+  {
+   "from": "Google",
+   "type": "EMPLOYS",
+   "to": "Jerry Dischler",
+   "clause": "its VP of ads, Jerry Dischler"
+  },
+  {
+   "from": "Jerry Dischler",
+   "type": "TESTIFIED",
+   "to": "price increase measurement",
+   "clause": "testified that tunings raised prices on average"
+  },
+  {
+   "from": "Jerry Dischler",
+   "type": "TESTIFIED",
+   "to": "potential price increase measurement",
+   "clause": "testified that a ... increase was possible in some instances"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google adjusted...\nNODE|search ad auction|auction mechanism|search ad auction\nNODE|reserve prices|pricing element|reserve prices\nNODE|quarterly revenue target|business objective|quarterly revenue targets\nNODE|advertisers|advertiser constituency|advertisers\nNODE|Jerry Dischler|person|Jerry Dischler testified\nNODE|price increase measurement|price change measurement|raised prices by ... on average\nNODE|potential price increase measurement|price increase possibility measurement|a ... increase was possible in some instances\nEDGE|Google|ADJUSTED|search ad auction|adjusted search ad auction\nEDGE|Google|ADJUSTED|reserve prices|adjusted reserve prices\nEDGE|Google|ADJUSTED_FOR|quarterly revenue target|to meet quarterly revenue targets\nEDGE|Google|NOT_DISCLOSED_TO|advertisers|without disclosing changes to advertisers\nEDGE|Google|EMPLOYS|Jerry Dischler|its VP of ads, Jerry Dischler\nEDGE|Jerry Dischler|TESTIFIED|price increase measurement|testified that tunings raised prices on average\nEDGE|Jerry Dischler|TESTIFIED|potential price increase measurement|testified that a ... increase was possible in some instances"
+}

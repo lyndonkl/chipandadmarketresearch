@@ -1,0 +1,78 @@
+{
+ "id": "e4-targeting-004",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "percent response rate",
+ "elapsed_s": 51.6,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "best-targeted medium",
+   "type": "advertising medium",
+   "clause": "best-targeted medium of the era"
+  },
+  {
+   "name": "response rate measurement",
+   "type": "response-rate measurement",
+   "clause": "a ... response rate on a rented list was the working definition of a successful direct-mail campaign"
+  },
+  {
+   "name": "direct-mail campaign",
+   "type": "advertising campaign",
+   "clause": "a successful direct-mail campaign"
+  },
+  {
+   "name": "rented list",
+   "type": "audience list",
+   "clause": "on a rented list"
+  },
+  {
+   "name": "good response rate measurement",
+   "type": "response-rate measurement",
+   "clause": "with ... treated as good"
+  },
+  {
+   "name": "missed recipient proportion measurement",
+   "type": "miss-rate measurement",
+   "clause": "still missed ... recipients"
+  }
+ ],
+ "edges": [
+  {
+   "from": "best-targeted medium",
+   "type": "HAS_RESPONSE_RATE",
+   "to": "response rate measurement",
+   "clause": "a ... response rate on a rented list was the working definition of a successful direct-mail campaign"
+  },
+  {
+   "from": "response rate measurement",
+   "type": "DEFINES_SUCCESS_FOR",
+   "to": "direct-mail campaign",
+   "clause": "working definition of a successful direct-mail campaign"
+  },
+  {
+   "from": "response rate measurement",
+   "type": "ON_LIST",
+   "to": "rented list",
+   "clause": "on a rented list"
+  },
+  {
+   "from": "good response rate measurement",
+   "type": "TREATED_AS_GOOD_FOR",
+   "to": "direct-mail campaign",
+   "clause": "with ... treated as good"
+  },
+  {
+   "from": "best-targeted medium",
+   "type": "HAS_MISS_RATE",
+   "to": "missed recipient proportion measurement",
+   "clause": "still missed ... recipients"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|best-targeted medium|advertising medium|best-targeted medium of the era\nNODE|response rate measurement|response-rate measurement|a ... response rate on a rented list was the working definition of a successful direct-mail campaign\nNODE|direct-mail campaign|advertising campaign|a successful direct-mail campaign\nNODE|rented list|audience list|on a rented list\nNODE|good response rate measurement|response-rate measurement|with ... treated as good\nNODE|missed recipient proportion measurement|miss-rate measurement|still missed ... recipients\nEDGE|best-targeted medium|HAS_RESPONSE_RATE|response rate measurement|a ... response rate on a rented list was the working definition of a successful direct-mail campaign\nEDGE|response rate measurement|DEFINES_SUCCESS_FOR|direct-mail campaign|working definition of a successful direct-mail campaign\nEDGE|response rate measurement|ON_LIST|rented list|on a rented list\nEDGE|good response rate measurement|TREATED_AS_GOOD_FOR|direct-mail campaign|with ... treated as good\nEDGE|best-targeted medium|HAS_MISS_RATE|missed recipient proportion measurement|still missed ... recipients"
+}

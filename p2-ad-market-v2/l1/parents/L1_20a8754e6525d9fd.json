@@ -1,0 +1,82 @@
+{
+ "group_id": "L1|20a8754e6525d9fd",
+ "source": "kmeans",
+ "n_in": 11,
+ "parents": [
+  {
+   "name": "Audited report",
+   "type": "audit document",
+   "grain": "Entity",
+   "reason": "singleton: a single audit document node",
+   "child_uids": [
+    "n|e1-measurement-003|audited report|audit document"
+   ]
+  },
+  {
+   "name": "External/Third\u2011party audit",
+   "type": "audit process",
+   "grain": "Entity",
+   "reason": "one audit process across phrasing variants; external and third\u2011party same concept",
+   "child_uids": [
+    "n|e5-measurement-005|external audit|audit process",
+    "n|tu:era:5:field:MEASUREMENT|third-party audit|audit mechanism"
+   ]
+  },
+  {
+   "name": "Auditor",
+   "type": "auditor",
+   "grain": "Entity",
+   "reason": "entity and role referring to the auditor grouped together",
+   "child_uids": [
+    "n|e6-measurement-001|independent industry auditor|audit entity",
+    "n|tu:era:6:field:MEASUREMENT|auditor function|audit role",
+    "n|tu:era:6:field:MEASUREMENT|third-party auditor|external audit entity"
+   ]
+  },
+  {
+   "name": "External\u2011verified number",
+   "type": "verification element",
+   "grain": "Entity",
+   "reason": "singleton: a single verification element",
+   "child_uids": [
+    "n|tu:era:1:event:8|external-verified number|verification element"
+   ]
+  },
+  {
+   "name": "Private industry\u2011funded verification",
+   "type": "verification practice",
+   "grain": "Entity",
+   "reason": "singleton: a single verification practice node",
+   "child_uids": [
+    "n|tu:era:3:field:MEASUREMENT|private industry-funded verification|verification practice"
+   ]
+  },
+  {
+   "name": "Accredited third party",
+   "type": "actor class",
+   "grain": "Entity",
+   "reason": "singleton: a single actor class node",
+   "child_uids": [
+    "n|e6-measurement-002|accredited third party|actor class"
+   ]
+  },
+  {
+   "name": "Third\u2011party certification recommendation",
+   "type": "recommendation",
+   "grain": "Entity",
+   "reason": "singleton: a single recommendation node",
+   "child_uids": [
+    "n|e6-measurement-003|third\u2011party certification recommendation|recommendation"
+   ]
+  },
+  {
+   "name": "Buyer audit right",
+   "type": "market discipline",
+   "grain": "Entity",
+   "reason": "singleton: a single market\u2011discipline node",
+   "child_uids": [
+    "n|tu:era:7:field:MEASUREMENT|buyer audit right|market discipline"
+   ]
+  }
+ ]
+}

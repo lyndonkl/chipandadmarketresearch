@@ -1,0 +1,66 @@
+{
+ "id": "e2-measurement-002",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1935,
+ "unit": "percent of US families with a telephone, 1934-35",
+ "elapsed_s": 30.2,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US families",
+   "type": "population group",
+   "clause": "... of US families had a telephone"
+  },
+  {
+   "name": "telephone ownership rate among US families",
+   "type": "share measurement",
+   "clause": "... percent of US families had a telephone"
+  },
+  {
+   "name": "telephone subscribers",
+   "type": "subscriber group",
+   "clause": "... percent of telephone subscribers owned radios"
+  },
+  {
+   "name": "radio ownership rate among telephone subscribers",
+   "type": "share measurement",
+   "clause": "... percent of telephone subscribers owned radios"
+  },
+  {
+   "name": "telephone-based rating",
+   "type": "rating mechanism",
+   "clause": "structural upward bias ... in every telephone-based rating"
+  },
+  {
+   "name": "structural upward bias",
+   "type": "bias characteristic",
+   "clause": "structural upward bias ... in every telephone-based rating"
+  }
+ ],
+ "edges": [
+  {
+   "from": "telephone ownership rate among US families",
+   "type": "SHARE_OF",
+   "to": "US families",
+   "clause": "... percent of US families had a telephone"
+  },
+  {
+   "from": "radio ownership rate among telephone subscribers",
+   "type": "SHARE_OF",
+   "to": "telephone subscribers",
+   "clause": "... percent of telephone subscribers owned radios"
+  },
+  {
+   "from": "telephone-based rating",
+   "type": "HAS_BIAS",
+   "to": "structural upward bias",
+   "clause": "structural upward bias ... in every telephone-based rating"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US families|population group|... of US families had a telephone\nNODE|telephone ownership rate among US families|share measurement|... percent of US families had a telephone\nNODE|telephone subscribers|subscriber group|... percent of telephone subscribers owned radios\nNODE|radio ownership rate among telephone subscribers|share measurement|... percent of telephone subscribers owned radios\nNODE|telephone-based rating|rating mechanism|structural upward bias ... in every telephone-based rating\nNODE|structural upward bias|bias characteristic|structural upward bias ... in every telephone-based rating\nEDGE|telephone ownership rate among US families|SHARE_OF|US families|... percent of US families had a telephone\nEDGE|radio ownership rate among telephone subscribers|SHARE_OF|telephone subscribers|... percent of telephone subscribers owned radios\nEDGE|telephone-based rating|HAS_BIAS|structural upward bias|structural upward bias ... in every telephone-based rating"
+}

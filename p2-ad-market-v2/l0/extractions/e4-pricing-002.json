@@ -1,0 +1,84 @@
+{
+ "id": "e4-pricing-002",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1982,
+ "unit": "percent of large national advertisers using commissions",
+ "elapsed_s": 51.3,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "ANA tracking studies",
+   "type": "study",
+   "clause": "ANA tracking studies show ..."
+  },
+  {
+   "name": "large US national advertisers",
+   "type": "advertiser segment",
+   "clause": "large US national advertisers"
+  },
+  {
+   "name": "commission-based agency compensation",
+   "type": "compensation type",
+   "clause": "commission-based agency compensation"
+  },
+  {
+   "name": "labour fee-based compensation",
+   "type": "compensation type",
+   "clause": "labour fee-based compensation"
+  },
+  {
+   "name": "share of large US national advertisers using commission-based agency compensation",
+   "type": "share measurement",
+   "clause": "... in ... and ... in ..."
+  },
+  {
+   "name": "share of large US national advertisers using labour fee-based compensation",
+   "type": "share measurement",
+   "clause": "rose from ... to ... over the same period"
+  }
+ ],
+ "edges": [
+  {
+   "from": "ANA tracking studies",
+   "type": "SHOWED",
+   "to": "share of large US national advertisers using commission-based agency compensation",
+   "clause": "show ..."
+  },
+  {
+   "from": "ANA tracking studies",
+   "type": "SHOWED",
+   "to": "share of large US national advertisers using labour fee-based compensation",
+   "clause": "show ..."
+  },
+  {
+   "from": "share of large US national advertisers using commission-based agency compensation",
+   "type": "SHARE_OF",
+   "to": "large US national advertisers",
+   "clause": "... of large US national advertisers"
+  },
+  {
+   "from": "share of large US national advertisers using commission-based agency compensation",
+   "type": "MEASURES",
+   "to": "commission-based agency compensation",
+   "clause": "using commission-based agency compensation"
+  },
+  {
+   "from": "share of large US national advertisers using labour fee-based compensation",
+   "type": "SHARE_OF",
+   "to": "large US national advertisers",
+   "clause": "... of large US national advertisers"
+  },
+  {
+   "from": "share of large US national advertisers using labour fee-based compensation",
+   "type": "MEASURES",
+   "to": "labour fee-based compensation",
+   "clause": "using labour fee-based compensation"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|ANA tracking studies|study|ANA tracking studies show ...\nNODE|large US national advertisers|advertiser segment|large US national advertisers\nNODE|commission-based agency compensation|compensation type|commission-based agency compensation\n NODE|labour fee-based compensation|compensation type|labour fee-based compensation\nNODE|share of large US national advertisers using commission-based agency compensation|share measurement|... in ... and ... in ...\nNODE|share of large US national advertisers using labour fee-based compensation|share measurement|rose from ... to ... over the same period\nEDGE|ANA tracking studies|SHOWED|share of large US national advertisers using commission-based agency compensation|show ...\nEDGE|ANA tracking studies|SHOWED|share of large US national advertisers using labour fee-based compensation|show ...\nEDGE|share of large US national advertisers using commission-based agency compensation|SHARE_OF|large US national advertisers|... of large US national advertisers\nEDGE|share of large US national advertisers using commission-based agency compensation|MEASURES|commission-based agency compensation|using commission-based agency compensation\nEDGE|share of large US national advertisers using labour fee-based compensation|SHARE_OF|large US national advertisers|... of large US national advertisers\nEDGE|share of large US national advertisers using labour fee-based compensation|MEASURES|labour fee-based compensation|using labour fee-based compensation"
+}

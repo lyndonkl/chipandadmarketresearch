@@ -1,0 +1,93 @@
+{
+ "id": "tu:era:7:event:5",
+ "kind": "prose:event",
+ "era": 7,
+ "about_year": 2021,
+ "unit": null,
+ "elapsed_s": 97.1,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "apps",
+   "type": "digital platform",
+   "clause": "Apps had to ask permission before tracking users across other companies' apps and websites"
+  },
+  {
+   "name": "cross-app user tracking",
+   "type": "user-tracking practice",
+   "clause": "tracking users across other companies' apps and websites"
+  },
+  {
+   "name": "permission requirement for cross-app tracking",
+   "type": "platform rule",
+   "clause": "It was a platform rule"
+  },
+  {
+   "name": "opt-in rate at launch",
+   "type": "take-rate measurement",
+   "clause": "Opt\u2011in ran around ... at launch"
+  },
+  {
+   "name": "law",
+   "type": "legal instrument",
+   "clause": "not a law"
+  },
+  {
+   "name": "largest mobile-signal buyer",
+   "type": "advertiser",
+   "clause": "the largest buyer of mobile signal"
+  },
+  {
+   "name": "cost to largest mobile-signal buyer",
+   "type": "cost measurement",
+   "clause": "it cost the largest buyer of mobile signal"
+  },
+  {
+   "name": "privacy statute cost",
+   "type": "cost measurement",
+   "clause": "any privacy statute had"
+  },
+  {
+   "name": "user opt\u2011in",
+   "type": "user consent",
+   "clause": "Opt\u2011in ran around ... at launch"
+  }
+ ],
+ "edges": [
+  {
+   "from": "apps",
+   "type": "MUST_OBTAIN_PERMISSION_FOR",
+   "to": "cross-app user tracking",
+   "clause": "had to ask permission before tracking users across other companies' apps and websites"
+  },
+  {
+   "from": "permission requirement for cross-app tracking",
+   "type": "EXCLUDES",
+   "to": "law",
+   "clause": "not a law"
+  },
+  {
+   "from": "permission requirement for cross-app tracking",
+   "type": "INCURRED_COST",
+   "to": "cost to largest mobile-signal buyer",
+   "clause": "it cost the largest buyer of mobile signal"
+  },
+  {
+   "from": "cost to largest mobile-signal buyer",
+   "type": "MORE_THAN",
+   "to": "privacy statute cost",
+   "clause": "more than any privacy statute had"
+  },
+  {
+   "from": "opt-in rate at launch",
+   "type": "MEASURES",
+   "to": "user opt\u2011in",
+   "clause": "Opt\u2011in ran around ... at launch"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|apps|digital platform|Apps had to ask permission before tracking users across other companies' apps and websites\nNODE|cross-app user tracking|user-tracking practice|tracking users across other companies' apps and websites\nNODE|permission requirement for cross-app tracking|platform rule|It was a platform rule\nNODE|opt-in rate at launch|take-rate measurement|Opt\u2011in ran around ... at launch\nNODE|law|legal instrument|not a law\nNODE|largest mobile-signal buyer|advertiser|the largest buyer of mobile signal\nNODE|cost to largest mobile-signal buyer|cost measurement|it cost the largest buyer of mobile signal\nNODE|privacy statute cost|cost measurement|any privacy statute had\nNODE|user opt\u2011in|user consent|Opt\u2011in ran around ... at launch\nEDGE|apps|MUST_OBTAIN_PERMISSION_FOR|cross-app user tracking|had to ask permission before tracking users across other companies' apps and websites\nEDGE|permission requirement for cross-app tracking|EXCLUDES|law|not a law\nEDGE|permission requirement for cross-app tracking|INCURRED_COST|cost to largest mobile-signal buyer|it cost the largest buyer of mobile signal\nEDGE|cost to largest mobile-signal buyer|MORE_THAN|privacy statute cost|more than any privacy statute had\nEDGE|opt-in rate at launch|MEASURES|user opt\u2011in|Opt\u2011in ran around ... at launch"
+}

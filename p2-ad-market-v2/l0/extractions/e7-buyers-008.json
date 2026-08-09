@@ -1,0 +1,116 @@
+{
+ "id": "e7-buyers-008",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
+ "elapsed_s": 66.7,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national direct-response buyers",
+   "type": "advertiser segment",
+   "clause": "advertisers paying for a measurable action rather than for reach"
+  },
+  {
+   "name": "US advertising spend",
+   "type": "market total",
+   "clause": "US advertising spend"
+  },
+  {
+   "name": "national direct-response buyers share of US advertising spend",
+   "type": "share measurement",
+   "clause": "percent of US advertising spend"
+  },
+  {
+   "name": "national direct-response buyers spend",
+   "type": "revenue measurement",
+   "clause": "absolute spend of national direct-response buyers"
+  },
+  {
+   "name": "national search",
+   "type": "advertising channel",
+   "clause": "national search"
+  },
+  {
+   "name": "commerce media",
+   "type": "advertising channel",
+   "clause": "commerce media"
+  },
+  {
+   "name": "retail media",
+   "type": "advertising channel",
+   "clause": "retail media"
+  },
+  {
+   "name": "performance social",
+   "type": "advertising channel",
+   "clause": "performance social"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail"
+  },
+  {
+   "name": "MAGNA media-owner rail",
+   "type": "media-owner rail",
+   "clause": "MAGNA media-owner rail"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national direct-response buyers",
+   "type": "HAS_SHARE",
+   "to": "national direct-response buyers share of US advertising spend",
+   "clause": "account for about ... percent of US advertising spend"
+  },
+  {
+   "from": "national direct-response buyers share of US advertising spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... of US advertising spend"
+  },
+  {
+   "from": "national direct-response buyers",
+   "type": "HAS_SPEND",
+   "to": "national direct-response buyers spend",
+   "clause": "roughly ..."
+  },
+  {
+   "from": "national direct-response buyers",
+   "type": "DOMINATED_BY",
+   "to": "national search",
+   "clause": "dominated by national search, commerce and retail media and performance social"
+  },
+  {
+   "from": "national direct-response buyers",
+   "type": "DOMINATED_BY",
+   "to": "commerce media",
+   "clause": "dominated by national search, commerce and retail media and performance social"
+  },
+  {
+   "from": "national direct-response buyers",
+   "type": "DOMINATED_BY",
+   "to": "retail media",
+   "clause": "dominated by national search, commerce and retail media and performance social"
+  },
+  {
+   "from": "national direct-response buyers",
+   "type": "DOMINATED_BY",
+   "to": "performance social",
+   "clause": "dominated by national search, commerce and retail media and performance social"
+  },
+  {
+   "from": "direct mail",
+   "type": "SITS_OUTSIDE",
+   "to": "MAGNA media-owner rail",
+   "clause": "direct mail sits outside this rail"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national direct-response buyers|advertiser segment|advertisers paying for a measurable action rather than for reach\nNODE|US advertising spend|market total|US advertising spend\nNODE|national direct-response buyers share of US advertising spend|share measurement|percent of US advertising spend\nNODE|national direct-response buyers spend|revenue measurement|absolute spend of national direct-response buyers\nNODE|national search|advertising channel|national search\nNODE|commerce media|advertising channel|commerce media\nNODE|retail media|advertising channel|retail media\nNODE|performance social|advertising channel|performance social\nNODE|direct mail|advertising medium|direct mail\nNODE|MAGNA media-owner rail|media-owner rail|MAGNA media-owner rail\nEDGE|national direct-response buyers|HAS_SHARE|national direct-response buyers share of US advertising spend|account for about ... percent of US advertising spend\nEDGE|national direct-response buyers share of US advertising spend|SHARE_OF|US advertising spend|... of US advertising spend\nEDGE|national direct-response buyers|HAS_SPEND|national direct-response buyers spend|roughly ...\nEDGE|national direct-response buyers|DOMINATED_BY|national search|dominated by national search, commerce and retail media and performance social\nEDGE|national direct-response buyers|DOMINATED_BY|commerce media|dominated by national search, commerce and retail media and performance social\nEDGE|national direct-response buyers|DOMINATED_BY|retail media|dominated by national search, commerce and retail media and performance social\nEDGE|national direct-response buyers|DOMINATED_BY|performance social|dominated by national search, commerce and retail media and performance social\nEDGE|direct mail|SITS_OUTSIDE|MAGNA media-owner rail|direct mail sits outside this rail"
+}

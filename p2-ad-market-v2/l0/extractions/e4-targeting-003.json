@@ -1,0 +1,89 @@
+{
+ "id": "e4-targeting-003",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "third-class pieces per person per year",
+ "elapsed_s": 78.7,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US households",
+   "type": "household group",
+   "clause": "US households"
+  },
+  {
+   "name": "third-class advertising mail",
+   "type": "advertising mail class",
+   "clause": "third-class advertising mail"
+  },
+  {
+   "name": "current third-class mail pieces per person per year",
+   "type": "take-rate measurement",
+   "clause": "... received ... per person per year by ..."
+  },
+  {
+   "name": "historical third-class mail pieces per person per year",
+   "type": "take-rate measurement",
+   "clause": "... against ... in 1980"
+  },
+  {
+   "name": "average household",
+   "type": "household unit",
+   "clause": "average household"
+  },
+  {
+   "name": "average household mail pieces per year",
+   "type": "mail volume measurement",
+   "clause": "... roughly ... pieces a year for an average household"
+  },
+  {
+   "name": "geodemographic targeting",
+   "type": "targeting practice",
+   "clause": "geodemographic targeting"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US households",
+   "type": "RECEIVED",
+   "to": "current third-class mail pieces per person per year",
+   "clause": "... received ... per person per year by ..."
+  },
+  {
+   "from": "current third-class mail pieces per person per year",
+   "type": "MEASURES",
+   "to": "third-class advertising mail",
+   "clause": "pieces of third-class advertising mail"
+  },
+  {
+   "from": "current third-class mail pieces per person per year",
+   "type": "AGAINST",
+   "to": "historical third-class mail pieces per person per year",
+   "clause": "against ... in 1980"
+  },
+  {
+   "from": "average household",
+   "type": "RECEIVED",
+   "to": "average household mail pieces per year",
+   "clause": "... roughly ... pieces a year for an average household"
+  },
+  {
+   "from": "average household mail pieces per year",
+   "type": "MEASURES",
+   "to": "third-class advertising mail",
+   "clause": "pieces of third-class advertising mail"
+  },
+  {
+   "from": "average household mail pieces per year",
+   "type": "PHYSICAL_FOOTPRINT_OF",
+   "to": "geodemographic targeting",
+   "clause": "the physical footprint of geodemographic targeting"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US households|household group|US households\nNODE|third-class advertising mail|advertising mail class|third-class advertising mail\nNODE|current third-class mail pieces per person per year|take-rate measurement|... received ... per person per year by ...\nNODE|historical third-class mail pieces per person per year|take-rate measurement|... against ... in 1980\nNODE|average household|household unit|average household\nNODE|average household mail pieces per year|mail volume measurement|... roughly ... pieces a year for an average household\nNODE|geodemographic targeting|targeting practice|geodemographic targeting\nEDGE|US households|RECEIVED|current third-class mail pieces per person per year|... received ... per person per year by ...\nEDGE|current third-class mail pieces per person per year|MEASURES|third-class advertising mail|pieces of third-class advertising mail\nEDGE|current third-class mail pieces per person per year|AGAINST|historical third-class mail pieces per person per year|against ... in 1980\nEDGE|average household|RECEIVED|average household mail pieces per year|... roughly ... pieces a year for an average household\nEDGE|average household mail pieces per year|MEASURES|third-class advertising mail|pieces of third-class advertising mail\nEDGE|average household mail pieces per year|PHYSICAL_FOOTPRINT_OF|geodemographic targeting|the physical footprint of geodemographic targeting"
+}

@@ -1,0 +1,116 @@
+{
+ "id": "e5-pricing-001",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of US internet ad revenue priced per impression",
+ "elapsed_s": 96.8,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet advertising revenue",
+   "type": "advertising market segment",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "share of US internet ad revenue priced per impression",
+   "type": "pricing-share measurement",
+   "clause": "share priced on pure CPM or impression basis"
+  },
+  {
+   "name": "share of US internet ad revenue on hybrid impression-plus-performance deals",
+   "type": "pricing-share measurement",
+   "clause": "on hybrid impression-plus-performance deals"
+  },
+  {
+   "name": "share of US internet ad revenue on pure performance deals",
+   "type": "pricing-share measurement",
+   "clause": "on pure performance deals"
+  },
+  {
+   "name": "US internet ad revenue CPM share 2001",
+   "type": "pricing-share measurement",
+   "clause": "split ... CPM"
+  },
+  {
+   "name": "US internet ad revenue hybrid share 2001",
+   "type": "pricing-share measurement",
+   "clause": "split ... hybrid"
+  },
+  {
+   "name": "US internet ad revenue performance share 2001",
+   "type": "pricing-share measurement",
+   "clause": "split ... performance"
+  },
+  {
+   "name": "impression",
+   "type": "pricing unit",
+   "clause": "impression was era's unit of trade"
+  },
+  {
+   "name": "click",
+   "type": "pricing unit",
+   "clause": "click was not unit of trade"
+  },
+  {
+   "name": "era's unit of trade",
+   "type": "market metric",
+   "clause": "era's unit of trade"
+  }
+ ],
+ "edges": [
+  {
+   "from": "share of US internet ad revenue priced per impression",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "share priced on pure CPM or impression basis"
+  },
+  {
+   "from": "share of US internet ad revenue on hybrid impression-plus-performance deals",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "on hybrid impression-plus-performance deals"
+  },
+  {
+   "from": "share of US internet ad revenue on pure performance deals",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "on pure performance deals"
+  },
+  {
+   "from": "US internet ad revenue CPM share 2001",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "split ... CPM"
+  },
+  {
+   "from": "US internet ad revenue hybrid share 2001",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "split ... hybrid"
+  },
+  {
+   "from": "US internet ad revenue performance share 2001",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "split ... performance"
+  },
+  {
+   "from": "impression",
+   "type": "WAS_UNIT_OF_TRADE",
+   "to": "era's unit of trade",
+   "clause": "impression was era's unit of trade"
+  },
+  {
+   "from": "click",
+   "type": "NOT_UNIT_OF_TRADE",
+   "to": "era's unit of trade",
+   "clause": "click was not unit of trade"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet advertising revenue|advertising market segment|US internet advertising revenue\nNODE|share of US internet ad revenue priced per impression|pricing-share measurement|share priced on pure CPM or impression basis\nNODE|share of US internet ad revenue on hybrid impression-plus-performance deals|pricing-share measurement|on hybrid impression-plus-performance deals\nNODE|share of US internet ad revenue on pure performance deals|pricing-share measurement|on pure performance deals\nNODE|US internet ad revenue CPM share 2001|pricing-share measurement|split ... CPM\nNODE|US internet ad revenue hybrid share 2001|pricing-share measurement|split ... hybrid\nNODE|US internet ad revenue performance share 2001|pricing-share measurement|split ... performance\nNODE|impression|pricing unit|impression was era's unit of trade\nNODE|click|pricing unit|click was not unit of trade\nNODE|era's unit of trade|market metric|era's unit of trade\nEDGE|share of US internet ad revenue priced per impression|SHARE_OF|US internet advertising revenue|share priced on pure CPM or impression basis\nEDGE|share of US internet ad revenue on hybrid impression-plus-performance deals|SHARE_OF|US internet advertising revenue|on hybrid impression-plus-performance deals\nEDGE|share of US internet ad revenue on pure performance deals|SHARE_OF|US internet advertising revenue|on pure performance deals\nEDGE|US internet ad revenue CPM share 2001|SHARE_OF|US internet advertising revenue|split ... CPM\nEDGE|US internet ad revenue hybrid share 2001|SHARE_OF|US internet advertising revenue|split ... hybrid\nEDGE|US internet ad revenue performance share 2001|SHARE_OF|US internet advertising revenue|split ... performance\nEDGE|impression|WAS_UNIT_OF_TRADE|era's unit of trade|impression was era's unit of trade\nEDGE|click|NOT_UNIT_OF_TRADE|era's unit of trade|click was not unit of trade"
+}

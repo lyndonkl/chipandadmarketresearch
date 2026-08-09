@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|3bf2d85d5f0a9f52",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "CMR",
+   "type": "advertising data source",
+   "grain": "Entity",
+   "reason": "singleton: distinct data source entity",
+   "child_uids": [
+    "n|e5-scale-003|cmr|advertising data source"
+   ]
+  },
+  {
+   "name": "US advertising spend nominal decline",
+   "type": "advertising expenditure event",
+   "grain": "Entity",
+   "reason": "same event across years; year abstracted to children",
+   "child_uids": [
+    "n|tu:era:4:field:SCALE|1961 us advertising spend nominal decline|advertising expenditure event",
+    "n|tu:era:4:field:SCALE|1991 us advertising spend nominal decline|advertising expenditure event"
+   ]
+  },
+  {
+   "name": "US TV advertising",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertising medium entity",
+   "child_uids": [
+    "n|tu:era:7:field:MEDIUM|us tv advertising|advertising medium"
+   ]
+  }
+ ]
+}

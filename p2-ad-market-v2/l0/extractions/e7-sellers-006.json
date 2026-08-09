@@ -1,0 +1,83 @@
+{
+ "id": "e7-sellers-006",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of Google advertising revenue paid out as traffic acquisition cost, FY2025",
+ "elapsed_s": 52.1,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "advertiser",
+   "clause": "Google"
+  },
+  {
+   "name": "traffic acquisition costs",
+   "type": "seller cost category",
+   "clause": "traffic acquisition costs"
+  },
+  {
+   "name": "Google TAC spend",
+   "type": "spend measurement",
+   "clause": "Google paid ... in traffic acquisition costs"
+  },
+  {
+   "name": "TAC rate",
+   "type": "take-rate measurement",
+   "clause": "a TAC rate of ... of advertising revenue"
+  },
+  {
+   "name": "advertising revenue",
+   "type": "seller revenue",
+   "clause": "advertising revenue"
+  },
+  {
+   "name": "search default revenue share",
+   "type": "cost component",
+   "clause": "search default revenue share"
+  },
+  {
+   "name": "Google search default spend",
+   "type": "spend measurement",
+   "clause": "it paid ... specifically in search default revenue share"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "PAID",
+   "to": "Google TAC spend",
+   "clause": "Google paid ... in traffic acquisition costs"
+  },
+  {
+   "from": "Google",
+   "type": "PAID",
+   "to": "Google search default spend",
+   "clause": "it paid ... specifically in search default revenue share"
+  },
+  {
+   "from": "Google TAC spend",
+   "type": "MEASURES",
+   "to": "traffic acquisition costs",
+   "clause": "in traffic acquisition costs"
+  },
+  {
+   "from": "TAC rate",
+   "type": "SHARE_OF",
+   "to": "advertising revenue",
+   "clause": "... of advertising revenue"
+  },
+  {
+   "from": "Google search default spend",
+   "type": "MEASURES",
+   "to": "search default revenue share",
+   "clause": "specifically in search default revenue share"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|advertiser|Google\nNODE|traffic acquisition costs|seller cost category|traffic acquisition costs\nNODE|Google TAC spend|spend measurement|Google paid ... in traffic acquisition costs\nNODE|TAC rate|take-rate measurement|a TAC rate of ... of advertising revenue\nNODE|advertising revenue|seller revenue|advertising revenue\nNODE|search default revenue share|cost component|search default revenue share\nNODE|Google search default spend|spend measurement|it paid ... specifically in search default revenue share\nEDGE|Google|PAID|Google TAC spend|Google paid ... in traffic acquisition costs\nEDGE|Google|PAID|Google search default spend|it paid ... specifically in search default revenue share\nEDGE|Google TAC spend|MEASURES|traffic acquisition costs|in traffic acquisition costs\nEDGE|TAC rate|SHARE_OF|advertising revenue|... of advertising revenue\nEDGE|Google search default spend|MEASURES|search default revenue share|specifically in search default revenue share"
+}

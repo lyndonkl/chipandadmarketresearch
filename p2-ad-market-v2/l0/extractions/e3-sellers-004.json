@@ -1,0 +1,83 @@
+{
+ "id": "e3-sellers-004",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent of US daily newspapers under group ownership",
+ "elapsed_s": 82.9,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US daily newspaper groups",
+   "type": "group collection",
+   "clause": "the number of US daily-newspaper groups peaked at ..."
+  },
+  {
+   "name": "daily newspaper groups count",
+   "type": "count measurement",
+   "clause": "the number of US daily-newspaper groups peaked at ..."
+  },
+  {
+   "name": "peak",
+   "type": "event",
+   "clause": "peaked at ..."
+  },
+  {
+   "name": "group owners",
+   "type": "ownership entity",
+   "clause": "group owners controlled ... of the roughly ... dailies then published"
+  },
+  {
+   "name": "US daily newspapers",
+   "type": "advertising medium",
+   "clause": "the roughly ... dailies then published"
+  },
+  {
+   "name": "group ownership share of US daily newspapers",
+   "type": "media-share measurement",
+   "clause": "group owners controlled ... of the roughly ... dailies then published"
+  },
+  {
+   "name": "daily newspapers count",
+   "type": "count measurement",
+   "clause": "roughly ... dailies then published"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US daily newspaper groups",
+   "type": "HAS_COUNT",
+   "to": "daily newspaper groups count",
+   "clause": "the number of US daily-newspaper groups peaked at ..."
+  },
+  {
+   "from": "daily newspaper groups count",
+   "type": "PEAKED_AT",
+   "to": "peak",
+   "clause": "peaked at ..."
+  },
+  {
+   "from": "group owners",
+   "type": "CONTROLS",
+   "to": "group ownership share of US daily newspapers",
+   "clause": "group owners controlled ... of the roughly ... dailies then published"
+  },
+  {
+   "from": "group ownership share of US daily newspapers",
+   "type": "SHARE_OF",
+   "to": "US daily newspapers",
+   "clause": "of the roughly ... dailies then published"
+  },
+  {
+   "from": "US daily newspapers",
+   "type": "HAS_COUNT",
+   "to": "daily newspapers count",
+   "clause": "roughly ... dailies then published"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US daily newspaper groups|group collection|the number of US daily-newspaper groups peaked at ...\nNODE|daily newspaper groups count|count measurement|the number of US daily-newspaper groups peaked at ...\nNODE|peak|event|peaked at ...\nNODE|group owners|ownership entity|group owners controlled ... of the roughly ... dailies then published\nNODE|US daily newspapers|advertising medium|the roughly ... dailies then published\nNODE|group ownership share of US daily newspapers|media-share measurement|group owners controlled ... of the roughly ... dailies then published\nNODE|daily newspapers count|count measurement|roughly ... dailies then published\nEDGE|US daily newspaper groups|HAS_COUNT|daily newspaper groups count|the number of US daily-newspaper groups peaked at ...\nEDGE|daily newspaper groups count|PEAKED_AT|peak|peaked at ...\nEDGE|group owners|CONTROLS|group ownership share of US daily newspapers|group owners controlled ... of the roughly ... dailies then published\nEDGE|group ownership share of US daily newspapers|SHARE_OF|US daily newspapers|of the roughly ... dailies then published\nEDGE|US daily newspapers|HAS_COUNT|daily newspapers count|roughly ... dailies then published"
+}

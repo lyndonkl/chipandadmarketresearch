@@ -1,0 +1,77 @@
+{
+ "id": "e3-medium-009",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1960,
+ "unit": "million USD of US network radio advertising in 1960",
+ "elapsed_s": 52.4,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "network radio advertising",
+   "type": "advertising segment",
+   "clause": "network radio advertising collapsed"
+  },
+  {
+   "name": "US network radio advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "million USD of US network radio advertising"
+  },
+  {
+   "name": "local spot radio advertising",
+   "type": "advertising segment",
+   "clause": "local spot radio grew"
+  },
+  {
+   "name": "US local spot radio advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "million USD of US local spot radio advertising"
+  },
+  {
+   "name": "radio",
+   "type": "advertising medium",
+   "clause": "radio survived the era"
+  },
+  {
+   "name": "local retail medium",
+   "type": "medium role",
+   "clause": "local retail medium"
+  },
+  {
+   "name": "Spot Market era",
+   "type": "advertising era",
+   "clause": "Spot Market era (1950-1971)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US network radio advertising spend",
+   "type": "MEASURES",
+   "to": "network radio advertising",
+   "clause": "... of US network radio advertising"
+  },
+  {
+   "from": "US local spot radio advertising spend",
+   "type": "MEASURES",
+   "to": "local spot radio advertising",
+   "clause": "... of US local spot radio advertising"
+  },
+  {
+   "from": "radio",
+   "type": "BECAME",
+   "to": "local retail medium",
+   "clause": "by becoming a local retail medium"
+  },
+  {
+   "from": "radio",
+   "type": "SURVIVED_IN",
+   "to": "Spot Market era",
+   "clause": "radio survived the era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|network radio advertising|advertising segment|network radio advertising collapsed\nNODE|US network radio advertising spend|advertising spend measurement|million USD of US network radio advertising\nNODE|local spot radio advertising|advertising segment|local spot radio grew\nNODE|US local spot radio advertising spend|advertising spend measurement|million USD of US local spot radio advertising\nNODE|radio|advertising medium|radio survived the era\nNODE|local retail medium|medium role|local retail medium\nNODE|Spot Market era|advertising era|Spot Market era (1950-1971)\nEDGE|US network radio advertising spend|MEASURES|network radio advertising|... of US network radio advertising\nEDGE|US local spot radio advertising spend|MEASURES|local spot radio advertising|... of US local spot radio advertising\nEDGE|radio|BECAME|local retail medium|by becoming a local retail medium\nEDGE|radio|SURVIVED_IN|Spot Market era|radio survived the era"
+}

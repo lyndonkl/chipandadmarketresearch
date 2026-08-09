@@ -1,0 +1,67 @@
+{
+ "group_id": "L1|20fba5920dd4c71a",
+ "source": "kmeans",
+ "n_in": 12,
+ "parents": [
+  {
+   "name": "Classified advertising revenue",
+   "type": "advertising revenue",
+   "grain": "Entity",
+   "reason": "sector-specific classified ad revenues; year abstracted to children",
+   "child_uids": [
+    "n|e5-medium-005|all other classified advertising revenue|advertising revenue",
+    "n|e5-medium-005|automotive classified advertising revenue|advertising revenue",
+    "n|e5-medium-005|real estate classified advertising revenue|advertising revenue",
+    "n|e5-medium-005|recruitment classified advertising revenue|advertising revenue"
+   ]
+  },
+  {
+   "name": "Marketing services advertising revenue",
+   "type": "advertising service revenue",
+   "grain": "Entity",
+   "reason": "marketing services advertising revenue across fiscal years",
+   "child_uids": [
+    "n|e5-sellers-002|marketing services revenue fy2000|advertising service revenue",
+    "n|e5-sellers-002|marketing services revenue fy2001|advertising service revenue"
+   ]
+  },
+  {
+   "name": "Owned-site advertising revenue",
+   "type": "advertising revenue stream",
+   "grain": "Entity",
+   "reason": "owned-site advertising revenue stream; includes ad dollar variant",
+   "child_uids": [
+    "n|mech-capture-003|owned-site advertising revenue|advertising revenue stream",
+    "n|mech-tac-004|owned ad dollar|advertising revenue stream"
+   ]
+  },
+  {
+   "name": "Syndicated advertising revenue",
+   "type": "advertising revenue stream",
+   "grain": "Entity",
+   "reason": "singleton: syndicated ad revenue stream distinct from owned",
+   "child_uids": [
+    "n|mech-tac-004|syndicated ad dollar|advertising revenue stream"
+   ]
+  },
+  {
+   "name": "Total advertising revenue",
+   "type": "revenue pool",
+   "grain": "Entity",
+   "reason": "overall advertising revenue pool; aggregates all streams",
+   "child_uids": [
+    "n|mech-network-002|advertising revenues|revenue pool",
+    "n|tu:era:6:field:PRICING|total advertising revenue|revenue pool"
+   ]
+  },
+  {
+   "name": "Advertiser revenue metric",
+   "type": "metric",
+   "grain": "Entity",
+   "reason": "singleton: advertiser revenue metric, not a revenue stream",
+   "child_uids": [
+    "n|mech-rgsp-001|advertiser revenue|metric"
+   ]
+  }
+ ]
+}

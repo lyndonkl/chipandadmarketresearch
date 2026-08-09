@@ -1,0 +1,111 @@
+{
+ "id": "e4-scale-010",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 77.3,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "United States",
+   "type": "location",
+   "clause": "in the US"
+  },
+  {
+   "name": "direct-response advertising",
+   "type": "advertising segment",
+   "clause": "Direct-response advertising spend in the US"
+  },
+  {
+   "name": "direct-response advertising spend amount",
+   "type": "advertising spend measurement",
+   "clause": "estimated ... direct-response advertising spend"
+  },
+  {
+   "name": "all measured advertising",
+   "type": "advertising total",
+   "clause": "all measured advertising"
+  },
+  {
+   "name": "direct-response advertising share of total",
+   "type": "share measurement",
+   "clause": "... of all measured advertising"
+  },
+  {
+   "name": "direct-mail advertising channel",
+   "type": "advertising channel",
+   "clause": "direct mail line"
+  },
+  {
+   "name": "direct mail line spend amount",
+   "type": "advertising spend measurement",
+   "clause": "... direct mail line"
+  },
+  {
+   "name": "other direct-response channels",
+   "type": "advertising channel group",
+   "clause": "direct-response television, space and telephone-response advertising"
+  },
+  {
+   "name": "other direct-response channels spend amount",
+   "type": "advertising spend measurement",
+   "clause": "... advertising outside it"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct-response advertising spend amount",
+   "type": "MEASURES",
+   "to": "direct-response advertising",
+   "clause": "estimated ... direct-response advertising spend"
+  },
+  {
+   "from": "direct-response advertising spend amount",
+   "type": "LOCATED_IN",
+   "to": "United States",
+   "clause": "in the US"
+  },
+  {
+   "from": "direct-response advertising share of total",
+   "type": "SHARE_OF",
+   "to": "all measured advertising",
+   "clause": "... of all measured advertising"
+  },
+  {
+   "from": "direct-response advertising share of total",
+   "type": "MEASURES",
+   "to": "direct-response advertising",
+   "clause": "share of direct-response advertising"
+  },
+  {
+   "from": "direct mail line spend amount",
+   "type": "MEASURES",
+   "to": "direct-mail advertising channel",
+   "clause": "... direct mail line"
+  },
+  {
+   "from": "direct mail line spend amount",
+   "type": "DOMINATES",
+   "to": "direct-response advertising spend amount",
+   "clause": "dominated by ..."
+  },
+  {
+   "from": "other direct-response channels spend amount",
+   "type": "MEASURES",
+   "to": "other direct-response channels",
+   "clause": "... advertising outside it"
+  },
+  {
+   "from": "other direct-response channels spend amount",
+   "type": "OUTSIDE",
+   "to": "direct mail line spend amount",
+   "clause": "advertising outside it"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|United States|location|in the US\nNODE|direct-response advertising|advertising segment|Direct-response advertising spend in the US\nNODE|direct-response advertising spend amount|advertising spend measurement|estimated ... direct-response advertising spend\nNODE|all measured advertising|advertising total|all measured advertising\nNODE|direct-response advertising share of total|share measurement|... of all measured advertising\nNODE|direct-mail advertising channel|advertising channel|direct mail line\nNODE|direct mail line spend amount|advertising spend measurement|... direct mail line\nNODE|other direct-response channels|advertising channel group|direct-response television, space and telephone-response advertising\nNODE|other direct-response channels spend amount|advertising spend measurement|... advertising outside it\nEDGE|direct-response advertising spend amount|MEASURES|direct-response advertising|estimated ... direct-response advertising spend\nEDGE|direct-response advertising spend amount|LOCATED_IN|United States|in the US\nEDGE|direct-response advertising share of total|SHARE_OF|all measured advertising|... of all measured advertising\nEDGE|direct-response advertising share of total|MEASURES|direct-response advertising|share of direct-response advertising\nEDGE|direct mail line spend amount|MEASURES|direct-mail advertising channel|... direct mail line\nEDGE|direct mail line spend amount|DOMINATES|direct-response advertising spend amount|dominated by ...\nEDGE|other direct-response channels spend amount|MEASURES|other direct-response channels|... advertising outside it\nEDGE|other direct-response channels spend amount|OUTSIDE|direct mail line spend amount|advertising outside it"
+}

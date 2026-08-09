@@ -1,0 +1,89 @@
+{
+ "id": "e3-targeting-003",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "distinct purchasable broadcast audience segments",
+ "elapsed_s": 80.0,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "broadcast targeting precision",
+   "type": "targeting metric",
+   "clause": "Broadcast targeting precision at the end of the era"
+  },
+  {
+   "name": "distinct purchasable broadcast audience segments",
+   "type": "segment count measurement",
+   "clause": "of the order of ... distinct purchasable audience segments"
+  },
+  {
+   "name": "geography count",
+   "type": "count measurement",
+   "clause": "about ... geographies"
+  },
+  {
+   "name": "Nielsen demographic cell count",
+   "type": "count measurement",
+   "clause": "about ... standard Nielsen age and sex cells"
+  },
+  {
+   "name": "broadcast audience segment",
+   "type": "purchasable audience segment",
+   "clause": "distinct purchasable broadcast audience segments"
+  },
+  {
+   "name": "geography",
+   "type": "geographic market unit",
+   "clause": "geographies"
+  },
+  {
+   "name": "standard Nielsen age and sex cell",
+   "type": "demographic cell",
+   "clause": "standard Nielsen age and sex cells"
+  }
+ ],
+ "edges": [
+  {
+   "from": "broadcast targeting precision",
+   "type": "HAS_MEASUREMENT",
+   "to": "distinct purchasable broadcast audience segments",
+   "clause": "was of the order of ... distinct purchasable audience segments"
+  },
+  {
+   "from": "distinct purchasable broadcast audience segments",
+   "type": "MEASURES",
+   "to": "broadcast audience segment",
+   "clause": "... distinct purchasable audience segments"
+  },
+  {
+   "from": "geography count",
+   "type": "MEASURES",
+   "to": "geography",
+   "clause": "about ..."
+  },
+  {
+   "from": "Nielsen demographic cell count",
+   "type": "MEASURES",
+   "to": "standard Nielsen age and sex cell",
+   "clause": "about ... standard Nielsen age and sex cells"
+  },
+  {
+   "from": "distinct purchasable broadcast audience segments",
+   "type": "CROSSED_WITH",
+   "to": "geography",
+   "clause": "geographies crossed with ..."
+  },
+  {
+   "from": "distinct purchasable broadcast audience segments",
+   "type": "CROSSED_WITH",
+   "to": "standard Nielsen age and sex cell",
+   "clause": "... crossed with standard Nielsen age and sex cells"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|broadcast targeting precision|targeting metric|Broadcast targeting precision at the end of the era\nNODE|distinct purchasable broadcast audience segments|segment count measurement|of the order of ... distinct purchasable audience segments\nNODE|geography count|count measurement|about ... geographies\nNODE|Nielsen demographic cell count|count measurement|about ... standard Nielsen age and sex cells\nNODE|broadcast audience segment|purchasable audience segment|distinct purchasable broadcast audience segments\nNODE|geography|geographic market unit|geographies\nNODE|standard Nielsen age and sex cell|demographic cell|standard Nielsen age and sex cells\nEDGE|broadcast targeting precision|HAS_MEASUREMENT|distinct purchasable broadcast audience segments|was of the order of ... distinct purchasable audience segments\nEDGE|distinct purchasable broadcast audience segments|MEASURES|broadcast audience segment|... distinct purchasable audience segments\nEDGE|geography count|MEASURES|geography|about ...\nEDGE|Nielsen demographic cell count|MEASURES|standard Nielsen age and sex cell|about ... standard Nielsen age and sex cells\nEDGE|distinct purchasable broadcast audience segments|CROSSED_WITH|geography|geographies crossed with ...\nEDGE|distinct purchasable broadcast audience segments|CROSSED_WITH|standard Nielsen age and sex cell|... crossed with standard Nielsen age and sex cells"
+}

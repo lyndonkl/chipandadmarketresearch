@@ -1,0 +1,111 @@
+{
+ "id": "e6-unit_econ-002",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD non-TAC cost of revenue per Google query, 2007",
+ "elapsed_s": 55.6,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Google search query",
+   "type": "search request",
+   "clause": "one Google search query"
+  },
+  {
+   "name": "non-TAC cost of revenue per Google query",
+   "type": "cost measurement",
+   "clause": "cost roughly ... in 2007"
+  },
+  {
+   "name": "data centre",
+   "type": "infrastructure component",
+   "clause": "data centres"
+  },
+  {
+   "name": "depreciation",
+   "type": "expense type",
+   "clause": "depreciation"
+  },
+  {
+   "name": "energy",
+   "type": "utility expense",
+   "clause": "energy"
+  },
+  {
+   "name": "bandwidth",
+   "type": "network resource",
+   "clause": "bandwidth"
+  },
+  {
+   "name": "transaction fee",
+   "type": "transaction expense",
+   "clause": "transaction fees"
+  },
+  {
+   "name": "revenue shared with distribution partners",
+   "type": "revenue sharing cost",
+   "clause": "revenue shared with distribution partners"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "SERVES",
+   "to": "Google search query",
+   "clause": "serving one Google search query"
+  },
+  {
+   "from": "non-TAC cost of revenue per Google query",
+   "type": "MEASURES_COST_OF",
+   "to": "Google search query",
+   "clause": "serving one Google search query cost ..."
+  },
+  {
+   "from": "non-TAC cost of revenue per Google query",
+   "type": "INCLUDES",
+   "to": "data centre",
+   "clause": "data centres"
+  },
+  {
+   "from": "non-TAC cost of revenue per Google query",
+   "type": "INCLUDES",
+   "to": "depreciation",
+   "clause": "depreciation"
+  },
+  {
+   "from": "non-TAC cost of revenue per Google query",
+   "type": "INCLUDES",
+   "to": "energy",
+   "clause": "energy"
+  },
+  {
+   "from": "non-TAC cost of revenue per Google query",
+   "type": "INCLUDES",
+   "to": "bandwidth",
+   "clause": "bandwidth"
+  },
+  {
+   "from": "non-TAC cost of revenue per Google query",
+   "type": "INCLUDES",
+   "to": "transaction fee",
+   "clause": "transaction fees"
+  },
+  {
+   "from": "non-TAC cost of revenue per Google query",
+   "type": "EXCLUDES",
+   "to": "revenue shared with distribution partners",
+   "clause": "excluding the revenue shared with distribution partners"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|Google search query|search request|one Google search query\nNODE|non-TAC cost of revenue per Google query|cost measurement|cost roughly ... in 2007\nNODE|data centre|infrastructure component|data centres\nNODE|depreciation|expense type|depreciation\nNODE|energy|utility expense|energy\nNODE|bandwidth|network resource|bandwidth\nNODE|transaction fee|transaction expense|transaction fees\nNODE|revenue shared with distribution partners|revenue sharing cost|revenue shared with distribution partners\nEDGE|Google|SERVES|Google search query|serving one Google search query\nEDGE|non-TAC cost of revenue per Google query|MEASURES_COST_OF|Google search query|serving one Google search query cost ...\nEDGE|non-TAC cost of revenue per Google query|INCLUDES|data centre|data centres\nEDGE|non-TAC cost of revenue per Google query|INCLUDES|depreciation|depreciation\nEDGE|non-TAC cost of revenue per Google query|INCLUDES|energy|energy\nEDGE|non-TAC cost of revenue per Google query|INCLUDES|bandwidth|bandwidth\nEDGE|non-TAC cost of revenue per Google query|INCLUDES|transaction fee|transaction fees\nEDGE|non-TAC cost of revenue per Google query|EXCLUDES|revenue shared with distribution partners|excluding the revenue shared with distribution partners"
+}

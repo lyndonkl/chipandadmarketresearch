@@ -1,0 +1,84 @@
+{
+ "group_id": "L1|6917f9b3ffa0e78f",
+ "source": "kmeans",
+ "n_in": 13,
+ "parents": [
+  {
+   "name": "Cost-per-thousand (CPM)",
+   "type": "pricing metric",
+   "grain": "Entity",
+   "reason": "one CPM concept across variants; years abstracted",
+   "child_uids": [
+    "n|e4-buyers-007|cost per thousand|pricing metric",
+    "n|e5-measurement-005|portal cpm|cost-per-thousand-impressions metric",
+    "n|tu:era:5:event:7|thousand impressions|impression unit"
+   ]
+  },
+  {
+   "name": "Impression unit",
+   "type": "unit",
+   "grain": "Entity",
+   "reason": "generic impression concept; includes advertising impression",
+   "child_uids": [
+    "n|e5-pricing-001|impression|pricing unit",
+    "n|tu:era:5:event:1|advertising impression|metric"
+   ]
+  },
+  {
+   "name": "Fixed-rate self-serve impression product",
+   "type": "advertising product",
+   "grain": "Entity",
+   "reason": "singleton: distinct fixed-rate impression product",
+   "child_uids": [
+    "n|e5-pricing-005|fixed-rate self-serve impression product|advertising product"
+   ]
+  },
+  {
+   "name": "Cost-per-impression pricing",
+   "type": "pricing model",
+   "grain": "Entity",
+   "reason": "per\u2011impression pricing concepts grouped; metric, buying model, real\u2011time",
+   "child_uids": [
+    "n|e5-pricing-008|per impression pricing metric|pricing metric",
+    "n|e6-targeting-005|cost-per-impression buying model|advertising buying model",
+    "n|tu:era:7:field:TARGETING|real-time impression pricing|pricing practice"
+   ]
+  },
+  {
+   "name": "Performance (pay-per-action) basis",
+   "type": "pricing model",
+   "grain": "Entity",
+   "reason": "singleton: performance based pay\u2011per\u2011action pricing",
+   "child_uids": [
+    "n|e6-buyers-008|performance (pay-per-action) basis|pricing model"
+   ]
+  },
+  {
+   "name": "CPM/impression hybrid basis",
+   "type": "pricing model",
+   "grain": "Entity",
+   "reason": "singleton: hybrid CPM and impression pricing model",
+   "child_uids": [
+    "n|e6-buyers-008|cpm/impression basis|pricing model"
+   ]
+  },
+  {
+   "name": "Audience-priced impressions product",
+   "type": "ad product",
+   "grain": "Entity",
+   "reason": "singleton: audience\u2011priced impression ad product",
+   "child_uids": [
+    "n|e6-targeting-005|audience-priced impressions|ad product"
+   ]
+  },
+  {
+   "name": "Expected revenue per impression",
+   "type": "ranking metric",
+   "grain": "Entity",
+   "reason": "singleton: ranking metric for expected revenue per impression",
+   "child_uids": [
+    "n|tu:era:6:field:PRICING|expected revenue per impression|ranking metric"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "group_id": "L1|83de50dadb6b8c28",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Publisher retention rate",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic publisher retention measure",
+   "child_uids": [
+    "n|e1-pricing-004|publishers retention rate|share measurement"
+   ]
+  },
+  {
+   "name": "Publishers retained share of network-sold impression money",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific to impression money share",
+   "child_uids": [
+    "n|e5-sellers-004|publishers' retained share of network-sold impression money|percentage measurement"
+   ]
+  },
+  {
+   "name": "Publisher share of advertiser dollar",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of advertiser revenue measure",
+   "child_uids": [
+    "n|e7-pricing-006|publisher share of advertiser dollar|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Owned-site ad revenue retention ratio",
+   "type": "revenue retention measurement",
+   "grain": "Measurement",
+   "reason": "singleton: owned\u2011site specific revenue retention ratio",
+   "child_uids": [
+    "n|mech-tac-004|owned-site ad revenue retention ratio|revenue retention measurement"
+   ]
+  },
+  {
+   "name": "Publisher share of network-sold money",
+   "type": "revenue-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: publisher share of overall network\u2011sold money",
+   "child_uids": [
+    "n|tu:era:5:field:SELLERS|publisher share of network-sold money|revenue-share measurement"
+   ]
+  },
+  {
+   "name": "Revenue effects on publishers",
+   "type": "revenue effect measurement",
+   "grain": "Measurement",
+   "reason": "singleton: measured revenue effects on publishers",
+   "child_uids": [
+    "n|tu:era:7:event:3|revenue effects measurement|revenue effect measurement"
+   ]
+  },
+  {
+   "name": "Publisher revenue share from Google ends",
+   "type": "monetary measurement",
+   "grain": "Measurement",
+   "reason": "singleton: publisher revenue share when both ends are Google",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|publisher revenue share from google ends|monetary measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|7b3e27bb4c339f85",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Constant 2% of GDP folklore",
+   "type": "belief",
+   "grain": "Entity",
+   "reason": "singleton: distinct belief entity about constant 2% of GDP",
+   "child_uids": [
+    "n|ds-gdp-001|constant 2% of gdp folklore|belief"
+   ]
+  },
+  {
+   "name": "GDP implicit price deflator",
+   "type": "price index",
+   "grain": "Entity",
+   "reason": "singleton: distinct price-index entity measuring GDP inflation",
+   "child_uids": [
+    "n|e4-pricing-003|gdp implicit price deflator|price index"
+   ]
+  },
+  {
+   "name": "Johnston-Williamson reconstruction GDP denominator",
+   "type": "GDP series",
+   "grain": "Entity",
+   "reason": "singleton: distinct series entity used as pre-1929 denominator",
+   "child_uids": [
+    "n|tu:era:1:boundary|johnston-williamson reconstruction gdp denominator|gdp series"
+   ]
+  },
+  {
+   "name": "GDP deflator",
+   "type": "macroeconomic indicator",
+   "grain": "Entity",
+   "reason": "singleton: distinct macroeconomic indicator entity for overall price level",
+   "child_uids": [
+    "n|tu:era:4:field:PRICING|gdp deflator|macroeconomic indicator"
+   ]
+  }
+ ]
+}

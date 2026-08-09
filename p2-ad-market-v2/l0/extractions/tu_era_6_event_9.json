@@ -1,0 +1,127 @@
+{
+ "id": "tu:era:6:event:9",
+ "kind": "prose:event",
+ "era": 6,
+ "about_year": 2008,
+ "unit": null,
+ "elapsed_s": 84.9,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspaper classified advertising",
+   "type": "advertising market segment",
+   "clause": "US newspaper classified advertising"
+  },
+  {
+   "name": "US newspaper classified advertising spend",
+   "type": "spend measurement",
+   "clause": "falls ... to ..."
+  },
+  {
+   "name": "US newspaper classified advertising peak spend",
+   "type": "spend measurement",
+   "clause": "its 2000 peak"
+  },
+  {
+   "name": "US newspaper classified advertising decline percent",
+   "type": "decline rate measurement",
+   "clause": "falls ..."
+  },
+  {
+   "name": "classified advertising employment",
+   "type": "employment count",
+   "clause": "employment classified"
+  },
+  {
+   "name": "classified advertising employment decline percent",
+   "type": "employment decline rate measurement",
+   "clause": "down ..."
+  },
+  {
+   "name": "intent-money transfer",
+   "type": "money transfer mechanism",
+   "clause": "intent-money transfer visible in the data"
+  },
+  {
+   "name": "advertising data",
+   "type": "data series",
+   "clause": "the data"
+  },
+  {
+   "name": "TV advertising budget",
+   "type": "budget",
+   "clause": "TV budgets"
+  },
+  {
+   "name": "direct mail advertising budget",
+   "type": "budget",
+   "clause": "direct mail budgets"
+  },
+  {
+   "name": "largely intact budgets",
+   "type": "budget condition",
+   "clause": "still largely intact"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US newspaper classified advertising spend",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "spend amount"
+  },
+  {
+   "from": "US newspaper classified advertising decline percent",
+   "type": "APPLIES_TO",
+   "to": "US newspaper classified advertising spend",
+   "clause": "falls ..."
+  },
+  {
+   "from": "US newspaper classified advertising peak spend",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "peak spend"
+  },
+  {
+   "from": "US newspaper classified advertising spend",
+   "type": "HALF_OF",
+   "to": "US newspaper classified advertising peak spend",
+   "clause": "half its 2000 peak"
+  },
+  {
+   "from": "classified advertising employment",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "employment in ..."
+  },
+  {
+   "from": "classified advertising employment decline percent",
+   "type": "APPLIES_TO",
+   "to": "classified advertising employment",
+   "clause": "down ..."
+  },
+  {
+   "from": "intent-money transfer",
+   "type": "VISIBLE_IN",
+   "to": "advertising data",
+   "clause": "visible in the data"
+  },
+  {
+   "from": "TV advertising budget",
+   "type": "LARGELY_INTACT",
+   "to": "largely intact budgets",
+   "clause": "still largely intact"
+  },
+  {
+   "from": "direct mail advertising budget",
+   "type": "LARGELY_INTACT",
+   "to": "largely intact budgets",
+   "clause": "still largely intact"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspaper classified advertising|advertising market segment|US newspaper classified advertising\nNODE|US newspaper classified advertising spend|spend measurement|falls ... to ...\nNODE|US newspaper classified advertising peak spend|spend measurement|its 2000 peak\nNODE|US newspaper classified advertising decline percent|decline rate measurement|falls ...\nNODE|classified advertising employment|employment count|employment classified\nNODE|classified advertising employment decline percent|employment decline rate measurement|down ...\nNODE|intent-money transfer|money transfer mechanism|intent-money transfer visible in the data\nNODE|advertising data|data series|the data\nNODE|TV advertising budget|budget|TV budgets\nNODE|direct mail advertising budget|budget|direct mail budgets\nNODE|largely intact budgets|budget condition|still largely intact\nEDGE|US newspaper classified advertising spend|MEASURES|US newspaper classified advertising|spend amount\nEDGE|US newspaper classified advertising decline percent|APPLIES_TO|US newspaper classified advertising spend|falls ...\nEDGE|US newspaper classified advertising peak spend|MEASURES|US newspaper classified advertising|peak spend\nEDGE|US newspaper classified advertising spend|HALF_OF|US newspaper classified advertising peak spend|half its 2000 peak\nEDGE|classified advertising employment|MEASURES|US newspaper classified advertising|employment in ...\nEDGE|classified advertising employment decline percent|APPLIES_TO|classified advertising employment|down ...\nEDGE|intent-money transfer|VISIBLE_IN|advertising data|visible in the data\nEDGE|TV advertising budget|LARGELY_INTACT|largely intact budgets|still largely intact\nEDGE|direct mail advertising budget|LARGELY_INTACT|largely intact budgets|still largely intact"
+}

@@ -1,0 +1,100 @@
+{
+ "id": "mech-first_price-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2019,
+ "unit": "year (2019-09-05), Google Ad Manager unified first-price rollout",
+ "elapsed_s": 45.7,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google Ad Manager",
+   "type": "display ad exchange",
+   "clause": "the open-web DISPLAY exchange"
+  },
+  {
+   "name": "display advertising",
+   "type": "advertising channel",
+   "clause": "the open-web DISPLAY exchange"
+  },
+  {
+   "name": "search advertising",
+   "type": "advertising channel",
+   "clause": "DISPLAY exchange, not search"
+  },
+  {
+   "name": "unified first-price auction",
+   "type": "auction mechanism",
+   "clause": "a unified first-price auction"
+  },
+  {
+   "name": "publisher price floors",
+   "type": "seller reserve price",
+   "clause": "folding publisher floors into unified pricing rules"
+  },
+  {
+   "name": "header bidding",
+   "type": "competing auction technique",
+   "clause": "under header-bidding competition"
+  },
+  {
+   "name": "publisher total revenue",
+   "type": "revenue measure",
+   "clause": "impact on a publisher's total revenue"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google's stated rationale"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google Ad Manager",
+   "type": "OPERATES_IN",
+   "to": "display advertising",
+   "clause": "the open-web DISPLAY exchange"
+  },
+  {
+   "from": "Google Ad Manager",
+   "type": "EXCLUDES",
+   "to": "search advertising",
+   "clause": "DISPLAY exchange, not search"
+  },
+  {
+   "from": "Google Ad Manager",
+   "type": "ADOPTED",
+   "to": "unified first-price auction",
+   "clause": "completed its move to ... auction"
+  },
+  {
+   "from": "unified first-price auction",
+   "type": "ABSORBED",
+   "to": "publisher price floors",
+   "clause": "folding publisher floors into unified pricing rules"
+  },
+  {
+   "from": "Google",
+   "type": "OPERATES",
+   "to": "Google Ad Manager",
+   "clause": "Google's stated rationale"
+  },
+  {
+   "from": "Google Ad Manager",
+   "type": "RESPONDED_TO",
+   "to": "header bidding",
+   "clause": "under header-bidding competition"
+  },
+  {
+   "from": "unified first-price auction",
+   "type": "CLAIMED_IMPACT_ON",
+   "to": "publisher total revenue",
+   "clause": "impact on a publisher's total revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google Ad Manager|display ad exchange|the open-web DISPLAY exchange\nNODE|display advertising|advertising channel|the open-web DISPLAY exchange\nNODE|search advertising|advertising channel|DISPLAY exchange, not search\nNODE|unified first-price auction|auction mechanism|a unified first-price auction\nNODE|publisher price floors|seller reserve price|folding publisher floors into unified pricing rules\nNODE|header bidding|competing auction technique|under header-bidding competition\nNODE|publisher total revenue|revenue measure|impact on a publisher's total revenue\nNODE|Google|technology company|Google's stated rationale\nEDGE|Google Ad Manager|OPERATES_IN|display advertising|the open-web DISPLAY exchange\nEDGE|Google Ad Manager|EXCLUDES|search advertising|DISPLAY exchange, not search\nEDGE|Google Ad Manager|ADOPTED|unified first-price auction|completed its move to ... auction\nEDGE|unified first-price auction|ABSORBED|publisher price floors|folding publisher floors into unified pricing rules\nEDGE|Google|OPERATES|Google Ad Manager|Google's stated rationale\nEDGE|Google Ad Manager|RESPONDED_TO|header bidding|under header-bidding competition\nEDGE|unified first-price auction|CLAIMED_IMPACT_ON|publisher total revenue|impact on a publisher's total revenue"
+}

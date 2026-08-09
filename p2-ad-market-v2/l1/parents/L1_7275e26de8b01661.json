@@ -1,0 +1,36 @@
+{
+ "group_id": "L1|7275e26de8b01661",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Network time sales",
+   "type": "revenue stream",
+   "grain": "Entity",
+   "reason": "same concept across revenue stream and practice; years abstracted",
+   "child_uids": [
+    "n|e2-sellers-007|network time sales|revenue stream",
+    "n|tu:era:2:boundary|network sells only time 1949|sales practice",
+    "n|tu:era:2:event:5|network time-sales proceeds|revenue stream"
+   ]
+  },
+  {
+   "name": "FCC 1941 Report on Chain Broadcasting",
+   "type": "report",
+   "grain": "Entity",
+   "reason": "singleton: a regulatory report",
+   "child_uids": [
+    "n|tu:era:2:field:SELLERS|fcc 1941 report on chain broadcasting|report"
+   ]
+  },
+  {
+   "name": "Participation sales",
+   "type": "selling participations",
+   "grain": "Entity",
+   "reason": "singleton: practice of selling show participation",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|participation sales|selling participations"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "id": "e6-buyers-006",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions, US local advertising 2007",
+ "elapsed_s": 59.2,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local buyers",
+   "type": "buyer group",
+   "clause": "Local buyers spent ..."
+  },
+  {
+   "name": "US local advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "... $...bn in the US ..."
+  },
+  {
+   "name": "share of total advertising by local buyers",
+   "type": "share measurement",
+   "clause": "share of total"
+  },
+  {
+   "name": "total US advertising",
+   "type": "advertising market aggregate",
+   "clause": "of total"
+  },
+  {
+   "name": "newspaper retail advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "newspaper retail advertising component"
+  },
+  {
+   "name": "local Yellow Pages listings spend",
+   "type": "advertising spend measurement",
+   "clause": "Yellow Pages listings component"
+  },
+  {
+   "name": "self-serve search advertising",
+   "type": "search advertising mechanism",
+   "clause": "self-serve search advertising was structurally positioned to take"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local buyers",
+   "type": "SPENT",
+   "to": "US local advertising spend",
+   "clause": "Local buyers spent ..."
+  },
+  {
+   "from": "share of total advertising by local buyers",
+   "type": "SHARE_OF",
+   "to": "total US advertising",
+   "clause": "share of total"
+  },
+  {
+   "from": "newspaper retail advertising spend",
+   "type": "COMPONENT_OF",
+   "to": "US local advertising spend",
+   "clause": "newspaper retail advertising component"
+  },
+  {
+   "from": "local Yellow Pages listings spend",
+   "type": "COMPONENT_OF",
+   "to": "US local advertising spend",
+   "clause": "Yellow Pages listings component"
+  },
+  {
+   "from": "self-serve search advertising",
+   "type": "POSITIONED_TO_TAKE",
+   "to": "newspaper retail advertising spend",
+   "clause": "positioned to take the two pools"
+  },
+  {
+   "from": "self-serve search advertising",
+   "type": "POSITIONED_TO_TAKE",
+   "to": "local Yellow Pages listings spend",
+   "clause": "positioned to take the two pools"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local buyers|buyer group|Local buyers spent ...\nNODE|US local advertising spend|advertising spend measurement|... $...bn in the US ...\nNODE|share of total advertising by local buyers|share measurement|share of total\nNODE|total US advertising|advertising market aggregate|of total\nNODE|newspaper retail advertising spend|advertising spend measurement|newspaper retail advertising component\nNODE|local Yellow Pages listings spend|advertising spend measurement|Yellow Pages listings component\nNODE|self-serve search advertising|search advertising mechanism|self-serve search advertising was structurally positioned to take\nEDGE|local buyers|SPENT|US local advertising spend|Local buyers spent ...\nEDGE|share of total advertising by local buyers|SHARE_OF|total US advertising|share of total\nEDGE|newspaper retail advertising spend|COMPONENT_OF|US local advertising spend|newspaper retail advertising component\nEDGE|local Yellow Pages listings spend|COMPONENT_OF|US local advertising spend|Yellow Pages listings component\nEDGE|self-serve search advertising|POSITIONED_TO_TAKE|newspaper retail advertising spend|positioned to take the two pools\nEDGE|self-serve search advertising|POSITIONED_TO_TAKE|local Yellow Pages listings spend|positioned to take the two pools"
+}

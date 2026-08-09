@@ -1,0 +1,111 @@
+{
+ "id": "e2-medium-005",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "percent of US ad spend in the Miscellaneous residual, 1949",
+ "elapsed_s": 49.2,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen miscellaneous residual",
+   "type": "advertising spend residual",
+   "clause": "Coen's 'Miscellaneous' residual"
+  },
+  {
+   "name": "telephone directories",
+   "type": "advertising category",
+   "clause": "contains telephone directories"
+  },
+  {
+   "name": "Yellow Pages",
+   "type": "advertising category",
+   "clause": "contains Yellow Pages"
+  },
+  {
+   "name": "transit",
+   "type": "advertising category",
+   "clause": "contains transit"
+  },
+  {
+   "name": "point-of-sale",
+   "type": "advertising category",
+   "clause": "contains point-of-sale"
+  },
+  {
+   "name": "premiums",
+   "type": "advertising category",
+   "clause": "contains premiums"
+  },
+  {
+   "name": "US ad spend",
+   "type": "aggregate advertising expenditure",
+   "clause": "percent of US ad spend"
+  },
+  {
+   "name": "miscellaneous residual share of US ad spend",
+   "type": "media-share measurement",
+   "clause": "was ... percent of US ad spend"
+  },
+  {
+   "name": "Coen advertising series",
+   "type": "advertising-spend dataset",
+   "clause": "in the series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Coen miscellaneous residual",
+   "type": "CONTAINS",
+   "to": "telephone directories",
+   "clause": "which contains telephone directories and Yellow Pages, transit, point-of-sale and premiums"
+  },
+  {
+   "from": "Coen miscellaneous residual",
+   "type": "CONTAINS",
+   "to": "Yellow Pages",
+   "clause": "which contains telephone directories and Yellow Pages, transit, point-of-sale and premiums"
+  },
+  {
+   "from": "Coen miscellaneous residual",
+   "type": "CONTAINS",
+   "to": "transit",
+   "clause": "which contains telephone directories and Yellow Pages, transit, point-of-sale and premiums"
+  },
+  {
+   "from": "Coen miscellaneous residual",
+   "type": "CONTAINS",
+   "to": "point-of-sale",
+   "clause": "which contains telephone directories and Yellow Pages, transit, point-of-sale and premiums"
+  },
+  {
+   "from": "Coen miscellaneous residual",
+   "type": "CONTAINS",
+   "to": "premiums",
+   "clause": "which contains telephone directories and Yellow Pages, transit, point-of-sale and premiums"
+  },
+  {
+   "from": "miscellaneous residual share of US ad spend",
+   "type": "MEASURES",
+   "to": "Coen miscellaneous residual",
+   "clause": "was ... percent of US ad spend"
+  },
+  {
+   "from": "miscellaneous residual share of US ad spend",
+   "type": "SHARE_OF",
+   "to": "US ad spend",
+   "clause": "... percent of US ad spend"
+  },
+  {
+   "from": "Yellow Pages",
+   "type": "NOT_SEPARATE_CATEGORY_IN",
+   "to": "Coen advertising series",
+   "clause": "not a separate category in the series until ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen miscellaneous residual|advertising spend residual|Coen's 'Miscellaneous' residual\nNODE|telephone directories|advertising category|contains telephone directories\nNODE|Yellow Pages|advertising category|contains Yellow Pages\nNODE|transit|advertising category|contains transit\nNODE|point-of-sale|advertising category|contains point-of-sale\nNODE|premiums|advertising category|contains premiums\nNODE|US ad spend|aggregate advertising expenditure|percent of US ad spend\nNODE|miscellaneous residual share of US ad spend|media-share measurement|was ... percent of US ad spend\nNODE|Coen advertising series|advertising-spend dataset|in the series\nEDGE|Coen miscellaneous residual|CONTAINS|telephone directories|which contains telephone directories and Yellow Pages, transit, point-of-sale and premiums\nEDGE|Coen miscellaneous residual|CONTAINS|Yellow Pages|which contains telephone directories and Yellow Pages, transit, point-of-sale and premiums\nEDGE|Coen miscellaneous residual|CONTAINS|transit|which contains telephone directories and Yellow Pages, transit, point-of-sale and premiums\nEDGE|Coen miscellaneous residual|CONTAINS|point-of-sale|which contains telephone directories and Yellow Pages, transit, point-of-sale and premiums\nEDGE|Coen miscellaneous residual|CONTAINS|premiums|which contains telephone directories and Yellow Pages, transit, point-of-sale and premiums\nEDGE|miscellaneous residual share of US ad spend|MEASURES|Coen miscellaneous residual|was ... percent of US ad spend\nEDGE|miscellaneous residual share of US ad spend|SHARE_OF|US ad spend|... percent of US ad spend\nEDGE|Yellow Pages|NOT_SEPARATE_CATEGORY_IN|Coen advertising series|not a separate category in the series until ..."
+}

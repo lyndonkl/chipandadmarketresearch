@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|619e56e8d2c42be0",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Cash and short-term investments amount",
+   "type": "cash holdings measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years and sources; year abstracted to children",
+   "child_uids": [
+    "n|mech-aol-003|cash and short-term investments amount 2002|cash holdings measurement",
+    "n|mech-aol-003|cash and short-term investments amount|cash holdings measurement"
+   ]
+  },
+  {
+   "name": "Total assets amount",
+   "type": "asset measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total assets amount; different quantity than cash holdings",
+   "child_uids": [
+    "n|mech-aol-003|total assets amount|asset measurement"
+   ]
+  },
+  {
+   "name": "Other-than-temporary impairment amount",
+   "type": "impairment measurement",
+   "grain": "Measurement",
+   "reason": "singleton: other-than-temporary impairment amount, distinct impairment measure",
+   "child_uids": [
+    "n|mech-aol-006|other-than-temporary impairment amount|impairment measurement"
+   ]
+  }
+ ]
+}

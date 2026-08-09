@@ -1,0 +1,67 @@
+{
+ "id": "e2-measurement-004",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1934,
+ "unit": "cities in the first Clark-Hooper coincidental survey, autumn 1934",
+ "elapsed_s": 47.8,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Clark-Hooper first syndicated coincidental survey",
+   "type": "audience survey",
+   "clause": "Clark-Hooper's first syndicated coincidental survey"
+  },
+  {
+   "name": "Clark-Hooper survey city count",
+   "type": "count measurement",
+   "clause": "city coverage count of the survey"
+  },
+  {
+   "name": "magazine publishers group",
+   "type": "media publisher collective",
+   "clause": "group of magazine publishers"
+  },
+  {
+   "name": "CAB",
+   "type": "industry organization",
+   "clause": "the CAB"
+  },
+  {
+   "name": "network radio audience",
+   "type": "audience metric",
+   "clause": "network radio's audience"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Clark-Hooper first syndicated coincidental survey",
+   "type": "COVERED",
+   "to": "Clark-Hooper survey city count",
+   "clause": "covered ... cities"
+  },
+  {
+   "from": "magazine publishers group",
+   "type": "FINANCED",
+   "to": "Clark-Hooper first syndicated coincidental survey",
+   "clause": "was financed by a group of magazine publishers"
+  },
+  {
+   "from": "magazine publishers group",
+   "type": "BELIEVED",
+   "to": "CAB",
+   "clause": "believed the CAB overstated network radio's audience"
+  },
+  {
+   "from": "CAB",
+   "type": "OVERSTATED",
+   "to": "network radio audience",
+   "clause": "overstated network radio's audience"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Clark-Hooper first syndicated coincidental survey|audience survey|Clark-Hooper's first syndicated coincidental survey\nNODE|Clark-Hooper survey city count|count measurement|city coverage count of the survey\nNODE|magazine publishers group|media publisher collective|group of magazine publishers\nNODE|CAB|industry organization|the CAB\nNODE|network radio audience|audience metric|network radio's audience\nEDGE|Clark-Hooper first syndicated coincidental survey|COVERED|Clark-Hooper survey city count|covered ... cities\nEDGE|magazine publishers group|FINANCED|Clark-Hooper first syndicated coincidental survey|was financed by a group of magazine publishers\nEDGE|magazine publishers group|BELIEVED|CAB|believed the CAB overstated network radio's audience\nEDGE|CAB|OVERSTATED|network radio audience|overstated network radio's audience"
+}

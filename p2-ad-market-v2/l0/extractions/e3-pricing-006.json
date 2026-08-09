@@ -1,0 +1,105 @@
+{
+ "id": "e3-pricing-006",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1967,
+ "unit": "USD per 30-second spot",
+ "elapsed_s": 89.0,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "first Super Bowl",
+   "type": "event",
+   "clause": "the first Super Bowl"
+  },
+  {
+   "name": "first Super Bowl thirty\u2011second spot price",
+   "type": "price measurement",
+   "clause": "price for a thirty\u2011second spot of the event"
+  },
+  {
+   "name": "CBS",
+   "type": "broadcast network",
+   "clause": "CBS"
+  },
+  {
+   "name": "NBC",
+   "type": "broadcast network",
+   "clause": "NBC"
+  },
+  {
+   "name": "CBS per\u2011minute rate",
+   "type": "rate measurement",
+   "clause": "documented per\u2011minute rate on CBS"
+  },
+  {
+   "name": "NBC per\u2011minute rate",
+   "type": "rate measurement",
+   "clause": "documented per\u2011minute rate on NBC"
+  },
+  {
+   "name": "secondary compilation quoted flat thirty\u2011second spot price",
+   "type": "price measurement",
+   "clause": "flat price attributed to both networks"
+  },
+  {
+   "name": "single price for both Super Bowl broadcasts",
+   "type": "price measurement",
+   "clause": "single price for both Super Bowl broadcasts"
+  },
+  {
+   "name": "both Super Bowl broadcasts",
+   "type": "broadcast set",
+   "clause": "both Super Bowl broadcasts"
+  }
+ ],
+ "edges": [
+  {
+   "from": "first Super Bowl thirty\u2011second spot price",
+   "type": "MEASURES",
+   "to": "first Super Bowl",
+   "clause": "price for a thirty\u2011second spot of the event"
+  },
+  {
+   "from": "CBS per\u2011minute rate",
+   "type": "MEASURES",
+   "to": "CBS",
+   "clause": "documented per\u2011minute rate on CBS"
+  },
+  {
+   "from": "NBC per\u2011minute rate",
+   "type": "MEASURES",
+   "to": "NBC",
+   "clause": "documented per\u2011minute rate on NBC"
+  },
+  {
+   "from": "CBS per\u2011minute rate",
+   "type": "HALVES_TO",
+   "to": "first Super Bowl thirty\u2011second spot price",
+   "clause": "whose half is ..."
+  },
+  {
+   "from": "NBC per\u2011minute rate",
+   "type": "HALVES_TO",
+   "to": "first Super Bowl thirty\u2011second spot price",
+   "clause": "whose half is ..."
+  },
+  {
+   "from": "secondary compilation quoted flat thirty\u2011second spot price",
+   "type": "MEASURES",
+   "to": "first Super Bowl",
+   "clause": "flat price attributed to both networks"
+  },
+  {
+   "from": "single price for both Super Bowl broadcasts",
+   "type": "NOT_APPLICABLE_TO",
+   "to": "both Super Bowl broadcasts",
+   "clause": "no single price applies to both broadcasts"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|first Super Bowl|event|the first Super Bowl\nNODE|first Super Bowl thirty\u2011second spot price|price measurement|price for a thirty\u2011second spot of the event\nNODE|CBS|broadcast network|CBS\nNODE|NBC|broadcast network|NBC\nNODE|CBS per\u2011minute rate|rate measurement|documented per\u2011minute rate on CBS\nNODE|NBC per\u2011minute rate|rate measurement|documented per\u2011minute rate on NBC\nNODE|secondary compilation quoted flat thirty\u2011second spot price|price measurement|flat price attributed to both networks\nNODE|single price for both Super Bowl broadcasts|price measurement|single price for both Super Bowl broadcasts\nNODE|both Super Bowl broadcasts|broadcast set|both Super Bowl broadcasts\nEDGE|first Super Bowl thirty\u2011second spot price|MEASURES|first Super Bowl|price for a thirty\u2011second spot of the event\nEDGE|CBS per\u2011minute rate|MEASURES|CBS|documented per\u2011minute rate on CBS\nEDGE|NBC per\u2011minute rate|MEASURES|NBC|documented per\u2011minute rate on NBC\nEDGE|CBS per\u2011minute rate|HALVES_TO|first Super Bowl thirty\u2011second spot price|whose half is ...\nEDGE|NBC per\u2011minute rate|HALVES_TO|first Super Bowl thirty\u2011second spot price|whose half is ...\nEDGE|secondary compilation quoted flat thirty\u2011second spot price|MEASURES|first Super Bowl|flat price attributed to both networks\nEDGE|single price for both Super Bowl broadcasts|NOT_APPLICABLE_TO|both Super Bowl broadcasts|no single price applies to both broadcasts"
+}

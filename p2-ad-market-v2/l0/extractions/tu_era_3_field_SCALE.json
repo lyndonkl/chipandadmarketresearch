@@ -1,0 +1,160 @@
+{
+ "id": "tu:era:3:field:SCALE",
+ "kind": "prose:field:SCALE",
+ "era": 3,
+ "about_year": null,
+ "unit": null,
+ "elapsed_s": 115.0,
+ "error": null,
+ "n_nodes": 20,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "us advertising spend amount",
+   "type": "total advertising expenditure",
+   "clause": "US advertising spend rose ..."
+  },
+  {
+   "name": "nominal increase factor",
+   "type": "ratio measurement",
+   "clause": "a ...-fold nominal increase"
+  },
+  {
+   "name": "compound annual growth rate",
+   "type": "growth-rate measurement",
+   "clause": "about ... a year"
+  },
+  {
+   "name": "advertising share of gdp",
+   "type": "media-share measurement",
+   "clause": "advertising was ... percent of GDP"
+  },
+  {
+   "name": "gdp",
+   "type": "economic output",
+   "clause": "gross domestic product"
+  },
+  {
+   "name": "television",
+   "type": "medium",
+   "clause": "television's entire rise"
+  },
+  {
+   "name": "national income",
+   "type": "economic aggregate",
+   "clause": "national income"
+  },
+  {
+   "name": "advertising share of national income",
+   "type": "media-share measurement",
+   "clause": "shrinking share of national income"
+  },
+  {
+   "name": "other media",
+   "type": "media category",
+   "clause": "other media"
+  },
+  {
+   "name": "national advertising share",
+   "type": "share measurement",
+   "clause": "national ... percent ..."
+  },
+  {
+   "name": "local advertising share",
+   "type": "share measurement",
+   "clause": "local ... percent ..."
+  },
+  {
+   "name": "local retail",
+   "type": "advertising segment",
+   "clause": "local retail outgrew national brand budgets"
+  },
+  {
+   "name": "classified",
+   "type": "advertising segment",
+   "clause": "classified outgrew national brand budgets"
+  },
+  {
+   "name": "national brand budgets",
+   "type": "budget type",
+   "clause": "national brand budgets"
+  },
+  {
+   "name": "national brand share",
+   "type": "media-share measurement",
+   "clause": "national brand ... percent ..."
+  },
+  {
+   "name": "local retail share",
+   "type": "media-share measurement",
+   "clause": "local retail ... percent ..."
+  },
+  {
+   "name": "classified share",
+   "type": "media-share measurement",
+   "clause": "classified ... percent ..."
+  },
+  {
+   "name": "direct response share",
+   "type": "media-share measurement",
+   "clause": "direct response ... percent ..."
+  },
+  {
+   "name": "global advertising spend",
+   "type": "total advertising expenditure",
+   "clause": "global advertising figure triangulated"
+  },
+  {
+   "name": "us share of global ad spend",
+   "type": "proportion measurement",
+   "clause": "US a little over half"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising share of gdp",
+   "type": "SHARE_OF",
+   "to": "gdp",
+   "clause": "... percent of GDP"
+  },
+  {
+   "from": "advertising share of national income",
+   "type": "SHARE_OF",
+   "to": "national income",
+   "clause": "share of national income"
+  },
+  {
+   "from": "television",
+   "type": "TAKEN_SHARE_FROM",
+   "to": "other media",
+   "clause": "took share from other media"
+  },
+  {
+   "from": "television",
+   "type": "DID_NOT_ENLARGE",
+   "to": "us advertising spend amount",
+   "clause": "did not enlarge ad pot"
+  },
+  {
+   "from": "local retail",
+   "type": "OUTGROWN",
+   "to": "national brand budgets",
+   "clause": "outgrew national brand budgets"
+  },
+  {
+   "from": "classified",
+   "type": "OUTGROWN",
+   "to": "national brand budgets",
+   "clause": "outgrew national brand budgets"
+  },
+  {
+   "from": "us share of global ad spend",
+   "type": "SHARE_OF",
+   "to": "global advertising spend",
+   "clause": "US a little over half"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|us advertising spend amount|total advertising expenditure|US advertising spend rose ...\nNODE|nominal increase factor|ratio measurement|a ...-fold nominal increase\nNODE|compound annual growth rate|growth-rate measurement|about ... a year\nNODE|advertising share of gdp|media-share measurement|advertising was ... percent of GDP\nNODE|gdp|economic output|gross domestic product\nNODE|television|medium|television's entire rise\nNODE|national income|economic aggregate|national income\nNODE|advertising share of national income|media-share measurement|shrinking share of national income\nNODE|other media|media category|other media\nNODE|national advertising share|share measurement|national ... percent ...\nNODE|local advertising share|share measurement|local ... percent ...\nNODE|local retail|advertising segment|local retail outgrew national brand budgets\nNODE|classified|advertising segment|classified outgrew national brand budgets\nNODE|national brand budgets|budget type|national brand budgets\nNODE|national brand share|media-share measurement|national brand ... percent ...\nNODE|local retail share|media-share measurement|local retail ... percent ...\nNODE|classified share|media-share measurement|classified ... percent ...\nNODE|direct response share|media-share measurement|direct response ... percent ...\nNODE|global advertising spend|total advertising expenditure|global advertising figure triangulated\nNODE|us share of global ad spend|proportion measurement|US a little over half\nEDGE|advertising share of gdp|SHARE_OF|gdp|... percent of GDP\nEDGE|advertising share of national income|SHARE_OF|national income|share of national income\nEDGE|television|TAKEN_SHARE_FROM|other media|took share from other media\nEDGE|television|DID_NOT_ENLARGE|us advertising spend amount|did not enlarge ad pot\nEDGE|local retail|OUTGROWN|national brand budgets|outgrew national brand budgets\nEDGE|classified|OUTGROWN|national brand budgets|outgrew national brand budgets\nEDGE|us share of global ad spend|SHARE_OF|global advertising spend|US a little over half"
+}

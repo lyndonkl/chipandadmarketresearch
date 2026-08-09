@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|2e9880e7699a7233",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Named household",
+   "type": "household entity",
+   "grain": "Entity",
+   "reason": "singleton: unique household-level target concept",
+   "child_uids": [
+    "n|e1-targeting-002|named household|household entity"
+   ]
+  },
+  {
+   "name": "US addresses",
+   "type": "address set",
+   "grain": "Entity",
+   "reason": "singleton: distinct set of all U.S. mailing addresses",
+   "child_uids": [
+    "n|e3-targeting-004|us addresses|address set"
+   ]
+  },
+  {
+   "name": "Neighbourhood",
+   "type": "unit of precision",
+   "grain": "Entity",
+   "reason": "singleton: geographic precision level used in targeting",
+   "child_uids": [
+    "n|tu:era:4:field:TARGETING|neighbourhood|unit of precision"
+   ]
+  },
+  {
+   "name": "Addressable unit",
+   "type": "targeting granularity",
+   "grain": "Entity",
+   "reason": "singleton: generic smallest unit for advertising targeting",
+   "child_uids": [
+    "n|tu:era:4:field:TARGETING|addressable unit|targeting granularity"
+   ]
+  },
+  {
+   "name": "Mailbox block",
+   "type": "address target",
+   "grain": "Entity",
+   "reason": "singleton: specific block of mailboxes as a targeting entity",
+   "child_uids": [
+    "n|tu:era:4:field:TARGETING|mailbox block|address target"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|604e07665a745cbc",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Internet share of US advertising spend",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "one measure across time periods; early and later abstracted to children",
+   "child_uids": [
+    "n|tu:era:5:field:MEDIUM|internet share of us ad spend early|share measurement",
+    "n|tu:era:5:field:MEDIUM|internet share of us ad spend later|share measurement"
+   ]
+  },
+  {
+   "name": "DoubleClick network reach share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: DoubleClick network reach share measurement",
+   "child_uids": [
+    "n|tu:era:5:field:TARGETING|doubleclick network reach share|share measurement"
+   ]
+  },
+  {
+   "name": "Keyword search share of US internet ad revenue",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: Keyword search share of US internet ad revenue",
+   "child_uids": [
+    "n|tu:era:5:field:TARGETING|keyword search share measurement|share measurement"
+   ]
+  },
+  {
+   "name": "Search share of Internet",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: Search share of Internet measurement",
+   "child_uids": [
+    "n|tu:era:6:field:MEDIUM|search share of internet|percentage measurement"
+   ]
+  }
+ ]
+}

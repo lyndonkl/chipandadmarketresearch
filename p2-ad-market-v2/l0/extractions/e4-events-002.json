@@ -1,0 +1,61 @@
+{
+ "id": "e4-events-002",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1986,
+ "unit": "million USD",
+ "elapsed_s": 46.6,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Saatchi & Saatchi",
+   "type": "advertising group",
+   "clause": "Saatchi & Saatchi"
+  },
+  {
+   "name": "Ted Bates Worldwide",
+   "type": "advertising agency",
+   "clause": "Ted Bates Worldwide"
+  },
+  {
+   "name": "Saatchi & Saatchi acquisition of Ted Bates Worldwide",
+   "type": "agency acquisition",
+   "clause": "acquisition of Ted Bates Worldwide"
+  },
+  {
+   "name": "agency acquisitions",
+   "type": "acquisition aggregate",
+   "clause": "agency acquisitions"
+  },
+  {
+   "name": "Saatchi & Saatchi acquisition price",
+   "type": "monetary transaction measurement",
+   "clause": "price of the acquisition"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Saatchi & Saatchi",
+   "type": "ACQUIRED",
+   "to": "Ted Bates Worldwide",
+   "clause": "acquired ... for ..."
+  },
+  {
+   "from": "Saatchi & Saatchi acquisition of Ted Bates Worldwide",
+   "type": "HAS_PRICE",
+   "to": "Saatchi & Saatchi acquisition price",
+   "clause": "for about ..."
+  },
+  {
+   "from": "Saatchi & Saatchi acquisition of Ted Bates Worldwide",
+   "type": "LARGEST_IN",
+   "to": "agency acquisitions",
+   "clause": "largest agency acquisition to that date"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Saatchi & Saatchi|advertising group|Saatchi & Saatchi\nNODE|Ted Bates Worldwide|advertising agency|Ted Bates Worldwide\nNODE|Saatchi & Saatchi acquisition of Ted Bates Worldwide|agency acquisition|acquisition of Ted Bates Worldwide\nNODE|agency acquisitions|acquisition aggregate|agency acquisitions\nNODE|Saatchi & Saatchi acquisition price|monetary transaction measurement|price of the acquisition\nEDGE|Saatchi & Saatchi|ACQUIRED|Ted Bates Worldwide|acquired ... for ...\nEDGE|Saatchi & Saatchi acquisition of Ted Bates Worldwide|HAS_PRICE|Saatchi & Saatchi acquisition price|for about ...\nEDGE|Saatchi & Saatchi acquisition of Ted Bates Worldwide|LARGEST_IN|agency acquisitions|largest agency acquisition to that date"
+}

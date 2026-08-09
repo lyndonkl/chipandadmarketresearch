@@ -1,0 +1,34 @@
+{
+ "id": "e7-scale-004",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2008,
+ "unit": "USD millions of US internet ad revenue, 2008",
+ "elapsed_s": 34.0,
+ "error": null,
+ "n_nodes": 2,
+ "n_edges": 1,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet advertising revenue",
+   "type": "advertising revenue",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "US internet ad revenue amount",
+   "type": "revenue measurement",
+   "clause": "US internet advertising revenue was ... in ..., the era's opening year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US internet advertising revenue",
+   "type": "HAS_AMOUNT",
+   "to": "US internet ad revenue amount",
+   "clause": "US internet advertising revenue was ... in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet advertising revenue|advertising revenue|US internet advertising revenue\nNODE|US internet ad revenue amount|revenue measurement|US internet advertising revenue was ... in ..., the era's opening year\nEDGE|US internet advertising revenue|HAS_AMOUNT|US internet ad revenue amount|US internet advertising revenue was ... in ..."
+}

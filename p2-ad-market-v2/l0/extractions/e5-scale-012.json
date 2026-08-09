@@ -1,0 +1,132 @@
+{
+ "id": "e5-scale-012",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of total US ad spend",
+ "elapsed_s": 122.6,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "classified advertising",
+   "type": "advertising category",
+   "clause": "Classified advertising was ... percent of US ad market"
+  },
+  {
+   "name": "US measured advertising market",
+   "type": "advertising market",
+   "clause": "the $...B US measured advertising market"
+  },
+  {
+   "name": "classified advertising share measurement",
+   "type": "media-share measurement",
+   "clause": "Classified advertising was ... percent of US ad market"
+  },
+  {
+   "name": "classified advertising spend measurement",
+   "type": "revenue measurement",
+   "clause": "about $...B total classified advertising spend"
+  },
+  {
+   "name": "newspaper classified advertising",
+   "type": "advertising subcategory",
+   "clause": "newspaper classified ... (published, grade B)"
+  },
+  {
+   "name": "newspaper classified spend measurement",
+   "type": "revenue measurement",
+   "clause": "newspaper classified ..."
+  },
+  {
+   "name": "non-newspaper print classified advertising",
+   "type": "advertising subcategory",
+   "clause": "non-newspaper print classified ..."
+  },
+  {
+   "name": "non-newspaper print classified spend measurement",
+   "type": "revenue measurement",
+   "clause": "non-newspaper print classified ..."
+  },
+  {
+   "name": "online classified advertising",
+   "type": "advertising subcategory",
+   "clause": "online classified ..."
+  },
+  {
+   "name": "online classified spend measurement",
+   "type": "revenue measurement",
+   "clause": "online classified ..."
+  },
+  {
+   "name": "US measured advertising market value measurement",
+   "type": "market-value measurement",
+   "clause": "the $...B US measured advertising market"
+  },
+  {
+   "name": "classified advertising share peak measurement",
+   "type": "media-share measurement",
+   "clause": "the SHARE peak is ... at ... percent of US total"
+  }
+ ],
+ "edges": [
+  {
+   "from": "classified advertising share measurement",
+   "type": "MEASURES",
+   "to": "classified advertising",
+   "clause": "Classified advertising was ... percent"
+  },
+  {
+   "from": "classified advertising share measurement",
+   "type": "SHARE_OF",
+   "to": "US measured advertising market",
+   "clause": "... percent of US ad market"
+  },
+  {
+   "from": "classified advertising spend measurement",
+   "type": "MEASURES",
+   "to": "classified advertising",
+   "clause": "about $...B total spend"
+  },
+  {
+   "from": "newspaper classified spend measurement",
+   "type": "MEASURES",
+   "to": "newspaper classified advertising",
+   "clause": "newspaper classified ..."
+  },
+  {
+   "from": "non-newspaper print classified spend measurement",
+   "type": "MEASURES",
+   "to": "non-newspaper print classified advertising",
+   "clause": "non-newspaper print classified ..."
+  },
+  {
+   "from": "online classified spend measurement",
+   "type": "MEASURES",
+   "to": "online classified advertising",
+   "clause": "online classified ..."
+  },
+  {
+   "from": "US measured advertising market value measurement",
+   "type": "MEASURES",
+   "to": "US measured advertising market",
+   "clause": "the $...B US ad market"
+  },
+  {
+   "from": "classified advertising share peak measurement",
+   "type": "MEASURES",
+   "to": "classified advertising",
+   "clause": "the SHARE peak is ... at ... percent"
+  },
+  {
+   "from": "classified advertising share peak measurement",
+   "type": "SHARE_OF",
+   "to": "US measured advertising market",
+   "clause": "... percent of US total"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|classified advertising|advertising category|Classified advertising was ... percent of US ad market\nNODE|US measured advertising market|advertising market|the $...B US measured advertising market\nNODE|classified advertising share measurement|media-share measurement|Classified advertising was ... percent of US ad market\nNODE|classified advertising spend measurement|revenue measurement|about $...B total classified advertising spend\nNODE|newspaper classified advertising|advertising subcategory|newspaper classified ... (published, grade B)\nNODE|newspaper classified spend measurement|revenue measurement|newspaper classified ...\nNODE|non-newspaper print classified advertising|advertising subcategory|non-newspaper print classified ...\nNODE|non-newspaper print classified spend measurement|revenue measurement|non-newspaper print classified ...\nNODE|online classified advertising|advertising subcategory|online classified ...\nNODE|online classified spend measurement|revenue measurement|online classified ...\nNODE|US measured advertising market value measurement|market-value measurement|the $...B US measured advertising market\nNODE|classified advertising share peak measurement|media-share measurement|the SHARE peak is ... at ... percent of US total\nEDGE|classified advertising share measurement|MEASURES|classified advertising|Classified advertising was ... percent\nEDGE|classified advertising share measurement|SHARE_OF|US measured advertising market|... percent of US ad market\nEDGE|classified advertising spend measurement|MEASURES|classified advertising|about $...B total spend\nEDGE|newspaper classified spend measurement|MEASURES|newspaper classified advertising|newspaper classified ...\nEDGE|non-newspaper print classified spend measurement|MEASURES|non-newspaper print classified advertising|non-newspaper print classified ...\nEDGE|online classified spend measurement|MEASURES|online classified advertising|online classified ...\nEDGE|US measured advertising market value measurement|MEASURES|US measured advertising market|the $...B US ad market\nEDGE|classified advertising share peak measurement|MEASURES|classified advertising|the SHARE peak is ... at ... percent\nEDGE|classified advertising share peak measurement|SHARE_OF|US measured advertising market|... percent of US total"
+}

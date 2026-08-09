@@ -1,0 +1,90 @@
+{
+ "group_id": "L1|e6938ef25becc6b6",
+ "source": "kmeans",
+ "n_in": 11,
+ "parents": [
+  {
+   "name": "DoubleClick ad-delivery infrastructure cost",
+   "type": "component cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific component cost measure for DoubleClick",
+   "child_uids": [
+    "n|e5-unit_econ-002|doubleclick ad-delivery infrastructure cost|component cost measurement"
+   ]
+  },
+  {
+   "name": "max bid per click",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic maximum bid per click rate",
+   "child_uids": [
+    "n|e6-pricing-002|maximum bid per click|take-rate measurement"
+   ]
+  },
+  {
+   "name": "top advertiser maximum bid",
+   "type": "maximum bid measurement",
+   "grain": "Measurement",
+   "reason": "singleton: max bid specific to top advertiser",
+   "child_uids": [
+    "n|mech-discounter-001|top advertiser maximum bid|maximum bid measurement"
+   ]
+  },
+  {
+   "name": "next highest bid per click",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: measure of second\u2011highest CPC bid",
+   "child_uids": [
+    "n|e6-pricing-002|next highest bid per click|take-rate measurement"
+   ]
+  },
+  {
+   "name": "search CPC YoY change",
+   "type": "year-on-year change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: year\u2011over\u2011year search cost\u2011per\u2011click change",
+   "child_uids": [
+    "n|e7-pricing-007|search cpc yoy change measurement|year-on-year change measurement"
+   ]
+  },
+  {
+   "name": "top-slot CPC increase on PC/tablet",
+   "type": "percentage increase measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years/sources; PC and tablet breakdown",
+   "child_uids": [
+    "n|e7-pricing-001|top-slot cpc increase (pcs and tablets)|percentage increase measurement",
+    "n|mech-rgsp-001|top-slot cpc increase on pc/tablet measurement|percentage increase measurement"
+   ]
+  },
+  {
+   "name": "top-slot CPC increase on mobile",
+   "type": "percentage increase measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years/sources; mobile breakdown",
+   "child_uids": [
+    "n|e7-pricing-001|top-slot cpc increase (mobile)|percentage increase measurement",
+    "n|mech-rgsp-001|top-slot cpc increase on mobile measurement|percentage increase measurement"
+   ]
+  },
+  {
+   "name": "rGSP impact on desktop top-slot CPC",
+   "type": "impact measurement",
+   "grain": "Measurement",
+   "reason": "singleton: rGSP effect on desktop top\u2011slot CPC in tests",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|rgsp impact on desktop top-slot cpc|impact measurement"
+   ]
+  },
+  {
+   "name": "rGSP impact on mobile top-slot CPC",
+   "type": "impact measurement",
+   "grain": "Measurement",
+   "reason": "singleton: rGSP effect on mobile top\u2011slot CPC in tests",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|rgsp impact on mobile top-slot cpc|impact measurement"
+   ]
+  }
+ ]
+}

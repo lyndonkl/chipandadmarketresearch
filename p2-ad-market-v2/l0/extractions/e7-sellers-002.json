@@ -1,0 +1,100 @@
+{
+ "id": "e7-sellers-002",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD millions of Google advertising revenue, FY2025 (global)",
+ "elapsed_s": 67.5,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Google advertising revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "Google advertising revenue was ... in ..."
+  },
+  {
+   "name": "Google advertising revenue FY2025 measurement",
+   "type": "revenue measurement",
+   "clause": "Google advertising revenue was ... in 2025"
+  },
+  {
+   "name": "Search and other advertising revenue FY2025 measurement",
+   "type": "segment revenue measurement",
+   "clause": "Search & other ... in 2025"
+  },
+  {
+   "name": "YouTube advertising revenue FY2025 measurement",
+   "type": "segment revenue measurement",
+   "clause": "YouTube ads ... in 2025"
+  },
+  {
+   "name": "Google Network advertising revenue FY2025 measurement",
+   "type": "segment revenue measurement",
+   "clause": "Google Network ... in 2025"
+  },
+  {
+   "name": "Google advertising revenue FY2024 measurement",
+   "type": "revenue measurement",
+   "clause": "... up from ... in 2024"
+  },
+  {
+   "name": "YouTube",
+   "type": "platform",
+   "clause": "YouTube ads"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "GENERATES",
+   "to": "Google advertising revenue",
+   "clause": "Google advertising revenue was ..."
+  },
+  {
+   "from": "Google advertising revenue FY2025 measurement",
+   "type": "MEASURES",
+   "to": "Google advertising revenue",
+   "clause": "Google advertising revenue was ... in 2025"
+  },
+  {
+   "from": "Search and other advertising revenue FY2025 measurement",
+   "type": "PART_OF",
+   "to": "Google advertising revenue FY2025 measurement",
+   "clause": "... part of total revenue"
+  },
+  {
+   "from": "YouTube advertising revenue FY2025 measurement",
+   "type": "PART_OF",
+   "to": "Google advertising revenue FY2025 measurement",
+   "clause": "... part of total revenue"
+  },
+  {
+   "from": "Google Network advertising revenue FY2025 measurement",
+   "type": "PART_OF",
+   "to": "Google advertising revenue FY2025 measurement",
+   "clause": "... part of total revenue"
+  },
+  {
+   "from": "YouTube advertising revenue FY2025 measurement",
+   "type": "MEASURES",
+   "to": "YouTube",
+   "clause": "YouTube ads ..."
+  },
+  {
+   "from": "Google advertising revenue FY2025 measurement",
+   "type": "UP_FROM",
+   "to": "Google advertising revenue FY2024 measurement",
+   "clause": "up from ... in 2024"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|Google advertising revenue|advertising revenue aggregate|Google advertising revenue was ... in ...\nNODE|Google advertising revenue FY2025 measurement|revenue measurement|Google advertising revenue was ... in 2025\nNODE|Search and other advertising revenue FY2025 measurement|segment revenue measurement|Search & other ... in 2025\nNODE|YouTube advertising revenue FY2025 measurement|segment revenue measurement|YouTube ads ... in 2025\nNODE|Google Network advertising revenue FY2025 measurement|segment revenue measurement|Google Network ... in 2025\nNODE|Google advertising revenue FY2024 measurement|revenue measurement|... up from ... in 2024\nNODE|YouTube|platform|YouTube ads\nEDGE|Google|GENERATES|Google advertising revenue|Google advertising revenue was ...\nEDGE|Google advertising revenue FY2025 measurement|MEASURES|Google advertising revenue|Google advertising revenue was ... in 2025\nEDGE|Search and other advertising revenue FY2025 measurement|PART_OF|Google advertising revenue FY2025 measurement|... part of total revenue\nEDGE|YouTube advertising revenue FY2025 measurement|PART_OF|Google advertising revenue FY2025 measurement|... part of total revenue\nEDGE|Google Network advertising revenue FY2025 measurement|PART_OF|Google advertising revenue FY2025 measurement|... part of total revenue\nEDGE|YouTube advertising revenue FY2025 measurement|MEASURES|YouTube|YouTube ads ...\nEDGE|Google advertising revenue FY2025 measurement|UP_FROM|Google advertising revenue FY2024 measurement|up from ... in 2024"
+}

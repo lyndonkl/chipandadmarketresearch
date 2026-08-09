@@ -1,0 +1,115 @@
+{
+ "group_id": "L2|13b9e4c9824a443c",
+ "n_in": 13,
+ "parents": [
+  {
+   "name": "click-fraud estimator",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "Click Forensics and independent estimators provide fraud estimates",
+   "child_uids": [
+    "L1|230bc2943540df0d",
+    "L1|4da70c1d012728f4"
+   ]
+  },
+  {
+   "name": "audit standard",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: defines how search click counts are audited",
+   "child_uids": [
+    "L1|47b8e16d3201fb4f"
+   ]
+  },
+  {
+   "name": "market claim",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: advertisers assert clicks are invalid",
+   "child_uids": [
+    "L1|7d5fa21d688ba65c"
+   ]
+  },
+  {
+   "name": "fraud detection practice",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: Google's method for detecting invalid clicks",
+   "child_uids": [
+    "L1|793c0bd9cf5b5c1b"
+   ]
+  },
+  {
+   "name": "adjudication process",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: process deciding whether click activity is fraudulent",
+   "child_uids": [
+    "L1|605c49122694a11a"
+   ]
+  },
+  {
+   "name": "detection metric",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: metric measuring effectiveness of invalid-click detection",
+   "child_uids": [
+    "L1|12632ee1f48c3c82"
+   ]
+  },
+  {
+   "name": "fraud phenomenon",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: overall click fraud as a market issue",
+   "child_uids": [
+    "L1|c13e24f077e3ead8"
+   ]
+  },
+  {
+   "name": "audit investigation",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: examination of systems for invalid-click compliance",
+   "child_uids": [
+    "L1|ede9162105f7034c"
+   ]
+  },
+  {
+   "name": "user action",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: a search result click performed by a user",
+   "child_uids": [
+    "L1|3cf07297cedb62ea"
+   ]
+  },
+  {
+   "name": "validation outcome",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: decision outcome of click validation process",
+   "child_uids": [
+    "L1|6a4833b9e90ab5ae"
+   ]
+  },
+  {
+   "name": "report",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: Imperva's analysis of malicious bot traffic",
+   "child_uids": [
+    "L1|91163c9f0c98805e"
+   ]
+  },
+  {
+   "name": "malicious traffic",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: automated traffic identified as harmful",
+   "child_uids": [
+    "L1|0017f514fbb25d1d"
+   ]
+  }
+ ]
+}

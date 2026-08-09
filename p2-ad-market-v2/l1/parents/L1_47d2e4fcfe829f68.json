@@ -1,0 +1,71 @@
+{
+ "group_id": "L1|47d2e4fcfe829f68",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Minimum bid per listing",
+   "type": "minimum bid measurement",
+   "grain": "Measurement",
+   "reason": "same measure across platforms; breakdown identical",
+   "child_uids": [
+    "n|e6-pricing-005|overture minimum bid per listing|minimum bid measurement",
+    "n|mech-overture-001|minimum bid per listing|minimum bid measurement"
+   ]
+  },
+  {
+   "name": "Minimum bid amount per keyword",
+   "type": "price floor measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific to keywords",
+   "child_uids": [
+    "n|e5-pricing-004|minimum bid amount per keyword|price floor measurement"
+   ]
+  },
+  {
+   "name": "Second-highest bid",
+   "type": "bid measurement",
+   "grain": "Measurement",
+   "reason": "singleton: second order statistic of bids",
+   "child_uids": [
+    "n|mech-discounter-001|second-highest bid|bid measurement"
+   ]
+  },
+  {
+   "name": "Third-highest bid",
+   "type": "bid measurement",
+   "grain": "Measurement",
+   "reason": "singleton: third order statistic of bids",
+   "child_uids": [
+    "n|mech-discounter-001|third-highest bid|bid measurement"
+   ]
+  },
+  {
+   "name": "Automatic discounter charge amount",
+   "type": "price-difference measurement",
+   "grain": "Measurement",
+   "reason": "singleton: charge above next bid",
+   "child_uids": [
+    "n|tu:era:6:event:0|automatic discunter charge amount|price-difference measurement"
+   ]
+  },
+  {
+   "name": "Minimum bid amount",
+   "type": "price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic minimum bid price",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|minimum bid amount|price measurement"
+   ]
+  },
+  {
+   "name": "Price increment",
+   "type": "pricing rule measurement",
+   "grain": "Measurement",
+   "reason": "singleton: incremental amount above next bid",
+   "child_uids": [
+    "n|tu:era:6:field:PRICING|price increment|pricing rule measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "id": "e5-measurement-003",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "billion ads served worldwide",
+ "elapsed_s": 52.7,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "DoubleClick",
+   "type": "company",
+   "clause": "DoubleClick's DART ad server"
+  },
+  {
+   "name": "DART ad server",
+   "type": "ad server",
+   "clause": "DoubleClick's DART ad server"
+  },
+  {
+   "name": "global ad deliveries",
+   "type": "ad delivery measurement",
+   "clause": "advertisements delivered worldwide"
+  },
+  {
+   "name": "DART client count",
+   "type": "client-count measurement",
+   "clause": "across more than ... clients"
+  },
+  {
+   "name": "December ad deliveries",
+   "type": "ad delivery measurement",
+   "clause": "December ... alone was about ..."
+  },
+  {
+   "name": "sell side",
+   "type": "market participant group",
+   "clause": "owned by the sell side"
+  },
+  {
+   "name": "system of record",
+   "type": "data role",
+   "clause": "was the era's system of record"
+  }
+ ],
+ "edges": [
+  {
+   "from": "DoubleClick",
+   "type": "OWNS",
+   "to": "DART ad server",
+   "clause": "DoubleClick's DART ad server"
+  },
+  {
+   "from": "DART ad server",
+   "type": "DELIVERS",
+   "to": "global ad deliveries",
+   "clause": "advertisements delivered worldwide by ... in ..."
+  },
+  {
+   "from": "DART ad server",
+   "type": "HAS_CLIENT_COUNT",
+   "to": "DART client count",
+   "clause": "across more than ... clients"
+  },
+  {
+   "from": "DART ad server",
+   "type": "DELIVERS",
+   "to": "December ad deliveries",
+   "clause": "December ... alone was about ..."
+  },
+  {
+   "from": "DART ad server",
+   "type": "OWNED_BY",
+   "to": "sell side",
+   "clause": "owned by the sell side"
+  },
+  {
+   "from": "DART ad server",
+   "type": "BECAME_SYSTEM_OF_RECORD",
+   "to": "system of record",
+   "clause": "was the era's system of record"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|DoubleClick|company|DoubleClick's DART ad server\nNODE|DART ad server|ad server|DoubleClick's DART ad server\nNODE|global ad deliveries|ad delivery measurement|advertisements delivered worldwide\nNODE|DART client count|client-count measurement|across more than ... clients\nNODE|December ad deliveries|ad delivery measurement|December ... alone was about ...\nNODE|sell side|market participant group|owned by the sell side\nNODE|system of record|data role|was the era's system of record\nEDGE|DoubleClick|OWNS|DART ad server|DoubleClick's DART ad server\nEDGE|DART ad server|DELIVERS|global ad deliveries|advertisements delivered worldwide by ... in ...\nEDGE|DART ad server|HAS_CLIENT_COUNT|DART client count|across more than ... clients\nEDGE|DART ad server|DELIVERS|December ad deliveries|December ... alone was about ...\nEDGE|DART ad server|OWNED_BY|sell side|owned by the sell side\nEDGE|DART ad server|BECAME_SYSTEM_OF_RECORD|system of record|was the era's system of record"
+}

@@ -1,0 +1,120 @@
+{
+ "id": "tu:era:1:event:2",
+ "kind": "prose:event",
+ "era": 1,
+ "about_year": 1872,
+ "unit": null,
+ "elapsed_s": 72.2,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Ward",
+   "type": "person",
+   "clause": "Ward mailed ... to members of the Grange"
+  },
+  {
+   "name": "Grange members",
+   "type": "member group",
+   "clause": "members of the Grange"
+  },
+  {
+   "name": "single-page item count measurement",
+   "type": "take-count measurement",
+   "clause": "a single page listing ..."
+  },
+  {
+   "name": "mail-order catalogue",
+   "type": "advertising catalogue",
+   "clause": "the publication that grew in pages"
+  },
+  {
+   "name": "catalogue page count measurement",
+   "type": "page-count measurement",
+   "clause": "grew to ... pages"
+  },
+  {
+   "name": "catalogue-supported annual sales measurement",
+   "type": "revenue measurement",
+   "clause": "supporting about ... of annual sales"
+  },
+  {
+   "name": "mail order",
+   "type": "distribution channel",
+   "clause": "Mail order is where advertising first became measurable"
+  },
+  {
+   "name": "advertising",
+   "type": "ad activity",
+   "clause": "advertising first became measurable"
+  },
+  {
+   "name": "catalogue advertising",
+   "type": "advertising format",
+   "clause": "every dollar of catalogue and keyed print advertising"
+  },
+  {
+   "name": "orders received",
+   "type": "order volume",
+   "clause": "judged by orders received"
+  },
+  {
+   "name": "accounting tradition",
+   "type": "accounting practice",
+   "clause": "that accounting tradition runs unbroken to the click"
+  },
+  {
+   "name": "click",
+   "type": "digital interaction",
+   "clause": "the click"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Ward",
+   "type": "MAILED_TO",
+   "to": "Grange members",
+   "clause": "Ward mailed ... to members of the Grange"
+  },
+  {
+   "from": "Ward",
+   "type": "MAILED_WITH",
+   "to": "single-page item count measurement",
+   "clause": "Ward mailed a single page listing ..."
+  },
+  {
+   "from": "mail-order catalogue",
+   "type": "HAS_MEASUREMENT",
+   "to": "catalogue page count measurement",
+   "clause": "grew to ... pages"
+  },
+  {
+   "from": "mail-order catalogue",
+   "type": "SUPPORTS",
+   "to": "catalogue-supported annual sales measurement",
+   "clause": "supporting about ... of annual sales"
+  },
+  {
+   "from": "mail order",
+   "type": "BECAME_MEASURABLE_FOR",
+   "to": "advertising",
+   "clause": "Mail order is where advertising first became measurable"
+  },
+  {
+   "from": "catalogue advertising",
+   "type": "JUDGED_BY",
+   "to": "orders received",
+   "clause": "every dollar ... was judged by orders received"
+  },
+  {
+   "from": "accounting tradition",
+   "type": "RUNS_UNBROKEN_TO",
+   "to": "click",
+   "clause": "that accounting tradition runs unbroken to the click"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Ward|person|Ward mailed ... to members of the Grange\nNODE|Grange members|member group|members of the Grange\nNODE|single-page item count measurement|take-count measurement|a single page listing ...\nNODE|mail-order catalogue|advertising catalogue|the publication that grew in pages\nNODE|catalogue page count measurement|page-count measurement|grew to ... pages\nNODE|catalogue-supported annual sales measurement|revenue measurement|supporting about ... of annual sales\nNODE|mail order|distribution channel|Mail order is where advertising first became measurable\nNODE|advertising|ad activity|advertising first became measurable\nNODE|catalogue advertising|advertising format|every dollar of catalogue and keyed print advertising\nNODE|orders received|order volume|judged by orders received\nNODE|accounting tradition|accounting practice|that accounting tradition runs unbroken to the click\nNODE|click|digital interaction|the click\nEDGE|Ward|MAILED_TO|Grange members|Ward mailed ... to members of the Grange\nEDGE|Ward|MAILED_WITH|single-page item count measurement|Ward mailed a single page listing ...\nEDGE|mail-order catalogue|HAS_MEASUREMENT|catalogue page count measurement|grew to ... pages\nEDGE|mail-order catalogue|SUPPORTS|catalogue-supported annual sales measurement|supporting about ... of annual sales\nEDGE|mail order|BECAME_MEASURABLE_FOR|advertising|Mail order is where advertising first became measurable\nEDGE|catalogue advertising|JUDGED_BY|orders received|every dollar ... was judged by orders received\nEDGE|accounting tradition|RUNS_UNBROKEN_TO|click|that accounting tradition runs unbroken to the click"
+}

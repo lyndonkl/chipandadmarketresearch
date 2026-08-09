@@ -1,0 +1,78 @@
+{
+ "id": "e3-medium-004",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent of US households with television",
+ "elapsed_s": 57.3,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US television households",
+   "type": "household audience unit",
+   "clause": "US television households"
+  },
+  {
+   "name": "US households",
+   "type": "total household base",
+   "clause": "total US households"
+  },
+  {
+   "name": "US television household count measurement",
+   "type": "count measurement",
+   "clause": "... count of TV households"
+  },
+  {
+   "name": "share of US households with television",
+   "type": "percentage measurement",
+   "clause": "percent of US households with television"
+  },
+  {
+   "name": "30-second spot",
+   "type": "advertising format",
+   "clause": "the 30\u2011second spot"
+  },
+  {
+   "name": "mass-reach instrument",
+   "type": "market role",
+   "clause": "a mass\u2011reach instrument"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US television household count measurement",
+   "type": "MEASURES",
+   "to": "US television households",
+   "clause": "... count of TV households"
+  },
+  {
+   "from": "share of US households with television",
+   "type": "SHARE_OF",
+   "to": "US households",
+   "clause": "... percent of US households with television"
+  },
+  {
+   "from": "share of US households with television",
+   "type": "MEASURES",
+   "to": "US television households",
+   "clause": "... share of US households with television"
+  },
+  {
+   "from": "US television households",
+   "type": "ENABLED",
+   "to": "30-second spot",
+   "clause": "made the 30\u2011second spot a mass\u2011reach instrument"
+  },
+  {
+   "from": "30-second spot",
+   "type": "IS_A",
+   "to": "mass-reach instrument",
+   "clause": "a mass\u2011reach instrument"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US television households|household audience unit|US television households\nNODE|US households|total household base|total US households\nNODE|US television household count measurement|count measurement|... count of TV households\nNODE|share of US households with television|percentage measurement|percent of US households with television\nNODE|30-second spot|advertising format|the 30\u2011second spot\nNODE|mass-reach instrument|market role|a mass\u2011reach instrument\nEDGE|US television household count measurement|MEASURES|US television households|... count of TV households\nEDGE|share of US households with television|SHARE_OF|US households|... percent of US households with television\nEDGE|share of US households with television|MEASURES|US television households|... share of US households with television\nEDGE|US television households|ENABLED|30-second spot|made the 30\u2011second spot a mass\u2011reach instrument\nEDGE|30-second spot|IS_A|mass-reach instrument|a mass\u2011reach instrument"
+}

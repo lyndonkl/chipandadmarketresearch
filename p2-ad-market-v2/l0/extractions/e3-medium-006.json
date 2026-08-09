@@ -1,0 +1,100 @@
+{
+ "id": "e3-medium-006",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "million USD",
+ "elapsed_s": 61.1,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "Direct mail took ... million in 1975"
+  },
+  {
+   "name": "direct mail advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "took ... million in 1975"
+  },
+  {
+   "name": "US advertising",
+   "type": "aggregate advertising market",
+   "clause": "all US advertising"
+  },
+  {
+   "name": "direct mail share of US advertising",
+   "type": "media-share measurement",
+   "clause": "...% of all US advertising"
+  },
+  {
+   "name": "advertising media",
+   "type": "media category",
+   "clause": "overall medium ranking"
+  },
+  {
+   "name": "single-national advertising mediums",
+   "type": "media category",
+   "clause": "single national medium ranking"
+  },
+  {
+   "name": "television",
+   "type": "advertising medium",
+   "clause": "television's national total ..."
+  },
+  {
+   "name": "television national advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "national total of ... million"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct mail",
+   "type": "HAS_SPEND",
+   "to": "direct mail advertising spend",
+   "clause": "took ... million in ..."
+  },
+  {
+   "from": "direct mail share of US advertising",
+   "type": "MEASURES",
+   "to": "direct mail",
+   "clause": "...% of all US advertising"
+  },
+  {
+   "from": "direct mail share of US advertising",
+   "type": "SHARE_OF",
+   "to": "US advertising",
+   "clause": "...% of all US advertising"
+  },
+  {
+   "from": "direct mail",
+   "type": "RANKED_THIRD_IN",
+   "to": "advertising media",
+   "clause": "third-largest medium overall"
+  },
+  {
+   "from": "direct mail",
+   "type": "RANKED_FIRST_IN",
+   "to": "single-national advertising mediums",
+   "clause": "largest single national medium"
+  },
+  {
+   "from": "direct mail",
+   "type": "EXCEEDS",
+   "to": "television national advertising spend",
+   "clause": "ahead of television's national total of ..."
+  },
+  {
+   "from": "television",
+   "type": "HAS_SPEND",
+   "to": "television national advertising spend",
+   "clause": "national total of ... million"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct mail|advertising medium|Direct mail took ... million in 1975\nNODE|direct mail advertising spend|advertising spend measurement|took ... million in 1975\nNODE|US advertising|aggregate advertising market|all US advertising\nNODE|direct mail share of US advertising|media-share measurement|...% of all US advertising\nNODE|advertising media|media category|overall medium ranking\nNODE|single-national advertising mediums|media category|single national medium ranking\nNODE|television|advertising medium|television's national total ...\nNODE|television national advertising spend|advertising spend measurement|national total of ... million\nEDGE|direct mail|HAS_SPEND|direct mail advertising spend|took ... million in ...\nEDGE|direct mail share of US advertising|MEASURES|direct mail|...% of all US advertising\nEDGE|direct mail share of US advertising|SHARE_OF|US advertising|...% of all US advertising\nEDGE|direct mail|RANKED_THIRD_IN|advertising media|third-largest medium overall\nEDGE|direct mail|RANKED_FIRST_IN|single-national advertising mediums|largest single national medium\nEDGE|direct mail|EXCEEDS|television national advertising spend|ahead of television's national total of ...\nEDGE|television|HAS_SPEND|television national advertising spend|national total of ... million"
+}

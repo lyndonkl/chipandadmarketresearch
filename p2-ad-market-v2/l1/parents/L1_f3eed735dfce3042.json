@@ -1,0 +1,152 @@
+{
+ "group_id": "L1|f3eed735dfce3042",
+ "source": "kmeans",
+ "n_in": 17,
+ "parents": [
+  {
+   "name": "Grade category",
+   "type": "grade category",
+   "grain": "Entity",
+   "reason": "shared grade category across different letter grades; years kept in children",
+   "child_uids": [
+    "n|ds-provenance-001|grade b|grade category",
+    "n|ds-provenance-001|grade c|grade category"
+   ]
+  },
+  {
+   "name": "Successor series",
+   "type": "future series",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity representing a future series",
+   "child_uids": [
+    "n|ds-total-002|successor series|future series"
+   ]
+  },
+  {
+   "name": "Fixed institution",
+   "type": "status",
+   "grain": "Entity",
+   "reason": "singleton: specific status entity denoting fixed institution",
+   "child_uids": [
+    "n|e3-pricing-008|fixed institution|status"
+   ]
+  },
+  {
+   "name": "Built estimate",
+   "type": "estimate",
+   "grain": "Entity",
+   "reason": "singleton: distinct estimate entity",
+   "child_uids": [
+    "n|e3-scale-007|built estimate|estimate"
+   ]
+  },
+  {
+   "name": "Success",
+   "type": "outcome definition",
+   "grain": "Entity",
+   "reason": "singleton: outcome definition entity indicating success",
+   "child_uids": [
+    "n|e4-pricing-005|success|outcome definition"
+   ]
+  },
+  {
+   "name": "Carried status",
+   "type": "status",
+   "grain": "Entity",
+   "reason": "singleton: specific status entity denoting carried status",
+   "child_uids": [
+    "n|e5-buyers-014|carried status|status"
+   ]
+  },
+  {
+   "name": "Smoothing",
+   "type": "adjustment method",
+   "grain": "Entity",
+   "reason": "singleton: adjustment method entity for smoothing",
+   "child_uids": [
+    "n|e5-scale-014|smoothing|adjustment method"
+   ]
+  },
+  {
+   "name": "BIA",
+   "type": "organization",
+   "grain": "Entity",
+   "reason": "singleton: organization entity named BIA",
+   "child_uids": [
+    "n|e7-scale-007|bia|organization"
+   ]
+  },
+  {
+   "name": "Advantage+ family",
+   "type": "product family",
+   "grain": "Entity",
+   "reason": "singleton: product family entity called Advantage+ family",
+   "child_uids": [
+    "n|e7-targeting-005|advantage+ family|product family"
+   ]
+  },
+  {
+   "name": "Redacted",
+   "type": "status",
+   "grain": "Entity",
+   "reason": "singleton: status entity indicating redaction",
+   "child_uids": [
+    "n|mech-default-003|redacted|status"
+   ]
+  },
+  {
+   "name": "Instrument",
+   "type": "legal instrument",
+   "grain": "Entity",
+   "reason": "singleton: legal instrument entity named Instrument",
+   "child_uids": [
+    "n|mech-mehta-005|instrument|legal instrument"
+   ]
+  },
+  {
+   "name": "HELD_HEDGED",
+   "type": "(promoted)",
+   "grain": "Entity",
+   "reason": "singleton: promoted entity named HELD_HEDGED",
+   "child_uids": [
+    "n|tu:era:1:boundary|held_hedged|(promoted)"
+   ]
+  },
+  {
+   "name": "Administrable status",
+   "type": "state",
+   "grain": "Entity",
+   "reason": "singleton: state entity denoting administrable status",
+   "child_uids": [
+    "n|tu:era:3:event:9|administrable status|state"
+   ]
+  },
+  {
+   "name": "Resolution status",
+   "type": "status",
+   "grain": "Entity",
+   "reason": "singleton: status entity for resolution status",
+   "child_uids": [
+    "n|tu:era:5:field:SCALE|resolution status|status"
+   ]
+  },
+  {
+   "name": "Multiple delays",
+   "type": "deprecation delay event",
+   "grain": "Entity",
+   "reason": "singleton: deprecation delay event entity named Multiple delays",
+   "child_uids": [
+    "n|tu:era:7:field:TARGETING|multiple delays|deprecation delay event"
+   ]
+  },
+  {
+   "name": "Abandonment",
+   "type": "deprecation abandonment event",
+   "grain": "Entity",
+   "reason": "singleton: deprecation abandonment event entity named Abandonment",
+   "child_uids": [
+    "n|tu:era:7:field:TARGETING|abandonment|deprecation abandonment event"
+   ]
+  }
+ ]
+}

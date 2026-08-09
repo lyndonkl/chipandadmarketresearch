@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|05f4ae10357db693",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Google traffic acquisition cost amount",
+   "type": "dollar expense measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years; amount of Google's TAC",
+   "child_uids": [
+    "n|mech-tac-001|google tac amount|dollar expense measurement",
+    "n|tu:era:7:field:SELLERS|google total traffic acquisition costs amount|cost measurement"
+   ]
+  },
+  {
+   "name": "Google traffic acquisition cost percent spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: percent of revenue spent on Google TAC",
+   "child_uids": [
+    "n|e7-sellers-006|google tac spend|spend measurement"
+   ]
+  },
+  {
+   "name": "AdSense traffic acquisition cost amount",
+   "type": "monetary amount measurement",
+   "grain": "Measurement",
+   "reason": "singleton: AdSense-specific TAC amount",
+   "child_uids": [
+    "n|mech-tac-002|adsense traffic acquisition cost|monetary amount measurement"
+   ]
+  }
+ ]
+}

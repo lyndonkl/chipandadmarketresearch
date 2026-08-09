@@ -1,0 +1,140 @@
+{
+ "id": "e7-buyers-006",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
+ "elapsed_s": 128.2,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 12,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local and retail buyers",
+   "type": "buyer category",
+   "clause": "Local and retail buyers"
+  },
+  {
+   "name": "US advertising spend",
+   "type": "advertising market",
+   "clause": "US advertising spend"
+  },
+  {
+   "name": "local and retail buyers share of US advertising spend",
+   "type": "percentage measurement",
+   "clause": "share of US advertising spend by local and retail buyers"
+  },
+  {
+   "name": "local and retail buyers spend amount",
+   "type": "dollar measurement",
+   "clause": "spend amount of local and retail buyers"
+  },
+  {
+   "name": "Coen",
+   "type": "data compiler",
+   "clause": "Coen"
+  },
+  {
+   "name": "BIA/Kelsey's SMB plus local brands",
+   "type": "data compiler",
+   "clause": "BIA/Kelsey's SMB plus local brands"
+  },
+  {
+   "name": "US advertising spend growth",
+   "type": "percentage measurement",
+   "clause": "growth of US advertising spend"
+  },
+  {
+   "name": "MAGNA media-owner rail",
+   "type": "data source",
+   "clause": "MAGNA media-owner rail"
+  },
+  {
+   "name": "total US advertising spend amount",
+   "type": "dollar measurement",
+   "clause": "total US advertising spend amount"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local and retail buyers share of US advertising spend",
+   "type": "MEASURES",
+   "to": "local and retail buyers",
+   "clause": "account for ... percent of US advertising spend"
+  },
+  {
+   "from": "local and retail buyers share of US advertising spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... percent of US advertising spend"
+  },
+  {
+   "from": "local and retail buyers spend amount",
+   "type": "MEASURES",
+   "to": "local and retail buyers",
+   "clause": "roughly ... billion dollars"
+  },
+  {
+   "from": "Coen",
+   "type": "REPORTED",
+   "to": "local and retail buyers spend amount",
+   "clause": "Coen reported ..."
+  },
+  {
+   "from": "Coen",
+   "type": "REPORTED",
+   "to": "local and retail buyers spend amount",
+   "clause": "Coen reported ..."
+  },
+  {
+   "from": "BIA/Kelsey's SMB plus local brands",
+   "type": "REPORTED",
+   "to": "local and retail buyers spend amount",
+   "clause": "BIA/Kelsey's ... reported ..."
+  },
+  {
+   "from": "Coen",
+   "type": "NOT_SHARE_INPUTS",
+   "to": "BIA/Kelsey's SMB plus local brands",
+   "clause": "share no inputs"
+  },
+  {
+   "from": "US advertising spend growth",
+   "type": "MEASURES",
+   "to": "US advertising spend",
+   "clause": "market grew ... percent"
+  },
+  {
+   "from": "local and retail buyers share of US advertising spend",
+   "type": "DECLINES_WITHIN",
+   "to": "US advertising spend growth",
+   "clause": "mechanically declining share"
+  },
+  {
+   "from": "total US advertising spend amount",
+   "type": "MEASURES",
+   "to": "US advertising spend",
+   "clause": "total US advertising spend ..."
+  },
+  {
+   "from": "MAGNA media-owner rail",
+   "type": "PROVIDES_DATA_FOR",
+   "to": "total US advertising spend amount",
+   "clause": "provides data"
+  },
+  {
+   "from": "total US advertising spend amount",
+   "type": "EXCLUDES",
+   "to": "direct mail",
+   "clause": "direct mail excluded"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local and retail buyers|buyer category|Local and retail buyers\nNODE|US advertising spend|advertising market|US advertising spend\nNODE|local and retail buyers share of US advertising spend|percentage measurement|share of US advertising spend by local and retail buyers\nNODE|local and retail buyers spend amount|dollar measurement|spend amount of local and retail buyers\nNODE|Coen|data compiler|Coen\nNODE|BIA/Kelsey's SMB plus local brands|data compiler|BIA/Kelsey's SMB plus local brands\nNODE|US advertising spend growth|percentage measurement|growth of US advertising spend\nNODE|MAGNA media-owner rail|data source|MAGNA media-owner rail\nNODE|total US advertising spend amount|dollar measurement|total US advertising spend amount\nNODE|direct mail|advertising medium|direct mail\nEDGE|local and retail buyers share of US advertising spend|MEASURES|local and retail buyers|account for ... percent of US advertising spend\nEDGE|local and retail buyers share of US advertising spend|SHARE_OF|US advertising spend|... percent of US advertising spend\nEDGE|local and retail buyers spend amount|MEASURES|local and retail buyers|roughly ... billion dollars\nEDGE|Coen|REPORTED|local and retail buyers spend amount|Coen reported ...\nEDGE|Coen|REPORTED|local and retail buyers spend amount|Coen reported ...\nEDGE|BIA/Kelsey's SMB plus local brands|REPORTED|local and retail buyers spend amount|BIA/Kelsey's ... reported ...\nEDGE|Coen|NOT_SHARE_INPUTS|BIA/Kelsey's SMB plus local brands|share no inputs\nEDGE|US advertising spend growth|MEASURES|US advertising spend|market grew ... percent\nEDGE|local and retail buyers share of US advertising spend|DECLINES_WITHIN|US advertising spend growth|mechanically declining share\nEDGE|total US advertising spend amount|MEASURES|US advertising spend|total US advertising spend ...\nEDGE|MAGNA media-owner rail|PROVIDES_DATA_FOR|total US advertising spend amount|provides data\nEDGE|total US advertising spend amount|EXCLUDES|direct mail|direct mail excluded"
+}

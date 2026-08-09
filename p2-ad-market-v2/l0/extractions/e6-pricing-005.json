@@ -1,0 +1,100 @@
+{
+ "id": "e6-pricing-005",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2002,
+ "unit": "USD minimum monthly spend required by Overture (2002); AdWords required none",
+ "elapsed_s": 64.9,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "search advertising platform",
+   "clause": "Overture required a ... minimum bid per listing plus a ... minimum monthly spend"
+  },
+  {
+   "name": "AdWords Select",
+   "type": "search advertising product",
+   "clause": "AdWords Select charged a one-time ... activation fee with no minimum monthly spend and automated approval"
+  },
+  {
+   "name": "new US advertisers",
+   "type": "advertiser segment",
+   "clause": "from all new US advertisers"
+  },
+  {
+   "name": "Overture minimum bid per listing",
+   "type": "minimum bid measurement",
+   "clause": "... minimum bid per listing"
+  },
+  {
+   "name": "Overture minimum monthly spend",
+   "type": "minimum spend measurement",
+   "clause": "... minimum monthly spend"
+  },
+  {
+   "name": "AdWords Select activation fee",
+   "type": "activation fee measurement",
+   "clause": "one-time ... activation fee"
+  },
+  {
+   "name": "human editorial review",
+   "type": "listing-review process",
+   "clause": "human editorial review of every listing"
+  },
+  {
+   "name": "automated approval",
+   "type": "approval automation",
+   "clause": "automated approval"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "REQUIRES",
+   "to": "Overture minimum bid per listing",
+   "clause": "required a ... minimum bid per listing"
+  },
+  {
+   "from": "Overture",
+   "type": "REQUIRES",
+   "to": "Overture minimum monthly spend",
+   "clause": "required a ... minimum monthly spend"
+  },
+  {
+   "from": "Overture minimum monthly spend",
+   "type": "APPLIES_TO",
+   "to": "new US advertisers",
+   "clause": "from all new US advertisers"
+  },
+  {
+   "from": "Overture",
+   "type": "USES",
+   "to": "human editorial review",
+   "clause": "with human editorial review of every listing"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "CHARGES",
+   "to": "AdWords Select activation fee",
+   "clause": "charged a one-time ... activation fee"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "EXCLUDES",
+   "to": "Overture minimum monthly spend",
+   "clause": "no minimum monthly spend"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "USES",
+   "to": "automated approval",
+   "clause": "with automated approval"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|search advertising platform|Overture required a ... minimum bid per listing plus a ... minimum monthly spend\nNODE|AdWords Select|search advertising product|AdWords Select charged a one-time ... activation fee with no minimum monthly spend and automated approval\nNODE|new US advertisers|advertiser segment|from all new US advertisers\nNODE|Overture minimum bid per listing|minimum bid measurement|... minimum bid per listing\nNODE|Overture minimum monthly spend|minimum spend measurement|... minimum monthly spend\nNODE|AdWords Select activation fee|activation fee measurement|one-time ... activation fee\nNODE|human editorial review|listing-review process|human editorial review of every listing\nNODE|automated approval|approval automation|automated approval\nEDGE|Overture|REQUIRES|Overture minimum bid per listing|required a ... minimum bid per listing\nEDGE|Overture|REQUIRES|Overture minimum monthly spend|required a ... minimum monthly spend\nEDGE|Overture minimum monthly spend|APPLIES_TO|new US advertisers|from all new US advertisers\nEDGE|Overture|USES|human editorial review|with human editorial review of every listing\nEDGE|AdWords Select|CHARGES|AdWords Select activation fee|charged a one-time ... activation fee\nEDGE|AdWords Select|EXCLUDES|Overture minimum monthly spend|no minimum monthly spend\nEDGE|AdWords Select|USES|automated approval|with automated approval"
+}

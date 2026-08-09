@@ -1,0 +1,56 @@
+{
+ "id": "e1-pricing-001",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1880,
+ "unit": "percent of space price",
+ "elapsed_s": 40.5,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "agent commission",
+   "type": "intermediary pricing practice",
+   "clause": "commission an agent received on advertising space"
+  },
+  {
+   "name": "agent commission rate",
+   "type": "take-rate measurement",
+   "clause": "varied between ... percent of the space price"
+  },
+  {
+   "name": "space price",
+   "type": "published space price",
+   "clause": "space price referenced in commission rate"
+  },
+  {
+   "name": "advertising agent",
+   "type": "occupation",
+   "clause": "agent receiving commission on advertising space"
+  }
+ ],
+ "edges": [
+  {
+   "from": "agent commission",
+   "type": "HAS_RATE",
+   "to": "agent commission rate",
+   "clause": "commission varied between ... percent of the space price"
+  },
+  {
+   "from": "agent commission rate",
+   "type": "SHARE_OF",
+   "to": "space price",
+   "clause": "... percent of the space price"
+  },
+  {
+   "from": "agent commission",
+   "type": "RECEIVED_BY",
+   "to": "advertising agent",
+   "clause": "commission an agent received on advertising space"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|agent commission|intermediary pricing practice|commission an agent received on advertising space\nNODE|agent commission rate|take-rate measurement|varied between ... percent of the space price\nNODE|space price|published space price|space price referenced in commission rate\nNODE|advertising agent|occupation|agent receiving commission on advertising space\nEDGE|agent commission|HAS_RATE|agent commission rate|commission varied between ... percent of the space price\nEDGE|agent commission rate|SHARE_OF|space price|... percent of the space price\nEDGE|agent commission|RECEIVED_BY|advertising agent|commission an agent received on advertising space"
+}

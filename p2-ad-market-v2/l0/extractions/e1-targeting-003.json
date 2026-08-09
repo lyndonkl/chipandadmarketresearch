@@ -1,0 +1,89 @@
+{
+ "id": "e1-targeting-003",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1913,
+ "unit": "multiple of prior-year orders filled",
+ "elapsed_s": 65.1,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Parcel Post",
+   "type": "postal service",
+   "clause": "introduced ..."
+  },
+  {
+   "name": "mail-order reach",
+   "type": "market reach metric",
+   "clause": "multiplied mail-order reach immediately"
+  },
+  {
+   "name": "Sears",
+   "type": "retailer",
+   "clause": "Sears filled ... orders in ... as in ..."
+  },
+  {
+   "name": "orders filled",
+   "type": "transaction count",
+   "clause": "orders filled by Sears"
+  },
+  {
+   "name": "revenues",
+   "type": "revenue measure",
+   "clause": "its revenues doubled within ... years of the change"
+  },
+  {
+   "name": "Sears orders filled multiple",
+   "type": "multiple-of-prior-year orders measurement",
+   "clause": "filled ... times as many orders in ... as in ..."
+  },
+  {
+   "name": "Sears revenue multiple",
+   "type": "multiple-of-revenue measurement",
+   "clause": "revenues doubled within ... years of the change"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Parcel Post",
+   "type": "MULTIPLIED",
+   "to": "mail-order reach",
+   "clause": "multiplied mail-order reach immediately"
+  },
+  {
+   "from": "Sears",
+   "type": "HAS_MEASUREMENT",
+   "to": "Sears orders filled multiple",
+   "clause": "filled ... times as many orders in ... as in ..."
+  },
+  {
+   "from": "Sears orders filled multiple",
+   "type": "MEASURES",
+   "to": "orders filled",
+   "clause": "filled ... times as many orders in ... as in ..."
+  },
+  {
+   "from": "Sears",
+   "type": "HAS_MEASUREMENT",
+   "to": "Sears revenue multiple",
+   "clause": "revenues doubled within ... years of the change"
+  },
+  {
+   "from": "Sears revenue multiple",
+   "type": "MEASURES",
+   "to": "revenues",
+   "clause": "revenues doubled within ... years of the change"
+  },
+  {
+   "from": "Parcel Post",
+   "type": "LED_TO",
+   "to": "Sears revenue multiple",
+   "clause": "revenues doubled within ... years of the change"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Parcel Post|postal service|introduced ...\nNODE|mail-order reach|market reach metric|multiplied mail-order reach immediately\nNODE|Sears|retailer|Sears filled ... orders in ... as in ...\nNODE|orders filled|transaction count|orders filled by Sears\nNODE|revenues|revenue measure|its revenues doubled within ... years of the change\nNODE|Sears orders filled multiple|multiple-of-prior-year orders measurement|filled ... times as many orders in ... as in ...\nNODE|Sears revenue multiple|multiple-of-revenue measurement|revenues doubled within ... years of the change\nEDGE|Parcel Post|MULTIPLIED|mail-order reach|multiplied mail-order reach immediately\nEDGE|Sears|HAS_MEASUREMENT|Sears orders filled multiple|filled ... times as many orders in ... as in ...\nEDGE|Sears orders filled multiple|MEASURES|orders filled|filled ... times as many orders in ... as in ...\nEDGE|Sears|HAS_MEASUREMENT|Sears revenue multiple|revenues doubled within ... years of the change\nEDGE|Sears revenue multiple|MEASURES|revenues|revenues doubled within ... years of the change\nEDGE|Parcel Post|LED_TO|Sears revenue multiple|revenues doubled within ... years of the change"
+}

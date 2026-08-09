@@ -1,0 +1,155 @@
+{
+ "id": "e4-scale-003",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "percent of GDP",
+ "elapsed_s": 137.5,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 12,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising spend share of GDP",
+   "type": "share measurement",
+   "clause": "US advertising spend rose from ... to ..."
+  },
+  {
+   "name": "Era 4",
+   "type": "period",
+   "clause": "Era 4 is the climb, not the summit"
+  },
+  {
+   "name": "climb phase",
+   "type": "abstract phase",
+   "clause": "Era 4 is the climb"
+  },
+  {
+   "name": "summit phase",
+   "type": "abstract phase",
+   "clause": "not the summit"
+  },
+  {
+   "name": "Galbi",
+   "type": "person",
+   "clause": "Galbi's vintage of the Coen/McCann totals peaks at ..."
+  },
+  {
+   "name": "Coen/McCann totals advertising spend share of GDP",
+   "type": "share measurement",
+   "clause": "Coen/McCann totals ... peak at ..."
+  },
+  {
+   "name": "Silk & Berndt",
+   "type": "researchers",
+   "clause": "Silk & Berndt's separately constructed MCE and IRS series"
+  },
+  {
+   "name": "MCE advertising spend share of GDP",
+   "type": "share measurement",
+   "clause": "MCE series peak at ..."
+  },
+  {
+   "name": "IRS advertising spend share of GDP",
+   "type": "share measurement",
+   "clause": "IRS series peak at ..."
+  },
+  {
+   "name": "McCann series",
+   "type": "advertising-spend dataset",
+   "clause": "the McCann series readings differ"
+  },
+  {
+   "name": "McCann series reading A advertising spend share of GDP",
+   "type": "share measurement",
+   "clause": "first reading of the McCann series"
+  },
+  {
+   "name": "McCann series reading B advertising spend share of GDP",
+   "type": "share measurement",
+   "clause": "second reading of the McCann series"
+  },
+  {
+   "name": "peak share of GDP",
+   "type": "measurement peak",
+   "clause": "peaks at ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Era 4",
+   "type": "WAS",
+   "to": "climb phase",
+   "clause": "Era 4 is the climb"
+  },
+  {
+   "from": "Era 4",
+   "type": "EXCLUDES",
+   "to": "summit phase",
+   "clause": "not the summit"
+  },
+  {
+   "from": "Galbi",
+   "type": "PRODUCED",
+   "to": "Coen/McCann totals advertising spend share of GDP",
+   "clause": "Galbi's vintage of the Coen/McCann totals"
+  },
+  {
+   "from": "Silk & Berndt",
+   "type": "PRODUCED",
+   "to": "MCE advertising spend share of GDP",
+   "clause": "Silk & Berndt's MCE series"
+  },
+  {
+   "from": "Silk & Berndt",
+   "type": "PRODUCED",
+   "to": "IRS advertising spend share of GDP",
+   "clause": "Silk & Berndt's IRS series"
+  },
+  {
+   "from": "Coen/McCann totals advertising spend share of GDP",
+   "type": "HAS_PEAK",
+   "to": "peak share of GDP",
+   "clause": "peaks at ..."
+  },
+  {
+   "from": "MCE advertising spend share of GDP",
+   "type": "HAS_PEAK",
+   "to": "peak share of GDP",
+   "clause": "peak ... at ..."
+  },
+  {
+   "from": "IRS advertising spend share of GDP",
+   "type": "HAS_PEAK",
+   "to": "peak share of GDP",
+   "clause": "peak ... at ..."
+  },
+  {
+   "from": "McCann series reading A advertising spend share of GDP",
+   "type": "PART_OF",
+   "to": "McCann series",
+   "clause": "first reading of the McCann series"
+  },
+  {
+   "from": "McCann series reading B advertising spend share of GDP",
+   "type": "PART_OF",
+   "to": "McCann series",
+   "clause": "second reading of the McCann series"
+  },
+  {
+   "from": "McCann series reading A advertising spend share of GDP",
+   "type": "DIFFERS_BY",
+   "to": "McCann series reading B advertising spend share of GDP",
+   "clause": "differ by ... of a point"
+  },
+  {
+   "from": "McCann series reading A advertising spend share of GDP",
+   "type": "NOT_MERGED_WITH",
+   "to": "McCann series reading B advertising spend share of GDP",
+   "clause": "carried separately rather than merged"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising spend share of GDP|share measurement|US advertising spend rose from ... to ...\nNODE|Era 4|period|Era 4 is the climb, not the summit\nNODE|climb phase|abstract phase|Era 4 is the climb\nNODE|summit phase|abstract phase|not the summit\nNODE|Galbi|person|Galbi's vintage of the Coen/McCann totals peaks at ...\nNODE|Coen/McCann totals advertising spend share of GDP|share measurement|Coen/McCann totals ... peak at ...\nNODE|Silk & Berndt|researchers|Silk & Berndt's separately constructed MCE and IRS series\nNODE|MCE advertising spend share of GDP|share measurement|MCE series peak at ...\nNODE|IRS advertising spend share of GDP|share measurement|IRS series peak at ...\nNODE|McCann series|advertising-spend dataset|the McCann series readings differ\nNODE|McCann series reading A advertising spend share of GDP|share measurement|first reading of the McCann series\nNODE|McCann series reading B advertising spend share of GDP|share measurement|second reading of the McCann series\nNODE|peak share of GDP|measurement peak|peaks at ...\nEDGE|Era 4|WAS|climb phase|Era 4 is the climb\nEDGE|Era 4|EXCLUDES|summit phase|not the summit\nEDGE|Galbi|PRODUCED|Coen/McCann totals advertising spend share of GDP|Galbi's vintage of the Coen/McCann totals\nEDGE|Silk & Berndt|PRODUCED|MCE advertising spend share of GDP|Silk & Berndt's MCE series\nEDGE|Silk & Berndt|PRODUCED|IRS advertising spend share of GDP|Silk & Berndt's IRS series\nEDGE|Coen/McCann totals advertising spend share of GDP|HAS_PEAK|peak share of GDP|peaks at ...\nEDGE|MCE advertising spend share of GDP|HAS_PEAK|peak share of GDP|peak ... at ...\nEDGE|IRS advertising spend share of GDP|HAS_PEAK|peak share of GDP|peak ... at ...\nEDGE|McCann series reading A advertising spend share of GDP|PART_OF|McCann series|first reading of the McCann series\nEDGE|McCann series reading B advertising spend share of GDP|PART_OF|McCann series|second reading of the McCann series\nEDGE|McCann series reading A advertising spend share of GDP|DIFFERS_BY|McCann series reading B advertising spend share of GDP|differ by ... of a point\nEDGE|McCann series reading A advertising spend share of GDP|NOT_MERGED_WITH|McCann series reading B advertising spend share of GDP|carried separately rather than merged"
+}

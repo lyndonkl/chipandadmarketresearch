@@ -1,0 +1,45 @@
+{
+ "id": "e1-scale-008",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "USD millions (current)",
+ "elapsed_s": 44.7,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspapers and periodicals",
+   "type": "media outlet category",
+   "clause": "US newspapers and periodicals together took ... of advertising receipts"
+  },
+  {
+   "name": "advertising receipts taken by US newspapers and periodicals",
+   "type": "monetary amount measurement",
+   "clause": "US newspapers and periodicals together took ... of advertising receipts"
+  },
+  {
+   "name": "advertising receipts",
+   "type": "advertising revenue",
+   "clause": "of advertising receipts"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US newspapers and periodicals",
+   "type": "TOOK",
+   "to": "advertising receipts taken by US newspapers and periodicals",
+   "clause": "took ... of advertising receipts"
+  },
+  {
+   "from": "advertising receipts taken by US newspapers and periodicals",
+   "type": "MEASURES",
+   "to": "advertising receipts",
+   "clause": "... of advertising receipts"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspapers and periodicals|media outlet category|US newspapers and periodicals together took ... of advertising receipts\nNODE|advertising receipts taken by US newspapers and periodicals|monetary amount measurement|US newspapers and periodicals together took ... of advertising receipts\nNODE|advertising receipts|advertising revenue|of advertising receipts\nEDGE|US newspapers and periodicals|TOOK|advertising receipts taken by US newspapers and periodicals|took ... of advertising receipts\nEDGE|advertising receipts taken by US newspapers and periodicals|MEASURES|advertising receipts|... of advertising receipts"
+}

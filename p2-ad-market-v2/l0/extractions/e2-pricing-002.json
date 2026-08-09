@@ -1,0 +1,99 @@
+{
+ "id": "e2-pricing-002",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1925,
+ "unit": "US$ per hour charged by AT&T for its basic 13-station network",
+ "elapsed_s": 73.4,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AT&T",
+   "type": "telecommunications company",
+   "clause": "AT&T"
+  },
+  {
+   "name": "basic thirteen\u2011station toll network",
+   "type": "telephone network",
+   "clause": "its basic thirteen\u2011station toll network"
+  },
+  {
+   "name": "basic thirteen\u2011station toll network time",
+   "type": "telephony service",
+   "clause": "time on its basic ... network"
+  },
+  {
+   "name": "hourly charge measurement",
+   "type": "price measurement",
+   "clause": "... per hour charged by AT&T for its basic ... network"
+  },
+  {
+   "name": "gross revenue rate measurement",
+   "type": "revenue-rate measurement",
+   "clause": "... a year from time sales"
+  },
+  {
+   "name": "time sales",
+   "type": "revenue source activity",
+   "clause": "time sales"
+  },
+  {
+   "name": "RCA",
+   "type": "electronics company",
+   "clause": "RCA"
+  },
+  {
+   "name": "AT&T toll network business",
+   "type": "business entity",
+   "clause": "the business"
+  },
+  {
+   "name": "RCA acquisition of AT&T toll network business",
+   "type": "acquisition event",
+   "clause": "RCA bought the business"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AT&T",
+   "type": "SOLD",
+   "to": "basic thirteen\u2011station toll network time",
+   "clause": "selling time on its basic ... network"
+  },
+  {
+   "from": "hourly charge measurement",
+   "type": "MEASURES",
+   "to": "basic thirteen\u2011station toll network time",
+   "clause": "price per hour charged by AT&T"
+  },
+  {
+   "from": "hourly charge measurement",
+   "type": "CHARGED_BY",
+   "to": "AT&T",
+   "clause": "charged by AT&T for its basic ... network"
+  },
+  {
+   "from": "gross revenue rate measurement",
+   "type": "MEASURES",
+   "to": "time sales",
+   "clause": "generating gross revenues at a rate ... from time sales"
+  },
+  {
+   "from": "RCA",
+   "type": "PURCHASED",
+   "to": "AT&T toll network business",
+   "clause": "bought the business"
+  },
+  {
+   "from": "gross revenue rate measurement",
+   "type": "BEFORE",
+   "to": "RCA acquisition of AT&T toll network business",
+   "clause": "before RCA bought the business"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AT&T|telecommunications company|AT&T\nNODE|basic thirteen\u2011station toll network|telephone network|its basic thirteen\u2011station toll network\nNODE|basic thirteen\u2011station toll network time|telephony service|time on its basic ... network\nNODE|hourly charge measurement|price measurement|... per hour charged by AT&T for its basic ... network\nNODE|gross revenue rate measurement|revenue-rate measurement|... a year from time sales\nNODE|time sales|revenue source activity|time sales\nNODE|RCA|electronics company|RCA\nNODE|AT&T toll network business|business entity|the business\nNODE|RCA acquisition of AT&T toll network business|acquisition event|RCA bought the business\nEDGE|AT&T|SOLD|basic thirteen\u2011station toll network time|selling time on its basic ... network\nEDGE|hourly charge measurement|MEASURES|basic thirteen\u2011station toll network time|price per hour charged by AT&T\nEDGE|hourly charge measurement|CHARGED_BY|AT&T|charged by AT&T for its basic ... network\nEDGE|gross revenue rate measurement|MEASURES|time sales|generating gross revenues at a rate ... from time sales\nEDGE|RCA|PURCHASED|AT&T toll network business|bought the business\nEDGE|gross revenue rate measurement|BEFORE|RCA acquisition of AT&T toll network business|before RCA bought the business"
+}

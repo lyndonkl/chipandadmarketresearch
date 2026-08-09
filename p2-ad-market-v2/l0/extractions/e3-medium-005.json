@@ -1,0 +1,67 @@
+{
+ "id": "e3-medium-005",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "million USD",
+ "elapsed_s": 53.3,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "newspapers",
+   "type": "advertising medium",
+   "clause": "Newspapers"
+  },
+  {
+   "name": "newspaper advertising spend amount",
+   "type": "advertising spend measurement",
+   "clause": "took ... million in 1975"
+  },
+  {
+   "name": "newspaper advertising spend share",
+   "type": "media-share measurement",
+   "clause": "... of all US advertising spend"
+  },
+  {
+   "name": "US advertising spend",
+   "type": "total advertising spend",
+   "clause": "all US advertising spend"
+  },
+  {
+   "name": "Spot Market era",
+   "type": "advertising era",
+   "clause": "throughout the Spot Market era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "newspapers",
+   "type": "HAS_SPEND",
+   "to": "newspaper advertising spend amount",
+   "clause": "took ... million in 1975"
+  },
+  {
+   "from": "newspapers",
+   "type": "HAS_SHARE",
+   "to": "newspaper advertising spend share",
+   "clause": "... of all US advertising spend"
+  },
+  {
+   "from": "newspaper advertising spend share",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... of all US advertising spend"
+  },
+  {
+   "from": "newspapers",
+   "type": "LARGEST_SINGLE_MEDIUM_IN",
+   "to": "Spot Market era",
+   "clause": "throughout the era and beyond it"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|newspapers|advertising medium|Newspapers\nNODE|newspaper advertising spend amount|advertising spend measurement|took ... million in 1975\nNODE|newspaper advertising spend share|media-share measurement|... of all US advertising spend\nNODE|US advertising spend|total advertising spend|all US advertising spend\nNODE|Spot Market era|advertising era|throughout the Spot Market era\nEDGE|newspapers|HAS_SPEND|newspaper advertising spend amount|took ... million in 1975\nEDGE|newspapers|HAS_SHARE|newspaper advertising spend share|... of all US advertising spend\nEDGE|newspaper advertising spend share|SHARE_OF|US advertising spend|... of all US advertising spend\nEDGE|newspapers|LARGEST_SINGLE_MEDIUM_IN|Spot Market era|throughout the era and beyond it"
+}

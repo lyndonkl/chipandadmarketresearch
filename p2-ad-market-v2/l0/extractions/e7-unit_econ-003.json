@@ -1,0 +1,106 @@
+{
+ "id": "e7-unit_econ-003",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent operating margin, Google Services segment, FY2025",
+ "elapsed_s": 59.7,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google Services",
+   "type": "segment",
+   "clause": "the segment that contains search, YouTube and the ad network"
+  },
+  {
+   "name": "search",
+   "type": "advertising product",
+   "clause": "search within Google Services"
+  },
+  {
+   "name": "YouTube",
+   "type": "video platform",
+   "clause": "YouTube within Google Services"
+  },
+  {
+   "name": "ad network",
+   "type": "advertising channel",
+   "clause": "ad network within Google Services"
+  },
+  {
+   "name": "operating margin percentage",
+   "type": "operating-margin measurement",
+   "clause": "earned a ... operating margin in FY2025"
+  },
+  {
+   "name": "operating income amount",
+   "type": "operating-income measurement",
+   "clause": "... of operating income on ... revenue"
+  },
+  {
+   "name": "revenue amount",
+   "type": "revenue measurement",
+   "clause": "... of revenue for the segment"
+  },
+  {
+   "name": "traffic acquisition cost amount",
+   "type": "expense measurement",
+   "clause": "... traffic acquisition cost paid by the segment"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google Services",
+   "type": "CONTAINS",
+   "to": "search",
+   "clause": "segment that contains search"
+  },
+  {
+   "from": "Google Services",
+   "type": "CONTAINS",
+   "to": "YouTube",
+   "clause": "segment that contains YouTube"
+  },
+  {
+   "from": "Google Services",
+   "type": "CONTAINS",
+   "to": "ad network",
+   "clause": "segment that contains ad network"
+  },
+  {
+   "from": "Google Services",
+   "type": "HAS_RATE",
+   "to": "operating margin percentage",
+   "clause": "earned a ... operating margin"
+  },
+  {
+   "from": "operating margin percentage",
+   "type": "SHARE_OF",
+   "to": "revenue amount",
+   "clause": "... of revenue"
+  },
+  {
+   "from": "operating income amount",
+   "type": "MEASURES",
+   "to": "Google Services",
+   "clause": "operating income on ... revenue"
+  },
+  {
+   "from": "revenue amount",
+   "type": "MEASURES",
+   "to": "Google Services",
+   "clause": "revenue for the segment"
+  },
+  {
+   "from": "Google Services",
+   "type": "PAID",
+   "to": "traffic acquisition cost amount",
+   "clause": "after paying ... traffic acquisition cost"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google Services|segment|the segment that contains search, YouTube and the ad network\nNODE|search|advertising product|search within Google Services\nNODE|YouTube|video platform|YouTube within Google Services\nNODE|ad network|advertising channel|ad network within Google Services\nNODE|operating margin percentage|operating-margin measurement|earned a ... operating margin in FY2025\nNODE|operating income amount|operating-income measurement|... of operating income on ... revenue\nNODE|revenue amount|revenue measurement|... of revenue for the segment\nNODE|traffic acquisition cost amount|expense measurement|... traffic acquisition cost paid by the segment\nEDGE|Google Services|CONTAINS|search|segment that contains search\nEDGE|Google Services|CONTAINS|YouTube|segment that contains YouTube\nEDGE|Google Services|CONTAINS|ad network|segment that contains ad network\nEDGE|Google Services|HAS_RATE|operating margin percentage|earned a ... operating margin\nEDGE|operating margin percentage|SHARE_OF|revenue amount|... of revenue\nEDGE|operating income amount|MEASURES|Google Services|operating income on ... revenue\nEDGE|revenue amount|MEASURES|Google Services|revenue for the segment\nEDGE|Google Services|PAID|traffic acquisition cost amount|after paying ... traffic acquisition cost"
+}

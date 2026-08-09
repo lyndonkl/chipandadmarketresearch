@@ -1,0 +1,67 @@
+{
+ "id": "e2-creators-004",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1929,
+ "unit": "US$ millions, J. Walter Thompson billings, end of the 1920s",
+ "elapsed_s": 49.9,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "J. Walter Thompson",
+   "type": "advertising agency",
+   "clause": "led the industry in billings"
+  },
+  {
+   "name": "advertising industry",
+   "type": "market",
+   "clause": "industry in billings"
+  },
+  {
+   "name": "J. Walter Thompson billings",
+   "type": "billing amount measurement",
+   "clause": "billings at the end of the 1920s are reported"
+  },
+  {
+   "name": "end of the 1920s",
+   "type": "time period",
+   "clause": "end of the 1920s"
+  },
+  {
+   "name": "graded source",
+   "type": "source classification",
+   "clause": "graded source"
+  }
+ ],
+ "edges": [
+  {
+   "from": "J. Walter Thompson",
+   "type": "LED_IN_BILLINGS",
+   "to": "advertising industry",
+   "clause": "led the industry in billings"
+  },
+  {
+   "from": "J. Walter Thompson",
+   "type": "HAS_BILLING",
+   "to": "J. Walter Thompson billings",
+   "clause": "billings at the end of the 1920s are reported"
+  },
+  {
+   "from": "J. Walter Thompson billings",
+   "type": "SCOPED_TO",
+   "to": "end of the 1920s",
+   "clause": "at the end of the 1920s"
+  },
+  {
+   "from": "J. Walter Thompson billings",
+   "type": "NOT_TRACEABLE_TO",
+   "to": "graded source",
+   "clause": "figure not traceable to a graded source"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|J. Walter Thompson|advertising agency|led the industry in billings\nNODE|advertising industry|market|industry in billings\nNODE|J. Walter Thompson billings|billing amount measurement|billings at the end of the 1920s are reported\nNODE|end of the 1920s|time period|end of the 1920s\nNODE|graded source|source classification|graded source\nEDGE|J. Walter Thompson|LED_IN_BILLINGS|advertising industry|led the industry in billings\nEDGE|J. Walter Thompson|HAS_BILLING|J. Walter Thompson billings|billings at the end of the 1920s are reported\nEDGE|J. Walter Thompson billings|SCOPED_TO|end of the 1920s|at the end of the 1920s\nEDGE|J. Walter Thompson billings|NOT_TRACEABLE_TO|graded source|figure not traceable to a graded source"
+}

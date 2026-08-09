@@ -1,0 +1,127 @@
+{
+ "id": "e5-buyers-011",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions (2000 US ad spend)",
+ "elapsed_s": 75.0,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US local-retail advertisers",
+   "type": "advertiser segment",
+   "clause": "US local-retail advertisers"
+  },
+  {
+   "name": "US local-retail advertisers media spend",
+   "type": "spend measurement",
+   "clause": "measured media spend in ..."
+  },
+  {
+   "name": "US local-retail advertisers market share",
+   "type": "share of market measurement",
+   "clause": "... percent of the market"
+  },
+  {
+   "name": "total US advertising market 2000",
+   "type": "market aggregate",
+   "clause": "the market"
+  },
+  {
+   "name": "Coen's Local geography",
+   "type": "media spend component",
+   "clause": "Coen's Local geography less newspaper classified"
+  },
+  {
+   "name": "newspaper classified",
+   "type": "media category",
+   "clause": "newspaper classified"
+  },
+  {
+   "name": "shoppers and weeklies classified",
+   "type": "media category",
+   "clause": "classified inside shoppers and weeklies"
+  },
+  {
+   "name": "general-media direct response (local share)",
+   "type": "media spend component",
+   "clause": "local share of general-media direct response"
+  },
+  {
+   "name": "online advertising",
+   "type": "advertising medium",
+   "clause": "online"
+  },
+  {
+   "name": "IAB/PwC report",
+   "type": "industry report",
+   "clause": "the IAB/PwC report"
+  },
+  {
+   "name": "local advertising category",
+   "type": "ad category",
+   "clause": "local category"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US local-retail advertisers",
+   "type": "HAS_SPEND",
+   "to": "US local-retail advertisers media spend",
+   "clause": "measured media spend in ..."
+  },
+  {
+   "from": "US local-retail advertisers",
+   "type": "HAS_SHARE",
+   "to": "US local-retail advertisers market share",
+   "clause": "... percent of the market"
+  },
+  {
+   "from": "US local-retail advertisers market share",
+   "type": "SHARE_OF",
+   "to": "total US advertising market 2000",
+   "clause": "share of the market"
+  },
+  {
+   "from": "Coen's Local geography",
+   "type": "EXCLUDES",
+   "to": "newspaper classified",
+   "clause": "less newspaper classified"
+  },
+  {
+   "from": "Coen's Local geography",
+   "type": "PART_OF",
+   "to": "US local-retail advertisers media spend",
+   "clause": "component of measured spend"
+  },
+  {
+   "from": "shoppers and weeklies classified",
+   "type": "PART_OF",
+   "to": "US local-retail advertisers media spend",
+   "clause": "component of measured spend"
+  },
+  {
+   "from": "general-media direct response (local share)",
+   "type": "PART_OF",
+   "to": "US local-retail advertisers media spend",
+   "clause": "component of measured spend"
+  },
+  {
+   "from": "US local-retail advertisers media spend",
+   "type": "NOT_IN",
+   "to": "online advertising",
+   "clause": "essentially none of it was online"
+  },
+  {
+   "from": "IAB/PwC report",
+   "type": "EXCLUDES",
+   "to": "local advertising category",
+   "clause": "carried no local category at all in this era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US local-retail advertisers|advertiser segment|US local-retail advertisers\nNODE|US local-retail advertisers media spend|spend measurement|measured media spend in ...\nNODE|US local-retail advertisers market share|share of market measurement|... percent of the market\nNODE|total US advertising market 2000|market aggregate|the market\nNODE|Coen's Local geography|media spend component|Coen's Local geography less newspaper classified\nNODE|newspaper classified|media category|newspaper classified\nNODE|shoppers and weeklies classified|media category|classified inside shoppers and weeklies\nNODE|general-media direct response (local share)|media spend component|local share of general-media direct response\nNODE|online advertising|advertising medium|online\nNODE|IAB/PwC report|industry report|the IAB/PwC report\nNODE|local advertising category|ad category|local category\nEDGE|US local-retail advertisers|HAS_SPEND|US local-retail advertisers media spend|measured media spend in ...\nEDGE|US local-retail advertisers|HAS_SHARE|US local-retail advertisers market share|... percent of the market\nEDGE|US local-retail advertisers market share|SHARE_OF|total US advertising market 2000|share of the market\nEDGE|Coen's Local geography|EXCLUDES|newspaper classified|less newspaper classified\nEDGE|Coen's Local geography|PART_OF|US local-retail advertisers media spend|component of measured spend\nEDGE|shoppers and weeklies classified|PART_OF|US local-retail advertisers media spend|component of measured spend\nEDGE|general-media direct response (local share)|PART_OF|US local-retail advertisers media spend|component of measured spend\nEDGE|US local-retail advertisers media spend|NOT_IN|online advertising|essentially none of it was online\nEDGE|IAB/PwC report|EXCLUDES|local advertising category|carried no local category at all in this era"
+}

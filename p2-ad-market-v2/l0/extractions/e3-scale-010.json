@@ -1,0 +1,84 @@
+{
+ "id": "e3-scale-010",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "million USD",
+ "elapsed_s": 90.7,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspaper classified advertising",
+   "type": "advertising segment",
+   "clause": "US newspaper classified advertising"
+  },
+  {
+   "name": "US newspaper total advertising revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "all newspaper advertising revenue"
+  },
+  {
+   "name": "classified advertising spend (1975)",
+   "type": "spend measurement",
+   "clause": "US newspaper classified advertising was ... in ..."
+  },
+  {
+   "name": "classified advertising spend (1950)",
+   "type": "spend measurement",
+   "clause": "... up from ... in ..."
+  },
+  {
+   "name": "classified advertising share early",
+   "type": "media-share measurement",
+   "clause": "classified rose from ... of all newspaper advertising revenue over the era"
+  },
+  {
+   "name": "classified advertising share late",
+   "type": "media-share measurement",
+   "clause": "... to ... of all newspaper advertising revenue over the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "classified advertising spend (1975)",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "US newspaper classified advertising was ... in ..."
+  },
+  {
+   "from": "classified advertising spend (1950)",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "... up from ... in ..."
+  },
+  {
+   "from": "classified advertising spend (1975)",
+   "type": "UP_FROM",
+   "to": "classified advertising spend (1950)",
+   "clause": "up from ... in ..."
+  },
+  {
+   "from": "classified advertising share early",
+   "type": "SHARE_OF",
+   "to": "US newspaper total advertising revenue",
+   "clause": "... of all newspaper advertising revenue"
+  },
+  {
+   "from": "classified advertising share late",
+   "type": "SHARE_OF",
+   "to": "US newspaper total advertising revenue",
+   "clause": "... of all newspaper advertising revenue"
+  },
+  {
+   "from": "classified advertising share late",
+   "type": "INCREASED_FROM",
+   "to": "classified advertising share early",
+   "clause": "rose from ... to ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspaper classified advertising|advertising segment|US newspaper classified advertising\nNODE|US newspaper total advertising revenue|advertising revenue aggregate|all newspaper advertising revenue\nNODE|classified advertising spend (1975)|spend measurement|US newspaper classified advertising was ... in ...\nNODE|classified advertising spend (1950)|spend measurement|... up from ... in ...\nNODE|classified advertising share early|media-share measurement|classified rose from ... of all newspaper advertising revenue over the era\nNODE|classified advertising share late|media-share measurement|... to ... of all newspaper advertising revenue over the era\nEDGE|classified advertising spend (1975)|MEASURES|US newspaper classified advertising|US newspaper classified advertising was ... in ...\nEDGE|classified advertising spend (1950)|MEASURES|US newspaper classified advertising|... up from ... in ...\nEDGE|classified advertising spend (1975)|UP_FROM|classified advertising spend (1950)|up from ... in ...\nEDGE|classified advertising share early|SHARE_OF|US newspaper total advertising revenue|... of all newspaper advertising revenue\nEDGE|classified advertising share late|SHARE_OF|US newspaper total advertising revenue|... of all newspaper advertising revenue\nEDGE|classified advertising share late|INCREASED_FROM|classified advertising share early|rose from ... to ..."
+}

@@ -1,0 +1,71 @@
+{
+ "group_id": "L1|79b98d75532e8f24",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Headlines",
+   "type": "creative element",
+   "grain": "Entity",
+   "reason": "singleton: the creative element of an ad, i.e., headlines",
+   "child_uids": [
+    "n|tu:era:1:field:CREATORS|headlines|creative element"
+   ]
+  },
+  {
+   "name": "Keyed coupon headline test",
+   "type": "testing method",
+   "grain": "Entity",
+   "reason": "singleton: testing method using keyed coupon headlines",
+   "child_uids": [
+    "n|tu:era:1:field:CREATORS|keyed coupon headline test|testing method"
+   ]
+  },
+  {
+   "name": "Advertising title",
+   "type": "title",
+   "grain": "Entity",
+   "reason": "same entity across type labels; singular and collection forms",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|titles|advertising title collection",
+    "n|tu:era:1:field:TARGETING|title|precision unit"
+   ]
+  },
+  {
+   "name": "Coupon",
+   "type": "marketing instrument",
+   "grain": "Entity",
+   "reason": "singleton: marketing instrument used to offer discounts",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|coupon|marketing instrument"
+   ]
+  },
+  {
+   "name": "Top\u2011ten framing requirement",
+   "type": "(promoted)",
+   "grain": "Entity",
+   "reason": "singleton: promoted requirement for top\u2011ten framing",
+   "child_uids": [
+    "n|tu:era:2:boundary|top-ten framing requirement|(promoted)"
+   ]
+  },
+  {
+   "name": "Headline creation skill",
+   "type": "skill",
+   "grain": "Entity",
+   "reason": "singleton: skill involved in creating headlines",
+   "child_uids": [
+    "n|tu:era:6:field:CREATORS|headline creation skill|skill"
+   ]
+  },
+  {
+   "name": "Page text",
+   "type": "web page content",
+   "grain": "Entity",
+   "reason": "singleton: textual content of a web page",
+   "child_uids": [
+    "n|tu:era:6:field:TARGETING|page text|web page content"
+   ]
+  }
+ ]
+}

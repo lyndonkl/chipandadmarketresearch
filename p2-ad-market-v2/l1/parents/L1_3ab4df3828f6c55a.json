@@ -1,0 +1,36 @@
+{
+ "group_id": "L1|3ab4df3828f6c55a",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "US advertising agency establishments count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years and phrasing; prior and current counts grouped",
+   "child_uids": [
+    "n|e4-creators-001|us advertising-agency establishments count|count measurement",
+    "n|e4-creators-001|us advertising-agency establishments prior count|count measurement",
+    "n|tu:era:4:field:CREATORS|us advertising agency establishment count|establishment-count measurement"
+   ]
+  },
+  {
+   "name": "Advertising agency establishment count",
+   "type": "establishment-count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct subject without other similar nodes",
+   "child_uids": [
+    "n|e4-creators-004|advertising-agency establishment count|establishment-count measurement"
+   ]
+  },
+  {
+   "name": "US agency establishments count",
+   "type": "entity count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: broader agency measure separate from advertising-specific",
+   "child_uids": [
+    "n|tu:era:4:event:6|us agency establishments count|entity count measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,100 @@
+{
+ "id": "e1-sellers-004",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1879,
+ "unit": "percent of newspaper revenue",
+ "elapsed_s": 58.9,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "advertising",
+   "type": "abstract activity",
+   "clause": "Advertising supplied ... percent"
+  },
+  {
+   "name": "US newspaper revenue",
+   "type": "revenue stream",
+   "clause": "... of US newspaper revenue"
+  },
+  {
+   "name": "advertising share of US newspaper revenue",
+   "type": "percentage-of-revenue measurement",
+   "clause": "Advertising supplied ... percent of US newspaper revenue"
+  },
+  {
+   "name": "publisher income",
+   "type": "income aggregate",
+   "clause": "advertising share of publisher income rose ..."
+  },
+  {
+   "name": "advertising share of publisher income",
+   "type": "percentage-of-income measurement",
+   "clause": "advertising share of publisher income rose by ... points"
+  },
+  {
+   "name": "increase in advertising share of publisher income",
+   "type": "change measurement",
+   "clause": "rose by roughly twenty points across the era"
+  },
+  {
+   "name": "Middlemen era (1840s-1917)",
+   "type": "historical period",
+   "clause": "across the era"
+  },
+  {
+   "name": "Advertising",
+   "type": "(promoted)",
+   "clause": ""
+  }
+ ],
+ "edges": [
+  {
+   "from": "Advertising",
+   "type": "HAS_SHARE_MEASUREMENT",
+   "to": "advertising share of US newspaper revenue",
+   "clause": "Advertising supplied ... percent"
+  },
+  {
+   "from": "advertising share of US newspaper revenue",
+   "type": "MEASURED_ON",
+   "to": "US newspaper revenue",
+   "clause": "... of US newspaper revenue"
+  },
+  {
+   "from": "Advertising",
+   "type": "HAS_SHARE_MEASUREMENT",
+   "to": "advertising share of publisher income",
+   "clause": "advertising share of publisher income rose ..."
+  },
+  {
+   "from": "advertising share of publisher income",
+   "type": "MEASURED_ON",
+   "to": "publisher income",
+   "clause": "... of publisher income"
+  },
+  {
+   "from": "advertising share of publisher income",
+   "type": "ROSE_BY",
+   "to": "increase in advertising share of publisher income",
+   "clause": "share rose by ... points"
+  },
+  {
+   "from": "increase in advertising share of publisher income",
+   "type": "OVER_PERIOD",
+   "to": "Middlemen era (1840s-1917)",
+   "clause": "across the era"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "undeclared_endpoint_promoted",
+   "endpoint": "Advertising",
+   "line": "EDGE|Advertising|HAS_SHARE_MEASUREMENT|advertising share of US newspaper revenue|Advertising supplied ... percent"
+  }
+ ],
+ "raw": "NODE|advertising|abstract activity|Advertising supplied ... percent\nNODE|US newspaper revenue|revenue stream|... of US newspaper revenue\nNODE|advertising share of US newspaper revenue|percentage-of-revenue measurement|Advertising supplied ... percent of US newspaper revenue\nNODE|publisher income|income aggregate|advertising share of publisher income rose ...\nNODE|advertising share of publisher income|percentage-of-income measurement|advertising share of publisher income rose by ... points\nNODE|increase in advertising share of publisher income|change measurement|rose by roughly twenty points across the era\nNODE|Middlemen era (1840s-1917)|historical period|across the era\nEDGE|Advertising|HAS_SHARE_MEASUREMENT|advertising share of US newspaper revenue|Advertising supplied ... percent\nEDGE|advertising share of US newspaper revenue|MEASURED_ON|US newspaper revenue|... of US newspaper revenue\nEDGE|Advertising|HAS_SHARE_MEASUREMENT|advertising share of publisher income|advertising share of publisher income rose ...\nEDGE|advertising share of publisher income|MEASURED_ON|publisher income|... of publisher income\nEDGE|advertising share of publisher income|ROSE_BY|increase in advertising share of publisher income|share rose by ... points\nEDGE|increase in advertising share of publisher income|OVER_PERIOD|Middlemen era (1840s-1917)|across the era"
+}

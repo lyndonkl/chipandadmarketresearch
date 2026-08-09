@@ -1,0 +1,100 @@
+{
+ "id": "e2-pricing-003",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1940,
+ "unit": "US$ per converted hour, highest CBS station rate on the network rate card",
+ "elapsed_s": 39.1,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "CBS network rate card",
+   "type": "price list",
+   "clause": "The CBS network rate card listed station rates..."
+  },
+  {
+   "name": "station rate per converted hour",
+   "type": "rate measurement",
+   "clause": "listed station rates ... per converted hour"
+  },
+  {
+   "name": "converted hour",
+   "type": "advertising time unit",
+   "clause": "per converted (evening) hour"
+  },
+  {
+   "name": "station market",
+   "type": "market factor",
+   "clause": "set by the station's market"
+  },
+  {
+   "name": "station popularity",
+   "type": "popularity factor",
+   "clause": "set by ... popularity"
+  },
+  {
+   "name": "station power",
+   "type": "power factor",
+   "clause": "set by ... power"
+  },
+  {
+   "name": "station coverage",
+   "type": "coverage factor",
+   "clause": "set by ... coverage"
+  },
+  {
+   "name": "national spot price",
+   "type": "spot price",
+   "clause": "set by national spot price"
+  }
+ ],
+ "edges": [
+  {
+   "from": "CBS network rate card",
+   "type": "LISTED",
+   "to": "station rate per converted hour",
+   "clause": "The CBS network rate card listed station rates..."
+  },
+  {
+   "from": "station rate per converted hour",
+   "type": "PER_UNIT_OF",
+   "to": "converted hour",
+   "clause": "per converted (evening) hour"
+  },
+  {
+   "from": "station rate per converted hour",
+   "type": "SET_BY",
+   "to": "station market",
+   "clause": "set by the station's market"
+  },
+  {
+   "from": "station rate per converted hour",
+   "type": "SET_BY",
+   "to": "station popularity",
+   "clause": "set by ... popularity"
+  },
+  {
+   "from": "station rate per converted hour",
+   "type": "SET_BY",
+   "to": "station power",
+   "clause": "set by ... power"
+  },
+  {
+   "from": "station rate per converted hour",
+   "type": "SET_BY",
+   "to": "station coverage",
+   "clause": "set by ... coverage"
+  },
+  {
+   "from": "station rate per converted hour",
+   "type": "SET_BY",
+   "to": "national spot price",
+   "clause": "set by national spot price"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|CBS network rate card|price list|The CBS network rate card listed station rates...\nNODE|station rate per converted hour|rate measurement|listed station rates ... per converted hour\nNODE|converted hour|advertising time unit|per converted (evening) hour\nNODE|station market|market factor|set by the station's market\nNODE|station popularity|popularity factor|set by ... popularity\nNODE|station power|power factor|set by ... power\nNODE|station coverage|coverage factor|set by ... coverage\nNODE|national spot price|spot price|set by national spot price\nEDGE|CBS network rate card|LISTED|station rate per converted hour|The CBS network rate card listed station rates...\nEDGE|station rate per converted hour|PER_UNIT_OF|converted hour|per converted (evening) hour\nEDGE|station rate per converted hour|SET_BY|station market|set by the station's market\nEDGE|station rate per converted hour|SET_BY|station popularity|set by ... popularity\nEDGE|station rate per converted hour|SET_BY|station power|set by ... power\nEDGE|station rate per converted hour|SET_BY|station coverage|set by ... coverage\nEDGE|station rate per converted hour|SET_BY|national spot price|set by national spot price"
+}

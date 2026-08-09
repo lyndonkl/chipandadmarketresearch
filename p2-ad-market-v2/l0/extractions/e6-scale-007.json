@@ -1,0 +1,45 @@
+{
+ "id": "e6-scale-007",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions, US national advertising 2007",
+ "elapsed_s": 37.4,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US national advertising total",
+   "type": "advertising spend measurement",
+   "clause": "National advertising in the US totalled ... in 2002 and ... in 2007"
+  },
+  {
+   "name": "Auction era",
+   "type": "advertising era",
+   "clause": "the era's largest money pool by far"
+  },
+  {
+   "name": "search advertising",
+   "type": "advertising format",
+   "clause": "search advertising barely touched before 2009"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US national advertising total",
+   "type": "LARGEST_IN",
+   "to": "Auction era",
+   "clause": "the era's largest money pool by far"
+  },
+  {
+   "from": "search advertising",
+   "type": "BARELY_TOUCHED",
+   "to": "US national advertising total",
+   "clause": "barely touched before 2009"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US national advertising total|advertising spend measurement|National advertising in the US totalled ... in 2002 and ... in 2007\nNODE|Auction era|advertising era|the era's largest money pool by far\nNODE|search advertising|advertising format|search advertising barely touched before 2009\nEDGE|US national advertising total|LARGEST_IN|Auction era|the era's largest money pool by far\nEDGE|search advertising|BARELY_TOUCHED|US national advertising total|barely touched before 2009"
+}

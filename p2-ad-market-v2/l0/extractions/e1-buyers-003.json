@@ -1,0 +1,73 @@
+{
+ "id": "e1-buyers-003",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1900,
+ "unit": "USD millions (current), annual sales",
+ "elapsed_s": 43.0,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Sears, Roebuck",
+   "type": "company",
+   "clause": "Sears, Roebuck passed Montgomery Ward in sales"
+  },
+  {
+   "name": "Montgomery Ward",
+   "type": "company",
+   "clause": "passed by Sears, Roebuck in sales"
+  },
+  {
+   "name": "annual sales",
+   "type": "revenue measure",
+   "clause": "sales for the first time in 1900"
+  },
+  {
+   "name": "Sears annual sales measurement",
+   "type": "revenue measurement",
+   "clause": "at about ... million"
+  },
+  {
+   "name": "Montgomery Ward annual sales measurement",
+   "type": "revenue measurement",
+   "clause": "Ward's ... million"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Sears, Roebuck",
+   "type": "OUTSOLD",
+   "to": "Montgomery Ward",
+   "clause": "passed Montgomery Ward in sales for the first time"
+  },
+  {
+   "from": "Sears, Roebuck",
+   "type": "FIRST_TIME_OUTSOLD",
+   "to": "Montgomery Ward",
+   "clause": "for the first time"
+  },
+  {
+   "from": "Sears annual sales measurement",
+   "type": "MEASURES",
+   "to": "annual sales",
+   "clause": "at about ... million"
+  },
+  {
+   "from": "Montgomery Ward annual sales measurement",
+   "type": "MEASURES",
+   "to": "annual sales",
+   "clause": "Ward's ... million"
+  },
+  {
+   "from": "Sears annual sales measurement",
+   "type": "GREATER_THAN",
+   "to": "Montgomery Ward annual sales measurement",
+   "clause": "... against ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Sears, Roebuck|company|Sears, Roebuck passed Montgomery Ward in sales\nNODE|Montgomery Ward|company|passed by Sears, Roebuck in sales\nNODE|annual sales|revenue measure|sales for the first time in 1900\nNODE|Sears annual sales measurement|revenue measurement|at about ... million\nNODE|Montgomery Ward annual sales measurement|revenue measurement|Ward's ... million\nEDGE|Sears, Roebuck|OUTSOLD|Montgomery Ward|passed Montgomery Ward in sales for the first time\nEDGE|Sears, Roebuck|FIRST_TIME_OUTSOLD|Montgomery Ward|for the first time\nEDGE|Sears annual sales measurement|MEASURES|annual sales|at about ... million\nEDGE|Montgomery Ward annual sales measurement|MEASURES|annual sales|Ward's ... million\nEDGE|Sears annual sales measurement|GREATER_THAN|Montgomery Ward annual sales measurement|... against ..."
+}

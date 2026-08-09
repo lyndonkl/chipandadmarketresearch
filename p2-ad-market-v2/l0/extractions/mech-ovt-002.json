@@ -1,0 +1,132 @@
+{
+ "id": "mech-ovt-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "% of Overture 2002 revenue from Microsoft- and Yahoo-supplied traffic",
+ "elapsed_s": 90.1,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "search advertising company",
+   "clause": "Overture earned ... revenue"
+  },
+  {
+   "name": "Overture 2002 revenue",
+   "type": "revenue measure",
+   "clause": "its 2002 revenue"
+  },
+  {
+   "name": "Overture share of revenue from Microsoft and Yahoo traffic",
+   "type": "traffic-sourced revenue share measurement",
+   "clause": "approximately ... of its ... revenue from advertisers whose paid introductions came through traffic supplied by Microsoft and Yahoo"
+  },
+  {
+   "name": "Microsoft",
+   "type": "technology company",
+   "clause": "traffic supplied by Microsoft"
+  },
+  {
+   "name": "Yahoo",
+   "type": "internet company",
+   "clause": "traffic supplied by Yahoo"
+  },
+  {
+   "name": "Microsoft-supplied traffic",
+   "type": "traffic source",
+   "clause": "traffic supplied by Microsoft"
+  },
+  {
+   "name": "Yahoo-supplied traffic",
+   "type": "traffic source",
+   "clause": "traffic supplied by Yahoo"
+  },
+  {
+   "name": "msn.com",
+   "type": "website",
+   "clause": "primarily ..."
+  },
+  {
+   "name": "MSN pane in Internet Explorer",
+   "type": "ui component",
+   "clause": "the MSN pane in Internet Explorer"
+  },
+  {
+   "name": "Google",
+   "type": "search company",
+   "clause": "Google's ... exposure to AOL"
+  },
+  {
+   "name": "Google exposure to AOL",
+   "type": "exposure measurement",
+   "clause": "Google's ... exposure to AOL"
+  },
+  {
+   "name": "AOL",
+   "type": "internet portal",
+   "clause": "exposure to AOL"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture share of revenue from Microsoft and Yahoo traffic",
+   "type": "SHARE_OF",
+   "to": "Overture 2002 revenue",
+   "clause": "... of its ... revenue"
+  },
+  {
+   "from": "Overture share of revenue from Microsoft and Yahoo traffic",
+   "type": "FROM_TRAFFIC",
+   "to": "Microsoft-supplied traffic",
+   "clause": "traffic supplied by Microsoft"
+  },
+  {
+   "from": "Overture share of revenue from Microsoft and Yahoo traffic",
+   "type": "FROM_TRAFFIC",
+   "to": "Yahoo-supplied traffic",
+   "clause": "traffic supplied by Yahoo"
+  },
+  {
+   "from": "Microsoft-supplied traffic",
+   "type": "INCLUDES",
+   "to": "msn.com",
+   "clause": "primarily ..."
+  },
+  {
+   "from": "Microsoft-supplied traffic",
+   "type": "INCLUDES",
+   "to": "MSN pane in Internet Explorer",
+   "clause": "the MSN pane in Internet Explorer"
+  },
+  {
+   "from": "Overture share of revenue from Microsoft and Yahoo traffic",
+   "type": "FOUR_TIMES",
+   "to": "Google exposure to AOL",
+   "clause": "..."
+  },
+  {
+   "from": "Google exposure to AOL",
+   "type": "EXPOSURE_TO",
+   "to": "AOL",
+   "clause": "exposure to AOL"
+  },
+  {
+   "from": "Microsoft",
+   "type": "BECAME_COMPETITOR_OR_ACQUIRER",
+   "to": "Overture",
+   "clause": "later became a competitor or an acquirer"
+  },
+  {
+   "from": "Yahoo",
+   "type": "BECAME_COMPETITOR_OR_ACQUIRER",
+   "to": "Overture",
+   "clause": "later became a competitor or an acquirer"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|search advertising company|Overture earned ... revenue\nNODE|Overture 2002 revenue|revenue measure|its 2002 revenue\nNODE|Overture share of revenue from Microsoft and Yahoo traffic|traffic-sourced revenue share measurement|approximately ... of its ... revenue from advertisers whose paid introductions came through traffic supplied by Microsoft and Yahoo\nNODE|Microsoft|technology company|traffic supplied by Microsoft\nNODE|Yahoo|internet company|traffic supplied by Yahoo\nNODE|Microsoft-supplied traffic|traffic source|traffic supplied by Microsoft\nNODE|Yahoo-supplied traffic|traffic source|traffic supplied by Yahoo\nNODE|msn.com|website|primarily ...\nNODE|MSN pane in Internet Explorer|ui component|the MSN pane in Internet Explorer\nNODE|Google|search company|Google's ... exposure to AOL\nNODE|Google exposure to AOL|exposure measurement|Google's ... exposure to AOL\nNODE|AOL|internet portal|exposure to AOL\nEDGE|Overture share of revenue from Microsoft and Yahoo traffic|SHARE_OF|Overture 2002 revenue|... of its ... revenue\nEDGE|Overture share of revenue from Microsoft and Yahoo traffic|FROM_TRAFFIC|Microsoft-supplied traffic|traffic supplied by Microsoft\nEDGE|Overture share of revenue from Microsoft and Yahoo traffic|FROM_TRAFFIC|Yahoo-supplied traffic|traffic supplied by Yahoo\nEDGE|Microsoft-supplied traffic|INCLUDES|msn.com|primarily ...\nEDGE|Microsoft-supplied traffic|INCLUDES|MSN pane in Internet Explorer|the MSN pane in Internet Explorer\nEDGE|Overture share of revenue from Microsoft and Yahoo traffic|FOUR_TIMES|Google exposure to AOL|...\nEDGE|Google exposure to AOL|EXPOSURE_TO|AOL|exposure to AOL\nEDGE|Microsoft|BECAME_COMPETITOR_OR_ACQUIRER|Overture|later became a competitor or an acquirer\nEDGE|Yahoo|BECAME_COMPETITOR_OR_ACQUIRER|Overture|later became a competitor or an acquirer"
+}

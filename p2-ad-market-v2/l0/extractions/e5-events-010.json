@@ -1,0 +1,72 @@
+{
+ "id": "e5-events-010",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "percent change year on year",
+ "elapsed_s": 47.7,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet advertising revenue",
+   "type": "advertising revenue",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "internet advertising",
+   "type": "advertising medium",
+   "clause": "the medium"
+  },
+  {
+   "name": "US internet advertising revenue decline",
+   "type": "revenue change measurement",
+   "clause": "decline in US internet advertising revenue"
+  },
+  {
+   "name": "down year",
+   "type": "negative revenue year",
+   "clause": "first ever down year"
+  },
+  {
+   "name": "total US measured ad spend",
+   "type": "advertising spend",
+   "clause": "total US measured ad spend"
+  },
+  {
+   "name": "total US ad spend decline",
+   "type": "spend change measurement",
+   "clause": "fall in total US measured ad spend"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US internet advertising revenue decline",
+   "type": "MEASURES",
+   "to": "US internet advertising revenue",
+   "clause": "decline in US internet advertising revenue"
+  },
+  {
+   "from": "internet advertising",
+   "type": "FIRST_DOWN_YEAR",
+   "to": "down year",
+   "clause": "the medium's first ever down year"
+  },
+  {
+   "from": "total US ad spend decline",
+   "type": "MEASURES",
+   "to": "total US measured ad spend",
+   "clause": "fall in total US measured ad spend"
+  },
+  {
+   "from": "US internet advertising revenue decline",
+   "type": "AGAINST",
+   "to": "total US ad spend decline",
+   "clause": "against ... fall in total US measured ad spend"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet advertising revenue|advertising revenue|US internet advertising revenue\nNODE|internet advertising|advertising medium|the medium\nNODE|US internet advertising revenue decline|revenue change measurement|decline in US internet advertising revenue\nNODE|down year|negative revenue year|first ever down year\nNODE|total US measured ad spend|advertising spend|total US measured ad spend\nNODE|total US ad spend decline|spend change measurement|fall in total US measured ad spend\nEDGE|US internet advertising revenue decline|MEASURES|US internet advertising revenue|decline in US internet advertising revenue\nEDGE|internet advertising|FIRST_DOWN_YEAR|down year|the medium's first ever down year\nEDGE|total US ad spend decline|MEASURES|total US measured ad spend|fall in total US measured ad spend\nEDGE|US internet advertising revenue decline|AGAINST|total US ad spend decline|against ... fall in total US measured ad spend"
+}

@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|4274f8ad816bef51",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "California Consumer Privacy Act (CCPA)",
+   "type": "privacy regulation",
+   "grain": "Entity",
+   "reason": "same regulation across naming variants; California's CCPA and CCPA",
+   "child_uids": [
+    "n|tu:era:7:event:3|california's ccpa|regulation",
+    "n|tu:era:7:field:TARGETING|ccpa|privacy law"
+   ]
+  },
+  {
+   "name": "GDPR",
+   "type": "privacy regulation",
+   "grain": "Entity",
+   "reason": "singleton: distinct privacy regulation not grouped with others",
+   "child_uids": [
+    "n|tu:era:7:field:TARGETING|gdpr|privacy regulation"
+   ]
+  },
+  {
+   "name": "consent",
+   "type": "user permission requirement",
+   "grain": "Entity",
+   "reason": "singleton: user permission requirement concept separate from regulations",
+   "child_uids": [
+    "n|tu:era:7:field:TARGETING|consent|user permission requirement"
+   ]
+  },
+  {
+   "name": "opt-out",
+   "type": "user choice mechanism",
+   "grain": "Entity",
+   "reason": "singleton: user choice mechanism distinct from consent and regulations",
+   "child_uids": [
+    "n|tu:era:7:field:TARGETING|opt-out|user choice mechanism"
+   ]
+  }
+ ]
+}

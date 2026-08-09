@@ -1,0 +1,100 @@
+{
+ "id": "e6-scale-009",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "USD millions, US newspaper classified advertising 2008",
+ "elapsed_s": 90.5,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspaper classified advertising",
+   "type": "advertising category",
+   "clause": "US newspaper classified advertising"
+  },
+  {
+   "name": "US newspaper classified advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "US newspaper classified advertising spend"
+  },
+  {
+   "name": "help-wanted employment sub-category",
+   "type": "advertising subcategory",
+   "clause": "help-wanted (employment) sub-category"
+  },
+  {
+   "name": "help-wanted employment spend",
+   "type": "advertising spend measurement",
+   "clause": "help-wanted employment spend"
+  },
+  {
+   "name": "real-estate classified advertising",
+   "type": "advertising category",
+   "clause": "real-estate classified advertising"
+  },
+  {
+   "name": "real-estate classified spend",
+   "type": "advertising spend measurement",
+   "clause": "real-estate classified spend"
+  },
+  {
+   "name": "housing market",
+   "type": "economic sector",
+   "clause": "housing market"
+  },
+  {
+   "name": "search advertising",
+   "type": "advertising channel",
+   "clause": "search advertising"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US newspaper classified advertising spend",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "US newspaper classified advertising spend"
+  },
+  {
+   "from": "US newspaper classified advertising",
+   "type": "FALLEN_TO",
+   "to": "US newspaper classified advertising spend",
+   "clause": "fell from ... to ... to ..."
+  },
+  {
+   "from": "help-wanted employment sub-category",
+   "type": "FALLEN_TO",
+   "to": "help-wanted employment spend",
+   "clause": "fell from ... to ..."
+  },
+  {
+   "from": "help-wanted employment spend",
+   "type": "PEAKED_AT",
+   "to": "help-wanted employment sub-category",
+   "clause": "peak of ... in ..."
+  },
+  {
+   "from": "real-estate classified advertising",
+   "type": "PEAKED_IN",
+   "to": "real-estate classified spend",
+   "clause": "peaked mid-era in ... at ..."
+  },
+  {
+   "from": "real-estate classified advertising",
+   "type": "FELL_WITH",
+   "to": "housing market",
+   "clause": "fell with the housing market"
+  },
+  {
+   "from": "real-estate classified advertising",
+   "type": "NOT_CAUSED_BY",
+   "to": "search advertising",
+   "clause": "not with search"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspaper classified advertising|advertising category|US newspaper classified advertising\nNODE|US newspaper classified advertising spend|advertising spend measurement|US newspaper classified advertising spend\nNODE|help-wanted employment sub-category|advertising subcategory|help-wanted (employment) sub-category\nNODE|help-wanted employment spend|advertising spend measurement|help-wanted employment spend\nNODE|real-estate classified advertising|advertising category|real-estate classified advertising\nNODE|real-estate classified spend|advertising spend measurement|real-estate classified spend\nNODE|housing market|economic sector|housing market\nNODE|search advertising|advertising channel|search advertising\nEDGE|US newspaper classified advertising spend|MEASURES|US newspaper classified advertising|US newspaper classified advertising spend\nEDGE|US newspaper classified advertising|FALLEN_TO|US newspaper classified advertising spend|fell from ... to ... to ...\nEDGE|help-wanted employment sub-category|FALLEN_TO|help-wanted employment spend|fell from ... to ...\nEDGE|help-wanted employment spend|PEAKED_AT|help-wanted employment sub-category|peak of ... in ...\nEDGE|real-estate classified advertising|PEAKED_IN|real-estate classified spend|peaked mid-era in ... at ...\nEDGE|real-estate classified advertising|FELL_WITH|housing market|fell with the housing market\nEDGE|real-estate classified advertising|NOT_CAUSED_BY|search advertising|not with search"
+}

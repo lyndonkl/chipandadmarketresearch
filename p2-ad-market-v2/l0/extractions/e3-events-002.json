@@ -1,0 +1,66 @@
+{
+ "id": "e3-events-002",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1970,
+ "unit": "percent of US broadcast advertising expenditure",
+ "elapsed_s": 60.4,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "cigarette advertising",
+   "type": "advertising product category",
+   "clause": "Cigarette advertising was about ... of all US broadcast advertising expenditure"
+  },
+  {
+   "name": "US broadcast advertising expenditure",
+   "type": "aggregate advertising spend",
+   "clause": "all US broadcast advertising expenditure"
+  },
+  {
+   "name": "cigarette advertising share of US broadcast advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "was about ... of all US broadcast advertising expenditure"
+  },
+  {
+   "name": "cigarette advertising spend",
+   "type": "spend measurement",
+   "clause": "roughly ..."
+  },
+  {
+   "name": "television plus radio spend",
+   "type": "total broadcast spend measurement",
+   "clause": "of television plus radio spend"
+  },
+  {
+   "name": "US broadcast medium",
+   "type": "media channel",
+   "clause": "a US medium"
+  }
+ ],
+ "edges": [
+  {
+   "from": "cigarette advertising share of US broadcast advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "US broadcast advertising expenditure",
+   "clause": "was about ... of all US broadcast advertising expenditure"
+  },
+  {
+   "from": "cigarette advertising spend",
+   "type": "AGAINST",
+   "to": "television plus radio spend",
+   "clause": "roughly ... against ..."
+  },
+  {
+   "from": "cigarette advertising",
+   "type": "REMOVED_FROM_BY_LAW",
+   "to": "US broadcast medium",
+   "clause": "largest single product category ever removed by law"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|cigarette advertising|advertising product category|Cigarette advertising was about ... of all US broadcast advertising expenditure\nNODE|US broadcast advertising expenditure|aggregate advertising spend|all US broadcast advertising expenditure\nNODE|cigarette advertising share of US broadcast advertising expenditure|media-share measurement|was about ... of all US broadcast advertising expenditure\nNODE|cigarette advertising spend|spend measurement|roughly ...\nNODE|television plus radio spend|total broadcast spend measurement|of television plus radio spend\nNODE|US broadcast medium|media channel|a US medium\nEDGE|cigarette advertising share of US broadcast advertising expenditure|SHARE_OF|US broadcast advertising expenditure|was about ... of all US broadcast advertising expenditure\nEDGE|cigarette advertising spend|AGAINST|television plus radio spend|roughly ... against ...\nEDGE|cigarette advertising|REMOVED_FROM_BY_LAW|US broadcast medium|largest single product category ever removed by law"
+}

@@ -1,0 +1,67 @@
+{
+ "id": "e1-pricing-002",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1893,
+ "unit": "percent of gross billings",
+ "elapsed_s": 24.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "agency commission",
+   "type": "intermediary pricing practice",
+   "clause": "the agency commission"
+  },
+  {
+   "name": "agency commission rate",
+   "type": "take-rate measurement",
+   "clause": "stabilised at ... of the gross space rate"
+  },
+  {
+   "name": "gross space rate",
+   "type": "published space price",
+   "clause": "of the gross space rate"
+  },
+  {
+   "name": "open contract",
+   "type": "agency-publisher contract form",
+   "clause": "the open contract carrying it"
+  },
+  {
+   "name": "advertising industry",
+   "type": "market",
+   "clause": "in the advertising industry"
+  }
+ ],
+ "edges": [
+  {
+   "from": "agency commission",
+   "type": "HAS_RATE",
+   "to": "agency commission rate",
+   "clause": "the agency commission stabilised"
+  },
+  {
+   "from": "agency commission rate",
+   "type": "SHARE_OF",
+   "to": "gross space rate",
+   "clause": "... of the gross space rate"
+  },
+  {
+   "from": "open contract",
+   "type": "CARRIED",
+   "to": "agency commission",
+   "clause": "the open contract carrying it"
+  },
+  {
+   "from": "open contract",
+   "type": "BECAME_STANDARD_IN",
+   "to": "advertising industry",
+   "clause": "became standard practice in the advertising industry"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|agency commission|intermediary pricing practice|the agency commission\nNODE|agency commission rate|take-rate measurement|stabilised at ... of the gross space rate\nNODE|gross space rate|published space price|of the gross space rate\nNODE|open contract|agency-publisher contract form|the open contract carrying it\nNODE|advertising industry|market|in the advertising industry\nEDGE|agency commission|HAS_RATE|agency commission rate|the agency commission stabilised\nEDGE|agency commission rate|SHARE_OF|gross space rate|... of the gross space rate\nEDGE|open contract|CARRIED|agency commission|the open contract carrying it\nEDGE|open contract|BECAME_STANDARD_IN|advertising industry|became standard practice in the advertising industry"
+}

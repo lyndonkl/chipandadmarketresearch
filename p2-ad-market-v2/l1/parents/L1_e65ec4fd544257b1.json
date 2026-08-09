@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|e65ec4fd544257b1",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Magazine cover price",
+   "type": "price per issue",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity about magazine pricing",
+   "child_uids": [
+    "n|e1-sellers-005|cover price|price per issue"
+   ]
+  },
+  {
+   "name": "Magazine production cost",
+   "type": "cost basis",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity about magazine cost structure",
+   "child_uids": [
+    "n|tu:era:1:event:5|magazine production cost|cost basis"
+   ]
+  },
+  {
+   "name": "Selling magazines below production cost",
+   "type": "business model",
+   "grain": "Entity",
+   "reason": "singleton: distinct business-model entity",
+   "child_uids": [
+    "n|tu:era:1:event:5|selling magazines below production cost|business model"
+   ]
+  }
+ ]
+}

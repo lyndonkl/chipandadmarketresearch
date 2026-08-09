@@ -1,0 +1,56 @@
+{
+ "id": "e5-scale-001",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1994,
+ "unit": "USD billions",
+ "elapsed_s": 52.2,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "advertising expenditure",
+   "type": "market spending",
+   "clause": "total US measured advertising expenditure"
+  },
+  {
+   "name": "US advertising expenditure measurement",
+   "type": "spend measurement",
+   "clause": "total US measured advertising expenditure in 1994"
+  },
+  {
+   "name": "The Impression era",
+   "type": "advertising era",
+   "clause": "the Impression (1995-2000)"
+  },
+  {
+   "name": "first year of The Impression era",
+   "type": "temporal marker",
+   "clause": "the first year of the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising expenditure measurement",
+   "type": "MEASURES",
+   "to": "advertising expenditure",
+   "clause": "total US measured advertising expenditure"
+  },
+  {
+   "from": "US advertising expenditure measurement",
+   "type": "RECORDED_IN",
+   "to": "first year of The Impression era",
+   "clause": "the first year of the era"
+  },
+  {
+   "from": "first year of The Impression era",
+   "type": "PART_OF",
+   "to": "The Impression era",
+   "clause": "the first year of the era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|advertising expenditure|market spending|total US measured advertising expenditure\nNODE|US advertising expenditure measurement|spend measurement|total US measured advertising expenditure in 1994\nNODE|The Impression era|advertising era|the Impression (1995-2000)\nNODE|first year of The Impression era|temporal marker|the first year of the era\nEDGE|US advertising expenditure measurement|MEASURES|advertising expenditure|total US measured advertising expenditure\nEDGE|US advertising expenditure measurement|RECORDED_IN|first year of The Impression era|the first year of the era\nEDGE|first year of The Impression era|PART_OF|The Impression era|the first year of the era"
+}

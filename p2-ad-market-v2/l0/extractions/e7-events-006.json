@@ -1,0 +1,67 @@
+{
+ "id": "e7-events-006",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2022,
+ "unit": "USD billions of 2022 Meta revenue attributed to ATT",
+ "elapsed_s": 47.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Meta",
+   "type": "company",
+   "clause": "Meta told investors"
+  },
+  {
+   "name": "investors",
+   "type": "stakeholder group",
+   "clause": "investors"
+  },
+  {
+   "name": "App Tracking Transparency",
+   "type": "privacy policy",
+   "clause": "App Tracking Transparency would cost it ... of revenue"
+  },
+  {
+   "name": "Meta revenue attributed to ATT",
+   "type": "revenue attribution measurement",
+   "clause": "USD billions of 2022 Meta revenue attributed to ATT"
+  },
+  {
+   "name": "Meta revenue",
+   "type": "company revenue",
+   "clause": "Meta revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Meta",
+   "type": "TOLD",
+   "to": "investors",
+   "clause": "Meta told investors"
+  },
+  {
+   "from": "App Tracking Transparency",
+   "type": "COSTS",
+   "to": "Meta revenue attributed to ATT",
+   "clause": "would cost it ... of revenue"
+  },
+  {
+   "from": "Meta",
+   "type": "HAS_MEASUREMENT",
+   "to": "Meta revenue attributed to ATT",
+   "clause": "measurement of revenue attributed to ATT"
+  },
+  {
+   "from": "Meta revenue attributed to ATT",
+   "type": "MEASURES",
+   "to": "Meta revenue",
+   "clause": "measurement of Meta revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Meta|company|Meta told investors\nNODE|investors|stakeholder group|investors\nNODE|App Tracking Transparency|privacy policy|App Tracking Transparency would cost it ... of revenue\nNODE|Meta revenue attributed to ATT|revenue attribution measurement|USD billions of 2022 Meta revenue attributed to ATT\nNODE|Meta revenue|company revenue|Meta revenue\nEDGE|Meta|TOLD|investors|Meta told investors\nEDGE|App Tracking Transparency|COSTS|Meta revenue attributed to ATT|would cost it ... of revenue\nEDGE|Meta|HAS_MEASUREMENT|Meta revenue attributed to ATT|measurement of revenue attributed to ATT\nEDGE|Meta revenue attributed to ATT|MEASURES|Meta revenue|measurement of Meta revenue"
+}

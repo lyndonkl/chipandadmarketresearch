@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|92e2ee0e68359ea7",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Place",
+   "type": "geographic location",
+   "grain": "Entity",
+   "reason": "singleton: unique geographic location concept",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|place|geographic location"
+   ]
+  },
+  {
+   "name": "Maps",
+   "type": "geographic reference tool",
+   "grain": "Entity",
+   "reason": "singleton: distinct reference tool entity",
+   "child_uids": [
+    "n|tu:era:2:field:TARGETING|maps|geographic reference tool"
+   ]
+  },
+  {
+   "name": "Street",
+   "type": "geographic target",
+   "grain": "Entity",
+   "reason": "singleton: specific type of place, separate entity",
+   "child_uids": [
+    "n|tu:era:4:field:TARGETING|street|geographic target"
+   ]
+  },
+  {
+   "name": "Directory media",
+   "type": "intent media",
+   "grain": "Entity",
+   "reason": "singleton: unique advertising medium entity",
+   "child_uids": [
+    "n|tu:era:6:field:TARGETING|directory media|intent media"
+   ]
+  }
+ ]
+}

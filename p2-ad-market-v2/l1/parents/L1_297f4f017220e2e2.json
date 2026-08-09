@@ -1,0 +1,57 @@
+{
+ "group_id": "L1|297f4f017220e2e2",
+ "source": "name-block",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "US households (total)",
+   "type": "household entity",
+   "grain": "Entity",
+   "reason": "total US household base; year variations abstracted",
+   "child_uids": [
+    "n|e2-measurement-005|us households|household population",
+    "n|e3-medium-004|us households|total household base",
+    "n|e3-targeting-005|us households|household aggregate",
+    "n|tu:era:2:field:MEASUREMENT|us households|household aggregate"
+   ]
+  },
+  {
+   "name": "US household group",
+   "type": "household group",
+   "grain": "Entity",
+   "reason": "subset of US households defined as a group",
+   "child_uids": [
+    "n|e2-targeting-005|us households|household group",
+    "n|e4-targeting-003|us households|household group"
+   ]
+  },
+  {
+   "name": "US household demographic groups",
+   "type": "demographic entity",
+   "grain": "Entity",
+   "reason": "demographic subsets of US households",
+   "child_uids": [
+    "n|e5-targeting-001|us households|demographic group",
+    "n|tu:era:5:event:4|us households|demographic unit"
+   ]
+  },
+  {
+   "name": "US household population group",
+   "type": "population group",
+   "grain": "Entity",
+   "reason": "singleton: specific population subgroup of US households",
+   "child_uids": [
+    "n|tu:era:3:boundary|us households|population group"
+   ]
+  },
+  {
+   "name": "US household segment",
+   "type": "household segment",
+   "grain": "Entity",
+   "reason": "singleton: segmented portion of US households",
+   "child_uids": [
+    "n|tu:era:5:field:TARGETING|us households|household segment"
+   ]
+  }
+ ]
+}

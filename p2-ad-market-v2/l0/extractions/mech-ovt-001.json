@@ -1,0 +1,84 @@
+{
+ "id": "mech-ovt-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "% of Overture revenue paid out as traffic acquisition cost, FY2002",
+ "elapsed_s": 76.1,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture Services",
+   "type": "company",
+   "clause": "Overture Services"
+  },
+  {
+   "name": "Overture revenue",
+   "type": "revenue measurement",
+   "clause": "booked ... of revenue in ..."
+  },
+  {
+   "name": "traffic acquisition cost amount",
+   "type": "expense measurement",
+   "clause": "paid ... of traffic acquisition costs"
+  },
+  {
+   "name": "traffic acquisition cost share of Overture revenue",
+   "type": "take-rate measurement",
+   "clause": "... of revenue, up from ..."
+  },
+  {
+   "name": "net income",
+   "type": "profit measurement",
+   "clause": "net income was ..."
+  },
+  {
+   "name": "net margin",
+   "type": "margin measurement",
+   "clause": "... net margin"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture Services",
+   "type": "HAS_REVENUE",
+   "to": "Overture revenue",
+   "clause": "booked ... of revenue in ..."
+  },
+  {
+   "from": "Overture Services",
+   "type": "PAID_COST",
+   "to": "traffic acquisition cost amount",
+   "clause": "paid ... of traffic acquisition costs"
+  },
+  {
+   "from": "traffic acquisition cost share of Overture revenue",
+   "type": "SHARE_OF",
+   "to": "Overture revenue",
+   "clause": "... of revenue, up from ..."
+  },
+  {
+   "from": "Overture Services",
+   "type": "GUIDED_TO",
+   "to": "traffic acquisition cost share of Overture revenue",
+   "clause": "guided TAC to ... of revenue for Q1 ... and to rise further ... points per quarter thereafter"
+  },
+  {
+   "from": "Overture Services",
+   "type": "HAS_PROFIT",
+   "to": "net income",
+   "clause": "net income was ..."
+  },
+  {
+   "from": "net margin",
+   "type": "SHARE_OF",
+   "to": "Overture revenue",
+   "clause": "... net margin"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture Services|company|Overture Services\nNODE|Overture revenue|revenue measurement|booked ... of revenue in ...\nNODE|traffic acquisition cost amount|expense measurement|paid ... of traffic acquisition costs\nNODE|traffic acquisition cost share of Overture revenue|take-rate measurement|... of revenue, up from ...\nNODE|net income|profit measurement|net income was ...\nNODE|net margin|margin measurement|... net margin\nEDGE|Overture Services|HAS_REVENUE|Overture revenue|booked ... of revenue in ...\nEDGE|Overture Services|PAID_COST|traffic acquisition cost amount|paid ... of traffic acquisition costs\nEDGE|traffic acquisition cost share of Overture revenue|SHARE_OF|Overture revenue|... of revenue, up from ...\nEDGE|Overture Services|GUIDED_TO|traffic acquisition cost share of Overture revenue|guided TAC to ... of revenue for Q1 ... and to rise further ... points per quarter thereafter\nEDGE|Overture Services|HAS_PROFIT|net income|net income was ...\nEDGE|net margin|SHARE_OF|Overture revenue|... net margin"
+}

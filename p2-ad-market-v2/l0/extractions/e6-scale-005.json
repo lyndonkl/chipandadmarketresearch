@@ -1,0 +1,56 @@
+{
+ "id": "e6-scale-005",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "% of US total ad spend equal to Google's US revenue, 2007",
+ "elapsed_s": 44.5,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's entire US revenue"
+  },
+  {
+   "name": "US total ad spend",
+   "type": "advertising spend aggregate",
+   "clause": "all US advertising spending that year"
+  },
+  {
+   "name": "Google US revenue",
+   "type": "revenue measurement",
+   "clause": "Google's entire US revenue was ... in ... and ... in ..."
+  },
+  {
+   "name": "Google US revenue share of US total ad spend",
+   "type": "share measurement",
+   "clause": "about ... of all US advertising spending that year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "HAS_REVENUE",
+   "to": "Google US revenue",
+   "clause": "Google's entire US revenue was ... in ... and ... in ..."
+  },
+  {
+   "from": "Google",
+   "type": "HAS_REVENUE_SHARE",
+   "to": "Google US revenue share of US total ad spend",
+   "clause": "about ... of all US advertising spending that year"
+  },
+  {
+   "from": "Google US revenue share of US total ad spend",
+   "type": "SHARE_OF",
+   "to": "US total ad spend",
+   "clause": "about ... of all US advertising spending that year"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google's entire US revenue\nNODE|US total ad spend|advertising spend aggregate|all US advertising spending that year\nNODE|Google US revenue|revenue measurement|Google's entire US revenue was ... in ... and ... in ...\nNODE|Google US revenue share of US total ad spend|share measurement|about ... of all US advertising spending that year\nEDGE|Google|HAS_REVENUE|Google US revenue|Google's entire US revenue was ... in ... and ... in ...\nEDGE|Google|HAS_REVENUE_SHARE|Google US revenue share of US total ad spend|about ... of all US advertising spending that year\nEDGE|Google US revenue share of US total ad spend|SHARE_OF|US total ad spend|about ... of all US advertising spending that year"
+}

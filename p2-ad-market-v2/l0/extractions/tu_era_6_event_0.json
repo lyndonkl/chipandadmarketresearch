@@ -1,0 +1,127 @@
+{
+ "id": "tu:era:6:event:0",
+ "kind": "prose:event",
+ "era": 6,
+ "about_year": 2002,
+ "unit": null,
+ "elapsed_s": 93.2,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "CPM AdWords",
+   "type": "advertising product",
+   "clause": "the CPM AdWords launched in October ..."
+  },
+  {
+   "name": "AdWords Select",
+   "type": "advertising product",
+   "clause": "AdWords Select"
+  },
+  {
+   "name": "cost-per-click pricing",
+   "type": "pricing model",
+   "clause": "cost-per-click pricing"
+  },
+  {
+   "name": "CTR-bid combination",
+   "type": "ranking factor",
+   "clause": "combination of click-through rate and bid"
+  },
+  {
+   "name": "automatic discunter",
+   "type": "pricing mechanism",
+   "clause": "automatic discunter that charges ... above the next bid"
+  },
+  {
+   "name": "automatic discunter charge amount",
+   "type": "price-difference measurement",
+   "clause": "charges ... above the next bid"
+  },
+  {
+   "name": "next bid",
+   "type": "bid amount",
+   "clause": "the next bid"
+  },
+  {
+   "name": "self-serve",
+   "type": "service model",
+   "clause": "self-serve"
+  },
+  {
+   "name": "four-step workflow",
+   "type": "process",
+   "clause": "... steps"
+  },
+  {
+   "name": "ads live immediately",
+   "type": "ad activation outcome",
+   "clause": "most ads live immediately"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "REPLACED_WITH",
+   "to": "AdWords Select",
+   "clause": "replaces CPM AdWords ... with AdWords Select"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "USES",
+   "to": "cost-per-click pricing",
+   "clause": "uses cost-per-click pricing"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "RANKED_BY",
+   "to": "CTR-bid combination",
+   "clause": "ranking by a combination of click-through rate and bid"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "INCLUDES",
+   "to": "automatic discunter",
+   "clause": "includes an automatic discunter that charges ... above the next bid"
+  },
+  {
+   "from": "automatic discunter",
+   "type": "HAS_AMOUNT",
+   "to": "automatic discunter charge amount",
+   "clause": "has charge amount"
+  },
+  {
+   "from": "automatic discunter charge amount",
+   "type": "ABOVE",
+   "to": "next bid",
+   "clause": "charges ... above the next bid"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "HAS_SERVICE_MODEL",
+   "to": "self-serve",
+   "clause": "self-serve"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "USES_WORKFLOW",
+   "to": "four-step workflow",
+   "clause": "... steps"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "CAUSES",
+   "to": "ads live immediately",
+   "clause": "most ads live immediately"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|CPM AdWords|advertising product|the CPM AdWords launched in October ...\nNODE|AdWords Select|advertising product|AdWords Select\nNODE|cost-per-click pricing|pricing model|cost-per-click pricing\nNODE|CTR-bid combination|ranking factor|combination of click-through rate and bid\nNODE|automatic discunter|pricing mechanism|automatic discunter that charges ... above the next bid\nNODE|automatic discunter charge amount|price-difference measurement|charges ... above the next bid\nNODE|next bid|bid amount|the next bid\nNODE|self-serve|service model|self-serve\nNODE|four-step workflow|process|... steps\nNODE|ads live immediately|ad activation outcome|most ads live immediately\nEDGE|Google|REPLACED_WITH|AdWords Select|replaces CPM AdWords ... with AdWords Select\nEDGE|AdWords Select|USES|cost-per-click pricing|uses cost-per-click pricing\nEDGE|AdWords Select|RANKED_BY|CTR-bid combination|ranking by a combination of click-through rate and bid\nEDGE|AdWords Select|INCLUDES|automatic discunter|includes an automatic discunter that charges ... above the next bid\nEDGE|automatic discunter|HAS_AMOUNT|automatic discunter charge amount|has charge amount\nEDGE|automatic discunter charge amount|ABOVE|next bid|charges ... above the next bid\nEDGE|AdWords Select|HAS_SERVICE_MODEL|self-serve|self-serve\nEDGE|AdWords Select|USES_WORKFLOW|four-step workflow|... steps\nEDGE|AdWords Select|CAUSES|ads live immediately|most ads live immediately"
+}

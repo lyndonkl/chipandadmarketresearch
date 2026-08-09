@@ -1,0 +1,80 @@
+{
+ "group_id": "L1|ce233b7bbd8225af",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "National cable network count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "same measure across sources; year abstracted to children",
+   "child_uids": [
+    "n|e4-sellers-002|us national cable networks count|count measurement",
+    "n|tu:era:4:field:SELLERS|national cable network count|count measurement"
+   ]
+  },
+  {
+   "name": "National cable network targeting precision count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct count about targeting precision",
+   "child_uids": [
+    "n|e4-targeting-005|television targeting precision count (national cable networks)|count measurement"
+   ]
+  },
+  {
+   "name": "RCA network count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific company network count",
+   "child_uids": [
+    "n|tu:era:2:event:5|rca network count|count measurement"
+   ]
+  },
+  {
+   "name": "Population pay cable share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of population with pay cable",
+   "child_uids": [
+    "n|tu:era:4:field:MEASUREMENT|population pay cable share|share measurement"
+   ]
+  },
+  {
+   "name": "Cable market share",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of advertising market held by cable",
+   "child_uids": [
+    "n|tu:era:4:field:MEDIUM|cable share of market|percentage measurement"
+   ]
+  },
+  {
+   "name": "Cable prime-time share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of prime\u2011time audience for cable",
+   "child_uids": [
+    "n|tu:era:4:field:SELLERS|cable prime-time share|share measurement"
+   ]
+  },
+  {
+   "name": "National network count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: count of all national networks (non\u2011cable)",
+   "child_uids": [
+    "n|tu:era:4:field:TARGETING|national network count measurement|count measurement"
+   ]
+  },
+  {
+   "name": "Broadcast network count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: count of broadcast television networks",
+   "child_uids": [
+    "n|tu:era:4:field:TARGETING|broadcast network count measurement|count measurement"
+   ]
+  }
+ ]
+}

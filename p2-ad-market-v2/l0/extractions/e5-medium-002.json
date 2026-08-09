@@ -1,0 +1,73 @@
+{
+ "id": "e5-medium-002",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "USD billions",
+ "elapsed_s": 59.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail"
+  },
+  {
+   "name": "newspaper",
+   "type": "advertising medium",
+   "clause": "newspapers"
+  },
+  {
+   "name": "US advertising medium market",
+   "type": "market",
+   "clause": "US medium market"
+  },
+  {
+   "name": "direct mail expenditure",
+   "type": "media-spend measurement",
+   "clause": "Direct mail expenditure in 2001 and 2002"
+  },
+  {
+   "name": "newspaper expenditure",
+   "type": "media-spend measurement",
+   "clause": "Newspaper expenditure in 2001 and 2002"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct mail expenditure",
+   "type": "MEASURES",
+   "to": "direct mail",
+   "clause": "measures spend on direct mail"
+  },
+  {
+   "from": "newspaper expenditure",
+   "type": "MEASURES",
+   "to": "newspaper",
+   "clause": "measures spend on newspapers"
+  },
+  {
+   "from": "direct mail expenditure",
+   "type": "EXCEEDS",
+   "to": "newspaper expenditure",
+   "clause": "passed newspapers in the first year"
+  },
+  {
+   "from": "direct mail expenditure",
+   "type": "EXCEEDS",
+   "to": "newspaper expenditure",
+   "clause": "stayed ahead in the following year"
+  },
+  {
+   "from": "direct mail",
+   "type": "BECAME_LARGEST_MEDIUM_IN",
+   "to": "US advertising medium market",
+   "clause": "became largest single measured US medium for the first time"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct mail|advertising medium|direct mail\nNODE|newspaper|advertising medium|newspapers\nNODE|US advertising medium market|market|US medium market\nNODE|direct mail expenditure|media-spend measurement|Direct mail expenditure in 2001 and 2002\nNODE|newspaper expenditure|media-spend measurement|Newspaper expenditure in 2001 and 2002\nEDGE|direct mail expenditure|MEASURES|direct mail|measures spend on direct mail\nEDGE|newspaper expenditure|MEASURES|newspaper|measures spend on newspapers\nEDGE|direct mail expenditure|EXCEEDS|newspaper expenditure|passed newspapers in the first year\nEDGE|direct mail expenditure|EXCEEDS|newspaper expenditure|stayed ahead in the following year\nEDGE|direct mail|BECAME_LARGEST_MEDIUM_IN|US advertising medium market|became largest single measured US medium for the first time"
+}

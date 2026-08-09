@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|4e8fdef816631d16",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Commission rate",
+   "type": "commission rate",
+   "grain": "Entity",
+   "reason": "one concept across variants; dead qualifier abstracted to children",
+   "child_uids": [
+    "n|tu:era:4:field:PRICING|commission rate|pricing rate",
+    "n|tu:era:6:field:PRICING|dead commission rate|commission rate"
+   ]
+  },
+  {
+   "name": "Absence of commission",
+   "type": "feature",
+   "grain": "Entity",
+   "reason": "singleton: absence of commission feature, separate concept",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|absence of commission|feature"
+   ]
+  },
+  {
+   "name": "Agency commissions",
+   "type": "commission pool",
+   "grain": "Entity",
+   "reason": "singleton: agency commissions pool, distinct from rate or absence",
+   "child_uids": [
+    "n|tu:era:4:boundary|agency commissions|commission pool"
+   ]
+  }
+ ]
+}

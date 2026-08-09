@@ -1,0 +1,101 @@
+{
+ "id": "e4-medium-006",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "percent of measured US ad spend",
+ "elapsed_s": 117.7,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "radio advertising",
+   "type": "advertising medium",
+   "clause": "Radio held ... share of US measured advertising spend"
+  },
+  {
+   "name": "US measured advertising spend",
+   "type": "advertising spend aggregate",
+   "clause": "US measured advertising spend"
+  },
+  {
+   "name": "radio share of US measured ad spend (reading 1)",
+   "type": "media-share measurement",
+   "clause": "... of US measured advertising spend in ..."
+  },
+  {
+   "name": "radio share of US measured ad spend (reading 2)",
+   "type": "media-share measurement",
+   "clause": "... of US measured advertising spend in ..."
+  },
+  {
+   "name": "US measured ad spend amount (reading 1)",
+   "type": "spend measurement",
+   "clause": "total ... $... in ..."
+  },
+  {
+   "name": "medium spend ranking (segmentation era)",
+   "type": "ranking list",
+   "clause": "medium table in this era"
+  },
+  {
+   "name": "project constraint radio never #1 medium by spend",
+   "type": "constraint",
+   "clause": "project constraint that radio was never the #1 US medium by spend"
+  }
+ ],
+ "edges": [
+  {
+   "from": "radio share of US measured ad spend (reading 1)",
+   "type": "MEASURES",
+   "to": "radio advertising",
+   "clause": "... held ... share"
+  },
+  {
+   "from": "radio share of US measured ad spend (reading 1)",
+   "type": "SHARE_OF",
+   "to": "US measured advertising spend",
+   "clause": "... of US measured advertising spend"
+  },
+  {
+   "from": "radio share of US measured ad spend (reading 2)",
+   "type": "MEASURES",
+   "to": "radio advertising",
+   "clause": "... held ... share"
+  },
+  {
+   "from": "radio share of US measured ad spend (reading 2)",
+   "type": "SHARE_OF",
+   "to": "US measured advertising spend",
+   "clause": "... of US measured advertising spend"
+  },
+  {
+   "from": "radio share of US measured ad spend (reading 1)",
+   "type": "AGAINST",
+   "to": "radio share of US measured ad spend (reading 2)",
+   "clause": "against ... in ..."
+  },
+  {
+   "from": "US measured ad spend amount (reading 1)",
+   "type": "MEASURES",
+   "to": "US measured advertising spend",
+   "clause": "total ... $... in ..."
+  },
+  {
+   "from": "radio advertising",
+   "type": "NOT_NEAR_TOP",
+   "to": "medium spend ranking (segmentation era)",
+   "clause": "never near the top of the medium table in this era"
+  },
+  {
+   "from": "radio advertising",
+   "type": "CONSISTENT_WITH",
+   "to": "project constraint radio never #1 medium by spend",
+   "clause": "consistent with the project constraint ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|radio advertising|advertising medium|Radio held ... share of US measured advertising spend\nNODE|US measured advertising spend|advertising spend aggregate|US measured advertising spend\nNODE|radio share of US measured ad spend (reading 1)|media-share measurement|... of US measured advertising spend in ...\nNODE|radio share of US measured ad spend (reading 2)|media-share measurement|... of US measured advertising spend in ...\nNODE|US measured ad spend amount (reading 1)|spend measurement|total ... $... in ...\nNODE|medium spend ranking (segmentation era)|ranking list|medium table in this era\nNODE|project constraint radio never #1 medium by spend|constraint|project constraint that radio was never the #1 US medium by spend\nEDGE|radio share of US measured ad spend (reading 1)|MEASURES|radio advertising|... held ... share\nEDGE|radio share of US measured ad spend (reading 1)|SHARE_OF|US measured advertising spend|... of US measured advertising spend\nEDGE|radio share of US measured ad spend (reading 2)|MEASURES|radio advertising|... held ... share\nEDGE|radio share of US measured ad spend (reading 2)|SHARE_OF|US measured advertising spend|... of US measured advertising spend\nEDGE|radio share of US measured ad spend (reading 1)|AGAINST|radio share of US measured ad spend (reading 2)|against ... in ...\nEDGE|US measured ad spend amount (reading 1)|MEASURES|US measured advertising spend|total ... $... in ...\nEDGE|radio advertising|NOT_NEAR_TOP|medium spend ranking (segmentation era)|never near the top of the medium table in this era\nEDGE|radio advertising|CONSISTENT_WITH|project constraint radio never #1 medium by spend|consistent with the project constraint ..."
+}

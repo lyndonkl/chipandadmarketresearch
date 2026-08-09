@@ -1,0 +1,56 @@
+{
+ "id": "e2-sellers-006",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1945,
+ "unit": "US AM stations on air, 1945",
+ "elapsed_s": 47.3,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "United States",
+   "type": "country",
+   "clause": "the US"
+  },
+  {
+   "name": "AM radio stations",
+   "type": "radio station",
+   "clause": "AM stations on air"
+  },
+  {
+   "name": "US AM stations on air count",
+   "type": "count measurement",
+   "clause": "US AM stations on air"
+  },
+  {
+   "name": "postwar licensing boom",
+   "type": "industry growth phenomenon",
+   "clause": "postwar licensing boom"
+  }
+ ],
+ "edges": [
+  {
+   "from": "United States",
+   "type": "HAS_COUNT",
+   "to": "US AM stations on air count",
+   "clause": "had about ... in ..."
+  },
+  {
+   "from": "US AM stations on air count",
+   "type": "MEASURES",
+   "to": "AM radio stations",
+   "clause": "the measurement of AM stations on air"
+  },
+  {
+   "from": "postwar licensing boom",
+   "type": "RAISED_COUNT_TO",
+   "to": "US AM stations on air count",
+   "clause": "took the number to roughly ... by the early ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|United States|country|the US\nNODE|AM radio stations|radio station|AM stations on air\nNODE|US AM stations on air count|count measurement|US AM stations on air\nNODE|postwar licensing boom|industry growth phenomenon|postwar licensing boom\nEDGE|United States|HAS_COUNT|US AM stations on air count|had about ... in ...\nEDGE|US AM stations on air count|MEASURES|AM radio stations|the measurement of AM stations on air\nEDGE|postwar licensing boom|RAISED_COUNT_TO|US AM stations on air count|took the number to roughly ... by the early ..."
+}

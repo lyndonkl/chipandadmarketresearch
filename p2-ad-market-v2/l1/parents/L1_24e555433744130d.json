@@ -1,0 +1,125 @@
+{
+ "group_id": "L1|24e555433744130d",
+ "source": "kmeans",
+ "n_in": 14,
+ "parents": [
+  {
+   "name": "Classic search monetisation rate",
+   "type": "monetisation-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: only one node for this measure",
+   "child_uids": [
+    "n|e7-targeting-004|classic search monetisation rate|monetisation-rate measurement"
+   ]
+  },
+  {
+   "name": "Search query count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "same count across years; year abstracted to children",
+   "child_uids": [
+    "n|e7-unit_econ-002|number of search queries 2020|count measurement",
+    "n|e7-unit_econ-002|number of search queries 2021|count measurement"
+   ]
+  },
+  {
+   "name": "Search default payment per query",
+   "type": "cost-per-query measurement",
+   "grain": "Measurement",
+   "reason": "singleton: only one node for this measure",
+   "child_uids": [
+    "n|e7-unit_econ-002|search default payment per query 2021|cost-per-query measurement"
+   ]
+  },
+  {
+   "name": "Total search default payments",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: only one node for this measure",
+   "child_uids": [
+    "n|e7-unit_econ-002|total search default payments 2021|spend measurement"
+   ]
+  },
+  {
+   "name": "First path query count increase",
+   "type": "query-count change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique path count increase measure",
+   "child_uids": [
+    "n|mech-capture-002|first path query count increase|query-count change measurement"
+   ]
+  },
+  {
+   "name": "Second path query count increase",
+   "type": "query-count change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique path count increase measure",
+   "child_uids": [
+    "n|mech-capture-002|second path query count increase|query-count change measurement"
+   ]
+  },
+  {
+   "name": "Default query flow share",
+   "type": "query share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: overall default query share measure",
+   "child_uids": [
+    "n|mech-mehta-002|default query flow share|query share measurement"
+   ]
+  },
+  {
+   "name": "iOS default query share",
+   "type": "query share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: platform-specific default share",
+   "child_uids": [
+    "n|mech-mehta-002|ios default query share|query share measurement"
+   ]
+  },
+  {
+   "name": "Android default query share",
+   "type": "query share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: platform-specific default share",
+   "child_uids": [
+    "n|mech-mehta-002|android default query share|query share measurement"
+   ]
+  },
+  {
+   "name": "iOS query loss share",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: projected iOS query loss proportion",
+   "child_uids": [
+    "n|mech-mehta-003|ios query loss share|percentage measurement"
+   ]
+  },
+  {
+   "name": "iOS query recovery share",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: projected iOS query recovery proportion",
+   "child_uids": [
+    "n|mech-mehta-003|ios query recovery share|percentage measurement"
+   ]
+  },
+  {
+   "name": "MacOS query recovery share",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: projected MacOS query recovery proportion",
+   "child_uids": [
+    "n|mech-mehta-003|macos query recovery share|percentage measurement"
+   ]
+  },
+  {
+   "name": "Google annual query volume",
+   "type": "query volume measurement",
+   "grain": "Measurement",
+   "reason": "singleton: yearly total Google queries measure",
+   "child_uids": [
+    "n|tu:era:7:field:MEDIUM|google annual query volume|query volume measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "id": "e6-medium-004",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "USD millions, US internet advertising revenue 2008",
+ "elapsed_s": 61.2,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet advertising revenue",
+   "type": "revenue metric",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "IAB/PwC seller-reported series",
+   "type": "advertising-revenue dataset",
+   "clause": "on the IAB/PwC seller-reported series"
+  },
+  {
+   "name": "US internet advertising revenue at start of era",
+   "type": "revenue measurement",
+   "clause": "grew from ..."
+  },
+  {
+   "name": "US internet advertising revenue at end of era",
+   "type": "revenue measurement",
+   "clause": "... to ..."
+  },
+  {
+   "name": "US internet advertising revenue growth multiple",
+   "type": "ratio measurement",
+   "clause": "... across the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US internet advertising revenue at start of era",
+   "type": "MEASURES",
+   "to": "US internet advertising revenue",
+   "clause": "grew from ..."
+  },
+  {
+   "from": "US internet advertising revenue at end of era",
+   "type": "MEASURES",
+   "to": "US internet advertising revenue",
+   "clause": "... to ..."
+  },
+  {
+   "from": "US internet advertising revenue growth multiple",
+   "type": "RELATES_TO",
+   "to": "US internet advertising revenue",
+   "clause": "... across the era"
+  },
+  {
+   "from": "US internet advertising revenue at start of era",
+   "type": "MEASURED_ON",
+   "to": "IAB/PwC seller-reported series",
+   "clause": "on the IAB/PwC seller-reported series"
+  },
+  {
+   "from": "US internet advertising revenue at end of era",
+   "type": "MEASURED_ON",
+   "to": "IAB/PwC seller-reported series",
+   "clause": "on the IAB/PwC seller-reported series"
+  },
+  {
+   "from": "US internet advertising revenue growth multiple",
+   "type": "MEASURED_ON",
+   "to": "IAB/PwC seller-reported series",
+   "clause": "on the IAB/PwC seller-reported series"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet advertising revenue|revenue metric|US internet advertising revenue\nNODE|IAB/PwC seller-reported series|advertising-revenue dataset|on the IAB/PwC seller-reported series\nNODE|US internet advertising revenue at start of era|revenue measurement|grew from ...\nNODE|US internet advertising revenue at end of era|revenue measurement|... to ...\nNODE|US internet advertising revenue growth multiple|ratio measurement|... across the era\nEDGE|US internet advertising revenue at start of era|MEASURES|US internet advertising revenue|grew from ...\nEDGE|US internet advertising revenue at end of era|MEASURES|US internet advertising revenue|... to ...\nEDGE|US internet advertising revenue growth multiple|RELATES_TO|US internet advertising revenue|... across the era\nEDGE|US internet advertising revenue at start of era|MEASURED_ON|IAB/PwC seller-reported series|on the IAB/PwC seller-reported series\nEDGE|US internet advertising revenue at end of era|MEASURED_ON|IAB/PwC seller-reported series|on the IAB/PwC seller-reported series\nEDGE|US internet advertising revenue growth multiple|MEASURED_ON|IAB/PwC seller-reported series|on the IAB/PwC seller-reported series"
+}

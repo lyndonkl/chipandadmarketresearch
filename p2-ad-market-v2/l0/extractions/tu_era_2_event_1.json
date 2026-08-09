@@ -1,0 +1,193 @@
+{
+ "id": "tu:era:2:event:1",
+ "kind": "prose:event",
+ "era": 2,
+ "about_year": 1926,
+ "unit": null,
+ "elapsed_s": 108.2,
+ "error": null,
+ "n_nodes": 17,
+ "n_edges": 15,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "National Broadcasting Company",
+   "type": "broadcasting company",
+   "clause": "the National Broadcasting Company was incorporated"
+  },
+  {
+   "name": "RCA",
+   "type": "corporation",
+   "clause": "RCA holding ..."
+  },
+  {
+   "name": "General Electric",
+   "type": "corporation",
+   "clause": "General Electric holding ..."
+  },
+  {
+   "name": "Westinghouse",
+   "type": "corporation",
+   "clause": "Westinghouse holding ..."
+  },
+  {
+   "name": "RCA ownership share in NBC",
+   "type": "ownership stake measurement",
+   "clause": "RCA holding ..."
+  },
+  {
+   "name": "General Electric ownership share in NBC",
+   "type": "ownership stake measurement",
+   "clause": "General Electric holding ..."
+  },
+  {
+   "name": "Westinghouse ownership share in NBC",
+   "type": "ownership stake measurement",
+   "clause": "Westinghouse holding ..."
+  },
+  {
+   "name": "AT&T",
+   "type": "telecommunications company",
+   "clause": "AT&T left broadcasting"
+  },
+  {
+   "name": "Broadcasting Co. of America",
+   "type": "broadcasting subsidiary",
+   "clause": "AT&T's Broadcasting Co. of America"
+  },
+  {
+   "name": "WEAF",
+   "type": "radio station",
+   "clause": "including WEAF"
+  },
+  {
+   "name": "RCA acquisition cost for Broadcasting Co. of America",
+   "type": "acquisition cost measurement",
+   "clause": "for ... purchase price"
+  },
+  {
+   "name": "broadcasting business",
+   "type": "market segment",
+   "clause": "broadcasting business"
+  },
+  {
+   "name": "wire assets",
+   "type": "infrastructure asset",
+   "clause": "kept the wires"
+  },
+  {
+   "name": "CBS",
+   "type": "broadcasting network",
+   "clause": "CBS followed ..."
+  },
+  {
+   "name": "Mutual",
+   "type": "broadcasting network",
+   "clause": "Mutual ..."
+  },
+  {
+   "name": "two-network structure",
+   "type": "market structure",
+   "clause": "the two-network structure ... was set"
+  },
+  {
+   "name": "FCC",
+   "type": "regulatory agency",
+   "clause": "FCC would attack ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "RCA",
+   "type": "OWNS",
+   "to": "RCA ownership share in NBC",
+   "clause": "RCA holding ..."
+  },
+  {
+   "from": "RCA ownership share in NBC",
+   "type": "SHARE_OF",
+   "to": "National Broadcasting Company",
+   "clause": "RCA holding ..."
+  },
+  {
+   "from": "General Electric",
+   "type": "OWNS",
+   "to": "General Electric ownership share in NBC",
+   "clause": "General Electric holding ..."
+  },
+  {
+   "from": "General Electric ownership share in NBC",
+   "type": "SHARE_OF",
+   "to": "National Broadcasting Company",
+   "clause": "General Electric holding ..."
+  },
+  {
+   "from": "Westinghouse",
+   "type": "OWNS",
+   "to": "Westinghouse ownership share in NBC",
+   "clause": "Westinghouse holding ..."
+  },
+  {
+   "from": "Westinghouse ownership share in NBC",
+   "type": "SHARE_OF",
+   "to": "National Broadcasting Company",
+   "clause": "Westinghouse holding ..."
+  },
+  {
+   "from": "RCA",
+   "type": "ACQUIRED",
+   "to": "Broadcasting Co. of America",
+   "clause": "RCA bought ... including WEAF"
+  },
+  {
+   "from": "RCA",
+   "type": "PAID",
+   "to": "RCA acquisition cost for Broadcasting Co. of America",
+   "clause": "for ... purchase price"
+  },
+  {
+   "from": "Broadcasting Co. of America",
+   "type": "INCLUDES",
+   "to": "WEAF",
+   "clause": "including WEAF"
+  },
+  {
+   "from": "AT&T",
+   "type": "LEFT",
+   "to": "broadcasting business",
+   "clause": "AT&T left broadcasting"
+  },
+  {
+   "from": "AT&T",
+   "type": "RETAINED",
+   "to": "wire assets",
+   "clause": "kept the wires"
+  },
+  {
+   "from": "CBS",
+   "type": "FOLLOWED",
+   "to": "National Broadcasting Company",
+   "clause": "CBS followed ..."
+  },
+  {
+   "from": "Mutual",
+   "type": "FOLLOWED",
+   "to": "National Broadcasting Company",
+   "clause": "Mutual ..."
+  },
+  {
+   "from": "two-network structure",
+   "type": "WAS_SET_BY",
+   "to": "National Broadcasting Company",
+   "clause": "the two-network structure ... was set"
+  },
+  {
+   "from": "FCC",
+   "type": "ATTACKED",
+   "to": "two-network structure",
+   "clause": "FCC would attack ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|National Broadcasting Company|broadcasting company|the National Broadcasting Company was incorporated\nNODE|RCA|corporation|RCA holding ...\nNODE|General Electric|corporation|General Electric holding ...\nNODE|Westinghouse|corporation|Westinghouse holding ...\nNODE|RCA ownership share in NBC|ownership stake measurement|RCA holding ...\nNODE|General Electric ownership share in NBC|ownership stake measurement|General Electric holding ...\nNODE|Westinghouse ownership share in NBC|ownership stake measurement|Westinghouse holding ...\nNODE|AT&T|telecommunications company|AT&T left broadcasting\nNODE|Broadcasting Co. of America|broadcasting subsidiary|AT&T's Broadcasting Co. of America\nNODE|WEAF|radio station|including WEAF\nNODE|RCA acquisition cost for Broadcasting Co. of America|acquisition cost measurement|for ... purchase price\n NODE|broadcasting business|market segment|broadcasting business\nNODE|wire assets|infrastructure asset|kept the wires\nNODE|CBS|broadcasting network|CBS followed ...\nNODE|Mutual|broadcasting network|Mutual ... \nNODE|two-network structure|market structure|the two-network structure ... was set\nNODE|FCC|regulatory agency|FCC would attack ...\n\nEDGE|RCA|OWNS|RCA ownership share in NBC|RCA holding ...\nEDGE|RCA ownership share in NBC|SHARE_OF|National Broadcasting Company|RCA holding ...\nEDGE|General Electric|OWNS|General Electric ownership share in NBC|General Electric holding ...\nEDGE|General Electric ownership share in NBC|SHARE_OF|National Broadcasting Company|General Electric holding ...\nEDGE|Westinghouse|OWNS|Westinghouse ownership share in NBC|Westinghouse holding ...\nEDGE|Westinghouse ownership share in NBC|SHARE_OF|National Broadcasting Company|Westinghouse holding ...\nEDGE|RCA|ACQUIRED|Broadcasting Co. of America|RCA bought ... including WEAF\nEDGE|RCA|PAID|RCA acquisition cost for Broadcasting Co. of America|for ... purchase price\nEDGE|Broadcasting Co. of America|INCLUDES|WEAF|including WEAF\nEDGE|AT&T|LEFT|broadcasting business|AT&T left broadcasting\nEDGE|AT&T|RETAINED|wire assets|kept the wires\nEDGE|CBS|FOLLOWED|National Broadcasting Company|CBS followed ...\nEDGE|Mutual|FOLLOWED|National Broadcasting Company|Mutual ... \nEDGE|two-network structure|WAS_SET_BY|National Broadcasting Company|the two-network structure ... was set\nEDGE|FCC|ATTACKED|two-network structure|FCC would attack ..."
+}

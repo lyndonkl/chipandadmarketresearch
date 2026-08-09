@@ -1,0 +1,82 @@
+{
+ "id": "e7-scale-003",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of global advertising revenue, 2025",
+ "elapsed_s": 38.0,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "global advertising revenue",
+   "type": "advertising market total",
+   "clause": "global advertising revenue"
+  },
+  {
+   "name": "global advertising revenue amount",
+   "type": "revenue measurement",
+   "clause": "was roughly ..."
+  },
+  {
+   "name": "MAGNA",
+   "type": "advertising company",
+   "clause": "MAGNA"
+  },
+  {
+   "name": "MAGNA global advertising revenue estimate",
+   "type": "revenue measurement",
+   "clause": "MAGNA puts it at ..."
+  },
+  {
+   "name": "WPP Media",
+   "type": "media holding company",
+   "clause": "WPP Media"
+  },
+  {
+   "name": "WPP Media global advertising revenue estimate",
+   "type": "revenue measurement",
+   "clause": "WPP Media at ..."
+  },
+  {
+   "name": "advertising revenue estimate gap",
+   "type": "difference measurement",
+   "clause": "a ... gap driven by definitional differences"
+  },
+  {
+   "name": "definitional differences",
+   "type": "definition variance",
+   "clause": "definitional differences"
+  }
+ ],
+ "edges": [
+  {
+   "from": "global advertising revenue",
+   "type": "HAS_AMOUNT",
+   "to": "global advertising revenue amount",
+   "clause": "was roughly ..."
+  },
+  {
+   "from": "MAGNA",
+   "type": "ESTIMATES",
+   "to": "MAGNA global advertising revenue estimate",
+   "clause": "MAGNA puts it at ..."
+  },
+  {
+   "from": "WPP Media",
+   "type": "ESTIMATES",
+   "to": "WPP Media global advertising revenue estimate",
+   "clause": "WPP Media at ..."
+  },
+  {
+   "from": "advertising revenue estimate gap",
+   "type": "DRIVEN_BY",
+   "to": "definitional differences",
+   "clause": "driven by definitional differences"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|global advertising revenue|advertising market total|global advertising revenue\nNODE|global advertising revenue amount|revenue measurement|was roughly ...\nNODE|MAGNA|advertising company|MAGNA\nNODE|MAGNA global advertising revenue estimate|revenue measurement|MAGNA puts it at ...\nNODE|WPP Media|media holding company|WPP Media\nNODE|WPP Media global advertising revenue estimate|revenue measurement|WPP Media at ...\nNODE|advertising revenue estimate gap|difference measurement|a ... gap driven by definitional differences\nNODE|definitional differences|definition variance|definitional differences\nEDGE|global advertising revenue|HAS_AMOUNT|global advertising revenue amount|was roughly ...\nEDGE|MAGNA|ESTIMATES|MAGNA global advertising revenue estimate|MAGNA puts it at ...\nEDGE|WPP Media|ESTIMATES|WPP Media global advertising revenue estimate|WPP Media at ...\nEDGE|advertising revenue estimate gap|DRIVEN_BY|definitional differences|driven by definitional differences"
+}

@@ -1,0 +1,67 @@
+{
+ "id": "e5-sellers-004",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent gross margin on network ad sales",
+ "elapsed_s": 80.1,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "DoubleClick Media",
+   "type": "company",
+   "clause": "DoubleClick Media"
+  },
+  {
+   "name": "DoubleClick Media gross margin on network ad sales",
+   "type": "take-rate measurement",
+   "clause": "the ad network's effective take rate"
+  },
+  {
+   "name": "publisher advance write-off",
+   "type": "one-off expense",
+   "clause": "a one-off publisher-advance write-off"
+  },
+  {
+   "name": "service fees paid to web publishers",
+   "type": "cost component",
+   "clause": "cost of revenue was mostly service fees paid to web publishers"
+  },
+  {
+   "name": "publishers' retained share of network-sold impression money",
+   "type": "percentage measurement",
+   "clause": "Publishers therefore kept roughly ... of network-sold impression money"
+  }
+ ],
+ "edges": [
+  {
+   "from": "DoubleClick Media",
+   "type": "HAS_TAKE_RATE",
+   "to": "DoubleClick Media gross margin on network ad sales",
+   "clause": "gross margin in ..., ... and ..."
+  },
+  {
+   "from": "DoubleClick Media gross margin on network ad sales",
+   "type": "EXCLUDES",
+   "to": "publisher advance write-off",
+   "clause": "excluding a one-off publisher-advance write-off"
+  },
+  {
+   "from": "DoubleClick Media",
+   "type": "COST_COMPOSED_OF",
+   "to": "service fees paid to web publishers",
+   "clause": "cost of revenue was mostly service fees paid to web publishers"
+  },
+  {
+   "from": "publishers' retained share of network-sold impression money",
+   "type": "DERIVED_FROM",
+   "to": "DoubleClick Media gross margin on network ad sales",
+   "clause": "Publishers therefore kept roughly ... of network-sold impression money"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|DoubleClick Media|company|DoubleClick Media\nNODE|DoubleClick Media gross margin on network ad sales|take-rate measurement|the ad network's effective take rate\nNODE|publisher advance write-off|one-off expense|a one-off publisher-advance write-off\nNODE|service fees paid to web publishers|cost component|cost of revenue was mostly service fees paid to web publishers\nNODE|publishers' retained share of network-sold impression money|percentage measurement|Publishers therefore kept roughly ... of network-sold impression money\nEDGE|DoubleClick Media|HAS_TAKE_RATE|DoubleClick Media gross margin on network ad sales|gross margin in ..., ... and ...\nEDGE|DoubleClick Media gross margin on network ad sales|EXCLUDES|publisher advance write-off|excluding a one-off publisher-advance write-off\nEDGE|DoubleClick Media|COST_COMPOSED_OF|service fees paid to web publishers|cost of revenue was mostly service fees paid to web publishers\nEDGE|publishers' retained share of network-sold impression money|DERIVED_FROM|DoubleClick Media gross margin on network ad sales|Publishers therefore kept roughly ... of network-sold impression money"
+}

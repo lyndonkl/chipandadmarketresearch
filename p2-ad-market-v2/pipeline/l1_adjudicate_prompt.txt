@@ -1,0 +1,109 @@
+ROLE
+You build one rung of an ABSTRACTION LADDER over a knowledge graph about the history of the US
+advertising market. You are given a GROUP of lower-layer nodes that a clustering step judged related.
+Your job: define the PARENT META NODES one level up that describe these nodes at a higher level of
+abstraction. Each parent is a NEW node that points DOWN to its children; the children are never
+changed, moved, or deleted. You are not merging anything — you are naming higher-level concepts and
+saying which nodes sit beneath each. You choose the name of every parent.
+
+WHAT A PARENT META NODE IS
+A parent groups children that are THE SAME THING AT A HIGHER LEVEL. The details that distinguish the
+children — the exact YEAR, the reporting SOURCE/series, the exact WORDING and TYPE label — are
+abstracted away at the parent and kept on the children below. Climb down and the specifics are still
+there.
+- Children "Google revenue 2004" and "Google revenue 2007" -> ONE parent "Google revenue". The years
+  live on the children; the parent is the year-free concept.
+- Forty nodes all naming the company Google, typed company / organization / internet company -> ONE
+  parent "Google".
+- Newspaper national-brand advertising spend for 1935, 1936, ... 1978, from one or several compilers
+  -> ONE parent "newspaper national-brand advertising spend"; each year and source is a child.
+
+WHAT YOU SEE
+Each node is listed as: [idx] name | type | grain | origin | facts. You see the full node, including
+the number on a measurement. GRAIN is given explicitly: Entity, Measurement, or Dimension. Read the
+properties, not just the name; the TYPE label is what one reader happened to pick and is weak evidence.
+
+NODE CLASS — the one hard rule
+A parent keeps its children's node class. An Entity/Dimension parent has only Entity/Dimension
+children; a Measurement parent has only Measurement children. A measurement ABOUT Google — "Google
+revenue" — is a different node from the entity "Google". NEVER put a Measurement under a non-measurement
+parent. (An Entity and a Dimension that denote the same thing DO belong together — the claim medium
+"direct mail" and the money-graph dimension "direct mail" share a parent; that is how the money numbers
+join the claims.)
+
+WHAT SHARES A PARENT
+- Same ENTITY, however typed or spelled -> one parent (all "Google"; "Overture"; the medium
+  "newspapers" across its type labels).
+- Same MEASURE = same (SUBJECT, QUANTITY, BREAKDOWN), abstracting away YEAR and SOURCE -> one parent
+  ("Google revenue" across years and sources; "newspaper national-brand spend" across all years).
+
+WHAT STAYS UNDER DIFFERENT PARENTS
+- Different QUANTITY about one subject: newspaper spend vs newspaper circulation vs newspaper count.
+- Different BREAKDOWN: newspaper TOTAL spend vs NATIONAL-BRAND spend vs LOCAL-RETAIL spend -> three
+  parents. A total and a component are different measures, even though the components sum to the total.
+- WHOLE vs SUBSET: "US advertising spend" (the whole market) vs "US internet advertising revenue" (a
+  segment). A narrowing word — internet, digital, national, local, search — marks a subset, never a
+  wording variant, and is never abstracted away.
+- Different ENTITY kind: the medium "newspapers", the market "newspaper advertising", the ad inventory
+  "newspaper space", the outlet "newspaper", the group "US newspapers" are different things.
+
+DON'T FORCE IT. The clustering only proposed this group; you decide. If a node shares no higher concept
+with the rest, give it its OWN parent — a singleton, which is normal and expected. A missed grouping is
+safe (the next rung up can still catch it). A WRONG grouping — two genuinely different things under one
+parent — corrupts every layer above. So when unsure, give a node its own parent. Split is the safe default.
+
+PROCEDURE
+1. Read every node; name to yourself the real thing it denotes and note its grain.
+2. Split the group by node class first: Measurement vs Entity/Dimension. Never open a parent spanning both.
+3. Within each class, form parents: gather children that share the same higher concept (same entity, or
+   same subject+quantity+breakdown with year and source abstracted away).
+4. Name each parent from MEANING — a clean canonical concept name, never a verbatim sentence fragment
+   and never a bare year. Give it a TYPE (the kind of concept) and the GRAIN (Entity or Measurement).
+5. Assign every node's idx to exactly one parent. A lone node is its own singleton parent.
+6. Think privately, then print ONLY the output lines.
+
+OUTPUT — line-based pipe, nothing else
+For each parent, print one GROUP line, then one MEMBER line per child:
+  GROUP|<gid>|<parent_name>|<parent_type>|<grain>|<reason, at most 14 words>
+  MEMBER|<gid>|<idx>
+- <gid> is G1, G2, G3, ... in order. <grain> is Entity or Measurement.
+- <idx> is the [n] of the node; copy it exactly; never invent, drop, or renumber.
+- Every node's idx appears in exactly one MEMBER line.
+- A singleton is a GROUP with one MEMBER; begin its reason with "singleton: ".
+- No JSON, no prose, no headers, no blank lines, and no "|" inside any field. First character is "G".
+
+WORKED EXAMPLE A — one entity across type labels (a "google" group)
+INPUT
+[1] Google | technology company | Entity | e5-pricing-005 |
+[2] Google | company | Entity | e6-events-001 |
+[3] Google | organization | Entity | e6-events-005 |
+[4] Alphabet | holding company | Entity | e7-sellers-002 |
+[5] Google revenue | revenue measurement | Measurement | e6-scale-002 | central=... ; year=2006
+OUTPUT
+GROUP|G1|Google|technology company|Entity|one firm across type labels; Alphabet is its parent company kept together
+MEMBER|G1|1
+MEMBER|G1|2
+MEMBER|G1|3
+MEMBER|G1|4
+GROUP|G2|Google revenue|revenue measurement|Measurement|singleton: a measure about Google, not the entity itself
+MEMBER|G2|5
+
+WORKED EXAMPLE B — abstract a measure over year and source, but keep breakdowns apart (newspaper spend)
+INPUT
+[1] newspapers advertising spend (national_brand) | ad-spend measurement | Measurement | adspend:coen_mce | year=1935; value=148
+[2] newspapers advertising spend (national_brand) | ad-spend measurement | Measurement | adspend:coen_mce | year=1978; value=1541
+[3] newspapers advertising spend (national_brand) | ad-spend measurement | Measurement | adspend:naa_newspaper | year=1978; value=1541
+[4] newspapers advertising spend (local_retail) | ad-spend measurement | Measurement | adspend:coen_mce | year=1935; value=613
+[5] newspapers advertising spend | ad-spend measurement | Measurement | adspend:coen_mce | year=1935; value=761
+OUTPUT
+GROUP|G1|Newspaper national-brand advertising spend|ad-spend measurement|Measurement|one measure across years and sources; year and compiler abstracted to children
+MEMBER|G1|1
+MEMBER|G1|2
+MEMBER|G1|3
+GROUP|G2|Newspaper local-retail advertising spend|ad-spend measurement|Measurement|a different breakdown; national and local are distinct measures
+MEMBER|G2|4
+GROUP|G3|Newspaper total advertising spend|ad-spend measurement|Measurement|the total is a distinct measure from its components
+MEMBER|G3|5
+
+NOW BUILD THE PARENT META NODES FOR THIS GROUP
+{PILE}

@@ -1,0 +1,27 @@
+{
+ "group_id": "L1|82b423abf66c8b3e",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Inference cost per answer",
+   "type": "inference-cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique inference cost measure",
+   "child_uids": [
+    "n|e7-unit_econ-004|inference cost per answer|inference-cost measurement"
+   ]
+  },
+  {
+   "name": "List-price cost per answer",
+   "type": "list-price cost measurement",
+   "grain": "Measurement",
+   "reason": "same subject quantity breakdown across years and sources",
+   "child_uids": [
+    "n|e7-unit_econ-005|answer list-price cost|price measurement",
+    "n|e7-unit_econ-006|list-price cost of ai answer unit|cost measurement",
+    "n|e7-unit_econ-007|cheapest model list-price cost per answer|cost measurement"
+   ]
+  }
+ ]
+}

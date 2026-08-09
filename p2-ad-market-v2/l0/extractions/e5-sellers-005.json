@@ -1,0 +1,154 @@
+{
+ "id": "e5-sellers-005",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "percent of revenue paid to distribution partners",
+ "elapsed_s": 83.1,
+ "error": null,
+ "n_nodes": 14,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture"
+  },
+  {
+   "name": "revenue",
+   "type": "financial metric",
+   "clause": "revenue"
+  },
+  {
+   "name": "distribution layer",
+   "type": "supply-chain tier",
+   "clause": "the distribution layer"
+  },
+  {
+   "name": "traffic acquisition cost share of revenue",
+   "type": "take-rate measurement",
+   "clause": "Overture's traffic acquisition cost as a share of revenue"
+  },
+  {
+   "name": "Overture traffic",
+   "type": "ad traffic volume",
+   "clause": "Overture's traffic"
+  },
+  {
+   "name": "affiliates",
+   "type": "traffic source",
+   "clause": "affiliates"
+  },
+  {
+   "name": "affiliate traffic",
+   "type": "ad traffic volume",
+   "clause": "traffic from affiliates"
+  },
+  {
+   "name": "affiliate traffic share",
+   "type": "media-share measurement",
+   "clause": "More than ... of Overture's Q4 ... traffic came from affiliates"
+  },
+  {
+   "name": "portals",
+   "type": "traffic channel",
+   "clause": "portals"
+  },
+  {
+   "name": "browsers",
+   "type": "traffic channel",
+   "clause": "browsers"
+  },
+  {
+   "name": "other sources",
+   "type": "traffic channel",
+   "clause": "other"
+  },
+  {
+   "name": "portal source share of affiliate traffic",
+   "type": "media-share measurement",
+   "clause": "... portals of affiliate traffic"
+  },
+  {
+   "name": "browser source share of affiliate traffic",
+   "type": "media-share measurement",
+   "clause": "... browsers of affiliate traffic"
+  },
+  {
+   "name": "other source share of affiliate traffic",
+   "type": "media-share measurement",
+   "clause": "... other of affiliate traffic"
+  }
+ ],
+ "edges": [
+  {
+   "from": "traffic acquisition cost share of revenue",
+   "type": "SHARE_OF",
+   "to": "revenue",
+   "clause": "as a share of revenue"
+  },
+  {
+   "from": "traffic acquisition cost share of revenue",
+   "type": "IS_TAKE_OF",
+   "to": "distribution layer",
+   "clause": "the distribution layer's take"
+  },
+  {
+   "from": "affiliate traffic",
+   "type": "PART_OF",
+   "to": "Overture traffic",
+   "clause": "traffic from affiliates"
+  },
+  {
+   "from": "affiliate traffic share",
+   "type": "SHARE_OF",
+   "to": "Overture traffic",
+   "clause": "share of Overture traffic came from affiliates"
+  },
+  {
+   "from": "affiliate traffic share",
+   "type": "FROM_SOURCE",
+   "to": "affiliates",
+   "clause": "came from affiliates"
+  },
+  {
+   "from": "portal source share of affiliate traffic",
+   "type": "SHARE_OF",
+   "to": "affiliate traffic",
+   "clause": "... portals"
+  },
+  {
+   "from": "portal source share of affiliate traffic",
+   "type": "FROM_SOURCE",
+   "to": "portals",
+   "clause": "... portals"
+  },
+  {
+   "from": "browser source share of affiliate traffic",
+   "type": "SHARE_OF",
+   "to": "affiliate traffic",
+   "clause": "... browsers"
+  },
+  {
+   "from": "browser source share of affiliate traffic",
+   "type": "FROM_SOURCE",
+   "to": "browsers",
+   "clause": "... browsers"
+  },
+  {
+   "from": "other source share of affiliate traffic",
+   "type": "SHARE_OF",
+   "to": "affiliate traffic",
+   "clause": "... other"
+  },
+  {
+   "from": "other source share of affiliate traffic",
+   "type": "FROM_SOURCE",
+   "to": "other sources",
+   "clause": "... other"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|company|Overture\nNODE|revenue|financial metric|revenue\nNODE|distribution layer|supply-chain tier|the distribution layer\nNODE|traffic acquisition cost share of revenue|take-rate measurement|Overture's traffic acquisition cost as a share of revenue\nNODE|Overture traffic|ad traffic volume|Overture's traffic\nNODE|affiliates|traffic source|affiliates\nNODE|affiliate traffic|ad traffic volume|traffic from affiliates\nNODE|affiliate traffic share|media-share measurement|More than ... of Overture's Q4 ... traffic came from affiliates\nNODE|portals|traffic channel|portals\nNODE|browsers|traffic channel|browsers\nNODE|other sources|traffic channel|other\nNODE|portal source share of affiliate traffic|media-share measurement|... portals of affiliate traffic\nNODE|browser source share of affiliate traffic|media-share measurement|... browsers of affiliate traffic\nNODE|other source share of affiliate traffic|media-share measurement|... other of affiliate traffic\nEDGE|traffic acquisition cost share of revenue|SHARE_OF|revenue|as a share of revenue\nEDGE|traffic acquisition cost share of revenue|IS_TAKE_OF|distribution layer|the distribution layer's take\nEDGE|affiliate traffic|PART_OF|Overture traffic|traffic from affiliates\nEDGE|affiliate traffic share|SHARE_OF|Overture traffic|share of Overture traffic came from affiliates\nEDGE|affiliate traffic share|FROM_SOURCE|affiliates|came from affiliates\nEDGE|portal source share of affiliate traffic|SHARE_OF|affiliate traffic|... portals\nEDGE|portal source share of affiliate traffic|FROM_SOURCE|portals|... portals\nEDGE|browser source share of affiliate traffic|SHARE_OF|affiliate traffic|... browsers\nEDGE|browser source share of affiliate traffic|FROM_SOURCE|browsers|... browsers\nEDGE|other source share of affiliate traffic|SHARE_OF|affiliate traffic|... other\nEDGE|other source share of affiliate traffic|FROM_SOURCE|other sources|... other"
+}

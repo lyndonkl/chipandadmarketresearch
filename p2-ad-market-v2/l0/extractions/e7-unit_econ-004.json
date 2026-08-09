@@ -1,0 +1,78 @@
+{
+ "id": "e7-unit_econ-004",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2023,
+ "unit": "USD of inference cost per AI-generated answer, 2023",
+ "elapsed_s": 63.6,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "cheapest GPT-4-quality model",
+   "type": "ai language model variant",
+   "clause": "the cheapest generally available model of GPT-4 quality"
+  },
+  {
+   "name": "GPT-4",
+   "type": "ai language model",
+   "clause": "model of GPT-4 quality"
+  },
+  {
+   "name": "inference cost per answer",
+   "type": "inference-cost measurement",
+   "clause": "cost about ... to produce one answer"
+  },
+  {
+   "name": "advertising revenue per Google search query",
+   "type": "ad-revenue measurement",
+   "clause": "advertising revenue of a Google search query"
+  },
+  {
+   "name": "Google search query",
+   "type": "search query",
+   "clause": "Google search query"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google"
+  }
+ ],
+ "edges": [
+  {
+   "from": "cheapest GPT-4-quality model",
+   "type": "HAS_COST_MEASUREMENT",
+   "to": "inference cost per answer",
+   "clause": "cost about ... to produce one answer"
+  },
+  {
+   "from": "inference cost per answer",
+   "type": "APPROX_EQUAL_TO",
+   "to": "advertising revenue per Google search query",
+   "clause": "roughly the entire advertising revenue of a Google search query"
+  },
+  {
+   "from": "advertising revenue per Google search query",
+   "type": "MEASURES",
+   "to": "Google search query",
+   "clause": "advertising revenue of a Google search query"
+  },
+  {
+   "from": "Google",
+   "type": "GENERATES",
+   "to": "Google search query",
+   "clause": "Google search query"
+  },
+  {
+   "from": "cheapest GPT-4-quality model",
+   "type": "DERIVED_FROM",
+   "to": "GPT-4",
+   "clause": "model of GPT-4 quality"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|cheapest GPT-4-quality model|ai language model variant|the cheapest generally available model of GPT-4 quality\nNODE|GPT-4|ai language model|model of GPT-4 quality\nNODE|inference cost per answer|inference-cost measurement|cost about ... to produce one answer\nNODE|advertising revenue per Google search query|ad-revenue measurement|advertising revenue of a Google search query\nNODE|Google search query|search query|Google search query\nNODE|Google|technology company|Google\nEDGE|cheapest GPT-4-quality model|HAS_COST_MEASUREMENT|inference cost per answer|cost about ... to produce one answer\nEDGE|inference cost per answer|APPROX_EQUAL_TO|advertising revenue per Google search query|roughly the entire advertising revenue of a Google search query\nEDGE|advertising revenue per Google search query|MEASURES|Google search query|advertising revenue of a Google search query\nEDGE|Google|GENERATES|Google search query|Google search query\nEDGE|cheapest GPT-4-quality model|DERIVED_FROM|GPT-4|model of GPT-4 quality"
+}

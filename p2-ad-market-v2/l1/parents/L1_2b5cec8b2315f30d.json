@@ -1,0 +1,77 @@
+{
+ "group_id": "L1|2b5cec8b2315f30d",
+ "source": "kmeans",
+ "n_in": 14,
+ "parents": [
+  {
+   "name": "Share price per share",
+   "type": "price-per-share measurement",
+   "grain": "Measurement",
+   "reason": "same price per share measure across years and sources",
+   "child_uids": [
+    "n|e4-creators-008|share price per share measurement|price-per-share measurement",
+    "n|e4-creators-009|price per share cash|share price measurement",
+    "n|e6-events-005|ipo price per share|price measurement"
+   ]
+  },
+  {
+   "name": "Share count",
+   "type": "share count measurement",
+   "grain": "Measurement",
+   "reason": "identical share-count measure abstracted over year and source",
+   "child_uids": [
+    "n|e4-creators-008|share count measurement|share count measurement",
+    "n|e6-events-005|ipo total share count|share-count measurement",
+    "n|mech-aol-005|remaining shares sold in 2005|share count measurement"
+   ]
+  },
+  {
+   "name": "Hostile tender value",
+   "type": "tender value measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct hostile tender valuation measure",
+   "child_uids": [
+    "n|e4-creators-008|hostile tender value measurement|tender value measurement"
+   ]
+  },
+  {
+   "name": "Deal valuation",
+   "type": "monetary valuation measurement",
+   "grain": "Measurement",
+   "reason": "same deal merger valuation across events and years",
+   "child_uids": [
+    "n|e5-events-006|announced merger value measurement|monetary valuation measurement",
+    "n|tu:era:5:event:5|deal valuation measurement|monetary value measurement"
+   ]
+  },
+  {
+   "name": "Combined entity valuation",
+   "type": "monetary valuation measurement",
+   "grain": "Measurement",
+   "reason": "identical combined entity valuation abstracting source and year",
+   "child_uids": [
+    "n|e5-events-006|combined entity valuation measurement|monetary valuation measurement",
+    "n|e5-events-006|history.com stock and debt measurement|monetary valuation measurement"
+   ]
+  },
+  {
+   "name": "Share valuation",
+   "type": "share valuation measurement",
+   "grain": "Measurement",
+   "reason": "same share valuation measure across contexts and years",
+   "child_uids": [
+    "n|e6-events-005|share valuation amount|financial measurement",
+    "n|tu:era:6:event:4|value of issued shares|share valuation measurement"
+   ]
+  },
+  {
+   "name": "Scatter inventory value",
+   "type": "value measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique inventory value measure",
+   "child_uids": [
+    "n|tu:era:4:event:8|scatter inventory value|value measurement"
+   ]
+  }
+ ]
+}

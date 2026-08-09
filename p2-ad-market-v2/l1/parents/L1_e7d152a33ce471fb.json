@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|e7d152a33ce471fb",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Quantity being priced",
+   "type": "priced quantity",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity about priced quantity",
+   "child_uids": [
+    "n|e1-measurement-004|quantity being priced|priced quantity"
+   ]
+  },
+  {
+   "name": "Auction tunings",
+   "type": "price adjustment set",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity about price adjustment sets",
+   "child_uids": [
+    "n|e7-pricing-003|auction tunings|price adjustment set"
+   ]
+  },
+  {
+   "name": "Price decline pattern of 2010s",
+   "type": "historical pricing trend",
+   "grain": "Entity",
+   "reason": "singleton: specific historical pricing trend",
+   "child_uids": [
+    "n|e7-pricing-007|price decline pattern of 2010s|historical pricing trend"
+   ]
+  },
+  {
+   "name": "Price falling",
+   "type": "trend",
+   "grain": "Entity",
+   "reason": "singleton: generic price fall trend",
+   "child_uids": [
+    "n|e7-unit_econ-007|price falling|trend"
+   ]
+  },
+  {
+   "name": "Price rising",
+   "type": "trend",
+   "grain": "Entity",
+   "reason": "singleton: generic price rise trend",
+   "child_uids": [
+    "n|e7-unit_econ-007|price rising|trend"
+   ]
+  },
+  {
+   "name": "Faster repricing",
+   "type": "pricing adjustment process",
+   "grain": "Entity",
+   "reason": "singleton: distinct pricing adjustment process",
+   "child_uids": [
+    "n|tu:era:3:event:9|faster repricing|pricing adjustment process"
+   ]
+  }
+ ]
+}

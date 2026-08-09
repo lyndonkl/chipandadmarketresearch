@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|497898071468f509",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Newspaper advertising share of gross income",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years; year abstracted to children",
+   "child_uids": [
+    "n|tu:era:1:field:SELLERS|advertising share of newspaper gross income|media-share measurement",
+    "n|tu:era:3:boundary|newspaper media share (1972-1978)|media share measurement"
+   ]
+  },
+  {
+   "name": "Classified share of newspaper revenue",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct breakdown from advertising share",
+   "child_uids": [
+    "n|tu:era:3:field:MEDIUM|classified share of newspaper revenue|share measurement"
+   ]
+  },
+  {
+   "name": "Newspaper advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: single year-specific revenue amount",
+   "child_uids": [
+    "n|tu:era:3:field:SELLERS|newspaper advertising revenue 1975|revenue measurement"
+   ]
+  },
+  {
+   "name": "Newspaper advertising revenue peak",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: peak value of advertising revenue",
+   "child_uids": [
+    "n|tu:era:5:field:MEDIUM|newspaper advertising revenue peak|spend measurement"
+   ]
+  },
+  {
+   "name": "Newspaper classified advertising revenue",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: classified ad revenue measure",
+   "child_uids": [
+    "n|tu:era:5:field:MEDIUM|newspaper classified advertising revenue|spend measurement"
+   ]
+  },
+  {
+   "name": "Classified newspaper revenue (first hard split)",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific 1950 classified revenue amount",
+   "child_uids": [
+    "n|tu:era:2:boundary|first hard split classified 1950 amount|revenue measurement"
+   ]
+  }
+ ]
+}

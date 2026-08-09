@@ -1,0 +1,50 @@
+{
+ "id": "e1-scale-001",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1867,
+ "unit": "USD millions (current)",
+ "elapsed_s": 44.4,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "total US advertising volume",
+   "type": "advertising spend aggregate",
+   "clause": "Total US advertising volume in 1867"
+  },
+  {
+   "name": "US advertising volume estimate",
+   "type": "spend measurement",
+   "clause": "is estimated at ..."
+  },
+  {
+   "name": "United States",
+   "type": "nation",
+   "clause": "for the United States"
+  },
+  {
+   "name": "earliest quantitative benchmark for United States",
+   "type": "benchmark",
+   "clause": "the earliest quantitative benchmark that exists for the United States"
+  }
+ ],
+ "edges": [
+  {
+   "from": "total US advertising volume",
+   "type": "HAS_ESTIMATE",
+   "to": "US advertising volume estimate",
+   "clause": "is estimated at ..."
+  },
+  {
+   "from": "total US advertising volume",
+   "type": "EARLIEST_BENCHMARK_FOR",
+   "to": "United States",
+   "clause": "the earliest quantitative benchmark that exists for the United States"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|total US advertising volume|advertising spend aggregate|Total US advertising volume in 1867\nNODE|US advertising volume estimate|spend measurement|is estimated at ...\nNODE|United States|nation|for the United States\nNODE|earliest quantitative benchmark for United States|benchmark|the earliest quantitative benchmark that exists for the United States\nEDGE|total US advertising volume|HAS_ESTIMATE|US advertising volume estimate|is estimated at ...\nEDGE|total US advertising volume|EARLIEST_BENCHMARK_FOR|United States|the earliest quantitative benchmark that exists for the United States"
+}

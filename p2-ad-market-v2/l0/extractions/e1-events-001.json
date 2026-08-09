@@ -1,0 +1,78 @@
+{
+ "id": "e1-events-001",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1835,
+ "unit": "copies per day",
+ "elapsed_s": 60.3,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "New York Sun",
+   "type": "newspaper",
+   "clause": "the New York Sun"
+  },
+  {
+   "name": "New York Sun price per copy",
+   "type": "price measurement",
+   "clause": "sold at one cent"
+  },
+  {
+   "name": "New York Sun daily circulation",
+   "type": "circulation measurement",
+   "clause": "reached ... copies a day"
+  },
+  {
+   "name": "New York Sun launch",
+   "type": "launch event",
+   "clause": "its 1833 launch"
+  },
+  {
+   "name": "price per copy",
+   "type": "pricing unit",
+   "clause": "price per copy"
+  },
+  {
+   "name": "copies per day",
+   "type": "circulation unit",
+   "clause": "copies per day"
+  }
+ ],
+ "edges": [
+  {
+   "from": "New York Sun",
+   "type": "HAS_PRICE",
+   "to": "New York Sun price per copy",
+   "clause": "sold at ..."
+  },
+  {
+   "from": "New York Sun price per copy",
+   "type": "MEASURES",
+   "to": "price per copy",
+   "clause": "measurement of price per copy"
+  },
+  {
+   "from": "New York Sun",
+   "type": "REACHED",
+   "to": "New York Sun daily circulation",
+   "clause": "reached ... copies a day"
+  },
+  {
+   "from": "New York Sun daily circulation",
+   "type": "MEASURES",
+   "to": "copies per day",
+   "clause": "measurement of copies per day"
+  },
+  {
+   "from": "New York Sun daily circulation",
+   "type": "SCOPED_WITHIN",
+   "to": "New York Sun launch",
+   "clause": "within ... years of its launch"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|New York Sun|newspaper|the New York Sun\nNODE|New York Sun price per copy|price measurement|sold at one cent\nNODE|New York Sun daily circulation|circulation measurement|reached ... copies a day\nNODE|New York Sun launch|launch event|its 1833 launch\nNODE|price per copy|pricing unit|price per copy\nNODE|copies per day|circulation unit|copies per day\nEDGE|New York Sun|HAS_PRICE|New York Sun price per copy|sold at ...\nEDGE|New York Sun price per copy|MEASURES|price per copy|measurement of price per copy\nEDGE|New York Sun|REACHED|New York Sun daily circulation|reached ... copies a day\nEDGE|New York Sun daily circulation|MEASURES|copies per day|measurement of copies per day\nEDGE|New York Sun daily circulation|SCOPED_WITHIN|New York Sun launch|within ... years of its launch"
+}

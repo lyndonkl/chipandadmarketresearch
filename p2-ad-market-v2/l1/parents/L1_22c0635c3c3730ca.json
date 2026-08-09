@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|22c0635c3c3730ca",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Subscriptions and sales",
+   "type": "non-advertising revenue source",
+   "grain": "Entity",
+   "reason": "singleton: distinct revenue source category from 1914",
+   "child_uids": [
+    "n|e1-sellers-003|subscriptions and sales|non-advertising revenue source"
+   ]
+  },
+  {
+   "name": "Basic subscription service",
+   "type": "revenue source",
+   "grain": "Entity",
+   "reason": "singleton: specific subscription offering, separate entity",
+   "child_uids": [
+    "n|e4-sellers-003|basic subscription service|revenue source"
+   ]
+  },
+  {
+   "name": "Subscribers",
+   "type": "subscriber base",
+   "grain": "Entity",
+   "reason": "singleton: the subscriber population as a distinct entity",
+   "child_uids": [
+    "n|e4-sellers-003|subscribers|subscriber base"
+   ]
+  },
+  {
+   "name": "Major revenue line",
+   "type": "revenue source",
+   "grain": "Entity",
+   "reason": "singleton: generic major revenue category, no direct peers here",
+   "child_uids": [
+    "n|tu:era:1:event:4|major revenue line|revenue source"
+   ]
+  }
+ ]
+}

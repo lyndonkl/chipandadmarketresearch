@@ -1,0 +1,187 @@
+{
+ "id": "tu:era:7:event:8",
+ "kind": "prose:event",
+ "era": 7,
+ "about_year": 2024,
+ "unit": null,
+ "elapsed_s": 97.2,
+ "error": null,
+ "n_nodes": 17,
+ "n_edges": 14,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "the court found Google held ..."
+  },
+  {
+   "name": "court",
+   "type": "legal body",
+   "clause": "the court found Google held ..."
+  },
+  {
+   "name": "US general search queries",
+   "type": "search query pool",
+   "clause": "held ... of US general search queries"
+  },
+  {
+   "name": "general search text advertising",
+   "type": "advertising inventory",
+   "clause": "held ... of general search text advertising"
+  },
+  {
+   "name": "Google share of US general search queries",
+   "type": "share measurement",
+   "clause": "Google held ... of US general search queries"
+  },
+  {
+   "name": "Google share of general search text advertising",
+   "type": "share measurement",
+   "clause": "Google held ... of general search text advertising"
+  },
+  {
+   "name": "supracompetitive price for text ads",
+   "type": "pricing practice",
+   "clause": "charged supracompetitive prices for text ads"
+  },
+  {
+   "name": "remedies opinion",
+   "type": "legal opinion",
+   "clause": "the remedies opinion declined to order a Chrome divestiture but barred exclusive default contracts and required data sharing with qualified competitors"
+  },
+  {
+   "name": "Chrome",
+   "type": "web browser product",
+   "clause": "Chrome divestiture"
+  },
+  {
+   "name": "exclusive default contracts",
+   "type": "contract type",
+   "clause": "exclusive default contracts"
+  },
+  {
+   "name": "data sharing with qualified competitors",
+   "type": "data-sharing requirement",
+   "clause": "data sharing with qualified competitors"
+  },
+  {
+   "name": "Mehta",
+   "type": "person",
+   "clause": "Mehta wrote that generative AI had changed the course of the case"
+  },
+  {
+   "name": "generative AI",
+   "type": "technology",
+   "clause": "generative AI had changed the course of the case"
+  },
+  {
+   "name": "court case",
+   "type": "legal proceeding",
+   "clause": "the course of the case"
+  },
+  {
+   "name": "Judge Brinkema",
+   "type": "judge",
+   "clause": "Judge Brinkema found Google monopolised markets"
+  },
+  {
+   "name": "open-web publisher ad server market",
+   "type": "advertising market",
+   "clause": "open-web publisher ad server market"
+  },
+  {
+   "name": "ad exchange market",
+   "type": "advertising market",
+   "clause": "ad exchange market"
+  }
+ ],
+ "edges": [
+  {
+   "from": "court",
+   "type": "FOUND",
+   "to": "Google share of US general search queries",
+   "clause": "found Google held ... of US general search queries"
+  },
+  {
+   "from": "court",
+   "type": "FOUND",
+   "to": "Google share of general search text advertising",
+   "clause": "found Google held ... of general search text advertising"
+  },
+  {
+   "from": "Google",
+   "type": "HAS_SHARE",
+   "to": "Google share of US general search queries",
+   "clause": "held ..."
+  },
+  {
+   "from": "Google",
+   "type": "HAS_SHARE",
+   "to": "Google share of general search text advertising",
+   "clause": "held ..."
+  },
+  {
+   "from": "Google share of US general search queries",
+   "type": "SHARE_OF",
+   "to": "US general search queries",
+   "clause": "... of US general search queries"
+  },
+  {
+   "from": "Google share of general search text advertising",
+   "type": "SHARE_OF",
+   "to": "general search text advertising",
+   "clause": "... of general search text advertising"
+  },
+  {
+   "from": "Google",
+   "type": "CHARGED",
+   "to": "supracompetitive price for text ads",
+   "clause": "charged supracompetitive prices for text ads"
+  },
+  {
+   "from": "remedies opinion",
+   "type": "DECLINED_TO_ORDER",
+   "to": "Chrome",
+   "clause": "declined to order a Chrome divestiture"
+  },
+  {
+   "from": "remedies opinion",
+   "type": "BARRED",
+   "to": "exclusive default contracts",
+   "clause": "barred exclusive default contracts"
+  },
+  {
+   "from": "remedies opinion",
+   "type": "REQUIRED",
+   "to": "data sharing with qualified competitors",
+   "clause": "required data sharing with qualified competitors"
+  },
+  {
+   "from": "Mehta",
+   "type": "WROTE",
+   "to": "generative AI",
+   "clause": "wrote that generative AI had changed the course of the case"
+  },
+  {
+   "from": "generative AI",
+   "type": "CHANGED_COURSE_OF",
+   "to": "court case",
+   "clause": "changed the course of the case"
+  },
+  {
+   "from": "Google",
+   "type": "MONOPOLIZED",
+   "to": "open-web publisher ad server market",
+   "clause": "Judge Brinkema found Google monopolised the open-web publisher ad server market"
+  },
+  {
+   "from": "Google",
+   "type": "MONOPOLIZED",
+   "to": "ad exchange market",
+   "clause": "Judge Brinkema found Google monopolised the ad exchange markets"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|the court found Google held ...\nNODE|court|legal body|the court found Google held ...\nNODE|US general search queries|search query pool|held ... of US general search queries\nNODE|general search text advertising|advertising inventory|held ... of general search text advertising\nNODE|Google share of US general search queries|share measurement|Google held ... of US general search queries\nNODE|Google share of general search text advertising|share measurement|Google held ... of general search text advertising\nNODE|supracompetitive price for text ads|pricing practice|charged supracompetitive prices for text ads\nNODE|remedies opinion|legal opinion|the remedies opinion declined to order a Chrome divestiture but barred exclusive default contracts and required data sharing with qualified competitors\nNODE|Chrome|web browser product|Chrome divestiture\nNODE|exclusive default contracts|contract type|exclusive default contracts\n NODE|data sharing with qualified competitors|data-sharing requirement|data sharing with qualified competitors\nNODE|Mehta|person|Mehta wrote that generative AI had changed the course of the case\nNODE|generative AI|technology|generative AI had changed the course of the case\nNODE|court case|legal proceeding|the course of the case\nNODE|Judge Brinkema|judge|Judge Brinkema found Google monopolised markets\nNODE|open-web publisher ad server market|advertising market|open-web publisher ad server market\nNODE|ad exchange market|advertising market|ad exchange market\nEDGE|court|FOUND|Google share of US general search queries|found Google held ... of US general search queries\nEDGE|court|FOUND|Google share of general search text advertising|found Google held ... of general search text advertising\nEDGE|Google|HAS_SHARE|Google share of US general search queries|held ...\nEDGE|Google|HAS_SHARE|Google share of general search text advertising|held ...\nEDGE|Google share of US general search queries|SHARE_OF|US general search queries|... of US general search queries\nEDGE|Google share of general search text advertising|SHARE_OF|general search text advertising|... of general search text advertising\nEDGE|Google|CHARGED|supracompetitive price for text ads|charged supracompetitive prices for text ads\nEDGE|remedies opinion|DECLINED_TO_ORDER|Chrome|declined to order a Chrome divestiture\nEDGE|remedies opinion|BARRED|exclusive default contracts|barred exclusive default contracts\nEDGE|remedies opinion|REQUIRED|data sharing with qualified competitors|required data sharing with qualified competitors\nEDGE|Mehta|WROTE|generative AI|wrote that generative AI had changed the course of the case\nEDGE|generative AI|CHANGED_COURSE_OF|court case|changed the course of the case\nEDGE|Google|MONOPOLIZED|open-web publisher ad server market|Judge Brinkema found Google monopolised the open-web publisher ad server market\nEDGE|Google|MONOPOLIZED|ad exchange market|Judge Brinkema found Google monopolised the ad exchange markets"
+}

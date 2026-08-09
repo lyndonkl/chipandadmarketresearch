@@ -1,0 +1,100 @@
+{
+ "id": "e4-measurement-002",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1987,
+ "unit": "million USD of network children's ad revenue at stake",
+ "elapsed_s": 61.4,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "people meters",
+   "type": "measurement device",
+   "clause": "People meters showed the audience down by at least ... and possibly ..."
+  },
+  {
+   "name": "Saturday-morning children\u2019s audience",
+   "type": "audience",
+   "clause": "Saturday-morning children's audience"
+  },
+  {
+   "name": "children's audience decline measurement",
+   "type": "percentage change measurement",
+   "clause": "audience down by at least ... and possibly ..."
+  },
+  {
+   "name": "three networks",
+   "type": "broadcast network group",
+   "clause": "across the three networks"
+  },
+  {
+   "name": "annual children\u2019s advertising revenue",
+   "type": "revenue amount",
+   "clause": "annual children's advertising revenue"
+  },
+  {
+   "name": "children's advertising revenue measurement",
+   "type": "monetary revenue measurement",
+   "clause": "roughly ... of annual children's advertising revenue"
+  },
+  {
+   "name": "measurement change",
+   "type": "market shift",
+   "clause": "a measurement change that repriced an entire daypart"
+  },
+  {
+   "name": "entire daypart",
+   "type": "advertising daypart",
+   "clause": "entire daypart"
+  }
+ ],
+ "edges": [
+  {
+   "from": "people meters",
+   "type": "SHOWED",
+   "to": "children's audience decline measurement",
+   "clause": "showed audience down by at least ..."
+  },
+  {
+   "from": "children's audience decline measurement",
+   "type": "MEASURES",
+   "to": "Saturday-morning children\u2019s audience",
+   "clause": "audience down by at least ..."
+  },
+  {
+   "from": "children's audience decline measurement",
+   "type": "COMPARED_AGAINST",
+   "to": "children's advertising revenue measurement",
+   "clause": "against roughly ... of revenue"
+  },
+  {
+   "from": "children's advertising revenue measurement",
+   "type": "MEASURES",
+   "to": "annual children\u2019s advertising revenue",
+   "clause": "roughly ... of annual revenue"
+  },
+  {
+   "from": "annual children\u2019s advertising revenue",
+   "type": "ACROSS",
+   "to": "three networks",
+   "clause": "across the three networks"
+  },
+  {
+   "from": "children's audience decline measurement",
+   "type": "LED_TO",
+   "to": "measurement change",
+   "clause": "led to measurement change"
+  },
+  {
+   "from": "measurement change",
+   "type": "REPRICED",
+   "to": "entire daypart",
+   "clause": "repriced an entire daypart"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|people meters|measurement device|People meters showed the audience down by at least ... and possibly ...\nNODE|Saturday-morning children\u2019s audience|audience|Saturday-morning children's audience\nNODE|children's audience decline measurement|percentage change measurement|audience down by at least ... and possibly ...\nNODE|three networks|broadcast network group|across the three networks\nNODE|annual children\u2019s advertising revenue|revenue amount|annual children's advertising revenue\nNODE|children's advertising revenue measurement|monetary revenue measurement|roughly ... of annual children's advertising revenue\nNODE|measurement change|market shift|a measurement change that repriced an entire daypart\nNODE|entire daypart|advertising daypart|entire daypart\nEDGE|people meters|SHOWED|children's audience decline measurement|showed audience down by at least ...\nEDGE|children's audience decline measurement|MEASURES|Saturday-morning children\u2019s audience|audience down by at least ...\nEDGE|children's audience decline measurement|COMPARED_AGAINST|children's advertising revenue measurement|against roughly ... of revenue\nEDGE|children's advertising revenue measurement|MEASURES|annual children\u2019s advertising revenue|roughly ... of annual revenue\nEDGE|annual children\u2019s advertising revenue|ACROSS|three networks|across the three networks\nEDGE|children's audience decline measurement|LED_TO|measurement change|led to measurement change\nEDGE|measurement change|REPRICED|entire daypart|repriced an entire daypart"
+}

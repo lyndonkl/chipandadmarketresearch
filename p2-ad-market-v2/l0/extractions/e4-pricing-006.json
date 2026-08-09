@@ -1,0 +1,89 @@
+{
+ "id": "e4-pricing-006",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "percent of Coen direct-mail spend that is postage",
+ "elapsed_s": 55.1,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "postage",
+   "type": "mail cost component",
+   "clause": "Postage"
+  },
+  {
+   "name": "direct-mail advertising spend",
+   "type": "advertising spend aggregate",
+   "clause": "what the Coen series calls direct-mail advertising spend"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "the Coen series"
+  },
+  {
+   "name": "postage share of direct-mail advertising spend",
+   "type": "share measurement",
+   "clause": "Postage was only ... of direct-mail spend"
+  },
+  {
+   "name": "non-postage components of direct-mail advertising spend",
+   "type": "cost component group",
+   "clause": "the rest was lists, creative, printing and letter-shop work"
+  },
+  {
+   "name": "direct-mail line",
+   "type": "advertising rate-card line",
+   "clause": "direct-mail line not comparable to media rate-card line"
+  },
+  {
+   "name": "network television media rate-card line",
+   "type": "media rate-card line",
+   "clause": "like network television"
+  }
+ ],
+ "edges": [
+  {
+   "from": "postage share of direct-mail advertising spend",
+   "type": "MEASURES",
+   "to": "postage",
+   "clause": "Postage was only ... of direct-mail spend"
+  },
+  {
+   "from": "postage share of direct-mail advertising spend",
+   "type": "SHARE_OF",
+   "to": "direct-mail advertising spend",
+   "clause": "... of what the Coen series calls direct-mail spend"
+  },
+  {
+   "from": "direct-mail advertising spend",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "what the Coen series calls direct-mail spend"
+  },
+  {
+   "from": "direct-mail advertising spend",
+   "type": "HAS_COMPONENT",
+   "to": "postage",
+   "clause": "Postage was only ... of direct-mail spend"
+  },
+  {
+   "from": "direct-mail advertising spend",
+   "type": "INCLUDES",
+   "to": "non-postage components of direct-mail advertising spend",
+   "clause": "the rest was lists, creative, printing and letter-shop work"
+  },
+  {
+   "from": "direct-mail line",
+   "type": "NOT_COMPARABLE",
+   "to": "network television media rate-card line",
+   "clause": "not comparable to network television"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|postage|mail cost component|Postage\nNODE|direct-mail advertising spend|advertising spend aggregate|what the Coen series calls direct-mail advertising spend\nNODE|Coen series|advertising-spend dataset|the Coen series\nNODE|postage share of direct-mail advertising spend|share measurement|Postage was only ... of direct-mail spend\nNODE|non-postage components of direct-mail advertising spend|cost component group|the rest was lists, creative, printing and letter-shop work\nNODE|direct-mail line|advertising rate-card line|direct-mail line not comparable to media rate-card line\nNODE|network television media rate-card line|media rate-card line|like network television\nEDGE|postage share of direct-mail advertising spend|MEASURES|postage|Postage was only ... of direct-mail spend\nEDGE|postage share of direct-mail advertising spend|SHARE_OF|direct-mail advertising spend|... of what the Coen series calls direct-mail spend\nEDGE|direct-mail advertising spend|MEASURED_ON|Coen series|what the Coen series calls direct-mail spend\nEDGE|direct-mail advertising spend|HAS_COMPONENT|postage|Postage was only ... of direct-mail spend\nEDGE|direct-mail advertising spend|INCLUDES|non-postage components of direct-mail advertising spend|the rest was lists, creative, printing and letter-shop work\nEDGE|direct-mail line|NOT_COMPARABLE|network television media rate-card line|not comparable to network television\n\n"
+}

@@ -1,0 +1,34 @@
+{
+ "id": "e3-scale-001",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1950,
+ "unit": "million USD",
+ "elapsed_s": 14.4,
+ "error": null,
+ "n_nodes": 2,
+ "n_edges": 1,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising expenditure",
+   "type": "advertising spend aggregate",
+   "clause": "total US advertising expenditure"
+  },
+  {
+   "name": "total US advertising expenditure amount",
+   "type": "monetary amount measurement",
+   "clause": "... million USD"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising expenditure",
+   "type": "HAS_AMOUNT",
+   "to": "total US advertising expenditure amount",
+   "clause": "was ... million USD"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising expenditure|advertising spend aggregate|total US advertising expenditure\nNODE|total US advertising expenditure amount|monetary amount measurement|... million USD\nEDGE|US advertising expenditure|HAS_AMOUNT|total US advertising expenditure amount|was ... million USD"
+}

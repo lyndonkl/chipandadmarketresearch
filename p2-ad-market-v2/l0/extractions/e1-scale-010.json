@@ -1,0 +1,51 @@
+{
+ "id": "e1-scale-010",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1934,
+ "unit": "ratio, Coen expenditure to Census receipts",
+ "elapsed_s": 44.7,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen newspaper advertising expenditure",
+   "type": "advertiser outlay measurement",
+   "clause": "Coen's newspaper advertising expenditure line runs about ... times ..."
+  },
+  {
+   "name": "Census of Manufactures newspaper advertising receipts",
+   "type": "publisher receipt measurement",
+   "clause": "... Census of Manufactures newspaper advertising receipts for the same year"
+  },
+  {
+   "name": "advertising expenditure to receipt ratio",
+   "type": "ratio measurement",
+   "clause": "Coen's newspaper advertising expenditure line runs about ... times the Census ... receipts"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising expenditure to receipt ratio",
+   "type": "NUMERATOR",
+   "to": "Coen newspaper advertising expenditure",
+   "clause": "ratio of Coen expenditure to Census receipts"
+  },
+  {
+   "from": "advertising expenditure to receipt ratio",
+   "type": "DENOMINATOR",
+   "to": "Census of Manufactures newspaper advertising receipts",
+   "clause": "ratio of Coen expenditure to Census receipts"
+  },
+  {
+   "from": "Coen newspaper advertising expenditure",
+   "type": "WEDGE_BETWEEN",
+   "to": "Census of Manufactures newspaper advertising receipts",
+   "clause": "the documented wedge between advertiser outlay and publisher receipts"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen newspaper advertising expenditure|advertiser outlay measurement|Coen's newspaper advertising expenditure line runs about ... times ...\nNODE|Census of Manufactures newspaper advertising receipts|publisher receipt measurement|... Census of Manufactures newspaper advertising receipts for the same year\nNODE|advertising expenditure to receipt ratio|ratio measurement|Coen's newspaper advertising expenditure line runs about ... times the Census ... receipts\nEDGE|advertising expenditure to receipt ratio|NUMERATOR|Coen newspaper advertising expenditure|ratio of Coen expenditure to Census receipts\nEDGE|advertising expenditure to receipt ratio|DENOMINATOR|Census of Manufactures newspaper advertising receipts|ratio of Coen expenditure to Census receipts\nEDGE|Coen newspaper advertising expenditure|WEDGE_BETWEEN|Census of Manufactures newspaper advertising receipts|the documented wedge between advertiser outlay and publisher receipts"
+}

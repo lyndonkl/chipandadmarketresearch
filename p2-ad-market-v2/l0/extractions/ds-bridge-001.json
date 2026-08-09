@@ -1,0 +1,112 @@
+{
+ "id": "ds-bridge-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2007,
+ "unit": "USD millions (current)",
+ "elapsed_s": 75.8,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "MAGNA",
+   "type": "organization",
+   "clause": "MAGNA's media-supplier-revenue basis"
+  },
+  {
+   "name": "media-supplier-revenue basis",
+   "type": "measurement base",
+   "clause": "MAGNA's media-supplier-revenue basis"
+  },
+  {
+   "name": "US advertising market",
+   "type": "advertising market",
+   "clause": "US advertising was about ..."
+  },
+  {
+   "name": "Coen series",
+   "type": "dataset",
+   "clause": "Coen published figure"
+  },
+  {
+   "name": "US advertising revenue (MAGNA basis)",
+   "type": "amount measurement",
+   "clause": "US advertising was about ..."
+  },
+  {
+   "name": "US advertising revenue (Coen basis)",
+   "type": "amount measurement",
+   "clause": "Coen published figure"
+  },
+  {
+   "name": "advertising level difference",
+   "type": "percentage measurement",
+   "clause": "level difference that is measurement"
+  },
+  {
+   "name": "history",
+   "type": "interpretation",
+   "clause": "measurement not history"
+  }
+ ],
+ "edges": [
+  {
+   "from": "media-supplier-revenue basis",
+   "type": "BELONGS_TO",
+   "to": "MAGNA",
+   "clause": "MAGNA's media-supplier-revenue basis"
+  },
+  {
+   "from": "US advertising revenue (MAGNA basis)",
+   "type": "MEASURES",
+   "to": "US advertising market",
+   "clause": "US advertising was about ..."
+  },
+  {
+   "from": "US advertising revenue (MAGNA basis)",
+   "type": "BASED_ON",
+   "to": "media-supplier-revenue basis",
+   "clause": "Restated onto ... basis"
+  },
+  {
+   "from": "US advertising revenue (Coen basis)",
+   "type": "MEASURES",
+   "to": "US advertising market",
+   "clause": "Coen published figure"
+  },
+  {
+   "from": "US advertising revenue (Coen basis)",
+   "type": "SOURCE_DATASET",
+   "to": "Coen series",
+   "clause": "Coen published ..."
+  },
+  {
+   "from": "US advertising revenue (MAGNA basis)",
+   "type": "INSTEAD_OF",
+   "to": "US advertising revenue (Coen basis)",
+   "clause": "rather than the Coen figure"
+  },
+  {
+   "from": "advertising level difference",
+   "type": "COMPARES_TO",
+   "to": "US advertising revenue (MAGNA basis)",
+   "clause": "level difference that is measurement"
+  },
+  {
+   "from": "advertising level difference",
+   "type": "COMPARES_TO",
+   "to": "US advertising revenue (Coen basis)",
+   "clause": "level difference that is measurement"
+  },
+  {
+   "from": "advertising level difference",
+   "type": "EXCLUDES",
+   "to": "history",
+   "clause": "measurement not history"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|MAGNA|organization|MAGNA's media-supplier-revenue basis\nNODE|media-supplier-revenue basis|measurement base|MAGNA's media-supplier-revenue basis\nNODE|US advertising market|advertising market|US advertising was about ...\nNODE|Coen series|dataset|Coen published figure\nNODE|US advertising revenue (MAGNA basis)|amount measurement|US advertising was about ...\nNODE|US advertising revenue (Coen basis)|amount measurement|Coen published figure\nNODE|advertising level difference|percentage measurement|level difference that is measurement\nNODE|history|interpretation|measurement not history\nEDGE|media-supplier-revenue basis|BELONGS_TO|MAGNA|MAGNA's media-supplier-revenue basis\nEDGE|US advertising revenue (MAGNA basis)|MEASURES|US advertising market|US advertising was about ...\nEDGE|US advertising revenue (MAGNA basis)|BASED_ON|media-supplier-revenue basis|Restated onto ... basis\nEDGE|US advertising revenue (Coen basis)|MEASURES|US advertising market|Coen published figure\nEDGE|US advertising revenue (Coen basis)|SOURCE_DATASET|Coen series|Coen published ...\nEDGE|US advertising revenue (MAGNA basis)|INSTEAD_OF|US advertising revenue (Coen basis)|rather than the Coen figure\nEDGE|advertising level difference|COMPARES_TO|US advertising revenue (MAGNA basis)|level difference that is measurement\nEDGE|advertising level difference|COMPARES_TO|US advertising revenue (Coen basis)|level difference that is measurement\nEDGE|advertising level difference|EXCLUDES|history|measurement not history"
+}

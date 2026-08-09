@@ -1,0 +1,74 @@
+{
+ "group_id": "L1|45216447994719d8",
+ "source": "kmeans",
+ "n_in": 11,
+ "parents": [
+  {
+   "name": "US total advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "total US advertising spend amount across estimates and late figure",
+   "child_uids": [
+    "n|e6-medium-001|total us ad spend|spend measurement",
+    "n|e6-medium-006|iab/pwc estimate measurement|advertising spend measurement",
+    "n|tu:era:6:field:SCALE|late us advertising spending amount|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "US internet advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "US internet advertising spend amount from estimate and reported value",
+   "child_uids": [
+    "n|e6-scale-002|iab and pwc internet advertising estimate|advertising spend measurement",
+    "n|tu:era:5:boundary|us internet advertising spend|media spend measurement"
+   ]
+  },
+  {
+   "name": "US measured-media advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "US measured\u2011media advertising spend amount distinct from total and internet",
+   "child_uids": [
+    "n|e6-scale-006|us measured-media spend amount|monetary amount measurement"
+   ]
+  },
+  {
+   "name": "Internet ad share of US total advertising spend",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "proportion of US total advertising that is internet",
+   "child_uids": [
+    "n|e6-scale-004|internet ad share of us total advertising spending|media-share measurement"
+   ]
+  },
+  {
+   "name": "Search ad share of US total advertising spend",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "proportion of US total advertising that is search",
+   "child_uids": [
+    "n|e6-scale-004|search ad share of us total advertising spending|media-share measurement"
+   ]
+  },
+  {
+   "name": "Direct response advertising share of US ad spend",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "share of US advertising spend that is direct\u2011response",
+   "child_uids": [
+    "n|e6-scale-010|response-priced advertising share|share measurement",
+    "n|tu:era:3:field:BUYERS|direct response advertising share of us ad spend|media-share measurement"
+   ]
+  },
+  {
+   "name": "US share of global advertising spend",
+   "type": "proportion measurement",
+   "grain": "Measurement",
+   "reason": "singleton: US proportion of global advertising spend",
+   "child_uids": [
+    "n|tu:era:3:field:SCALE|us share of global ad spend|proportion measurement"
+   ]
+  }
+ ]
+}

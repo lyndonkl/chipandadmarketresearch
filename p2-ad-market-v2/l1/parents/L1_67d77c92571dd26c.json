@@ -1,0 +1,54 @@
+{
+ "group_id": "L1|67d77c92571dd26c",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Sears annual sales",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "same subject and quantity across years; year abstracted to children",
+   "child_uids": [
+    "n|e1-buyers-003|sears annual sales measurement|revenue measurement",
+    "n|e1-buyers-004|sears annual sales 1906-07|revenue measurement",
+    "n|e1-buyers-004|sears annual sales 1908|revenue measurement"
+   ]
+  },
+  {
+   "name": "Montgomery Ward annual sales",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: a measure about Montgomery Ward annual sales",
+   "child_uids": [
+    "n|e1-buyers-003|montgomery ward annual sales measurement|revenue measurement"
+   ]
+  },
+  {
+   "name": "Annual sales amount",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic annual sales revenue measure",
+   "child_uids": [
+    "n|e1-medium-004|annual sales amount|revenue measurement"
+   ]
+  },
+  {
+   "name": "Sears revenue multiple",
+   "type": "multiple-of-revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: a multiple-of-revenue measure for Sears",
+   "child_uids": [
+    "n|e1-targeting-003|sears revenue multiple|multiple-of-revenue measurement"
+   ]
+  },
+  {
+   "name": "Catalogue-supported annual sales",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: annual sales measure with catalogue support",
+   "child_uids": [
+    "n|tu:era:1:event:2|catalogue-supported annual sales measurement|revenue measurement"
+   ]
+  }
+ ]
+}

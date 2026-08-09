@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|54c1a3220f83aa42",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "US advertising-agency establishments",
+   "type": "establishment aggregate",
+   "grain": "Entity",
+   "reason": "singleton: distinct establishment aggregate concept",
+   "child_uids": [
+    "n|e4-creators-001|us advertising-agency establishments|establishment aggregate"
+   ]
+  },
+  {
+   "name": "US advertising-agency billings",
+   "type": "billing aggregate",
+   "grain": "Entity",
+   "reason": "singleton: distinct billing aggregate concept",
+   "child_uids": [
+    "n|e4-creators-002|us advertising-agency billings|billing aggregate"
+   ]
+  },
+  {
+   "name": "US advertising-agency industry income",
+   "type": "income aggregate",
+   "grain": "Entity",
+   "reason": "same income entity across years; year abstracted to children",
+   "child_uids": [
+    "n|e4-creators-006|us advertising-agency income|aggregate income",
+    "n|e5-creators-002|us advertising\u2011agency industry income|industry income"
+   ]
+  },
+  {
+   "name": "Census enumeration",
+   "type": "government agency",
+   "grain": "Entity",
+   "reason": "singleton: separate government agency entity",
+   "child_uids": [
+    "n|tu:era:1:field:MEDIUM|census enumeration|government agency"
+   ]
+  }
+ ]
+}

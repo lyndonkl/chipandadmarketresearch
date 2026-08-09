@@ -1,0 +1,67 @@
+{
+ "id": "e3-creators-003",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1967,
+ "unit": "million USD of annual billings",
+ "elapsed_s": 50.0,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Interpublic",
+   "type": "advertising conglomerate",
+   "clause": "Interpublic"
+  },
+  {
+   "name": "McCann-Erickson",
+   "type": "advertising agency",
+   "clause": "McCann-Erickson"
+  },
+  {
+   "name": "holding company",
+   "type": "corporate structure",
+   "clause": "holding company"
+  },
+  {
+   "name": "Interpublic annual billings",
+   "type": "revenue measurement",
+   "clause": "annual billings of Interpublic"
+  },
+  {
+   "name": "single-owner control of competing agencies",
+   "type": "ownership arrangement",
+   "clause": "one owner could hold competing agencies"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Interpublic",
+   "type": "INCORPORATED_AS",
+   "to": "holding company",
+   "clause": "incorporated as a holding company in ..."
+  },
+  {
+   "from": "Interpublic",
+   "type": "HAS_SUBSIDIARY",
+   "to": "McCann-Erickson",
+   "clause": "with McCann-Erickson as its largest subsidiary"
+  },
+  {
+   "from": "Interpublic annual billings",
+   "type": "MEASURES",
+   "to": "Interpublic",
+   "clause": "was billing over ... by ..."
+  },
+  {
+   "from": "Interpublic",
+   "type": "FIRST_PROOF_OF",
+   "to": "single-owner control of competing agencies",
+   "clause": "the first proof that one owner could hold competing agencies"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Interpublic|advertising conglomerate|Interpublic\nNODE|McCann-Erickson|advertising agency|McCann-Erickson\nNODE|holding company|corporate structure|holding company\nNODE|Interpublic annual billings|revenue measurement|annual billings of Interpublic\nNODE|single-owner control of competing agencies|ownership arrangement|one owner could hold competing agencies\nEDGE|Interpublic|INCORPORATED_AS|holding company|incorporated as a holding company in ...\nEDGE|Interpublic|HAS_SUBSIDIARY|McCann-Erickson|with McCann-Erickson as its largest subsidiary\nEDGE|Interpublic annual billings|MEASURES|Interpublic|was billing over ... by ...\nEDGE|Interpublic|FIRST_PROOF_OF|single-owner control of competing agencies|the first proof that one owner could hold competing agencies"
+}

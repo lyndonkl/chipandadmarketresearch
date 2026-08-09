@@ -1,0 +1,105 @@
+{
+ "id": "e5-measurement-001",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent click-through rate",
+ "elapsed_s": 82.2,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "banner click-through rate",
+   "type": "click-through-rate measurement",
+   "clause": "average banner click-through rate by mid-..."
+  },
+  {
+   "name": "business-to-business advertiser click-through rate",
+   "type": "click-through-rate measurement",
+   "clause": "click-through rate for business-to-business advertisers"
+  },
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "quoted in its own ..."
+  },
+  {
+   "name": "eMarketer",
+   "type": "research firm",
+   "clause": "attributed source"
+  },
+  {
+   "name": "impression-based advertising",
+   "type": "advertising practice",
+   "clause": "the failure of impression-based advertising"
+  },
+  {
+   "name": "IAB",
+   "type": "industry association",
+   "clause": "reported the same CTR"
+  },
+  {
+   "name": "business-to-business advertisers",
+   "type": "advertiser segment",
+   "clause": "business-to-business advertiser segment"
+  },
+  {
+   "name": "launch era (1994\u201196)",
+   "type": "historical period",
+   "clause": "rates in ... were reported"
+  },
+  {
+   "name": "self-reported data",
+   "type": "reporting method",
+   "clause": "all self-reported"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "QUOTED",
+   "to": "banner click-through rate",
+   "clause": "quoted by Overture in its own ..."
+  },
+  {
+   "from": "banner click-through rate",
+   "type": "ATTRIBUTED_TO",
+   "to": "eMarketer",
+   "clause": "attributed to eMarketer"
+  },
+  {
+   "from": "banner click-through rate",
+   "type": "INDICATES_FAILURE_OF",
+   "to": "impression-based advertising",
+   "clause": "quoted as the failure of impression-based advertising"
+  },
+  {
+   "from": "IAB",
+   "type": "REPORTED",
+   "to": "banner click-through rate",
+   "clause": "the IAB reported the same ..."
+  },
+  {
+   "from": "IAB",
+   "type": "REPORTED",
+   "to": "business-to-business advertiser click-through rate",
+   "clause": "with business-to-business advertisers nearer ..."
+  },
+  {
+   "from": "banner click-through rate",
+   "type": "REPORTED_IN_PERIOD",
+   "to": "launch era (1994\u201196)",
+   "clause": "rates in ... were reported"
+  },
+  {
+   "from": "banner click-through rate",
+   "type": "SELF_REPORTED",
+   "to": "self-reported data",
+   "clause": "all self-reported"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|banner click-through rate|click-through-rate measurement|average banner click-through rate by mid-...\nNODE|business-to-business advertiser click-through rate|click-through-rate measurement|click-through rate for business-to-business advertisers\nNODE|Overture|company|quoted in its own ...\nNODE|eMarketer|research firm|attributed source\nNODE|impression-based advertising|advertising practice|the failure of impression-based advertising\nNODE|IAB|industry association|reported the same CTR\nNODE|business-to-business advertisers|advertiser segment|business-to-business advertiser segment\nNODE|launch era (1994\u201196)|historical period|rates in ... were reported\nNODE|self-reported data|reporting method|all self-reported\nEDGE|Overture|QUOTED|banner click-through rate|quoted by Overture in its own ...\nEDGE|banner click-through rate|ATTRIBUTED_TO|eMarketer|attributed to eMarketer\nEDGE|banner click-through rate|INDICATES_FAILURE_OF|impression-based advertising|quoted as the failure of impression-based advertising\nEDGE|IAB|REPORTED|banner click-through rate|the IAB reported the same ...\nEDGE|IAB|REPORTED|business-to-business advertiser click-through rate|with business-to-business advertisers nearer ...\nEDGE|banner click-through rate|REPORTED_IN_PERIOD|launch era (1994\u201196)|rates in ... were reported\nEDGE|banner click-through rate|SELF_REPORTED|self-reported data|all self-reported"
+}

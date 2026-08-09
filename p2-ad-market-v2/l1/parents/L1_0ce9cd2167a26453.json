@@ -1,0 +1,26 @@
+{
+ "group_id": "L1|0ce9cd2167a26453",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Gross media billing",
+   "type": "advertising spend aggregate",
+   "grain": "Entity",
+   "reason": "same entity across singular/plural variants; gross media billing concept",
+   "child_uids": [
+    "n|e2-creators-002|gross media billing|advertising spend aggregate",
+    "n|tu:era:4:field:PRICING|gross media billings|advertising spend"
+   ]
+  },
+  {
+   "name": "Client billings",
+   "type": "advertising spend metric",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertising spend metric",
+   "child_uids": [
+    "n|e4-creators-003|client billings|advertising spend metric"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,100 @@
+{
+ "id": "e5-creators-003",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1997,
+ "unit": "percent of media billings",
+ "elapsed_s": 113.9,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising agencies",
+   "type": "advertising agency",
+   "clause": "the US advertising agencies"
+  },
+  {
+   "name": "media billings",
+   "type": "spending category",
+   "clause": "media billings"
+  },
+  {
+   "name": "average agency commission rate on media billings",
+   "type": "take-rate measurement",
+   "clause": "average commission rate actually received by US advertising agencies on media billings"
+  },
+  {
+   "name": "historical agency commission rate on media billings",
+   "type": "take-rate measurement",
+   "clause": "commission rate in an earlier period (down from ...)"
+  },
+  {
+   "name": "era 1 nominal commission rate",
+   "type": "nominal take-rate measurement",
+   "clause": "the nominal ... commission of era 1"
+  },
+  {
+   "name": "pre-web actual commission rate",
+   "type": "actual take-rate measurement",
+   "clause": "an ... commission in practice before the web mattered"
+  },
+  {
+   "name": "Era 1",
+   "type": "historical period",
+   "clause": "era 1"
+  },
+  {
+   "name": "web",
+   "type": "technology",
+   "clause": "the web"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising agencies",
+   "type": "HAS_RATE",
+   "to": "average agency commission rate on media billings",
+   "clause": "average commission rate actually received by US advertising agencies on media billings"
+  },
+  {
+   "from": "average agency commission rate on media billings",
+   "type": "SHARE_OF",
+   "to": "media billings",
+   "clause": "on media billings"
+  },
+  {
+   "from": "average agency commission rate on media billings",
+   "type": "DOWN_FROM",
+   "to": "historical agency commission rate on media billings",
+   "clause": "down from ... in ..."
+  },
+  {
+   "from": "historical agency commission rate on media billings",
+   "type": "SHARE_OF",
+   "to": "media billings",
+   "clause": "on media billings"
+  },
+  {
+   "from": "era 1 nominal commission rate",
+   "type": "IN_ERA",
+   "to": "Era 1",
+   "clause": "of era 1"
+  },
+  {
+   "from": "pre-web actual commission rate",
+   "type": "BEFORE",
+   "to": "web",
+   "clause": "before the web mattered"
+  },
+  {
+   "from": "era 1 nominal commission rate",
+   "type": "EQUIVALENT_TO_ACTUAL",
+   "to": "pre-web actual commission rate",
+   "clause": "was already an ... commission in practice before the web mattered"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising agencies|advertising agency|the US advertising agencies\nNODE|media billings|spending category|media billings\nNODE|average agency commission rate on media billings|take-rate measurement|average commission rate actually received by US advertising agencies on media billings\nNODE|historical agency commission rate on media billings|take-rate measurement|commission rate in an earlier period (down from ...)\nNODE|era 1 nominal commission rate|nominal take-rate measurement|the nominal ... commission of era 1\nNODE|pre-web actual commission rate|actual take-rate measurement|an ... commission in practice before the web mattered\nNODE|Era 1|historical period|era 1\nNODE|web|technology|the web\nEDGE|US advertising agencies|HAS_RATE|average agency commission rate on media billings|average commission rate actually received by US advertising agencies on media billings\nEDGE|average agency commission rate on media billings|SHARE_OF|media billings|on media billings\nEDGE|average agency commission rate on media billings|DOWN_FROM|historical agency commission rate on media billings|down from ... in ...\nEDGE|historical agency commission rate on media billings|SHARE_OF|media billings|on media billings\nEDGE|era 1 nominal commission rate|IN_ERA|Era 1|of era 1\nEDGE|pre-web actual commission rate|BEFORE|web|before the web mattered\nEDGE|era 1 nominal commission rate|EQUIVALENT_TO_ACTUAL|pre-web actual commission rate|was already an ... commission in practice before the web mattered"
+}

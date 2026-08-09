@@ -1,0 +1,67 @@
+{
+ "id": "e6-creators-001",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions (2007 revenue)",
+ "elapsed_s": 40.4,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Omnicom Group",
+   "type": "agency holding company",
+   "clause": "worldwide revenue for the twelve months ended December ..."
+  },
+  {
+   "name": "WPP",
+   "type": "agency holding company",
+   "clause": "... alongside WPP"
+  },
+  {
+   "name": "agency holding companies",
+   "type": "market segment",
+   "clause": "two largest agency holding companies"
+  },
+  {
+   "name": "Omnicom Group worldwide revenue",
+   "type": "revenue measurement",
+   "clause": "worldwide revenue for the twelve months ended December ..."
+  },
+  {
+   "name": "WPP worldwide revenue",
+   "type": "revenue measurement",
+   "clause": "... alongside WPP"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Omnicom Group",
+   "type": "REPORTED",
+   "to": "Omnicom Group worldwide revenue",
+   "clause": "worldwide revenue ... was ..."
+  },
+  {
+   "from": "WPP",
+   "type": "REPORTED",
+   "to": "WPP worldwide revenue",
+   "clause": "... alongside WPP ..."
+  },
+  {
+   "from": "Omnicom Group",
+   "type": "ONE_OF_TWO_LARGEST",
+   "to": "agency holding companies",
+   "clause": "making it one of the two largest agency holding companies"
+  },
+  {
+   "from": "WPP",
+   "type": "ONE_OF_TWO_LARGEST",
+   "to": "agency holding companies",
+   "clause": "alongside WPP as one of the two largest"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Omnicom Group|agency holding company|worldwide revenue for the twelve months ended December ...\nNODE|WPP|agency holding company|... alongside WPP\nNODE|agency holding companies|market segment|two largest agency holding companies\nNODE|Omnicom Group worldwide revenue|revenue measurement|worldwide revenue for the twelve months ended December ...\nNODE|WPP worldwide revenue|revenue measurement|... alongside WPP\nEDGE|Omnicom Group|REPORTED|Omnicom Group worldwide revenue|worldwide revenue ... was ...\nEDGE|WPP|REPORTED|WPP worldwide revenue|... alongside WPP ...\nEDGE|Omnicom Group|ONE_OF_TWO_LARGEST|agency holding companies|making it one of the two largest agency holding companies\nEDGE|WPP|ONE_OF_TWO_LARGEST|agency holding companies|alongside WPP as one of the two largest\n\n"
+}

@@ -1,0 +1,61 @@
+{
+ "id": "e2-scale-008",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ billions of estimated world advertising expenditure, 1949",
+ "elapsed_s": 54.0,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "world advertising expenditure",
+   "type": "advertising aggregate",
+   "clause": "world advertising expenditure"
+  },
+  {
+   "name": "world advertising expenditure amount",
+   "type": "expenditure measurement",
+   "clause": "on the order of ... US$ billions"
+  },
+  {
+   "name": "United States",
+   "type": "country",
+   "clause": "the United States was roughly ... percent"
+  },
+  {
+   "name": "United States share of world advertising expenditure",
+   "type": "share measurement",
+   "clause": "... roughly ... percent of world ad spend"
+  },
+  {
+   "name": "contemporaneous world survey",
+   "type": "advertising market research",
+   "clause": "no contemporaneous world survey exists for this era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "world advertising expenditure",
+   "type": "HAS_MEASUREMENT",
+   "to": "world advertising expenditure amount",
+   "clause": "... was on the order of ... US$ billions"
+  },
+  {
+   "from": "United States share of world advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "world advertising expenditure",
+   "clause": "... percent of world ad spend"
+  },
+  {
+   "from": "world advertising expenditure",
+   "type": "LACKS_SURVEY",
+   "to": "contemporaneous world survey",
+   "clause": "no contemporaneous world survey exists for this era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|world advertising expenditure|advertising aggregate|world advertising expenditure\nNODE|world advertising expenditure amount|expenditure measurement|on the order of ... US$ billions\nNODE|United States|country|the United States was roughly ... percent\nNODE|United States share of world advertising expenditure|share measurement|... roughly ... percent of world ad spend\nNODE|contemporaneous world survey|advertising market research|no contemporaneous world survey exists for this era\nEDGE|world advertising expenditure|HAS_MEASUREMENT|world advertising expenditure amount|... was on the order of ... US$ billions\nEDGE|United States share of world advertising expenditure|SHARE_OF|world advertising expenditure|... percent of world ad spend\nEDGE|world advertising expenditure|LACKS_SURVEY|contemporaneous world survey|no contemporaneous world survey exists for this era"
+}

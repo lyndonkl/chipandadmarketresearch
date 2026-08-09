@@ -1,0 +1,56 @@
+{
+ "id": "e3-pricing-004",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1970,
+ "unit": "USD per commercial minute of network prime time, 1970",
+ "elapsed_s": 67.6,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "network prime-time advertising",
+   "type": "advertising inventory",
+   "clause": "network prime-time advertising"
+  },
+  {
+   "name": "commercial minute",
+   "type": "ad time unit",
+   "clause": "commercial minute of network prime time"
+  },
+  {
+   "name": "network prime-time advertising cost per commercial minute",
+   "type": "cost-per-unit measurement",
+   "clause": "network prime-time advertising cost about ... per commercial minute"
+  },
+  {
+   "name": "nominal increase in network prime-time advertising cost per commercial minute across the decade",
+   "type": "percentage increase measurement",
+   "clause": "... nominal increase across the decade"
+  }
+ ],
+ "edges": [
+  {
+   "from": "network prime-time advertising",
+   "type": "HAS_COST",
+   "to": "network prime-time advertising cost per commercial minute",
+   "clause": "cost about ... per commercial minute in the early 1960s"
+  },
+  {
+   "from": "network prime-time advertising cost per commercial minute",
+   "type": "PER_UNIT_OF",
+   "to": "commercial minute",
+   "clause": "per commercial minute"
+  },
+  {
+   "from": "network prime-time advertising",
+   "type": "COST_INCREASE",
+   "to": "nominal increase in network prime-time advertising cost per commercial minute across the decade",
+   "clause": "... nominal increase across the decade"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|network prime-time advertising|advertising inventory|network prime-time advertising\nNODE|commercial minute|ad time unit|commercial minute of network prime time\nNODE|network prime-time advertising cost per commercial minute|cost-per-unit measurement|network prime-time advertising cost about ... per commercial minute\nNODE|nominal increase in network prime-time advertising cost per commercial minute across the decade|percentage increase measurement|... nominal increase across the decade\nEDGE|network prime-time advertising|HAS_COST|network prime-time advertising cost per commercial minute|cost about ... per commercial minute in the early 1960s\nEDGE|network prime-time advertising cost per commercial minute|PER_UNIT_OF|commercial minute|per commercial minute\nEDGE|network prime-time advertising|COST_INCREASE|nominal increase in network prime-time advertising cost per commercial minute across the decade|... nominal increase across the decade"
+}

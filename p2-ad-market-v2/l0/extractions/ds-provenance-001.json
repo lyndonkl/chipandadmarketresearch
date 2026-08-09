@@ -1,0 +1,122 @@
+{
+ "id": "ds-provenance-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2026,
+ "unit": "percent of points carrying full provenance",
+ "elapsed_s": 60.8,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "dataset points",
+   "type": "data point",
+   "clause": "of the dataset"
+  },
+  {
+   "name": "percentage of points with full provenance",
+   "type": "percentage measurement",
+   "clause": "percent of points carrying full provenance"
+  },
+  {
+   "name": "named compiler",
+   "type": "metadata element",
+   "clause": "named compiler"
+  },
+  {
+   "name": "source URL",
+   "type": "metadata element",
+   "clause": "source URL"
+  },
+  {
+   "name": "as-of date",
+   "type": "metadata element",
+   "clause": "as-of date"
+  },
+  {
+   "name": "definitional break",
+   "type": "dataset boundary",
+   "clause": "definitional break"
+  },
+  {
+   "name": "grade C",
+   "type": "grade category",
+   "clause": "graded C"
+  },
+  {
+   "name": "arithmetic data",
+   "type": "metadata element",
+   "clause": "arithmetic"
+  },
+  {
+   "name": "pre-1919 benchmark points",
+   "type": "benchmark set",
+   "clause": "pre-1919 benchmark points"
+  },
+  {
+   "name": "grade B",
+   "type": "grade category",
+   "clause": "grade B"
+  }
+ ],
+ "edges": [
+  {
+   "from": "percentage of points with full provenance",
+   "type": "SHARE_OF",
+   "to": "dataset points",
+   "clause": "percent of points carrying full provenance"
+  },
+  {
+   "from": "dataset points",
+   "type": "HAVE_ATTRIBUTE",
+   "to": "named compiler",
+   "clause": "carry a named compiler"
+  },
+  {
+   "from": "dataset points",
+   "type": "HAVE_ATTRIBUTE",
+   "to": "source URL",
+   "clause": "carry a source URL"
+  },
+  {
+   "from": "dataset points",
+   "type": "HAVE_ATTRIBUTE",
+   "to": "as-of date",
+   "clause": "carry an as-of date"
+  },
+  {
+   "from": "dataset points",
+   "type": "CROSS",
+   "to": "definitional break",
+   "clause": "cross a definitional break"
+  },
+  {
+   "from": "dataset points",
+   "type": "GRADED_AS",
+   "to": "grade C",
+   "clause": "are graded C"
+  },
+  {
+   "from": "dataset points",
+   "type": "HAVE_ATTRIBUTE",
+   "to": "arithmetic data",
+   "clause": "carry their arithmetic"
+  },
+  {
+   "from": "pre-1919 benchmark points",
+   "type": "CURRENT_GRADE",
+   "to": "grade B",
+   "clause": "regraded from B"
+  },
+  {
+   "from": "pre-1919 benchmark points",
+   "type": "TARGET_GRADE",
+   "to": "grade C",
+   "clause": "to be regraded to C"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|dataset points|data point|of the dataset\nNODE|percentage of points with full provenance|percentage measurement|percent of points carrying full provenance\nNODE|named compiler|metadata element|named compiler\nNODE|source URL|metadata element|source URL\nNODE|as-of date|metadata element|as-of date\nNODE|definitional break|dataset boundary|definitional break\nNODE|grade C|grade category|graded C\nNODE|arithmetic data|metadata element|arithmetic\nNODE|pre-1919 benchmark points|benchmark set|pre-1919 benchmark points\nNODE|grade B|grade category|grade B\nEDGE|percentage of points with full provenance|SHARE_OF|dataset points|percent of points carrying full provenance\nEDGE|dataset points|HAVE_ATTRIBUTE|named compiler|carry a named compiler\nEDGE|dataset points|HAVE_ATTRIBUTE|source URL|carry a source URL\nEDGE|dataset points|HAVE_ATTRIBUTE|as-of date|carry an as-of date\nEDGE|dataset points|CROSS|definitional break|cross a definitional break\nEDGE|dataset points|GRADED_AS|grade C|are graded C\nEDGE|dataset points|HAVE_ATTRIBUTE|arithmetic data|carry their arithmetic\nEDGE|pre-1919 benchmark points|CURRENT_GRADE|grade B|regraded from B\nEDGE|pre-1919 benchmark points|TARGET_GRADE|grade C|to be regraded to C"
+}

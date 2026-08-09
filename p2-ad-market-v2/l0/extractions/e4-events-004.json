@@ -1,0 +1,46 @@
+{
+ "id": "e4-events-004",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1991,
+ "unit": "percent change year on year",
+ "elapsed_s": 42.4,
+ "error": null,
+ "n_nodes": 2,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising spend",
+   "type": "aggregate advertising expenditure",
+   "clause": "Measured US advertising spend"
+  },
+  {
+   "name": "advertising spend YoY percent change",
+   "type": "percent change measurement",
+   "clause": "percent change year on year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising spend",
+   "type": "HAS_MEASUREMENT",
+   "to": "advertising spend YoY percent change",
+   "clause": "measured US advertising spend"
+  },
+  {
+   "from": "advertising spend YoY percent change",
+   "type": "DECLINED",
+   "to": "US advertising spend",
+   "clause": "fell ..."
+  },
+  {
+   "from": "advertising spend YoY percent change",
+   "type": "FIRST_DECLINE_SINCE",
+   "to": "US advertising spend",
+   "clause": "first nominal decline since ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising spend|aggregate advertising expenditure|Measured US advertising spend\nNODE|advertising spend YoY percent change|percent change measurement|percent change year on year\nEDGE|US advertising spend|HAS_MEASUREMENT|advertising spend YoY percent change|measured US advertising spend\nEDGE|advertising spend YoY percent change|DECLINED|US advertising spend|fell ...\nEDGE|advertising spend YoY percent change|FIRST_DECLINE_SINCE|US advertising spend|first nominal decline since ..."
+}

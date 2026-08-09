@@ -1,0 +1,117 @@
+{
+ "id": "tu:era:5:event:5",
+ "kind": "prose:event",
+ "era": 5,
+ "about_year": 2000,
+ "unit": null,
+ "elapsed_s": 78.9,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AOL",
+   "type": "company",
+   "clause": "AOL"
+  },
+  {
+   "name": "Time Warner",
+   "type": "company",
+   "clause": "Time Warner"
+  },
+  {
+   "name": "AOL-Time Warner acquisition",
+   "type": "acquisition transaction",
+   "clause": "the deal where AOL agreed to acquire Time Warner"
+  },
+  {
+   "name": "deal valuation measurement",
+   "type": "monetary value measurement",
+   "clause": "in a deal valued at ... depending on the measure"
+  },
+  {
+   "name": "valuation measure",
+   "type": "methodology",
+   "clause": "depending on the measure"
+  },
+  {
+   "name": "largest media company in the world",
+   "type": "media company",
+   "clause": "the largest media company in the world"
+  },
+  {
+   "name": "ad-funded portal valuation measurement",
+   "type": "valuation measurement",
+   "clause": "top of the ad\u2011funded portal's valuation"
+  },
+  {
+   "name": "impression era confidence measurement",
+   "type": "confidence measurement",
+   "clause": "top of the impression era's confidence"
+  },
+  {
+   "name": "impression era",
+   "type": "advertising era",
+   "clause": "the impression era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AOL",
+   "type": "AGREED_TO_ACQUIRE",
+   "to": "Time Warner",
+   "clause": "agreed to acquire Time Warner"
+  },
+  {
+   "from": "AOL-Time Warner acquisition",
+   "type": "HAS_MEASUREMENT",
+   "to": "deal valuation measurement",
+   "clause": "deal valued at ... depending on the measure"
+  },
+  {
+   "from": "deal valuation measurement",
+   "type": "DEPENDS_ON",
+   "to": "valuation measure",
+   "clause": "depending on the measure"
+  },
+  {
+   "from": "AOL",
+   "type": "VALUED_MORE_THAN",
+   "to": "largest media company in the world",
+   "clause": "was worth more than the largest media company in the world"
+  },
+  {
+   "from": "AOL-Time Warner acquisition",
+   "type": "MARKS_TOP_OF",
+   "to": "ad-funded portal valuation measurement",
+   "clause": "marks the top of the ad\u2011funded portal's valuation"
+  },
+  {
+   "from": "AOL-Time Warner acquisition",
+   "type": "MARKS_TOP_OF",
+   "to": "impression era confidence measurement",
+   "clause": "marks the top of the impression era's confidence"
+  },
+  {
+   "from": "deal valuation measurement",
+   "type": "MEASURES",
+   "to": "AOL-Time Warner acquisition",
+   "clause": "measures the acquisition deal"
+  },
+  {
+   "from": "ad-funded portal valuation measurement",
+   "type": "MEASURES",
+   "to": "AOL",
+   "clause": "valuation of the ad\u2011funded portal"
+  },
+  {
+   "from": "impression era confidence measurement",
+   "type": "MEASURES",
+   "to": "impression era",
+   "clause": "confidence of the impression era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AOL|company|AOL\nNODE|Time Warner|company|Time Warner\nNODE|AOL-Time Warner acquisition|acquisition transaction|the deal where AOL agreed to acquire Time Warner\nNODE|deal valuation measurement|monetary value measurement|in a deal valued at ... depending on the measure\nNODE|valuation measure|methodology|depending on the measure\nNODE|largest media company in the world|media company|the largest media company in the world\nNODE|ad-funded portal valuation measurement|valuation measurement|top of the ad\u2011funded portal's valuation\nNODE|impression era confidence measurement|confidence measurement|top of the impression era's confidence\nNODE|impression era|advertising era|the impression era\nEDGE|AOL|AGREED_TO_ACQUIRE|Time Warner|agreed to acquire Time Warner\nEDGE|AOL-Time Warner acquisition|HAS_MEASUREMENT|deal valuation measurement|deal valued at ... depending on the measure\nEDGE|deal valuation measurement|DEPENDS_ON|valuation measure|depending on the measure\nEDGE|AOL|VALUED_MORE_THAN|largest media company in the world|was worth more than the largest media company in the world\nEDGE|AOL-Time Warner acquisition|MARKS_TOP_OF|ad-funded portal valuation measurement|marks the top of the ad\u2011funded portal's valuation\nEDGE|AOL-Time Warner acquisition|MARKS_TOP_OF|impression era confidence measurement|marks the top of the impression era's confidence\nEDGE|deal valuation measurement|MEASURES|AOL-Time Warner acquisition|measures the acquisition deal\nEDGE|ad-funded portal valuation measurement|MEASURES|AOL|valuation of the ad\u2011funded portal\nEDGE|impression era confidence measurement|MEASURES|impression era|confidence of the impression era"
+}

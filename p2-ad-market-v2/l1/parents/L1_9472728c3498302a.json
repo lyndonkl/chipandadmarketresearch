@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|9472728c3498302a",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Absolute click count",
+   "type": "metric",
+   "grain": "Entity",
+   "reason": "singleton: unique metric about total clicks",
+   "child_uids": [
+    "n|e6-measurement-006|absolute click count|metric"
+   ]
+  },
+  {
+   "name": "Click-through rate",
+   "type": "performance metric",
+   "grain": "Entity",
+   "reason": "singleton: distinct performance metric different quantity",
+   "child_uids": [
+    "n|mech-adwords-001|click-through rate metric|performance metric"
+   ]
+  },
+  {
+   "name": "Publisher study A",
+   "type": "research study",
+   "grain": "Entity",
+   "reason": "singleton: individual research study not grouped elsewhere",
+   "child_uids": [
+    "n|tu:era:7:field:TARGETING|publisher study a|research study"
+   ]
+  }
+ ]
+}

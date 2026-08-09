@@ -1,0 +1,156 @@
+{
+ "id": "e7-unit_econ-002",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2020,
+ "unit": "USD of direct operating cost per Google search query",
+ "elapsed_s": 114.6,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 13,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "organization",
+   "clause": "Google"
+  },
+  {
+   "name": "Google search engine and ads business",
+   "type": "advertising operation",
+   "clause": "operating Google's search engine and its search ads business"
+  },
+  {
+   "name": "direct operating cost per query 2020",
+   "type": "cost-per-query measurement",
+   "clause": "the direct cost ... worked out to roughly ... cents per query"
+  },
+  {
+   "name": "total direct operating cost 2020",
+   "type": "spend measurement",
+   "clause": "total direct operating cost ... over ... queries"
+  },
+  {
+   "name": "number of search queries 2020",
+   "type": "count measurement",
+   "clause": "... queries"
+  },
+  {
+   "name": "court",
+   "type": "legal institution",
+   "clause": "the court found ..."
+  },
+  {
+   "name": "search default payment per query 2021",
+   "type": "cost-per-query measurement",
+   "clause": "the search default payments ... worked out to roughly ... cents"
+  },
+  {
+   "name": "total search default payments 2021",
+   "type": "spend measurement",
+   "clause": "total search default payments ... over ... queries"
+  },
+  {
+   "name": "number of search queries 2021",
+   "type": "count measurement",
+   "clause": "... queries"
+  },
+  {
+   "name": "search default payments",
+   "type": "payment type",
+   "clause": "the search default payments"
+  },
+  {
+   "name": "search query",
+   "type": "interaction unit",
+   "clause": "per query"
+  },
+  {
+   "name": "distribution cost per query FY2025",
+   "type": "cost-per-query measurement",
+   "clause": "distribution cost per query ... about ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "OPERATES",
+   "to": "Google search engine and ads business",
+   "clause": "operating Google's search engine and its search ads business"
+  },
+  {
+   "from": "direct operating cost per query 2020",
+   "type": "MEASURES_COST_OF",
+   "to": "Google search engine and ads business",
+   "clause": "the direct cost ... worked out to roughly ... cents per query"
+  },
+  {
+   "from": "direct operating cost per query 2020",
+   "type": "BASE_PER",
+   "to": "search query",
+   "clause": "per query"
+  },
+  {
+   "from": "total direct operating cost 2020",
+   "type": "MEASURES_TOTAL_COST_OF",
+   "to": "Google search engine and ads business",
+   "clause": "total direct operating cost ... over ... queries"
+  },
+  {
+   "from": "number of search queries 2020",
+   "type": "COUNT_OF",
+   "to": "search query",
+   "clause": "... queries"
+  },
+  {
+   "from": "court",
+   "type": "DETERMINED",
+   "to": "search default payment per query 2021",
+   "clause": "the court found ... worked out to roughly ... cents"
+  },
+  {
+   "from": "search default payment per query 2021",
+   "type": "MEASURES_COST_OF",
+   "to": "search default payments",
+   "clause": "the search default payments ... worked out to ..."
+  },
+  {
+   "from": "search default payment per query 2021",
+   "type": "BASE_PER",
+   "to": "search query",
+   "clause": "per query"
+  },
+  {
+   "from": "total search default payments 2021",
+   "type": "MEASURES_TOTAL_PAYMENT_OF",
+   "to": "search default payments",
+   "clause": "total search default payments ... over ... queries"
+  },
+  {
+   "from": "number of search queries 2021",
+   "type": "COUNT_OF",
+   "to": "search query",
+   "clause": "... queries"
+  },
+  {
+   "from": "search default payment per query 2021",
+   "type": "GREATER_THAN",
+   "to": "direct operating cost per query 2020",
+   "clause": "Google paid more per query to be found than it spent answering it"
+  },
+  {
+   "from": "distribution cost per query FY2025",
+   "type": "MEASURES_COST_OF",
+   "to": "Google search engine and ads business",
+   "clause": "distribution cost per query ... about ..."
+  },
+  {
+   "from": "distribution cost per query FY2025",
+   "type": "BASE_PER",
+   "to": "search query",
+   "clause": "per query"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|organization|Google\nNODE|Google search engine and ads business|advertising operation|operating Google's search engine and its search ads business\nNODE|direct operating cost per query 2020|cost-per-query measurement|the direct cost ... worked out to roughly ... cents per query\nNODE|total direct operating cost 2020|spend measurement|total direct operating cost ... over ... queries\nNODE|number of search queries 2020|count measurement|... queries\nNODE|court|legal institution|the court found ...\nNODE|search default payment per query 2021|cost-per-query measurement|the search default payments ... worked out to roughly ... cents\nNODE|total search default payments 2021|spend measurement|total search default payments ... over ... queries\nNODE|number of search queries 2021|count measurement|... queries\nNODE|search default payments|payment type|the search default payments\nNODE|search query|interaction unit|per query\nNODE|distribution cost per query FY2025|cost-per-query measurement|distribution cost per query ... about ...\nEDGE|Google|OPERATES|Google search engine and ads business|operating Google's search engine and its search ads business\nEDGE|direct operating cost per query 2020|MEASURES_COST_OF|Google search engine and ads business|the direct cost ... worked out to roughly ... cents per query\nEDGE|direct operating cost per query 2020|BASE_PER|search query|per query\nEDGE|total direct operating cost 2020|MEASURES_TOTAL_COST_OF|Google search engine and ads business|total direct operating cost ... over ... queries\nEDGE|number of search queries 2020|COUNT_OF|search query|... queries\nEDGE|court|DETERMINED|search default payment per query 2021|the court found ... worked out to roughly ... cents\nEDGE|search default payment per query 2021|MEASURES_COST_OF|search default payments|the search default payments ... worked out to ...\nEDGE|search default payment per query 2021|BASE_PER|search query|per query\nEDGE|total search default payments 2021|MEASURES_TOTAL_PAYMENT_OF|search default payments|total search default payments ... over ... queries\nEDGE|number of search queries 2021|COUNT_OF|search query|... queries\nEDGE|search default payment per query 2021|GREATER_THAN|direct operating cost per query 2020|Google paid more per query to be found than it spent answering it\nEDGE|distribution cost per query FY2025|MEASURES_COST_OF|Google search engine and ads business|distribution cost per query ... about ...\nEDGE|distribution cost per query FY2025|BASE_PER|search query|per query"
+}

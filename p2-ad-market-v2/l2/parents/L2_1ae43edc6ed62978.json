@@ -1,0 +1,296 @@
+{
+ "group_id": "L2|1ae43edc6ed62978",
+ "n_in": 42,
+ "parents": [
+  {
+   "name": "payment method",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "payment method \u2013 same role handling monetary transactions",
+   "child_uids": [
+    "L1|1bc623dd8872147c",
+    "L1|5dbac0d7a9e12e6c",
+    "L1|e88db1fa3dddedce"
+   ]
+  },
+  {
+   "name": "business practice",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "business practice \u2013 rules governing buying or inventory actions",
+   "child_uids": [
+    "L1|3c247f34fe2c5b53",
+    "L1|dedb9304be63b081"
+   ]
+  },
+  {
+   "name": "purchase term",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: specific contractual purchase condition",
+   "child_uids": [
+    "L1|b700060e1118ea05"
+   ]
+  },
+  {
+   "name": "money transfer mechanism",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: method for moving money between parties",
+   "child_uids": [
+    "L1|e80f3842650c5ee0"
+   ]
+  },
+  {
+   "name": "asset transaction",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: sale of network\u2011related assets",
+   "child_uids": [
+    "L1|4fdba508e0e6ea80"
+   ]
+  },
+  {
+   "name": "expense type",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: classification of depreciation expense",
+   "child_uids": [
+    "L1|36104b975fd6531a"
+   ]
+  },
+  {
+   "name": "coupon",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "coupon \u2013 marketing instrument used for discounts or tracking",
+   "child_uids": [
+    "L1|2e0c9946db8da6fc",
+    "L1|fd860a54143529b1"
+   ]
+  },
+  {
+   "name": "buying method",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: principal approach to media purchasing",
+   "child_uids": [
+    "L1|f7233a3c55feeb4b"
+   ]
+  },
+  {
+   "name": "advertising medium",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: local retail channel for ads",
+   "child_uids": [
+    "L1|62e1ad8fbba5e378"
+   ]
+  },
+  {
+   "name": "targeting list",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "list \u2013 data sets used for audience targeting",
+   "child_uids": [
+    "L1|1aa354939f68ffc4",
+    "L1|cbd7c3de44282561"
+   ]
+  },
+  {
+   "name": "airtime transaction",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: sale of broadcast airtime slots",
+   "child_uids": [
+    "L1|6c37fe4ab770b64a"
+   ]
+  },
+  {
+   "name": "catalogue",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: product catalogue for mail\u2011order sales",
+   "child_uids": [
+    "L1|118b28a5fd142585"
+   ]
+  },
+  {
+   "name": "transaction type",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: generic classification of business transactions",
+   "child_uids": [
+    "L1|b83a05a0489bd60a"
+   ]
+  },
+  {
+   "name": "information source",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: trade sources providing market data",
+   "child_uids": [
+    "L1|155921d6c8b96e0b"
+   ]
+  },
+  {
+   "name": "billing record",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: log invoice as billing documentation",
+   "child_uids": [
+    "L1|33fa52d139e42ed4"
+   ]
+  },
+  {
+   "name": "billing aggregate",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: combined billings for reporting",
+   "child_uids": [
+    "L1|a26d411c6f455ead"
+   ]
+  },
+  {
+   "name": "guarantee type",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "guarantee \u2013 assurance mechanisms for audience or repeat purchase",
+   "child_uids": [
+    "L1|3f1969f8f874ca7d",
+    "L1|5aae8f4858f59a5e"
+   ]
+  },
+  {
+   "name": "account source",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: other accounts as a source category",
+   "child_uids": [
+    "L1|668977e78e582c21"
+   ]
+  },
+  {
+   "name": "consumer intention",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: intent reflecting consumer buying mindset",
+   "child_uids": [
+    "L1|5dfb06e97b82c082"
+   ]
+  },
+  {
+   "name": "business plan",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: merger plan outlining corporate strategy",
+   "child_uids": [
+    "L1|1b797842809a3ff0"
+   ]
+  },
+  {
+   "name": "contract type",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "contract \u2013 standard, exclusive or default agreements",
+   "child_uids": [
+    "L1|14700f8433f257ac",
+    "L1|519ca4f4cf7b8c7d",
+    "L1|d491166487cb9b4b"
+   ]
+  },
+  {
+   "name": "consumer demand",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: cigarette demand as market need indicator",
+   "child_uids": [
+    "L1|12014997f99edc68"
+   ]
+  },
+  {
+   "name": "buying channel",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "channel \u2013 mail\u2011order, self\u2011serve or response\u2011measured buying routes",
+   "child_uids": [
+    "L1|63166ac4b9c5b15f",
+    "L1|78716390714e3f45",
+    "L1|fd22f0fb59083692"
+   ]
+  },
+  {
+   "name": "contract option",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: open\u2011ended time options for agreements",
+   "child_uids": [
+    "L1|643278aad943d499"
+   ]
+  },
+  {
+   "name": "business asset",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: shops as owned commercial assets",
+   "child_uids": [
+    "L1|19d25ca5560b7ab7"
+   ]
+  },
+  {
+   "name": "customer",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: subscriber as a customer entity",
+   "child_uids": [
+    "L1|71eb4a2d6f6d9653"
+   ]
+  },
+  {
+   "name": "inventory type",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: scatter inventory classification",
+   "child_uids": [
+    "L1|56d05b9c225b77f4"
+   ]
+  },
+  {
+   "name": "product category",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: leading cure\u2011alls product grouping",
+   "child_uids": [
+    "L1|371cff5ccaa9bb51"
+   ]
+  },
+  {
+   "name": "purchase format",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: standard purchase period definition",
+   "child_uids": [
+    "L1|ebfb2c24654667a9"
+   ]
+  },
+  {
+   "name": "data asset",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "singleton: Abacus cooperative purchase database as data resource",
+   "child_uids": [
+    "L1|dee6685750a8a89f"
+   ]
+  },
+  {
+   "name": "advertising budget",
+   "type": "role",
+   "grain": "Entity",
+   "reason": "budget \u2013 packaged\u2011goods and national brand advertising allocations",
+   "child_uids": [
+    "L1|5ad8f3680f2b9215",
+    "L1|e0f6be808004d71c"
+   ]
+  }
+ ]
+}

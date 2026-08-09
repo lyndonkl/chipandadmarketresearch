@@ -1,0 +1,67 @@
+{
+ "id": "e7-buyers-001",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "millions of active advertisers (Meta, global)",
+ "elapsed_s": 48.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Meta",
+   "type": "social media company",
+   "clause": "Meta has publicly cited"
+  },
+  {
+   "name": "global active advertisers on Meta",
+   "type": "advertiser-count measurement",
+   "clause": "... active advertisers across its services"
+  },
+  {
+   "name": "US business advertisers monthly on Meta",
+   "type": "advertiser-count measurement",
+   "clause": "more than ... million US businesses advertising monthly"
+  },
+  {
+   "name": "active advertisers",
+   "type": "advertiser population",
+   "clause": "active advertisers across its services"
+  },
+  {
+   "name": "US business advertisers",
+   "type": "advertiser constituency",
+   "clause": "US businesses advertising monthly"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Meta",
+   "type": "CITED",
+   "to": "global active advertisers on Meta",
+   "clause": "has publicly cited ... active advertisers across its services"
+  },
+  {
+   "from": "global active advertisers on Meta",
+   "type": "MEASURES",
+   "to": "active advertisers",
+   "clause": "... active advertisers across its services"
+  },
+  {
+   "from": "Meta",
+   "type": "CITED",
+   "to": "US business advertisers monthly on Meta",
+   "clause": "more than ... million US businesses advertising monthly"
+  },
+  {
+   "from": "US business advertisers monthly on Meta",
+   "type": "MEASURES",
+   "to": "US business advertisers",
+   "clause": "... US businesses advertising monthly"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Meta|social media company|Meta has publicly cited\nNODE|global active advertisers on Meta|advertiser-count measurement|... active advertisers across its services\nNODE|US business advertisers monthly on Meta|advertiser-count measurement|more than ... million US businesses advertising monthly\nNODE|active advertisers|advertiser population|active advertisers across its services\nNODE|US business advertisers|advertiser constituency|US businesses advertising monthly\nEDGE|Meta|CITED|global active advertisers on Meta|has publicly cited ... active advertisers across its services\nEDGE|global active advertisers on Meta|MEASURES|active advertisers|... active advertisers across its services\nEDGE|Meta|CITED|US business advertisers monthly on Meta|more than ... million US businesses advertising monthly\nEDGE|US business advertisers monthly on Meta|MEASURES|US business advertisers|... US businesses advertising monthly"
+}

@@ -1,0 +1,61 @@
+{
+ "id": "ds-money_type-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2007,
+ "unit": "percent of total US advertising classified local, 2007",
+ "elapsed_s": 38.1,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local advertising spend",
+   "type": "advertising spend category",
+   "clause": "Local money"
+  },
+  {
+   "name": "Coen US total",
+   "type": "advertising spend aggregate",
+   "clause": "Coen's US total"
+  },
+  {
+   "name": "local advertising share of Coen US total",
+   "type": "share measurement",
+   "clause": "Local money was ... of Coen's US total"
+  },
+  {
+   "name": "national/local mix",
+   "type": "spend composition",
+   "clause": "the national/local mix"
+  },
+  {
+   "name": "medium mix",
+   "type": "spend composition",
+   "clause": "the medium mix"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local advertising share of Coen US total",
+   "type": "MEASURES",
+   "to": "local advertising spend",
+   "clause": "Local money was ... of Coen's US total"
+  },
+  {
+   "from": "local advertising share of Coen US total",
+   "type": "MEASURED_ON",
+   "to": "Coen US total",
+   "clause": "... of Coen's US total"
+  },
+  {
+   "from": "national/local mix",
+   "type": "MOVED_LESS_THAN",
+   "to": "medium mix",
+   "clause": "moved far less over ... than the medium mix did"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local advertising spend|advertising spend category|Local money\nNODE|Coen US total|advertising spend aggregate|Coen's US total\nNODE|local advertising share of Coen US total|share measurement|Local money was ... of Coen's US total\nNODE|national/local mix|spend composition|the national/local mix\nNODE|medium mix|spend composition|the medium mix\nEDGE|local advertising share of Coen US total|MEASURES|local advertising spend|Local money was ... of Coen's US total\nEDGE|local advertising share of Coen US total|MEASURED_ON|Coen US total|... of Coen's US total\nEDGE|national/local mix|MOVED_LESS_THAN|medium mix|moved far less over ... than the medium mix did"
+}

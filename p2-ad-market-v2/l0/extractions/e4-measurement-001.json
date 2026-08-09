@@ -1,0 +1,115 @@
+{
+ "id": "e4-measurement-001",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1987,
+ "unit": "percent drop in measured prime-time audience",
+ "elapsed_s": 70.6,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Nielsen",
+   "type": "audience measurement company",
+   "clause": "Nielsen's people meters"
+  },
+  {
+   "name": "people meters",
+   "type": "audience measurement device",
+   "clause": "Nielsen's people meters"
+  },
+  {
+   "name": "national television currency",
+   "type": "industry metric status",
+   "clause": "became the national television currency"
+  },
+  {
+   "name": "previous method",
+   "type": "audience measurement method",
+   "clause": "than the previous method"
+  },
+  {
+   "name": "network prime-time audience decline",
+   "type": "audience drop measurement",
+   "clause": "measured about ... fewer people watching network prime time than the previous method"
+  },
+  {
+   "name": "CBS",
+   "type": "broadcast network",
+   "clause": "CBS ... down ..."
+  },
+  {
+   "name": "ABC",
+   "type": "broadcast network",
+   "clause": "ABC ... down ..."
+  },
+  {
+   "name": "NBC",
+   "type": "broadcast network",
+   "clause": "NBC ... down ..."
+  },
+  {
+   "name": "CBS audience decline",
+   "type": "audience drop measurement",
+   "clause": "CBS ... down ..."
+  },
+  {
+   "name": "ABC audience decline",
+   "type": "audience drop measurement",
+   "clause": "ABC ... down ..."
+  },
+  {
+   "name": "NBC audience decline",
+   "type": "audience drop measurement",
+   "clause": "NBC ... down ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "people meters",
+   "type": "BELONGS_TO",
+   "to": "Nielsen",
+   "clause": "Nielsen's people meters"
+  },
+  {
+   "from": "people meters",
+   "type": "BECAME_NATIONAL_CURRENCY",
+   "to": "national television currency",
+   "clause": "became the national television currency"
+  },
+  {
+   "from": "people meters",
+   "type": "MEASURED",
+   "to": "network prime-time audience decline",
+   "clause": "measured about ... fewer people watching network prime time than the previous method"
+  },
+  {
+   "from": "network prime-time audience decline",
+   "type": "COMPARED_TO",
+   "to": "previous method",
+   "clause": "than the previous method"
+  },
+  {
+   "from": "CBS",
+   "type": "EXPERIENCED",
+   "to": "CBS audience decline",
+   "clause": "CBS ... down ..."
+  },
+  {
+   "from": "ABC",
+   "type": "EXPERIENCED",
+   "to": "ABC audience decline",
+   "clause": "ABC ... down ..."
+  },
+  {
+   "from": "NBC",
+   "type": "EXPERIENCED",
+   "to": "NBC audience decline",
+   "clause": "NBC ... down ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Nielsen|audience measurement company|Nielsen's people meters\nNODE|people meters|audience measurement device|Nielsen's people meters\nNODE|national television currency|industry metric status|became the national television currency\nNODE|previous method|audience measurement method|than the previous method\nNODE|network prime-time audience decline|audience drop measurement|measured about ... fewer people watching network prime time than the previous method\nNODE|CBS|broadcast network|CBS ... down ...\nNODE|ABC|broadcast network|ABC ... down ...\nNODE|NBC|broadcast network|NBC ... down ...\nNODE|CBS audience decline|audience drop measurement|CBS ... down ...\nNODE|ABC audience decline|audience drop measurement|ABC ... down ...\nNODE|NBC audience decline|audience drop measurement|NBC ... down ...\nEDGE|people meters|BELONGS_TO|Nielsen|Nielsen's people meters\nEDGE|people meters|BECAME_NATIONAL_CURRENCY|national television currency|became the national television currency\nEDGE|people meters|MEASURED|network prime-time audience decline|measured about ... fewer people watching network prime time than the previous method\nEDGE|network prime-time audience decline|COMPARED_TO|previous method|than the previous method\nEDGE|CBS|EXPERIENCED|CBS audience decline|CBS ... down ...\nEDGE|ABC|EXPERIENCED|ABC audience decline|ABC ... down ...\nEDGE|NBC|EXPERIENCED|NBC audience decline|NBC ... down ..."
+}

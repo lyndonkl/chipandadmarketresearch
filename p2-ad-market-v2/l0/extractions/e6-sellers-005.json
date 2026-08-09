@@ -1,0 +1,110 @@
+{
+ "id": "e6-sellers-005",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "% of US internet ad revenue captured by top 10 sellers, Q4 2008",
+ "elapsed_s": 78.5,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US online sell side",
+   "type": "sell-side market",
+   "clause": "the US online sell side"
+  },
+  {
+   "name": "oligopolistic market",
+   "type": "market structure",
+   "clause": "already oligopolistic"
+  },
+  {
+   "name": "era's close",
+   "type": "time point",
+   "clause": "at the era's close"
+  },
+  {
+   "name": "ten leading ad-selling companies",
+   "type": "ad seller group",
+   "clause": "the ten leading ad-selling companies"
+  },
+  {
+   "name": "top 25 ad-selling companies",
+   "type": "ad seller group",
+   "clause": "the top 25 ad-selling companies"
+  },
+  {
+   "name": "top 50 ad-selling companies",
+   "type": "ad seller group",
+   "clause": "the top 50 ad-selling companies"
+  },
+  {
+   "name": "US internet advertising revenue",
+   "type": "advertising revenue pool",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "top 10 sellers share of US internet advertising revenue",
+   "type": "media-share measurement",
+   "clause": "% of US internet ad revenue captured by top 10 sellers"
+  },
+  {
+   "name": "top 25 sellers share of US internet advertising revenue",
+   "type": "media-share measurement",
+   "clause": "% of US internet ad revenue captured by top 25 sellers"
+  },
+  {
+   "name": "top 50 sellers share of US internet advertising revenue",
+   "type": "media-share measurement",
+   "clause": "% of US internet ad revenue captured by top 50 sellers"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US online sell side",
+   "type": "WAS_OLIGOPOLITICAL_AT",
+   "to": "era's close",
+   "clause": "at the era's close"
+  },
+  {
+   "from": "top 10 sellers share of US internet advertising revenue",
+   "type": "MEASURES",
+   "to": "US internet advertising revenue",
+   "clause": "share of US internet advertising revenue"
+  },
+  {
+   "from": "top 10 sellers share of US internet advertising revenue",
+   "type": "CAPTURED_BY",
+   "to": "ten leading ad-selling companies",
+   "clause": "taken by ten leading ad-selling companies"
+  },
+  {
+   "from": "top 25 sellers share of US internet advertising revenue",
+   "type": "MEASURES",
+   "to": "US internet advertising revenue",
+   "clause": "share of US internet advertising revenue"
+  },
+  {
+   "from": "top 25 sellers share of US internet advertising revenue",
+   "type": "CAPTURED_BY",
+   "to": "top 25 ad-selling companies",
+   "clause": "taken by the top 25 ad-selling companies"
+  },
+  {
+   "from": "top 50 sellers share of US internet advertising revenue",
+   "type": "MEASURES",
+   "to": "US internet advertising revenue",
+   "clause": "share of US internet advertising revenue"
+  },
+  {
+   "from": "top 50 sellers share of US internet advertising revenue",
+   "type": "CAPTURED_BY",
+   "to": "top 50 ad-selling companies",
+   "clause": "taken by the top 50 ad-selling companies"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US online sell side|sell-side market|the US online sell side\nNODE|oligopolistic market|market structure|already oligopolistic\nNODE|era's close|time point|at the era's close\nNODE|ten leading ad-selling companies|ad seller group|the ten leading ad-selling companies\nNODE|top 25 ad-selling companies|ad seller group|the top 25 ad-selling companies\nNODE|top 50 ad-selling companies|ad seller group|the top 50 ad-selling companies\nNODE|US internet advertising revenue|advertising revenue pool|US internet advertising revenue\nNODE|top 10 sellers share of US internet advertising revenue|media-share measurement|% of US internet ad revenue captured by top 10 sellers\nNODE|top 25 sellers share of US internet advertising revenue|media-share measurement|% of US internet ad revenue captured by top 25 sellers\nNODE|top 50 sellers share of US internet advertising revenue|media-share measurement|% of US internet ad revenue captured by top 50 sellers\nEDGE|US online sell side|WAS_OLIGOPOLITICAL_AT|era's close|at the era's close\nEDGE|top 10 sellers share of US internet advertising revenue|MEASURES|US internet advertising revenue|share of US internet advertising revenue\nEDGE|top 10 sellers share of US internet advertising revenue|CAPTURED_BY|ten leading ad-selling companies|taken by ten leading ad-selling companies\nEDGE|top 25 sellers share of US internet advertising revenue|MEASURES|US internet advertising revenue|share of US internet advertising revenue\nEDGE|top 25 sellers share of US internet advertising revenue|CAPTURED_BY|top 25 ad-selling companies|taken by the top 25 ad-selling companies\nEDGE|top 50 sellers share of US internet advertising revenue|MEASURES|US internet advertising revenue|share of US internet advertising revenue\nEDGE|top 50 sellers share of US internet advertising revenue|CAPTURED_BY|top 50 ad-selling companies|taken by the top 50 ad-selling companies"
+}

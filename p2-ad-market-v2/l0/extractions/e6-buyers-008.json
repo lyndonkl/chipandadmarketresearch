@@ -1,0 +1,106 @@
+{
+ "id": "e6-buyers-008",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "% of US internet ad revenue priced on performance, FY2008",
+ "elapsed_s": 78.7,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct-response buyers",
+   "type": "buyer type",
+   "clause": "Direct-response buyers dominated the new medium's pricing"
+  },
+  {
+   "name": "new medium",
+   "type": "advertising medium",
+   "clause": "the new medium's pricing"
+  },
+  {
+   "name": "US internet advertising revenue",
+   "type": "revenue pool",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "performance (pay-per-action) basis",
+   "type": "pricing model",
+   "clause": "performance (pay-per-action) basis"
+  },
+  {
+   "name": "CPM/impression basis",
+   "type": "pricing model",
+   "clause": "CPM/impression basis"
+  },
+  {
+   "name": "performance-priced share of US internet ad revenue",
+   "type": "share measurement",
+   "clause": "... was bought on a performance basis in ..."
+  },
+  {
+   "name": "prior-year performance-priced share of US internet ad revenue",
+   "type": "share measurement",
+   "clause": "... in ..."
+  },
+  {
+   "name": "CPM-priced share of US internet ad revenue",
+   "type": "share measurement",
+   "clause": "... bought on a CPM/impression basis"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct-response buyers",
+   "type": "DOMINATED_PRICING_IN",
+   "to": "new medium",
+   "clause": "Direct-response buyers dominated the new medium's pricing"
+  },
+  {
+   "from": "performance-priced share of US internet ad revenue",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... was bought on a performance basis"
+  },
+  {
+   "from": "performance-priced share of US internet ad revenue",
+   "type": "BASED_ON",
+   "to": "performance (pay-per-action) basis",
+   "clause": "... on a performance (pay-per-action) basis"
+  },
+  {
+   "from": "prior-year performance-priced share of US internet ad revenue",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... in ..."
+  },
+  {
+   "from": "prior-year performance-priced share of US internet ad revenue",
+   "type": "BASED_ON",
+   "to": "performance (pay-per-action) basis",
+   "clause": "same performance basis"
+  },
+  {
+   "from": "performance-priced share of US internet ad revenue",
+   "type": "UP_FROM",
+   "to": "prior-year performance-priced share of US internet ad revenue",
+   "clause": "up from ..."
+  },
+  {
+   "from": "CPM-priced share of US internet ad revenue",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... bought on a CPM/impression basis"
+  },
+  {
+   "from": "CPM-priced share of US internet ad revenue",
+   "type": "BASED_ON",
+   "to": "CPM/impression basis",
+   "clause": "... on a CPM/impression basis"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct-response buyers|buyer type|Direct-response buyers dominated the new medium's pricing\nNODE|new medium|advertising medium|the new medium's pricing\nNODE|US internet advertising revenue|revenue pool|US internet advertising revenue\nNODE|performance (pay-per-action) basis|pricing model|performance (pay-per-action) basis\nNODE|CPM/impression basis|pricing model|CPM/impression basis\nNODE|performance-priced share of US internet ad revenue|share measurement|... was bought on a performance basis in ...\nNODE|prior-year performance-priced share of US internet ad revenue|share measurement|... in ...\nNODE|CPM-priced share of US internet ad revenue|share measurement|... bought on a CPM/impression basis\nEDGE|direct-response buyers|DOMINATED_PRICING_IN|new medium|Direct-response buyers dominated the new medium's pricing\nEDGE|performance-priced share of US internet ad revenue|SHARE_OF|US internet advertising revenue|... was bought on a performance basis\nEDGE|performance-priced share of US internet ad revenue|BASED_ON|performance (pay-per-action) basis|... on a performance (pay-per-action) basis\nEDGE|prior-year performance-priced share of US internet ad revenue|SHARE_OF|US internet advertising revenue|... in ...\nEDGE|prior-year performance-priced share of US internet ad revenue|BASED_ON|performance (pay-per-action) basis|same performance basis\nEDGE|performance-priced share of US internet ad revenue|UP_FROM|prior-year performance-priced share of US internet ad revenue|up from ...\nEDGE|CPM-priced share of US internet ad revenue|SHARE_OF|US internet advertising revenue|... bought on a CPM/impression basis\nEDGE|CPM-priced share of US internet ad revenue|BASED_ON|CPM/impression basis|... on a CPM/impression basis"
+}

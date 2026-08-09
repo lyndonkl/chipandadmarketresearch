@@ -1,0 +1,62 @@
+{
+ "id": "e3-targeting-002",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1970,
+ "unit": "television households per average DMA",
+ "elapsed_s": 43.0,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "average Designated Market Area",
+   "type": "geographic advertising market",
+   "clause": "the average Designated Market Area"
+  },
+  {
+   "name": "television households",
+   "type": "audience unit",
+   "clause": "television households"
+  },
+  {
+   "name": "television advertiser",
+   "type": "advertiser class",
+   "clause": "a television advertiser"
+  },
+  {
+   "name": "television households per average DMA",
+   "type": "per-unit audience measurement",
+   "clause": "about ... television households per average DMA"
+  }
+ ],
+ "edges": [
+  {
+   "from": "average Designated Market Area",
+   "type": "FINEST_UNIT_FOR_PURCHASE_BY",
+   "to": "television advertiser",
+   "clause": "the finest geographic unit a television advertiser could buy"
+  },
+  {
+   "from": "television households per average DMA",
+   "type": "MEASURES",
+   "to": "television households",
+   "clause": "measurement of television households"
+  },
+  {
+   "from": "television households per average DMA",
+   "type": "PER_UNIT",
+   "to": "average Designated Market Area",
+   "clause": "per average DMA"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "FINEST_UNIT_FOR_PURCHASE_BY",
+   "line": "EDGE|average Designated Market Area|FINEST_UNIT_FOR_PURCHASE_BY|television advertiser|the finest geographic unit a television advertiser could buy"
+  }
+ ],
+ "raw": "NODE|average Designated Market Area|geographic advertising market|the average Designated Market Area\nNODE|television households|audience unit|television households\nNODE|television advertiser|advertiser class|a television advertiser\nNODE|television households per average DMA|per-unit audience measurement|about ... television households per average DMA\nEDGE|average Designated Market Area|FINEST_UNIT_FOR_PURCHASE_BY|television advertiser|the finest geographic unit a television advertiser could buy\nEDGE|television households per average DMA|MEASURES|television households|measurement of television households\nEDGE|television households per average DMA|PER_UNIT|average Designated Market Area|per average DMA"
+}

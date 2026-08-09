@@ -1,0 +1,38 @@
+{
+ "group_id": "L1|ddd80cb7a6ef6df5",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Overture revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "total revenue across years, year abstracted",
+   "child_uids": [
+    "n|e5-buyers-013|overture fy2000 revenue|revenue measurement",
+    "n|mech-overture-002|overture fy2002 revenue|revenue measurement",
+    "n|mech-ovt-001|overture revenue|revenue measurement",
+    "n|tu:era:5:boundary|overture fy2001 revenue|revenue measurement",
+    "n|tu:era:6:boundary|overture 2001 revenue|revenue measurement"
+   ]
+  },
+  {
+   "name": "Overture Services revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: services\u2011segment revenue distinct from total",
+   "child_uids": [
+    "n|e6-sellers-001|overture services revenue|revenue measurement"
+   ]
+  },
+  {
+   "name": "Overture share of revenue from Microsoft and Yahoo traffic",
+   "type": "traffic-sourced revenue share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: revenue\u2011share measure by traffic source",
+   "child_uids": [
+    "n|mech-ovt-002|overture share of revenue from microsoft and yahoo traffic|traffic-sourced revenue share measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,88 @@
+{
+ "id": "e1-sellers-006",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1905,
+ "unit": "streetcars under contract",
+ "elapsed_s": 65.9,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Barron Collier's Street Railways Advertising Company",
+   "type": "advertising company",
+   "clause": "Barron Collier's ... sold card space..."
+  },
+  {
+   "name": "card space",
+   "type": "ad inventory unit",
+   "clause": "sold card space"
+  },
+  {
+   "name": "streetcars with card space sold",
+   "type": "inventory count measurement",
+   "clause": "about ... streetcars"
+  },
+  {
+   "name": "states with streetcar advertising contracts",
+   "type": "count measurement",
+   "clause": "across ... states"
+  },
+  {
+   "name": "leading streetcar advertising firms",
+   "type": "advertising firm group",
+   "clause": "the leading streetcar advertising firms"
+  },
+  {
+   "name": "single selling unit",
+   "type": "consolidated organization",
+   "clause": "a single selling unit"
+  },
+  {
+   "name": "largest streetcar advertising business in the country",
+   "type": "advertising business",
+   "clause": "the largest streetcar advertising business in the country"
+  },
+  {
+   "name": "Barron Collier's Street Railways Advertising Company market share",
+   "type": "share measurement",
+   "clause": "its market share"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Barron Collier's Street Railways Advertising Company",
+   "type": "SOLD",
+   "to": "card space",
+   "clause": "sold card space inside ... streetcars"
+  },
+  {
+   "from": "streetcars with card space sold",
+   "type": "MEASURES",
+   "to": "card space",
+   "clause": "about ... streetcars"
+  },
+  {
+   "from": "leading streetcar advertising firms",
+   "type": "CONSOLIDATED_INTO",
+   "to": "single selling unit",
+   "clause": "consolidating ... into a single selling unit"
+  },
+  {
+   "from": "Barron Collier's Street Railways Advertising Company",
+   "type": "BUILT",
+   "to": "largest streetcar advertising business in the country",
+   "clause": "building the largest streetcar advertising business in the country"
+  },
+  {
+   "from": "Barron Collier's Street Railways Advertising Company",
+   "type": "FIGURE_NOT_FOUND",
+   "to": "Barron Collier's Street Railways Advertising Company market share",
+   "clause": "no sourced figure for its market share was found"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Barron Collier's Street Railways Advertising Company|advertising company|Barron Collier's ... sold card space...\nNODE|card space|ad inventory unit|sold card space\nNODE|streetcars with card space sold|inventory count measurement|about ... streetcars\nNODE|states with streetcar advertising contracts|count measurement|across ... states\nNODE|leading streetcar advertising firms|advertising firm group|the leading streetcar advertising firms\nNODE|single selling unit|consolidated organization|a single selling unit\nNODE|largest streetcar advertising business in the country|advertising business|the largest streetcar advertising business in the country\nNODE|Barron Collier's Street Railways Advertising Company market share|share measurement|its market share\nEDGE|Barron Collier's Street Railways Advertising Company|SOLD|card space|sold card space inside ... streetcars\nEDGE|streetcars with card space sold|MEASURES|card space|about ... streetcars\nEDGE|leading streetcar advertising firms|CONSOLIDATED_INTO|single selling unit|consolidating ... into a single selling unit\nEDGE|Barron Collier's Street Railways Advertising Company|BUILT|largest streetcar advertising business in the country|building the largest streetcar advertising business in the country\nEDGE|Barron Collier's Street Railways Advertising Company|FIGURE_NOT_FOUND|Barron Collier's Street Railways Advertising Company market share|no sourced figure for its market share was found"
+}

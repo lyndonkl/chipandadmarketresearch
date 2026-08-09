@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|160309177a409bae",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Advertising medium",
+   "type": "advertising medium",
+   "grain": "Dimension",
+   "reason": "dimension members total and other grouped under advertising medium",
+   "child_uids": [
+    "dim:medium:other",
+    "dim:medium:total"
+   ]
+  },
+  {
+   "name": "Ad impressions",
+   "type": "metric",
+   "grain": "Entity",
+   "reason": "singleton: metric about ad impressions, year-specific",
+   "child_uids": [
+    "n|e7-pricing-008|ad impressions|metric"
+   ]
+  },
+  {
+   "name": "Ad intensity trend",
+   "type": "trend description",
+   "grain": "Entity",
+   "reason": "singleton: trend description of ad intensity",
+   "child_uids": [
+    "n|tu:era:4:field:SCALE|ad intensity trend|trend description"
+   ]
+  },
+  {
+   "name": "Banner impressions",
+   "type": "ad inventory metric",
+   "grain": "Entity",
+   "reason": "singleton: specific ad inventory metric for banner impressions",
+   "child_uids": [
+    "n|tu:era:5:field:TARGETING|banner impressions|ad inventory metric"
+   ]
+  },
+  {
+   "name": "MAGNA/eMarketer all-media series",
+   "type": "all-media data series",
+   "grain": "Entity",
+   "reason": "singleton: data series covering all\u2011media total on MAGNA/eMarketer",
+   "child_uids": [
+    "n|tu:era:7:boundary|magna/emarketer all-media series|all-media data series"
+   ]
+  },
+  {
+   "name": "Digital half of total",
+   "type": "advertising segment",
+   "grain": "Entity",
+   "reason": "singleton: advertising segment representing digital half of total",
+   "child_uids": [
+    "n|tu:era:7:field:SCALE|digital half of total|advertising segment"
+   ]
+  }
+ ]
+}

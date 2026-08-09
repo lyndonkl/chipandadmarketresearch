@@ -1,0 +1,37 @@
+{
+ "group_id": "L1|eec6fa5b6040c8c9",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Five-digit ZIP",
+   "type": "postal code",
+   "grain": "Entity",
+   "reason": "same concept across geographic unit and format labels",
+   "child_uids": [
+    "n|e4-targeting-001|five-digit zip codes|geographic unit",
+    "n|tu:era:4:event:3|five-digit zip|postal code format",
+    "n|tu:era:4:field:TARGETING|five-digit zip code|geographic unit"
+   ]
+  },
+  {
+   "name": "ZIP+4",
+   "type": "postal code extension",
+   "grain": "Entity",
+   "reason": "same extended ZIP concept across format and extension labels",
+   "child_uids": [
+    "n|tu:era:4:event:3|nine-digit zip+4|postal code format",
+    "n|tu:era:4:field:TARGETING|zip+4|postal code extension"
+   ]
+  },
+  {
+   "name": "ZIP classification",
+   "type": "classification scheme",
+   "grain": "Entity",
+   "reason": "singleton: distinct classification entity",
+   "child_uids": [
+    "n|e4-targeting-002|zip classification|classification scheme"
+   ]
+  }
+ ]
+}

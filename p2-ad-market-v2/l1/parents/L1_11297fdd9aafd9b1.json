@@ -1,0 +1,26 @@
+{
+ "group_id": "L1|11297fdd9aafd9b1",
+ "source": "name-block",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Show",
+   "type": "program",
+   "grain": "Entity",
+   "reason": "same entity across fields; case variation ignored",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|show|program",
+    "n|tu:era:3:field:BUYERS|show|program"
+   ]
+  },
+  {
+   "name": "Show episode",
+   "type": "program episode",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity type (episode) separate from series",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|show|program episode"
+   ]
+  }
+ ]
+}

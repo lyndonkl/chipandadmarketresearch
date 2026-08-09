@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|d39359603492fef1",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Zero-tier affiliate compensation rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: zero-tier affiliate compensation rate measure",
+   "child_uids": [
+    "n|e2-pricing-007|zero-tier affiliate compensation rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Affiliate compensation rate tier 4",
+   "type": "compensation measurement",
+   "grain": "Measurement",
+   "reason": "same subject and quantity; tier 4 breakdown across sources",
+   "child_uids": [
+    "n|e2-pricing-007|fourth-tier affiliate compensation rate|take-rate measurement",
+    "n|tu:era:2:field:PRICING|tier 4 affiliate compensation rate|compensation measurement"
+   ]
+  },
+  {
+   "name": "Affiliate payment share",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: affiliate payment share measure",
+   "child_uids": [
+    "n|tu:era:2:field:SELLERS|affiliate payment share|percentage measurement"
+   ]
+  }
+ ]
+}

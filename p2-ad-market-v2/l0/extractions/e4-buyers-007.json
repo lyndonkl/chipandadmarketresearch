@@ -1,0 +1,84 @@
+{
+ "id": "e4-buyers-007",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 58.2,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct-response buyers",
+   "type": "buyer segment",
+   "clause": "direct-response buyers"
+  },
+  {
+   "name": "direct-response buyer spend",
+   "type": "spend measurement",
+   "clause": "total spend of direct-response buyers"
+  },
+  {
+   "name": "all measured US advertising",
+   "type": "advertising spend aggregate",
+   "clause": "all measured US advertising"
+  },
+  {
+   "name": "direct-response buyer share of US advertising",
+   "type": "share measurement",
+   "clause": "share of US advertising by direct-response buyers"
+  },
+  {
+   "name": "cost per order",
+   "type": "pricing metric",
+   "clause": "cost per order"
+  },
+  {
+   "name": "cost per thousand",
+   "type": "pricing metric",
+   "clause": "cost per thousand"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct-response buyers",
+   "type": "HAS_SPEND",
+   "to": "direct-response buyer spend",
+   "clause": "spent an estimated ..."
+  },
+  {
+   "from": "direct-response buyer spend",
+   "type": "MEASURES",
+   "to": "direct-response buyers",
+   "clause": "spend measurement of direct-response buyers"
+  },
+  {
+   "from": "direct-response buyer share of US advertising",
+   "type": "MEASURES",
+   "to": "direct-response buyers",
+   "clause": "share of all measured US advertising"
+  },
+  {
+   "from": "direct-response buyer share of US advertising",
+   "type": "SHARE_OF",
+   "to": "all measured US advertising",
+   "clause": "share of all measured US advertising"
+  },
+  {
+   "from": "direct-response buyers",
+   "type": "BOUGHT_AGAINST",
+   "to": "cost per order",
+   "clause": "bought against a measured cost per order"
+  },
+  {
+   "from": "direct-response buyers",
+   "type": "EXCLUDES",
+   "to": "cost per thousand",
+   "clause": "rather than a cost per thousand"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct-response buyers|buyer segment|direct-response buyers\nNODE|direct-response buyer spend|spend measurement|total spend of direct-response buyers\nNODE|all measured US advertising|advertising spend aggregate|all measured US advertising\nNODE|direct-response buyer share of US advertising|share measurement|share of US advertising by direct-response buyers\nNODE|cost per order|pricing metric|cost per order\nNODE|cost per thousand|pricing metric|cost per thousand\nEDGE|direct-response buyers|HAS_SPEND|direct-response buyer spend|spent an estimated ...\nEDGE|direct-response buyer spend|MEASURES|direct-response buyers|spend measurement of direct-response buyers\nEDGE|direct-response buyer share of US advertising|MEASURES|direct-response buyers|share of all measured US advertising\nEDGE|direct-response buyer share of US advertising|SHARE_OF|all measured US advertising|share of all measured US advertising\nEDGE|direct-response buyers|BOUGHT_AGAINST|cost per order|bought against a measured cost per order\nEDGE|direct-response buyers|EXCLUDES|cost per thousand|rather than a cost per thousand"
+}

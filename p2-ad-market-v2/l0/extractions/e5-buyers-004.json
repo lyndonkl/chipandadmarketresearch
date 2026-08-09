@@ -1,0 +1,60 @@
+{
+ "id": "e5-buyers-004",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of DoubleClick Media revenue",
+ "elapsed_s": 47.2,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "DoubleClick Media",
+   "type": "company",
+   "clause": "DoubleClick Media"
+  },
+  {
+   "name": "DoubleClick Media network revenue",
+   "type": "revenue stream",
+   "clause": "DoubleClick Media network revenue"
+  },
+  {
+   "name": "traditional advertisers",
+   "type": "advertiser segment",
+   "clause": "traditional (non-internet) advertisers"
+  },
+  {
+   "name": "dot-com advertisers",
+   "type": "advertiser segment",
+   "clause": "dot-com advertisers"
+  },
+  {
+   "name": "traditional advertiser share of DoubleClick Media network revenue",
+   "type": "media-share measurement",
+   "clause": "share ... grown to ..."
+  },
+  {
+   "name": "network demand",
+   "type": "advertising demand",
+   "clause": "network demand for DoubleClick Media"
+  }
+ ],
+ "edges": [
+  {
+   "from": "traditional advertiser share of DoubleClick Media network revenue",
+   "type": "SHARE_OF",
+   "to": "DoubleClick Media network revenue",
+   "clause": "share ... of DoubleClick Media network revenue"
+  },
+  {
+   "from": "dot-com advertisers",
+   "type": "MAJORITY_BEFORE",
+   "to": "network demand",
+   "clause": "dot-com advertisers had been the majority of network demand before that quarter"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|DoubleClick Media|company|DoubleClick Media\nNODE|DoubleClick Media network revenue|revenue stream|DoubleClick Media network revenue\nNODE|traditional advertisers|advertiser segment|traditional (non-internet) advertisers\nNODE|dot-com advertisers|advertiser segment|dot-com advertisers\nNODE|traditional advertiser share of DoubleClick Media network revenue|media-share measurement|share ... grown to ...\nNODE|network demand|advertising demand|network demand for DoubleClick Media\nEDGE|traditional advertiser share of DoubleClick Media network revenue|SHARE_OF|DoubleClick Media network revenue|share ... of DoubleClick Media network revenue\nEDGE|dot-com advertisers|MAJORITY_BEFORE|network demand|dot-com advertisers had been the majority of network demand before that quarter"
+}

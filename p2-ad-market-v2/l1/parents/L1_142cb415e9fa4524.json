@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|142cb415e9fa4524",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Pure first-price pure-bid auction",
+   "type": "auction mechanism",
+   "grain": "Entity",
+   "reason": "singleton: generic first-price pure-bid auction entity",
+   "child_uids": [
+    "n|e5-pricing-004|pure first-price pure-bid auction|auction mechanism"
+   ]
+  },
+  {
+   "name": "Overture auction",
+   "type": "auction mechanism",
+   "grain": "Entity",
+   "reason": "singleton: specific Overture implementation of a first-price auction",
+   "child_uids": [
+    "n|tu:era:5:boundary|overture auction|auction mechanism"
+   ]
+  },
+  {
+   "name": "Waterfall auction",
+   "type": "auction mechanism",
+   "grain": "Entity",
+   "reason": "singleton: sequential priority order auction mechanism",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|waterfall|auction mechanism"
+   ]
+  }
+ ]
+}

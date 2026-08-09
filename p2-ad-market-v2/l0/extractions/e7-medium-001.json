@@ -1,0 +1,67 @@
+{
+ "id": "e7-medium-001",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD millions of US internet ad revenue, 2025",
+ "elapsed_s": 58.8,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet advertising revenue",
+   "type": "revenue measurement",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "US internet advertising",
+   "type": "advertising market",
+   "clause": "US internet advertising"
+  },
+  {
+   "name": "US internet advertising revenue growth multiple",
+   "type": "ratio measurement",
+   "clause": "... increase"
+  },
+  {
+   "name": "2009 revenue decline",
+   "type": "year\u2011on\u2011year change measurement",
+   "clause": "... decline in ..."
+  },
+  {
+   "name": "Machine Market era",
+   "type": "advertising era",
+   "clause": "The Machine Market era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US internet advertising revenue",
+   "type": "MEASURES",
+   "to": "US internet advertising",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "from": "US internet advertising revenue growth multiple",
+   "type": "MEASURES",
+   "to": "US internet advertising revenue",
+   "clause": "... increase"
+  },
+  {
+   "from": "2009 revenue decline",
+   "type": "MEASURES",
+   "to": "US internet advertising revenue",
+   "clause": "... decline in ..."
+  },
+  {
+   "from": "2009 revenue decline",
+   "type": "ONLY_IN_ERA",
+   "to": "Machine Market era",
+   "clause": "the only ... was ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet advertising revenue|revenue measurement|US internet advertising revenue\nNODE|US internet advertising|advertising market|US internet advertising\nNODE|US internet advertising revenue growth multiple|ratio measurement|... increase\nNODE|2009 revenue decline|year\u2011on\u2011year change measurement|... decline in ...\nNODE|Machine Market era|advertising era|The Machine Market era\nEDGE|US internet advertising revenue|MEASURES|US internet advertising|US internet advertising revenue\nEDGE|US internet advertising revenue growth multiple|MEASURES|US internet advertising revenue|... increase\nEDGE|2009 revenue decline|MEASURES|US internet advertising revenue|... decline in ...\nEDGE|2009 revenue decline|ONLY_IN_ERA|Machine Market era|the only ... was ..."
+}

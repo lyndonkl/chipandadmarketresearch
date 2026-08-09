@@ -1,0 +1,105 @@
+{
+ "id": "e4-sellers-003",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "percent of cable industry revenue",
+ "elapsed_s": 69.8,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Advertising",
+   "type": "revenue source",
+   "clause": "Advertising supplied only ... percent of revenue"
+  },
+  {
+   "name": "US cable and pay-TV industry revenue",
+   "type": "market revenue",
+   "clause": "US cable and pay-TV industry revenue"
+  },
+  {
+   "name": "advertising share of US cable and pay-TV industry revenue",
+   "type": "media-share measurement",
+   "clause": "... of US cable and pay-TV industry revenue"
+  },
+  {
+   "name": "basic subscription service",
+   "type": "revenue source",
+   "clause": "basic subscription service alone supplied ... percent"
+  },
+  {
+   "name": "basic subscription service share of US cable and pay-TV industry revenue",
+   "type": "media-share measurement",
+   "clause": "... of US cable and pay-TV industry revenue"
+  },
+  {
+   "name": "cable industry",
+   "type": "distribution platform",
+   "clause": "cable fragmented the audience but monetised it"
+  },
+  {
+   "name": "audience",
+   "type": "consumer group",
+   "clause": "the audience"
+  },
+  {
+   "name": "subscribers",
+   "type": "subscriber base",
+   "clause": "subscribers as monetisation channel"
+  },
+  {
+   "name": "advertisers",
+   "type": "advertiser constituency",
+   "clause": "advertisers excluded from monetisation"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Advertising",
+   "type": "HAS_SHARE",
+   "to": "advertising share of US cable and pay-TV industry revenue",
+   "clause": "Advertising supplied only ... percent of revenue"
+  },
+  {
+   "from": "advertising share of US cable and pay-TV industry revenue",
+   "type": "SHARE_OF",
+   "to": "US cable and pay-TV industry revenue",
+   "clause": "... share of US cable and pay-TV industry revenue"
+  },
+  {
+   "from": "basic subscription service",
+   "type": "HAS_SHARE",
+   "to": "basic subscription service share of US cable and pay-TV industry revenue",
+   "clause": "basic subscription service alone supplied ... percent"
+  },
+  {
+   "from": "basic subscription service share of US cable and pay-TV industry revenue",
+   "type": "SHARE_OF",
+   "to": "US cable and pay-TV industry revenue",
+   "clause": "... share of US cable and pay-TV industry revenue"
+  },
+  {
+   "from": "cable industry",
+   "type": "FRAGMENTED",
+   "to": "audience",
+   "clause": "Cable fragmented the audience"
+  },
+  {
+   "from": "cable industry",
+   "type": "MONETISED_THROUGH",
+   "to": "subscribers",
+   "clause": "monetised it mainly through subscribers"
+  },
+  {
+   "from": "cable industry",
+   "type": "EXCLUDES",
+   "to": "advertisers",
+   "clause": "not advertisers"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Advertising|revenue source|Advertising supplied only ... percent of revenue\nNODE|US cable and pay-TV industry revenue|market revenue|US cable and pay-TV industry revenue\nNODE|advertising share of US cable and pay-TV industry revenue|media-share measurement|... of US cable and pay-TV industry revenue\nNODE|basic subscription service|revenue source|basic subscription service alone supplied ... percent\nNODE|basic subscription service share of US cable and pay-TV industry revenue|media-share measurement|... of US cable and pay-TV industry revenue\nNODE|cable industry|distribution platform|cable fragmented the audience but monetised it\nNODE|audience|consumer group|the audience\nNODE|subscribers|subscriber base|subscribers as monetisation channel\nNODE|advertisers|advertiser constituency|advertisers excluded from monetisation\nEDGE|Advertising|HAS_SHARE|advertising share of US cable and pay-TV industry revenue|Advertising supplied only ... percent of revenue\nEDGE|advertising share of US cable and pay-TV industry revenue|SHARE_OF|US cable and pay-TV industry revenue|... share of US cable and pay-TV industry revenue\nEDGE|basic subscription service|HAS_SHARE|basic subscription service share of US cable and pay-TV industry revenue|basic subscription service alone supplied ... percent\nEDGE|basic subscription service share of US cable and pay-TV industry revenue|SHARE_OF|US cable and pay-TV industry revenue|... share of US cable and pay-TV industry revenue\nEDGE|cable industry|FRAGMENTED|audience|Cable fragmented the audience\nEDGE|cable industry|MONETISED_THROUGH|subscribers|monetised it mainly through subscribers\nEDGE|cable industry|EXCLUDES|advertisers|not advertisers"
+}

@@ -1,0 +1,84 @@
+{
+ "id": "e7-sellers-003",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of Meta advertising revenue, FY2025 (global)",
+ "elapsed_s": 56.5,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Meta",
+   "type": "company",
+   "clause": "Meta advertising revenue"
+  },
+  {
+   "name": "Amazon",
+   "type": "company",
+   "clause": "Amazon advertising services revenue"
+  },
+  {
+   "name": "Meta advertising revenue",
+   "type": "advertising revenue measurement",
+   "clause": "Meta advertising revenue was ... in FY2025"
+  },
+  {
+   "name": "Meta advertising revenue prior year",
+   "type": "advertising revenue measurement",
+   "clause": "up ... from ... in FY2024"
+  },
+  {
+   "name": "Amazon advertising services revenue",
+   "type": "advertising revenue measurement",
+   "clause": "Amazon advertising services revenue was ... in FY2025"
+  },
+  {
+   "name": "Amazon advertising services revenue prior year",
+   "type": "advertising revenue measurement",
+   "clause": "up ... from ... in FY2024"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Meta advertising revenue",
+   "type": "MEASURES_REVENUE_FOR",
+   "to": "Meta",
+   "clause": "Meta advertising revenue"
+  },
+  {
+   "from": "Meta advertising revenue prior year",
+   "type": "MEASURES_REVENUE_FOR",
+   "to": "Meta",
+   "clause": "up ... from ... in FY2024"
+  },
+  {
+   "from": "Meta advertising revenue",
+   "type": "UP_FROM",
+   "to": "Meta advertising revenue prior year",
+   "clause": "up ... from ..."
+  },
+  {
+   "from": "Amazon advertising services revenue",
+   "type": "MEASURES_REVENUE_FOR",
+   "to": "Amazon",
+   "clause": "Amazon advertising services revenue"
+  },
+  {
+   "from": "Amazon advertising services revenue prior year",
+   "type": "MEASURES_REVENUE_FOR",
+   "to": "Amazon",
+   "clause": "up ... from ... in FY2024"
+  },
+  {
+   "from": "Amazon advertising services revenue",
+   "type": "UP_FROM",
+   "to": "Amazon advertising services revenue prior year",
+   "clause": "up ... from ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Meta|company|Meta advertising revenue\nNODE|Amazon|company|Amazon advertising services revenue\nNODE|Meta advertising revenue|advertising revenue measurement|Meta advertising revenue was ... in FY2025\nNODE|Meta advertising revenue prior year|advertising revenue measurement|up ... from ... in FY2024\nNODE|Amazon advertising services revenue|advertising revenue measurement|Amazon advertising services revenue was ... in FY2025\nNODE|Amazon advertising services revenue prior year|advertising revenue measurement|up ... from ... in FY2024\nEDGE|Meta advertising revenue|MEASURES_REVENUE_FOR|Meta|Meta advertising revenue\nEDGE|Meta advertising revenue prior year|MEASURES_REVENUE_FOR|Meta|up ... from ... in FY2024\nEDGE|Meta advertising revenue|UP_FROM|Meta advertising revenue prior year|up ... from ...\nEDGE|Amazon advertising services revenue|MEASURES_REVENUE_FOR|Amazon|Amazon advertising services revenue\nEDGE|Amazon advertising services revenue prior year|MEASURES_REVENUE_FOR|Amazon|up ... from ... in FY2024\nEDGE|Amazon advertising services revenue|UP_FROM|Amazon advertising services revenue prior year|up ... from ..."
+}

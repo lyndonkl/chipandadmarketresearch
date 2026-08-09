@@ -1,0 +1,107 @@
+{
+ "group_id": "L1|8c2d8fde0d1dca65",
+ "source": "kmeans",
+ "n_in": 12,
+ "parents": [
+  {
+   "name": "Newspaper reader",
+   "type": "audience",
+   "grain": "Entity",
+   "reason": "same audience concept across plural and singular forms",
+   "child_uids": [
+    "n|tu:era:1:field:SELLERS|readers|audience",
+    "n|tu:era:1:field:TARGETING|reader|audience member"
+   ]
+  },
+  {
+   "name": "Newspaper agent",
+   "type": "occupation",
+   "grain": "Entity",
+   "reason": "singleton: occupation representing newspaper sales agents",
+   "child_uids": [
+    "n|tu:era:1:event:1|newspaper agent|occupation"
+   ]
+  },
+  {
+   "name": "Print medium",
+   "type": "media type",
+   "grain": "Entity",
+   "reason": "singleton: media type denoting overall print industry",
+   "child_uids": [
+    "n|tu:era:1:field:BUYERS|print medium|media type"
+   ]
+  },
+  {
+   "name": "Retail department stores",
+   "type": "buyer class",
+   "grain": "Entity",
+   "reason": "singleton: buyer class purchasing local newspaper space",
+   "child_uids": [
+    "n|tu:era:1:field:BUYERS|retail department stores|buyer class"
+   ]
+  },
+  {
+   "name": "Important newspapers",
+   "type": "media outlet",
+   "grain": "Entity",
+   "reason": "singleton: media outlets deemed important in the era",
+   "child_uids": [
+    "n|tu:era:1:field:CREATORS|important newspapers|media outlet"
+   ]
+  },
+  {
+   "name": "Penny press",
+   "type": "newspaper format",
+   "grain": "Entity",
+   "reason": "singleton: low\u2011cost newspaper format popular in 19th century",
+   "child_uids": [
+    "n|tu:era:1:field:MEDIUM|penny press|newspaper format"
+   ]
+  },
+  {
+   "name": "Cheap news",
+   "type": "content offering",
+   "grain": "Entity",
+   "reason": "singleton: content offering emphasizing inexpensive news items",
+   "child_uids": [
+    "n|tu:era:1:field:SELLERS|cheap news|content offering"
+   ]
+  },
+  {
+   "name": "Newspaper local",
+   "type": "subsection",
+   "grain": "Entity",
+   "reason": "singleton: subsection denoting locally focused newspaper content",
+   "child_uids": [
+    "n|tu:era:2:field:MEDIUM|newspaper local|subsection"
+   ]
+  },
+  {
+   "name": "National newspaper space",
+   "type": "medium",
+   "grain": "Entity",
+   "reason": "singleton: medium representing national newspaper advertising inventory",
+   "child_uids": [
+    "n|tu:era:3:field:BUYERS|national newspaper space|medium"
+   ]
+  },
+  {
+   "name": "Newspaper groups",
+   "type": "group",
+   "grain": "Entity",
+   "reason": "singleton: entities grouping multiple newspapers for collective purposes",
+   "child_uids": [
+    "n|tu:era:3:field:SELLERS|newspaper groups|(promoted)"
+   ]
+  },
+  {
+   "name": "Local newspaper chains",
+   "type": "media chain",
+   "grain": "Entity",
+   "reason": "singleton: media chains owning local newspaper outlets",
+   "child_uids": [
+    "n|tu:era:4:field:SELLERS|local newspaper chains|media chain"
+   ]
+  }
+ ]
+}

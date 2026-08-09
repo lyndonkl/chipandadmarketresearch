@@ -1,0 +1,54 @@
+{
+ "group_id": "L1|bc11567a4bbc4f86",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Google AI-summary visits",
+   "type": "search session subset",
+   "grain": "Entity",
+   "reason": "singleton: Google visits with AI summary specific to Google",
+   "child_uids": [
+    "n|e7-events-008|google visits with ai summary|search session subset"
+   ]
+  },
+  {
+   "name": "AI-summary visits",
+   "type": "visit category",
+   "grain": "Entity",
+   "reason": "same concept across type labels; visits with AI summary",
+   "child_uids": [
+    "n|e7-measurement-004|visits with ai summary|visit set",
+    "n|tu:era:7:event:7|ai-summary visits|visit type"
+   ]
+  },
+  {
+   "name": "non-AI summary visits",
+   "type": "visit category",
+   "grain": "Entity",
+   "reason": "same concept across type labels; visits without AI summary",
+   "child_uids": [
+    "n|e7-measurement-004|visits without ai summary|visit set",
+    "n|tu:era:7:event:7|non-ai summary visits|visit type"
+   ]
+  },
+  {
+   "name": "generated answer",
+   "type": "content type",
+   "grain": "Entity",
+   "reason": "singleton: generated answer content type",
+   "child_uids": [
+    "n|tu:era:7:event:7|generated answer|content type"
+   ]
+  },
+  {
+   "name": "Pew",
+   "type": "research organization",
+   "grain": "Entity",
+   "reason": "singleton: research organization Pew",
+   "child_uids": [
+    "n|tu:era:7:event:7|pew|research organization"
+   ]
+  }
+ ]
+}

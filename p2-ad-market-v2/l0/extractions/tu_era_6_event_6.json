@@ -1,0 +1,95 @@
+{
+ "id": "tu:era:6:event:6",
+ "kind": "prose:event",
+ "era": 6,
+ "about_year": 2006,
+ "unit": null,
+ "elapsed_s": 55.0,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google settles ... for up to ... in advertiser credits"
+  },
+  {
+   "name": "Lane's Gifts & Collectibles",
+   "type": "company",
+   "clause": "settles Lane's Gifts & Collectibles v. Google"
+  },
+  {
+   "name": "Lane's Gifts & Collectibles v. Google",
+   "type": "legal case",
+   "clause": "Lane's Gifts & Collectibles v. Google"
+  },
+  {
+   "name": "Google-Lane's settlement",
+   "type": "legal settlement",
+   "clause": "the settlement produces the Tuzhilin report"
+  },
+  {
+   "name": "advertiser credits settlement amount",
+   "type": "settlement credit measurement",
+   "clause": "for up to ... in advertiser credits"
+  },
+  {
+   "name": "Tuzhilin report",
+   "type": "research report",
+   "clause": "produces the Tuzhilin report on Google's invalid-click detection"
+  },
+  {
+   "name": "invalid-click detection metric",
+   "type": "click fraud detection metric",
+   "clause": "on Google's invalid-click detection"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "SETTLES",
+   "to": "Lane's Gifts & Collectibles v. Google",
+   "clause": "settles ... for up to ... in advertiser credits"
+  },
+  {
+   "from": "Lane's Gifts & Collectibles v. Google",
+   "type": "RESULTED_IN",
+   "to": "Google-Lane's settlement",
+   "clause": "Lane's Gifts & Collectibles v. Google resulted in the settlement"
+  },
+  {
+   "from": "Google-Lane's settlement",
+   "type": "HAS_VALUE",
+   "to": "advertiser credits settlement amount",
+   "clause": "for up to ... in advertiser credits"
+  },
+  {
+   "from": "Google-Lane's settlement",
+   "type": "PRODUCES",
+   "to": "Tuzhilin report",
+   "clause": "the settlement produces the Tuzhilin report"
+  },
+  {
+   "from": "Tuzhilin report",
+   "type": "ABOUT",
+   "to": "invalid-click detection metric",
+   "clause": "on Google's invalid-click detection"
+  },
+  {
+   "from": "Google",
+   "type": "AUDITS",
+   "to": "invalid-click detection metric",
+   "clause": "seller was also the auditor of the metric"
+  },
+  {
+   "from": "Google",
+   "type": "BILLED_ON",
+   "to": "invalid-click detection metric",
+   "clause": "metric it billed on"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google settles ... for up to ... in advertiser credits\nNODE|Lane's Gifts & Collectibles|company|settles Lane's Gifts & Collectibles v. Google\nNODE|Lane's Gifts & Collectibles v. Google|legal case|Lane's Gifts & Collectibles v. Google\nNODE|Google-Lane's settlement|legal settlement|the settlement produces the Tuzhilin report\nNODE|advertiser credits settlement amount|settlement credit measurement|for up to ... in advertiser credits\nNODE|Tuzhilin report|research report|produces the Tuzhilin report on Google's invalid-click detection\nNODE|invalid-click detection metric|click fraud detection metric|on Google's invalid-click detection\nEDGE|Google|SETTLES|Lane's Gifts & Collectibles v. Google|settles ... for up to ... in advertiser credits\nEDGE|Lane's Gifts & Collectibles v. Google|RESULTED_IN|Google-Lane's settlement|Lane's Gifts & Collectibles v. Google resulted in the settlement\nEDGE|Google-Lane's settlement|HAS_VALUE|advertiser credits settlement amount|for up to ... in advertiser credits\nEDGE|Google-Lane's settlement|PRODUCES|Tuzhilin report|the settlement produces the Tuzhilin report\nEDGE|Tuzhilin report|ABOUT|invalid-click detection metric|on Google's invalid-click detection\nEDGE|Google|AUDITS|invalid-click detection metric|seller was also the auditor of the metric\nEDGE|Google|BILLED_ON|invalid-click detection metric|metric it billed on"
+}

@@ -1,0 +1,148 @@
+{
+ "id": "tu:era:3:event:4",
+ "kind": "prose:event",
+ "era": 3,
+ "about_year": 1962,
+ "unit": null,
+ "elapsed_s": 60.3,
+ "error": null,
+ "n_nodes": 14,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "ABC",
+   "type": "broadcast network",
+   "clause": "ABC schedules all its new-season premieres"
+  },
+  {
+   "name": "new-season premieres",
+   "type": "program season launch event",
+   "clause": "new-season premieres in the week after Labor Day"
+  },
+  {
+   "name": "week after Labor Day",
+   "type": "calendar period",
+   "clause": "in the week after Labor Day"
+  },
+  {
+   "name": "car makers' model-year launches",
+   "type": "automotive product launch timing",
+   "clause": "to align with car makers' model-year launches"
+  },
+  {
+   "name": "CBS",
+   "type": "broadcast network",
+   "clause": "CBS follow"
+  },
+  {
+   "name": "NBC",
+   "type": "broadcast network",
+   "clause": "NBC follow"
+  },
+  {
+   "name": "television season",
+   "type": "program inventory",
+   "clause": "sells the season in advance"
+  },
+  {
+   "name": "advertising inventory",
+   "type": "inventory type",
+   "clause": "inventory now network-owned"
+  },
+  {
+   "name": "network-owned status",
+   "type": "ownership attribute",
+   "clause": "inventory now network-owned"
+  },
+  {
+   "name": "advertising supply",
+   "type": "supply concept",
+   "clause": "supply fixed by the length of prime time"
+  },
+  {
+   "name": "prime time length",
+   "type": "programming duration metric",
+   "clause": "fixed by the length of prime time"
+  },
+  {
+   "name": "compressed spring selling window",
+   "type": "selling window period",
+   "clause": "a compressed spring selling window became the annual clearing event"
+  },
+  {
+   "name": "upfront",
+   "type": "annual clearing event",
+   "clause": "the upfront for national television"
+  },
+  {
+   "name": "national television",
+   "type": "advertising market",
+   "clause": "annual clearing event for national television"
+  }
+ ],
+ "edges": [
+  {
+   "from": "ABC",
+   "type": "SCHEDULES",
+   "to": "new-season premieres",
+   "clause": "schedules all its new-season premieres"
+  },
+  {
+   "from": "new-season premieres",
+   "type": "OCCURS_IN",
+   "to": "week after Labor Day",
+   "clause": "in the week after Labor Day"
+  },
+  {
+   "from": "new-season premieres",
+   "type": "ALIGN_WITH",
+   "to": "car makers' model-year launches",
+   "clause": "to align with car makers' model-year launches"
+  },
+  {
+   "from": "ABC",
+   "type": "SELLS",
+   "to": "television season",
+   "clause": "sells the season in advance"
+  },
+  {
+   "from": "CBS",
+   "type": "FOLLOWS",
+   "to": "ABC",
+   "clause": "CBS follow"
+  },
+  {
+   "from": "NBC",
+   "type": "FOLLOWS",
+   "to": "ABC",
+   "clause": "NBC follow"
+  },
+  {
+   "from": "advertising inventory",
+   "type": "HAS_STATUS",
+   "to": "network-owned status",
+   "clause": "inventory now network-owned"
+  },
+  {
+   "from": "advertising supply",
+   "type": "FIXED_BY",
+   "to": "prime time length",
+   "clause": "supply fixed by the length of prime time"
+  },
+  {
+   "from": "compressed spring selling window",
+   "type": "BECAME",
+   "to": "upfront",
+   "clause": "became the annual clearing event for national television"
+  },
+  {
+   "from": "upfront",
+   "type": "FOR_MARKET",
+   "to": "national television",
+   "clause": "annual clearing event for national television"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|ABC|broadcast network|ABC schedules all its new-season premieres\nNODE|new-season premieres|program season launch event|new-season premieres in the week after Labor Day\nNODE|week after Labor Day|calendar period|in the week after Labor Day\nNODE|car makers' model-year launches|automotive product launch timing|to align with car makers' model-year launches\nNODE|CBS|broadcast network|CBS follow\nNODE|NBC|broadcast network|NBC follow\nNODE|television season|program inventory|sells the season in advance\nNODE|advertising inventory|inventory type|inventory now network-owned\nNODE|network-owned status|ownership attribute|inventory now network-owned\n NODE|advertising supply|supply concept|supply fixed by the length of prime time\nNODE|prime time length|programming duration metric|fixed by the length of prime time\nNODE|compressed spring selling window|selling window period|a compressed spring selling window became the annual clearing event\nNODE|upfront|annual clearing event|the upfront for national television\nNODE|national television|advertising market|annual clearing event for national television\nEDGE|ABC|SCHEDULES|new-season premieres|schedules all its new-season premieres\nEDGE|new-season premieres|OCCURS_IN|week after Labor Day|in the week after Labor Day\nEDGE|new-season premieres|ALIGN_WITH|car makers' model-year launches|to align with car makers' model-year launches\nEDGE|ABC|SELLS|television season|sells the season in advance\nEDGE|CBS|FOLLOWS|ABC|CBS follow\nEDGE|NBC|FOLLOWS|ABC|NBC follow\nEDGE|advertising inventory|HAS_STATUS|network-owned status|inventory now network-owned\nEDGE|advertising supply|FIXED_BY|prime time length|supply fixed by the length of prime time\nEDGE|compressed spring selling window|BECAME|upfront|became the annual clearing event for national television\nEDGE|upfront|FOR_MARKET|national television|annual clearing event for national television"
+}

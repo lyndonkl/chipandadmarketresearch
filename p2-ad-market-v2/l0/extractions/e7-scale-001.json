@@ -1,0 +1,128 @@
+{
+ "id": "e7-scale-001",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of US total advertising spend, 2025",
+ "elapsed_s": 66.0,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "total US advertising spend",
+   "type": "advertising aggregate",
+   "clause": "total US advertising spend"
+  },
+  {
+   "name": "media-owner-revenue basis",
+   "type": "measurement base",
+   "clause": "media-owner-revenue basis that excludes direct mail"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail"
+  },
+  {
+   "name": "MAGNA",
+   "type": "research firm",
+   "clause": "MAGNA reports"
+  },
+  {
+   "name": "EMARKETER",
+   "type": "research firm",
+   "clause": "EMARKETER's broader total-media definition"
+  },
+  {
+   "name": "total-media definition",
+   "type": "measurement base",
+   "clause": "broader total-media definition used by EMARKETER"
+  },
+  {
+   "name": "best-case scenario",
+   "type": "scenario",
+   "clause": "best-case scenario for EMARKETER estimate"
+  },
+  {
+   "name": "US advertising spend (media-owner-revenue) measurement",
+   "type": "spend measurement",
+   "clause": "... on a media-owner-revenue basis"
+  },
+  {
+   "name": "MAGNA US advertising spend measurement",
+   "type": "spend measurement",
+   "clause": "... reported by MAGNA"
+  },
+  {
+   "name": "EMARKETER US advertising spend best-case measurement",
+   "type": "spend measurement",
+   "clause": "... under best-case scenario"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising spend (media-owner-revenue) measurement",
+   "type": "MEASURES",
+   "to": "total US advertising spend",
+   "clause": "... was about ... on a media-owner-revenue basis"
+  },
+  {
+   "from": "US advertising spend (media-owner-revenue) measurement",
+   "type": "BASED_ON",
+   "to": "media-owner-revenue basis",
+   "clause": "on a media-owner-revenue basis"
+  },
+  {
+   "from": "media-owner-revenue basis",
+   "type": "EXCLUDES",
+   "to": "direct mail",
+   "clause": "excludes direct mail"
+  },
+  {
+   "from": "MAGNA",
+   "type": "REPORTED",
+   "to": "MAGNA US advertising spend measurement",
+   "clause": "MAGNA reports ..."
+  },
+  {
+   "from": "MAGNA US advertising spend measurement",
+   "type": "MEASURES",
+   "to": "total US advertising spend",
+   "clause": "... reported by MAGNA"
+  },
+  {
+   "from": "EMARKETER",
+   "type": "REPORTED",
+   "to": "EMARKETER US advertising spend best-case measurement",
+   "clause": "EMARKETER's broader definition reaches ..."
+  },
+  {
+   "from": "EMARKETER US advertising spend best-case measurement",
+   "type": "MEASURES",
+   "to": "total US advertising spend",
+   "clause": "... under best-case scenario"
+  },
+  {
+   "from": "EMARKETER US advertising spend best-case measurement",
+   "type": "BASED_ON",
+   "to": "total-media definition",
+   "clause": "broader total-media definition"
+  },
+  {
+   "from": "EMARKETER US advertising spend best-case measurement",
+   "type": "UNDER_SCENARIO",
+   "to": "best-case scenario",
+   "clause": "under its best-case scenario"
+  },
+  {
+   "from": "EMARKETER",
+   "type": "CLAIMED_UNLIKELY",
+   "to": "best-case scenario",
+   "clause": "has become unlikely"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|total US advertising spend|advertising aggregate|total US advertising spend\nNODE|media-owner-revenue basis|measurement base|media-owner-revenue basis that excludes direct mail\nNODE|direct mail|advertising medium|direct mail\nNODE|MAGNA|research firm|MAGNA reports\nNODE|EMARKETER|research firm|EMARKETER's broader total-media definition\nNODE|total-media definition|measurement base|broader total-media definition used by EMARKETER\nNODE|best-case scenario|scenario|best-case scenario for EMARKETER estimate\nNODE|US advertising spend (media-owner-revenue) measurement|spend measurement|... on a media-owner-revenue basis\nNODE|MAGNA US advertising spend measurement|spend measurement|... reported by MAGNA\nNODE|EMARKETER US advertising spend best-case measurement|spend measurement|... under best-case scenario\nEDGE|US advertising spend (media-owner-revenue) measurement|MEASURES|total US advertising spend|... was about ... on a media-owner-revenue basis\nEDGE|US advertising spend (media-owner-revenue) measurement|BASED_ON|media-owner-revenue basis|on a media-owner-revenue basis\nEDGE|media-owner-revenue basis|EXCLUDES|direct mail|excludes direct mail\nEDGE|MAGNA|REPORTED|MAGNA US advertising spend measurement|MAGNA reports ...\nEDGE|MAGNA US advertising spend measurement|MEASURES|total US advertising spend|... reported by MAGNA\nEDGE|EMARKETER|REPORTED|EMARKETER US advertising spend best-case measurement|EMARKETER's broader definition reaches ...\nEDGE|EMARKETER US advertising spend best-case measurement|MEASURES|total US advertising spend|... under best-case scenario\nEDGE|EMARKETER US advertising spend best-case measurement|BASED_ON|total-media definition|broader total-media definition\nEDGE|EMARKETER US advertising spend best-case measurement|UNDER_SCENARIO|best-case scenario|under its best-case scenario\nEDGE|EMARKETER|CLAIMED_UNLIKELY|best-case scenario|has become unlikely"
+}

@@ -1,0 +1,84 @@
+{
+ "group_id": "L1|513246e0d97ca5da",
+ "source": "kmeans",
+ "n_in": 13,
+ "parents": [
+  {
+   "name": "US advertising spend YoY percent change",
+   "type": "percent change measurement",
+   "grain": "Measurement",
+   "reason": "same US spend YoY percent change; years abstracted to children",
+   "child_uids": [
+    "n|e3-medium-011|total us advertising percent change measurement|percent change measurement",
+    "n|e4-scale-004|us advertising spend yoy percent change|percent change measurement",
+    "n|e5-scale-003|year-on-year change in total us measured advertising expenditure|advertising spend yoy change measurement"
+   ]
+  },
+  {
+   "name": "Advertising spend YoY percent change",
+   "type": "percent change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic advertising spend YoY percent change",
+   "child_uids": [
+    "n|e4-events-004|advertising spend yoy percent change|percent change measurement"
+   ]
+  },
+  {
+   "name": "World advertising expenditure annual growth rate",
+   "type": "percentage growth measurement",
+   "grain": "Measurement",
+   "reason": "singleton: world advertising expenditure annual growth rate",
+   "child_uids": [
+    "n|e4-scale-005|world advertising expenditure annual growth rate|percentage growth measurement"
+   ]
+  },
+  {
+   "name": "World advertising expenditure real-term growth rate",
+   "type": "percentage growth measurement",
+   "grain": "Measurement",
+   "reason": "singleton: world advertising expenditure real-term growth rate",
+   "child_uids": [
+    "n|e4-scale-005|world advertising expenditure real-term growth rate|percentage growth measurement"
+   ]
+  },
+  {
+   "name": "Share of world advertising expenditure held by top ten countries",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of world ad expenditure held by top ten countries",
+   "child_uids": [
+    "n|e4-scale-005|share of world advertising expenditure held by top ten countries|media-share measurement"
+   ]
+  },
+  {
+   "name": "Dot-com advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "same dot-com advertising spend; years abstracted to children",
+   "child_uids": [
+    "n|e5-events-007|dot-com advertising spend|spend measurement",
+    "n|tu:era:5:event:6|total dot-com advertising spend|spend measurement"
+   ]
+  },
+  {
+   "name": "US advertising spend (total)",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "US advertising spend total across years; same measure",
+   "child_uids": [
+    "n|e5-scale-002|us measured advertising expenditure|advertising spend measurement",
+    "n|tu:era:5:boundary|total us advertising spend 2000|total spend measurement",
+    "n|tu:era:5:boundary|total us advertising spend 2001|total spend measurement"
+   ]
+  },
+  {
+   "name": "Worldwide major-media advertising expenditure",
+   "type": "media-spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: worldwide major-media advertising expenditure",
+   "child_uids": [
+    "n|e5-scale-009|worldwide major-media advertising expenditure|media-spend measurement"
+   ]
+  }
+ ]
+}

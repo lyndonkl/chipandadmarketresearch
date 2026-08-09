@@ -1,0 +1,88 @@
+{
+ "id": "mech-aol-007",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "% one-day fall in Overture Services' share price on the AOL announcement",
+ "elapsed_s": 52.9,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture"
+  },
+  {
+   "name": "Inktomi",
+   "type": "company",
+   "clause": "Inktomi"
+  },
+  {
+   "name": "market",
+   "type": "actor",
+   "clause": "the market priced..."
+  },
+  {
+   "name": "distribution contract",
+   "type": "contract",
+   "clause": "single distribution contract"
+  },
+  {
+   "name": "incumbent equity value",
+   "type": "financial metric",
+   "clause": "incumbent's equity value"
+  },
+  {
+   "name": "Overture share price decline",
+   "type": "percentage change measurement",
+   "clause": "Overture's shares fell ... on the announcement"
+  },
+  {
+   "name": "Inktomi share price decline",
+   "type": "percentage change measurement",
+   "clause": "Inktomi's shares fell ... on the announcement"
+  },
+  {
+   "name": "loss valuation share",
+   "type": "valuation ratio measurement",
+   "clause": "the market priced the loss ... as a third of the incumbent's equity value"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "HAS_DECLINE",
+   "to": "Overture share price decline",
+   "clause": "Overture shares fell on announcement"
+  },
+  {
+   "from": "Inktomi",
+   "type": "HAS_DECLINE",
+   "to": "Inktomi share price decline",
+   "clause": "Inktomi shares fell on announcement"
+  },
+  {
+   "from": "market",
+   "type": "PRICED",
+   "to": "loss valuation share",
+   "clause": "market priced loss as third of equity"
+  },
+  {
+   "from": "loss valuation share",
+   "type": "MEASURES_LOSS_OF",
+   "to": "distribution contract",
+   "clause": "loss of single distribution contract"
+  },
+  {
+   "from": "loss valuation share",
+   "type": "SHARE_OF",
+   "to": "incumbent equity value",
+   "clause": "as a third of incumbent equity"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|company|Overture\nNODE|Inktomi|company|Inktomi\nNODE|market|actor|the market priced...\nNODE|distribution contract|contract|single distribution contract\nNODE|incumbent equity value|financial metric|incumbent's equity value\nNODE|Overture share price decline|percentage change measurement|Overture's shares fell ... on the announcement\nNODE|Inktomi share price decline|percentage change measurement|Inktomi's shares fell ... on the announcement\nNODE|loss valuation share|valuation ratio measurement|the market priced the loss ... as a third of the incumbent's equity value\nEDGE|Overture|HAS_DECLINE|Overture share price decline|Overture shares fell on announcement\nEDGE|Inktomi|HAS_DECLINE|Inktomi share price decline|Inktomi shares fell on announcement\nEDGE|market|PRICED|loss valuation share|market priced loss as third of equity\nEDGE|loss valuation share|MEASURES_LOSS_OF|distribution contract|loss of single distribution contract\nEDGE|loss valuation share|SHARE_OF|incumbent equity value|as a third of incumbent equity"
+}

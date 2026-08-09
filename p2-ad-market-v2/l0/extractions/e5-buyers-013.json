@@ -1,0 +1,164 @@
+{
+ "id": "e5-buyers-013",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions (2000 US ad spend)",
+ "elapsed_s": 112.3,
+ "error": null,
+ "n_nodes": 16,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US direct-response advertisers",
+   "type": "advertiser group",
+   "clause": "US direct-response advertisers"
+  },
+  {
+   "name": "US advertising market",
+   "type": "market",
+   "clause": "US advertising market"
+  },
+  {
+   "name": "US direct-response advertisers' measured media spend",
+   "type": "media spend measurement",
+   "clause": "measured media spend of US direct-response advertisers"
+  },
+  {
+   "name": "Direct-response advertisers' share of US ad market",
+   "type": "share measurement",
+   "clause": "share of US ad market by direct-response advertisers"
+  },
+  {
+   "name": "direct mail spend",
+   "type": "media spend measurement",
+   "clause": "direct mail spend amount"
+  },
+  {
+   "name": "national directories spend",
+   "type": "media spend measurement",
+   "clause": "national directories spend amount"
+  },
+  {
+   "name": "performance-priced internet spend",
+   "type": "media spend measurement",
+   "clause": "performance-priced internet spend amount"
+  },
+  {
+   "name": "general media direct-response spend",
+   "type": "media spend measurement",
+   "clause": "direct-response spend inside general media"
+  },
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture company"
+  },
+  {
+   "name": "Overture FY2000 revenue",
+   "type": "revenue measurement",
+   "clause": "Overture FY2000 revenue amount"
+  },
+  {
+   "name": "direct mail medium",
+   "type": "advertising medium",
+   "clause": "direct mail medium"
+  },
+  {
+   "name": "Yellow Pages",
+   "type": "advertising medium",
+   "clause": "Yellow Pages medium"
+  },
+  {
+   "name": "Television",
+   "type": "advertising medium",
+   "clause": "television medium"
+  },
+  {
+   "name": "national directories medium",
+   "type": "advertising medium",
+   "clause": "national directories medium"
+  },
+  {
+   "name": "performance-priced internet medium",
+   "type": "advertising medium",
+   "clause": "performance-priced internet medium"
+  },
+  {
+   "name": "general media",
+   "type": "advertising medium",
+   "clause": "general media"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US direct-response advertisers",
+   "type": "MEASURED_SPEND",
+   "to": "US direct-response advertisers' measured media spend",
+   "clause": "measured media spend ..."
+  },
+  {
+   "from": "Direct-response advertisers' share of US ad market",
+   "type": "SHARE_OF",
+   "to": "US advertising market",
+   "clause": "... of the market"
+  },
+  {
+   "from": "direct mail spend",
+   "type": "MEASURES_SPEND_ON",
+   "to": "direct mail medium",
+   "clause": "spend on direct mail"
+  },
+  {
+   "from": "national directories spend",
+   "type": "MEASURES_SPEND_ON",
+   "to": "national directories medium",
+   "clause": "spend on national directories"
+  },
+  {
+   "from": "performance-priced internet spend",
+   "type": "MEASURES_SPEND_ON",
+   "to": "performance-priced internet medium",
+   "clause": "spend on performance-priced internet"
+  },
+  {
+   "from": "general media direct-response spend",
+   "type": "MEASURES_SPEND_ON",
+   "to": "general media",
+   "clause": "spend on general media"
+  },
+  {
+   "from": "Overture",
+   "type": "HAS_REVENUE_MEASUREMENT",
+   "to": "Overture FY2000 revenue",
+   "clause": "Overture's whole ... revenue ..."
+  },
+  {
+   "from": "Overture FY2000 revenue",
+   "type": "PART_OF",
+   "to": "US direct-response advertisers' measured media spend",
+   "clause": "inside ..."
+  },
+  {
+   "from": "Overture",
+   "type": "BENCHMARKED_AGAINST",
+   "to": "direct mail medium",
+   "clause": "benchmarked against direct mail"
+  },
+  {
+   "from": "Overture",
+   "type": "BENCHMARKED_AGAINST",
+   "to": "Yellow Pages",
+   "clause": "benchmarked against Yellow Pages"
+  },
+  {
+   "from": "Overture",
+   "type": "NOT_BENCHMARKED_AGAINST",
+   "to": "Television",
+   "clause": "not benchmarked against television"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US direct-response advertisers|advertiser group|US direct-response advertisers\nNODE|US advertising market|market|US advertising market\nNODE|US direct-response advertisers' measured media spend|media spend measurement|measured media spend of US direct-response advertisers\nNODE|Direct-response advertisers' share of US ad market|share measurement|share of US ad market by direct-response advertisers\nNODE|direct mail spend|media spend measurement|direct mail spend amount\nNODE|national directories spend|media spend measurement|national directories spend amount\nNODE|performance-priced internet spend|media spend measurement|performance-priced internet spend amount\nNODE|general media direct-response spend|media spend measurement|direct-response spend inside general media\nNODE|Overture|company|Overture company\nNODE|Overture FY2000 revenue|revenue measurement|Overture FY2000 revenue amount\nNODE|direct mail medium|advertising medium|direct mail medium\nNODE|Yellow Pages|advertising medium|Yellow Pages medium\nNODE|Television|advertising medium|television medium\nNODE|national directories medium|advertising medium|national directories medium\nNODE|performance-priced internet medium|advertising medium|performance-priced internet medium\nNODE|general media|advertising medium|general media\nEDGE|US direct-response advertisers|MEASURED_SPEND|US direct-response advertisers' measured media spend|measured media spend ...\nEDGE|Direct-response advertisers' share of US ad market|SHARE_OF|US advertising market|... of the market\nEDGE|direct mail spend|MEASURES_SPEND_ON|direct mail medium|spend on direct mail\nEDGE|national directories spend|MEASURES_SPEND_ON|national directories medium|spend on national directories\nEDGE|performance-priced internet spend|MEASURES_SPEND_ON|performance-priced internet medium|spend on performance-priced internet\nEDGE|general media direct-response spend|MEASURES_SPEND_ON|general media|spend on general media\nEDGE|Overture|HAS_REVENUE_MEASUREMENT|Overture FY2000 revenue|Overture's whole ... revenue ...\nEDGE|Overture FY2000 revenue|PART_OF|US direct-response advertisers' measured media spend|inside ...\nEDGE|Overture|BENCHMARKED_AGAINST|direct mail medium|benchmarked against direct mail\nEDGE|Overture|BENCHMARKED_AGAINST|Yellow Pages|benchmarked against Yellow Pages\nEDGE|Overture|NOT_BENCHMARKED_AGAINST|Television|not benchmarked against television"
+}

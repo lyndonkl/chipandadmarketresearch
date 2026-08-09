@@ -1,0 +1,67 @@
+{
+ "id": "e6-sellers-003",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2006,
+ "unit": "% of Google revenue from Google Network sites, Q2 2006",
+ "elapsed_s": 65.9,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Syndication",
+   "type": "process",
+   "clause": "Syndication was Google's volume engine"
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Google Network sites",
+   "type": "ad network",
+   "clause": "Google Network (AdSense) sites"
+  },
+  {
+   "name": "Google total revenue",
+   "type": "revenue aggregate",
+   "clause": "Google's total revenue"
+  },
+  {
+   "name": "Google Network revenue share",
+   "type": "revenue-share measurement",
+   "clause": "percentage of Google total revenue from Google Network sites"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Syndication",
+   "type": "WAS_VOLUME_ENGINE_FOR",
+   "to": "Google",
+   "clause": "was Google's volume engine"
+  },
+  {
+   "from": "Syndication",
+   "type": "RECED_FROM",
+   "to": "Google",
+   "clause": "then receded"
+  },
+  {
+   "from": "Google Network revenue share",
+   "type": "SHARE_OF",
+   "to": "Google total revenue",
+   "clause": "... of Google's total revenue"
+  },
+  {
+   "from": "Google Network revenue share",
+   "type": "MEASURES_REVENUE_FOR",
+   "to": "Google Network sites",
+   "clause": "percentage produced by Google Network sites"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Syndication|process|Syndication was Google's volume engine\nNODE|Google|company|Google\nNODE|Google Network sites|ad network|Google Network (AdSense) sites\nNODE|Google total revenue|revenue aggregate|Google's total revenue\nNODE|Google Network revenue share|revenue-share measurement|percentage of Google total revenue from Google Network sites\nEDGE|Syndication|WAS_VOLUME_ENGINE_FOR|Google|was Google's volume engine\nEDGE|Syndication|RECED_FROM|Google|then receded\nEDGE|Google Network revenue share|SHARE_OF|Google total revenue|... of Google's total revenue\nEDGE|Google Network revenue share|MEASURES_REVENUE_FOR|Google Network sites|percentage produced by Google Network sites"
+}

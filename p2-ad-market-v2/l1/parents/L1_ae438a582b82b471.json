@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|ae438a582b82b471",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Average household",
+   "type": "household unit",
+   "grain": "Entity",
+   "reason": "same concept across years",
+   "child_uids": [
+    "n|e2-buyers-007|average us household|household unit",
+    "n|e4-targeting-003|average household|household unit"
+   ]
+  },
+  {
+   "name": "Addressable household base",
+   "type": "advertising audience base",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertising audience entity",
+   "child_uids": [
+    "n|e2-targeting-005|addressable household base|advertising audience base"
+   ]
+  },
+  {
+   "name": "US population",
+   "type": "demographic group",
+   "grain": "Entity",
+   "reason": "singleton: US demographic population entity",
+   "child_uids": [
+    "n|e4-measurement-003|us population|demographic group"
+   ]
+  },
+  {
+   "name": "Household",
+   "type": "promoted",
+   "grain": "Entity",
+   "reason": "singleton: generic household unit concept",
+   "child_uids": [
+    "n|e4-measurement-004|household|(promoted)"
+   ]
+  },
+  {
+   "name": "Nielsen late\u2011eighties household shares dataset",
+   "type": "household-share dataset",
+   "grain": "Entity",
+   "reason": "singleton: specific Nielsen dataset entity",
+   "child_uids": [
+    "n|e4-sellers-001|nielsen late\u2011eighties household shares dataset|household-share dataset"
+   ]
+  },
+  {
+   "name": "Global user base",
+   "type": "population",
+   "grain": "Entity",
+   "reason": "singleton: worldwide population audience entity",
+   "child_uids": [
+    "n|e7-targeting-002|global user base|population"
+   ]
+  }
+ ]
+}

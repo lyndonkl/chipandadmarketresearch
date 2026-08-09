@@ -1,0 +1,161 @@
+{
+ "id": "tu:era:6:event:4",
+ "kind": "prose:event",
+ "era": 6,
+ "about_year": 2004,
+ "unit": null,
+ "elapsed_s": 85.1,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 13,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Overture Services",
+   "type": "company",
+   "clause": "Overture Services"
+  },
+  {
+   "name": "Yahoo",
+   "type": "company",
+   "clause": "Yahoo"
+  },
+  {
+   "name": "US Patent 6,269,361",
+   "type": "patent",
+   "clause": "US Patent 6,269,361"
+  },
+  {
+   "name": "infringement claim",
+   "type": "legal claim",
+   "clause": "... infringement claim on US Patent ..."
+  },
+  {
+   "name": "Class A shares",
+   "type": "share class",
+   "clause": "Class A shares"
+  },
+  {
+   "name": "Yahoo Class A shares issued",
+   "type": "share issuance measurement",
+   "clause": "by issuing Yahoo ... Class A shares"
+  },
+  {
+   "name": "perpetual licence",
+   "type": "licence",
+   "clause": "perpetual licence"
+  },
+  {
+   "name": "Google non-cash accounting charge",
+   "type": "accounting charge measurement",
+   "clause": "books a ... non-cash accounting charge"
+  },
+  {
+   "name": "share",
+   "type": "stock unit",
+   "clause": "share"
+  },
+  {
+   "name": "Google IPO share price",
+   "type": "price per share measurement",
+   "clause": "valued at the ... IPO price"
+  },
+  {
+   "name": "Google listing share price",
+   "type": "price per share measurement",
+   "clause": "lists at ... a share"
+  },
+  {
+   "name": "value of issued shares",
+   "type": "share valuation measurement",
+   "clause": "the shares were worth about ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "SETTLES",
+   "to": "infringement claim",
+   "clause": "settles Overture Services' ... infringement claim on US Patent ..."
+  },
+  {
+   "from": "Overture Services",
+   "type": "OWNED",
+   "to": "infringement claim",
+   "clause": "... infringement claim"
+  },
+  {
+   "from": "infringement claim",
+   "type": "CONCERNS",
+   "to": "US Patent 6,269,361",
+   "clause": "... infringement claim on US Patent ..."
+  },
+  {
+   "from": "Google",
+   "type": "ISSUED_SHARES",
+   "to": "Yahoo Class A shares issued",
+   "clause": "by issuing Yahoo ... Class A shares"
+  },
+  {
+   "from": "Yahoo Class A shares issued",
+   "type": "MEASURES",
+   "to": "Class A shares",
+   "clause": "quantity of Class A shares issued"
+  },
+  {
+   "from": "Yahoo Class A shares issued",
+   "type": "RECIPIENT",
+   "to": "Yahoo",
+   "clause": "issued to Yahoo"
+  },
+  {
+   "from": "Google",
+   "type": "TAKES",
+   "to": "perpetual licence",
+   "clause": "taking a perpetual licence"
+  },
+  {
+   "from": "Google",
+   "type": "BOOKS",
+   "to": "Google non-cash accounting charge",
+   "clause": "books a ... non-cash accounting charge"
+  },
+  {
+   "from": "Google",
+   "type": "HAS_IPO_PRICE",
+   "to": "Google IPO share price",
+   "clause": "valued at the ... IPO price"
+  },
+  {
+   "from": "Google IPO share price",
+   "type": "MEASURES",
+   "to": "share",
+   "clause": "price per share"
+  },
+  {
+   "from": "Google",
+   "type": "LISTED_AT_PRICE",
+   "to": "Google listing share price",
+   "clause": "lists at ... a share"
+  },
+  {
+   "from": "Google listing share price",
+   "type": "MEASURES",
+   "to": "share",
+   "clause": "price per share"
+  },
+  {
+   "from": "value of issued shares",
+   "type": "MEASURES_VALUE_OF",
+   "to": "Yahoo Class A shares issued",
+   "clause": "the shares were worth about ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|Overture Services|company|Overture Services\nNODE|Yahoo|company|Yahoo\nNODE|US Patent 6,269,361|patent|US Patent 6,269,361\nNODE|infringement claim|legal claim|... infringement claim on US Patent ...\nNODE|Class A shares|share class|Class A shares\nNODE|Yahoo Class A shares issued|share issuance measurement|by issuing Yahoo ... Class A shares\nEDGE|Google|SETTLES|infringement claim|settles Overture Services' ... infringement claim on US Patent ...\nEDGE|Overture Services|OWNED|infringement claim|... infringement claim\nEDGE|infringement claim|CONCERNS|US Patent 6,269,361|... infringement claim on US Patent ...\nEDGE|Google|ISSUED_SHARES|Yahoo Class A shares issued|by issuing Yahoo ... Class A shares\nEDGE|Yahoo Class A shares issued|MEASURES|Class A shares|quantity of Class A shares issued\nEDGE|Yahoo Class A shares issued|RECIPIENT|Yahoo|issued to Yahoo\nNODE|perpetual licence|licence|perpetual licence\nEDGE|Google|TAKES|perpetual licence|taking a perpetual licence\nNODE|Google non-cash accounting charge|accounting charge measurement|books a ... non-cash accounting charge\nEDGE|Google|BOOKS|Google non-cash accounting charge|books a ... non-cash accounting charge\nNODE|share|stock unit|share\nNODE|Google IPO share price|price per share measurement|valued at the ... IPO price\nEDGE|Google|HAS_IPO_PRICE|Google IPO share price|valued at the ... IPO price\nEDGE|Google IPO share price|MEASURES|share|price per share\nNODE|Google listing share price|price per share measurement|lists at ... a share\nEDGE|Google|LISTED_AT_PRICE|Google listing share price|lists at ... a share\nEDGE|Google listing share price|MEASURES|share|price per share\nNODE|value of issued shares|share valuation measurement|the shares were worth about ...\nEDGE|value of issued shares|MEASURES_VALUE_OF|Yahoo Class A shares issued|the shares were worth about ..."
+}

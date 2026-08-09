@@ -1,0 +1,105 @@
+{
+ "id": "e3-events-001",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1956,
+ "unit": "percent of total US advertising expenditure covered by the consent decree",
+ "elapsed_s": 59.9,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "advertising covered by the 1956 consent decree",
+   "type": "advertising segment",
+   "clause": "the advertising covered by the 1956 consent decree"
+  },
+  {
+   "name": "total US advertising expenditure",
+   "type": "market spend aggregate",
+   "clause": "total US advertising expenditure"
+  },
+  {
+   "name": "1956 consent decree",
+   "type": "regulatory action",
+   "clause": "the 1956 consent decree"
+  },
+  {
+   "name": "law",
+   "type": "legal framework",
+   "clause": "the law"
+  },
+  {
+   "name": "price",
+   "type": "pricing level",
+   "clause": "the price"
+  },
+  {
+   "name": "six defendant associations",
+   "type": "advertising association group",
+   "clause": "the six defendant associations"
+  },
+  {
+   "name": "newspapers and magazines",
+   "type": "media category",
+   "clause": "newspapers and magazines"
+  },
+  {
+   "name": "advertising covered by the 1956 consent decree share of total US advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "was ... of total US advertising expenditure"
+  },
+  {
+   "name": "newspapers and magazines advertising share of total US advertising expenditure",
+   "type": "media-share measurement",
+   "clause": "were only ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising covered by the 1956 consent decree share of total US advertising expenditure",
+   "type": "MEASURES",
+   "to": "advertising covered by the 1956 consent decree",
+   "clause": "was ... of total US advertising expenditure"
+  },
+  {
+   "from": "advertising covered by the 1956 consent decree share of total US advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "was ... of total US advertising expenditure"
+  },
+  {
+   "from": "newspapers and magazines advertising share of total US advertising expenditure",
+   "type": "MEASURES",
+   "to": "newspapers and magazines",
+   "clause": "were only ..."
+  },
+  {
+   "from": "newspapers and magazines advertising share of total US advertising expenditure",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "were only ..."
+  },
+  {
+   "from": "1956 consent decree",
+   "type": "CHANGED",
+   "to": "law",
+   "clause": "the decree changed the law"
+  },
+  {
+   "from": "1956 consent decree",
+   "type": "NOT_CHANGED",
+   "to": "price",
+   "clause": "without changing the price"
+  },
+  {
+   "from": "advertising covered by the 1956 consent decree",
+   "type": "MATCHES",
+   "to": "six defendant associations",
+   "clause": "matching the ... defendant associations"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|advertising covered by the 1956 consent decree|advertising segment|the advertising covered by the 1956 consent decree\nNODE|total US advertising expenditure|market spend aggregate|total US advertising expenditure\nNODE|1956 consent decree|regulatory action|the 1956 consent decree\nNODE|law|legal framework|the law\nNODE|price|pricing level|the price\nNODE|six defendant associations|advertising association group|the six defendant associations\nNODE|newspapers and magazines|media category|newspapers and magazines\nNODE|advertising covered by the 1956 consent decree share of total US advertising expenditure|media-share measurement|was ... of total US advertising expenditure\nNODE|newspapers and magazines advertising share of total US advertising expenditure|media-share measurement|were only ...\nEDGE|advertising covered by the 1956 consent decree share of total US advertising expenditure|MEASURES|advertising covered by the 1956 consent decree|was ... of total US advertising expenditure\nEDGE|advertising covered by the 1956 consent decree share of total US advertising expenditure|SHARE_OF|total US advertising expenditure|was ... of total US advertising expenditure\nEDGE|newspapers and magazines advertising share of total US advertising expenditure|MEASURES|newspapers and magazines|were only ...\nEDGE|newspapers and magazines advertising share of total US advertising expenditure|SHARE_OF|total US advertising expenditure|were only ...\nEDGE|1956 consent decree|CHANGED|law|the decree changed the law\nEDGE|1956 consent decree|NOT_CHANGED|price|without changing the price\nEDGE|advertising covered by the 1956 consent decree|MATCHES|six defendant associations|matching the ... defendant associations"
+}

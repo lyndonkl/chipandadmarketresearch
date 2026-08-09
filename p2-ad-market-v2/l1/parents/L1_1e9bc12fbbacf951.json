@@ -1,0 +1,104 @@
+{
+ "group_id": "L1|1e9bc12fbbacf951",
+ "source": "kmeans",
+ "n_in": 17,
+ "parents": [
+  {
+   "name": "National-brand advertiser share of US advertising",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years and sources; year/source abstracted",
+   "child_uids": [
+    "n|e5-buyers-010|national-brand advertisers share of us ad market|percentage measurement",
+    "n|e5-scale-010|national-brand advertising share of us measured advertising market|media-share measurement",
+    "n|tu:era:3:field:BUYERS|national brand advertisers share of us ad spend|media-share measurement",
+    "n|tu:era:5:field:BUYERS|national brand share of us market|media-share measurement"
+   ]
+  },
+  {
+   "name": "National advertisers share of US ad dollars",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "one measure across eras; early and later war grouped",
+   "child_uids": [
+    "n|tu:era:2:field:BUYERS|national advertisers share of us ad dollars (early war)|media-share measurement",
+    "n|tu:era:2:field:BUYERS|national advertisers share of us ad dollars (later war)|media-share measurement"
+   ]
+  },
+  {
+   "name": "National advertising market share",
+   "type": "market share measurement",
+   "grain": "Measurement",
+   "reason": "measure across years and sources; generic national advertising",
+   "child_uids": [
+    "n|tu:era:3:boundary|national advertising market share (1978)|market share measurement",
+    "n|tu:era:3:field:SCALE|national advertising share|share measurement"
+   ]
+  },
+  {
+   "name": "US local-retail advertisers market share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "same subject and quantity; different wording merged",
+   "child_uids": [
+    "n|e5-buyers-011|us local-retail advertisers market share|share of market measurement",
+    "n|e5-buyers-014|us local-retail advertisers' market share|share measurement"
+   ]
+  },
+  {
+   "name": "Local retailers share of US ad spend",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: one node about local retailers ad\u2011spend share",
+   "child_uids": [
+    "n|tu:era:3:field:BUYERS|local retailers share of us ad spend|media-share measurement"
+   ]
+  },
+  {
+   "name": "Consumer advertiser mix share",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: consumer advertiser mix share",
+   "child_uids": [
+    "n|e5-buyers-010|consumer advertiser mix share|percentage measurement"
+   ]
+  },
+  {
+   "name": "Computing advertiser mix share",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: computing advertiser mix share",
+   "child_uids": [
+    "n|e5-buyers-010|computing advertiser mix share|percentage measurement"
+   ]
+  },
+  {
+   "name": "National brand share",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "two nodes about national brand share grouped",
+   "child_uids": [
+    "n|tu:era:3:field:SCALE|national brand share|media-share measurement",
+    "n|tu:era:7:field:SCALE|national brand share measurement|share measurement"
+   ]
+  },
+  {
+   "name": "National brand share of measured spend",
+   "type": "spend-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific measured\u2011spend share",
+   "child_uids": [
+    "n|tu:era:4:field:BUYERS|national brand share of measured spend|spend-share measurement"
+   ]
+  },
+  {
+   "name": "Classified share of US market",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: classified advertisers share of US market",
+   "child_uids": [
+    "n|tu:era:5:field:BUYERS|classified share of us market|media-share measurement"
+   ]
+  }
+ ]
+}

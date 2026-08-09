@@ -1,0 +1,83 @@
+{
+ "id": "e7-unit_econ-006",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD list-price cost of a fixed 1,000-in / 300-out answer at the cheapest generally available model at or above GPT-4 capability, 2025",
+ "elapsed_s": 59.7,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "list-price cost of AI answer unit",
+   "type": "cost measurement",
+   "clause": "cost ... at the cheapest capable tier"
+  },
+  {
+   "name": "AI answer unit",
+   "type": "ai output product",
+   "clause": "fixed answer referenced in cost claim"
+  },
+  {
+   "name": "cheapest capable tier",
+   "type": "price tier",
+   "clause": "the cheapest capable tier on price list"
+  },
+  {
+   "name": "major vendor public price list",
+   "type": "price list",
+   "clause": "on a major vendor's public price list"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google reported cost decline"
+  },
+  {
+   "name": "cost of serving AI overview",
+   "type": "cost measurement",
+   "clause": "cost ... had fallen sharply"
+  },
+  {
+   "name": "AI Overview",
+   "type": "ai content format",
+   "clause": "serving an AI Overview"
+  }
+ ],
+ "edges": [
+  {
+   "from": "list-price cost of AI answer unit",
+   "type": "MEASURES",
+   "to": "AI answer unit",
+   "clause": "cost ... of a fixed answer"
+  },
+  {
+   "from": "list-price cost of AI answer unit",
+   "type": "AT_TIER",
+   "to": "cheapest capable tier",
+   "clause": "at the cheapest capable tier"
+  },
+  {
+   "from": "cheapest capable tier",
+   "type": "ON_PRICE_LIST",
+   "to": "major vendor public price list",
+   "clause": "on a major vendor's public price list"
+  },
+  {
+   "from": "Google",
+   "type": "REPORTED_DECREASE",
+   "to": "cost of serving AI overview",
+   "clause": "cost ... had fallen sharply"
+  },
+  {
+   "from": "cost of serving AI overview",
+   "type": "MEASURES",
+   "to": "AI Overview",
+   "clause": "cost of serving an AI Overview"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|list-price cost of AI answer unit|cost measurement|cost ... at the cheapest capable tier\nNODE|AI answer unit|ai output product|fixed answer referenced in cost claim\nNODE|cheapest capable tier|price tier|the cheapest capable tier on price list\nNODE|major vendor public price list|price list|on a major vendor's public price list\nNODE|Google|technology company|Google reported cost decline\nNODE|cost of serving AI overview|cost measurement|cost ... had fallen sharply\nNODE|AI Overview|ai content format|serving an AI Overview\nEDGE|list-price cost of AI answer unit|MEASURES|AI answer unit|cost ... of a fixed answer\nEDGE|list-price cost of AI answer unit|AT_TIER|cheapest capable tier|at the cheapest capable tier\nEDGE|cheapest capable tier|ON_PRICE_LIST|major vendor public price list|on a major vendor's public price list\nEDGE|Google|REPORTED_DECREASE|cost of serving AI overview|cost ... had fallen sharply\nEDGE|cost of serving AI overview|MEASURES|AI Overview|cost of serving an AI Overview"
+}

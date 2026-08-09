@@ -1,0 +1,67 @@
+{
+ "id": "e5-scale-008",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1995,
+ "unit": "USD millions",
+ "elapsed_s": 62.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US World Wide Web advertising revenue (1995)",
+   "type": "advertising revenue measurement",
+   "clause": "US World Wide Web advertising revenue in 1995"
+  },
+  {
+   "name": "audited web ad revenue series",
+   "type": "measurement series",
+   "clause": "no audited series exists"
+  },
+  {
+   "name": "IAB/PwC report",
+   "type": "research series",
+   "clause": "begins with ..."
+  },
+  {
+   "name": "Coen series",
+   "type": "research series",
+   "clause": "no internet line before ..."
+  },
+  {
+   "name": "contemporaneous research-house estimates",
+   "type": "estimate source",
+   "clause": "reconstruction from contemporaneous research-house estimates"
+  }
+ ],
+ "edges": [
+  {
+   "from": "audited web ad revenue series",
+   "type": "NOT_EXISTS",
+   "to": "US World Wide Web advertising revenue (1995)",
+   "clause": "no audited series exists"
+  },
+  {
+   "from": "IAB/PwC report",
+   "type": "NOT_COVERS",
+   "to": "US World Wide Web advertising revenue (1995)",
+   "clause": "begins with ..."
+  },
+  {
+   "from": "Coen series",
+   "type": "NOT_COVERS",
+   "to": "US World Wide Web advertising revenue (1995)",
+   "clause": "no internet line before ..."
+  },
+  {
+   "from": "US World Wide Web advertising revenue (1995)",
+   "type": "RECONSTRUCTED_FROM",
+   "to": "contemporaneous research-house estimates",
+   "clause": "reconstruction from contemporaneous research-house estimates"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US World Wide Web advertising revenue (1995)|advertising revenue measurement|US World Wide Web advertising revenue in 1995\nNODE|audited web ad revenue series|measurement series|no audited series exists\nNODE|IAB/PwC report|research series|begins with ...\nNODE|Coen series|research series|no internet line before ...\nNODE|contemporaneous research-house estimates|estimate source|reconstruction from contemporaneous research-house estimates\nEDGE|audited web ad revenue series|NOT_EXISTS|US World Wide Web advertising revenue (1995)|no audited series exists\nEDGE|IAB/PwC report|NOT_COVERS|US World Wide Web advertising revenue (1995)|begins with ...\nEDGE|Coen series|NOT_COVERS|US World Wide Web advertising revenue (1995)|no internet line before ...\nEDGE|US World Wide Web advertising revenue (1995)|RECONSTRUCTED_FROM|contemporaneous research-house estimates|reconstruction from contemporaneous research-house estimates"
+}

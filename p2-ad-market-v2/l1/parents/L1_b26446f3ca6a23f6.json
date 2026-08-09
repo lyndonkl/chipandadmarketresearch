@@ -1,0 +1,26 @@
+{
+ "group_id": "L1|b26446f3ca6a23f6",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Advertiser mix share",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "one measure across sectors; sector abstracted to children",
+   "child_uids": [
+    "n|e5-buyers-010|business services advertiser mix share|percentage measurement",
+    "n|e5-buyers-010|financial services advertiser mix share|percentage measurement"
+   ]
+  },
+  {
+   "name": "Financial services share of consumer-brand advertisers' US internet advertising revenue",
+   "type": "sector-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: a revenue-based sector share measure",
+   "child_uids": [
+    "n|e5-buyers-005|financial services share of consumer-brand advertisers' us internet advertising revenue|sector-share measurement"
+   ]
+  }
+ ]
+}

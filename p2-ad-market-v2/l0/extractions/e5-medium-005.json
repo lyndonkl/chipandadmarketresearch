@@ -1,0 +1,105 @@
+{
+ "id": "e5-medium-005",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions",
+ "elapsed_s": 78.4,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspaper classified advertising revenue",
+   "type": "advertising revenue",
+   "clause": "US newspaper classified advertising revenue in 2000"
+  },
+  {
+   "name": "newspaper ad revenue",
+   "type": "advertising revenue total",
+   "clause": "total newspaper ad revenue"
+  },
+  {
+   "name": "recruitment classified advertising revenue",
+   "type": "advertising revenue",
+   "clause": "recruitment classified advertising revenue"
+  },
+  {
+   "name": "automotive classified advertising revenue",
+   "type": "advertising revenue",
+   "clause": "automotive classified advertising revenue"
+  },
+  {
+   "name": "real estate classified advertising revenue",
+   "type": "advertising revenue",
+   "clause": "real estate classified advertising revenue"
+  },
+  {
+   "name": "all other classified advertising revenue",
+   "type": "advertising revenue",
+   "clause": "all other classified advertising revenue"
+  },
+  {
+   "name": "US newspaper classified ad share of total",
+   "type": "media-share measurement",
+   "clause": "share of newspaper ad revenue"
+  },
+  {
+   "name": "recruitment classified ad growth rate",
+   "type": "growth-rate measurement",
+   "clause": "recruitment growth rate"
+  },
+  {
+   "name": "continuous decline of US newspaper classified advertising revenue",
+   "type": "revenue trend",
+   "clause": "fell every year afterwards"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US newspaper classified ad share of total",
+   "type": "SHARE_OF",
+   "to": "newspaper ad revenue",
+   "clause": "share of newspaper ad revenue"
+  },
+  {
+   "from": "recruitment classified advertising revenue",
+   "type": "PART_OF",
+   "to": "US newspaper classified advertising revenue",
+   "clause": "part of total classified revenue"
+  },
+  {
+   "from": "automotive classified advertising revenue",
+   "type": "PART_OF",
+   "to": "US newspaper classified advertising revenue",
+   "clause": "part of total classified revenue"
+  },
+  {
+   "from": "real estate classified advertising revenue",
+   "type": "PART_OF",
+   "to": "US newspaper classified advertising revenue",
+   "clause": "part of total classified revenue"
+  },
+  {
+   "from": "all other classified advertising revenue",
+   "type": "PART_OF",
+   "to": "US newspaper classified advertising revenue",
+   "clause": "part of total classified revenue"
+  },
+  {
+   "from": "recruitment classified ad growth rate",
+   "type": "GROWTH_RATE_FOR",
+   "to": "recruitment classified advertising revenue",
+   "clause": "growth rate for recruitment"
+  },
+  {
+   "from": "US newspaper classified advertising revenue",
+   "type": "DECLINED_EVERY_YEAR_AFTER",
+   "to": "continuous decline of US newspaper classified advertising revenue",
+   "clause": "fell every year afterwards"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspaper classified advertising revenue|advertising revenue|US newspaper classified advertising revenue in 2000\nNODE|newspaper ad revenue|advertising revenue total|total newspaper ad revenue\nNODE|recruitment classified advertising revenue|advertising revenue|recruitment classified advertising revenue\nNODE|automotive classified advertising revenue|advertising revenue|automotive classified advertising revenue\nNODE|real estate classified advertising revenue|advertising revenue|real estate classified advertising revenue\nNODE|all other classified advertising revenue|advertising revenue|all other classified advertising revenue\nNODE|US newspaper classified ad share of total|media-share measurement|share of newspaper ad revenue\nNODE|recruitment classified ad growth rate|growth-rate measurement|recruitment growth rate\nNODE|continuous decline of US newspaper classified advertising revenue|revenue trend|fell every year afterwards\nEDGE|US newspaper classified ad share of total|SHARE_OF|newspaper ad revenue|share of newspaper ad revenue\nEDGE|recruitment classified advertising revenue|PART_OF|US newspaper classified advertising revenue|part of total classified revenue\nEDGE|automotive classified advertising revenue|PART_OF|US newspaper classified advertising revenue|part of total classified revenue\nEDGE|real estate classified advertising revenue|PART_OF|US newspaper classified advertising revenue|part of total classified revenue\nEDGE|all other classified advertising revenue|PART_OF|US newspaper classified advertising revenue|part of total classified revenue\nEDGE|recruitment classified ad growth rate|GROWTH_RATE_FOR|recruitment classified advertising revenue|growth rate for recruitment\nEDGE|US newspaper classified advertising revenue|DECLINED_EVERY_YEAR_AFTER|continuous decline of US newspaper classified advertising revenue|fell every year afterwards"
+}

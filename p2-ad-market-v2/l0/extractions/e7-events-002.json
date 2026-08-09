@@ -1,0 +1,67 @@
+{
+ "id": "e7-events-002",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2009,
+ "unit": "percent year-on-year change in US internet ad revenue, 2009",
+ "elapsed_s": 53.6,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet ad revenue",
+   "type": "advertising revenue",
+   "clause": "US internet ad revenue"
+  },
+  {
+   "name": "US internet ad revenue percent YoY change",
+   "type": "percent change measurement",
+   "clause": "percent year-on-year change in US internet ad revenue"
+  },
+  {
+   "name": "US internet ad revenue amount",
+   "type": "revenue measurement",
+   "clause": "US internet ad revenue amount"
+  },
+  {
+   "name": "2008-2025 era",
+   "type": "market era",
+   "clause": "the 2008\u20112025 era"
+  },
+  {
+   "name": "real-time bidding",
+   "type": "ad-tech mechanism",
+   "clause": "real-time bidding launch"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US internet ad revenue percent YoY change",
+   "type": "MEASURES",
+   "to": "US internet ad revenue",
+   "clause": "percent year-on-year change measurement"
+  },
+  {
+   "from": "US internet ad revenue amount",
+   "type": "MEASURES",
+   "to": "US internet ad revenue",
+   "clause": "revenue amount measurement"
+  },
+  {
+   "from": "US internet ad revenue percent YoY change",
+   "type": "ONLY_DECLINE_IN",
+   "to": "2008-2025 era",
+   "clause": "the only annual decline in the era"
+  },
+  {
+   "from": "real-time bidding",
+   "type": "LAUNCHED_SAME_YEAR_AS",
+   "to": "US internet ad revenue percent YoY change",
+   "clause": "launched in the same year as the revenue decline"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet ad revenue|advertising revenue|US internet ad revenue\nNODE|US internet ad revenue percent YoY change|percent change measurement|percent year-on-year change in US internet ad revenue\nNODE|US internet ad revenue amount|revenue measurement|US internet ad revenue amount\nNODE|2008-2025 era|market era|the 2008\u20112025 era\nNODE|real-time bidding|ad-tech mechanism|real-time bidding launch\nEDGE|US internet ad revenue percent YoY change|MEASURES|US internet ad revenue|percent year-on-year change measurement\nEDGE|US internet ad revenue amount|MEASURES|US internet ad revenue|revenue amount measurement\nEDGE|US internet ad revenue percent YoY change|ONLY_DECLINE_IN|2008-2025 era|the only annual decline in the era\nEDGE|real-time bidding|LAUNCHED_SAME_YEAR_AS|US internet ad revenue percent YoY change|launched in the same year as the revenue decline"
+}

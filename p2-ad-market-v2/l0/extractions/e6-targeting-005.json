@@ -1,0 +1,67 @@
+{
+ "id": "e6-targeting-005",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2005,
+ "unit": "year (2005 Q2), launch of Google's cost-per-impression advertising model",
+ "elapsed_s": 44.1,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google added a cost-per-impression buying model"
+  },
+  {
+   "name": "cost-per-impression buying model",
+   "type": "advertising buying model",
+   "clause": "added a cost-per-impression (site-targeted) buying model"
+  },
+  {
+   "name": "Google content network",
+   "type": "advertising platform",
+   "clause": "on the content network"
+  },
+  {
+   "name": "intent-priced clicks",
+   "type": "ad product",
+   "clause": "sold both intent-priced clicks"
+  },
+  {
+   "name": "audience-priced impressions",
+   "type": "ad product",
+   "clause": "sold audience-priced impressions"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "ADDED",
+   "to": "cost-per-impression buying model",
+   "clause": "... added cost-per-impression buying model on the content network"
+  },
+  {
+   "from": "cost-per-impression buying model",
+   "type": "APPLIED_ON",
+   "to": "Google content network",
+   "clause": "... on the content network"
+  },
+  {
+   "from": "Google content network",
+   "type": "SELLS",
+   "to": "intent-priced clicks",
+   "clause": "... sold intent-priced clicks by the end of the era"
+  },
+  {
+   "from": "Google content network",
+   "type": "SELLS",
+   "to": "audience-priced impressions",
+   "clause": "... sold audience-priced impressions by the end of the era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google added a cost-per-impression buying model\nNODE|cost-per-impression buying model|advertising buying model|added a cost-per-impression (site-targeted) buying model\nNODE|Google content network|advertising platform|on the content network\nNODE|intent-priced clicks|ad product|sold both intent-priced clicks\nNODE|audience-priced impressions|ad product|sold audience-priced impressions\nEDGE|Google|ADDED|cost-per-impression buying model|... added cost-per-impression buying model on the content network\nEDGE|cost-per-impression buying model|APPLIED_ON|Google content network|... on the content network\nEDGE|Google content network|SELLS|intent-priced clicks|... sold intent-priced clicks by the end of the era\nEDGE|Google content network|SELLS|audience-priced impressions|... sold audience-priced impressions by the end of the era"
+}

@@ -1,0 +1,155 @@
+{
+ "id": "e7-pricing-006",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2019,
+ "unit": "percent of an advertiser dollar retained by Google's ad tech stack (Google's own 2019 aggregate)",
+ "elapsed_s": 98.8,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 11,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google disclosed in June 2020"
+  },
+  {
+   "name": "Department of Justice",
+   "type": "government agency",
+   "clause": "the DOJ alleged"
+  },
+  {
+   "name": "publishers",
+   "type": "actor class",
+   "clause": "publishers keep about 69 cents..."
+  },
+  {
+   "name": "Google's ad tech stack",
+   "type": "ad-tech stack",
+   "clause": "trade starts and ends inside Google's stack"
+  },
+  {
+   "name": "advertiser dollar",
+   "type": "monetary unit",
+   "clause": "of every advertiser dollar"
+  },
+  {
+   "name": "open-web display dollar",
+   "type": "monetary unit",
+   "clause": "of every open-web display dollar"
+  },
+  {
+   "name": "publisher share of advertiser dollar",
+   "type": "take-rate measurement",
+   "clause": "publishers keep about 69 cents..."
+  },
+  {
+   "name": "Google Ads take rate",
+   "type": "take-rate measurement",
+   "clause": "Google Ads ~14%"
+  },
+  {
+   "name": "DV360 take rate",
+   "type": "take-rate measurement",
+   "clause": "DV360 ~13%"
+  },
+  {
+   "name": "Google Ad Manager take rate",
+   "type": "take-rate measurement",
+   "clause": "Google Ad Manager ~18%"
+  },
+  {
+   "name": "Google retained amount from open-web display dollar",
+   "type": "take-rate measurement",
+   "clause": "Google keeps at least 35 cents..."
+  },
+  {
+   "name": "AdX take rate",
+   "type": "take-rate measurement",
+   "clause": "AdX had held a 20% take rate"
+  },
+  {
+   "name": "AdX",
+   "type": "(promoted)",
+   "clause": ""
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "REPORTED",
+   "to": "publisher share of advertiser dollar",
+   "clause": "disclosed that publishers keep ..."
+  },
+  {
+   "from": "publishers",
+   "type": "KEEP",
+   "to": "publisher share of advertiser dollar",
+   "clause": "keep ... of every advertiser dollar"
+  },
+  {
+   "from": "publisher share of advertiser dollar",
+   "type": "SHARE_OF",
+   "to": "advertiser dollar",
+   "clause": "of every advertiser dollar"
+  },
+  {
+   "from": "publisher share of advertiser dollar",
+   "type": "APPLIES_WHEN",
+   "to": "Google's ad tech stack",
+   "clause": "when trade starts and ends inside ..."
+  },
+  {
+   "from": "Google Ads take rate",
+   "type": "SHARE_OF",
+   "to": "advertiser dollar",
+   "clause": "... of advertiser dollar"
+  },
+  {
+   "from": "DV360 take rate",
+   "type": "SHARE_OF",
+   "to": "advertiser dollar",
+   "clause": "... of advertiser dollar"
+  },
+  {
+   "from": "Google Ad Manager take rate",
+   "type": "SHARE_OF",
+   "to": "advertiser dollar",
+   "clause": "... of advertiser dollar"
+  },
+  {
+   "from": "Department of Justice",
+   "type": "ALLEGED",
+   "to": "Google retained amount from open-web display dollar",
+   "clause": "alleged Google keeps at least ..."
+  },
+  {
+   "from": "Google retained amount from open-web display dollar",
+   "type": "SHARE_OF",
+   "to": "open-web display dollar",
+   "clause": "of every open-web display dollar"
+  },
+  {
+   "from": "AdX",
+   "type": "HELD",
+   "to": "AdX take rate",
+   "clause": "had held a ... take rate since ..."
+  },
+  {
+   "from": "AdX take rate",
+   "type": "SHARE_OF",
+   "to": "advertiser dollar",
+   "clause": "... take rate"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "undeclared_endpoint_promoted",
+   "endpoint": "AdX",
+   "line": "EDGE|AdX|HELD|AdX take rate|had held a ... take rate since ..."
+  }
+ ],
+ "raw": "NODE|Google|company|Google disclosed in June 2020\nNODE|Department of Justice|government agency|the DOJ alleged\nNODE|publishers|actor class|publishers keep about 69 cents...\nNODE|Google's ad tech stack|ad-tech stack|trade starts and ends inside Google's stack\nNODE|advertiser dollar|monetary unit|of every advertiser dollar\nNODE|open-web display dollar|monetary unit|of every open-web display dollar\nNODE|publisher share of advertiser dollar|take-rate measurement|publishers keep about 69 cents...\nNODE|Google Ads take rate|take-rate measurement|Google Ads ~14%\nNODE|DV360 take rate|take-rate measurement|DV360 ~13%\nNODE|Google Ad Manager take rate|take-rate measurement|Google Ad Manager ~18%\nNODE|Google retained amount from open-web display dollar|take-rate measurement|Google keeps at least 35 cents...\nNODE|AdX take rate|take-rate measurement|AdX had held a 20% take rate\nEDGE|Google|REPORTED|publisher share of advertiser dollar|disclosed that publishers keep ...\nEDGE|publishers|KEEP|publisher share of advertiser dollar|keep ... of every advertiser dollar\nEDGE|publisher share of advertiser dollar|SHARE_OF|advertiser dollar|of every advertiser dollar\nEDGE|publisher share of advertiser dollar|APPLIES_WHEN|Google's ad tech stack|when trade starts and ends inside ...\nEDGE|Google Ads take rate|SHARE_OF|advertiser dollar|... of advertiser dollar\nEDGE|DV360 take rate|SHARE_OF|advertiser dollar|... of advertiser dollar\nEDGE|Google Ad Manager take rate|SHARE_OF|advertiser dollar|... of advertiser dollar\nEDGE|Department of Justice|ALLEGED|Google retained amount from open-web display dollar|alleged Google keeps at least ...\nEDGE|Google retained amount from open-web display dollar|SHARE_OF|open-web display dollar|of every open-web display dollar\nEDGE|AdX|HELD|AdX take rate|had held a ... take rate since ...\nEDGE|AdX take rate|SHARE_OF|advertiser dollar|... take rate\n\n"
+}

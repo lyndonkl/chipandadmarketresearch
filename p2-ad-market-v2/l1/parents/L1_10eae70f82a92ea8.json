@@ -1,0 +1,82 @@
+{
+ "group_id": "L1|10eae70f82a92ea8",
+ "source": "kmeans",
+ "n_in": 11,
+ "parents": [
+  {
+   "name": "Search keyword auction emergence",
+   "type": "event",
+   "grain": "Entity",
+   "reason": "keyword auction emergence events; launch and integration abstracted from year",
+   "child_uids": [
+    "n|ds-money_type-001|adwords select auction integration with google|event",
+    "n|ds-money_type-001|goto.com keyword auction launch|auction launch event"
+   ]
+  },
+  {
+   "name": "Standard AdWords text ad format",
+   "type": "advertising format",
+   "grain": "Entity",
+   "reason": "singleton: standard AdWords text ad advertising format",
+   "child_uids": [
+    "n|e6-creators-003|standard adwords text ad|advertising format"
+   ]
+  },
+  {
+   "name": "AdWords keyword concept",
+   "type": "keyword entity",
+   "grain": "Entity",
+   "reason": "AdWords keyword concept; pool and individual keyword abstracted",
+   "child_uids": [
+    "n|e6-events-006|adwords keywords|search advertising keyword pool",
+    "n|mech-quality_score-001|adwords keyword|advertising keyword"
+   ]
+  },
+  {
+   "name": "Paid search ancestor",
+   "type": "market ancestor concept",
+   "grain": "Entity",
+   "reason": "singleton: ancestor of paid search market concept",
+   "child_uids": [
+    "n|e6-medium-002|ancestor of paid search|market ancestor concept"
+   ]
+  },
+  {
+   "name": "Search ad auction reserve price configuration",
+   "type": "pricing configuration",
+   "grain": "Entity",
+   "reason": "singleton: search ad auction reserve price configuration",
+   "child_uids": [
+    "n|e7-pricing-003|search ad auction and reserve price settings|auction pricing configuration"
+   ]
+  },
+  {
+   "name": "AdWords Discounter example",
+   "type": "pricing example",
+   "grain": "Entity",
+   "reason": "singleton: AdWords Discounter pricing example",
+   "child_uids": [
+    "n|mech-discounter-001|adwords discounter example|pricing example"
+   ]
+  },
+  {
+   "name": "Search ad auction mechanism",
+   "type": "auction mechanism",
+   "grain": "Entity",
+   "reason": "search ad auction mechanism; includes text-ads and generic versions",
+   "child_uids": [
+    "n|mech-knobs-001|search text-ads auction|auction mechanism",
+    "n|mech-tuning-001|search ad auction|auction mechanism"
+   ]
+  },
+  {
+   "name": "General search text advertising inventory",
+   "type": "advertising inventory",
+   "grain": "Entity",
+   "reason": "singleton: general search text advertising inventory concept",
+   "child_uids": [
+    "n|tu:era:7:event:8|general search text advertising|advertising inventory"
+   ]
+  }
+ ]
+}

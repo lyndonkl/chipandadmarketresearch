@@ -1,0 +1,56 @@
+{
+ "id": "e2-buyers-001",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "percent of US radio advertising dollars placed on networks, 1949",
+ "elapsed_s": 58.6,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "network sponsorship share of US radio advertising",
+   "type": "media-share measurement",
+   "clause": "Network sponsorship's share of all US radio advertising"
+  },
+  {
+   "name": "US radio advertising dollars",
+   "type": "advertising spend total",
+   "clause": "all US radio advertising"
+  },
+  {
+   "name": "national radio spot advertising dollars",
+   "type": "advertising spend category",
+   "clause": "national ... spot grew faster"
+  },
+  {
+   "name": "local radio spot advertising dollars",
+   "type": "advertising spend category",
+   "clause": "local ... spot grew faster"
+  }
+ ],
+ "edges": [
+  {
+   "from": "network sponsorship share of US radio advertising",
+   "type": "SHARE_OF",
+   "to": "US radio advertising dollars",
+   "clause": "share of all US radio advertising"
+  },
+  {
+   "from": "national radio spot advertising dollars",
+   "type": "GREW_FASTER_THAN",
+   "to": "network sponsorship share of US radio advertising",
+   "clause": "as national ... spot grew faster"
+  },
+  {
+   "from": "local radio spot advertising dollars",
+   "type": "GREW_FASTER_THAN",
+   "to": "network sponsorship share of US radio advertising",
+   "clause": "as local ... spot grew faster"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|network sponsorship share of US radio advertising|media-share measurement|Network sponsorship's share of all US radio advertising\nNODE|US radio advertising dollars|advertising spend total|all US radio advertising\nNODE|national radio spot advertising dollars|advertising spend category|national ... spot grew faster\nNODE|local radio spot advertising dollars|advertising spend category|local ... spot grew faster\nEDGE|network sponsorship share of US radio advertising|SHARE_OF|US radio advertising dollars|share of all US radio advertising\nEDGE|national radio spot advertising dollars|GREW_FASTER_THAN|network sponsorship share of US radio advertising|as national ... spot grew faster\nEDGE|local radio spot advertising dollars|GREW_FASTER_THAN|network sponsorship share of US radio advertising|as local ... spot grew faster"
+}

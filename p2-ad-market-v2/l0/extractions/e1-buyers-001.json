@@ -1,0 +1,56 @@
+{
+ "id": "e1-buyers-001",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1878,
+ "unit": "percent of agency revenue",
+ "elapsed_s": 47.1,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "N. W. Ayer",
+   "type": "advertising agency",
+   "clause": "N. W. Ayer's"
+  },
+  {
+   "name": "patent medicine",
+   "type": "commodity category",
+   "clause": "Patent medicine"
+  },
+  {
+   "name": "total agency revenue",
+   "type": "revenue aggregate",
+   "clause": "total agency revenue"
+  },
+  {
+   "name": "patent medicine share of agency revenue",
+   "type": "share measurement",
+   "clause": "... of total agency revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N. W. Ayer",
+   "type": "HAS_MOST_LUCRATIVE_CATEGORY",
+   "to": "patent medicine",
+   "clause": "most lucrative commodity category"
+  },
+  {
+   "from": "patent medicine share of agency revenue",
+   "type": "MEASURES",
+   "to": "patent medicine",
+   "clause": "share supplied by patent medicine"
+  },
+  {
+   "from": "patent medicine share of agency revenue",
+   "type": "SHARE_OF",
+   "to": "total agency revenue",
+   "clause": "... of total agency revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|N. W. Ayer|advertising agency|N. W. Ayer's\nNODE|patent medicine|commodity category|Patent medicine\nNODE|total agency revenue|revenue aggregate|total agency revenue\nNODE|patent medicine share of agency revenue|share measurement|... of total agency revenue\nEDGE|N. W. Ayer|HAS_MOST_LUCRATIVE_CATEGORY|patent medicine|most lucrative commodity category\nEDGE|patent medicine share of agency revenue|MEASURES|patent medicine|share supplied by patent medicine\nEDGE|patent medicine share of agency revenue|SHARE_OF|total agency revenue|... of total agency revenue"
+}

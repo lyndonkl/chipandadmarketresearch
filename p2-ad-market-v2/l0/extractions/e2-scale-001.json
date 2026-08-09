@@ -1,0 +1,79 @@
+{
+ "id": "e2-scale-001",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1919,
+ "unit": "US$ millions of total US advertising spend, 1919",
+ "elapsed_s": 60.6,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "total US advertising spend",
+   "type": "advertising expenditure",
+   "clause": "US advertising spend"
+  },
+  {
+   "name": "US advertising spend measurement (Coen series 1919)",
+   "type": "advertising spend measurement",
+   "clause": "was ... in ..."
+  },
+  {
+   "name": "Coen/McCann-Erickson series",
+   "type": "advertising-spend dataset",
+   "clause": "first year of the Coen/McCann-Erickson series"
+  },
+  {
+   "name": "US advertising spend measurement (Historical Statistics 1919)",
+   "type": "advertising spend measurement",
+   "clause": "puts the same year at ..."
+  },
+  {
+   "name": "Historical Statistics series",
+   "type": "advertising-spend dataset",
+   "clause": "the older Historical Statistics series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising spend measurement (Coen series 1919)",
+   "type": "MEASURES",
+   "to": "total US advertising spend",
+   "clause": "was ... in ..."
+  },
+  {
+   "from": "US advertising spend measurement (Coen series 1919)",
+   "type": "MEASURED_ON",
+   "to": "Coen/McCann-Erickson series",
+   "clause": "first year of the Coen/McCann-Erickson series"
+  },
+  {
+   "from": "Coen/McCann-Erickson series",
+   "type": "FIRST_YEAR_IS",
+   "to": "US advertising spend measurement (Coen series 1919)",
+   "clause": "first year of the Coen/McCann-Erickson series"
+  },
+  {
+   "from": "US advertising spend measurement (Historical Statistics 1919)",
+   "type": "MEASURES",
+   "to": "total US advertising spend",
+   "clause": "puts the same year at ..."
+  },
+  {
+   "from": "US advertising spend measurement (Historical Statistics 1919)",
+   "type": "MEASURED_ON",
+   "to": "Historical Statistics series",
+   "clause": "the older Historical Statistics series puts ..."
+  },
+  {
+   "from": "Historical Statistics series",
+   "type": "OLDER_THAN",
+   "to": "Coen/McCann-Erickson series",
+   "clause": "the older Historical Statistics series"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|total US advertising spend|advertising expenditure|US advertising spend\nNODE|US advertising spend measurement (Coen series 1919)|advertising spend measurement|was ... in ...\nNODE|Coen/McCann-Erickson series|advertising-spend dataset|first year of the Coen/McCann-Erickson series\nNODE|US advertising spend measurement (Historical Statistics 1919)|advertising spend measurement|puts the same year at ...\nNODE|Historical Statistics series|advertising-spend dataset|the older Historical Statistics series\nEDGE|US advertising spend measurement (Coen series 1919)|MEASURES|total US advertising spend|was ... in ...\nEDGE|US advertising spend measurement (Coen series 1919)|MEASURED_ON|Coen/McCann-Erickson series|first year of the Coen/McCann-Erickson series\nEDGE|Coen/McCann-Erickson series|FIRST_YEAR_IS|US advertising spend measurement (Coen series 1919)|first year of the Coen/McCann-Erickson series\nEDGE|US advertising spend measurement (Historical Statistics 1919)|MEASURES|total US advertising spend|puts the same year at ...\nEDGE|US advertising spend measurement (Historical Statistics 1919)|MEASURED_ON|Historical Statistics series|the older Historical Statistics series puts ...\nEDGE|Historical Statistics series|OLDER_THAN|Coen/McCann-Erickson series|the older Historical Statistics series"
+}

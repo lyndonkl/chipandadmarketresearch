@@ -1,0 +1,89 @@
+{
+ "id": "mech-tac-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2008,
+ "unit": "% of Google advertising revenue paid out as traffic acquisition cost, 2008",
+ "elapsed_s": 60.5,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "traffic acquisition cost",
+   "type": "expense",
+   "clause": "Google's traffic acquisition costs"
+  },
+  {
+   "name": "advertising revenue",
+   "type": "revenue stream",
+   "clause": "Google advertising revenue"
+  },
+  {
+   "name": "network advertising revenue",
+   "type": "revenue stream",
+   "clause": "Google Network advertising revenue"
+  },
+  {
+   "name": "Google TAC amount",
+   "type": "dollar expense measurement",
+   "clause": "monetary amounts of traffic acquisition costs"
+  },
+  {
+   "name": "Google TAC share of advertising revenue",
+   "type": "percentage share measurement",
+   "clause": "percent of advertising revenue paid as traffic acquisition cost"
+  },
+  {
+   "name": "Google TAC share of network advertising revenue",
+   "type": "percentage share measurement",
+   "clause": "percent of Google Network advertising revenue paid as traffic acquisition cost"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "HAS_EXPENSE",
+   "to": "traffic acquisition cost",
+   "clause": "Google's traffic acquisition costs were ..."
+  },
+  {
+   "from": "traffic acquisition cost",
+   "type": "HAS_AMOUNT_MEASUREMENT",
+   "to": "Google TAC amount",
+   "clause": "traffic acquisition costs were ..."
+  },
+  {
+   "from": "traffic acquisition cost",
+   "type": "HAS_SHARE_MEASUREMENT",
+   "to": "Google TAC share of advertising revenue",
+   "clause": "... percent of advertising revenue"
+  },
+  {
+   "from": "Google TAC share of advertising revenue",
+   "type": "SHARE_OF",
+   "to": "advertising revenue",
+   "clause": "... percent of advertising revenue"
+  },
+  {
+   "from": "traffic acquisition cost",
+   "type": "HAS_NETWORK_SHARE_MEASUREMENT",
+   "to": "Google TAC share of network advertising revenue",
+   "clause": "... percent of Google Network advertising revenue"
+  },
+  {
+   "from": "Google TAC share of network advertising revenue",
+   "type": "SHARE_OF",
+   "to": "network advertising revenue",
+   "clause": "... percent of Google Network advertising revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|traffic acquisition cost|expense|Google's traffic acquisition costs\nNODE|advertising revenue|revenue stream|Google advertising revenue\nNODE|network advertising revenue|revenue stream|Google Network advertising revenue\nNODE|Google TAC amount|dollar expense measurement|monetary amounts of traffic acquisition costs\nNODE|Google TAC share of advertising revenue|percentage share measurement|percent of advertising revenue paid as traffic acquisition cost\nNODE|Google TAC share of network advertising revenue|percentage share measurement|percent of Google Network advertising revenue paid as traffic acquisition cost\nEDGE|Google|HAS_EXPENSE|traffic acquisition cost|Google's traffic acquisition costs were ...\nEDGE|traffic acquisition cost|HAS_AMOUNT_MEASUREMENT|Google TAC amount|traffic acquisition costs were ...\nEDGE|traffic acquisition cost|HAS_SHARE_MEASUREMENT|Google TAC share of advertising revenue|... percent of advertising revenue\nEDGE|Google TAC share of advertising revenue|SHARE_OF|advertising revenue|... percent of advertising revenue\nEDGE|traffic acquisition cost|HAS_NETWORK_SHARE_MEASUREMENT|Google TAC share of network advertising revenue|... percent of Google Network advertising revenue\nEDGE|Google TAC share of network advertising revenue|SHARE_OF|network advertising revenue|... percent of Google Network advertising revenue"
+}

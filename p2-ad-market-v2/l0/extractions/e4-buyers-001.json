@@ -1,0 +1,62 @@
+{
+ "id": "e4-buyers-001",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "percent of measured US ad spend",
+ "elapsed_s": 52.4,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national advertisers",
+   "type": "advertiser segment",
+   "clause": "National advertisers"
+  },
+  {
+   "name": "measured US advertising spend",
+   "type": "ad spend aggregate",
+   "clause": "measured US advertising spend"
+  },
+  {
+   "name": "national advertisers share of measured US advertising spend",
+   "type": "media-share measurement",
+   "clause": "share of measured US advertising spend"
+  },
+  {
+   "name": "earlier national advertisers share of measured US advertising spend",
+   "type": "media-share measurement",
+   "clause": "earlier share of measured US advertising spend"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national advertisers",
+   "type": "HAS_SHARE",
+   "to": "national advertisers share of measured US advertising spend",
+   "clause": "accounted for ... of measured US advertising spend"
+  },
+  {
+   "from": "national advertisers share of measured US advertising spend",
+   "type": "SHARE_OF",
+   "to": "measured US advertising spend",
+   "clause": "share of measured US advertising spend"
+  },
+  {
+   "from": "national advertisers share of measured US advertising spend",
+   "type": "UP_FROM",
+   "to": "earlier national advertisers share of measured US advertising spend",
+   "clause": "up from ..."
+  },
+  {
+   "from": "national advertisers",
+   "type": "GAINED_SHARE",
+   "to": "national advertisers share of measured US advertising spend",
+   "clause": "gained share across the era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national advertisers|advertiser segment|National advertisers\nNODE|measured US advertising spend|ad spend aggregate|measured US advertising spend\nNODE|national advertisers share of measured US advertising spend|media-share measurement|share of measured US advertising spend\nNODE|earlier national advertisers share of measured US advertising spend|media-share measurement|earlier share of measured US advertising spend\nEDGE|national advertisers|HAS_SHARE|national advertisers share of measured US advertising spend|accounted for ... of measured US advertising spend\nEDGE|national advertisers share of measured US advertising spend|SHARE_OF|measured US advertising spend|share of measured US advertising spend\nEDGE|national advertisers share of measured US advertising spend|UP_FROM|earlier national advertisers share of measured US advertising spend|up from ...\nEDGE|national advertisers|GAINED_SHARE|national advertisers share of measured US advertising spend|gained share across the era"
+}

@@ -1,0 +1,100 @@
+{
+ "id": "e4-medium-002",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1992,
+ "unit": "year TV first exceeded newspapers (Coen series)",
+ "elapsed_s": 69.0,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "total television",
+   "type": "advertising medium",
+   "clause": "total television (broadcast plus cable)"
+  },
+  {
+   "name": "newspapers",
+   "type": "advertising medium",
+   "clause": "newspapers"
+  },
+  {
+   "name": "broadcast television",
+   "type": "advertising medium",
+   "clause": "broadcast television alone"
+  },
+  {
+   "name": "total television advertising spend",
+   "type": "spend measurement",
+   "clause": "total television advertising spend amount"
+  },
+  {
+   "name": "newspaper advertising spend",
+   "type": "spend measurement",
+   "clause": "newspaper advertising spend amount"
+  },
+  {
+   "name": "broadcast television advertising spend",
+   "type": "spend measurement",
+   "clause": "broadcast television advertising spend amount"
+  },
+  {
+   "name": "TV share of measured spend",
+   "type": "share measurement",
+   "clause": "TV's share of measured advertising spend"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "Coen series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "total television",
+   "type": "SURPASSED",
+   "to": "newspapers",
+   "clause": "first overtook as largest US medium ..."
+  },
+  {
+   "from": "total television",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "according to Coe n series"
+  },
+  {
+   "from": "broadcast television",
+   "type": "BEHIND",
+   "to": "newspapers",
+   "clause": "still behind in ..."
+  },
+  {
+   "from": "total television advertising spend",
+   "type": "MEASURES",
+   "to": "total television",
+   "clause": "advertising spend amount ..."
+  },
+  {
+   "from": "newspaper advertising spend",
+   "type": "MEASURES",
+   "to": "newspapers",
+   "clause": "advertising spend amount ..."
+  },
+  {
+   "from": "broadcast television advertising spend",
+   "type": "MEASURES",
+   "to": "broadcast television",
+   "clause": "advertising spend amount ..."
+  },
+  {
+   "from": "TV share of measured spend",
+   "type": "REFERS_TO",
+   "to": "total television",
+   "clause": "share of measured spend ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|total television|advertising medium|total television (broadcast plus cable)\nNODE|newspapers|advertising medium|newspapers\nNODE|broadcast television|advertising medium|broadcast television alone\nNODE|total television advertising spend|spend measurement|total television advertising spend amount\nNODE|newspaper advertising spend|spend measurement|newspaper advertising spend amount\nNODE|broadcast television advertising spend|spend measurement|broadcast television advertising spend amount\nNODE|TV share of measured spend|share measurement|TV's share of measured advertising spend\nNODE|Coen series|advertising-spend dataset|Coen series\nEDGE|total television|SURPASSED|newspapers|first overtook as largest US medium ...\nEDGE|total television|MEASURED_ON|Coen series|according to Coe n series\nEDGE|broadcast television|BEHIND|newspapers|still behind in ...\nEDGE|total television advertising spend|MEASURES|total television|advertising spend amount ...\nEDGE|newspaper advertising spend|MEASURES|newspapers|advertising spend amount ...\nEDGE|broadcast television advertising spend|MEASURES|broadcast television|advertising spend amount ...\nEDGE|TV share of measured spend|REFERS_TO|total television|share of measured spend ..."
+}

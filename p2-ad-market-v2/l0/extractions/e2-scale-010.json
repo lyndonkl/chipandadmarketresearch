@@ -1,0 +1,67 @@
+{
+ "id": "e2-scale-010",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ millions of US national brand advertising excluding direct mail, 1949",
+ "elapsed_s": 41.0,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national brand advertising",
+   "type": "advertising segment",
+   "clause": "National brand advertising, excluding direct mail"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising channel",
+   "clause": "excluding direct mail"
+  },
+  {
+   "name": "national brand advertising spend",
+   "type": "spend measurement",
+   "clause": "was about ... million in ..."
+  },
+  {
+   "name": "US advertising spend",
+   "type": "total advertising spend",
+   "clause": "all US advertising spend"
+  },
+  {
+   "name": "national brand advertising share of US advertising spend",
+   "type": "media-share measurement",
+   "clause": "roughly ... percent of all US advertising spend"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national brand advertising",
+   "type": "EXCLUDES",
+   "to": "direct mail",
+   "clause": "excluding direct mail"
+  },
+  {
+   "from": "national brand advertising spend",
+   "type": "MEASURES",
+   "to": "national brand advertising",
+   "clause": "was about ... million in ..."
+  },
+  {
+   "from": "national brand advertising share of US advertising spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "roughly ... percent of all US advertising spend"
+  },
+  {
+   "from": "national brand advertising share of US advertising spend",
+   "type": "MEASURES",
+   "to": "national brand advertising",
+   "clause": "roughly ... percent of all US advertising spend"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national brand advertising|advertising segment|National brand advertising, excluding direct mail\nNODE|direct mail|advertising channel|excluding direct mail\nNODE|national brand advertising spend|spend measurement|was about ... million in ...\nNODE|US advertising spend|total advertising spend|all US advertising spend\nNODE|national brand advertising share of US advertising spend|media-share measurement|roughly ... percent of all US advertising spend\nEDGE|national brand advertising|EXCLUDES|direct mail|excluding direct mail\nEDGE|national brand advertising spend|MEASURES|national brand advertising|was about ... million in ...\nEDGE|national brand advertising share of US advertising spend|SHARE_OF|US advertising spend|roughly ... percent of all US advertising spend\nEDGE|national brand advertising share of US advertising spend|MEASURES|national brand advertising|roughly ... percent of all US advertising spend"
+}

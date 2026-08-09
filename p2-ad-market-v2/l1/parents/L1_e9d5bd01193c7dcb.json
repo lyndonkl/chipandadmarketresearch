@@ -1,0 +1,89 @@
+{
+ "group_id": "L1|e9d5bd01193c7dcb",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Nominal rate-card values",
+   "type": "price reference",
+   "grain": "Entity",
+   "reason": "singleton: distinct pricing reference concept",
+   "child_uids": [
+    "n|e5-measurement-006|nominal rate-card values|price reference"
+   ]
+  },
+  {
+   "name": "Asking price",
+   "type": "price type",
+   "grain": "Entity",
+   "reason": "singleton: specific price type distinct from others",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|asking price|price type"
+   ]
+  },
+  {
+   "name": "Full rate-card business",
+   "type": "business model",
+   "grain": "Entity",
+   "reason": "singleton: unique business model concept",
+   "child_uids": [
+    "n|tu:era:2:field:PRICING|full rate-card business|business model"
+   ]
+  },
+  {
+   "name": "Price metric",
+   "type": "pricing metric",
+   "grain": "Entity",
+   "reason": "singleton: separate metric concept",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|price metric|pricing metric"
+   ]
+  },
+  {
+   "name": "Per agate line pricing",
+   "type": "feature",
+   "grain": "Entity",
+   "reason": "singleton: specific agate-line pricing feature",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|per agate line pricing|feature"
+   ]
+  },
+  {
+   "name": "Rate-card billings",
+   "type": "billing basis",
+   "grain": "Entity",
+   "reason": "singleton: billing basis derived from rate cards",
+   "child_uids": [
+    "n|tu:era:4:boundary|rate-card billings|billing basis"
+   ]
+  },
+  {
+   "name": "Rate-card list price",
+   "type": "price basis",
+   "grain": "Entity",
+   "reason": "same concept across plural and singular forms",
+   "child_uids": [
+    "n|tu:era:4:field:MEASUREMENT|rate-card list prices|price basis",
+    "n|tu:era:4:field:SCALE|rate-card list price|price type"
+   ]
+  },
+  {
+   "name": "Rate cards",
+   "type": "rate card practice",
+   "grain": "Entity",
+   "reason": "singleton: general rate\u2011card practice entity",
+   "child_uids": [
+    "n|tu:era:5:field:PRICING|rate cards|rate card practice"
+   ]
+  },
+  {
+   "name": "Fee",
+   "type": "payment type",
+   "grain": "Entity",
+   "reason": "singleton: distinct payment type concept",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|fee|payment type"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "id": "e4-targeting-005",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1990,
+ "unit": "national cable networks",
+ "elapsed_s": 59.7,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Television targeting precision",
+   "type": "targeting precision metric",
+   "clause": "Television targeting precision"
+  },
+  {
+   "name": "National cable networks",
+   "type": "cable network",
+   "clause": "national cable networks"
+  },
+  {
+   "name": "National channels",
+   "type": "broadcast channel",
+   "clause": "national channels"
+  },
+  {
+   "name": "television targeting precision count (national cable networks)",
+   "type": "count measurement",
+   "clause": "... national cable networks"
+  },
+  {
+   "name": "television targeting precision count (national channels)",
+   "type": "count measurement",
+   "clause": "... national channels"
+  },
+  {
+   "name": "self-selected niche",
+   "type": "audience niche",
+   "clause": "self-selected niche"
+  },
+  {
+   "name": "supply side of segmentation",
+   "type": "segmentation supply side",
+   "clause": "the supply side of segmentation"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Television targeting precision",
+   "type": "HAS_MEASUREMENT",
+   "to": "television targeting precision count (national cable networks)",
+   "clause": "... national cable networks"
+  },
+  {
+   "from": "Television targeting precision",
+   "type": "HAS_MEASUREMENT",
+   "to": "television targeting precision count (national channels)",
+   "clause": "... national channels"
+  },
+  {
+   "from": "television targeting precision count (national cable networks)",
+   "type": "COUNT_OF",
+   "to": "National cable networks",
+   "clause": "... national cable networks"
+  },
+  {
+   "from": "television targeting precision count (national channels)",
+   "type": "COUNT_OF",
+   "to": "National channels",
+   "clause": "... national channels"
+  },
+  {
+   "from": "television targeting precision count (national cable networks)",
+   "type": "RAISED_FROM",
+   "to": "television targeting precision count (national channels)",
+   "clause": "rose from ... to ..."
+  },
+  {
+   "from": "National cable networks",
+   "type": "ADDRESSES",
+   "to": "self-selected niche",
+   "clause": "each addressing a self-selected niche"
+  },
+  {
+   "from": "self-selected niche",
+   "type": "REPRESENTS",
+   "to": "supply side of segmentation",
+   "clause": "the supply side of segmentation"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Television targeting precision|targeting precision metric|Television targeting precision\nNODE|National cable networks|cable network|national cable networks\nNODE|National channels|broadcast channel|national channels\nNODE|television targeting precision count (national cable networks)|count measurement|... national cable networks\nNODE|television targeting precision count (national channels)|count measurement|... national channels\nNODE|self-selected niche|audience niche|self-selected niche\nNODE|supply side of segmentation|segmentation supply side|the supply side of segmentation\nEDGE|Television targeting precision|HAS_MEASUREMENT|television targeting precision count (national cable networks)|... national cable networks\nEDGE|Television targeting precision|HAS_MEASUREMENT|television targeting precision count (national channels)|... national channels\nEDGE|television targeting precision count (national cable networks)|COUNT_OF|National cable networks|... national cable networks\nEDGE|television targeting precision count (national channels)|COUNT_OF|National channels|... national channels\nEDGE|television targeting precision count (national cable networks)|RAISED_FROM|television targeting precision count (national channels)|rose from ... to ...\nEDGE|National cable networks|ADDRESSES|self-selected niche|each addressing a self-selected niche\nEDGE|self-selected niche|REPRESENTS|supply side of segmentation|the supply side of segmentation"
+}

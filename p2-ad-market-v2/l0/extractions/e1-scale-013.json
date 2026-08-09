@@ -1,0 +1,67 @@
+{
+ "id": "e1-scale-013",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "percent of total US advertising outlay",
+ "elapsed_s": 41.5,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "classified advertising",
+   "type": "advertising money type",
+   "clause": "classified advertising"
+  },
+  {
+   "name": "total US advertising outlay",
+   "type": "aggregate advertising expenditure",
+   "clause": "total US advertising outlay"
+  },
+  {
+   "name": "classified advertising share of total US advertising outlay",
+   "type": "media-share measurement",
+   "clause": "about ... percent of total US advertising outlay at the ... benchmark"
+  },
+  {
+   "name": "classified advertising outlay",
+   "type": "spend measurement",
+   "clause": "about ... million"
+  },
+  {
+   "name": "four money types",
+   "type": "money-type collection",
+   "clause": "four money types"
+  }
+ ],
+ "edges": [
+  {
+   "from": "classified advertising share of total US advertising outlay",
+   "type": "MEASURES",
+   "to": "classified advertising",
+   "clause": "about ... percent of total US advertising outlay at the ... benchmark"
+  },
+  {
+   "from": "classified advertising share of total US advertising outlay",
+   "type": "SHARE_OF",
+   "to": "total US advertising outlay",
+   "clause": "of total US advertising outlay"
+  },
+  {
+   "from": "classified advertising outlay",
+   "type": "MEASURES",
+   "to": "classified advertising",
+   "clause": "about ... million"
+  },
+  {
+   "from": "classified advertising",
+   "type": "SMALLEST_OF",
+   "to": "four money types",
+   "clause": "smallest of the four money types by a wide margin"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|classified advertising|advertising money type|classified advertising\nNODE|total US advertising outlay|aggregate advertising expenditure|total US advertising outlay\nNODE|classified advertising share of total US advertising outlay|media-share measurement|about ... percent of total US advertising outlay at the ... benchmark\nNODE|classified advertising outlay|spend measurement|about ... million\nNODE|four money types|money-type collection|four money types\nEDGE|classified advertising share of total US advertising outlay|MEASURES|classified advertising|about ... percent of total US advertising outlay at the ... benchmark\nEDGE|classified advertising share of total US advertising outlay|SHARE_OF|total US advertising outlay|of total US advertising outlay\nEDGE|classified advertising outlay|MEASURES|classified advertising|about ... million\nEDGE|classified advertising|SMALLEST_OF|four money types|smallest of the four money types by a wide margin"
+}

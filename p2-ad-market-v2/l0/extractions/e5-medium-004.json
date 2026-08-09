@@ -1,0 +1,147 @@
+{
+ "id": "e5-medium-004",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of total US ad spend",
+ "elapsed_s": 103.8,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 14,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "internet advertising",
+   "type": "advertising medium",
+   "clause": "Internet advertising"
+  },
+  {
+   "name": "total US advertising spend",
+   "type": "aggregate advertising spend",
+   "clause": "total US advertising spend"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "Coen series"
+  },
+  {
+   "name": "IAB series",
+   "type": "advertising-spend dataset",
+   "clause": "IAB series"
+  },
+  {
+   "name": "internet ad share 2000",
+   "type": "media-share measurement",
+   "clause": "Internet advertising's share of total US ad spend in 2000"
+  },
+  {
+   "name": "internet ad share Coen basis",
+   "type": "media-share measurement",
+   "clause": "Coen internet line over Coen total gives ..."
+  },
+  {
+   "name": "internet ad share IAB over Coen basis",
+   "type": "media-share measurement",
+   "clause": "IAB revenue over Coen total gives ..."
+  },
+  {
+   "name": "internet ad share IAB own basis",
+   "type": "media-share measurement",
+   "clause": "IAB itself reported ..."
+  },
+  {
+   "name": "The Impression (1995-2000)",
+   "type": "era",
+   "clause": "the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "internet ad share 2000",
+   "type": "MEASURES",
+   "to": "internet advertising",
+   "clause": "Internet advertising's share of total US ad spend in 2000"
+  },
+  {
+   "from": "internet ad share 2000",
+   "type": "SHARE_OF",
+   "to": "total US advertising spend",
+   "clause": "share of total US ad spend"
+  },
+  {
+   "from": "internet ad share 2000",
+   "type": "PEAK_OF",
+   "to": "The Impression (1995-2000)",
+   "clause": "era's peak"
+  },
+  {
+   "from": "internet ad share Coen basis",
+   "type": "MEASURES",
+   "to": "internet advertising",
+   "clause": "Coen internet line over Coen total gives ..."
+  },
+  {
+   "from": "internet ad share Coen basis",
+   "type": "SHARE_OF",
+   "to": "total US advertising spend",
+   "clause": "share of total US ad spend"
+  },
+  {
+   "from": "internet ad share Coen basis",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "Coen internet line over Coen total gives ..."
+  },
+  {
+   "from": "internet ad share IAB over Coen basis",
+   "type": "MEASURES",
+   "to": "internet advertising",
+   "clause": "IAB revenue over Coen total gives ..."
+  },
+  {
+   "from": "internet ad share IAB over Coen basis",
+   "type": "SHARE_OF",
+   "to": "total US advertising spend",
+   "clause": "share of total US ad spend"
+  },
+  {
+   "from": "internet ad share IAB over Coen basis",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "IAB revenue over Coen total gives ..."
+  },
+  {
+   "from": "internet ad share IAB own basis",
+   "type": "MEASURES",
+   "to": "internet advertising",
+   "clause": "IAB itself reported ..."
+  },
+  {
+   "from": "internet ad share IAB own basis",
+   "type": "SHARE_OF",
+   "to": "total US advertising spend",
+   "clause": "share of total US ad spend"
+  },
+  {
+   "from": "internet ad share IAB own basis",
+   "type": "MEASURED_ON",
+   "to": "IAB series",
+   "clause": "IAB itself reported ..."
+  },
+  {
+   "from": "internet ad share Coen basis",
+   "type": "CONFLICTS_WITH",
+   "to": "internet ad share IAB over Coen basis",
+   "clause": "estimates disagree by a full percentage point"
+  },
+  {
+   "from": "internet ad share IAB over Coen basis",
+   "type": "CONFLICTS_WITH",
+   "to": "internet ad share IAB own basis",
+   "clause": "estimates disagree by a full percentage point"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|internet advertising|advertising medium|Internet advertising\nNODE|total US advertising spend|aggregate advertising spend|total US advertising spend\nNODE|Coen series|advertising-spend dataset|Coen series\nNODE|IAB series|advertising-spend dataset|IAB series\nNODE|internet ad share 2000|media-share measurement|Internet advertising's share of total US ad spend in 2000\nNODE|internet ad share Coen basis|media-share measurement|Coen internet line over Coen total gives ...\nNODE|internet ad share IAB over Coen basis|media-share measurement|IAB revenue over Coen total gives ...\nNODE|internet ad share IAB own basis|media-share measurement|IAB itself reported ...\nNODE|The Impression (1995-2000)|era|the era\nEDGE|internet ad share 2000|MEASURES|internet advertising|Internet advertising's share of total US ad spend in 2000\nEDGE|internet ad share 2000|SHARE_OF|total US advertising spend|share of total US ad spend\nEDGE|internet ad share 2000|PEAK_OF|The Impression (1995-2000)|era's peak\nEDGE|internet ad share Coen basis|MEASURES|internet advertising|Coen internet line over Coen total gives ...\nEDGE|internet ad share Coen basis|SHARE_OF|total US advertising spend|share of total US ad spend\nEDGE|internet ad share Coen basis|MEASURED_ON|Coen series|Coen internet line over Coen total gives ...\nEDGE|internet ad share IAB over Coen basis|MEASURES|internet advertising|IAB revenue over Coen total gives ...\nEDGE|internet ad share IAB over Coen basis|SHARE_OF|total US advertising spend|share of total US ad spend\nEDGE|internet ad share IAB over Coen basis|MEASURED_ON|Coen series|IAB revenue over Coen total gives ...\nEDGE|internet ad share IAB own basis|MEASURES|internet advertising|IAB itself reported ...\nEDGE|internet ad share IAB own basis|SHARE_OF|total US advertising spend|share of total US ad spend\nEDGE|internet ad share IAB own basis|MEASURED_ON|IAB series|IAB itself reported ...\nEDGE|internet ad share Coen basis|CONFLICTS_WITH|internet ad share IAB over Coen basis|estimates disagree by a full percentage point\nEDGE|internet ad share IAB over Coen basis|CONFLICTS_WITH|internet ad share IAB own basis|estimates disagree by a full percentage point"
+}

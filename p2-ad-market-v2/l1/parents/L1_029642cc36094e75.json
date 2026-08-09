@@ -1,0 +1,76 @@
+{
+ "group_id": "L1|029642cc36094e75",
+ "source": "kmeans",
+ "n_in": 13,
+ "parents": [
+  {
+   "name": "Direct-response spending",
+   "type": "spending measurement",
+   "grain": "Measurement",
+   "reason": "same subject and quantity across years/sources",
+   "child_uids": [
+    "n|e1-scale-014|direct-response spending|dollar amount measurement",
+    "n|e3-scale-011|previous direct-response advertising spend|advertising spend measurement",
+    "n|e4-scale-010|direct-response advertising spend amount|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Other direct-response channels spend amount",
+   "type": "spending measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct breakdown of direct-response spend",
+   "child_uids": [
+    "n|e4-scale-010|other direct-response channels spend amount|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Intent-and-response media spend",
+   "type": "media spend measurement",
+   "grain": "Measurement",
+   "reason": "same intent+response media spend across years/sources",
+   "child_uids": [
+    "n|ds-money_type-003|intent-and-response media spend|spend measurement",
+    "n|tu:era:6:field:SCALE|direct response and intent pool spend 2007|spend measurement"
+   ]
+  },
+  {
+   "name": "Direct-response general-media spend",
+   "type": "media spend measurement",
+   "grain": "Measurement",
+   "reason": "direct-response spend inside general media, same measure",
+   "child_uids": [
+    "n|e5-buyers-013|general media direct-response spend|media spend measurement",
+    "n|e5-buyers-015|direct-response inside general media spend|spend measurement",
+    "n|e5-scale-013|direct-response money in general media spend|spend measurement",
+    "n|e5-scale-016|direct-response money inside general media spend amount|spend measurement"
+   ]
+  },
+  {
+   "name": "US direct-response advertisers measured media spend",
+   "type": "media spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: US advertisers' overall media spend measured",
+   "child_uids": [
+    "n|e5-buyers-013|us direct-response advertisers' measured media spend|media spend measurement"
+   ]
+  },
+  {
+   "name": "US direct-response advertisers revenue media spend",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: US advertisers media spend reported as revenue",
+   "child_uids": [
+    "n|e5-buyers-015|us direct-response advertisers media spend|revenue measurement"
+   ]
+  },
+  {
+   "name": "Response-priced advertising spend amount",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific response-priced ad spending measure",
+   "child_uids": [
+    "n|e6-scale-010|response-priced advertising spend amount|spend measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,177 @@
+{
+ "id": "tu:era:6:event:8",
+ "kind": "prose:event",
+ "era": 6,
+ "about_year": 2007,
+ "unit": null,
+ "elapsed_s": 83.9,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 14,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google agrees to acquire DoubleClick"
+  },
+  {
+   "name": "DoubleClick",
+   "type": "ad-serving platform",
+   "clause": "the display ad-serving infrastructure of the impression era"
+  },
+  {
+   "name": "DoubleClick acquisition cost",
+   "type": "monetary measurement",
+   "clause": "acquisition price ... in cash"
+  },
+  {
+   "name": "Microsoft",
+   "type": "company",
+   "clause": "Microsoft acquires aQuantive"
+  },
+  {
+   "name": "aQuantive",
+   "type": "company",
+   "clause": "Microsoft-aQuantive acquisition"
+  },
+  {
+   "name": "Microsoft-aQuantive acquisition cost",
+   "type": "monetary measurement",
+   "clause": "... acquisition cost ..."
+  },
+  {
+   "name": "Yahoo",
+   "type": "company",
+   "clause": "Yahoo acquires Right Media"
+  },
+  {
+   "name": "Right Media",
+   "type": "company",
+   "clause": "Yahoo-Right Media acquisition"
+  },
+  {
+   "name": "Yahoo-Right Media acquisition cost",
+   "type": "monetary measurement",
+   "clause": "... acquisition cost ..."
+  },
+  {
+   "name": "WPP",
+   "type": "advertising holding company",
+   "clause": "WPP acquires 24/7 Real Media"
+  },
+  {
+   "name": "24/7 Real Media",
+   "type": "company",
+   "clause": "WPP-Real Media acquisition"
+  },
+  {
+   "name": "WPP-Real Media acquisition cost",
+   "type": "monetary measurement",
+   "clause": "... acquisition cost ..."
+  },
+  {
+   "name": "impression era",
+   "type": "advertising era",
+   "clause": "display ad-serving infrastructure of the impression era"
+  },
+  {
+   "name": "plumbing",
+   "type": "infrastructure",
+   "clause": "consolidates the plumbing that era 7's programmatic market will run on"
+  },
+  {
+   "name": "programmatic market of era 7",
+   "type": "market segment",
+   "clause": "era 7's programmatic market"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "AGREED_TO_ACQUIRE",
+   "to": "DoubleClick",
+   "clause": "agrees to acquire DoubleClick"
+  },
+  {
+   "from": "DoubleClick acquisition cost",
+   "type": "MEASURES_COST_FOR",
+   "to": "DoubleClick",
+   "clause": "acquisition price ... in cash"
+  },
+  {
+   "from": "DoubleClick",
+   "type": "SERVES_AS_INFRASTRUCTURE_FOR",
+   "to": "impression era",
+   "clause": "display ad-serving infrastructure of the impression era"
+  },
+  {
+   "from": "Microsoft",
+   "type": "ACQUIRED",
+   "to": "aQuantive",
+   "clause": "Microsoft acquires aQuantive"
+  },
+  {
+   "from": "Microsoft-aQuantive acquisition cost",
+   "type": "MEASURES_COST_FOR",
+   "to": "aQuantive",
+   "clause": "... acquisition cost ..."
+  },
+  {
+   "from": "Yahoo",
+   "type": "ACQUIRED",
+   "to": "Right Media",
+   "clause": "Yahoo acquires Right Media"
+  },
+  {
+   "from": "Yahoo-Right Media acquisition cost",
+   "type": "MEASURES_COST_FOR",
+   "to": "Right Media",
+   "clause": "... acquisition cost ..."
+  },
+  {
+   "from": "WPP",
+   "type": "ACQUIRED",
+   "to": "24/7 Real Media",
+   "clause": "WPP acquires 24/7 Real Media"
+  },
+  {
+   "from": "WPP-Real Media acquisition cost",
+   "type": "MEASURES_COST_FOR",
+   "to": "24/7 Real Media",
+   "clause": "... acquisition cost ..."
+  },
+  {
+   "from": "DoubleClick",
+   "type": "CONTRIBUTES_TO",
+   "to": "plumbing",
+   "clause": "consolidates the plumbing..."
+  },
+  {
+   "from": "aQuantive",
+   "type": "CONTRIBUTES_TO",
+   "to": "plumbing",
+   "clause": "consolidates the plumbing..."
+  },
+  {
+   "from": "Right Media",
+   "type": "CONTRIBUTES_TO",
+   "to": "plumbing",
+   "clause": "consolidates the plumbing..."
+  },
+  {
+   "from": "24/7 Real Media",
+   "type": "CONTRIBUTES_TO",
+   "to": "plumbing",
+   "clause": "consolidates the plumbing..."
+  },
+  {
+   "from": "plumbing",
+   "type": "SUPPORTS",
+   "to": "programmatic market of era 7",
+   "clause": "plumbing that programmatic market will run on"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google agrees to acquire DoubleClick\nNODE|DoubleClick|ad-serving platform|the display ad-serving infrastructure of the impression era\nNODE|DoubleClick acquisition cost|monetary measurement|acquisition price ... in cash\nNODE|Microsoft|company|Microsoft acquires aQuantive\nNODE|aQuantive|company|Microsoft-aQuantive acquisition\nNODE|Microsoft-aQuantive acquisition cost|monetary measurement|... acquisition cost ...\nNODE|Yahoo|company|Yahoo acquires Right Media\nNODE|Right Media|company|Yahoo-Right Media acquisition\nNODE|Yahoo-Right Media acquisition cost|monetary measurement|... acquisition cost ...\nNODE|WPP|advertising holding company|WPP acquires 24/7 Real Media\nNODE|24/7 Real Media|company|WPP-Real Media acquisition\nNODE|WPP-Real Media acquisition cost|monetary measurement|... acquisition cost ...\nNODE|impression era|advertising era|display ad-serving infrastructure of the impression era\nNODE|plumbing|infrastructure|consolidates the plumbing that era 7's programmatic market will run on\nNODE|programmatic market of era 7|market segment|era 7's programmatic market\nEDGE|Google|AGREED_TO_ACQUIRE|DoubleClick|agrees to acquire DoubleClick\nEDGE|DoubleClick acquisition cost|MEASURES_COST_FOR|DoubleClick|acquisition price ... in cash\nEDGE|DoubleClick|SERVES_AS_INFRASTRUCTURE_FOR|impression era|display ad-serving infrastructure of the impression era\nEDGE|Microsoft|ACQUIRED|aQuantive|Microsoft acquires aQuantive\nEDGE|Microsoft-aQuantive acquisition cost|MEASURES_COST_FOR|aQuantive|... acquisition cost ...\nEDGE|Yahoo|ACQUIRED|Right Media|Yahoo acquires Right Media\nEDGE|Yahoo-Right Media acquisition cost|MEASURES_COST_FOR|Right Media|... acquisition cost ...\nEDGE|WPP|ACQUIRED|24/7 Real Media|WPP acquires 24/7 Real Media\nEDGE|WPP-Real Media acquisition cost|MEASURES_COST_FOR|24/7 Real Media|... acquisition cost ...\nEDGE|DoubleClick|CONTRIBUTES_TO|plumbing|consolidates the plumbing...\nEDGE|aQuantive|CONTRIBUTES_TO|plumbing|consolidates the plumbing...\nEDGE|Right Media|CONTRIBUTES_TO|plumbing|consolidates the plumbing...\nEDGE|24/7 Real Media|CONTRIBUTES_TO|plumbing|consolidates the plumbing...\nEDGE|plumbing|SUPPORTS|programmatic market of era 7|plumbing that programmatic market will run on"
+}

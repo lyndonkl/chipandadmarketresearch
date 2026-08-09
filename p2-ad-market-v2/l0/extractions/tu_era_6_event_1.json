@@ -1,0 +1,149 @@
+{
+ "id": "tu:era:6:event:1",
+ "kind": "prose:event",
+ "era": 6,
+ "about_year": 2002,
+ "unit": null,
+ "elapsed_s": 68.6,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 10,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google"
+  },
+  {
+   "name": "Overture",
+   "type": "paid\u2011search company",
+   "clause": "Overture"
+  },
+  {
+   "name": "Inktomi",
+   "type": "web\u2011search company",
+   "clause": "Inktomi"
+  },
+  {
+   "name": "AOL US properties",
+   "type": "media property group",
+   "clause": "AOL's US properties"
+  },
+  {
+   "name": "paid listings",
+   "type": "ad product",
+   "clause": "paid listings"
+  },
+  {
+   "name": "web results",
+   "type": "search result product",
+   "clause": "web results"
+  },
+  {
+   "name": "revenue guarantee",
+   "type": "financial commitment measurement",
+   "clause": "revenue guarantee"
+  },
+  {
+   "name": "revenue share",
+   "type": "revenue\u2011share measurement",
+   "clause": "revenue share"
+  },
+  {
+   "name": "Overture stock decline",
+   "type": "stock price change measurement",
+   "clause": "Overture's stock decline"
+  },
+  {
+   "name": "Inktomi stock decline",
+   "type": "stock price change measurement",
+   "clause": "Inktomi's stock decline"
+  },
+  {
+   "name": "deal",
+   "type": "distribution transaction",
+   "clause": "the deal"
+  },
+  {
+   "name": "decisive distribution purchase",
+   "type": "acquisition type",
+   "clause": "decisive distribution purchase"
+  },
+  {
+   "name": "Deal",
+   "type": "(promoted)",
+   "clause": ""
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "PROVIDES",
+   "to": "paid listings",
+   "clause": "Overture's paid listings"
+  },
+  {
+   "from": "Inktomi",
+   "type": "PROVIDES",
+   "to": "web results",
+   "clause": "Inktomi's web results"
+  },
+  {
+   "from": "Google",
+   "type": "REPLACES",
+   "to": "paid listings",
+   "clause": "replaces Overture's paid listings across AOL US properties"
+  },
+  {
+   "from": "Google",
+   "type": "REPLACES",
+   "to": "web results",
+   "clause": "replaces Inktomi's web results across AOL US properties"
+  },
+  {
+   "from": "Google",
+   "type": "OPERATES_ACROSS",
+   "to": "AOL US properties",
+   "clause": "across AOL's US properties"
+  },
+  {
+   "from": "Google",
+   "type": "HAS_GUARANTEE",
+   "to": "revenue guarantee",
+   "clause": "reportedly on an approximately ... revenue guarantee"
+  },
+  {
+   "from": "Google",
+   "type": "HAS_REVENUE_SHARE",
+   "to": "revenue share",
+   "clause": "and an ... revenue share"
+  },
+  {
+   "from": "Overture",
+   "type": "STOCK_FELL",
+   "to": "Overture stock decline",
+   "clause": "stock fell about ... on the news"
+  },
+  {
+   "from": "Inktomi",
+   "type": "STOCK_FELL",
+   "to": "Inktomi stock decline",
+   "clause": "stock fell about ... on the news"
+  },
+  {
+   "from": "Deal",
+   "type": "IS_A",
+   "to": "decisive distribution purchase",
+   "clause": "the deal is the era's decisive distribution purchase"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "undeclared_endpoint_promoted",
+   "endpoint": "Deal",
+   "line": "EDGE|Deal|IS_A|decisive distribution purchase|the deal is the era's decisive distribution purchase"
+  }
+ ],
+ "raw": "NODE|Google|technology company|Google\nNODE|Overture|paid\u2011search company|Overture\nNODE|Inktomi|web\u2011search company|Inktomi\nNODE|AOL US properties|media property group|AOL's US properties\nNODE|paid listings|ad product|paid listings\nNODE|web results|search result product|web results\nNODE|revenue guarantee|financial commitment measurement|revenue guarantee\nNODE|revenue share|revenue\u2011share measurement|revenue share\nNODE|Overture stock decline|stock price change measurement|Overture's stock decline\nNODE|Inktomi stock decline|stock price change measurement|Inktomi's stock decline\nNODE|deal|distribution transaction|the deal\nNODE|decisive distribution purchase|acquisition type|decisive distribution purchase\nEDGE|Overture|PROVIDES|paid listings|Overture's paid listings\nEDGE|Inktomi|PROVIDES|web results|Inktomi's web results\nEDGE|Google|REPLACES|paid listings|replaces Overture's paid listings across AOL US properties\nEDGE|Google|REPLACES|web results|replaces Inktomi's web results across AOL US properties\nEDGE|Google|OPERATES_ACROSS|AOL US properties|across AOL's US properties\nEDGE|Google|HAS_GUARANTEE|revenue guarantee|reportedly on an approximately ... revenue guarantee\nEDGE|Google|HAS_REVENUE_SHARE|revenue share|and an ... revenue share\nEDGE|Overture|STOCK_FELL|Overture stock decline|stock fell about ... on the news\nEDGE|Inktomi|STOCK_FELL|Inktomi stock decline|stock fell about ... on the news\nEDGE|Deal|IS_A|decisive distribution purchase|the deal is the era's decisive distribution purchase"
+}

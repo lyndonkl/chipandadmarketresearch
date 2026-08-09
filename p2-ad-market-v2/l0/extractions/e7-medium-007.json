@@ -1,0 +1,62 @@
+{
+ "id": "e7-medium-007",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD millions of US podcast ad revenue, 2025",
+ "elapsed_s": 48.7,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US podcast advertising revenue",
+   "type": "revenue metric",
+   "clause": "US podcast advertising revenue grew ..."
+  },
+  {
+   "name": "US podcast ad revenue 2015",
+   "type": "revenue measurement",
+   "clause": "grew from ... in ..."
+  },
+  {
+   "name": "US podcast ad revenue 2025",
+   "type": "revenue measurement",
+   "clause": "to ... in ..."
+  },
+  {
+   "name": "annual growth rate of US podcast advertising revenue",
+   "type": "growth-rate measurement",
+   "clause": "... year on year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US podcast advertising revenue",
+   "type": "HAS_MEASUREMENT",
+   "to": "US podcast ad revenue 2015",
+   "clause": "grew from ... in ..."
+  },
+  {
+   "from": "US podcast advertising revenue",
+   "type": "HAS_MEASUREMENT",
+   "to": "US podcast ad revenue 2025",
+   "clause": "to ... in ..."
+  },
+  {
+   "from": "US podcast advertising revenue",
+   "type": "HAS_GROWTH_RATE",
+   "to": "annual growth rate of US podcast advertising revenue",
+   "clause": "... year on year"
+  },
+  {
+   "from": "US podcast ad revenue 2025",
+   "type": "GROWN_FROM",
+   "to": "US podcast ad revenue 2015",
+   "clause": "grew from ... to ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US podcast advertising revenue|revenue metric|US podcast advertising revenue grew ...\nNODE|US podcast ad revenue 2015|revenue measurement|grew from ... in ...\nNODE|US podcast ad revenue 2025|revenue measurement|to ... in ...\nNODE|annual growth rate of US podcast advertising revenue|growth-rate measurement|... year on year\nEDGE|US podcast advertising revenue|HAS_MEASUREMENT|US podcast ad revenue 2015|grew from ... in ...\nEDGE|US podcast advertising revenue|HAS_MEASUREMENT|US podcast ad revenue 2025|to ... in ...\nEDGE|US podcast advertising revenue|HAS_GROWTH_RATE|annual growth rate of US podcast advertising revenue|... year on year\nEDGE|US podcast ad revenue 2025|GROWN_FROM|US podcast ad revenue 2015|grew from ... to ..."
+}

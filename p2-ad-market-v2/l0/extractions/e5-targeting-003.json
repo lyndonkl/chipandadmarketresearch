@@ -1,0 +1,79 @@
+{
+ "id": "e5-targeting-003",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of US internet ad revenue",
+ "elapsed_s": 88.2,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "intent-targeted keyword search share (initial)",
+   "type": "media-share measurement",
+   "clause": "the intent-targeted format was ... of the market"
+  },
+  {
+   "name": "intent-targeted keyword search share (full-year)",
+   "type": "media-share measurement",
+   "clause": "reached ... for full-year"
+  },
+  {
+   "name": "intent-targeted keyword search share (fourth-quarter)",
+   "type": "media-share measurement",
+   "clause": "... in fourth-quarter"
+  },
+  {
+   "name": "US internet advertising revenue",
+   "type": "advertising revenue stream",
+   "clause": "share of US internet ad revenue"
+  },
+  {
+   "name": "other internet advertising formats",
+   "type": "advertising format group",
+   "clause": "everything else"
+  }
+ ],
+ "edges": [
+  {
+   "from": "intent-targeted keyword search share (initial)",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... of the market"
+  },
+  {
+   "from": "intent-targeted keyword search share (full-year)",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "reached ... for full-year"
+  },
+  {
+   "from": "intent-targeted keyword search share (fourth-quarter)",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "... in fourth-quarter"
+  },
+  {
+   "from": "intent-targeted keyword search share (full-year)",
+   "type": "INCREASED_FROM",
+   "to": "intent-targeted keyword search share (initial)",
+   "clause": "reached ... for full-year"
+  },
+  {
+   "from": "intent-targeted keyword search share (fourth-quarter)",
+   "type": "INCREASED_FROM",
+   "to": "intent-targeted keyword search share (full-year)",
+   "clause": "... in fourth-quarter"
+  },
+  {
+   "from": "intent-targeted keyword search share (fourth-quarter)",
+   "type": "GREW_WHILE",
+   "to": "other internet advertising formats",
+   "clause": "growing while everything else shrank"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|intent-targeted keyword search share (initial)|media-share measurement|the intent-targeted format was ... of the market\nNODE|intent-targeted keyword search share (full-year)|media-share measurement|reached ... for full-year\nNODE|intent-targeted keyword search share (fourth-quarter)|media-share measurement|... in fourth-quarter\nNODE|US internet advertising revenue|advertising revenue stream|share of US internet ad revenue\nNODE|other internet advertising formats|advertising format group|everything else\nEDGE|intent-targeted keyword search share (initial)|SHARE_OF|US internet advertising revenue|... of the market\nEDGE|intent-targeted keyword search share (full-year)|SHARE_OF|US internet advertising revenue|reached ... for full-year\nEDGE|intent-targeted keyword search share (fourth-quarter)|SHARE_OF|US internet advertising revenue|... in fourth-quarter\nEDGE|intent-targeted keyword search share (full-year)|INCREASED_FROM|intent-targeted keyword search share (initial)|reached ... for full-year\nEDGE|intent-targeted keyword search share (fourth-quarter)|INCREASED_FROM|intent-targeted keyword search share (full-year)|... in fourth-quarter\nEDGE|intent-targeted keyword search share (fourth-quarter)|GREW_WHILE|other internet advertising formats|growing while everything else shrank"
+}

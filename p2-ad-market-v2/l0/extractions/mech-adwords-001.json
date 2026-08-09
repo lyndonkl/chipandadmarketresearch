@@ -1,0 +1,89 @@
+{
+ "id": "mech-adwords-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "year (2002-02-20), launch of the quality-weighted CPC auction",
+ "elapsed_s": 52.6,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AdWords Select",
+   "type": "advertising product",
+   "clause": "AdWords Select launched ... February ..."
+  },
+  {
+   "name": "quality-weighted CPC auction launch",
+   "type": "auction launch event",
+   "clause": "quality-weighted CPC auction launch"
+  },
+  {
+   "name": "ad ranking method",
+   "type": "ranking algorithm",
+   "clause": "ranked ads by a combination"
+  },
+  {
+   "name": "click-through rate metric",
+   "type": "performance metric",
+   "clause": "combination includes ad performance"
+  },
+  {
+   "name": "advertiser bid per click",
+   "type": "price offer metric",
+   "clause": "combination includes advertiser bid per click"
+  },
+  {
+   "name": "quality-weighted second-price pricing",
+   "type": "pricing rule",
+   "clause": "applied quality-weighted second-price pricing"
+  },
+  {
+   "name": "advertisers",
+   "type": "advertiser constituency",
+   "clause": "advertisers pay the lowest amount possible"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AdWords Select",
+   "type": "LAUNCHED",
+   "to": "quality-weighted CPC auction launch",
+   "clause": "launched ... February ..."
+  },
+  {
+   "from": "AdWords Select",
+   "type": "RANKED_BY",
+   "to": "ad ranking method",
+   "clause": "ranked ads by a combination"
+  },
+  {
+   "from": "ad ranking method",
+   "type": "COMPOSED_OF",
+   "to": "click-through rate metric",
+   "clause": "combination includes ad performance"
+  },
+  {
+   "from": "ad ranking method",
+   "type": "COMPOSED_OF",
+   "to": "advertiser bid per click",
+   "clause": "combination includes advertiser bid per click"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "APPLIED",
+   "to": "quality-weighted second-price pricing",
+   "clause": "applied quality-weighted second-price pricing"
+  },
+  {
+   "from": "advertisers",
+   "type": "PAID_UNDER",
+   "to": "quality-weighted second-price pricing",
+   "clause": "advertisers pay the lowest amount possible"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AdWords Select|advertising product|AdWords Select launched ... February ...\nNODE|quality-weighted CPC auction launch|auction launch event|quality-weighted CPC auction launch\nNODE|ad ranking method|ranking algorithm|ranked ads by a combination\nNODE|click-through rate metric|performance metric|combination includes ad performance\nNODE|advertiser bid per click|price offer metric|combination includes advertiser bid per click\nNODE|quality-weighted second-price pricing|pricing rule|applied quality-weighted second-price pricing\nNODE|advertisers|advertiser constituency|advertisers pay the lowest amount possible\nEDGE|AdWords Select|LAUNCHED|quality-weighted CPC auction launch|launched ... February ...\nEDGE|AdWords Select|RANKED_BY|ad ranking method|ranked ads by a combination\nEDGE|ad ranking method|COMPOSED_OF|click-through rate metric|combination includes ad performance\nEDGE|ad ranking method|COMPOSED_OF|advertiser bid per click|combination includes advertiser bid per click\nEDGE|AdWords Select|APPLIED|quality-weighted second-price pricing|applied quality-weighted second-price pricing\nEDGE|advertisers|PAID_UNDER|quality-weighted second-price pricing|advertisers pay the lowest amount possible"
+}

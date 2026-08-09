@@ -1,0 +1,36 @@
+{
+ "group_id": "L1|11d0bfb641accc15",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Purchase terms",
+   "type": "purchase term",
+   "grain": "Entity",
+   "reason": "group of purchase term entities; specific term types abstracted away",
+   "child_uids": [
+    "n|tu:era:4:event:5|per-inquiry terms|purchase term",
+    "n|tu:era:4:event:5|remnant terms|purchase term"
+   ]
+  },
+  {
+   "name": "Buying practices",
+   "type": "buying practice",
+   "grain": "Entity",
+   "reason": "group of buying practice entities; different practices abstracted",
+   "child_uids": [
+    "n|tu:era:7:field:MEDIUM|impression purchase in auction|buying practice",
+    "n|tu:era:7:field:MEDIUM|line-of-type purchase|buying practice"
+   ]
+  },
+  {
+   "name": "Purchasable",
+   "type": "market action",
+   "grain": "Entity",
+   "reason": "singleton: market action entity representing purchasable concept",
+   "child_uids": [
+    "n|tu:era:2:field:TARGETING|purchasable|market action"
+   ]
+  }
+ ]
+}

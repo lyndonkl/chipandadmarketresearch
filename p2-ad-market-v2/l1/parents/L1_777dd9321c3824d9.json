@@ -1,0 +1,54 @@
+{
+ "group_id": "L1|777dd9321c3824d9",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "NBC and CBS owned stations",
+   "type": "station group",
+   "grain": "Entity",
+   "reason": "same owned\u2011station set across phrasing; year details in children",
+   "child_uids": [
+    "n|e2-sellers-001|nbc and cbs owned stations|station group",
+    "n|tu:era:2:field:SELLERS|owned stations of nbc and cbs|station group"
+   ]
+  },
+  {
+   "name": "US commercial broadcast stations",
+   "type": "broadcast station inventory",
+   "grain": "Entity",
+   "reason": "singleton: US commercial broadcast station inventory",
+   "child_uids": [
+    "n|e2-sellers-003|us commercial broadcast stations|broadcast station inventory"
+   ]
+  },
+  {
+   "name": "NBC and CBS affiliated stations",
+   "type": "station group",
+   "grain": "Entity",
+   "reason": "same affiliation set across wording; year abstracted",
+   "child_uids": [
+    "n|e2-events-003|nbc/cbs-affiliated stations|station group",
+    "n|tu:era:2:field:SELLERS|affiliated stations with nbc or cbs|affiliate station group"
+   ]
+  },
+  {
+   "name": "VHF television stations",
+   "type": "broadcast band",
+   "grain": "Entity",
+   "reason": "singleton: VHF broadcast\u2011band stations",
+   "child_uids": [
+    "n|e3-sellers-002|vhf stations|broadcast band"
+   ]
+  },
+  {
+   "name": "Television station ownership limit",
+   "type": "ownership cap",
+   "grain": "Entity",
+   "reason": "singleton: rule capping owners at seven TV stations",
+   "child_uids": [
+    "n|tu:era:3:field:SELLERS|television station ownership limit|ownership cap"
+   ]
+  }
+ ]
+}

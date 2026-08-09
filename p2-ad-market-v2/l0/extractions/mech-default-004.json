@@ -1,0 +1,94 @@
+{
+ "id": "mech-default-004",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2021,
+ "unit": "% of Google traffic acquisition cost spent on search defaults rather than network revenue share, 2021",
+ "elapsed_s": 66.6,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Alphabet",
+   "type": "company",
+   "clause": "Alphabet"
+  },
+  {
+   "name": "overall TAC rate",
+   "type": "take-rate measurement",
+   "clause": "overall TAC rate barely moved across twenty years"
+  },
+  {
+   "name": "advertising revenue",
+   "type": "revenue type",
+   "clause": "... of advertising revenue"
+  },
+  {
+   "name": "Google traffic acquisition cost",
+   "type": "cost category",
+   "clause": "Google traffic acquisition cost"
+  },
+  {
+   "name": "Google traffic acquisition cost default spend share",
+   "type": "share measurement",
+   "clause": "percentage spent on search defaults rather than network revenue share"
+  },
+  {
+   "name": "network revenue share of Google traffic acquisition cost",
+   "type": "share measurement",
+   "clause": "network revenue share of Google traffic acquisition cost"
+  },
+  {
+   "name": "share of TAC bought for Google's own properties",
+   "type": "share measurement",
+   "clause": "... of TAC bought traffic for Google's own properties"
+  },
+  {
+   "name": "Google's own properties",
+   "type": "property group",
+   "clause": "Google's own properties"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Alphabet",
+   "type": "HAS_RATE",
+   "to": "overall TAC rate",
+   "clause": "overall TAC rate barely moved across twenty years"
+  },
+  {
+   "from": "overall TAC rate",
+   "type": "SHARE_OF",
+   "to": "advertising revenue",
+   "clause": "... of advertising revenue"
+  },
+  {
+   "from": "Google traffic acquisition cost default spend share",
+   "type": "SHARE_OF",
+   "to": "Google traffic acquisition cost",
+   "clause": "percentage spent on search defaults rather than network revenue share"
+  },
+  {
+   "from": "Google traffic acquisition cost default spend share",
+   "type": "INVERTED_WITH",
+   "to": "network revenue share of Google traffic acquisition cost",
+   "clause": "composition inverted"
+  },
+  {
+   "from": "share of TAC bought for Google's own properties",
+   "type": "SHARE_OF",
+   "to": "Google traffic acquisition cost",
+   "clause": "... of TAC bought traffic for Google's own properties"
+  },
+  {
+   "from": "share of TAC bought for Google's own properties",
+   "type": "BOUGHT_FOR",
+   "to": "Google's own properties",
+   "clause": "... of TAC bought traffic for Google's own properties"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Alphabet|company|Alphabet\nNODE|overall TAC rate|take-rate measurement|overall TAC rate barely moved across twenty years\nNODE|advertising revenue|revenue type|... of advertising revenue\nNODE|Google traffic acquisition cost|cost category|Google traffic acquisition cost\nNODE|Google traffic acquisition cost default spend share|share measurement|percentage spent on search defaults rather than network revenue share\nNODE|network revenue share of Google traffic acquisition cost|share measurement|network revenue share of Google traffic acquisition cost\nNODE|share of TAC bought for Google's own properties|share measurement|... of TAC bought traffic for Google's own properties\nNODE|Google's own properties|property group|Google's own properties\nEDGE|Alphabet|HAS_RATE|overall TAC rate|overall TAC rate barely moved across twenty years\nEDGE|overall TAC rate|SHARE_OF|advertising revenue|... of advertising revenue\nEDGE|Google traffic acquisition cost default spend share|SHARE_OF|Google traffic acquisition cost|percentage spent on search defaults rather than network revenue share\nEDGE|Google traffic acquisition cost default spend share|INVERTED_WITH|network revenue share of Google traffic acquisition cost|composition inverted\nEDGE|share of TAC bought for Google's own properties|SHARE_OF|Google traffic acquisition cost|... of TAC bought traffic for Google's own properties\nEDGE|share of TAC bought for Google's own properties|BOUGHT_FOR|Google's own properties|... of TAC bought traffic for Google's own properties"
+}

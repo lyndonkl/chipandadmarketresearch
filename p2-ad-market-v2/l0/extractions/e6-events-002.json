@@ -1,0 +1,66 @@
+{
+ "id": "e6-events-002",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2003,
+ "unit": "% of Google total revenue attributable to AOL, 2003",
+ "elapsed_s": 48.8,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AOL",
+   "type": "company",
+   "clause": "AOL alone accounted for ..."
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "... of Google's total revenue"
+  },
+  {
+   "name": "Google total revenue",
+   "type": "revenue aggregate",
+   "clause": "Google's total revenue"
+  },
+  {
+   "name": "AOL share of Google total revenue",
+   "type": "revenue-share measurement",
+   "clause": "AOL ... accounted for ... of Google's total revenue"
+  },
+  {
+   "name": "AOL\u2011Google revenue sharing agreement",
+   "type": "revenue sharing agreement",
+   "clause": "the agreement"
+  },
+  {
+   "name": "first full year of the agreement",
+   "type": "agreement phase",
+   "clause": "the first full year of the agreement"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AOL share of Google total revenue",
+   "type": "SHARE_OF",
+   "to": "Google total revenue",
+   "clause": "... of Google's total revenue"
+  },
+  {
+   "from": "AOL share of Google total revenue",
+   "type": "ATTRIBUTED_TO",
+   "to": "AOL",
+   "clause": "AOL alone accounted for ..."
+  },
+  {
+   "from": "first full year of the agreement",
+   "type": "PART_OF",
+   "to": "AOL\u2011Google revenue sharing agreement",
+   "clause": "the first full year of the agreement"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AOL|company|AOL alone accounted for ...\nNODE|Google|company|... of Google's total revenue\nNODE|Google total revenue|revenue aggregate|Google's total revenue\nNODE|AOL share of Google total revenue|revenue-share measurement|AOL ... accounted for ... of Google's total revenue\nNODE|AOL\u2011Google revenue sharing agreement|revenue sharing agreement|the agreement\nNODE|first full year of the agreement|agreement phase|the first full year of the agreement\nEDGE|AOL share of Google total revenue|SHARE_OF|Google total revenue|... of Google's total revenue\nEDGE|AOL share of Google total revenue|ATTRIBUTED_TO|AOL|AOL alone accounted for ...\nEDGE|first full year of the agreement|PART_OF|AOL\u2011Google revenue sharing agreement|the first full year of the agreement"
+}

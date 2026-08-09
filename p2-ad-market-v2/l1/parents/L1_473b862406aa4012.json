@@ -1,0 +1,98 @@
+{
+ "group_id": "L1|473b862406aa4012",
+ "source": "kmeans",
+ "n_in": 11,
+ "parents": [
+  {
+   "name": "total_corporate_ad_deductions",
+   "type": "advertising medium",
+   "grain": "Dimension",
+   "reason": "singleton: dimension for corporate ad deductions",
+   "child_uids": [
+    "dim:medium:total_corporate_ad_deductions"
+   ]
+  },
+  {
+   "name": "Total advertising spend",
+   "type": "advertising spend total",
+   "grain": "Entity",
+   "reason": "two entities both denote overall advertising expenditure",
+   "child_uids": [
+    "n|tu:era:2:field:BUYERS|total ad dollars|advertising spend total",
+    "n|tu:era:3:field:MEDIUM|total ad spend|aggregate spending"
+   ]
+  },
+  {
+   "name": "advertiser programmatic spend",
+   "type": "programmatic ad spend",
+   "grain": "Entity",
+   "reason": "singleton: programmatic spend by advertisers, specific to 2020",
+   "child_uids": [
+    "n|e7-pricing-004|advertiser programmatic spend|programmatic ad spend"
+   ]
+  },
+  {
+   "name": "Meta average price per ad",
+   "type": "metric",
+   "grain": "Entity",
+   "reason": "singleton: average price per advertisement metric",
+   "child_uids": [
+    "n|e7-pricing-008|meta average price per ad|metric"
+   ]
+  },
+  {
+   "name": "advertising spend gap percent measurement",
+   "type": "(promoted)",
+   "grain": "Entity",
+   "reason": "singleton: percent gap in advertising spend measurement",
+   "child_uids": [
+    "n|tu:era:1:boundary|advertising spend gap percent measurement|(promoted)"
+   ]
+  },
+  {
+   "name": "Coen CS Ad Dataset",
+   "type": "ad spend dataset",
+   "grain": "Entity",
+   "reason": "singleton: Coen CS advertising dataset series",
+   "child_uids": [
+    "n|tu:era:3:boundary|coen cs ad dataset|ad spend dataset"
+   ]
+  },
+  {
+   "name": "measured spend",
+   "type": "advertising spend base",
+   "grain": "Entity",
+   "reason": "singleton: measured base of advertising spend",
+   "child_uids": [
+    "n|tu:era:4:field:BUYERS|measured spend|advertising spend base"
+   ]
+  },
+  {
+   "name": "IAB/PwC dataset",
+   "type": "dataset",
+   "grain": "Entity",
+   "reason": "singleton: IAB/PwC advertising data set",
+   "child_uids": [
+    "n|tu:era:5:boundary|iab/pwc dataset|dataset"
+   ]
+  },
+  {
+   "name": "Directory money by advertiser geography",
+   "type": "money categorization",
+   "grain": "Entity",
+   "reason": "singleton: money categorized by advertiser geography",
+   "child_uids": [
+    "n|tu:era:5:field:SCALE|directory money by advertiser geography|money categorization"
+   ]
+  },
+  {
+   "name": "catalogue spend",
+   "type": "advertising category",
+   "grain": "Entity",
+   "reason": "singleton: spend classified under catalogue category",
+   "child_uids": [
+    "n|tu:era:7:field:SCALE|catalogue spend|advertising category"
+   ]
+  }
+ ]
+}

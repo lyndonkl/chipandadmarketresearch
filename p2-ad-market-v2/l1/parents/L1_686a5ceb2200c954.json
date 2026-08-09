@@ -1,0 +1,45 @@
+{
+ "group_id": "L1|686a5ceb2200c954",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "monetised Google-owned search query",
+   "type": "ad product",
+   "grain": "Entity",
+   "reason": "singleton: ad product for monetised Google-owned search queries",
+   "child_uids": [
+    "n|e6-unit_econ-003|monetised google-owned search query|ad product"
+   ]
+  },
+  {
+   "name": "gross margin on monetised Google-owned search query",
+   "type": "margin metric",
+   "grain": "Entity",
+   "reason": "singleton: margin metric on monetised Google-owned search query",
+   "child_uids": [
+    "n|e6-unit_econ-003|gross margin on monetised google-owned search query|margin metric"
+   ]
+  },
+  {
+   "name": "Google search text-ads revenue per thousand queries",
+   "type": "advertising revenue metric",
+   "grain": "Entity",
+   "reason": "same revenue-per-thousand-queries metric across naming variants",
+   "child_uids": [
+    "n|e7-events-007|google search text-ads revenue per thousand queries|advertising revenue metric",
+    "n|e7-pricing-002|google general search text-ads revenue per thousand queries|revenue metric",
+    "n|mech-format_pricing-001|google search text-ads rpm|revenue metric"
+   ]
+  },
+  {
+   "name": "Google text-ads revenue",
+   "type": "revenue stream",
+   "grain": "Entity",
+   "reason": "singleton: overall Google text\u2011ads revenue stream",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|google text-ads revenue|revenue stream"
+   ]
+  }
+ ]
+}

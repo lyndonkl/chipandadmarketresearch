@@ -1,0 +1,83 @@
+{
+ "id": "e2-scale-013",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ millions of US direct mail advertising, 1949",
+ "elapsed_s": 61.9,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail, the era's direct-response channel"
+  },
+  {
+   "name": "direct-response channel",
+   "type": "advertising channel type",
+   "clause": "the era's direct-response channel"
+  },
+  {
+   "name": "US direct mail advertising spend 1949",
+   "type": "spend measurement",
+   "clause": "... in 1949"
+  },
+  {
+   "name": "all US advertising spend",
+   "type": "total market spend",
+   "clause": "all US advertising spend"
+  },
+  {
+   "name": "direct mail share of US advertising spend 1949",
+   "type": "share measurement",
+   "clause": "... of all US advertising spend"
+  },
+  {
+   "name": "direct mail size ranking 1949",
+   "type": "media-size ranking measurement",
+   "clause": "second-largest medium"
+  },
+  {
+   "name": "US advertising media",
+   "type": "media collection",
+   "clause": "advertising mediums"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Direct mail",
+   "type": "WAS_DIRECT_RESPONSE_CHANNEL",
+   "to": "direct-response channel",
+   "clause": "the era's direct-response channel"
+  },
+  {
+   "from": "Direct mail",
+   "type": "HAS_SPEND",
+   "to": "US direct mail advertising spend 1949",
+   "clause": "... in 1949"
+  },
+  {
+   "from": "Direct mail",
+   "type": "HAS_SHARE",
+   "to": "direct mail share of US advertising spend 1949",
+   "clause": "... of all US advertising spend"
+  },
+  {
+   "from": "direct mail share of US advertising spend 1949",
+   "type": "SHARE_OF",
+   "to": "all US advertising spend",
+   "clause": "... of all US advertising spend"
+  },
+  {
+   "from": "Direct mail",
+   "type": "HAS_RANKING",
+   "to": "direct mail size ranking 1949",
+   "clause": "second-largest medium"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Direct mail|advertising medium|direct mail, the era's direct-response channel\nNODE|direct-response channel|advertising channel type|the era's direct-response channel\nNODE|US direct mail advertising spend 1949|spend measurement|... in 1949\nNODE|all US advertising spend|total market spend|all US advertising spend\nNODE|direct mail share of US advertising spend 1949|share measurement|... of all US advertising spend\nNODE|direct mail size ranking 1949|media-size ranking measurement|second-largest medium\nNODE|US advertising media|media collection|advertising mediums\nEDGE|Direct mail|WAS_DIRECT_RESPONSE_CHANNEL|direct-response channel|the era's direct-response channel\nEDGE|Direct mail|HAS_SPEND|US direct mail advertising spend 1949|... in 1949\nEDGE|Direct mail|HAS_SHARE|direct mail share of US advertising spend 1949|... of all US advertising spend\nEDGE|direct mail share of US advertising spend 1949|SHARE_OF|all US advertising spend|... of all US advertising spend\nEDGE|Direct mail|HAS_RANKING|direct mail size ranking 1949|second-largest medium"
+}

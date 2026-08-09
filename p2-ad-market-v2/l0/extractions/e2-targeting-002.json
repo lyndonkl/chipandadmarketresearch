@@ -1,0 +1,56 @@
+{
+ "id": "e2-targeting-002",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ millions of US national spot radio advertising, 1949",
+ "elapsed_s": 43.5,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national spot radio",
+   "type": "radio advertising medium",
+   "clause": "National spot radio"
+  },
+  {
+   "name": "geographic targeting",
+   "type": "targeting practice",
+   "clause": "geographic targeting bought station by station"
+  },
+  {
+   "name": "representative firms",
+   "type": "intermediary firms",
+   "clause": "through representative firms"
+  },
+  {
+   "name": "US national spot radio advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "grew from ... to ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "geographic targeting",
+   "type": "APPLIED_TO",
+   "to": "national spot radio",
+   "clause": "geographic targeting bought station by station"
+  },
+  {
+   "from": "geographic targeting",
+   "type": "BOUGHT_VIA",
+   "to": "representative firms",
+   "clause": "bought ... through representative firms"
+  },
+  {
+   "from": "US national spot radio advertising spend",
+   "type": "MEASURES",
+   "to": "national spot radio",
+   "clause": "grew from ... to ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national spot radio|radio advertising medium|National spot radio\nNODE|geographic targeting|targeting practice|geographic targeting bought station by station\nNODE|representative firms|intermediary firms|through representative firms\nNODE|US national spot radio advertising spend|advertising spend measurement|grew from ... to ...\nEDGE|geographic targeting|APPLIED_TO|national spot radio|geographic targeting bought station by station\nEDGE|geographic targeting|BOUGHT_VIA|representative firms|bought ... through representative firms\nEDGE|US national spot radio advertising spend|MEASURES|national spot radio|grew from ... to ..."
+}

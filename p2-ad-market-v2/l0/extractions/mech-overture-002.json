@@ -1,0 +1,88 @@
+{
+ "id": "mech-overture-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "USD millions, Overture revenue FY2002",
+ "elapsed_s": 65.7,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "pure-bid auction",
+   "type": "auction mechanism",
+   "clause": "the pure-bid auction"
+  },
+  {
+   "name": "commercial failure",
+   "type": "market outcome",
+   "clause": "failing commercially"
+  },
+  {
+   "name": "quality-weighted auction",
+   "type": "auction mechanism",
+   "clause": "the quality-weighted auction"
+  },
+  {
+   "name": "Overture",
+   "type": "search advertising company",
+   "clause": "Overture booked ... of revenue in ..."
+  },
+  {
+   "name": "Google",
+   "type": "search advertising company",
+   "clause": "... of total revenue"
+  },
+  {
+   "name": "Overture FY2002 revenue",
+   "type": "revenue measurement",
+   "clause": "Overture booked ... of revenue in ..."
+  },
+  {
+   "name": "Google FY2002 total revenue",
+   "type": "revenue measurement",
+   "clause": "... of total revenue"
+  },
+  {
+   "name": "paid-search revenue",
+   "type": "advertising revenue category",
+   "clause": "paid-search revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "pure-bid auction",
+   "type": "NOT_FAILING_COMMERCIALLY",
+   "to": "commercial failure",
+   "clause": "was not failing commercially"
+  },
+  {
+   "from": "Overture",
+   "type": "HAS_REVENUE",
+   "to": "Overture FY2002 revenue",
+   "clause": "booked ... of revenue in ..."
+  },
+  {
+   "from": "Google",
+   "type": "HAS_REVENUE",
+   "to": "Google FY2002 total revenue",
+   "clause": "... of total revenue"
+  },
+  {
+   "from": "Overture FY2002 revenue",
+   "type": "AGAINST",
+   "to": "Google FY2002 total revenue",
+   "clause": "against Google's ... of total revenue"
+  },
+  {
+   "from": "Overture",
+   "type": "LEADER_IN",
+   "to": "paid-search revenue",
+   "clause": "was the paid-search revenue leader entering the era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|pure-bid auction|auction mechanism|the pure-bid auction\nNODE|commercial failure|market outcome|failing commercially\nNODE|quality-weighted auction|auction mechanism|the quality-weighted auction\nNODE|Overture|search advertising company|Overture booked ... of revenue in ...\nNODE|Google|search advertising company|... of total revenue\nNODE|Overture FY2002 revenue|revenue measurement|Overture booked ... of revenue in ...\nNODE|Google FY2002 total revenue|revenue measurement|... of total revenue\nNODE|paid-search revenue|advertising revenue category|paid-search revenue\nEDGE|pure-bid auction|NOT_FAILING_COMMERCIALLY|commercial failure|was not failing commercially\nEDGE|Overture|HAS_REVENUE|Overture FY2002 revenue|booked ... of revenue in ...\nEDGE|Google|HAS_REVENUE|Google FY2002 total revenue|... of total revenue\nEDGE|Overture FY2002 revenue|AGAINST|Google FY2002 total revenue|against Google's ... of total revenue\nEDGE|Overture|LEADER_IN|paid-search revenue|was the paid-search revenue leader entering the era"
+}

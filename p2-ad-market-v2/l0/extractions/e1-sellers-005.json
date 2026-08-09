@@ -1,0 +1,62 @@
+{
+ "id": "e1-sellers-005",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1897,
+ "unit": "USD per issue, advertising revenue",
+ "elapsed_s": 42.3,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Munsey's Magazine",
+   "type": "magazine",
+   "clause": "Munsey's Magazine"
+  },
+  {
+   "name": "cover price",
+   "type": "price per issue",
+   "clause": "its cover price"
+  },
+  {
+   "name": "production cost",
+   "type": "cost per issue",
+   "clause": "production cost"
+  },
+  {
+   "name": "advertising revenue per issue",
+   "type": "revenue measurement",
+   "clause": "advertising revenue then averaged ... per issue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Munsey's Magazine",
+   "type": "REDUCED",
+   "to": "cover price",
+   "clause": "cut its cover price from ... to ..."
+  },
+  {
+   "from": "cover price",
+   "type": "BELOW",
+   "to": "production cost",
+   "clause": "below production cost"
+  },
+  {
+   "from": "cover price",
+   "type": "LED_TO",
+   "to": "advertising revenue per issue",
+   "clause": "then averaged ... per issue"
+  },
+  {
+   "from": "Munsey's Magazine",
+   "type": "HAS_MEASUREMENT",
+   "to": "advertising revenue per issue",
+   "clause": "advertising revenue then averaged ... per issue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Munsey's Magazine|magazine|Munsey's Magazine\nNODE|cover price|price per issue|its cover price\nNODE|production cost|cost per issue|production cost\nNODE|advertising revenue per issue|revenue measurement|advertising revenue then averaged ... per issue\nEDGE|Munsey's Magazine|REDUCED|cover price|cut its cover price from ... to ...\nEDGE|cover price|BELOW|production cost|below production cost\nEDGE|cover price|LED_TO|advertising revenue per issue|then averaged ... per issue\nEDGE|Munsey's Magazine|HAS_MEASUREMENT|advertising revenue per issue|advertising revenue then averaged ... per issue"
+}

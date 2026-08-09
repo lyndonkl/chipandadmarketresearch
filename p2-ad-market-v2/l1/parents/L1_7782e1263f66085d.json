@@ -1,0 +1,48 @@
+{
+ "group_id": "L1|7782e1263f66085d",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "Nielsen Radio Index household coverage percentage",
+   "type": "coverage measurement",
+   "grain": "Measurement",
+   "reason": "same subject, quantity, breakdown across years and sources",
+   "child_uids": [
+    "n|e2-measurement-006|nielsen radio index coverage rate|sample-frame coverage measurement",
+    "n|e2-measurement-007|nielsen radio index coverage share measurement|coverage share measurement",
+    "n|tu:era:2:boundary|nielsen radio index coverage 1949|audience coverage measurement",
+    "n|tu:era:2:event:9|nielsen household reach|share measurement",
+    "n|tu:era:2:field:MEASUREMENT|late-1940s frame coverage|coverage measurement",
+    "n|tu:era:2:field:MEASUREMENT|mid-1940s frame coverage|coverage measurement"
+   ]
+  },
+  {
+   "name": "Sample coverage of US households",
+   "type": "coverage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic sample coverage not tied to Nielsen",
+   "child_uids": [
+    "n|e2-measurement-005|sample coverage of us households|coverage measurement"
+   ]
+  },
+  {
+   "name": "Nielsen Radio Index metered home count",
+   "type": "metered-home count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct count measure separate from percentage coverage",
+   "child_uids": [
+    "n|e2-measurement-005|nielsen radio index metered home count|metered-home count measurement"
+   ]
+  },
+  {
+   "name": "Radio families coverage per report",
+   "type": "audience coverage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: families covered metric differs from household coverage",
+   "child_uids": [
+    "n|e2-events-002|radio families coverage per report|audience coverage measurement"
+   ]
+  }
+ ]
+}

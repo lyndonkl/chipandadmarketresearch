@@ -1,0 +1,42 @@
+{
+ "group_id": "L2|e9052c7e9e99ac63",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "geographic coverage count",
+   "type": "coverage count kind",
+   "grain": "Entity",
+   "reason": "singleton: geographic coverage count metric, distinct from title or employment counts",
+   "child_uids": [
+    "L1|d50f24571ef1465e"
+   ]
+  },
+  {
+   "name": "title count",
+   "type": "title count kind",
+   "grain": "Entity",
+   "reason": "singleton: title count metric, a different quantity than geographic coverage",
+   "child_uids": [
+    "L1|aa14ac6c51cc8473"
+   ]
+  },
+  {
+   "name": "user-panel meters",
+   "type": "counting institution kind",
+   "grain": "Entity",
+   "reason": "singleton: counting institution, provides panel-based audience measurement services",
+   "child_uids": [
+    "L1|80c8859f6385d30c"
+   ]
+  },
+  {
+   "name": "classified advertising employment",
+   "type": "employment count kind",
+   "grain": "Entity",
+   "reason": "singleton: employment count metric, measures classified advertising staff numbers",
+   "child_uids": [
+    "L1|be626501acbdb8f9"
+   ]
+  }
+ ]
+}

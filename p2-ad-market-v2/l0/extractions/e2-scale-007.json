@@ -1,0 +1,56 @@
+{
+ "id": "e2-scale-007",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "percent nominal CAGR of US advertising spend, 1919-1949",
+ "elapsed_s": 34.6,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising spend",
+   "type": "advertising expenditure aggregate",
+   "clause": "US advertising spend"
+  },
+  {
+   "name": "US advertising spend nominal CAGR",
+   "type": "cagr measurement",
+   "clause": "compounded at ... percent a year in nominal terms across the era"
+  },
+  {
+   "name": "Historical Statistics series",
+   "type": "advertising-spend dataset",
+   "clause": "on the older Historical Statistics series"
+  },
+  {
+   "name": "US advertising spend nominal CAGR on Historical Statistics",
+   "type": "cagr measurement",
+   "clause": "same span compounds at ... percent on the older Historical Statistics series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising spend",
+   "type": "HAS_GROWTH_RATE",
+   "to": "US advertising spend nominal CAGR",
+   "clause": "compounded at ... percent a year in nominal terms across the era"
+  },
+  {
+   "from": "US advertising spend",
+   "type": "HAS_GROWTH_RATE",
+   "to": "US advertising spend nominal CAGR on Historical Statistics",
+   "clause": "same span compounds at ... percent on the older Historical Statistics series"
+  },
+  {
+   "from": "US advertising spend nominal CAGR on Historical Statistics",
+   "type": "MEASURED_ON",
+   "to": "Historical Statistics series",
+   "clause": "on the older Historical Statistics series"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising spend|advertising expenditure aggregate|US advertising spend\nNODE|US advertising spend nominal CAGR|cagr measurement|compounded at ... percent a year in nominal terms across the era\nNODE|Historical Statistics series|advertising-spend dataset|on the older Historical Statistics series\nNODE|US advertising spend nominal CAGR on Historical Statistics|cagr measurement|same span compounds at ... percent on the older Historical Statistics series\nEDGE|US advertising spend|HAS_GROWTH_RATE|US advertising spend nominal CAGR|compounded at ... percent a year in nominal terms across the era\nEDGE|US advertising spend|HAS_GROWTH_RATE|US advertising spend nominal CAGR on Historical Statistics|same span compounds at ... percent on the older Historical Statistics series\nEDGE|US advertising spend nominal CAGR on Historical Statistics|MEASURED_ON|Historical Statistics series|on the older Historical Statistics series"
+}

@@ -1,0 +1,67 @@
+{
+ "id": "ds-total-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2007,
+ "unit": "USD millions (current)",
+ "elapsed_s": 55.1,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen/McCann series",
+   "type": "advertising series",
+   "clause": "the Coen/McCann series"
+  },
+  {
+   "name": "Coen/McCann series full-year total",
+   "type": "spend measurement",
+   "clause": "full-year ... at ..."
+  },
+  {
+   "name": "Interpublic",
+   "type": "advertising holding company",
+   "clause": "Interpublic discontinued it"
+  },
+  {
+   "name": "US advertising series",
+   "type": "series collection",
+   "clause": "US advertising series"
+  },
+  {
+   "name": "successor series",
+   "type": "future series",
+   "clause": "successor series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Coen/McCann series full-year total",
+   "type": "MEASURES",
+   "to": "Coen/McCann series",
+   "clause": "ends with full-year ... at ..."
+  },
+  {
+   "from": "Interpublic",
+   "type": "DISCONTINUED",
+   "to": "Coen/McCann series",
+   "clause": "discontinued it in ..."
+  },
+  {
+   "from": "Coen/McCann series",
+   "type": "WAS_LONGEST_AMONG",
+   "to": "US advertising series",
+   "clause": "the longest US advertising series ever built"
+  },
+  {
+   "from": "Coen/McCann series",
+   "type": "HAS_NO_SUCCESSOR",
+   "to": "successor series",
+   "clause": "has no successor on its own basis"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen/McCann series|advertising series|the Coen/McCann series\nNODE|Coen/McCann series full-year total|spend measurement|full-year ... at ...\nNODE|Interpublic|advertising holding company|Interpublic discontinued it\nNODE|US advertising series|series collection|US advertising series\nNODE|successor series|future series|successor series\nEDGE|Coen/McCann series full-year total|MEASURES|Coen/McCann series|ends with full-year ... at ...\nEDGE|Interpublic|DISCONTINUED|Coen/McCann series|discontinued it in ...\nEDGE|Coen/McCann series|WAS_LONGEST_AMONG|US advertising series|the longest US advertising series ever built\nEDGE|Coen/McCann series|HAS_NO_SUCCESSOR|successor series|has no successor on its own basis"
+}

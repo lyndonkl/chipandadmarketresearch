@@ -1,0 +1,100 @@
+{
+ "id": "e5-buyers-002",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "paying advertisers",
+ "elapsed_s": 54.6,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "paying advertisers",
+   "type": "advertiser cohort",
+   "clause": "Paying advertisers in the Overture marketplace"
+  },
+  {
+   "name": "Overture",
+   "type": "search advertising marketplace",
+   "clause": "the Overture (formerly GoTo.com) marketplace"
+  },
+  {
+   "name": "GoTo.com",
+   "type": "former search marketplace",
+   "clause": "formerly GoTo.com"
+  },
+  {
+   "name": "self-serve purchase method",
+   "type": "advertising purchase method",
+   "clause": "bought self-serve"
+  },
+  {
+   "name": "self-serve minimum deposit",
+   "type": "minimum deposit measurement",
+   "clause": "with a ... minimum deposit"
+  },
+  {
+   "name": "self-serve monthly minimum",
+   "type": "monthly minimum measurement",
+   "clause": "and a ... monthly minimum"
+  },
+  {
+   "name": "Overture advertiser count",
+   "type": "advertiser count measurement",
+   "clause": "an order of magnitude more advertisers than any portal"
+  },
+  {
+   "name": "portal advertiser count",
+   "type": "advertiser count measurement",
+   "clause": "any portal"
+  }
+ ],
+ "edges": [
+  {
+   "from": "paying advertisers",
+   "type": "IN",
+   "to": "Overture",
+   "clause": "in the Overture marketplace"
+  },
+  {
+   "from": "Overture",
+   "type": "FORMERLY_KNOWN_AS",
+   "to": "GoTo.com",
+   "clause": "formerly GoTo.com"
+  },
+  {
+   "from": "paying advertisers",
+   "type": "BOUGHT",
+   "to": "self-serve purchase method",
+   "clause": "bought self-serve"
+  },
+  {
+   "from": "self-serve purchase method",
+   "type": "HAS_MINIMUM_DEPOSIT",
+   "to": "self-serve minimum deposit",
+   "clause": "with a ... minimum deposit"
+  },
+  {
+   "from": "self-serve purchase method",
+   "type": "HAS_MONTHLY_MINIMUM",
+   "to": "self-serve monthly minimum",
+   "clause": "and a ... monthly minimum"
+  },
+  {
+   "from": "Overture advertiser count",
+   "type": "MEASURES",
+   "to": "paying advertisers",
+   "clause": "advertiser count measurement"
+  },
+  {
+   "from": "Overture advertiser count",
+   "type": "GREATER_THAN_ORDER",
+   "to": "portal advertiser count",
+   "clause": "order of magnitude more advertisers than any portal"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|paying advertisers|advertiser cohort|Paying advertisers in the Overture marketplace\nNODE|Overture|search advertising marketplace|the Overture (formerly GoTo.com) marketplace\nNODE|GoTo.com|former search marketplace|formerly GoTo.com\nNODE|self-serve purchase method|advertising purchase method|bought self-serve\nNODE|self-serve minimum deposit|minimum deposit measurement|with a ... minimum deposit\nNODE|self-serve monthly minimum|monthly minimum measurement|and a ... monthly minimum\nNODE|Overture advertiser count|advertiser count measurement|an order of magnitude more advertisers than any portal\nNODE|portal advertiser count|advertiser count measurement|any portal\nEDGE|paying advertisers|IN|Overture|in the Overture marketplace\nEDGE|Overture|FORMERLY_KNOWN_AS|GoTo.com|formerly GoTo.com\nEDGE|paying advertisers|BOUGHT|self-serve purchase method|bought self-serve\nEDGE|self-serve purchase method|HAS_MINIMUM_DEPOSIT|self-serve minimum deposit|with a ... minimum deposit\nEDGE|self-serve purchase method|HAS_MONTHLY_MINIMUM|self-serve monthly minimum|and a ... monthly minimum\nEDGE|Overture advertiser count|MEASURES|paying advertisers|advertiser count measurement\nEDGE|Overture advertiser count|GREATER_THAN_ORDER|portal advertiser count|order of magnitude more advertisers than any portal"
+}

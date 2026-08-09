@@ -1,0 +1,47 @@
+{
+ "group_id": "L1|d0f8c934fd568a2f",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "US GDP amount",
+   "type": "GDP measurement",
+   "grain": "Measurement",
+   "reason": "singleton: absolute US GDP amount, not a share measure",
+   "child_uids": [
+    "n|e3-scale-004|us gdp amount|gdp measurement"
+   ]
+  },
+  {
+   "name": "US advertising share of GDP",
+   "type": "share-of-GDP measurement",
+   "grain": "Measurement",
+   "reason": "one advertising share of GDP measure across years and contexts",
+   "child_uids": [
+    "n|tu:era:2:boundary|us advertising share of gdp 1949|share-of-gdp measurement",
+    "n|tu:era:2:field:SCALE|wartime low advertising share of gdp|share measurement",
+    "n|tu:era:3:boundary|advertising share of gdp (1975)|macro share measurement",
+    "n|tu:era:4:boundary|us advertising spend as percent of gdp|share-of-gdp measurement",
+    "n|tu:era:7:boundary|us ad spend share of gdp|share-of-gdp measurement"
+   ]
+  },
+  {
+   "name": "US advertising share of GDP (IRS basis)",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: IRS\u2011basis advertising share of GDP, distinct methodological breakdown",
+   "child_uids": [
+    "n|tu:era:6:boundary|us ad spend share of gdp (irs basis)|share measurement"
+   ]
+  },
+  {
+   "name": "US advertising intensity share of GDP",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: advertising intensity share of GDP, separate concept from plain share",
+   "child_uids": [
+    "n|tu:era:7:field:SCALE|us advertising intensity share of gdp measurement|share measurement"
+   ]
+  }
+ ]
+}

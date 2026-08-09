@@ -1,0 +1,63 @@
+{
+ "group_id": "L1|f2330c8e1b72082e",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Coen internet revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "two Coen internet revenue measurements across years; year abstracted to children",
+   "child_uids": [
+    "n|ds-seam-002|coen internet revenue measurement|revenue measurement",
+    "n|tu:era:6:boundary|coen internet revenue 2007|revenue measurement"
+   ]
+  },
+  {
+   "name": "IAB/PwC internet revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "two IAB/PwC internet revenue measurements across years; year abstracted",
+   "child_uids": [
+    "n|ds-seam-002|iab/pwc internet revenue measurement|revenue measurement",
+    "n|tu:era:6:boundary|iab/pwc internet revenue 2007|revenue measurement"
+   ]
+  },
+  {
+   "name": "Coen internet share of IAB/PwC internet",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of Coen internet relative to IAB/PwC internet",
+   "child_uids": [
+    "n|ds-seam-002|coen internet share of iab/pwc internet|media-share measurement"
+   ]
+  },
+  {
+   "name": "Coen internet ad share of Coen total",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: Coen internet ad share of Coen total",
+   "child_uids": [
+    "n|e5-medium-004|internet ad share coen basis|media-share measurement"
+   ]
+  },
+  {
+   "name": "IAB/PwC internet ad share over Coen total",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: IAB/PwC internet ad share over Coen total",
+   "child_uids": [
+    "n|e5-medium-004|internet ad share iab over coen basis|media-share measurement"
+   ]
+  },
+  {
+   "name": "Gap between IAB/PwC and Coen internet advertising estimates",
+   "type": "difference measurement",
+   "grain": "Measurement",
+   "reason": "singleton: gap between IAB/PwC and Coen internet advertising estimates",
+   "child_uids": [
+    "n|e6-medium-006|gap between iab/pwc and coen internet advertising estimates for 2007|difference measurement"
+   ]
+  }
+ ]
+}

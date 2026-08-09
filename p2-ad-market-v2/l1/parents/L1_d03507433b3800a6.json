@@ -1,0 +1,53 @@
+{
+ "group_id": "L1|d03507433b3800a6",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Curtis Publishing",
+   "type": "company",
+   "grain": "Entity",
+   "reason": "singleton: company entity",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|curtis publishing|company"
+   ]
+  },
+  {
+   "name": "no-rebating rule",
+   "type": "rule",
+   "grain": "Entity",
+   "reason": "singleton: rule entity",
+   "child_uids": [
+    "n|tu:era:1:field:PRICING|no-rebating rule|rule"
+   ]
+  },
+  {
+   "name": "rebating",
+   "type": "pricing practice",
+   "grain": "Entity",
+   "reason": "singleton: pricing practice entity",
+   "child_uids": [
+    "n|tu:era:3:event:1|rebating|pricing practice"
+   ]
+  },
+  {
+   "name": "undisclosed rebates in US media buying",
+   "type": "market practice",
+   "grain": "Entity",
+   "reason": "singleton: market practice entity",
+   "child_uids": [
+    "n|tu:era:7:field:CREATORS|undisclosed rebates in us media buying|market practice"
+   ]
+  },
+  {
+   "name": "ANA/K2 rebate report",
+   "type": "report",
+   "grain": "Entity",
+   "reason": "same ANA/K2 rebate report series; year abstracted to children",
+   "child_uids": [
+    "n|tu:era:7:field:CREATORS|ana/k2 report on undisclosed rebates|research report",
+    "n|tu:era:7:field:PRICING|ana/k2 rebate report 2016|report"
+   ]
+  }
+ ]
+}

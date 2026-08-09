@@ -1,0 +1,110 @@
+{
+ "id": "e5-scale-003",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "percent change year on year",
+ "elapsed_s": 71.6,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "total US measured advertising expenditure",
+   "type": "advertising spend amount",
+   "clause": "Year-on-year change ... in total US measured advertising expenditure"
+  },
+  {
+   "name": "year-on-year change in total US measured advertising expenditure",
+   "type": "advertising spend YoY change measurement",
+   "clause": "Year-on-year change ... in total US measured advertising expenditure"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "Coen's series gives ..."
+  },
+  {
+   "name": "Coen series YoY change",
+   "type": "media-spend change measurement",
+   "clause": "Coen's series gives ..."
+  },
+  {
+   "name": "CMR",
+   "type": "advertising data source",
+   "clause": "CMR ... reported the all-media decline at nearly ..."
+  },
+  {
+   "name": "narrower measured-media base",
+   "type": "measurement base",
+   "clause": "on a narrower measured-media base"
+  },
+  {
+   "name": "CMR YoY change",
+   "type": "media-spend change measurement",
+   "clause": "CMR ... reported the all-media decline at nearly ..."
+  },
+  {
+   "name": "Coen series annual decline count",
+   "type": "decline count measurement",
+   "clause": "... fifth annual decline in the Coen series since ..."
+  },
+  {
+   "name": "full series",
+   "type": "advertising-spend dataset",
+   "clause": "... eleven ... across the full series"
+  },
+  {
+   "name": "total annual decline count in full series",
+   "type": "decline count measurement",
+   "clause": "... eleven ... across the full series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "year-on-year change in total US measured advertising expenditure",
+   "type": "MEASURES",
+   "to": "total US measured advertising expenditure",
+   "clause": "Year-on-year change ... in total US measured advertising expenditure"
+  },
+  {
+   "from": "Coen series YoY change",
+   "type": "MEASURES",
+   "to": "total US measured advertising expenditure",
+   "clause": "Coen's series gives ..."
+  },
+  {
+   "from": "Coen series YoY change",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "Coen's series gives ..."
+  },
+  {
+   "from": "CMR YoY change",
+   "type": "MEASURES",
+   "to": "total US measured advertising expenditure",
+   "clause": "CMR ... reported the all-media decline at nearly ..."
+  },
+  {
+   "from": "CMR YoY change",
+   "type": "MEASURED_ON",
+   "to": "narrower measured-media base",
+   "clause": "on a narrower measured-media base"
+  },
+  {
+   "from": "Coen series annual decline count",
+   "type": "RECORDED_IN",
+   "to": "Coen series",
+   "clause": "... fifth annual decline in the Coen series since ..."
+  },
+  {
+   "from": "total annual decline count in full series",
+   "type": "RECORDED_IN",
+   "to": "full series",
+   "clause": "... eleven ... across the full series"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|total US measured advertising expenditure|advertising spend amount|Year-on-year change ... in total US measured advertising expenditure\nNODE|year-on-year change in total US measured advertising expenditure|advertising spend YoY change measurement|Year-on-year change ... in total US measured advertising expenditure\nNODE|Coen series|advertising-spend dataset|Coen's series gives ...\nNODE|Coen series YoY change|media-spend change measurement|Coen's series gives ...\nNODE|CMR|advertising data source|CMR ... reported the all-media decline at nearly ...\nNODE|narrower measured-media base|measurement base|on a narrower measured-media base\nNODE|CMR YoY change|media-spend change measurement|CMR ... reported the all-media decline at nearly ...\nNODE|Coen series annual decline count|decline count measurement|... fifth annual decline in the Coen series since ...\nNODE|full series|advertising-spend dataset|... eleven ... across the full series\nNODE|total annual decline count in full series|decline count measurement|... eleven ... across the full series\nEDGE|year-on-year change in total US measured advertising expenditure|MEASURES|total US measured advertising expenditure|Year-on-year change ... in total US measured advertising expenditure\nEDGE|Coen series YoY change|MEASURES|total US measured advertising expenditure|Coen's series gives ...\nEDGE|Coen series YoY change|MEASURED_ON|Coen series|Coen's series gives ...\nEDGE|CMR YoY change|MEASURES|total US measured advertising expenditure|CMR ... reported the all-media decline at nearly ...\nEDGE|CMR YoY change|MEASURED_ON|narrower measured-media base|on a narrower measured-media base\nEDGE|Coen series annual decline count|RECORDED_IN|Coen series|... fifth annual decline in the Coen series since ...\nEDGE|total annual decline count in full series|RECORDED_IN|full series|... eleven ... across the full series"
+}

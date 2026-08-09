@@ -1,0 +1,166 @@
+{
+ "id": "e7-scale-007",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
+ "elapsed_s": 120.6,
+ "error": null,
+ "n_nodes": 14,
+ "n_edges": 13,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local and retail advertising",
+   "type": "advertising segment",
+   "clause": "local and retail advertising"
+  },
+  {
+   "name": "local and retail ad spend amount",
+   "type": "ad spend measurement",
+   "clause": "was about ... of US advertising"
+  },
+  {
+   "name": "US advertising total spend amount",
+   "type": "ad spend measurement",
+   "clause": "total US advertising spend ..."
+  },
+  {
+   "name": "local and retail share of US advertising",
+   "type": "share measurement",
+   "clause": "... of the total"
+  },
+  {
+   "name": "classified advertising",
+   "type": "advertising segment",
+   "clause": "clearly larger than classified"
+  },
+  {
+   "name": "national brand advertising",
+   "type": "advertising segment",
+   "clause": "rank against national brand"
+  },
+  {
+   "name": "direct response advertising",
+   "type": "advertising segment",
+   "clause": "rank against direct response"
+  },
+  {
+   "name": "BIA",
+   "type": "organization",
+   "clause": "BIA's headline ... is a measure"
+  },
+  {
+   "name": "local audience inventory",
+   "type": "advertising inventory",
+   "clause": "measure of local-audience inventory sold to all advertiser types"
+  },
+  {
+   "name": "local audience inventory value",
+   "type": "inventory measurement",
+   "clause": "headline ... measure of local-audience inventory"
+  },
+  {
+   "name": "national and regional leg of local audience inventory",
+   "type": "advertising segment",
+   "clause": "national and regional leg ..."
+  },
+  {
+   "name": "national and regional leg price amount",
+   "type": "price measurement",
+   "clause": "... at ..."
+  },
+  {
+   "name": "SMB segment of local audience inventory",
+   "type": "advertising segment",
+   "clause": "... for SMBs"
+  },
+  {
+   "name": "SMB leg price amount",
+   "type": "price measurement",
+   "clause": "price for SMB segment"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local and retail ad spend amount",
+   "type": "MEASURES",
+   "to": "local and retail advertising",
+   "clause": "was about ... of US advertising"
+  },
+  {
+   "from": "local and retail ad spend amount",
+   "type": "SHARE_OF",
+   "to": "US advertising total spend amount",
+   "clause": "... of the total"
+  },
+  {
+   "from": "local and retail ad spend amount",
+   "type": "LARGER_THAN",
+   "to": "classified advertising",
+   "clause": "clearly larger than classified"
+  },
+  {
+   "from": "local and retail ad spend amount",
+   "type": "RANK_NOT_ESTABLISHED_AGAINST",
+   "to": "national brand advertising",
+   "clause": "rank not established"
+  },
+  {
+   "from": "local and retail ad spend amount",
+   "type": "RANK_NOT_ESTABLISHED_AGAINST",
+   "to": "direct response advertising",
+   "clause": "rank not established"
+  },
+  {
+   "from": "local and retail ad spend amount",
+   "type": "RANKED_BELOW",
+   "to": "national brand advertising",
+   "clause": "all three lenses place below"
+  },
+  {
+   "from": "local and retail ad spend amount",
+   "type": "RANKED_BELOW",
+   "to": "direct response advertising",
+   "clause": "all three lenses place below"
+  },
+  {
+   "from": "BIA",
+   "type": "HAS_MEASUREMENT",
+   "to": "local audience inventory value",
+   "clause": "headline ... is a measure of"
+  },
+  {
+   "from": "local audience inventory value",
+   "type": "MEASURES",
+   "to": "local audience inventory",
+   "clause": "measure of local-audience inventory"
+  },
+  {
+   "from": "national and regional leg price amount",
+   "type": "MEASURES",
+   "to": "national and regional leg of local audience inventory",
+   "clause": "prices the national and regional leg"
+  },
+  {
+   "from": "SMB leg price amount",
+   "type": "MEASURES",
+   "to": "SMB segment of local audience inventory",
+   "clause": "price for SMB segment"
+  },
+  {
+   "from": "BIA",
+   "type": "PROVIDES",
+   "to": "national and regional leg price amount",
+   "clause": "advertiser-type cut prices ..."
+  },
+  {
+   "from": "BIA",
+   "type": "PROVIDES",
+   "to": "SMB leg price amount",
+   "clause": "... for SMBs"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local and retail advertising|advertising segment|local and retail advertising\nNODE|local and retail ad spend amount|ad spend measurement|was about ... of US advertising\nNODE|US advertising total spend amount|ad spend measurement|total US advertising spend ...\nNODE|local and retail share of US advertising|share measurement|... of the total\nNODE|classified advertising|advertising segment|clearly larger than classified\nNODE|national brand advertising|advertising segment|rank against national brand\nNODE|direct response advertising|advertising segment|rank against direct response\nNODE|BIA|organization|BIA's headline ... is a measure\nNODE|local audience inventory|advertising inventory|measure of local-audience inventory sold to all advertiser types\nNODE|local audience inventory value|inventory measurement|headline ... measure of local-audience inventory\nNODE|national and regional leg of local audience inventory|advertising segment|national and regional leg ...\nNODE|national and regional leg price amount|price measurement|... at ...\nNODE|SMB segment of local audience inventory|advertising segment|... for SMBs\nNODE|SMB leg price amount|price measurement|price for SMB segment\nEDGE|local and retail ad spend amount|MEASURES|local and retail advertising|was about ... of US advertising\nEDGE|local and retail ad spend amount|SHARE_OF|US advertising total spend amount|... of the total\nEDGE|local and retail ad spend amount|LARGER_THAN|classified advertising|clearly larger than classified\nEDGE|local and retail ad spend amount|RANK_NOT_ESTABLISHED_AGAINST|national brand advertising|rank not established\nEDGE|local and retail ad spend amount|RANK_NOT_ESTABLISHED_AGAINST|direct response advertising|rank not established\nEDGE|local and retail ad spend amount|RANKED_BELOW|national brand advertising|all three lenses place below\nEDGE|local and retail ad spend amount|RANKED_BELOW|direct response advertising|all three lenses place below\nEDGE|BIA|HAS_MEASUREMENT|local audience inventory value|headline ... is a measure of\nEDGE|local audience inventory value|MEASURES|local audience inventory|measure of local-audience inventory\nEDGE|national and regional leg price amount|MEASURES|national and regional leg of local audience inventory|prices the national and regional leg\nEDGE|SMB leg price amount|MEASURES|SMB segment of local audience inventory|price for SMB segment\nEDGE|BIA|PROVIDES|national and regional leg price amount|advertiser-type cut prices ...\nEDGE|BIA|PROVIDES|SMB leg price amount|... for SMBs"
+}

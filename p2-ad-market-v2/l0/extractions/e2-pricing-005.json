@@ -1,0 +1,95 @@
+{
+ "id": "e2-pricing-005",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1940,
+ "unit": "percent maximum NBC volume discount, for advertisers billing $1.2 million a year or more",
+ "elapsed_s": 59.0,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "NBC",
+   "type": "broadcast network",
+   "clause": "NBC's volume discounts ran ..."
+  },
+  {
+   "name": "NBC volume discount",
+   "type": "pricing practice",
+   "clause": "volume discounts offered by NBC"
+  },
+  {
+   "name": "low-spend weekly advertiser category",
+   "type": "advertiser spend segment",
+   "clause": "for advertisers billing ... a week over ..."
+  },
+  {
+   "name": "high-spend annual advertiser category",
+   "type": "advertiser spend segment",
+   "clause": "for advertisers billing ... a year"
+  },
+  {
+   "name": "low-spend discount rate",
+   "type": "percentage measurement",
+   "clause": "percentage measurement for low\u2011spend advertisers"
+  },
+  {
+   "name": "maximum discount rate",
+   "type": "percentage measurement",
+   "clause": "percentage measurement for high\u2011spend advertisers"
+  },
+  {
+   "name": "Red and Blue billings combined",
+   "type": "billing aggregate",
+   "clause": "computed on Red and Blue billings combined"
+  }
+ ],
+ "edges": [
+  {
+   "from": "NBC volume discount",
+   "type": "PROVIDED_BY",
+   "to": "NBC",
+   "clause": "volume discounts offered by NBC"
+  },
+  {
+   "from": "low-spend discount rate",
+   "type": "APPLIES_TO",
+   "to": "low-spend weekly advertiser category",
+   "clause": "percentage applies to low\u2011spend advertisers"
+  },
+  {
+   "from": "maximum discount rate",
+   "type": "APPLIES_TO",
+   "to": "high-spend annual advertiser category",
+   "clause": "percentage applies to high\u2011spend advertisers"
+  },
+  {
+   "from": "NBC volume discount",
+   "type": "HAS_RATE",
+   "to": "low-spend discount rate",
+   "clause": "volume discounts ran ... for low\u2011spend advertisers"
+  },
+  {
+   "from": "NBC volume discount",
+   "type": "HAS_RATE",
+   "to": "maximum discount rate",
+   "clause": "volume discounts ran ... up to ... for high\u2011spend advertisers"
+  },
+  {
+   "from": "low-spend discount rate",
+   "type": "COMPUTED_ON",
+   "to": "Red and Blue billings combined",
+   "clause": "computed on Red and Blue billings combined"
+  },
+  {
+   "from": "maximum discount rate",
+   "type": "COMPUTED_ON",
+   "to": "Red and Blue billings combined",
+   "clause": "computed on Red and Blue billings combined"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|NBC|broadcast network|NBC's volume discounts ran ...\nNODE|NBC volume discount|pricing practice|volume discounts offered by NBC\nNODE|low-spend weekly advertiser category|advertiser spend segment|for advertisers billing ... a week over ...\nNODE|high-spend annual advertiser category|advertiser spend segment|for advertisers billing ... a year\nNODE|low-spend discount rate|percentage measurement|percentage measurement for low\u2011spend advertisers\nNODE|maximum discount rate|percentage measurement|percentage measurement for high\u2011spend advertisers\nNODE|Red and Blue billings combined|billing aggregate|computed on Red and Blue billings combined\nEDGE|NBC volume discount|PROVIDED_BY|NBC|volume discounts offered by NBC\nEDGE|low-spend discount rate|APPLIES_TO|low-spend weekly advertiser category|percentage applies to low\u2011spend advertisers\nEDGE|maximum discount rate|APPLIES_TO|high-spend annual advertiser category|percentage applies to high\u2011spend advertisers\nEDGE|NBC volume discount|HAS_RATE|low-spend discount rate|volume discounts ran ... for low\u2011spend advertisers\nEDGE|NBC volume discount|HAS_RATE|maximum discount rate|volume discounts ran ... up to ... for high\u2011spend advertisers\nEDGE|low-spend discount rate|COMPUTED_ON|Red and Blue billings combined|computed on Red and Blue billings combined\nEDGE|maximum discount rate|COMPUTED_ON|Red and Blue billings combined|computed on Red and Blue billings combined"
+}

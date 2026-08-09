@@ -1,0 +1,82 @@
+{
+ "id": "e5-medium-001",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions",
+ "elapsed_s": 46.0,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "newspaper advertising",
+   "type": "advertising medium",
+   "clause": "newspaper advertising"
+  },
+  {
+   "name": "broadcast TV advertising",
+   "type": "advertising medium",
+   "clause": "broadcast TV advertising"
+  },
+  {
+   "name": "direct mail advertising",
+   "type": "advertising medium",
+   "clause": "direct mail advertising"
+  },
+  {
+   "name": "newspaper advertising expenditure",
+   "type": "advertising spend measurement",
+   "clause": "newspaper advertising expenditure in 2000"
+  },
+  {
+   "name": "broadcast TV advertising expenditure",
+   "type": "advertising spend measurement",
+   "clause": "broadcast TV advertising expenditure in the same year"
+  },
+  {
+   "name": "direct mail advertising expenditure",
+   "type": "advertising spend measurement",
+   "clause": "direct mail advertising expenditure in the same year"
+  },
+  {
+   "name": "US advertising medium",
+   "type": "media category",
+   "clause": "single US medium"
+  },
+  {
+   "name": "Impression era",
+   "type": "advertising era",
+   "clause": "this era (1995-2000)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "newspaper advertising expenditure",
+   "type": "MEASURES",
+   "to": "newspaper advertising",
+   "clause": "newspaper advertising expenditure"
+  },
+  {
+   "from": "broadcast TV advertising expenditure",
+   "type": "MEASURES",
+   "to": "broadcast TV advertising",
+   "clause": "broadcast TV advertising expenditure"
+  },
+  {
+   "from": "direct mail advertising expenditure",
+   "type": "MEASURES",
+   "to": "direct mail advertising",
+   "clause": "direct mail advertising expenditure"
+  },
+  {
+   "from": "newspaper advertising expenditure",
+   "type": "LARGEST_AMONG",
+   "to": "US advertising medium",
+   "clause": "largest single US medium in every year of this era from 1994 through 2000"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|newspaper advertising|advertising medium|newspaper advertising\nNODE|broadcast TV advertising|advertising medium|broadcast TV advertising\nNODE|direct mail advertising|advertising medium|direct mail advertising\nNODE|newspaper advertising expenditure|advertising spend measurement|newspaper advertising expenditure in 2000\nNODE|broadcast TV advertising expenditure|advertising spend measurement|broadcast TV advertising expenditure in the same year\nNODE|direct mail advertising expenditure|advertising spend measurement|direct mail advertising expenditure in the same year\nNODE|US advertising medium|media category|single US medium\nNODE|Impression era|advertising era|this era (1995-2000)\nEDGE|newspaper advertising expenditure|MEASURES|newspaper advertising|newspaper advertising expenditure\nEDGE|broadcast TV advertising expenditure|MEASURES|broadcast TV advertising|broadcast TV advertising expenditure\nEDGE|direct mail advertising expenditure|MEASURES|direct mail advertising|direct mail advertising expenditure\nEDGE|newspaper advertising expenditure|LARGEST_AMONG|US advertising medium|largest single US medium in every year of this era from 1994 through 2000"
+}

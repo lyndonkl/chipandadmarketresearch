@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|1335ee4f6a5dc583",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Streetcar card space inventory count",
+   "type": "inventory count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measure about streetcars with card space sold",
+   "child_uids": [
+    "n|e1-sellers-006|streetcars with card space sold|inventory count measurement"
+   ]
+  },
+  {
+   "name": "Station acquisition count",
+   "type": "asset count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measure about stations acquisitions",
+   "child_uids": [
+    "n|tu:era:2:event:8|stations acquisition count|asset count measurement"
+   ]
+  },
+  {
+   "name": "AM stations count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct measure about AM stations",
+   "child_uids": [
+    "n|tu:era:2:field:SELLERS|am stations count|count measurement"
+   ]
+  }
+ ]
+}

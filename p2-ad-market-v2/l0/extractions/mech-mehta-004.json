@@ -1,0 +1,128 @@
+{
+ "id": "mech-mehta-004",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2024,
+ "unit": "% text-ad price increase Google tested and sustained without losing substantial advertisers",
+ "elapsed_s": 75.8,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "court",
+   "type": "judicial body",
+   "clause": "the court separately found"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google exercised monopoly power"
+  },
+  {
+   "name": "monopoly power",
+   "type": "market condition",
+   "clause": "exercised monopoly power"
+  },
+  {
+   "name": "supracompetitive price",
+   "type": "price level",
+   "clause": "charging supracompetitive prices"
+  },
+  {
+   "name": "general search text ads",
+   "type": "advertising product",
+   "clause": "for general search text ads"
+  },
+  {
+   "name": "text-ad price",
+   "type": "advertising price",
+   "clause": "raise text-ad prices"
+  },
+  {
+   "name": "text-ad price increase",
+   "type": "percentage measurement",
+   "clause": "raise text-ad prices by ... or more"
+  },
+  {
+   "name": "substantial advertisers",
+   "type": "advertiser group",
+   "clause": "without losing substantial advertisers"
+  },
+  {
+   "name": "price raise test",
+   "type": "pricing experiment",
+   "clause": "Google had repeatedly tested whether it could raise..."
+  },
+  {
+   "name": "test results",
+   "type": "experiment outcome",
+   "clause": "the results have been largely consistent"
+  }
+ ],
+ "edges": [
+  {
+   "from": "court",
+   "type": "FOUND",
+   "to": "Google",
+   "clause": "court separately found that Google exercised monopoly power"
+  },
+  {
+   "from": "Google",
+   "type": "EXERCISED",
+   "to": "monopoly power",
+   "clause": "Google exercised monopoly power"
+  },
+  {
+   "from": "Google",
+   "type": "CHARGED",
+   "to": "supracompetitive price",
+   "clause": "charging supracompetitive prices for general search text ads"
+  },
+  {
+   "from": "supracompetitive price",
+   "type": "APPLIES_TO",
+   "to": "general search text ads",
+   "clause": "prices ... for general search text ads"
+  },
+  {
+   "from": "Google",
+   "type": "CONDUCTED",
+   "to": "price raise test",
+   "clause": "Google had repeatedly tested..."
+  },
+  {
+   "from": "price raise test",
+   "type": "TESTED_ABILITY_TO_RAISE",
+   "to": "text-ad price increase",
+   "clause": "tested whether it could raise ... by ..."
+  },
+  {
+   "from": "text-ad price increase",
+   "type": "MEASURES",
+   "to": "text-ad price",
+   "clause": "measurement of text-ad price increase"
+  },
+  {
+   "from": "price raise test",
+   "type": "WITHOUT_LOSING",
+   "to": "substantial advertisers",
+   "clause": "without losing substantial advertisers"
+  },
+  {
+   "from": "price raise test",
+   "type": "GENERATED",
+   "to": "test results",
+   "clause": "the results have been largely consistent"
+  },
+  {
+   "from": "test results",
+   "type": "CONSISTENT_WITH",
+   "to": "price raise test",
+   "clause": "results have been largely consistent"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|court|judicial body|the court separately found\nNODE|Google|technology company|Google exercised monopoly power\nNODE|monopoly power|market condition|exercised monopoly power\nNODE|supracompetitive price|price level|charging supracompetitive prices\nNODE|general search text ads|advertising product|for general search text ads\nNODE|text-ad price|advertising price|raise text-ad prices\nNODE|text-ad price increase|percentage measurement|raise text-ad prices by ... or more\nNODE|substantial advertisers|advertiser group|without losing substantial advertisers\nNODE|price raise test|pricing experiment|Google had repeatedly tested whether it could raise...\nNODE|test results|experiment outcome|the results have been largely consistent\nEDGE|court|FOUND|Google|court separately found that Google exercised monopoly power\nEDGE|Google|EXERCISED|monopoly power|Google exercised monopoly power\nEDGE|Google|CHARGED|supracompetitive price|charging supracompetitive prices for general search text ads\nEDGE|supracompetitive price|APPLIES_TO|general search text ads|prices ... for general search text ads\nEDGE|Google|CONDUCTED|price raise test|Google had repeatedly tested...\nEDGE|price raise test|TESTED_ABILITY_TO_RAISE|text-ad price increase|tested whether it could raise ... by ...\nEDGE|text-ad price increase|MEASURES|text-ad price|measurement of text-ad price increase\nEDGE|price raise test|WITHOUT_LOSING|substantial advertisers|without losing substantial advertisers\nEDGE|price raise test|GENERATED|test results|the results have been largely consistent\nEDGE|test results|CONSISTENT_WITH|price raise test|results have been largely consistent"
+}

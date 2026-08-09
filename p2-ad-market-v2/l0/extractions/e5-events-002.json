@@ -1,0 +1,51 @@
+{
+ "id": "e5-events-002",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1996,
+ "unit": "standard banner sizes",
+ "elapsed_s": 37.0,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "IAB",
+   "type": "industry association",
+   "clause": "the IAB"
+  },
+  {
+   "name": "CASIE",
+   "type": "industry consortium",
+   "clause": "the CASIE"
+  },
+  {
+   "name": "voluntary standard banner sizes",
+   "type": "banner size specification",
+   "clause": "voluntary standard banner sizes"
+  }
+ ],
+ "edges": [
+  {
+   "from": "voluntary standard banner sizes",
+   "type": "PUBLISHED_BY",
+   "to": "IAB",
+   "clause": "published jointly by the IAB and CASIE"
+  },
+  {
+   "from": "voluntary standard banner sizes",
+   "type": "PUBLISHED_BY",
+   "to": "CASIE",
+   "clause": "published jointly by the IAB and CASIE"
+  },
+  {
+   "from": "IAB",
+   "type": "JOINTLY_PUBLISHED_WITH",
+   "to": "CASIE",
+   "clause": "published jointly by the IAB and CASIE"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|IAB|industry association|the IAB\nNODE|CASIE|industry consortium|the CASIE\nNODE|voluntary standard banner sizes|banner size specification|voluntary standard banner sizes\nEDGE|voluntary standard banner sizes|PUBLISHED_BY|IAB|published jointly by the IAB and CASIE\nEDGE|voluntary standard banner sizes|PUBLISHED_BY|CASIE|published jointly by the IAB and CASIE\nEDGE|IAB|JOINTLY_PUBLISHED_WITH|CASIE|published jointly by the IAB and CASIE"
+}

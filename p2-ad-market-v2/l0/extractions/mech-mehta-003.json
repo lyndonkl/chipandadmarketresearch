@@ -1,0 +1,111 @@
+{
+ "id": "mech-mehta-003",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2020,
+ "unit": "% of iOS query volume Google projected it would lose without the Safari default",
+ "elapsed_s": 65.8,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Google internal analysis",
+   "type": "analysis",
+   "clause": "Google's internal ... analyses"
+  },
+  {
+   "name": "Safari default",
+   "type": "browser setting",
+   "clause": "the Safari default"
+  },
+  {
+   "name": "Safari product",
+   "type": "software product",
+   "clause": "the product"
+  },
+  {
+   "name": "iOS query volume",
+   "type": "search query volume",
+   "clause": "iOS queries"
+  },
+  {
+   "name": "MacOS query volume",
+   "type": "search query volume",
+   "clause": "MacOS queries"
+  },
+  {
+   "name": "iOS query loss share",
+   "type": "percentage measurement",
+   "clause": "projected ... of iOS queries would be lost"
+  },
+  {
+   "name": "iOS query recovery share",
+   "type": "percentage measurement",
+   "clause": "recovering only about ... on iOS"
+  },
+  {
+   "name": "MacOS query recovery share",
+   "type": "percentage measurement",
+   "clause": "... on MacOS"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google internal analysis",
+   "type": "PROJECTED",
+   "to": "iOS query loss share",
+   "clause": "projected that losing the Safari default would cost it ..."
+  },
+  {
+   "from": "Google internal analysis",
+   "type": "PROJECTED",
+   "to": "iOS query recovery share",
+   "clause": "recovering only about ... on iOS"
+  },
+  {
+   "from": "Google internal analysis",
+   "type": "PROJECTED",
+   "to": "MacOS query recovery share",
+   "clause": "... on MacOS"
+  },
+  {
+   "from": "iOS query loss share",
+   "type": "SHARE_OF",
+   "to": "iOS query volume",
+   "clause": "... of iOS queries"
+  },
+  {
+   "from": "iOS query recovery share",
+   "type": "SHARE_OF",
+   "to": "iOS query volume",
+   "clause": "recovering ... on iOS"
+  },
+  {
+   "from": "MacOS query recovery share",
+   "type": "SHARE_OF",
+   "to": "MacOS query volume",
+   "clause": "... on MacOS"
+  },
+  {
+   "from": "Safari default",
+   "type": "HELD",
+   "to": "iOS query volume",
+   "clause": "default held the volume"
+  },
+  {
+   "from": "Safari default",
+   "type": "EXCLUDES",
+   "to": "Safari product",
+   "clause": "default, not the product, held the volume"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|Google internal analysis|analysis|Google's internal ... analyses\nNODE|Safari default|browser setting|the Safari default\nNODE|Safari product|software product|the product\nNODE|iOS query volume|search query volume|iOS queries\nNODE|MacOS query volume|search query volume|MacOS queries\nNODE|iOS query loss share|percentage measurement|projected ... of iOS queries would be lost\nNODE|iOS query recovery share|percentage measurement|recovering only about ... on iOS\nNODE|MacOS query recovery share|percentage measurement|... on MacOS\nEDGE|Google internal analysis|PROJECTED|iOS query loss share|projected that losing the Safari default would cost it ...\nEDGE|Google internal analysis|PROJECTED|iOS query recovery share|recovering only about ... on iOS\nEDGE|Google internal analysis|PROJECTED|MacOS query recovery share|... on MacOS\nEDGE|iOS query loss share|SHARE_OF|iOS query volume|... of iOS queries\nEDGE|iOS query recovery share|SHARE_OF|iOS query volume|recovering ... on iOS\nEDGE|MacOS query recovery share|SHARE_OF|MacOS query volume|... on MacOS\nEDGE|Safari default|HELD|iOS query volume|default held the volume\nEDGE|Safari default|EXCLUDES|Safari product|default, not the product, held the volume"
+}

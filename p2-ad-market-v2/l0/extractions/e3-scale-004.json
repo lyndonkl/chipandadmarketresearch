@@ -1,0 +1,96 @@
+{
+ "id": "e3-scale-004",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent of US GDP",
+ "elapsed_s": 84.7,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising expenditure",
+   "type": "advertising spend",
+   "clause": "US advertising expenditure was about ... of GDP"
+  },
+  {
+   "name": "US GDP",
+   "type": "gross domestic product",
+   "clause": "... of GDP"
+  },
+  {
+   "name": "advertising expenditure share of US GDP (1975)",
+   "type": "media-share measurement",
+   "clause": "... about ... of GDP in ..."
+  },
+  {
+   "name": "advertising expenditure share of US GDP (1950)",
+   "type": "media-share measurement",
+   "clause": "... about ... in ..."
+  },
+  {
+   "name": "US advertising expenditure amount",
+   "type": "expenditure measurement",
+   "clause": "... against ..."
+  },
+  {
+   "name": "US GDP amount",
+   "type": "GDP measurement",
+   "clause": "..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising expenditure share of US GDP (1975)",
+   "type": "MEASURES",
+   "to": "US advertising expenditure",
+   "clause": "... about ... of GDP"
+  },
+  {
+   "from": "advertising expenditure share of US GDP (1975)",
+   "type": "SHARE_OF",
+   "to": "US GDP",
+   "clause": "... of GDP in ..."
+  },
+  {
+   "from": "advertising expenditure share of US GDP (1950)",
+   "type": "MEASURES",
+   "to": "US advertising expenditure",
+   "clause": "... about ... in ..."
+  },
+  {
+   "from": "advertising expenditure share of US GDP (1950)",
+   "type": "SHARE_OF",
+   "to": "US GDP",
+   "clause": "... in ..."
+  },
+  {
+   "from": "US advertising expenditure amount",
+   "type": "MEASURES",
+   "to": "US advertising expenditure",
+   "clause": "..."
+  },
+  {
+   "from": "US GDP amount",
+   "type": "MEASURES",
+   "to": "US GDP",
+   "clause": "..."
+  },
+  {
+   "from": "US advertising expenditure amount",
+   "type": "AGAINST",
+   "to": "US GDP amount",
+   "clause": "... against ..."
+  },
+  {
+   "from": "advertising expenditure share of US GDP (1975)",
+   "type": "DECREASED_FROM",
+   "to": "advertising expenditure share of US GDP (1950)",
+   "clause": "down from ... in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising expenditure|advertising spend|US advertising expenditure was about ... of GDP\nNODE|US GDP|gross domestic product|... of GDP\nNODE|advertising expenditure share of US GDP (1975)|media-share measurement|... about ... of GDP in ...\nNODE|advertising expenditure share of US GDP (1950)|media-share measurement|... about ... in ...\nNODE|US advertising expenditure amount|expenditure measurement|... against ...\nNODE|US GDP amount|GDP measurement|...\nEDGE|advertising expenditure share of US GDP (1975)|MEASURES|US advertising expenditure|... about ... of GDP\nEDGE|advertising expenditure share of US GDP (1975)|SHARE_OF|US GDP|... of GDP in ...\nEDGE|advertising expenditure share of US GDP (1950)|MEASURES|US advertising expenditure|... about ... in ...\nEDGE|advertising expenditure share of US GDP (1950)|SHARE_OF|US GDP|... in ...\nEDGE|US advertising expenditure amount|MEASURES|US advertising expenditure|...\nEDGE|US GDP amount|MEASURES|US GDP|...\nEDGE|US advertising expenditure amount|AGAINST|US GDP amount|... against ...\nEDGE|advertising expenditure share of US GDP (1975)|DECREASED_FROM|advertising expenditure share of US GDP (1950)|down from ... in ..."
+}

@@ -1,0 +1,89 @@
+{
+ "id": "e6-pricing-006",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2002,
+ "unit": "USD average price per paid introduction (click), Overture FY2002",
+ "elapsed_s": 102.5,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture"
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "advertising market 2000-2009",
+   "type": "market period",
+   "clause": "the era's advertising market 2000\u20112009"
+  },
+  {
+   "name": "Overture average realised price per paid click (earlier)",
+   "type": "price measurement",
+   "clause": "average realised price per paid click"
+  },
+  {
+   "name": "Overture average realised price per paid click (later)",
+   "type": "price measurement",
+   "clause": "average realised price per paid click"
+  },
+  {
+   "name": "Overture advertiser base (earlier)",
+   "type": "count measurement",
+   "clause": "advertiser base"
+  },
+  {
+   "name": "Overture advertiser base (later)",
+   "type": "count measurement",
+   "clause": "advertiser base"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "HAS_PRICE_MEASUREMENT",
+   "to": "Overture average realised price per paid click (earlier)",
+   "clause": "average realised price per paid click"
+  },
+  {
+   "from": "Overture",
+   "type": "HAS_ADVERTISER_BASE",
+   "to": "Overture advertiser base (earlier)",
+   "clause": "advertiser base"
+  },
+  {
+   "from": "Overture average realised price per paid click (earlier)",
+   "type": "RISED_TO",
+   "to": "Overture average realised price per paid click (later)",
+   "clause": "rose from ... to ..."
+  },
+  {
+   "from": "Overture advertiser base (earlier)",
+   "type": "GREW_TO",
+   "to": "Overture advertiser base (later)",
+   "clause": "grew from ... to ..."
+  },
+  {
+   "from": "Overture",
+   "type": "IS_REVENUE_LEADER_IN",
+   "to": "advertising market 2000-2009",
+   "clause": "era's revenue leader"
+  },
+  {
+   "from": "Google",
+   "type": "DID_NOT_PUBLISH",
+   "to": "Overture average realised price per paid click (later)",
+   "clause": "Google never published one"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|company|Overture\nNODE|Google|company|Google\nNODE|advertising market 2000-2009|market period|the era's advertising market 2000\u20112009\nNODE|Overture average realised price per paid click (earlier)|price measurement|average realised price per paid click\nNODE|Overture average realised price per paid click (later)|price measurement|average realised price per paid click\nNODE|Overture advertiser base (earlier)|count measurement|advertiser base\nNODE|Overture advertiser base (later)|count measurement|advertiser base\nEDGE|Overture|HAS_PRICE_MEASUREMENT|Overture average realised price per paid click (earlier)|average realised price per paid click\nEDGE|Overture|HAS_ADVERTISER_BASE|Overture advertiser base (earlier)|advertiser base\nEDGE|Overture average realised price per paid click (earlier)|RISED_TO|Overture average realised price per paid click (later)|rose from ... to ...\nEDGE|Overture advertiser base (earlier)|GREW_TO|Overture advertiser base (later)|grew from ... to ...\nEDGE|Overture|IS_REVENUE_LEADER_IN|advertising market 2000-2009|era's revenue leader\nEDGE|Google|DID_NOT_PUBLISH|Overture average realised price per paid click (later)|Google never published one"
+}

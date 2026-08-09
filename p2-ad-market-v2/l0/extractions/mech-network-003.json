@@ -1,0 +1,139 @@
+{
+ "id": "mech-network-003",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2008,
+ "unit": "% of Google 2008 advertising revenue, net of TAC, contributed by the Google Network",
+ "elapsed_s": 98.1,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google Network",
+   "type": "advertising network",
+   "clause": "the Google Network"
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "revenue share",
+   "type": "revenue component",
+   "clause": "net of revenue share"
+  },
+  {
+   "name": "TAC",
+   "type": "cost component",
+   "clause": "after TAC"
+  },
+  {
+   "name": "contribution amount 2002",
+   "type": "monetary contribution measurement",
+   "clause": "contributed ... in ..."
+  },
+  {
+   "name": "contribution amount 2008",
+   "type": "monetary contribution measurement",
+   "clause": "rising to ... in ..."
+  },
+  {
+   "name": "Google 2008 advertising revenue",
+   "type": "advertising revenue metric",
+   "clause": "Google's ... advertising revenue"
+  },
+  {
+   "name": "contribution percentage 2008",
+   "type": "share of revenue measurement",
+   "clause": "only ... of Google's ... advertising revenue after TAC"
+  },
+  {
+   "name": "cumulative network contribution 2002-2008",
+   "type": "monetary contribution measurement",
+   "clause": "cumulative ... network contribution after revenue share was ..."
+  },
+  {
+   "name": "cumulative advertising revenue 2002-2008",
+   "type": "advertising revenue measurement",
+   "clause": "cumulative ... advertising revenue"
+  },
+  {
+   "name": "cumulative contribution share",
+   "type": "percentage of total measurement",
+   "clause": "or ... of cumulative advertising revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google Network",
+   "type": "CONTRIBUTED_AMOUNT",
+   "to": "contribution amount 2002",
+   "clause": "contributed ... in ..."
+  },
+  {
+   "from": "contribution amount 2002",
+   "type": "NET_OF",
+   "to": "revenue share",
+   "clause": "net of revenue share"
+  },
+  {
+   "from": "Google Network",
+   "type": "CONTRIBUTED_AMOUNT",
+   "to": "contribution amount 2008",
+   "clause": "rising to ... in ..."
+  },
+  {
+   "from": "contribution amount 2008",
+   "type": "NET_OF",
+   "to": "revenue share",
+   "clause": "net of revenue share"
+  },
+  {
+   "from": "Google Network",
+   "type": "CONTRIBUTED_PERCENTAGE",
+   "to": "contribution percentage 2008",
+   "clause": "only ... of Google's ... advertising revenue after TAC"
+  },
+  {
+   "from": "contribution percentage 2008",
+   "type": "MEASURES",
+   "to": "Google 2008 advertising revenue",
+   "clause": "of Google's ... advertising revenue"
+  },
+  {
+   "from": "contribution percentage 2008",
+   "type": "NET_OF",
+   "to": "TAC",
+   "clause": "after TAC"
+  },
+  {
+   "from": "Google Network",
+   "type": "CUMULATIVE_CONTRIBUTION_AMOUNT",
+   "to": "cumulative network contribution 2002-2008",
+   "clause": "cumulative ... network contribution after revenue share was ..."
+  },
+  {
+   "from": "cumulative network contribution 2002-2008",
+   "type": "NET_OF",
+   "to": "revenue share",
+   "clause": "net of revenue share"
+  },
+  {
+   "from": "cumulative contribution share",
+   "type": "MEASURES_RATIO_OF",
+   "to": "cumulative network contribution 2002-2008",
+   "clause": "or ... of cumulative advertising revenue"
+  },
+  {
+   "from": "cumulative contribution share",
+   "type": "BASED_ON",
+   "to": "cumulative advertising revenue 2002-2008",
+   "clause": "of cumulative advertising revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google Network|advertising network|the Google Network\nNODE|Google|company|Google\nNODE|revenue share|revenue component|net of revenue share\nNODE|TAC|cost component|after TAC\nNODE|contribution amount 2002|monetary contribution measurement|contributed ... in ...\nNODE|contribution amount 2008|monetary contribution measurement|rising to ... in ...\nNODE|Google 2008 advertising revenue|advertising revenue metric|Google's ... advertising revenue\nNODE|contribution percentage 2008|share of revenue measurement|only ... of Google's ... advertising revenue after TAC\nNODE|cumulative network contribution 2002-2008|monetary contribution measurement|cumulative ... network contribution after revenue share was ...\nNODE|cumulative advertising revenue 2002-2008|advertising revenue measurement|cumulative ... advertising revenue\nNODE|cumulative contribution share|percentage of total measurement|or ... of cumulative advertising revenue\nEDGE|Google Network|CONTRIBUTED_AMOUNT|contribution amount 2002|contributed ... in ...\nEDGE|contribution amount 2002|NET_OF|revenue share|net of revenue share\nEDGE|Google Network|CONTRIBUTED_AMOUNT|contribution amount 2008|rising to ... in ...\nEDGE|contribution amount 2008|NET_OF|revenue share|net of revenue share\nEDGE|Google Network|CONTRIBUTED_PERCENTAGE|contribution percentage 2008|only ... of Google's ... advertising revenue after TAC\nEDGE|contribution percentage 2008|MEASURES|Google 2008 advertising revenue|of Google's ... advertising revenue\nEDGE|contribution percentage 2008|NET_OF|TAC|after TAC\nEDGE|Google Network|CUMULATIVE_CONTRIBUTION_AMOUNT|cumulative network contribution 2002-2008|cumulative ... network contribution after revenue share was ...\nEDGE|cumulative network contribution 2002-2008|NET_OF|revenue share|net of revenue share\nEDGE|cumulative contribution share|MEASURES_RATIO_OF|cumulative network contribution 2002-2008|or ... of cumulative advertising revenue\nEDGE|cumulative contribution share|BASED_ON|cumulative advertising revenue 2002-2008|of cumulative advertising revenue"
+}

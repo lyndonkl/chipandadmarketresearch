@@ -1,0 +1,110 @@
+{
+ "id": "tu:era:6:event:5",
+ "kind": "prose:event",
+ "era": 6,
+ "about_year": 2005,
+ "unit": null,
+ "elapsed_s": 53.5,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google introduces quality-based bidding"
+  },
+  {
+   "name": "quality-based bidding",
+   "type": "bidding mechanism",
+   "clause": "Google introduces quality-based bidding"
+  },
+  {
+   "name": "keyword",
+   "type": "search term",
+   "clause": "each keyword gets a dynamic minimum bid"
+  },
+  {
+   "name": "dynamic minimum bid",
+   "type": "minimum bid",
+   "clause": "each keyword gets a dynamic minimum bid"
+  },
+  {
+   "name": "Quality Score",
+   "type": "quality metric",
+   "clause": "derived from its Quality Score"
+  },
+  {
+   "name": "low-relevance advertisers",
+   "type": "advertiser segment",
+   "clause": "low-relevance advertisers pay more to enter"
+  },
+  {
+   "name": "high-relevance advertisers",
+   "type": "advertiser segment",
+   "clause": "high-relevance advertisers pay less"
+  },
+  {
+   "name": "relevance",
+   "type": "relevance factor",
+   "clause": "relevance stops being only a ranking weight and becomes a price"
+  },
+  {
+   "name": "ranking weight",
+   "type": "ranking factor",
+   "clause": "relevance stops being only a ranking weight"
+  },
+  {
+   "name": "price",
+   "type": "price",
+   "clause": "relevance becomes a price"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "INTRODUCED",
+   "to": "quality-based bidding",
+   "clause": "Google introduces quality-based bidding"
+  },
+  {
+   "from": "keyword",
+   "type": "GETS",
+   "to": "dynamic minimum bid",
+   "clause": "each keyword gets a dynamic minimum bid"
+  },
+  {
+   "from": "dynamic minimum bid",
+   "type": "DERIVED_FROM",
+   "to": "Quality Score",
+   "clause": "derived from its Quality Score"
+  },
+  {
+   "from": "low-relevance advertisers",
+   "type": "PAY_MORE",
+   "to": "dynamic minimum bid",
+   "clause": "low-relevance advertisers pay more to enter"
+  },
+  {
+   "from": "high-relevance advertisers",
+   "type": "PAY_LESS",
+   "to": "dynamic minimum bid",
+   "clause": "high-relevance advertisers pay less"
+  },
+  {
+   "from": "relevance",
+   "type": "EXCLUDES",
+   "to": "ranking weight",
+   "clause": "relevance stops being only a ranking weight"
+  },
+  {
+   "from": "relevance",
+   "type": "BECOMES",
+   "to": "price",
+   "clause": "relevance becomes a price"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google introduces quality-based bidding\nNODE|quality-based bidding|bidding mechanism|Google introduces quality-based bidding\nNODE|keyword|search term|each keyword gets a dynamic minimum bid\nNODE|dynamic minimum bid|minimum bid|each keyword gets a dynamic minimum bid\nNODE|Quality Score|quality metric|derived from its Quality Score\nNODE|low-relevance advertisers|advertiser segment|low-relevance advertisers pay more to enter\nNODE|high-relevance advertisers|advertiser segment|high-relevance advertisers pay less\nNODE|relevance|relevance factor|relevance stops being only a ranking weight and becomes a price\nNODE|ranking weight|ranking factor|relevance stops being only a ranking weight\nNODE|price|price|relevance becomes a price\nEDGE|Google|INTRODUCED|quality-based bidding|Google introduces quality-based bidding\nEDGE|keyword|GETS|dynamic minimum bid|each keyword gets a dynamic minimum bid\nEDGE|dynamic minimum bid|DERIVED_FROM|Quality Score|derived from its Quality Score\nEDGE|low-relevance advertisers|PAY_MORE|dynamic minimum bid|low-relevance advertisers pay more to enter\nEDGE|high-relevance advertisers|PAY_LESS|dynamic minimum bid|high-relevance advertisers pay less\nEDGE|relevance|EXCLUDES|ranking weight|relevance stops being only a ranking weight\nEDGE|relevance|BECOMES|price|relevance becomes a price"
+}

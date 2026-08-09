@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|34ea40e0cbc94eb4",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Agent commission range",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific range measure for agents",
+   "child_uids": [
+    "n|tu:era:1:field:CREATORS|agent commission range|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Commission rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic commission rate measurement",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|commission rate measurement|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Media commission rate",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: commission rate specific to media",
+   "child_uids": [
+    "n|tu:era:3:field:CREATORS|media commission rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Realized commission rate",
+   "type": "rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: actual realized commission rate observed",
+   "child_uids": [
+    "n|tu:era:5:field:CREATORS|realized commission rate|rate measurement"
+   ]
+  }
+ ]
+}

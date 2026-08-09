@@ -1,0 +1,111 @@
+{
+ "id": "e4-scale-009",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 85.6,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspaper classified advertising",
+   "type": "advertising spend measurement",
+   "clause": "US newspaper classified advertising was ... in ..."
+  },
+  {
+   "name": "newspaper advertising revenue",
+   "type": "advertising revenue measurement",
+   "clause": "... of newspaper advertising revenue"
+  },
+  {
+   "name": "US advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "... of all measured US advertising spend"
+  },
+  {
+   "name": "Newspaper Association of America",
+   "type": "organization",
+   "clause": "the Newspaper Association of America's own published split"
+  },
+  {
+   "name": "newspaper advertising split",
+   "type": "advertising split measurement",
+   "clause": "NAA's own published national/retail/classified split"
+  },
+  {
+   "name": "national advertising amount",
+   "type": "advertising spend measurement",
+   "clause": "national portion of split"
+  },
+  {
+   "name": "retail advertising amount",
+   "type": "advertising spend measurement",
+   "clause": "retail portion of split"
+  },
+  {
+   "name": "print total advertising amount",
+   "type": "advertising spend measurement",
+   "clause": "print total ..."
+  },
+  {
+   "name": "Coen newspaper total",
+   "type": "advertising spend measurement",
+   "clause": "Coen's newspaper total for ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "US newspaper classified advertising",
+   "type": "SHARE_OF",
+   "to": "newspaper advertising revenue",
+   "clause": "... of newspaper advertising revenue"
+  },
+  {
+   "from": "US newspaper classified advertising",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... of all measured US advertising spend"
+  },
+  {
+   "from": "Newspaper Association of America",
+   "type": "PRODUCED",
+   "to": "newspaper advertising split",
+   "clause": "NAA's own published split"
+  },
+  {
+   "from": "newspaper advertising split",
+   "type": "INCLUDES_COMPONENT",
+   "to": "national advertising amount",
+   "clause": "national portion of split"
+  },
+  {
+   "from": "newspaper advertising split",
+   "type": "INCLUDES_COMPONENT",
+   "to": "retail advertising amount",
+   "clause": "retail portion of split"
+  },
+  {
+   "from": "newspaper advertising split",
+   "type": "INCLUDES_COMPONENT",
+   "to": "US newspaper classified advertising",
+   "clause": "classified portion of split"
+  },
+  {
+   "from": "newspaper advertising split",
+   "type": "TOTALS_TO",
+   "to": "print total advertising amount",
+   "clause": "sum equals print total"
+  },
+  {
+   "from": "newspaper advertising split",
+   "type": "WITHIN_PERCENT_OF",
+   "to": "Coen newspaper total",
+   "clause": "within ... of Coen's newspaper total"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspaper classified advertising|advertising spend measurement|US newspaper classified advertising was ... in ...\nNODE|newspaper advertising revenue|advertising revenue measurement|... of newspaper advertising revenue\nNODE|US advertising spend|advertising spend measurement|... of all measured US advertising spend\nNODE|Newspaper Association of America|organization|the Newspaper Association of America's own published split\nNODE|newspaper advertising split|advertising split measurement|NAA's own published national/retail/classified split\nNODE|national advertising amount|advertising spend measurement|national portion of split\n NODE|retail advertising amount|advertising spend measurement|retail portion of split\nNODE|print total advertising amount|advertising spend measurement|print total ...\nNODE|Coen newspaper total|advertising spend measurement|Coen's newspaper total for ...\n\nEDGE|US newspaper classified advertising|SHARE_OF|newspaper advertising revenue|... of newspaper advertising revenue\nEDGE|US newspaper classified advertising|SHARE_OF|US advertising spend|... of all measured US advertising spend\nEDGE|Newspaper Association of America|PRODUCED|newspaper advertising split|NAA's own published split\nEDGE|newspaper advertising split|INCLUDES_COMPONENT|national advertising amount|national portion of split\nEDGE|newspaper advertising split|INCLUDES_COMPONENT|retail advertising amount|retail portion of split\nEDGE|newspaper advertising split|INCLUDES_COMPONENT|US newspaper classified advertising|classified portion of split\nEDGE|newspaper advertising split|TOTALS_TO|print total advertising amount|sum equals print total\nEDGE|newspaper advertising split|WITHIN_PERCENT_OF|Coen newspaper total|within ... of Coen's newspaper total"
+}

@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|e336b65a55db61c6",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "CAB ratings",
+   "type": "rating series",
+   "grain": "Entity",
+   "reason": "singleton: a ratings series entity specific to CAB",
+   "child_uids": [
+    "n|e2-measurement-003|cab's ratings|rating series"
+   ]
+  },
+  {
+   "name": "CAB first-year design",
+   "type": "report design",
+   "grain": "Entity",
+   "reason": "singleton: report design entity for CAB's first year",
+   "child_uids": [
+    "n|e2-events-002|first-year design|report design"
+   ]
+  },
+  {
+   "name": "CAB market report",
+   "type": "market report",
+   "grain": "Entity",
+   "reason": "singleton: market report entity produced by CAB",
+   "child_uids": [
+    "n|e2-events-002|cab report|market report"
+   ]
+  },
+  {
+   "name": "CAB subscribers",
+   "type": "subscriber base",
+   "grain": "Entity",
+   "reason": "singleton: subscriber base entity of CAB in 1946",
+   "child_uids": [
+    "n|tu:era:2:event:9|cab subscribers|subscriber base"
+   ]
+  }
+ ]
+}

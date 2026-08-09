@@ -1,0 +1,45 @@
+{
+ "group_id": "L1|8807ae6df3de982a",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Direct response performance under era-native geographic rule",
+   "type": "performance measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique performance measure under era-native geographic rule",
+   "child_uids": [
+    "n|e5-buyers-014|direct response performance under era-native geographic rule|performance measurement"
+   ]
+  },
+  {
+   "name": "Direct response share under era-native geographic rule",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "two nodes same share metric, same breakdown; year/source abstracted",
+   "child_uids": [
+    "n|e5-scale-015|direct response share under era-native geographic rule|percentage measurement",
+    "n|e5-scale-016|direct-response share under era-native geographic rule|share measurement"
+   ]
+  },
+  {
+   "name": "National direct-response share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "national-level share of total; combines two similar measures",
+   "child_uids": [
+    "n|e7-scale-009|national direct-response share of total|media-share measurement",
+    "n|tu:era:7:field:SCALE|national direct response share measurement|share measurement"
+   ]
+  },
+  {
+   "name": "Direct response share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic share without geographic or national qualifier",
+   "child_uids": [
+    "n|tu:era:3:field:SCALE|direct response share|media-share measurement"
+   ]
+  }
+ ]
+}

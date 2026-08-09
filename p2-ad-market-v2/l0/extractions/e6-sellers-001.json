@@ -1,0 +1,90 @@
+{
+ "id": "e6-sellers-001",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2002,
+ "unit": "USD millions, Overture revenue FY2002",
+ "elapsed_s": 82.9,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture Services",
+   "type": "search-advertising company",
+   "clause": "Overture Services"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google"
+  },
+  {
+   "name": "paid-search revenue",
+   "type": "advertising revenue segment",
+   "clause": "paid-search revenue"
+  },
+  {
+   "name": "Overture Services revenue",
+   "type": "revenue measurement",
+   "clause": "... of revenue in ..."
+  },
+  {
+   "name": "Google total revenue",
+   "type": "revenue measurement",
+   "clause": "... of total revenue"
+  },
+  {
+   "name": "Google advertising revenue",
+   "type": "revenue measurement",
+   "clause": "... was advertising"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture Services",
+   "type": "LEADER_IN",
+   "to": "paid-search revenue",
+   "clause": "was the paid-search revenue leader entering the era"
+  },
+  {
+   "from": "Overture Services revenue",
+   "type": "MEASURES",
+   "to": "Overture Services",
+   "clause": "... of revenue in ..."
+  },
+  {
+   "from": "Google total revenue",
+   "type": "MEASURES",
+   "to": "Google",
+   "clause": "... of total revenue"
+  },
+  {
+   "from": "Google advertising revenue",
+   "type": "MEASURES",
+   "to": "Google",
+   "clause": "... was advertising"
+  },
+  {
+   "from": "Overture Services revenue",
+   "type": "UP_FROM",
+   "to": "Overture Services revenue",
+   "clause": "up from ... in ..."
+  },
+  {
+   "from": "Overture Services revenue",
+   "type": "VERSUS",
+   "to": "Google total revenue",
+   "clause": "versus Google's ... of total revenue"
+  },
+  {
+   "from": "Google advertising revenue",
+   "type": "SHARE_OF",
+   "to": "Google total revenue",
+   "clause": "... was advertising"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture Services|search-advertising company|Overture Services\nNODE|Google|technology company|Google\nNODE|paid-search revenue|advertising revenue segment|paid-search revenue\nNODE|Overture Services revenue|revenue measurement|... of revenue in ...\nNODE|Google total revenue|revenue measurement|... of total revenue\nNODE|Google advertising revenue|revenue measurement|... was advertising\nEDGE|Overture Services|LEADER_IN|paid-search revenue|was the paid-search revenue leader entering the era\nEDGE|Overture Services revenue|MEASURES|Overture Services|... of revenue in ...\nEDGE|Google total revenue|MEASURES|Google|... of total revenue\nEDGE|Google advertising revenue|MEASURES|Google|... was advertising\nEDGE|Overture Services revenue|UP_FROM|Overture Services revenue|up from ... in ...\nEDGE|Overture Services revenue|VERSUS|Google total revenue|versus Google's ... of total revenue\nEDGE|Google advertising revenue|SHARE_OF|Google total revenue|... was advertising"
+}

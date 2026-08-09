@@ -1,0 +1,132 @@
+{
+ "id": "e4-medium-004",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 90.0,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Cable advertising",
+   "type": "advertising medium",
+   "clause": "Cable advertising grew ..."
+  },
+  {
+   "name": "Initial cable advertising spend",
+   "type": "spend measurement",
+   "clause": "grew from ..."
+  },
+  {
+   "name": "Later cable advertising spend",
+   "type": "spend measurement",
+   "clause": "grew to ..."
+  },
+  {
+   "name": "US advertising spend",
+   "type": "advertising spend total",
+   "clause": "... of US measured spend"
+  },
+  {
+   "name": "Initial cable advertising share of US spend",
+   "type": "share measurement",
+   "clause": "... of US measured spend"
+  },
+  {
+   "name": "Later cable advertising share of US spend",
+   "type": "share measurement",
+   "clause": "... of US measured spend"
+  },
+  {
+   "name": "Cable advertising growth multiple",
+   "type": "growth multiple measurement",
+   "clause": "... in thirteen years"
+  },
+  {
+   "name": "Thirteen-year period",
+   "type": "time span",
+   "clause": "thirteen years"
+  },
+  {
+   "name": "Cable network advertising",
+   "type": "advertising subsegment",
+   "clause": "cable networks were ..."
+  },
+  {
+   "name": "Local cable spot advertising",
+   "type": "advertising subsegment",
+   "clause": "local cable spot ..."
+  },
+  {
+   "name": "Cable network advertising spend",
+   "type": "spend measurement",
+   "clause": "cable networks were ..."
+  },
+  {
+   "name": "Local cable spot advertising spend",
+   "type": "spend measurement",
+   "clause": "local cable spot ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Cable advertising",
+   "type": "HAS_MEASUREMENT",
+   "to": "Initial cable advertising spend",
+   "clause": "grew from ..."
+  },
+  {
+   "from": "Cable advertising",
+   "type": "HAS_MEASUREMENT",
+   "to": "Later cable advertising spend",
+   "clause": "grew to ..."
+  },
+  {
+   "from": "Initial cable advertising share of US spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... of US measured spend"
+  },
+  {
+   "from": "Later cable advertising share of US spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... of US measured spend"
+  },
+  {
+   "from": "Cable advertising growth multiple",
+   "type": "OVER_PERIOD",
+   "to": "Thirteen-year period",
+   "clause": "... in thirteen years"
+  },
+  {
+   "from": "Cable network advertising",
+   "type": "HAS_MEASUREMENT",
+   "to": "Cable network advertising spend",
+   "clause": "cable networks were ..."
+  },
+  {
+   "from": "Local cable spot advertising",
+   "type": "HAS_MEASUREMENT",
+   "to": "Local cable spot advertising spend",
+   "clause": "local cable spot ..."
+  },
+  {
+   "from": "Cable network advertising",
+   "type": "PART_OF",
+   "to": "Cable advertising",
+   "clause": "cable networks were ..."
+  },
+  {
+   "from": "Local cable spot advertising",
+   "type": "PART_OF",
+   "to": "Cable advertising",
+   "clause": "local cable spot ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Cable advertising|advertising medium|Cable advertising grew ...\nNODE|Initial cable advertising spend|spend measurement|grew from ...\nNODE|Later cable advertising spend|spend measurement|grew to ...\nNODE|US advertising spend|advertising spend total|... of US measured spend\nNODE|Initial cable advertising share of US spend|share measurement|... of US measured spend\nNODE|Later cable advertising share of US spend|share measurement|... of US measured spend\nNODE|Cable advertising growth multiple|growth multiple measurement|... in thirteen years\nNODE|Thirteen-year period|time span|thirteen years\nNODE|Cable network advertising|advertising subsegment|cable networks were ...\nNODE|Local cable spot advertising|advertising subsegment|local cable spot ...\nNODE|Cable network advertising spend|spend measurement|cable networks were ...\nNODE|Local cable spot advertising spend|spend measurement|local cable spot ...\n\nEDGE|Cable advertising|HAS_MEASUREMENT|Initial cable advertising spend|grew from ...\nEDGE|Cable advertising|HAS_MEASUREMENT|Later cable advertising spend|grew to ...\nEDGE|Initial cable advertising share of US spend|SHARE_OF|US advertising spend|... of US measured spend\nEDGE|Later cable advertising share of US spend|SHARE_OF|US advertising spend|... of US measured spend\nEDGE|Cable advertising growth multiple|OVER_PERIOD|Thirteen-year period|... in thirteen years\nEDGE|Cable network advertising|HAS_MEASUREMENT|Cable network advertising spend|cable networks were ...\nEDGE|Local cable spot advertising|HAS_MEASUREMENT|Local cable spot advertising spend|local cable spot ...\nEDGE|Cable network advertising|PART_OF|Cable advertising|cable networks were ...\nEDGE|Local cable spot advertising|PART_OF|Cable advertising|local cable spot ..."
+}

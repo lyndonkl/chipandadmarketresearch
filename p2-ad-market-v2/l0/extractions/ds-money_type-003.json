@@ -1,0 +1,133 @@
+{
+ "id": "ds-money_type-003",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2000,
+ "unit": "USD millions (current)",
+ "elapsed_s": 81.7,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "intent-and-response media",
+   "type": "advertising medium group",
+   "clause": "the intent-and-response media"
+  },
+  {
+   "name": "newspaper classified",
+   "type": "advertising medium",
+   "clause": "newspaper classified"
+  },
+  {
+   "name": "directories",
+   "type": "advertising medium",
+   "clause": "directories"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail"
+  },
+  {
+   "name": "paid-search auction",
+   "type": "auction mechanism",
+   "clause": "paid-search auction"
+  },
+  {
+   "name": "all US advertising",
+   "type": "advertising market aggregate",
+   "clause": "all US advertising"
+  },
+  {
+   "name": "internet",
+   "type": "advertising medium",
+   "clause": "the entire internet"
+  },
+  {
+   "name": "advertising spend series",
+   "type": "data series",
+   "clause": "same series"
+  },
+  {
+   "name": "intent-and-response media spend",
+   "type": "spend measurement",
+   "clause": "were ... in ..."
+  },
+  {
+   "name": "intent-and-response media share of US advertising",
+   "type": "media-share measurement",
+   "clause": "... of all US advertising"
+  },
+  {
+   "name": "internet spend",
+   "type": "spend measurement",
+   "clause": "for the entire internet on the same series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "newspaper classified",
+   "type": "PART_OF",
+   "to": "intent-and-response media",
+   "clause": "newspaper classified, directories and direct mail"
+  },
+  {
+   "from": "directories",
+   "type": "PART_OF",
+   "to": "intent-and-response media",
+   "clause": "newspaper classified, directories and direct mail"
+  },
+  {
+   "from": "direct mail",
+   "type": "PART_OF",
+   "to": "intent-and-response media",
+   "clause": "newspaper classified, directories and direct mail"
+  },
+  {
+   "from": "paid-search auction",
+   "type": "COMPETED_WITH",
+   "to": "intent-and-response media",
+   "clause": "paid-search auction later competed with"
+  },
+  {
+   "from": "intent-and-response media spend",
+   "type": "MEASURES",
+   "to": "intent-and-response media",
+   "clause": "were ... in ..."
+  },
+  {
+   "from": "intent-and-response media share of US advertising",
+   "type": "SHARE_OF",
+   "to": "all US advertising",
+   "clause": "... of all US advertising"
+  },
+  {
+   "from": "internet spend",
+   "type": "MEASURES",
+   "to": "internet",
+   "clause": "for the entire internet on the same series"
+  },
+  {
+   "from": "intent-and-response media spend",
+   "type": "AGAINST",
+   "to": "internet spend",
+   "clause": "against ... for the entire internet"
+  },
+  {
+   "from": "intent-and-response media spend",
+   "type": "MEASURED_ON",
+   "to": "advertising spend series",
+   "clause": "on the same series"
+  },
+  {
+   "from": "internet spend",
+   "type": "MEASURED_ON",
+   "to": "advertising spend series",
+   "clause": "on the same series"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|intent-and-response media|advertising medium group|the intent-and-response media\nNODE|newspaper classified|advertising medium|newspaper classified\nNODE|directories|advertising medium|directories\nNODE|direct mail|advertising medium|direct mail\nNODE|paid-search auction|auction mechanism|paid-search auction\nNODE|all US advertising|advertising market aggregate|all US advertising\nNODE|internet|advertising medium|the entire internet\nNODE|advertising spend series|data series|same series\nNODE|intent-and-response media spend|spend measurement|were ... in ...\nNODE|intent-and-response media share of US advertising|media-share measurement|... of all US advertising\nNODE|internet spend|spend measurement|for the entire internet on the same series\nEDGE|newspaper classified|PART_OF|intent-and-response media|newspaper classified, directories and direct mail\nEDGE|directories|PART_OF|intent-and-response media|newspaper classified, directories and direct mail\nEDGE|direct mail|PART_OF|intent-and-response media|newspaper classified, directories and direct mail\nEDGE|paid-search auction|COMPETED_WITH|intent-and-response media|paid-search auction later competed with\nEDGE|intent-and-response media spend|MEASURES|intent-and-response media|were ... in ...\nEDGE|intent-and-response media share of US advertising|SHARE_OF|all US advertising|... of all US advertising\nEDGE|internet spend|MEASURES|internet|for the entire internet on the same series\nEDGE|intent-and-response media spend|AGAINST|internet spend|against ... for the entire internet\nEDGE|intent-and-response media spend|MEASURED_ON|advertising spend series|on the same series\nEDGE|internet spend|MEASURED_ON|advertising spend series|on the same series"
+}

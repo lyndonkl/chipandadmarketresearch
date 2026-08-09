@@ -1,0 +1,45 @@
+{
+ "id": "e4-creators-003",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1992,
+ "unit": "million USD (current)",
+ "elapsed_s": 52.5,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "total US advertising-agency income",
+   "type": "agency revenue measurement",
+   "clause": "Total US advertising\u2011agency income (agency revenue, not client billings)"
+  },
+  {
+   "name": "client billings",
+   "type": "advertising spend metric",
+   "clause": "not client billings"
+  },
+  {
+   "name": "US advertising-agency income prior to 1992",
+   "type": "agency revenue measurement",
+   "clause": "up from ... in 1977"
+  }
+ ],
+ "edges": [
+  {
+   "from": "total US advertising-agency income",
+   "type": "EXCLUDES",
+   "to": "client billings",
+   "clause": "agency revenue, not client billings"
+  },
+  {
+   "from": "total US advertising-agency income",
+   "type": "INCREASED_FROM",
+   "to": "US advertising-agency income prior to 1992",
+   "clause": "up from ... in 1977"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|total US advertising-agency income|agency revenue measurement|Total US advertising\u2011agency income (agency revenue, not client billings)\nNODE|client billings|advertising spend metric|not client billings\nNODE|US advertising-agency income prior to 1992|agency revenue measurement|up from ... in 1977\nEDGE|total US advertising-agency income|EXCLUDES|client billings|agency revenue, not client billings\nEDGE|total US advertising-agency income|INCREASED_FROM|US advertising-agency income prior to 1992|up from ... in 1977"
+}

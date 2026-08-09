@@ -1,0 +1,56 @@
+{
+ "id": "e2-creators-003",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1930,
+ "unit": "US$ millions, N.W. Ayer gross receipts, 1930",
+ "elapsed_s": 60.4,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "N.W. Ayer",
+   "type": "company",
+   "clause": "N.W. Ayer's gross receipts"
+  },
+  {
+   "name": "N.W. Ayer gross receipts",
+   "type": "revenue measurement",
+   "clause": "gross receipts reached ... in ..."
+  },
+  {
+   "name": "earlier N.W. Ayer gross receipts",
+   "type": "revenue measurement",
+   "clause": "up from ... in ..."
+  },
+  {
+   "name": "independent verification",
+   "type": "verification concept",
+   "clause": "figure not independently verified"
+  }
+ ],
+ "edges": [
+  {
+   "from": "N.W. Ayer",
+   "type": "HAS_REVENUE",
+   "to": "N.W. Ayer gross receipts",
+   "clause": "gross receipts reached ... in ..."
+  },
+  {
+   "from": "N.W. Ayer gross receipts",
+   "type": "UP_FROM",
+   "to": "earlier N.W. Ayer gross receipts",
+   "clause": "up from ... in ..."
+  },
+  {
+   "from": "N.W. Ayer gross receipts",
+   "type": "NOT_INDEPENDENTLY_VERIFIED",
+   "to": "independent verification",
+   "clause": "figure not independently verified"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|N.W. Ayer|company|N.W. Ayer's gross receipts\nNODE|N.W. Ayer gross receipts|revenue measurement|gross receipts reached ... in ...\nNODE|earlier N.W. Ayer gross receipts|revenue measurement|up from ... in ...\nNODE|independent verification|verification concept|figure not independently verified\nEDGE|N.W. Ayer|HAS_REVENUE|N.W. Ayer gross receipts|gross receipts reached ... in ...\nEDGE|N.W. Ayer gross receipts|UP_FROM|earlier N.W. Ayer gross receipts|up from ... in ...\nEDGE|N.W. Ayer gross receipts|NOT_INDEPENDENTLY_VERIFIED|independent verification|figure not independently verified"
+}

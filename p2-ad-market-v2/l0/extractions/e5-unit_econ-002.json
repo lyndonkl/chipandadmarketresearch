@@ -1,0 +1,138 @@
+{
+ "id": "e5-unit_econ-002",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD per delivered ad impression",
+ "elapsed_s": 75.4,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 9,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "direct cost of serving web ad impression",
+   "type": "cost measurement",
+   "clause": "direct cost ... roughly ... per thousand at portal scale"
+  },
+  {
+   "name": "web ad impression",
+   "type": "advertising inventory unit",
+   "clause": "serving one web ad impression"
+  },
+  {
+   "name": "portal scale",
+   "type": "market condition",
+   "clause": "at portal scale"
+  },
+  {
+   "name": "Yahoo content bandwidth equipment depreciation cost",
+   "type": "component cost measurement",
+   "clause": "content, bandwidth and equipment depreciation (about ...) per thousand page views at Yahoo"
+  },
+  {
+   "name": "page view",
+   "type": "user interaction metric",
+   "clause": "per thousand page views at Yahoo"
+  },
+  {
+   "name": "Yahoo",
+   "type": "internet company",
+   "clause": "Yahoo ... carried ..."
+  },
+  {
+   "name": "DoubleClick ad-delivery infrastructure cost",
+   "type": "component cost measurement",
+   "clause": "ad-delivery infrastructure (about ...) per thousand ads at DoubleClick"
+  },
+  {
+   "name": "ad",
+   "type": "advertising unit",
+   "clause": "per thousand ads at DoubleClick"
+  },
+  {
+   "name": "marginal cost",
+   "type": "cost concept",
+   "clause": "marginal cost was trivially small"
+  },
+  {
+   "name": "human ad sales force cost",
+   "type": "labor cost measurement",
+   "clause": "human ad sales force ... carried at ... of revenue"
+  },
+  {
+   "name": "revenue",
+   "type": "financial metric",
+   "clause": "... of revenue"
+  },
+  {
+   "name": "DoubleClick",
+   "type": "(promoted)",
+   "clause": ""
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct cost of serving web ad impression",
+   "type": "MEASURES",
+   "to": "web ad impression",
+   "clause": "direct cost ... measures serving one web ad impression"
+  },
+  {
+   "from": "direct cost of serving web ad impression",
+   "type": "HAS_COMPONENT",
+   "to": "Yahoo content bandwidth equipment depreciation cost",
+   "clause": "content, bandwidth and equipment depreciation cost is part of direct cost"
+  },
+  {
+   "from": "direct cost of serving web ad impression",
+   "type": "HAS_COMPONENT",
+   "to": "DoubleClick ad-delivery infrastructure cost",
+   "clause": "ad-delivery infrastructure cost is part of direct cost"
+  },
+  {
+   "from": "Yahoo content bandwidth equipment depreciation cost",
+   "type": "MEASURES",
+   "to": "page view",
+   "clause": "cost measures per thousand page views"
+  },
+  {
+   "from": "Yahoo content bandwidth equipment depreciation cost",
+   "type": "AT_COMPANY",
+   "to": "Yahoo",
+   "clause": "cost at Yahoo"
+  },
+  {
+   "from": "DoubleClick ad-delivery infrastructure cost",
+   "type": "MEASURES",
+   "to": "ad",
+   "clause": "cost measures per thousand ads"
+  },
+  {
+   "from": "DoubleClick ad-delivery infrastructure cost",
+   "type": "AT_COMPANY",
+   "to": "DoubleClick",
+   "clause": "cost at DoubleClick"
+  },
+  {
+   "from": "Yahoo",
+   "type": "CARRIED",
+   "to": "human ad sales force cost",
+   "clause": "Yahoo carried the human ad sales force cost"
+  },
+  {
+   "from": "human ad sales force cost",
+   "type": "SHARE_OF",
+   "to": "revenue",
+   "clause": "human ad sales force cost was ... of revenue"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "undeclared_endpoint_promoted",
+   "endpoint": "DoubleClick",
+   "line": "EDGE|DoubleClick ad-delivery infrastructure cost|AT_COMPANY|DoubleClick|cost at DoubleClick"
+  }
+ ],
+ "raw": "NODE|direct cost of serving web ad impression|cost measurement|direct cost ... roughly ... per thousand at portal scale\nNODE|web ad impression|advertising inventory unit|serving one web ad impression\nNODE|portal scale|market condition|at portal scale\nNODE|Yahoo content bandwidth equipment depreciation cost|component cost measurement|content, bandwidth and equipment depreciation (about ...) per thousand page views at Yahoo\nNODE|page view|user interaction metric|per thousand page views at Yahoo\nNODE|Yahoo|internet company|Yahoo ... carried ...\nNODE|DoubleClick ad-delivery infrastructure cost|component cost measurement|ad-delivery infrastructure (about ...) per thousand ads at DoubleClick\nNODE|ad|advertising unit|per thousand ads at DoubleClick\nNODE|marginal cost|cost concept|marginal cost was trivially small\nNODE|human ad sales force cost|labor cost measurement|human ad sales force ... carried at ... of revenue\nNODE|revenue|financial metric|... of revenue\nEDGE|direct cost of serving web ad impression|MEASURES|web ad impression|direct cost ... measures serving one web ad impression\nEDGE|direct cost of serving web ad impression|HAS_COMPONENT|Yahoo content bandwidth equipment depreciation cost|content, bandwidth and equipment depreciation cost is part of direct cost\nEDGE|direct cost of serving web ad impression|HAS_COMPONENT|DoubleClick ad-delivery infrastructure cost|ad-delivery infrastructure cost is part of direct cost\nEDGE|Yahoo content bandwidth equipment depreciation cost|MEASURES|page view|cost measures per thousand page views\nEDGE|Yahoo content bandwidth equipment depreciation cost|AT_COMPANY|Yahoo|cost at Yahoo\nEDGE|DoubleClick ad-delivery infrastructure cost|MEASURES|ad|cost measures per thousand ads\nEDGE|DoubleClick ad-delivery infrastructure cost|AT_COMPANY|DoubleClick|cost at DoubleClick\nEDGE|Yahoo|CARRIED|human ad sales force cost|Yahoo carried the human ad sales force cost\nEDGE|human ad sales force cost|SHARE_OF|revenue|human ad sales force cost was ... of revenue"
+}

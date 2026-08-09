@@ -1,0 +1,78 @@
+{
+ "id": "e4-pricing-001",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1992,
+ "unit": "percent of media billings",
+ "elapsed_s": 51.9,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising agencies",
+   "type": "agency",
+   "clause": "media commissions ... received by US advertising agencies"
+  },
+  {
+   "name": "media commissions received",
+   "type": "revenue component",
+   "clause": "media commissions actually received by US advertising agencies"
+  },
+  {
+   "name": "media commission share of media billings",
+   "type": "take-rate measurement",
+   "clause": "as a percentage of media billings"
+  },
+  {
+   "name": "media billings",
+   "type": "advertising spend aggregate",
+   "clause": "percentage of media billings"
+  },
+  {
+   "name": "standard media commission rate",
+   "type": "benchmark",
+   "clause": "the 15% commission survived this era largely intact"
+  },
+  {
+   "name": "Segmentation era (1972-1994)",
+   "type": "market era",
+   "clause": "this era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising agencies",
+   "type": "RECEIVE",
+   "to": "media commissions received",
+   "clause": "media commissions ... received by US advertising agencies"
+  },
+  {
+   "from": "media commissions received",
+   "type": "HAS_RATE",
+   "to": "media commission share of media billings",
+   "clause": "as a percentage of media billings"
+  },
+  {
+   "from": "media commission share of media billings",
+   "type": "SHARE_OF",
+   "to": "media billings",
+   "clause": "percentage of media billings"
+  },
+  {
+   "from": "standard media commission rate",
+   "type": "SURVIVED_IN",
+   "to": "Segmentation era (1972-1994)",
+   "clause": "survived this era largely intact"
+  },
+  {
+   "from": "standard media commission rate",
+   "type": "COLLAPSED_AFTER",
+   "to": "Segmentation era (1972-1994)",
+   "clause": "its collapse comes after it"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising agencies|agency|media commissions ... received by US advertising agencies\nNODE|media commissions received|revenue component|media commissions actually received by US advertising agencies\nNODE|media commission share of media billings|take-rate measurement|as a percentage of media billings\nNODE|media billings|advertising spend aggregate|percentage of media billings\nNODE|standard media commission rate|benchmark|the 15% commission survived this era largely intact\nNODE|Segmentation era (1972-1994)|market era|this era\n\nEDGE|US advertising agencies|RECEIVE|media commissions received|media commissions ... received by US advertising agencies\nEDGE|media commissions received|HAS_RATE|media commission share of media billings|as a percentage of media billings\nEDGE|media commission share of media billings|SHARE_OF|media billings|percentage of media billings\nEDGE|standard media commission rate|SURVIVED_IN|Segmentation era (1972-1994)|survived this era largely intact\nEDGE|standard media commission rate|COLLAPSED_AFTER|Segmentation era (1972-1994)|its collapse comes after it"
+}

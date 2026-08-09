@@ -1,0 +1,154 @@
+{
+ "id": "tu:era:3:event:8",
+ "kind": "prose:event",
+ "era": 3,
+ "about_year": 1971,
+ "unit": null,
+ "elapsed_s": 87.3,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 10,
+ "n_repairs": 2,
+ "nodes": [
+  {
+   "name": "FCC",
+   "type": "regulatory agency",
+   "clause": "the FCC's Prime Time Access Rule"
+  },
+  {
+   "name": "Prime Time Access Rule",
+   "type": "policy",
+   "clause": "the Prime Time Access Rule"
+  },
+  {
+   "name": "1971\u201172 TV season",
+   "type": "broadcast season",
+   "clause": "takes effect with the ... season"
+  },
+  {
+   "name": "weekday and Saturday prime time half-hour",
+   "type": "programming time slot",
+   "clause": "returns half hour of weekday and Saturday prime time to affiliates"
+  },
+  {
+   "name": "affiliates",
+   "type": "local stations",
+   "clause": "returns half hour ... to affiliates"
+  },
+  {
+   "name": "network prime block",
+   "type": "programming block",
+   "clause": "cutting the network prime block from ... hours to ..."
+  },
+  {
+   "name": "network supply",
+   "type": "broadcast capacity",
+   "clause": "Network supply shrank in the same year"
+  },
+  {
+   "name": "cigarette demand",
+   "type": "consumer demand",
+   "clause": "cigarette demand disappeared in the same year"
+  },
+  {
+   "name": "broadcast industry",
+   "type": "industry",
+   "clause": "The industry's answer"
+  },
+  {
+   "name": "industry answer",
+   "type": "industry response",
+   "clause": "the industry's answer was to sell the half\u2011minute as the standard purchase"
+  },
+  {
+   "name": "1970\u201171 TV season",
+   "type": "broadcast season",
+   "clause": "adopted across the ... season"
+  },
+  {
+   "name": "half\u2011minute standard purchase",
+   "type": "advertising purchase unit",
+   "clause": "sell the half\u2011minute as the standard purchase"
+  },
+  {
+   "name": "minute purchase unit",
+   "type": "advertising purchase unit",
+   "clause": "rather than the minute"
+  }
+ ],
+ "edges": [
+  {
+   "from": "FCC",
+   "type": "ADOPTED",
+   "to": "Prime Time Access Rule",
+   "clause": "adopted in ..."
+  },
+  {
+   "from": "Prime Time Access Rule",
+   "type": "TAKES_EFFECT_IN",
+   "to": "1971\u201172 TV season",
+   "clause": "takes effect with the ... season"
+  },
+  {
+   "from": "Prime Time Access Rule",
+   "type": "RETURNS_HALF_HOUR_TO",
+   "to": "affiliates",
+   "clause": "returns half hour of weekday and Saturday prime time to affiliates"
+  },
+  {
+   "from": "Prime Time Access Rule",
+   "type": "REDUCES_DURATION_OF",
+   "to": "network prime block",
+   "clause": "cutting the network prime block from ... hours to ..."
+  },
+  {
+   "from": "network supply",
+   "type": "CHANGED_IN_SAME_YEAR_AS",
+   "to": "Prime Time Access Rule",
+   "clause": "shrunk in the same year"
+  },
+  {
+   "from": "cigarette demand",
+   "type": "DISAPPEARED_IN_SAME_YEAR_AS",
+   "to": "Prime Time Access Rule",
+   "clause": "demand disappeared in the same year"
+  },
+  {
+   "from": "broadcast industry",
+   "type": "PROVIDED_ANSWER",
+   "to": "industry answer",
+   "clause": "The industry's answer"
+  },
+  {
+   "from": "industry answer",
+   "type": "ADOPTED_IN",
+   "to": "1970\u201171 TV season",
+   "clause": "adopted across the ... season"
+  },
+  {
+   "from": "industry answer",
+   "type": "CHOOSES",
+   "to": "half\u2011minute standard purchase",
+   "clause": "sell the half\u2011minute as the standard purchase"
+  },
+  {
+   "from": "industry answer",
+   "type": "REJECTS",
+   "to": "minute purchase unit",
+   "clause": "rather than the minute"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "CHANGED_IN_SAME_YEAR_AS",
+   "line": "EDGE|network supply|CHANGED_IN_SAME_YEAR_AS|Prime Time Access Rule|shrunk in the same year"
+  },
+  {
+   "kind": "long_relation_type_kept",
+   "type": "DISAPPEARED_IN_SAME_YEAR_AS",
+   "line": "EDGE|cigarette demand|DISAPPEARED_IN_SAME_YEAR_AS|Prime Time Access Rule|demand disappeared in the same year"
+  }
+ ],
+ "raw": "NODE|FCC|regulatory agency|the FCC's Prime Time Access Rule\nNODE|Prime Time Access Rule|policy|the Prime Time Access Rule\nNODE|1971\u201172 TV season|broadcast season|takes effect with the ... season\nNODE|weekday and Saturday prime time half-hour|programming time slot|returns half hour of weekday and Saturday prime time to affiliates\nNODE|affiliates|local stations|returns half hour ... to affiliates\nNODE|network prime block|programming block|cutting the network prime block from ... hours to ...\nNODE|network supply|broadcast capacity|Network supply shrank in the same year\nNODE|cigarette demand|consumer demand|cigarette demand disappeared in the same year\nNODE|broadcast industry|industry|The industry's answer\n NODE|industry answer|industry response|the industry's answer was to sell the half\u2011minute as the standard purchase\nNODE|1970\u201171 TV season|broadcast season|adopted across the ... season\nNODE|half\u2011minute standard purchase|advertising purchase unit|sell the half\u2011minute as the standard purchase\nNODE|minute purchase unit|advertising purchase unit|rather than the minute\nEDGE|FCC|ADOPTED|Prime Time Access Rule|adopted in ...\nEDGE|Prime Time Access Rule|TAKES_EFFECT_IN|1971\u201172 TV season|takes effect with the ... season\nEDGE|Prime Time Access Rule|RETURNS_HALF_HOUR_TO|affiliates|returns half hour of weekday and Saturday prime time to affiliates\nEDGE|Prime Time Access Rule|REDUCES_DURATION_OF|network prime block|cutting the network prime block from ... hours to ...\nEDGE|network supply|CHANGED_IN_SAME_YEAR_AS|Prime Time Access Rule|shrunk in the same year\nEDGE|cigarette demand|DISAPPEARED_IN_SAME_YEAR_AS|Prime Time Access Rule|demand disappeared in the same year\nEDGE|broadcast industry|PROVIDED_ANSWER|industry answer|The industry's answer\nEDGE|industry answer|ADOPTED_IN|1970\u201171 TV season|adopted across the ... season\nEDGE|industry answer|CHOOSES|half\u2011minute standard purchase|sell the half\u2011minute as the standard purchase\nEDGE|industry answer|REJECTS|minute purchase unit|rather than the minute"
+}

@@ -1,0 +1,73 @@
+{
+ "id": "e2-medium-002",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1945,
+ "unit": "percent of US ad spend taken by radio in its peak year, 1945",
+ "elapsed_s": 36.8,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "radio advertising",
+   "type": "advertising medium",
+   "clause": "Radio's share of US advertising peaked at ... in ..."
+  },
+  {
+   "name": "newspaper advertising",
+   "type": "advertising medium",
+   "clause": "newspaper share in the same year"
+  },
+  {
+   "name": "US advertising",
+   "type": "market",
+   "clause": "share of US advertising"
+  },
+  {
+   "name": "radio share of US advertising",
+   "type": "media-share measurement",
+   "clause": "Radio's share of US advertising peaked at ... in ..."
+  },
+  {
+   "name": "newspaper share of US advertising",
+   "type": "media-share measurement",
+   "clause": "newspaper share in the same year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "radio share of US advertising",
+   "type": "MEASURES",
+   "to": "radio advertising",
+   "clause": "Radio's share of US advertising peaked at ..."
+  },
+  {
+   "from": "radio share of US advertising",
+   "type": "SHARE_OF",
+   "to": "US advertising",
+   "clause": "Radio's share of US advertising peaked at ..."
+  },
+  {
+   "from": "newspaper share of US advertising",
+   "type": "MEASURES",
+   "to": "newspaper advertising",
+   "clause": "newspaper share in the same year"
+  },
+  {
+   "from": "newspaper share of US advertising",
+   "type": "SHARE_OF",
+   "to": "US advertising",
+   "clause": "newspaper share in the same year"
+  },
+  {
+   "from": "radio share of US advertising",
+   "type": "LESS_THAN_HALF_OF",
+   "to": "newspaper share of US advertising",
+   "clause": "less than half the newspaper share ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|radio advertising|advertising medium|Radio's share of US advertising peaked at ... in ...\nNODE|newspaper advertising|advertising medium|newspaper share in the same year\nNODE|US advertising|market|share of US advertising\nNODE|radio share of US advertising|media-share measurement|Radio's share of US advertising peaked at ... in ...\nNODE|newspaper share of US advertising|media-share measurement|newspaper share in the same year\nEDGE|radio share of US advertising|MEASURES|radio advertising|Radio's share of US advertising peaked at ...\nEDGE|radio share of US advertising|SHARE_OF|US advertising|Radio's share of US advertising peaked at ...\nEDGE|newspaper share of US advertising|MEASURES|newspaper advertising|newspaper share in the same year\nEDGE|newspaper share of US advertising|SHARE_OF|US advertising|newspaper share in the same year\nEDGE|radio share of US advertising|LESS_THAN_HALF_OF|newspaper share of US advertising|less than half the newspaper share ..."
+}

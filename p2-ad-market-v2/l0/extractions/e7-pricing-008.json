@@ -1,0 +1,67 @@
+{
+ "id": "e7-pricing-008",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent year-on-year change in Meta average price per ad, 2025",
+ "elapsed_s": 37.7,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Meta",
+   "type": "organization",
+   "clause": "Meta's average price per ad"
+  },
+  {
+   "name": "Meta average price per ad",
+   "type": "metric",
+   "clause": "average price per ad"
+  },
+  {
+   "name": "Meta average price per ad YoY change",
+   "type": "percentage-change measurement",
+   "clause": "rose ... in ..."
+  },
+  {
+   "name": "ad impressions",
+   "type": "metric",
+   "clause": "ad impressions"
+  },
+  {
+   "name": "ad impressions YoY change",
+   "type": "percentage-change measurement",
+   "clause": "rose ... in ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Meta",
+   "type": "HAS_METRIC",
+   "to": "Meta average price per ad",
+   "clause": "Meta's average price per ad"
+  },
+  {
+   "from": "Meta average price per ad YoY change",
+   "type": "MEASURES",
+   "to": "Meta average price per ad",
+   "clause": "rose ... in ..."
+  },
+  {
+   "from": "ad impressions YoY change",
+   "type": "MEASURES",
+   "to": "ad impressions",
+   "clause": "rose ... in ..."
+  },
+  {
+   "from": "Meta average price per ad YoY change",
+   "type": "RISES_ALONGSIDE",
+   "to": "ad impressions YoY change",
+   "clause": "price ... rising alongside supply"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Meta|organization|Meta's average price per ad\nNODE|Meta average price per ad|metric|average price per ad\nNODE|Meta average price per ad YoY change|percentage-change measurement|rose ... in ...\nNODE|ad impressions|metric|ad impressions\nNODE|ad impressions YoY change|percentage-change measurement|rose ... in ...\nEDGE|Meta|HAS_METRIC|Meta average price per ad|Meta's average price per ad\nEDGE|Meta average price per ad YoY change|MEASURES|Meta average price per ad|rose ... in ...\nEDGE|ad impressions YoY change|MEASURES|ad impressions|rose ... in ...\nEDGE|Meta average price per ad YoY change|RISES_ALONGSIDE|ad impressions YoY change|price ... rising alongside supply"
+}

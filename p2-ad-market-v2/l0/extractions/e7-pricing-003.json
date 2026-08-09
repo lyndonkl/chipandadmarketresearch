@@ -1,0 +1,122 @@
+{
+ "id": "e7-pricing-003",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2023,
+ "unit": "percent average price change from Google auction 'tunings'",
+ "elapsed_s": 66.6,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google adjusted search ad auction and reserve prices"
+  },
+  {
+   "name": "search ad auction and reserve price settings",
+   "type": "auction pricing configuration",
+   "clause": "search ad auction and reserve prices"
+  },
+  {
+   "name": "quarterly revenue targets",
+   "type": "revenue goal",
+   "clause": "to meet quarterly revenue targets"
+  },
+  {
+   "name": "advertisers",
+   "type": "market participant",
+   "clause": "without disclosing the changes to advertisers"
+  },
+  {
+   "name": "VP of ads",
+   "type": "corporate officer",
+   "clause": "its VP of ads testified"
+  },
+  {
+   "name": "auction tunings",
+   "type": "price adjustment set",
+   "clause": "'tunings' raised prices and allowed increases"
+  },
+  {
+   "name": "average price change from auction tunings",
+   "type": "percent average price change measurement",
+   "clause": "percent average price change from Google auction 'tunings'"
+  },
+  {
+   "name": "price raise amount",
+   "type": "percent price increase measurement",
+   "clause": "raised prices by as much as about ..."
+  },
+  {
+   "name": "possible price increase amount",
+   "type": "percent potential increase measurement",
+   "clause": "allowed that a ... increase was possible"
+  },
+  {
+   "name": "advertising price",
+   "type": "price level",
+   "clause": "prices raised"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "ADJUSTED",
+   "to": "search ad auction and reserve price settings",
+   "clause": "adjusted search ad auction and reserve prices"
+  },
+  {
+   "from": "search ad auction and reserve price settings",
+   "type": "PURPOSED_FOR",
+   "to": "quarterly revenue targets",
+   "clause": "to meet quarterly revenue targets"
+  },
+  {
+   "from": "search ad auction and reserve price settings",
+   "type": "NOT_DISCLOSED_TO",
+   "to": "advertisers",
+   "clause": "without disclosing the changes to advertisers"
+  },
+  {
+   "from": "VP of ads",
+   "type": "TESTIFIED_ABOUT",
+   "to": "price raise amount",
+   "clause": "testified the 'tunings' raised prices by ..."
+  },
+  {
+   "from": "auction tunings",
+   "type": "RAISED_PRICE_BY",
+   "to": "price raise amount",
+   "clause": "'tunings' raised prices by as much as about ..."
+  },
+  {
+   "from": "auction tunings",
+   "type": "ALLOWED_POSSIBLE_INCREASE",
+   "to": "possible price increase amount",
+   "clause": "allowed that a ... increase was possible"
+  },
+  {
+   "from": "price raise amount",
+   "type": "MEASURES",
+   "to": "advertising price",
+   "clause": "raised prices..."
+  },
+  {
+   "from": "possible price increase amount",
+   "type": "MEASURES",
+   "to": "advertising price",
+   "clause": "increase was possible for advertising price"
+  },
+  {
+   "from": "average price change from auction tunings",
+   "type": "MEASURED_FOR",
+   "to": "auction tunings",
+   "clause": "percent average price change from Google auction 'tunings'"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google adjusted search ad auction and reserve prices\nNODE|search ad auction and reserve price settings|auction pricing configuration|search ad auction and reserve prices\nNODE|quarterly revenue targets|revenue goal|to meet quarterly revenue targets\nNODE|advertisers|market participant|without disclosing the changes to advertisers\nNODE|VP of ads|corporate officer|its VP of ads testified\nNODE|auction tunings|price adjustment set|'tunings' raised prices and allowed increases\nNODE|average price change from auction tunings|percent average price change measurement|percent average price change from Google auction 'tunings'\nNODE|price raise amount|percent price increase measurement|raised prices by as much as about ...\nNODE|possible price increase amount|percent potential increase measurement|allowed that a ... increase was possible\nNODE|advertising price|price level|prices raised\nEDGE|Google|ADJUSTED|search ad auction and reserve price settings|adjusted search ad auction and reserve prices\nEDGE|search ad auction and reserve price settings|PURPOSED_FOR|quarterly revenue targets|to meet quarterly revenue targets\nEDGE|search ad auction and reserve price settings|NOT_DISCLOSED_TO|advertisers|without disclosing the changes to advertisers\nEDGE|VP of ads|TESTIFIED_ABOUT|price raise amount|testified the 'tunings' raised prices by ...\nEDGE|auction tunings|RAISED_PRICE_BY|price raise amount|'tunings' raised prices by as much as about ...\nEDGE|auction tunings|ALLOWED_POSSIBLE_INCREASE|possible price increase amount|allowed that a ... increase was possible\nEDGE|price raise amount|MEASURES|advertising price|raised prices...\nEDGE|possible price increase amount|MEASURES|advertising price|increase was possible for advertising price\nEDGE|average price change from auction tunings|MEASURED_FOR|auction tunings|percent average price change from Google auction 'tunings'"
+}

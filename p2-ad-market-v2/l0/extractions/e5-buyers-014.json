@@ -1,0 +1,251 @@
+{
+ "id": "e5-buyers-014",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions (2000 US ad spend)",
+ "elapsed_s": 177.5,
+ "error": null,
+ "n_nodes": 25,
+ "n_edges": 18,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "cross-era comparable rule",
+   "type": "rule",
+   "clause": "on the cross-era comparable rule where all directory money sits in same intent pool"
+  },
+  {
+   "name": "directory money",
+   "type": "monetary pool",
+   "clause": "all directory money"
+  },
+  {
+   "name": "intent pool",
+   "type": "allocation pool",
+   "clause": "same intent pool used by eras 6 and 7"
+  },
+  {
+   "name": "US local-retail advertisers",
+   "type": "advertiser group",
+   "clause": "US local-retail advertisers"
+  },
+  {
+   "name": "US local-retail advertisers' media spend",
+   "type": "spend measurement",
+   "clause": "measured media spend in ... was about ..."
+  },
+  {
+   "name": "advertising market",
+   "type": "market",
+   "clause": "the market"
+  },
+  {
+   "name": "US local-retail advertisers' market share",
+   "type": "share measurement",
+   "clause": "... percent of the market"
+  },
+  {
+   "name": "era-native pool",
+   "type": "allocation pool amount",
+   "clause": "the era-native pool ..."
+  },
+  {
+   "name": "local Yellow Pages block",
+   "type": "money block",
+   "clause": "local Yellow Pages block ..."
+  },
+  {
+   "name": "local Yellow Pages block amount",
+   "type": "spend measurement",
+   "clause": "amount of local Yellow Pages block"
+  },
+  {
+   "name": "money bought for a counted reply",
+   "type": "classification",
+   "clause": "books as money bought for a counted reply"
+  },
+  {
+   "name": "local money",
+   "type": "classification",
+   "clause": "rather than as local money"
+  },
+  {
+   "name": "era-native geographic rule",
+   "type": "rule",
+   "clause": "under the era-native geographic rule"
+  },
+  {
+   "name": "unified-intent rule",
+   "type": "rule",
+   "clause": "under this unified-intent rule"
+  },
+  {
+   "name": "local retail performance under era-native geographic rule",
+   "type": "performance measurement",
+   "clause": "local retail leads direct response ..."
+  },
+  {
+   "name": "direct response performance under era-native geographic rule",
+   "type": "performance measurement",
+   "clause": "direct response value ... under era-native geographic rule"
+  },
+  {
+   "name": "direct response performance under unified-intent rule",
+   "type": "performance measurement",
+   "clause": "direct response leads local retail ..."
+  },
+  {
+   "name": "local retail performance under unified-intent rule",
+   "type": "performance measurement",
+   "clause": "local retail value ... under unified-intent rule"
+  },
+  {
+   "name": "lead direction flip",
+   "type": "event",
+   "clause": "the flip is exact"
+  },
+  {
+   "name": "era-native geographic rule intervals",
+   "type": "interval set",
+   "clause": "interval under era-native geographic rule"
+  },
+  {
+   "name": "unified-intent rule intervals",
+   "type": "interval set",
+   "clause": "interval under unified-intent rule"
+  },
+  {
+   "name": "chart",
+   "type": "visual artifact",
+   "clause": "a chart must not sort these two bars"
+  },
+  {
+   "name": "performance bars",
+   "type": "visual element",
+   "clause": "these two bars"
+  },
+  {
+   "name": "1994-2001 evidence",
+   "type": "evidence set",
+   "clause": "no 1994-2001 evidence decides which rule is right"
+  },
+  {
+   "name": "carried status",
+   "type": "status",
+   "clause": "both rules are carried"
+  }
+ ],
+ "edges": [
+  {
+   "from": "cross-era comparable rule",
+   "type": "ALLOCATES",
+   "to": "directory money",
+   "clause": "where all directory money sits in same intent pool"
+  },
+  {
+   "from": "directory money",
+   "type": "SITS_IN",
+   "to": "intent pool",
+   "clause": "same intent pool used by eras 6 and 7"
+  },
+  {
+   "from": "US local-retail advertisers' media spend",
+   "type": "MEASURES",
+   "to": "US local-retail advertisers",
+   "clause": "media spend measured for US local-retail advertisers"
+  },
+  {
+   "from": "US local-retail advertisers' market share",
+   "type": "SHARE_OF",
+   "to": "advertising market",
+   "clause": "... percent of the market"
+  },
+  {
+   "from": "era-native pool",
+   "type": "MEASURES",
+   "to": "intent pool",
+   "clause": "era-native pool amount measures intent pool"
+  },
+  {
+   "from": "local Yellow Pages block amount",
+   "type": "MEASURES",
+   "to": "local Yellow Pages block",
+   "clause": "amount of the block"
+  },
+  {
+   "from": "cross-era comparable rule",
+   "type": "BOOKS_AS",
+   "to": "money bought for a counted reply",
+   "clause": "books as money bought for a counted reply"
+  },
+  {
+   "from": "cross-era comparable rule",
+   "type": "NOT_BOOKS_AS",
+   "to": "local money",
+   "clause": "rather than as local money"
+  },
+  {
+   "from": "local retail performance under era-native geographic rule",
+   "type": "LEADS_OVER",
+   "to": "direct response performance under era-native geographic rule",
+   "clause": "local retail leads direct response"
+  },
+  {
+   "from": "direct response performance under unified-intent rule",
+   "type": "LEADS_OVER",
+   "to": "local retail performance under unified-intent rule",
+   "clause": "direct response leads local retail"
+  },
+  {
+   "from": "local Yellow Pages block",
+   "type": "SOLE_CAUSE_OF",
+   "to": "lead direction flip",
+   "clause": "this one block is its sole cause"
+  },
+  {
+   "from": "era-native geographic rule intervals",
+   "type": "OVERLAPS_WITH",
+   "to": "unified-intent rule intervals",
+   "clause": "intervals still overlap"
+  },
+  {
+   "from": "era-native geographic rule intervals",
+   "type": "UNRANKED_BY_INTERVAL",
+   "to": "unified-intent rule intervals",
+   "clause": "pair stays unranked by interval"
+  },
+  {
+   "from": "chart",
+   "type": "EXCLUDES_SORTING",
+   "to": "performance bars",
+   "clause": "must not sort these two bars"
+  },
+  {
+   "from": "1994-2001 evidence",
+   "type": "NOT_DECIDES",
+   "to": "era-native geographic rule",
+   "clause": "no evidence decides which rule is right"
+  },
+  {
+   "from": "1994-2001 evidence",
+   "type": "NOT_DECIDES",
+   "to": "unified-intent rule",
+   "clause": "no evidence decides which rule is right"
+  },
+  {
+   "from": "era-native geographic rule",
+   "type": "HAS_STATUS",
+   "to": "carried status",
+   "clause": "both rules are carried"
+  },
+  {
+   "from": "unified-intent rule",
+   "type": "HAS_STATUS",
+   "to": "carried status",
+   "clause": "both rules are carried"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|cross-era comparable rule|rule|on the cross-era comparable rule where all directory money sits in same intent pool\nNODE|directory money|monetary pool|all directory money\nNODE|intent pool|allocation pool|same intent pool used by eras 6 and 7\nNODE|US local-retail advertisers|advertiser group|US local-retail advertisers\nNODE|US local-retail advertisers' media spend|spend measurement|measured media spend in ... was about ...\nNODE|advertising market|market|the market\nNODE|US local-retail advertisers' market share|share measurement|... percent of the market\nNODE|era-native pool|allocation pool amount|the era-native pool ...\nNODE|local Yellow Pages block|money block|local Yellow Pages block ...\nNODE|local Yellow Pages block amount|spend measurement|amount of local Yellow Pages block\nNODE|money bought for a counted reply|classification|books as money bought for a counted reply\nNODE|local money|classification|rather than as local money\nNODE|era-native geographic rule|rule|under the era-native geographic rule\n NODE|unified-intent rule|rule|under this unified-intent rule\nNODE|local retail performance under era-native geographic rule|performance measurement|local retail leads direct response ...\nNODE|direct response performance under era-native geographic rule|performance measurement|direct response value ... under era-native geographic rule\nNODE|direct response performance under unified-intent rule|performance measurement|direct response leads local retail ...\nNODE|local retail performance under unified-intent rule|performance measurement|local retail value ... under unified-intent rule\nNODE|lead direction flip|event|the flip is exact\nNODE|era-native geographic rule intervals|interval set|interval under era-native geographic rule\nNODE|unified-intent rule intervals|interval set|interval under unified-intent rule\nNODE|chart|visual artifact|a chart must not sort these two bars\nNODE|performance bars|visual element|these two bars\nNODE|1994-2001 evidence|evidence set|no 1994-2001 evidence decides which rule is right\nNODE|carried status|status|both rules are carried\nEDGE|cross-era comparable rule|ALLOCATES|directory money|where all directory money sits in same intent pool\nEDGE|directory money|SITS_IN|intent pool|same intent pool used by eras 6 and 7\nEDGE|US local-retail advertisers' media spend|MEASURES|US local-retail advertisers|media spend measured for US local-retail advertisers\nEDGE|US local-retail advertisers' market share|SHARE_OF|advertising market|... percent of the market\nEDGE|era-native pool|MEASURES|intent pool|era-native pool amount measures intent pool\nEDGE|local Yellow Pages block amount|MEASURES|local Yellow Pages block|amount of the block\nEDGE|cross-era comparable rule|BOOKS_AS|money bought for a counted reply|books as money bought for a counted reply\nEDGE|cross-era comparable rule|NOT_BOOKS_AS|local money|rather than as local money\nEDGE|local retail performance under era-native geographic rule|LEADS_OVER|direct response performance under era-native geographic rule|local retail leads direct response\nEDGE|direct response performance under unified-intent rule|LEADS_OVER|local retail performance under unified-intent rule|direct response leads local retail\nEDGE|local Yellow Pages block|SOLE_CAUSE_OF|lead direction flip|this one block is its sole cause\nEDGE|era-native geographic rule intervals|OVERLAPS_WITH|unified-intent rule intervals|intervals still overlap\nEDGE|era-native geographic rule intervals|UNRANKED_BY_INTERVAL|unified-intent rule intervals|pair stays unranked by interval\nEDGE|chart|EXCLUDES_SORTING|performance bars|must not sort these two bars\nEDGE|1994-2001 evidence|NOT_DECIDES|era-native geographic rule|no evidence decides which rule is right\nEDGE|1994-2001 evidence|NOT_DECIDES|unified-intent rule|no evidence decides which rule is right\nEDGE|era-native geographic rule|HAS_STATUS|carried status|both rules are carried\nEDGE|unified-intent rule|HAS_STATUS|carried status|both rules are carried"
+}

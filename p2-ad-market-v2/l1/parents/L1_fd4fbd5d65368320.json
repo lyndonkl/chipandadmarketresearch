@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|fd4fbd5d65368320",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "broadcaster-paid advertising category",
+   "type": "advertising category",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertising category entity",
+   "child_uids": [
+    "n|tu:era:3:event:7|broadcaster-paid advertising category|advertising category"
+   ]
+  },
+  {
+   "name": "Broadcasters",
+   "type": "media owners",
+   "grain": "Entity",
+   "reason": "singleton: media owner entity separate from ad categories",
+   "child_uids": [
+    "n|tu:era:3:field:BUYERS|broadcasters|media owners"
+   ]
+  },
+  {
+   "name": "US television advertising spend",
+   "type": "advertising market total",
+   "grain": "Entity",
+   "reason": "singleton: whole\u2011market TV advertising spend entity",
+   "child_uids": [
+    "n|tu:era:3:field:SELLERS|us television advertising spend|advertising market total"
+   ]
+  },
+  {
+   "name": "TV advertising budget",
+   "type": "budget",
+   "grain": "Entity",
+   "reason": "singleton: planned TV advertising budget entity",
+   "child_uids": [
+    "n|tu:era:6:event:9|tv advertising budget|budget"
+   ]
+  },
+  {
+   "name": "CTV advertising",
+   "type": "advertising format",
+   "grain": "Entity",
+   "reason": "singleton: specific CTV advertising format entity",
+   "child_uids": [
+    "n|tu:era:7:field:MEDIUM|ctv advertising|advertising format"
+   ]
+  },
+  {
+   "name": "brand television advertising",
+   "type": "advertising spend",
+   "grain": "Entity",
+   "reason": "singleton: brand TV advertising spend entity",
+   "child_uids": [
+    "n|tu:era:7:field:MEDIUM|brand television advertising|advertising spend"
+   ]
+  }
+ ]
+}

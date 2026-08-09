@@ -1,0 +1,89 @@
+{
+ "id": "e4-events-003",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1987,
+ "unit": "percent drop in measured prime-time audience",
+ "elapsed_s": 46.0,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "people-meter switchover",
+   "type": "event",
+   "clause": "the 1987 people-meter switchover"
+  },
+  {
+   "name": "measured network prime-time audience",
+   "type": "audience metric",
+   "clause": "measured network prime-time audience"
+  },
+  {
+   "name": "overall network prime-time audience percent drop",
+   "type": "percent-drop measurement",
+   "clause": "cut measured network prime-time audience by ... overnight"
+  },
+  {
+   "name": "CBS",
+   "type": "broadcast network",
+   "clause": "CBS"
+  },
+  {
+   "name": "ABC",
+   "type": "broadcast network",
+   "clause": "ABC"
+  },
+  {
+   "name": "CBS audience percent drop",
+   "type": "percent-drop measurement",
+   "clause": "CBS each down ..."
+  },
+  {
+   "name": "ABC audience percent drop",
+   "type": "percent-drop measurement",
+   "clause": "ABC each down ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "people-meter switchover",
+   "type": "CUT",
+   "to": "overall network prime-time audience percent drop",
+   "clause": "cut measured network prime-time audience by ... overnight"
+  },
+  {
+   "from": "overall network prime-time audience percent drop",
+   "type": "MEASURES",
+   "to": "measured network prime-time audience",
+   "clause": "cut measured network prime-time audience"
+  },
+  {
+   "from": "people-meter switchover",
+   "type": "CUT",
+   "to": "CBS audience percent drop",
+   "clause": "with CBS each down ..."
+  },
+  {
+   "from": "CBS audience percent drop",
+   "type": "MEASURES",
+   "to": "CBS",
+   "clause": "CBS each down ..."
+  },
+  {
+   "from": "people-meter switchover",
+   "type": "CUT",
+   "to": "ABC audience percent drop",
+   "clause": "and ABC each down ..."
+  },
+  {
+   "from": "ABC audience percent drop",
+   "type": "MEASURES",
+   "to": "ABC",
+   "clause": "ABC each down ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|people-meter switchover|event|the 1987 people-meter switchover\nNODE|measured network prime-time audience|audience metric|measured network prime-time audience\nNODE|overall network prime-time audience percent drop|percent-drop measurement|cut measured network prime-time audience by ... overnight\nNODE|CBS|broadcast network|CBS\nNODE|ABC|broadcast network|ABC\nNODE|CBS audience percent drop|percent-drop measurement|CBS each down ...\nNODE|ABC audience percent drop|percent-drop measurement|ABC each down ...\nEDGE|people-meter switchover|CUT|overall network prime-time audience percent drop|cut measured network prime-time audience by ... overnight\nEDGE|overall network prime-time audience percent drop|MEASURES|measured network prime-time audience|cut measured network prime-time audience\nEDGE|people-meter switchover|CUT|CBS audience percent drop|with CBS each down ...\nEDGE|CBS audience percent drop|MEASURES|CBS|CBS each down ...\nEDGE|people-meter switchover|CUT|ABC audience percent drop|and ABC each down ...\nEDGE|ABC audience percent drop|MEASURES|ABC|ABC each down ..."
+}

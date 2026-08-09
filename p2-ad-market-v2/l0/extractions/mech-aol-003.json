@@ -1,0 +1,128 @@
+{
+ "id": "mech-aol-003",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2001,
+ "unit": "USD millions, Google cash and short-term investments at 2001 year-end",
+ "elapsed_s": 71.5,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "cash and short-term investments amount",
+   "type": "cash holdings measurement",
+   "clause": "held ... of cash and short-term investments"
+  },
+  {
+   "name": "total assets amount",
+   "type": "asset measurement",
+   "clause": "held ... of total assets"
+  },
+  {
+   "name": "stockholders' equity amount",
+   "type": "equity measurement",
+   "clause": "held ... of stockholders' equity"
+  },
+  {
+   "name": "net revenue amount",
+   "type": "revenue measurement",
+   "clause": "on ... of full-year net revenues"
+  },
+  {
+   "name": "cash and short-term investments amount 2002",
+   "type": "cash holdings measurement",
+   "clause": "reached ... by ... year-end"
+  },
+  {
+   "name": "cash and short-term investments",
+   "type": "financial category",
+   "clause": "cash and short-term investments"
+  },
+  {
+   "name": "total assets",
+   "type": "financial category",
+   "clause": "total assets"
+  },
+  {
+   "name": "stockholders' equity",
+   "type": "financial category",
+   "clause": "stockholders' equity"
+  },
+  {
+   "name": "net revenues",
+   "type": "financial category",
+   "clause": "full-year net revenues"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "HELD",
+   "to": "cash and short-term investments amount",
+   "clause": "held ... of cash and short-term investments"
+  },
+  {
+   "from": "cash and short-term investments amount",
+   "type": "MEASURES",
+   "to": "cash and short-term investments",
+   "clause": "of cash and short-term investments"
+  },
+  {
+   "from": "Google",
+   "type": "HELD",
+   "to": "total assets amount",
+   "clause": "held ... of total assets"
+  },
+  {
+   "from": "total assets amount",
+   "type": "MEASURES",
+   "to": "total assets",
+   "clause": "of total assets"
+  },
+  {
+   "from": "Google",
+   "type": "HELD",
+   "to": "stockholders' equity amount",
+   "clause": "held ... of stockholders' equity"
+  },
+  {
+   "from": "stockholders' equity amount",
+   "type": "MEASURES",
+   "to": "stockholders' equity",
+   "clause": "of stockholders' equity"
+  },
+  {
+   "from": "Google",
+   "type": "REPORTED",
+   "to": "net revenue amount",
+   "clause": "on ... of full-year net revenues"
+  },
+  {
+   "from": "net revenue amount",
+   "type": "MEASURES",
+   "to": "net revenues",
+   "clause": "of full-year net revenues"
+  },
+  {
+   "from": "Google",
+   "type": "HELD",
+   "to": "cash and short-term investments amount 2002",
+   "clause": "reached ... by ... year-end"
+  },
+  {
+   "from": "cash and short-term investments amount 2002",
+   "type": "MEASURES",
+   "to": "cash and short-term investments",
+   "clause": "reached ... by ... year-end"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|cash and short-term investments amount|cash holdings measurement|held ... of cash and short-term investments\nNODE|total assets amount|asset measurement|held ... of total assets\nNODE|stockholders' equity amount|equity measurement|held ... of stockholders' equity\nNODE|net revenue amount|revenue measurement|on ... of full-year net revenues\nNODE|cash and short-term investments amount 2002|cash holdings measurement|reached ... by ... year-end\nNODE|cash and short-term investments|financial category|cash and short-term investments\nNODE|total assets|financial category|total assets\nNODE|stockholders' equity|financial category|stockholders' equity\nNODE|net revenues|financial category|full-year net revenues\nEDGE|Google|HELD|cash and short-term investments amount|held ... of cash and short-term investments\nEDGE|cash and short-term investments amount|MEASURES|cash and short-term investments|of cash and short-term investments\nEDGE|Google|HELD|total assets amount|held ... of total assets\nEDGE|total assets amount|MEASURES|total assets|of total assets\nEDGE|Google|HELD|stockholders' equity amount|held ... of stockholders' equity\nEDGE|stockholders' equity amount|MEASURES|stockholders' equity|of stockholders' equity\nEDGE|Google|REPORTED|net revenue amount|on ... of full-year net revenues\nEDGE|net revenue amount|MEASURES|net revenues|of full-year net revenues\nEDGE|Google|HELD|cash and short-term investments amount 2002|reached ... by ... year-end\nEDGE|cash and short-term investments amount 2002|MEASURES|cash and short-term investments|reached ... by ... year-end"
+}

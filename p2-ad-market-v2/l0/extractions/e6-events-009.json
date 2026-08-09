@@ -1,0 +1,62 @@
+{
+ "id": "e6-events-009",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions, Google-DoubleClick purchase price",
+ "elapsed_s": 42.7,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "agreed on ... to acquire DoubleClick"
+  },
+  {
+   "name": "DoubleClick",
+   "type": "company",
+   "clause": "to acquire DoubleClick"
+  },
+  {
+   "name": "Google acquisition of DoubleClick",
+   "type": "acquisition transaction",
+   "clause": "Google agreed ... to acquire DoubleClick"
+  },
+  {
+   "name": "Google-DoubleClick purchase price",
+   "type": "acquisition price measurement",
+   "clause": "for ... in cash"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "AGREED_TO_ACQUIRE",
+   "to": "DoubleClick",
+   "clause": "agreed on ... to acquire DoubleClick"
+  },
+  {
+   "from": "Google acquisition of DoubleClick",
+   "type": "BUYER",
+   "to": "Google",
+   "clause": "acquisition involves buyer"
+  },
+  {
+   "from": "Google acquisition of DoubleClick",
+   "type": "SELLER",
+   "to": "DoubleClick",
+   "clause": "acquisition involves seller"
+  },
+  {
+   "from": "Google-DoubleClick purchase price",
+   "type": "MEASURES",
+   "to": "Google acquisition of DoubleClick",
+   "clause": "for ... in cash"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|agreed on ... to acquire DoubleClick\nNODE|DoubleClick|company|to acquire DoubleClick\nNODE|Google acquisition of DoubleClick|acquisition transaction|Google agreed ... to acquire DoubleClick\nNODE|Google-DoubleClick purchase price|acquisition price measurement|for ... in cash\nEDGE|Google|AGREED_TO_ACQUIRE|DoubleClick|agreed on ... to acquire DoubleClick\nEDGE|Google acquisition of DoubleClick|BUYER|Google|acquisition involves buyer\nEDGE|Google acquisition of DoubleClick|SELLER|DoubleClick|acquisition involves seller\nEDGE|Google-DoubleClick purchase price|MEASURES|Google acquisition of DoubleClick|for ... in cash"
+}

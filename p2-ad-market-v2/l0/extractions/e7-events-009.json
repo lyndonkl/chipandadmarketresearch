@@ -1,0 +1,56 @@
+{
+ "id": "e7-events-009",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2021,
+ "unit": "USD billions of Google default revenue share, 2021",
+ "elapsed_s": 42.9,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "court",
+   "type": "judicial body",
+   "clause": "the court"
+  },
+  {
+   "name": "search default revenue share amount",
+   "type": "revenue measurement",
+   "clause": "search default revenue share amount"
+  },
+  {
+   "name": "competition",
+   "type": "market condition",
+   "clause": "competition"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "PAID",
+   "to": "search default revenue share amount",
+   "clause": "paid ... in search default revenue share"
+  },
+  {
+   "from": "court",
+   "type": "FOUND",
+   "to": "search default revenue share amount",
+   "clause": "court found ... foreclosed competition"
+  },
+  {
+   "from": "search default revenue share amount",
+   "type": "FORECLOSED",
+   "to": "competition",
+   "clause": "had foreclosed competition"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|court|judicial body|the court\nNODE|search default revenue share amount|revenue measurement|search default revenue share amount\nNODE|competition|market condition|competition\nEDGE|Google|PAID|search default revenue share amount|paid ... in search default revenue share\nEDGE|court|FOUND|search default revenue share amount|court found ... foreclosed competition\nEDGE|search default revenue share amount|FORECLOSED|competition|had foreclosed competition"
+}

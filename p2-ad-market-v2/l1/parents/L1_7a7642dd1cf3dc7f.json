@@ -1,0 +1,89 @@
+{
+ "group_id": "L1|7a7642dd1cf3dc7f",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Daypart count",
+   "type": "Daypart count",
+   "grain": "Entity",
+   "reason": "same concept of counting dayparts, numbers abstracted",
+   "child_uids": [
+    "n|tu:era:2:field:TARGETING|eight dayparts|daypart count",
+    "n|tu:era:2:field:TARGETING|four dayparts|daypart count"
+   ]
+  },
+  {
+   "name": "Pricing activity",
+   "type": "Pricing activity",
+   "grain": "Entity",
+   "reason": "singleton: single node about pricing actions",
+   "child_uids": [
+    "n|tu:era:2:field:TARGETING|pricing|pricing activity"
+   ]
+  },
+  {
+   "name": "Daypart pricing unit",
+   "type": "Daypart pricing unit",
+   "grain": "Entity",
+   "reason": "singleton: granularity of pricing expressed as dayparts",
+   "child_uids": [
+    "n|tu:era:2:field:TARGETING|daypart pricing unit|pricing granularity"
+   ]
+  },
+  {
+   "name": "Editorial-context targeting split",
+   "type": "Editorial-context targeting split",
+   "grain": "Entity",
+   "reason": "singleton: specific segmentation concept in editorial context",
+   "child_uids": [
+    "n|e2-targeting-001|editorial-context targeting split|targeting segmentation"
+   ]
+  },
+  {
+   "name": "Broadcast targeting precision",
+   "type": "Broadcast targeting precision",
+   "grain": "Entity",
+   "reason": "singleton: metric measuring broadcast targeting accuracy",
+   "child_uids": [
+    "n|e3-targeting-003|broadcast targeting precision|targeting metric"
+   ]
+  },
+  {
+   "name": "Coarse precision",
+   "type": "Coarse precision",
+   "grain": "Entity",
+   "reason": "singleton: descriptor of low precision level",
+   "child_uids": [
+    "n|tu:era:3:field:TARGETING|coarse precision|precision level"
+   ]
+  },
+  {
+   "name": "Broadcast targeting",
+   "type": "Broadcast targeting",
+   "grain": "Entity",
+   "reason": "singleton: practice of targeting in broadcast media",
+   "child_uids": [
+    "n|tu:era:3:field:TARGETING|broadcast targeting|targeting practice"
+   ]
+  },
+  {
+   "name": "Day-parting",
+   "type": "Day-parting",
+   "grain": "Entity",
+   "reason": "singleton: targeting option dividing day into parts",
+   "child_uids": [
+    "n|tu:era:6:field:TARGETING|day-parting|targeting option"
+   ]
+  },
+  {
+   "name": "Listening day",
+   "type": "Listening day",
+   "grain": "Entity",
+   "reason": "singleton: defined time period for audience listening",
+   "child_uids": [
+    "n|tu:era:2:field:TARGETING|listening day|time period"
+   ]
+  }
+ ]
+}

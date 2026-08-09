@@ -1,0 +1,56 @@
+{
+ "id": "e4-creators-002",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1992,
+ "unit": "million USD (current)",
+ "elapsed_s": 66.1,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising-agency billings",
+   "type": "billing aggregate",
+   "clause": "Total US advertising-agency billings"
+  },
+  {
+   "name": "later US advertising-agency billing amount",
+   "type": "billing amount measurement",
+   "clause": "... were ... in 1992"
+  },
+  {
+   "name": "earlier US advertising-agency billing amount",
+   "type": "billing amount measurement",
+   "clause": "up from ... in 1977"
+  },
+  {
+   "name": "advertising agency billing growth factor",
+   "type": "ratio measurement",
+   "clause": "4.5x nominal"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising-agency billings",
+   "type": "HAS_MEASUREMENT",
+   "to": "later US advertising-agency billing amount",
+   "clause": "... were ... in 1992"
+  },
+  {
+   "from": "US advertising-agency billings",
+   "type": "HAS_MEASUREMENT",
+   "to": "earlier US advertising-agency billing amount",
+   "clause": "up from ... in 1977"
+  },
+  {
+   "from": "later US advertising-agency billing amount",
+   "type": "UP_FROM",
+   "to": "earlier US advertising-agency billing amount",
+   "clause": "up from ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising-agency billings|billing aggregate|Total US advertising-agency billings\nNODE|later US advertising-agency billing amount|billing amount measurement|... were ... in 1992\nNODE|earlier US advertising-agency billing amount|billing amount measurement|up from ... in 1977\nNODE|advertising agency billing growth factor|ratio measurement|4.5x nominal\nEDGE|US advertising-agency billings|HAS_MEASUREMENT|later US advertising-agency billing amount|... were ... in 1992\nEDGE|US advertising-agency billings|HAS_MEASUREMENT|earlier US advertising-agency billing amount|up from ... in 1977\nEDGE|later US advertising-agency billing amount|UP_FROM|earlier US advertising-agency billing amount|up from ...\n\n"
+}

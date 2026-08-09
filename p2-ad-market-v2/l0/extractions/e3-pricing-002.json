@@ -1,0 +1,67 @@
+{
+ "id": "e3-pricing-002",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent cash discount on net media cost",
+ "elapsed_s": 60.0,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "advertising agencies",
+   "type": "actor class",
+   "clause": "agencies took ... cash discount"
+  },
+  {
+   "name": "agency commission rate",
+   "type": "take-rate measurement",
+   "clause": "on top of the ..."
+  },
+  {
+   "name": "cash discount on net media cost",
+   "type": "cash discount measurement",
+   "clause": "... cash discount on the net"
+  },
+  {
+   "name": "net media cost",
+   "type": "media cost",
+   "clause": "net for paying media"
+  },
+  {
+   "name": "take-rate comparisons",
+   "type": "comparison practice",
+   "clause": "take-rate comparisons"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising agencies",
+   "type": "RECEIVED",
+   "to": "cash discount on net media cost",
+   "clause": "agencies took ... cash discount"
+  },
+  {
+   "from": "cash discount on net media cost",
+   "type": "SHARE_OF",
+   "to": "net media cost",
+   "clause": "... cash discount on the net"
+  },
+  {
+   "from": "cash discount on net media cost",
+   "type": "ON_TOP_OF",
+   "to": "agency commission rate",
+   "clause": "on top of ..."
+  },
+  {
+   "from": "cash discount on net media cost",
+   "type": "OMITTED_FROM",
+   "to": "take-rate comparisons",
+   "clause": "... omitted from take-rate comparisons"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|advertising agencies|actor class|agencies took ... cash discount\nNODE|agency commission rate|take-rate measurement|on top of the ...\nNODE|cash discount on net media cost|cash discount measurement|... cash discount on the net\nNODE|net media cost|media cost|net for paying media\nNODE|take-rate comparisons|comparison practice|take-rate comparisons\nEDGE|advertising agencies|RECEIVED|cash discount on net media cost|agencies took ... cash discount\nEDGE|cash discount on net media cost|SHARE_OF|net media cost|... cash discount on the net\nEDGE|cash discount on net media cost|ON_TOP_OF|agency commission rate|on top of ...\nEDGE|cash discount on net media cost|OMITTED_FROM|take-rate comparisons|... omitted from take-rate comparisons"
+}

@@ -1,0 +1,128 @@
+{
+ "id": "e7-measurement-004",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of search visits with an AI summary that produced a result click",
+ "elapsed_s": 59.5,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Pew Research Center",
+   "type": "research organization",
+   "clause": "Pew Research Center found that ..."
+  },
+  {
+   "name": "Google user",
+   "type": "actor class",
+   "clause": "Google users clicked a search result"
+  },
+  {
+   "name": "AI summary",
+   "type": "content feature",
+   "clause": "where an AI summary appeared"
+  },
+  {
+   "name": "search result click",
+   "type": "ad interaction",
+   "clause": "clicked a search result"
+  },
+  {
+   "name": "source citation click",
+   "type": "ad interaction",
+   "clause": "clicked a source cited inside the summary"
+  },
+  {
+   "name": "visits with AI summary",
+   "type": "visit set",
+   "clause": "... visits where an AI summary appeared"
+  },
+  {
+   "name": "visits without AI summary",
+   "type": "visit set",
+   "clause": "... visits without one"
+  },
+  {
+   "name": "search result click rate with AI summary",
+   "type": "take-rate measurement",
+   "clause": "... of visits where an AI summary appeared"
+  },
+  {
+   "name": "search result click rate without AI summary",
+   "type": "take-rate measurement",
+   "clause": "... of visits without one"
+  },
+  {
+   "name": "source citation click rate with AI summary",
+   "type": "take-rate measurement",
+   "clause": "... of visits"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Pew Research Center",
+   "type": "FOUND",
+   "to": "search result click rate with AI summary",
+   "clause": "found that ..."
+  },
+  {
+   "from": "Pew Research Center",
+   "type": "FOUND",
+   "to": "search result click rate without AI summary",
+   "clause": "found that ..."
+  },
+  {
+   "from": "Pew Research Center",
+   "type": "FOUND",
+   "to": "source citation click rate with AI summary",
+   "clause": "found that ..."
+  },
+  {
+   "from": "search result click rate with AI summary",
+   "type": "SHARE_OF",
+   "to": "visits with AI summary",
+   "clause": "... of visits where an AI summary appeared"
+  },
+  {
+   "from": "search result click rate with AI summary",
+   "type": "MEASURES",
+   "to": "search result click",
+   "clause": "clicked a search result"
+  },
+  {
+   "from": "search result click rate without AI summary",
+   "type": "SHARE_OF",
+   "to": "visits without AI summary",
+   "clause": "... of visits without one"
+  },
+  {
+   "from": "search result click rate without AI summary",
+   "type": "MEASURES",
+   "to": "search result click",
+   "clause": "clicked a search result"
+  },
+  {
+   "from": "source citation click rate with AI summary",
+   "type": "SHARE_OF",
+   "to": "visits with AI summary",
+   "clause": "... of visits"
+  },
+  {
+   "from": "source citation click rate with AI summary",
+   "type": "MEASURES",
+   "to": "source citation click",
+   "clause": "clicked a source cited inside the summary"
+  },
+  {
+   "from": "search result click rate with AI summary",
+   "type": "CONTRASTS_WITH",
+   "to": "search result click rate without AI summary",
+   "clause": "against ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Pew Research Center|research organization|Pew Research Center found that ...\nNODE|Google user|actor class|Google users clicked a search result\nNODE|AI summary|content feature|where an AI summary appeared\n NODE|search result click|ad interaction|clicked a search result\nNODE|source citation click|ad interaction|clicked a source cited inside the summary\nNODE|visits with AI summary|visit set|... visits where an AI summary appeared\nNODE|visits without AI summary|visit set|... visits without one\nNODE|search result click rate with AI summary|take-rate measurement|... of visits where an AI summary appeared\nNODE|search result click rate without AI summary|take-rate measurement|... of visits without one\nNODE|source citation click rate with AI summary|take-rate measurement|... of visits\nEDGE|Pew Research Center|FOUND|search result click rate with AI summary|found that ...\nEDGE|Pew Research Center|FOUND|search result click rate without AI summary|found that ...\nEDGE|Pew Research Center|FOUND|source citation click rate with AI summary|found that ...\nEDGE|search result click rate with AI summary|SHARE_OF|visits with AI summary|... of visits where an AI summary appeared\nEDGE|search result click rate with AI summary|MEASURES|search result click|clicked a search result\nEDGE|search result click rate without AI summary|SHARE_OF|visits without AI summary|... of visits without one\nEDGE|search result click rate without AI summary|MEASURES|search result click|clicked a search result\nEDGE|source citation click rate with AI summary|SHARE_OF|visits with AI summary|... of visits\nEDGE|source citation click rate with AI summary|MEASURES|source citation click|clicked a source cited inside the summary\nEDGE|search result click rate with AI summary|CONTRASTS_WITH|search result click rate without AI summary|against ..."
+}

@@ -1,0 +1,53 @@
+{
+ "group_id": "L1|6e912c604c1f1701",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Montgomery Ward catalogue",
+   "type": "catalogue",
+   "grain": "Entity",
+   "reason": "same entity across type labels and years",
+   "child_uids": [
+    "n|e1-events-002|montgomery ward first mail-order catalogue|catalogue",
+    "n|e1-medium-004|montgomery ward catalogue|product"
+   ]
+  },
+  {
+   "name": "Mail-order houses",
+   "type": "buyer category",
+   "grain": "Entity",
+   "reason": "singleton: distinct buyer category entity",
+   "child_uids": [
+    "n|e1-scale-014|mail-order houses|buyer category"
+   ]
+  },
+  {
+   "name": "Orders filled",
+   "type": "transaction count",
+   "grain": "Entity",
+   "reason": "singleton: unique transaction count entity",
+   "child_uids": [
+    "n|e1-targeting-003|orders filled|transaction count"
+   ]
+  },
+  {
+   "name": "John Wanamaker",
+   "type": "person",
+   "grain": "Entity",
+   "reason": "singleton: individual person entity",
+   "child_uids": [
+    "n|e2-measurement-009|john wanamaker|person"
+   ]
+  },
+  {
+   "name": "Orders received",
+   "type": "order volume",
+   "grain": "Entity",
+   "reason": "singleton: distinct order volume entity",
+   "child_uids": [
+    "n|tu:era:1:event:2|orders received|order volume"
+   ]
+  }
+ ]
+}

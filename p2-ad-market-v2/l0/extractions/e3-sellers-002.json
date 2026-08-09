@@ -1,0 +1,89 @@
+{
+ "id": "e3-sellers-002",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1954,
+ "unit": "maximum television stations per owner",
+ "elapsed_s": 64.8,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "FCC",
+   "type": "regulatory agency",
+   "clause": "the FCC capped any single owner"
+  },
+  {
+   "name": "television stations",
+   "type": "broadcast medium",
+   "clause": "capped ... television stations"
+  },
+  {
+   "name": "VHF stations",
+   "type": "broadcast band",
+   "clause": "no more than ... could be VHF"
+  },
+  {
+   "name": "maximum television stations per owner",
+   "type": "ownership cap measurement",
+   "clause": "maximum television stations per owner"
+  },
+  {
+   "name": "maximum VHF stations per owner",
+   "type": "VHF ownership cap measurement",
+   "clause": "maximum VHF stations per owner"
+  },
+  {
+   "name": "television networks",
+   "type": "media network",
+   "clause": "the networks needed affiliates"
+  },
+  {
+   "name": "network affiliates",
+   "type": "affiliate station",
+   "clause": "affiliates had bargaining power"
+  }
+ ],
+ "edges": [
+  {
+   "from": "FCC",
+   "type": "CAPS",
+   "to": "maximum television stations per owner",
+   "clause": "capped any single owner at ... television stations"
+  },
+  {
+   "from": "maximum television stations per owner",
+   "type": "MEASURES",
+   "to": "television stations",
+   "clause": "capped ... television stations"
+  },
+  {
+   "from": "FCC",
+   "type": "CAPS",
+   "to": "maximum VHF stations per owner",
+   "clause": "no more than ... could be VHF"
+  },
+  {
+   "from": "maximum VHF stations per owner",
+   "type": "MEASURES",
+   "to": "VHF stations",
+   "clause": "no more than ... could be VHF"
+  },
+  {
+   "from": "maximum television stations per owner",
+   "type": "CAUSES_NEED",
+   "to": "network affiliates",
+   "clause": "why the networks needed affiliates"
+  },
+  {
+   "from": "maximum television stations per owner",
+   "type": "GRANTS_BARGAINING_POWER",
+   "to": "network affiliates",
+   "clause": "why affiliates had bargaining power"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|FCC|regulatory agency|the FCC capped any single owner\nNODE|television stations|broadcast medium|capped ... television stations\nNODE|VHF stations|broadcast band|no more than ... could be VHF\nNODE|maximum television stations per owner|ownership cap measurement|maximum television stations per owner\nNODE|maximum VHF stations per owner|VHF ownership cap measurement|maximum VHF stations per owner\nNODE|television networks|media network|the networks needed affiliates\nNODE|network affiliates|affiliate station|affiliates had bargaining power\nEDGE|FCC|CAPS|maximum television stations per owner|capped any single owner at ... television stations\nEDGE|maximum television stations per owner|MEASURES|television stations|capped ... television stations\nEDGE|FCC|CAPS|maximum VHF stations per owner|no more than ... could be VHF\nEDGE|maximum VHF stations per owner|MEASURES|VHF stations|no more than ... could be VHF\nEDGE|maximum television stations per owner|CAUSES_NEED|network affiliates|why the networks needed affiliates\nEDGE|maximum television stations per owner|GRANTS_BARGAINING_POWER|network affiliates|why affiliates had bargaining power"
+}

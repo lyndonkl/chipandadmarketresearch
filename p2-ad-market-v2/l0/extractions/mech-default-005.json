@@ -1,0 +1,106 @@
+{
+ "id": "mech-default-005",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2022,
+ "unit": "USD millions, Google Search & other revenue FY2022",
+ "elapsed_s": 67.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Alphabet",
+   "type": "company",
+   "clause": "Alphabet"
+  },
+  {
+   "name": "Google Search and other revenue",
+   "type": "revenue stream",
+   "clause": "Google Search & other revenue"
+  },
+  {
+   "name": "Google Search and other revenue amount",
+   "type": "revenue measurement",
+   "clause": "Google Search & other revenue was ..."
+  },
+  {
+   "name": "Google advertising revenue",
+   "type": "revenue stream",
+   "clause": "Google advertising revenue"
+  },
+  {
+   "name": "Google advertising revenue amount",
+   "type": "revenue measurement",
+   "clause": "Google advertising revenue ..."
+  },
+  {
+   "name": "TAC",
+   "type": "financial metric",
+   "clause": "TAC"
+  },
+  {
+   "name": "TAC amount",
+   "type": "monetary measurement",
+   "clause": "TAC ..."
+  },
+  {
+   "name": "TAC rate",
+   "type": "rate measurement",
+   "clause": "a ... rate in both years"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Alphabet",
+   "type": "HAS_REFERENCE_QUANTITY",
+   "to": "Google Search and other revenue amount",
+   "clause": "Alphabet's reference quantities for the coda"
+  },
+  {
+   "from": "Alphabet",
+   "type": "HAS_REFERENCE_QUANTITY",
+   "to": "Google advertising revenue amount",
+   "clause": "Alphabet's reference quantities for the coda"
+  },
+  {
+   "from": "Alphabet",
+   "type": "HAS_REFERENCE_QUANTITY",
+   "to": "TAC amount",
+   "clause": "Alphabet's reference quantities for the coda"
+  },
+  {
+   "from": "Alphabet",
+   "type": "HAS_REFERENCE_QUANTITY",
+   "to": "TAC rate",
+   "clause": "Alphabet's reference quantities for the coda"
+  },
+  {
+   "from": "Google Search and other revenue amount",
+   "type": "MEASURES",
+   "to": "Google Search and other revenue",
+   "clause": "Google Search & other revenue was ..."
+  },
+  {
+   "from": "Google advertising revenue amount",
+   "type": "MEASURES",
+   "to": "Google advertising revenue",
+   "clause": "Google advertising revenue ..."
+  },
+  {
+   "from": "TAC amount",
+   "type": "MEASURES",
+   "to": "TAC",
+   "clause": "TAC ..."
+  },
+  {
+   "from": "TAC rate",
+   "type": "RATE_OF",
+   "to": "TAC",
+   "clause": "a ... rate in both years"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Alphabet|company|Alphabet\nNODE|Google Search and other revenue|revenue stream|Google Search & other revenue\nNODE|Google Search and other revenue amount|revenue measurement|Google Search & other revenue was ...\nNODE|Google advertising revenue|revenue stream|Google advertising revenue\nNODE|Google advertising revenue amount|revenue measurement|Google advertising revenue ...\nNODE|TAC|financial metric|TAC\nNODE|TAC amount|monetary measurement|TAC ...\nNODE|TAC rate|rate measurement|a ... rate in both years\nEDGE|Alphabet|HAS_REFERENCE_QUANTITY|Google Search and other revenue amount|Alphabet's reference quantities for the coda\nEDGE|Alphabet|HAS_REFERENCE_QUANTITY|Google advertising revenue amount|Alphabet's reference quantities for the coda\nEDGE|Alphabet|HAS_REFERENCE_QUANTITY|TAC amount|Alphabet's reference quantities for the coda\nEDGE|Alphabet|HAS_REFERENCE_QUANTITY|TAC rate|Alphabet's reference quantities for the coda\nEDGE|Google Search and other revenue amount|MEASURES|Google Search and other revenue|Google Search & other revenue was ...\nEDGE|Google advertising revenue amount|MEASURES|Google advertising revenue|Google advertising revenue ...\nEDGE|TAC amount|MEASURES|TAC|TAC ...\nEDGE|TAC rate|RATE_OF|TAC|a ... rate in both years"
+}

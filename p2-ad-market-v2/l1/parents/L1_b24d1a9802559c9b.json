@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|b24d1a9802559c9b",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "broadcast pricing practice",
+   "type": "pricing model",
+   "grain": "Entity",
+   "reason": "singleton: distinct broadcast pricing practice",
+   "child_uids": [
+    "n|tu:era:2:field:PRICING|broadcast pricing practice|pricing model"
+   ]
+  },
+  {
+   "name": "straight transmitter-time rental",
+   "type": "pricing practice",
+   "grain": "Entity",
+   "reason": "singleton: specific transmitter\u2011time rental practice",
+   "child_uids": [
+    "n|tu:era:2:field:PRICING|straight transmitter-time rental|pricing practice"
+   ]
+  },
+  {
+   "name": "basic thirteen-station network",
+   "type": "broadcast network",
+   "grain": "Entity",
+   "reason": "singleton: particular early broadcast network configuration",
+   "child_uids": [
+    "n|tu:era:2:field:PRICING|basic thirteen-station network|broadcast network"
+   ]
+  },
+  {
+   "name": "time",
+   "type": "broadcast slot",
+   "grain": "Entity",
+   "reason": "singleton: generic broadcast time slot entity",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|time|broadcast slot"
+   ]
+  },
+  {
+   "name": "facilities charge",
+   "type": "pricing component",
+   "grain": "Entity",
+   "reason": "singleton: facilities\u2011charge pricing component",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|facilities charge|pricing component"
+   ]
+  },
+  {
+   "name": "audience-based pricing",
+   "type": "pricing method",
+   "grain": "Entity",
+   "reason": "singleton: audience\u2011based pricing method",
+   "child_uids": [
+    "n|tu:era:3:field:TARGETING|audience-based pricing|pricing method"
+   ]
+  }
+ ]
+}

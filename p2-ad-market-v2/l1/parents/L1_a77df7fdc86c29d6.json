@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|a77df7fdc86c29d6",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Contemporaneous channel enumeration",
+   "type": "channel enumeration dataset",
+   "grain": "Entity",
+   "reason": "singleton: distinct dataset entity, no other similar items",
+   "child_uids": [
+    "n|e1-scale-017|contemporaneous channel enumeration|channel enumeration dataset"
+   ]
+  },
+  {
+   "name": "Rural household",
+   "type": "household",
+   "grain": "Entity",
+   "reason": "singleton: unique demographic entity, not grouped with others",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|rural household|household"
+   ]
+  },
+  {
+   "name": "Rural comedies",
+   "type": "television programme genre",
+   "grain": "Entity",
+   "reason": "singleton: specific TV genre, unrelated to other entities",
+   "child_uids": [
+    "n|tu:era:3:field:TARGETING|rural comedies|television programme genre"
+   ]
+  },
+  {
+   "name": "Channel household",
+   "type": "media channel for household type",
+   "grain": "Entity",
+   "reason": "singleton: channel\u2011household pairing entity, stands alone",
+   "child_uids": [
+    "n|tu:era:4:field:TARGETING|channel household|media channel for household type"
+   ]
+  }
+ ]
+}

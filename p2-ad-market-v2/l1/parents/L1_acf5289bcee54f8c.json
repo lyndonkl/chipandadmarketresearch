@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|acf5289bcee54f8c",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "publisher total revenue",
+   "type": "revenue measure",
+   "grain": "Entity",
+   "reason": "singleton: specific metric about publishers, no other node shares it",
+   "child_uids": [
+    "n|mech-first_price-001|publisher total revenue|revenue measure"
+   ]
+  },
+  {
+   "name": "Google disclosure 2020",
+   "type": "document",
+   "grain": "Entity",
+   "reason": "singleton: a single Google document, unique in this set",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|google disclosure 2020|document"
+   ]
+  },
+  {
+   "name": "publisher study B",
+   "type": "research study",
+   "grain": "Entity",
+   "reason": "singleton: distinct research study, not same as other survey",
+   "child_uids": [
+    "n|tu:era:7:field:TARGETING|publisher study b|research study"
+   ]
+  },
+  {
+   "name": "2019 publisher survey",
+   "type": "survey research",
+   "grain": "Entity",
+   "reason": "singleton: individual survey, separate from other study",
+   "child_uids": [
+    "n|tu:era:7:field:TARGETING|2019 publisher survey|survey research"
+   ]
+  }
+ ]
+}

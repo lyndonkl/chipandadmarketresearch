@@ -1,0 +1,56 @@
+{
+ "id": "e4-scale-004",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1991,
+ "unit": "percent change year on year",
+ "elapsed_s": 45.0,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US measured advertising spend (nominal)",
+   "type": "advertising spend",
+   "clause": "US measured advertising spend fell ... in nominal terms"
+  },
+  {
+   "name": "US advertising spend YoY percent change",
+   "type": "percent change measurement",
+   "clause": "fell ... year on year"
+  },
+  {
+   "name": "US measured advertising spend nominal series",
+   "type": "time series",
+   "clause": "in the series since ..."
+  },
+  {
+   "name": "Segmentation era",
+   "type": "era",
+   "clause": "only one in this era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising spend YoY percent change",
+   "type": "MEASURES",
+   "to": "US measured advertising spend (nominal)",
+   "clause": "fell ... year on year"
+  },
+  {
+   "from": "US advertising spend YoY percent change",
+   "type": "FIRST_DECLINE_SINCE",
+   "to": "US measured advertising spend nominal series",
+   "clause": "first nominal decline in the series since ..."
+  },
+  {
+   "from": "US advertising spend YoY percent change",
+   "type": "ONLY_ONE_IN",
+   "to": "Segmentation era",
+   "clause": "only one in this era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US measured advertising spend (nominal)|advertising spend|US measured advertising spend fell ... in nominal terms\nNODE|US advertising spend YoY percent change|percent change measurement|fell ... year on year\nNODE|US measured advertising spend nominal series|time series|in the series since ...\nNODE|Segmentation era|era|only one in this era\nEDGE|US advertising spend YoY percent change|MEASURES|US measured advertising spend (nominal)|fell ... year on year\nEDGE|US advertising spend YoY percent change|FIRST_DECLINE_SINCE|US measured advertising spend nominal series|first nominal decline in the series since ...\nEDGE|US advertising spend YoY percent change|ONLY_ONE_IN|Segmentation era|only one in this era"
+}

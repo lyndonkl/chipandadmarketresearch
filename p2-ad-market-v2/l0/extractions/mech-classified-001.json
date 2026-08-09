@@ -1,0 +1,45 @@
+{
+ "id": "mech-classified-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2008,
+ "unit": "USD millions, US newspaper classified advertising 2008",
+ "elapsed_s": 29.5,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspaper classified advertising",
+   "type": "advertising segment",
+   "clause": "US newspaper classified advertising"
+  },
+  {
+   "name": "search auction",
+   "type": "auction mechanism",
+   "clause": "the search auction competed for"
+  },
+  {
+   "name": "US newspaper classified advertising value",
+   "type": "spend measurement",
+   "clause": "was ... million"
+  }
+ ],
+ "edges": [
+  {
+   "from": "search auction",
+   "type": "COMPETED_FOR",
+   "to": "US newspaper classified advertising",
+   "clause": "the search auction competed for"
+  },
+  {
+   "from": "US newspaper classified advertising value",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising",
+   "clause": "was ... million"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspaper classified advertising|advertising segment|US newspaper classified advertising\nNODE|search auction|auction mechanism|the search auction competed for\nNODE|US newspaper classified advertising value|spend measurement|was ... million\nEDGE|search auction|COMPETED_FOR|US newspaper classified advertising|the search auction competed for\nEDGE|US newspaper classified advertising value|MEASURES|US newspaper classified advertising|was ... million"
+}

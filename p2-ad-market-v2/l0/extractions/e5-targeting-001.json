@@ -1,0 +1,72 @@
+{
+ "id": "e5-targeting-001",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1999,
+ "unit": "percent of US households",
+ "elapsed_s": 56.2,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US households",
+   "type": "demographic group",
+   "clause": "US households"
+  },
+  {
+   "name": "share of US households covered by Abacus cooperative purchase database",
+   "type": "coverage measurement",
+   "clause": "Share of US households covered by the Abacus cooperative purchase database"
+  },
+  {
+   "name": "Abacus cooperative purchase database",
+   "type": "data asset",
+   "clause": "the Abacus cooperative purchase database"
+  },
+  {
+   "name": "DoubleClick",
+   "type": "advertising technology company",
+   "clause": "DoubleClick acquired the database"
+  },
+  {
+   "name": "anonymous cookie profiles",
+   "type": "audience segment",
+   "clause": "anonymous cookie profiles"
+  },
+  {
+   "name": "named-person targeting",
+   "type": "targeting method",
+   "clause": "named-person targeting"
+  }
+ ],
+ "edges": [
+  {
+   "from": "share of US households covered by Abacus cooperative purchase database",
+   "type": "SHARE_OF",
+   "to": "US households",
+   "clause": "share of US households"
+  },
+  {
+   "from": "share of US households covered by Abacus cooperative purchase database",
+   "type": "MEASURES",
+   "to": "Abacus cooperative purchase database",
+   "clause": "covers US households"
+  },
+  {
+   "from": "DoubleClick",
+   "type": "ACQUIRED",
+   "to": "Abacus cooperative purchase database",
+   "clause": "acquired the database"
+  },
+  {
+   "from": "Abacus cooperative purchase database",
+   "type": "WOULD_CONVERT_INTO",
+   "to": "named-person targeting",
+   "clause": "would convert anonymous profiles into named targeting"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US households|demographic group|US households\nNODE|share of US households covered by Abacus cooperative purchase database|coverage measurement|Share of US households covered by the Abacus cooperative purchase database\nNODE|Abacus cooperative purchase database|data asset|the Abacus cooperative purchase database\nNODE|DoubleClick|advertising technology company|DoubleClick acquired the database\nNODE|anonymous cookie profiles|audience segment|anonymous cookie profiles\nNODE|named-person targeting|targeting method|named-person targeting\nEDGE|share of US households covered by Abacus cooperative purchase database|SHARE_OF|US households|share of US households\nEDGE|share of US households covered by Abacus cooperative purchase database|MEASURES|Abacus cooperative purchase database|covers US households\nEDGE|DoubleClick|ACQUIRED|Abacus cooperative purchase database|acquired the database\nEDGE|Abacus cooperative purchase database|WOULD_CONVERT_INTO|named-person targeting|would convert anonymous profiles into named targeting"
+}

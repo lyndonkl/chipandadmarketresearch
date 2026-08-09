@@ -1,0 +1,62 @@
+{
+ "id": "e5-buyers-001",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1998,
+ "unit": "advertising customers",
+ "elapsed_s": 102.2,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Yahoo",
+   "type": "company",
+   "clause": "Yahoo"
+  },
+  {
+   "name": "advertising customers on Yahoo's online properties",
+   "type": "advertiser-count measurement",
+   "clause": "Advertising customers on Yahoo's online properties in ..."
+  },
+  {
+   "name": "previous years",
+   "type": "time period",
+   "clause": "up from approx ... in ... and ... in ..."
+  },
+  {
+   "name": "September quarter",
+   "type": "time period",
+   "clause": "single quarter ended September ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Yahoo",
+   "type": "HAS_ADVERTISER_COUNT",
+   "to": "advertising customers on Yahoo's online properties",
+   "clause": "Advertising customers on Yahoo's online properties in ..."
+  },
+  {
+   "from": "advertising customers on Yahoo's online properties",
+   "type": "UP_FROM",
+   "to": "previous years",
+   "clause": "up from approx ... in ... and ... in ..."
+  },
+  {
+   "from": "advertising customers on Yahoo's online properties",
+   "type": "COUNT_IN_QUARTER",
+   "to": "September quarter",
+   "clause": "the count was about ..."
+  },
+  {
+   "from": "Yahoo",
+   "type": "BASE_SIZE",
+   "to": "advertising customers on Yahoo's online properties",
+   "clause": "biggest web seller's entire advertiser base was in the low thousands"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Yahoo|company|Yahoo\nNODE|advertising customers on Yahoo's online properties|advertiser-count measurement|Advertising customers on Yahoo's online properties in ...\nNODE|previous years|time period|up from approx ... in ... and ... in ...\nNODE|September quarter|time period|single quarter ended September ...\n\nEDGE|Yahoo|HAS_ADVERTISER_COUNT|advertising customers on Yahoo's online properties|Advertising customers on Yahoo's online properties in ...\nEDGE|advertising customers on Yahoo's online properties|UP_FROM|previous years|up from approx ... in ... and ... in ...\nEDGE|advertising customers on Yahoo's online properties|COUNT_IN_QUARTER|September quarter|the count was about ...\nEDGE|Yahoo|BASE_SIZE|advertising customers on Yahoo's online properties|biggest web seller's entire advertiser base was in the low thousands"
+}

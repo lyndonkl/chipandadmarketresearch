@@ -1,0 +1,94 @@
+{
+ "id": "e6-pricing-004",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "% of Google advertising revenue paid out as traffic acquisition cost, 2008",
+ "elapsed_s": 83.8,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's total advertising revenue"
+  },
+  {
+   "name": "traffic acquisition costs",
+   "type": "advertising expense",
+   "clause": "Traffic acquisition costs as a share of Google's total advertising revenue"
+  },
+  {
+   "name": "Google total advertising revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "Google's total advertising revenue"
+  },
+  {
+   "name": "owned-site search",
+   "type": "search channel",
+   "clause": "owned-site search outgrew syndication"
+  },
+  {
+   "name": "syndication",
+   "type": "distribution method",
+   "clause": "syndication"
+  },
+  {
+   "name": "traffic acquisition cost share peak",
+   "type": "media-share measurement",
+   "clause": "peaked at ... in ..."
+  },
+  {
+   "name": "traffic acquisition cost share later",
+   "type": "media-share measurement",
+   "clause": "fell to ... in ..."
+  },
+  {
+   "name": "traffic acquisition cost amount",
+   "type": "expense amount measurement",
+   "clause": "... $...m reported in 2008"
+  }
+ ],
+ "edges": [
+  {
+   "from": "traffic acquisition cost share peak",
+   "type": "MEASURES",
+   "to": "traffic acquisition costs",
+   "clause": "share measurement"
+  },
+  {
+   "from": "traffic acquisition cost share peak",
+   "type": "SHARE_OF",
+   "to": "Google total advertising revenue",
+   "clause": "share of revenue"
+  },
+  {
+   "from": "traffic acquisition cost share later",
+   "type": "MEASURES",
+   "to": "traffic acquisition costs",
+   "clause": "share measurement"
+  },
+  {
+   "from": "traffic acquisition cost share later",
+   "type": "SHARE_OF",
+   "to": "Google total advertising revenue",
+   "clause": "share of revenue"
+  },
+  {
+   "from": "traffic acquisition cost amount",
+   "type": "MEASURES",
+   "to": "traffic acquisition costs",
+   "clause": "absolute amount measurement"
+  },
+  {
+   "from": "owned-site search",
+   "type": "OUTGREW",
+   "to": "syndication",
+   "clause": "as owned-site search outgrew syndication"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google's total advertising revenue\nNODE|traffic acquisition costs|advertising expense|Traffic acquisition costs as a share of Google's total advertising revenue\nNODE|Google total advertising revenue|advertising revenue aggregate|Google's total advertising revenue\nNODE|owned-site search|search channel|owned-site search outgrew syndication\nNODE|syndication|distribution method|syndication\nNODE|traffic acquisition cost share peak|media-share measurement|peaked at ... in ...\nNODE|traffic acquisition cost share later|media-share measurement|fell to ... in ...\nNODE|traffic acquisition cost amount|expense amount measurement|... $...m reported in 2008\nEDGE|traffic acquisition cost share peak|MEASURES|traffic acquisition costs|share measurement\nEDGE|traffic acquisition cost share peak|SHARE_OF|Google total advertising revenue|share of revenue\nEDGE|traffic acquisition cost share later|MEASURES|traffic acquisition costs|share measurement\nEDGE|traffic acquisition cost share later|SHARE_OF|Google total advertising revenue|share of revenue\nEDGE|traffic acquisition cost amount|MEASURES|traffic acquisition costs|absolute amount measurement\nEDGE|owned-site search|OUTGREW|syndication|as owned-site search outgrew syndication"
+}

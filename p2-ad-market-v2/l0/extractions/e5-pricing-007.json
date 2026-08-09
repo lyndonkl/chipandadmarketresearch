@@ -1,0 +1,68 @@
+{
+ "id": "e5-pricing-007",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "percent of US internet ad revenue",
+ "elapsed_s": 96.0,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "barter and trade deals",
+   "type": "transaction type",
+   "clause": "Barter and trade deals"
+  },
+  {
+   "name": "US internet advertising revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "US internet advertising revenue"
+  },
+  {
+   "name": "barter and trade deals share of US internet advertising revenue in 2000",
+   "type": "media-share measurement",
+   "clause": "share of US internet advertising revenue in ..."
+  },
+  {
+   "name": "barter and trade deals share of US internet advertising revenue in Q4 2001",
+   "type": "media-share measurement",
+   "clause": "share of US internet advertising revenue reaching ... in Q4 ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "barter and trade deals share of US internet advertising revenue in 2000",
+   "type": "MEASURES",
+   "to": "barter and trade deals",
+   "clause": "share ... in ..."
+  },
+  {
+   "from": "barter and trade deals share of US internet advertising revenue in 2000",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "share ... in ..."
+  },
+  {
+   "from": "barter and trade deals share of US internet advertising revenue in Q4 2001",
+   "type": "MEASURES",
+   "to": "barter and trade deals",
+   "clause": "share ... reaching ..."
+  },
+  {
+   "from": "barter and trade deals share of US internet advertising revenue in Q4 2001",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "share ... reaching ..."
+  },
+  {
+   "from": "barter and trade deals share of US internet advertising revenue in Q4 2001",
+   "type": "UP_FROM",
+   "to": "barter and trade deals share of US internet advertising revenue in 2000",
+   "clause": "up from ... in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|barter and trade deals|transaction type|Barter and trade deals\nNODE|US internet advertising revenue|advertising revenue aggregate|US internet advertising revenue\nNODE|barter and trade deals share of US internet advertising revenue in 2000|media-share measurement|share of US internet advertising revenue in ...\nNODE|barter and trade deals share of US internet advertising revenue in Q4 2001|media-share measurement|share of US internet advertising revenue reaching ... in Q4 ...\nEDGE|barter and trade deals share of US internet advertising revenue in 2000|MEASURES|barter and trade deals|share ... in ...\nEDGE|barter and trade deals share of US internet advertising revenue in 2000|SHARE_OF|US internet advertising revenue|share ... in ...\nEDGE|barter and trade deals share of US internet advertising revenue in Q4 2001|MEASURES|barter and trade deals|share ... reaching ...\nEDGE|barter and trade deals share of US internet advertising revenue in Q4 2001|SHARE_OF|US internet advertising revenue|share ... reaching ...\nEDGE|barter and trade deals share of US internet advertising revenue in Q4 2001|UP_FROM|barter and trade deals share of US internet advertising revenue in 2000|up from ... in ..."
+}

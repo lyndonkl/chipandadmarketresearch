@@ -1,0 +1,79 @@
+{
+ "group_id": "L1|2e53e53b55797621",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Media advertising",
+   "type": "advertising channel",
+   "grain": "Entity",
+   "reason": "singleton: broad ad channel distinct from specific media",
+   "child_uids": [
+    "n|e4-buyers-004|media advertising|advertising channel"
+   ]
+  },
+  {
+   "name": "Digital media",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: specific digital medium separate from general media",
+   "child_uids": [
+    "n|e4-buyers-008|digital media|advertising medium"
+   ]
+  },
+  {
+   "name": "Cable network advertising",
+   "type": "advertising subsegment",
+   "grain": "Entity",
+   "reason": "singleton: subsegment of cable advertising distinct from market level",
+   "child_uids": [
+    "n|e4-medium-004|cable network advertising|advertising subsegment"
+   ]
+  },
+  {
+   "name": "Local cable spot advertising",
+   "type": "advertising subsegment",
+   "grain": "Entity",
+   "reason": "singleton: local\u2011cable ad spots differ from medium entity",
+   "child_uids": [
+    "n|e4-medium-004|local cable spot advertising|advertising subsegment"
+   ]
+  },
+  {
+   "name": "Broadcast TV advertising",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: distinct broadcast television medium",
+   "child_uids": [
+    "n|e5-medium-001|broadcast tv advertising|advertising medium"
+   ]
+  },
+  {
+   "name": "New media category",
+   "type": "advertising category",
+   "grain": "Entity",
+   "reason": "singleton: separate category from digital or traditional media",
+   "child_uids": [
+    "n|e5-scale-007|new media category|advertising category"
+   ]
+  },
+  {
+   "name": "Local cable",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: medium component of local\u2011retail advertising",
+   "child_uids": [
+    "n|e5-scale-011|local cable|advertising medium"
+   ]
+  },
+  {
+   "name": "Cable television advertising",
+   "type": "advertising market",
+   "grain": "Entity",
+   "reason": "singleton: overall cable TV advertising market distinct from subsegments",
+   "child_uids": [
+    "n|e6-buyers-004|cable television advertising|advertising market"
+   ]
+  }
+ ]
+}

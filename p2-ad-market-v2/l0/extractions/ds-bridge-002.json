@@ -1,0 +1,99 @@
+{
+ "id": "ds-bridge-002",
+ "kind": "claim",
+ "era": null,
+ "about_year": 1980,
+ "unit": "percent of the 1980 level break attributable to category scope",
+ "elapsed_s": 67.3,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "... between Coen and MAGNA"
+  },
+  {
+   "name": "MAGNA series",
+   "type": "advertising-spend dataset",
+   "clause": "... between Coen and MAGNA"
+  },
+  {
+   "name": "level break measurement",
+   "type": "level-break measurement",
+   "clause": "... level break between Coen and MAGNA at ..."
+  },
+  {
+   "name": "category scope",
+   "type": "attribution component",
+   "clause": "category scope (miscellaneous, business papers, farm publications)"
+  },
+  {
+   "name": "category scope attribution percent",
+   "type": "share measurement",
+   "clause": "About ... of the ... level break is category scope"
+  },
+  {
+   "name": "billings-versus-revenue price basis",
+   "type": "pricing-basis component",
+   "clause": "... price basis accounts for the remaining ..."
+  },
+  {
+   "name": "billings-versus-revenue share",
+   "type": "share measurement",
+   "clause": "... price basis accounts for the remaining ..."
+  },
+  {
+   "name": "residual level wedge",
+   "type": "wedge measurement",
+   "clause": "a residual level wedge of ... on the restricted base"
+  },
+  {
+   "name": "restricted base",
+   "type": "measurement base",
+   "clause": "... restricted base"
+  }
+ ],
+ "edges": [
+  {
+   "from": "level break measurement",
+   "type": "BETWEEN",
+   "to": "Coen series",
+   "clause": "... level break between Coen and MAGNA"
+  },
+  {
+   "from": "level break measurement",
+   "type": "BETWEEN",
+   "to": "MAGNA series",
+   "clause": "... level break between Coen and MAGNA"
+  },
+  {
+   "from": "category scope attribution percent",
+   "type": "SHARE_OF",
+   "to": "level break measurement",
+   "clause": "About ... of the ... level break is category scope"
+  },
+  {
+   "from": "billings-versus-revenue share",
+   "type": "SHARE_OF",
+   "to": "level break measurement",
+   "clause": "... price basis accounts for the remaining ..."
+  },
+  {
+   "from": "residual level wedge",
+   "type": "SHARE_OF",
+   "to": "level break measurement",
+   "clause": "a residual level wedge of ... on the restricted base"
+  },
+  {
+   "from": "residual level wedge",
+   "type": "MEASURED_ON",
+   "to": "restricted base",
+   "clause": "on the restricted base"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen series|advertising-spend dataset|... between Coen and MAGNA\nNODE|MAGNA series|advertising-spend dataset|... between Coen and MAGNA\nNODE|level break measurement|level-break measurement|... level break between Coen and MAGNA at ...\nNODE|category scope|attribution component|category scope (miscellaneous, business papers, farm publications)\nNODE|category scope attribution percent|share measurement|About ... of the ... level break is category scope\nNODE|billings-versus-revenue price basis|pricing-basis component|... price basis accounts for the remaining ...\nNODE|billings-versus-revenue share|share measurement|... price basis accounts for the remaining ...\nNODE|residual level wedge|wedge measurement|a residual level wedge of ... on the restricted base\nNODE|restricted base|measurement base|... restricted base\nEDGE|level break measurement|BETWEEN|Coen series|... level break between Coen and MAGNA\nEDGE|level break measurement|BETWEEN|MAGNA series|... level break between Coen and MAGNA\nEDGE|category scope attribution percent|SHARE_OF|level break measurement|About ... of the ... level break is category scope\nEDGE|billings-versus-revenue share|SHARE_OF|level break measurement|... price basis accounts for the remaining ...\nEDGE|residual level wedge|SHARE_OF|level break measurement|a residual level wedge of ... on the restricted base\nEDGE|residual level wedge|MEASURED_ON|restricted base|on the restricted base"
+}

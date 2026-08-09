@@ -1,0 +1,164 @@
+{
+ "id": "e2-pricing-007",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1940,
+ "unit": "percent of the average unit rate paid to an NBC affiliate above 66 unit hours per 28-day period",
+ "elapsed_s": 79.1,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 16,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "NBC affiliate compensation",
+   "type": "compensation scheme",
+   "clause": "NBC's affiliate compensation was a step formula"
+  },
+  {
+   "name": "step formula",
+   "type": "pricing formula",
+   "clause": "NBC's affiliate compensation was a step formula"
+  },
+  {
+   "name": "zero-tier affiliate compensation rate",
+   "type": "take-rate measurement",
+   "clause": "no payment for the first ... unit hours"
+  },
+  {
+   "name": "second-tier affiliate compensation rate",
+   "type": "take-rate measurement",
+   "clause": "... percent of the average unit rate for the next ..."
+  },
+  {
+   "name": "third-tier affiliate compensation rate",
+   "type": "take-rate measurement",
+   "clause": "... percent of the average unit rate for the next ..."
+  },
+  {
+   "name": "fourth-tier affiliate compensation rate",
+   "type": "take-rate measurement",
+   "clause": "... percent thereafter"
+  },
+  {
+   "name": "average unit rate",
+   "type": "unit price",
+   "clause": "average unit rate used as base"
+  },
+  {
+   "name": "NBC affiliate",
+   "type": "broadcast station",
+   "clause": "NBC affiliate receiving compensation"
+  },
+  {
+   "name": "66 unit hours per 28-day period",
+   "type": "hour threshold",
+   "clause": "threshold above ... unit hours per ... period"
+  },
+  {
+   "name": "NBC affiliate compensation rate",
+   "type": "take-rate measurement",
+   "clause": "percent of the average unit rate paid to an NBC affiliate above ... unit hours per ... period"
+  }
+ ],
+ "edges": [
+  {
+   "from": "NBC affiliate compensation",
+   "type": "HAS_FORMULA",
+   "to": "step formula",
+   "clause": "NBC's affiliate compensation was a step formula"
+  },
+  {
+   "from": "step formula",
+   "type": "INCLUDES_TIER",
+   "to": "zero-tier affiliate compensation rate",
+   "clause": "no payment for the first ... unit hours"
+  },
+  {
+   "from": "step formula",
+   "type": "INCLUDES_TIER",
+   "to": "second-tier affiliate compensation rate",
+   "clause": "... percent of the average unit rate for the next ..."
+  },
+  {
+   "from": "step formula",
+   "type": "INCLUDES_TIER",
+   "to": "third-tier affiliate compensation rate",
+   "clause": "... percent of the average unit rate for the next ..."
+  },
+  {
+   "from": "step formula",
+   "type": "INCLUDES_TIER",
+   "to": "fourth-tier affiliate compensation rate",
+   "clause": "... percent thereafter"
+  },
+  {
+   "from": "zero-tier affiliate compensation rate",
+   "type": "SHARE_OF",
+   "to": "average unit rate",
+   "clause": "no payment for the first ... unit hours"
+  },
+  {
+   "from": "second-tier affiliate compensation rate",
+   "type": "SHARE_OF",
+   "to": "average unit rate",
+   "clause": "... percent of the average unit rate for the next ..."
+  },
+  {
+   "from": "third-tier affiliate compensation rate",
+   "type": "SHARE_OF",
+   "to": "average unit rate",
+   "clause": "... percent of the average unit rate for the next ..."
+  },
+  {
+   "from": "fourth-tier affiliate compensation rate",
+   "type": "SHARE_OF",
+   "to": "average unit rate",
+   "clause": "... percent thereafter"
+  },
+  {
+   "from": "zero-tier affiliate compensation rate",
+   "type": "PAID_TO",
+   "to": "NBC affiliate",
+   "clause": "no payment for the first ... unit hours"
+  },
+  {
+   "from": "second-tier affiliate compensation rate",
+   "type": "PAID_TO",
+   "to": "NBC affiliate",
+   "clause": "... percent of the average unit rate for the next ..."
+  },
+  {
+   "from": "third-tier affiliate compensation rate",
+   "type": "PAID_TO",
+   "to": "NBC affiliate",
+   "clause": "... percent of the average unit rate for the next ..."
+  },
+  {
+   "from": "fourth-tier affiliate compensation rate",
+   "type": "PAID_TO",
+   "to": "NBC affiliate",
+   "clause": "... percent thereafter"
+  },
+  {
+   "from": "NBC affiliate compensation rate",
+   "type": "SHARE_OF",
+   "to": "average unit rate",
+   "clause": "percent of the average unit rate paid to an NBC affiliate above ... unit hours per ... period"
+  },
+  {
+   "from": "NBC affiliate compensation rate",
+   "type": "PAID_TO",
+   "to": "NBC affiliate",
+   "clause": "percent of the average unit rate paid to an NBC affiliate above ... unit hours per ... period"
+  },
+  {
+   "from": "NBC affiliate compensation rate",
+   "type": "APPLIES_ABOVE",
+   "to": "66 unit hours per 28-day period",
+   "clause": "above ... unit hours per ... period"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|NBC affiliate compensation|compensation scheme|NBC's affiliate compensation was a step formula\nNODE|step formula|pricing formula|NBC's affiliate compensation was a step formula\nNODE|zero-tier affiliate compensation rate|take-rate measurement|no payment for the first ... unit hours\nNODE|second-tier affiliate compensation rate|take-rate measurement|... percent of the average unit rate for the next ...\nNODE|third-tier affiliate compensation rate|take-rate measurement|... percent of the average unit rate for the next ...\nNODE|fourth-tier affiliate compensation rate|take-rate measurement|... percent thereafter\nNODE|average unit rate|unit price|average unit rate used as base\nNODE|NBC affiliate|broadcast station|NBC affiliate receiving compensation\nNODE|66 unit hours per 28-day period|hour threshold|threshold above ... unit hours per ... period\nNODE|NBC affiliate compensation rate|take-rate measurement|percent of the average unit rate paid to an NBC affiliate above ... unit hours per ... period\nEDGE|NBC affiliate compensation|HAS_FORMULA|step formula|NBC's affiliate compensation was a step formula\nEDGE|step formula|INCLUDES_TIER|zero-tier affiliate compensation rate|no payment for the first ... unit hours\nEDGE|step formula|INCLUDES_TIER|second-tier affiliate compensation rate|... percent of the average unit rate for the next ...\nEDGE|step formula|INCLUDES_TIER|third-tier affiliate compensation rate|... percent of the average unit rate for the next ...\nEDGE|step formula|INCLUDES_TIER|fourth-tier affiliate compensation rate|... percent thereafter\nEDGE|zero-tier affiliate compensation rate|SHARE_OF|average unit rate|no payment for the first ... unit hours\nEDGE|second-tier affiliate compensation rate|SHARE_OF|average unit rate|... percent of the average unit rate for the next ...\nEDGE|third-tier affiliate compensation rate|SHARE_OF|average unit rate|... percent of the average unit rate for the next ...\nEDGE|fourth-tier affiliate compensation rate|SHARE_OF|average unit rate|... percent thereafter\nEDGE|zero-tier affiliate compensation rate|PAID_TO|NBC affiliate|no payment for the first ... unit hours\nEDGE|second-tier affiliate compensation rate|PAID_TO|NBC affiliate|... percent of the average unit rate for the next ...\nEDGE|third-tier affiliate compensation rate|PAID_TO|NBC affiliate|... percent of the average unit rate for the next ...\nEDGE|fourth-tier affiliate compensation rate|PAID_TO|NBC affiliate|... percent thereafter\nEDGE|NBC affiliate compensation rate|SHARE_OF|average unit rate|percent of the average unit rate paid to an NBC affiliate above ... unit hours per ... period\nEDGE|NBC affiliate compensation rate|PAID_TO|NBC affiliate|percent of the average unit rate paid to an NBC affiliate above ... unit hours per ... period\nEDGE|NBC affiliate compensation rate|APPLIES_ABOVE|66 unit hours per 28-day period|above ... unit hours per ... period"
+}

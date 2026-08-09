@@ -1,0 +1,105 @@
+{
+ "id": "e6-targeting-002",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2004,
+ "unit": "year (2004-04), Google US trademark-keyword policy reversal",
+ "elapsed_s": 67.0,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google reversed its US policy"
+  },
+  {
+   "name": "Google US trademark-keyword policy",
+   "type": "advertising policy",
+   "clause": "its US policy reversal"
+  },
+  {
+   "name": "advertisers",
+   "type": "market participant",
+   "clause": "allowed advertisers to bid on third parties' trademarks as keywords"
+  },
+  {
+   "name": "third parties' trademarks",
+   "type": "intellectual property asset",
+   "clause": "as keywords"
+  },
+  {
+   "name": "GEICO",
+   "type": "insurer",
+   "clause": "GEICO sued Google"
+  },
+  {
+   "name": "court",
+   "type": "judicial body",
+   "clause": "the court held that the sale of a trademark as keyword did not violate the Lanham Act"
+  },
+  {
+   "name": "Lanham Act",
+   "type": "US trademark law",
+   "clause": "the Lanham Act"
+  },
+  {
+   "name": "trademark-as-keyword sale",
+   "type": "advertising transaction",
+   "clause": "sale of a trademark as a keyword"
+  },
+  {
+   "name": "brand terms as auctionable inventory",
+   "type": "ad inventory category",
+   "clause": "legitimising brand terms as auctionable inventory"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "REVERSED",
+   "to": "Google US trademark-keyword policy",
+   "clause": "reversed its US policy"
+  },
+  {
+   "from": "Google US trademark-keyword policy",
+   "type": "ENABLED_BID_FOR",
+   "to": "advertisers",
+   "clause": "allowed advertisers to bid on third parties' trademarks as keywords"
+  },
+  {
+   "from": "advertisers",
+   "type": "BID_ON",
+   "to": "third parties' trademarks",
+   "clause": "bid on third parties' trademarks as keywords"
+  },
+  {
+   "from": "GEICO",
+   "type": "SUED",
+   "to": "Google",
+   "clause": "GEICO sued"
+  },
+  {
+   "from": "court",
+   "type": "DECLARED_NOT_VIOLATION_OF",
+   "to": "Lanham Act",
+   "clause": "held that sale ... did not violate the Lanham Act"
+  },
+  {
+   "from": "court",
+   "type": "HELD_ABOUT",
+   "to": "trademark-as-keyword sale",
+   "clause": "held about the sale of a trademark as keyword"
+  },
+  {
+   "from": "court",
+   "type": "LEGITIMIZED",
+   "to": "brand terms as auctionable inventory",
+   "clause": "legitimising brand terms as auctionable inventory"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google reversed its US policy\nNODE|Google US trademark-keyword policy|advertising policy|its US policy reversal\nNODE|advertisers|market participant|allowed advertisers to bid on third parties' trademarks as keywords\nNODE|third parties' trademarks|intellectual property asset|as keywords\nNODE|GEICO|insurer|GEICO sued Google\nNODE|court|judicial body|the court held that the sale of a trademark as keyword did not violate the Lanham Act\nNODE|Lanham Act|US trademark law|the Lanham Act\nNODE|trademark-as-keyword sale|advertising transaction|sale of a trademark as a keyword\nNODE|brand terms as auctionable inventory|ad inventory category|legitimising brand terms as auctionable inventory\nEDGE|Google|REVERSED|Google US trademark-keyword policy|reversed its US policy\nEDGE|Google US trademark-keyword policy|ENABLED_BID_FOR|advertisers|allowed advertisers to bid on third parties' trademarks as keywords\nEDGE|advertisers|BID_ON|third parties' trademarks|bid on third parties' trademarks as keywords\nEDGE|GEICO|SUED|Google|GEICO sued\nEDGE|court|DECLARED_NOT_VIOLATION_OF|Lanham Act|held that sale ... did not violate the Lanham Act\nEDGE|court|HELD_ABOUT|trademark-as-keyword sale|held about the sale of a trademark as keyword\nEDGE|court|LEGITIMIZED|brand terms as auctionable inventory|legitimising brand terms as auctionable inventory"
+}

@@ -1,0 +1,105 @@
+{
+ "id": "e4-targeting-001",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1974,
+ "unit": "clusters",
+ "elapsed_s": 84.0,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "PRIZM",
+   "type": "geodemographic classification system",
+   "clause": "the era's dominant geodemographic targeting system"
+  },
+  {
+   "name": "five-digit ZIP codes",
+   "type": "geographic unit",
+   "clause": "US five-digit ZIP codes"
+  },
+  {
+   "name": "lifestyle clusters",
+   "type": "demographic segment set",
+   "clause": "lifestyle clusters"
+  },
+  {
+   "name": "US five-digit ZIP code count",
+   "type": "count measurement",
+   "clause": "roughly ... US five-digit ZIP codes"
+  },
+  {
+   "name": "lifestyle cluster count",
+   "type": "count measurement",
+   "clause": "... lifestyle clusters"
+  },
+  {
+   "name": "1970 census tabulations",
+   "type": "census data table",
+   "clause": "1970 census tabulations"
+  },
+  {
+   "name": "census geography",
+   "type": "geographic classification",
+   "clause": "census geography"
+  },
+  {
+   "name": "ZIP geography",
+   "type": "geographic classification",
+   "clause": "ZIP geography"
+  },
+  {
+   "name": "geodemographic targeting system",
+   "type": "targeting system",
+   "clause": "geodemographic targeting system"
+  }
+ ],
+ "edges": [
+  {
+   "from": "PRIZM",
+   "type": "CLASSIFIED_INTO",
+   "to": "lifestyle clusters",
+   "clause": "classified ... into ..."
+  },
+  {
+   "from": "US five-digit ZIP code count",
+   "type": "MEASURES",
+   "to": "five-digit ZIP codes",
+   "clause": "... US five-digit ZIP codes"
+  },
+  {
+   "from": "lifestyle cluster count",
+   "type": "MEASURES",
+   "to": "lifestyle clusters",
+   "clause": "... lifestyle clusters"
+  },
+  {
+   "from": "lifestyle clusters",
+   "type": "BUILT_BY_REALLOCATING",
+   "to": "1970 census tabulations",
+   "clause": "built by reallocating ... from ... onto ..."
+  },
+  {
+   "from": "1970 census tabulations",
+   "type": "FROM_GEOGRAPHY",
+   "to": "census geography",
+   "clause": "reallocating ... from ..."
+  },
+  {
+   "from": "1970 census tabulations",
+   "type": "TO_GEOGRAPHY",
+   "to": "ZIP geography",
+   "clause": "reallocating ... onto ..."
+  },
+  {
+   "from": "PRIZM",
+   "type": "DOMINANT_IN",
+   "to": "geodemographic targeting system",
+   "clause": "the era's dominant ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|PRIZM|geodemographic classification system|the era's dominant geodemographic targeting system\nNODE|five-digit ZIP codes|geographic unit|US five-digit ZIP codes\nNODE|lifestyle clusters|demographic segment set|lifestyle clusters\nNODE|US five-digit ZIP code count|count measurement|roughly ... US five-digit ZIP codes\nNODE|lifestyle cluster count|count measurement|... lifestyle clusters\nNODE|1970 census tabulations|census data table|1970 census tabulations\nNODE|census geography|geographic classification|census geography\nNODE|ZIP geography|geographic classification|ZIP geography\nNODE|geodemographic targeting system|targeting system|geodemographic targeting system\nEDGE|PRIZM|CLASSIFIED_INTO|lifestyle clusters|classified ... into ...\nEDGE|US five-digit ZIP code count|MEASURES|five-digit ZIP codes|... US five-digit ZIP codes\nEDGE|lifestyle cluster count|MEASURES|lifestyle clusters|... lifestyle clusters\nEDGE|lifestyle clusters|BUILT_BY_REALLOCATING|1970 census tabulations|built by reallocating ... from ... onto ...\nEDGE|1970 census tabulations|FROM_GEOGRAPHY|census geography|reallocating ... from ...\nEDGE|1970 census tabulations|TO_GEOGRAPHY|ZIP geography|reallocating ... onto ...\nEDGE|PRIZM|DOMINANT_IN|geodemographic targeting system|the era's dominant ..."
+}

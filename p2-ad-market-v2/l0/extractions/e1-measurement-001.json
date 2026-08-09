@@ -1,0 +1,56 @@
+{
+ "id": "e1-measurement-001",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1869,
+ "unit": "newspapers listed",
+ "elapsed_s": 48.6,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Rowell's American Newspaper Directory",
+   "type": "advertising directory",
+   "clause": "first issued"
+  },
+  {
+   "name": "American newspapers",
+   "type": "newspaper set",
+   "clause": "American papers with estimated circulations"
+  },
+  {
+   "name": "count of American newspapers listed",
+   "type": "count measurement",
+   "clause": "listed ... American papers"
+  },
+  {
+   "name": "common currency for buying ad space",
+   "type": "advertising pricing standard",
+   "clause": "first attempt at a common currency for buying space"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Rowell's American Newspaper Directory",
+   "type": "LISTED",
+   "to": "count of American newspapers listed",
+   "clause": "listed ... American papers with estimated circulations"
+  },
+  {
+   "from": "count of American newspapers listed",
+   "type": "MEASURES",
+   "to": "American newspapers",
+   "clause": "count measures American newspapers"
+  },
+  {
+   "from": "Rowell's American Newspaper Directory",
+   "type": "FIRST_TO_DO",
+   "to": "common currency for buying ad space",
+   "clause": "first attempt at a common currency for buying space"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Rowell's American Newspaper Directory|advertising directory|first issued\nNODE|American newspapers|newspaper set|American papers with estimated circulations\nNODE|count of American newspapers listed|count measurement|listed ... American papers\nNODE|common currency for buying ad space|advertising pricing standard|first attempt at a common currency for buying space\nEDGE|Rowell's American Newspaper Directory|LISTED|count of American newspapers listed|listed ... American papers with estimated circulations\nEDGE|count of American newspapers listed|MEASURES|American newspapers|count measures American newspapers\nEDGE|Rowell's American Newspaper Directory|FIRST_TO_DO|common currency for buying ad space|first attempt at a common currency for buying space"
+}

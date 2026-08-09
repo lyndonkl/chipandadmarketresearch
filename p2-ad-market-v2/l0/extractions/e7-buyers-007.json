@@ -1,0 +1,100 @@
+{
+ "id": "e7-buyers-007",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of US advertising spend, 2025 (MAGNA media-owner rail, $398B, direct mail excluded)",
+ "elapsed_s": 69.3,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Classified buyers",
+   "type": "buyer segment",
+   "clause": "individuals and businesses paying to list a job, a car, a home or an item"
+  },
+  {
+   "name": "US advertising spend",
+   "type": "aggregate advertising spend",
+   "clause": "US advertising spend"
+  },
+  {
+   "name": "digital marketplaces and job boards",
+   "type": "advertising channel",
+   "clause": "digital marketplaces and job boards"
+  },
+  {
+   "name": "published advertising series",
+   "type": "measurement base",
+   "clause": "published advertising series"
+  },
+  {
+   "name": "classified buyers share of US advertising spend",
+   "type": "share measurement",
+   "clause": "account for about ... percent of US advertising spend"
+  },
+  {
+   "name": "classified buyers advertising spend",
+   "type": "spend measurement",
+   "clause": "roughly ..."
+  },
+  {
+   "name": "inclusive classified buyers advertising spend",
+   "type": "spend measurement",
+   "clause": "money type is nearer ..."
+  },
+  {
+   "name": "classified buyers spend outside published advertising series",
+   "type": "spend measurement",
+   "clause": "... sits outside every published advertising series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Classified buyers",
+   "type": "HAS_SHARE",
+   "to": "classified buyers share of US advertising spend",
+   "clause": "account for about ... percent"
+  },
+  {
+   "from": "classified buyers share of US advertising spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "... of US advertising spend"
+  },
+  {
+   "from": "Classified buyers",
+   "type": "HAS_SPEND",
+   "to": "classified buyers advertising spend",
+   "clause": "roughly ..."
+  },
+  {
+   "from": "Classified buyers",
+   "type": "PLACED_WITH",
+   "to": "digital marketplaces and job boards",
+   "clause": "essentially all ... placed with digital marketplaces and job boards"
+  },
+  {
+   "from": "Classified buyers",
+   "type": "HAS_SPEND",
+   "to": "inclusive classified buyers advertising spend",
+   "clause": "money type is nearer ..."
+  },
+  {
+   "from": "classified buyers spend outside published advertising series",
+   "type": "MEASURED_ON",
+   "to": "published advertising series",
+   "clause": "... sits outside every published advertising series"
+  },
+  {
+   "from": "classified buyers spend outside published advertising series",
+   "type": "PART_OF",
+   "to": "inclusive classified buyers advertising spend",
+   "clause": "... sits outside every published advertising series"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Classified buyers|buyer segment|individuals and businesses paying to list a job, a car, a home or an item\nNODE|US advertising spend|aggregate advertising spend|US advertising spend\nNODE|digital marketplaces and job boards|advertising channel|digital marketplaces and job boards\nNODE|published advertising series|measurement base|published advertising series\nNODE|classified buyers share of US advertising spend|share measurement|account for about ... percent of US advertising spend\nNODE|classified buyers advertising spend|spend measurement|roughly ...\nNODE|inclusive classified buyers advertising spend|spend measurement|money type is nearer ...\nNODE|classified buyers spend outside published advertising series|spend measurement|... sits outside every published advertising series\nEDGE|Classified buyers|HAS_SHARE|classified buyers share of US advertising spend|account for about ... percent\nEDGE|classified buyers share of US advertising spend|SHARE_OF|US advertising spend|... of US advertising spend\nEDGE|Classified buyers|HAS_SPEND|classified buyers advertising spend|roughly ...\nEDGE|Classified buyers|PLACED_WITH|digital marketplaces and job boards|essentially all ... placed with digital marketplaces and job boards\nEDGE|Classified buyers|HAS_SPEND|inclusive classified buyers advertising spend|money type is nearer ...\nEDGE|classified buyers spend outside published advertising series|MEASURED_ON|published advertising series|... sits outside every published advertising series\nEDGE|classified buyers spend outside published advertising series|PART_OF|inclusive classified buyers advertising spend|... sits outside every published advertising series"
+}

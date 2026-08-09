@@ -1,0 +1,83 @@
+{
+ "id": "e5-buyers-003",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "advertisers",
+ "elapsed_s": 43.9,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "businesses",
+   "type": "entity",
+   "clause": "Businesses that had adopted Google AdWords"
+  },
+  {
+   "name": "agencies",
+   "type": "entity",
+   "clause": "Agencies that had adopted Google AdWords"
+  },
+  {
+   "name": "Google AdWords",
+   "type": "advertising product",
+   "clause": "Google AdWords"
+  },
+  {
+   "name": "general-availability announcement",
+   "type": "event",
+   "clause": "23\u202fOctober\u202f2000 general\u2011availability announcement"
+  },
+  {
+   "name": "beta period",
+   "type": "product development phase",
+   "clause": "beta that debuted earlier that same month"
+  },
+  {
+   "name": "advertisers accumulated during beta",
+   "type": "advertiser count measurement",
+   "clause": "advertisers accumulated during the beta"
+  },
+  {
+   "name": "advertisers",
+   "type": "advertiser cohort",
+   "clause": "advertisers"
+  }
+ ],
+ "edges": [
+  {
+   "from": "businesses",
+   "type": "ADOPTED",
+   "to": "Google AdWords",
+   "clause": "had adopted ... as of its general\u2011availability announcement"
+  },
+  {
+   "from": "agencies",
+   "type": "ADOPTED",
+   "to": "Google AdWords",
+   "clause": "had adopted ... as of its general\u2011availability announcement"
+  },
+  {
+   "from": "general-availability announcement",
+   "type": "RELATES_TO",
+   "to": "Google AdWords",
+   "clause": "announcement of Google AdWords availability"
+  },
+  {
+   "from": "advertisers accumulated during beta",
+   "type": "MEASURES",
+   "to": "advertisers",
+   "clause": "advertisers accumulated during the beta"
+  },
+  {
+   "from": "advertisers accumulated during beta",
+   "type": "DURING",
+   "to": "beta period",
+   "clause": "accumulated during the beta that debuted earlier that same month"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|businesses|entity|Businesses that had adopted Google AdWords\nNODE|agencies|entity|Agencies that had adopted Google AdWords\nNODE|Google AdWords|advertising product|Google AdWords\nNODE|general-availability announcement|event|23\u202fOctober\u202f2000 general\u2011availability announcement\nNODE|beta period|product development phase|beta that debuted earlier that same month\nNODE|advertisers accumulated during beta|advertiser count measurement|advertisers accumulated during the beta\nNODE|advertisers|advertiser cohort|advertisers\nEDGE|businesses|ADOPTED|Google AdWords|had adopted ... as of its general\u2011availability announcement\nEDGE|agencies|ADOPTED|Google AdWords|had adopted ... as of its general\u2011availability announcement\nEDGE|general-availability announcement|RELATES_TO|Google AdWords|announcement of Google AdWords availability\nEDGE|advertisers accumulated during beta|MEASURES|advertisers|advertisers accumulated during the beta\nEDGE|advertisers accumulated during beta|DURING|beta period|accumulated during the beta that debuted earlier that same month"
+}

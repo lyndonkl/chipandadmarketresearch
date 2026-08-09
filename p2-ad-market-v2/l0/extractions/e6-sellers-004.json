@@ -1,0 +1,77 @@
+{
+ "id": "e6-sellers-004",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2003,
+ "unit": "% of Google total revenue from AOL, 2003",
+ "elapsed_s": 68.6,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "AOL",
+   "type": "distribution partner",
+   "clause": "One distribution partner, AOL"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google's total revenue"
+  },
+  {
+   "name": "Google total revenue",
+   "type": "revenue aggregate",
+   "clause": "Google's total revenue"
+  },
+  {
+   "name": "AOL share of Google total revenue",
+   "type": "revenue-share measurement",
+   "clause": "generated ... of Google's total revenue in ... (falling to ... in ... and ... in ...)"
+  },
+  {
+   "name": "Google early scale",
+   "type": "business scale",
+   "clause": "Google's early scale"
+  },
+  {
+   "name": "bought portion of Google early scale",
+   "type": "scale component",
+   "clause": "how much of Google's early scale was bought"
+  },
+  {
+   "name": "built portion of Google early scale",
+   "type": "scale component",
+   "clause": "how much of Google's early scale was built"
+  }
+ ],
+ "edges": [
+  {
+   "from": "AOL",
+   "type": "GENERATED",
+   "to": "AOL share of Google total revenue",
+   "clause": "generated ... of Google's total revenue in ... (falling to ... in ... and ... in ...)"
+  },
+  {
+   "from": "AOL share of Google total revenue",
+   "type": "SHARE_OF",
+   "to": "Google total revenue",
+   "clause": "... of Google's total revenue"
+  },
+  {
+   "from": "AOL share of Google total revenue",
+   "type": "MEASURES",
+   "to": "bought portion of Google early scale",
+   "clause": "measure of how much of Google's early scale was bought rather than built"
+  },
+  {
+   "from": "bought portion of Google early scale",
+   "type": "NOT_EQUIVALENT_TO",
+   "to": "built portion of Google early scale",
+   "clause": "bought rather than built"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|AOL|distribution partner|One distribution partner, AOL\nNODE|Google|technology company|Google's total revenue\nNODE|Google total revenue|revenue aggregate|Google's total revenue\nNODE|AOL share of Google total revenue|revenue-share measurement|generated ... of Google's total revenue in ... (falling to ... in ... and ... in ...)\nNODE|Google early scale|business scale|Google's early scale\nNODE|bought portion of Google early scale|scale component|how much of Google's early scale was bought\nNODE|built portion of Google early scale|scale component|how much of Google's early scale was built\nEDGE|AOL|GENERATED|AOL share of Google total revenue|generated ... of Google's total revenue in ... (falling to ... in ... and ... in ...)\nEDGE|AOL share of Google total revenue|SHARE_OF|Google total revenue|... of Google's total revenue\nEDGE|AOL share of Google total revenue|MEASURES|bought portion of Google early scale|measure of how much of Google's early scale was bought rather than built\nEDGE|bought portion of Google early scale|NOT_EQUIVALENT_TO|built portion of Google early scale|bought rather than built"
+}

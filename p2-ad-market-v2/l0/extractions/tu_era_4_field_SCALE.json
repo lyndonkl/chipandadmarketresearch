@@ -1,0 +1,223 @@
+{
+ "id": "tu:era:4:field:SCALE",
+ "kind": "prose:field:SCALE",
+ "era": 4,
+ "about_year": null,
+ "unit": null,
+ "elapsed_s": 154.3,
+ "error": null,
+ "n_nodes": 23,
+ "n_edges": 15,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising spend",
+   "type": "advertising expenditure measurement",
+   "clause": "Measured US advertising spend grew ..."
+  },
+  {
+   "name": "advertising spend compound annual growth rate",
+   "type": "growth rate measurement",
+   "clause": "... 8.9% compound annual rate"
+  },
+  {
+   "name": "advertising spend nominal multiple",
+   "type": "multiple measurement",
+   "clause": "... 4.2x nominal"
+  },
+  {
+   "name": "nominal GDP",
+   "type": "gross domestic product measure",
+   "clause": "faster than nominal GDP"
+  },
+  {
+   "name": "advertising spend share of GDP",
+   "type": "share of GDP measurement",
+   "clause": "As a share of GDP it climbed ..."
+  },
+  {
+   "name": "GDP",
+   "type": "gross domestic product",
+   "clause": "as a share of GDP"
+  },
+  {
+   "name": "ad intensity trend",
+   "type": "trend description",
+   "clause": "era's ad intensity is a rise, not the top"
+  },
+  {
+   "name": "maximum ad intensity",
+   "type": "conceptual maximum",
+   "clause": "not the top"
+  },
+  {
+   "name": "national advertising spend share of total",
+   "type": "share of total measurement",
+   "clause": "National money was 58.1% of the 1993 total"
+  },
+  {
+   "name": "local advertising spend share of total",
+   "type": "share of total measurement",
+   "clause": "local money 41.9%"
+  },
+  {
+   "name": "total advertising spend",
+   "type": "advertising expenditure aggregate",
+   "clause": "... of the 1993 total"
+  },
+  {
+   "name": "measured media",
+   "type": "media category",
+   "clause": "they are measured media only"
+  },
+  {
+   "name": "trade and consumer promotion",
+   "type": "advertising segment",
+   "clause": "trade and consumer promotion ... are not in them"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "the Coen series prices inventory ..."
+  },
+  {
+   "name": "rate-card list price",
+   "type": "price type",
+   "clause": "prices inventory at rate-card list prices"
+  },
+  {
+   "name": "transaction price",
+   "type": "price type",
+   "clause": "rather than transaction prices"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "books direct mail ... as an entirely national medium"
+  },
+  {
+   "name": "national medium",
+   "type": "medium classification",
+   "clause": "as an entirely national medium"
+  },
+  {
+   "name": "Magna backcast",
+   "type": "advertising-spend dataset",
+   "clause": "the later Magna backcast puts direct mail near 12% of 1980 spend"
+  },
+  {
+   "name": "direct mail share of 1980 advertising spend, Magna basis",
+   "type": "share measurement",
+   "clause": "puts direct mail near 12% of 1980 spend"
+  },
+  {
+   "name": "direct mail share of 1980 advertising spend, Coen basis",
+   "type": "share measurement",
+   "clause": "Coen puts it at 14.2%"
+  },
+  {
+   "name": "1991 US advertising spend nominal decline",
+   "type": "advertising expenditure event",
+   "clause": "1991 was the first nominal decline in US advertising spend since 1961"
+  },
+  {
+   "name": "1961 US advertising spend nominal decline",
+   "type": "advertising expenditure event",
+   "clause": "since 1961"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising spend",
+   "type": "HAS_GROWTH_RATE",
+   "to": "advertising spend compound annual growth rate",
+   "clause": "grew ... 8.9% compound annual rate"
+  },
+  {
+   "from": "US advertising spend",
+   "type": "MULTIPLE_OVER_PERIOD",
+   "to": "advertising spend nominal multiple",
+   "clause": "... 4.2x nominal"
+  },
+  {
+   "from": "advertising spend compound annual growth rate",
+   "type": "FASTER_THAN",
+   "to": "nominal GDP",
+   "clause": "faster than nominal GDP"
+  },
+  {
+   "from": "advertising spend share of GDP",
+   "type": "SHARE_OF",
+   "to": "GDP",
+   "clause": "as a share of GDP it climbed ..."
+  },
+  {
+   "from": "ad intensity trend",
+   "type": "NOT_MAXIMUM",
+   "to": "maximum ad intensity",
+   "clause": "rise, not the top"
+  },
+  {
+   "from": "national advertising spend share of total",
+   "type": "SHARE_OF",
+   "to": "total advertising spend",
+   "clause": "National money was 58.1% of the 1993 total"
+  },
+  {
+   "from": "local advertising spend share of total",
+   "type": "SHARE_OF",
+   "to": "total advertising spend",
+   "clause": "local money 41.9%"
+  },
+  {
+   "from": "trade and consumer promotion",
+   "type": "NOT_INCLUDED_IN",
+   "to": "US advertising spend",
+   "clause": "are not in them"
+  },
+  {
+   "from": "measured media",
+   "type": "EXCLUDES",
+   "to": "trade and consumer promotion",
+   "clause": "they are measured media only ... are not in them"
+  },
+  {
+   "from": "Coen series",
+   "type": "PRICES_INVENTORY_AT",
+   "to": "rate-card list price",
+   "clause": "prices inventory at rate-card list prices"
+  },
+  {
+   "from": "Coen series",
+   "type": "NOT_PRICED_AT",
+   "to": "transaction price",
+   "clause": "rather than transaction prices"
+  },
+  {
+   "from": "direct mail",
+   "type": "BOOKED_AS",
+   "to": "national medium",
+   "clause": "books direct mail ... as an entirely national medium"
+  },
+  {
+   "from": "direct mail share of 1980 advertising spend, Magna basis",
+   "type": "MEASURES",
+   "to": "direct mail",
+   "clause": "puts direct mail near 12% of 1980 spend"
+  },
+  {
+   "from": "direct mail share of 1980 advertising spend, Coen basis",
+   "type": "MEASURES",
+   "to": "direct mail",
+   "clause": "Coen puts it at 14.2%"
+  },
+  {
+   "from": "1991 US advertising spend nominal decline",
+   "type": "FIRST_DECLINE_SINCE",
+   "to": "1961 US advertising spend nominal decline",
+   "clause": "first nominal decline ... since 1961"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising spend|advertising expenditure measurement|Measured US advertising spend grew ... \nNODE|advertising spend compound annual growth rate|growth rate measurement|... 8.9% compound annual rate\nNODE|advertising spend nominal multiple|multiple measurement|... 4.2x nominal\nNODE|nominal GDP|gross domestic product measure|faster than nominal GDP\nNODE|advertising spend share of GDP|share of GDP measurement|As a share of GDP it climbed ...\nNODE|GDP|gross domestic product|as a share of GDP\nNODE|ad intensity trend|trend description|era's ad intensity is a rise, not the top\nNODE|maximum ad intensity|conceptual maximum|not the top\nNODE|national advertising spend share of total|share of total measurement|National money was 58.1% of the 1993 total\nNODE|local advertising spend share of total|share of total measurement|local money 41.9%\nNODE|total advertising spend|advertising expenditure aggregate|... of the 1993 total\nNODE|measured media|media category|they are measured media only\nNODE|trade and consumer promotion|advertising segment|trade and consumer promotion ... are not in them\nNODE|Coen series|advertising-spend dataset|the Coen series prices inventory ...\nNODE|rate-card list price|price type|prices inventory at rate-card list prices\nNODE|transaction price|price type|rather than transaction prices\nNODE|direct mail|advertising medium|books direct mail ... as an entirely national medium\nNODE|national medium|medium classification|as an entirely national medium\nNODE|Magna backcast|advertising-spend dataset|the later Magna backcast puts direct mail near 12% of 1980 spend\nNODE|direct mail share of 1980 advertising spend, Magna basis|share measurement|puts direct mail near 12% of 1980 spend\nNODE|direct mail share of 1980 advertising spend, Coen basis|share measurement|Coen puts it at 14.2%\nNODE|1991 US advertising spend nominal decline|advertising expenditure event|1991 was the first nominal decline in US advertising spend since 1961\nNODE|1961 US advertising spend nominal decline|advertising expenditure event|since 1961\n\nEDGE|US advertising spend|HAS_GROWTH_RATE|advertising spend compound annual growth rate|grew ... 8.9% compound annual rate\nEDGE|US advertising spend|MULTIPLE_OVER_PERIOD|advertising spend nominal multiple|... 4.2x nominal\nEDGE|advertising spend compound annual growth rate|FASTER_THAN|nominal GDP|faster than nominal GDP\nEDGE|advertising spend share of GDP|SHARE_OF|GDP|as a share of GDP it climbed ...\nEDGE|ad intensity trend|NOT_MAXIMUM|maximum ad intensity|rise, not the top\nEDGE|national advertising spend share of total|SHARE_OF|total advertising spend|National money was 58.1% of the 1993 total\nEDGE|local advertising spend share of total|SHARE_OF|total advertising spend|local money 41.9%\nEDGE|trade and consumer promotion|NOT_INCLUDED_IN|US advertising spend|are not in them\nEDGE|measured media|EXCLUDES|trade and consumer promotion|they are measured media only ... are not in them\nEDGE|Coen series|PRICES_INVENTORY_AT|rate-card list price|prices inventory at rate-card list prices\nEDGE|Coen series|NOT_PRICED_AT|transaction price|rather than transaction prices\nEDGE|direct mail|BOOKED_AS|national medium|books direct mail ... as an entirely national medium\nEDGE|direct mail share of 1980 advertising spend, Magna basis|MEASURES|direct mail|puts direct mail near 12% of 1980 spend\nEDGE|direct mail share of 1980 advertising spend, Coen basis|MEASURES|direct mail|Coen puts it at 14.2%\nEDGE|1991 US advertising spend nominal decline|FIRST_DECLINE_SINCE|1961 US advertising spend nominal decline|first nominal decline ... since 1961"
+}

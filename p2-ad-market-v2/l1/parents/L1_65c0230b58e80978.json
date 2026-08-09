@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|65c0230b58e80978",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "mail-order reach",
+   "type": "market reach metric",
+   "grain": "Entity",
+   "reason": "singleton: specific market reach metric for mail-order",
+   "child_uids": [
+    "n|e1-targeting-003|mail-order reach|market reach metric"
+   ]
+  },
+  {
+   "name": "bulk advertising space purchase model",
+   "type": "business model",
+   "grain": "Entity",
+   "reason": "singleton: distinct business model concept",
+   "child_uids": [
+    "n|tu:era:1:field:CREATORS|bulk advertising space purchase model|business model"
+   ]
+  },
+  {
+   "name": "mail-order advertiser",
+   "type": "advertiser type",
+   "grain": "Entity",
+   "reason": "singleton: type of advertiser in mail-order context",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|mail-order advertiser|advertiser type"
+   ]
+  },
+  {
+   "name": "mail",
+   "type": "distribution channel",
+   "grain": "Entity",
+   "reason": "singleton: distribution channel named mail",
+   "child_uids": [
+    "n|tu:era:2:field:BUYERS|mail|distribution channel"
+   ]
+  },
+  {
+   "name": "direct-mail responses",
+   "type": "response type",
+   "grain": "Entity",
+   "reason": "singleton: response type for direct\u2011mail campaigns",
+   "child_uids": [
+    "n|tu:era:5:field:TARGETING|direct-mail responses|response type"
+   ]
+  },
+  {
+   "name": "direct\u2011mail house",
+   "type": "advertiser",
+   "grain": "Entity",
+   "reason": "singleton: advertiser entity known as direct\u2011mail house",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|direct\u2011mail house|advertiser"
+   ]
+  }
+ ]
+}

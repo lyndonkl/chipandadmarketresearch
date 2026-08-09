@@ -1,0 +1,71 @@
+{
+ "id": "e6-events-003",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2004,
+ "unit": "% of Google total revenue from Google Network sites, 2004",
+ "elapsed_s": 52.9,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "google network (adsense)",
+   "type": "advertising platform",
+   "clause": "Google Network (AdSense)"
+  },
+  {
+   "name": "google total revenue",
+   "type": "revenue measure",
+   "clause": "Google's total revenue"
+  },
+  {
+   "name": "google network advertising revenue",
+   "type": "advertising revenue stream",
+   "clause": "Google Network (AdSense) advertising revenue"
+  },
+  {
+   "name": "google network advertising revenue amount",
+   "type": "revenue measurement",
+   "clause": "Google Network advertising revenue reached ..."
+  },
+  {
+   "name": "google network revenue share of total revenue",
+   "type": "share measurement",
+   "clause": "... of Google's total revenue"
+  },
+  {
+   "name": "syndication engine",
+   "type": "technology component",
+   "clause": "the syndication engine"
+  }
+ ],
+ "edges": [
+  {
+   "from": "google network advertising revenue amount",
+   "type": "MEASURES",
+   "to": "google network advertising revenue",
+   "clause": "reached ..."
+  },
+  {
+   "from": "google network revenue share of total revenue",
+   "type": "SHARE_OF",
+   "to": "google total revenue",
+   "clause": "... of Google's total revenue"
+  },
+  {
+   "from": "google network revenue share of total revenue",
+   "type": "HIGH_WATER_MARK",
+   "to": "syndication engine",
+   "clause": "the high-water mark of the syndication engine"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|google|company|Google\nNODE|google network (adsense)|advertising platform|Google Network (AdSense)\nNODE|google total revenue|revenue measure|Google's total revenue\nNODE|google network advertising revenue|advertising revenue stream|Google Network (AdSense) advertising revenue\nNODE|google network advertising revenue amount|revenue measurement|Google Network advertising revenue reached ...\nNODE|google network revenue share of total revenue|share measurement|... of Google's total revenue\nNODE|syndication engine|technology component|the syndication engine\nEDGE|google network advertising revenue amount|MEASURES|google network advertising revenue|reached ...\nEDGE|google network revenue share of total revenue|SHARE_OF|google total revenue|... of Google's total revenue\nEDGE|google network revenue share of total revenue|HIGH_WATER_MARK|syndication engine|the high-water mark of the syndication engine"
+}

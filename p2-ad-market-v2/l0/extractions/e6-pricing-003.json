@@ -1,0 +1,78 @@
+{
+ "id": "e6-pricing-003",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2002,
+ "unit": "% take rate retained by Google on Google Network advertising revenue, 2002",
+ "elapsed_s": 104.8,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google"
+  },
+  {
+   "name": "Google Network advertising revenue",
+   "type": "advertising revenue stream",
+   "clause": "Google Network advertising revenue"
+  },
+  {
+   "name": "Google take rate on Google Network advertising revenue",
+   "type": "percentage measurement",
+   "clause": "take rate retained by Google on Google Network advertising revenue"
+  },
+  {
+   "name": "traffic acquisition cost share of Google Network advertising revenue",
+   "type": "percentage measurement",
+   "clause": "traffic acquisition costs as share of Google Network advertising revenue"
+  },
+  {
+   "name": "start of the auction era",
+   "type": "time period",
+   "clause": "the start of the era"
+  },
+  {
+   "name": "end of the auction era",
+   "type": "time period",
+   "clause": "its end"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "HAS_TAKE_RATE",
+   "to": "Google take rate on Google Network advertising revenue",
+   "clause": "Google's take rate on syndicated inventory"
+  },
+  {
+   "from": "Google take rate on Google Network advertising revenue",
+   "type": "THIN_AT",
+   "to": "start of the auction era",
+   "clause": "extremely thin at the start of the era"
+  },
+  {
+   "from": "Google take rate on Google Network advertising revenue",
+   "type": "DOUBLED_BY",
+   "to": "end of the auction era",
+   "clause": "roughly doubled by its end"
+  },
+  {
+   "from": "traffic acquisition cost share of Google Network advertising revenue",
+   "type": "SHARE_OF",
+   "to": "Google Network advertising revenue",
+   "clause": "traffic acquisition costs equalled ... of revenue"
+  },
+  {
+   "from": "Google take rate on Google Network advertising revenue",
+   "type": "SHARE_OF",
+   "to": "Google Network advertising revenue",
+   "clause": "take rate of ... rising to ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google\nNODE|Google Network advertising revenue|advertising revenue stream|Google Network advertising revenue\nNODE|Google take rate on Google Network advertising revenue|percentage measurement|take rate retained by Google on Google Network advertising revenue\nNODE|traffic acquisition cost share of Google Network advertising revenue|percentage measurement|traffic acquisition costs as share of Google Network advertising revenue\nNODE|start of the auction era|time period|the start of the era\nNODE|end of the auction era|time period|its end\nEDGE|Google|HAS_TAKE_RATE|Google take rate on Google Network advertising revenue|Google's take rate on syndicated inventory\nEDGE|Google take rate on Google Network advertising revenue|THIN_AT|start of the auction era|extremely thin at the start of the era\nEDGE|Google take rate on Google Network advertising revenue|DOUBLED_BY|end of the auction era|roughly doubled by its end\nEDGE|traffic acquisition cost share of Google Network advertising revenue|SHARE_OF|Google Network advertising revenue|traffic acquisition costs equalled ... of revenue\nEDGE|Google take rate on Google Network advertising revenue|SHARE_OF|Google Network advertising revenue|take rate of ... rising to ..."
+}

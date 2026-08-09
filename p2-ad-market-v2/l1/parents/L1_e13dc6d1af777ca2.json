@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|e13dc6d1af777ca2",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Frank A. Munsey",
+   "type": "person",
+   "grain": "Entity",
+   "reason": "singleton: single person entity, no other related nodes",
+   "child_uids": [
+    "n|e1-events-003|frank a. munsey|person"
+   ]
+  },
+  {
+   "name": "ten-cent magazine",
+   "type": "magazine type",
+   "grain": "Entity",
+   "reason": "singleton: unique magazine type, not grouped with others",
+   "child_uids": [
+    "n|e1-events-003|ten-cent magazine|magazine type"
+   ]
+  },
+  {
+   "name": "US magazine-buying public",
+   "type": "audience aggregate",
+   "grain": "Entity",
+   "reason": "singleton: distinct audience group, stands alone here",
+   "child_uids": [
+    "n|e1-events-003|us magazine-buying public|audience aggregate"
+   ]
+  },
+  {
+   "name": "general magazines and periodicals",
+   "type": "publication type",
+   "grain": "Entity",
+   "reason": "singleton: broad publication category, no peers in set",
+   "child_uids": [
+    "n|e1-measurement-003|general magazines and periodicals|publication type"
+   ]
+  },
+  {
+   "name": "ten-cent monthlies",
+   "type": "magazine format",
+   "grain": "Entity",
+   "reason": "singleton: specific magazine format, isolated from other nodes",
+   "child_uids": [
+    "n|tu:era:1:field:MEDIUM|ten-cent monthlies|magazine format"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "id": "ds-money_type-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2000,
+ "unit": "USD millions (current)",
+ "elapsed_s": 84.9,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US newspaper classified revenue",
+   "type": "advertising revenue stream",
+   "clause": "US newspaper classified revenue"
+  },
+  {
+   "name": "US newspaper classified revenue peak amount",
+   "type": "revenue measurement",
+   "clause": "peaked ... at ..."
+  },
+  {
+   "name": "GoTo.com keyword auction launch",
+   "type": "auction launch event",
+   "clause": "keyword auction opened"
+  },
+  {
+   "name": "AdWords Select auction integration with Google",
+   "type": "event",
+   "clause": "AdWords Select brought the auction to Google"
+  },
+  {
+   "name": "US newspaper classified revenue 2010 amount",
+   "type": "revenue measurement",
+   "clause": "had fallen ... to ... by ..."
+  },
+  {
+   "name": "US newspaper classified revenue decline percentage",
+   "type": "decline rate measurement",
+   "clause": "fallen ... to ..."
+  },
+  {
+   "name": "GoTo.com",
+   "type": "search-advertising company",
+   "clause": "GoTo.com's keyword auction opened"
+  },
+  {
+   "name": "AdWords Select",
+   "type": "advertising product",
+   "clause": "AdWords Select brought the auction to Google"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "brought the auction to Google"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US newspaper classified revenue peak amount",
+   "type": "MEASURES",
+   "to": "US newspaper classified revenue",
+   "clause": "peaked ... at ..."
+  },
+  {
+   "from": "US newspaper classified revenue peak amount",
+   "type": "AFTER",
+   "to": "GoTo.com keyword auction launch",
+   "clause": "two years after GoTo.com's keyword auction opened"
+  },
+  {
+   "from": "US newspaper classified revenue peak amount",
+   "type": "BEFORE",
+   "to": "AdWords Select auction integration with Google",
+   "clause": "two years before AdWords Select brought the auction to Google"
+  },
+  {
+   "from": "US newspaper classified revenue 2010 amount",
+   "type": "MEASURES",
+   "to": "US newspaper classified revenue",
+   "clause": "had fallen ... to ... by ..."
+  },
+  {
+   "from": "US newspaper classified revenue decline percentage",
+   "type": "MEASURES",
+   "to": "US newspaper classified revenue",
+   "clause": "fallen ... to ..."
+  },
+  {
+   "from": "GoTo.com",
+   "type": "LAUNCHED",
+   "to": "GoTo.com keyword auction launch",
+   "clause": "keyword auction opened"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "BROUGHT_AUCTION_TO",
+   "to": "Google",
+   "clause": "brought the auction to Google"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US newspaper classified revenue|advertising revenue stream|US newspaper classified revenue\nNODE|US newspaper classified revenue peak amount|revenue measurement|peaked ... at ...\nNODE|GoTo.com keyword auction launch|auction launch event|keyword auction opened\nNODE|AdWords Select auction integration with Google|event|AdWords Select brought the auction to Google\nNODE|US newspaper classified revenue 2010 amount|revenue measurement|had fallen ... to ... by ...\nNODE|US newspaper classified revenue decline percentage|decline rate measurement|fallen ... to ...\nNODE|GoTo.com|search-advertising company|GoTo.com's keyword auction opened\nNODE|AdWords Select|advertising product|AdWords Select brought the auction to Google\nNODE|Google|technology company|brought the auction to Google\nEDGE|US newspaper classified revenue peak amount|MEASURES|US newspaper classified revenue|peaked ... at ...\nEDGE|US newspaper classified revenue peak amount|AFTER|GoTo.com keyword auction launch|two years after GoTo.com's keyword auction opened\nEDGE|US newspaper classified revenue peak amount|BEFORE|AdWords Select auction integration with Google|two years before AdWords Select brought the auction to Google\nEDGE|US newspaper classified revenue 2010 amount|MEASURES|US newspaper classified revenue|had fallen ... to ... by ...\nEDGE|US newspaper classified revenue decline percentage|MEASURES|US newspaper classified revenue|fallen ... to ...\nEDGE|GoTo.com|LAUNCHED|GoTo.com keyword auction launch|keyword auction opened\nEDGE|AdWords Select|BROUGHT_AUCTION_TO|Google|brought the auction to Google"
+}

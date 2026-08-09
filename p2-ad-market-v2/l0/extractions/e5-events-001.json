@@ -1,0 +1,89 @@
+{
+ "id": "e5-events-001",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 1994,
+ "unit": "advertisers live at launch",
+ "elapsed_s": 80.0,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Brands",
+   "type": "advertiser",
+   "clause": "Brands live with banner advertising on HotWired"
+  },
+  {
+   "name": "Banner advertising",
+   "type": "ad format",
+   "clause": "banner advertising"
+  },
+  {
+   "name": "HotWired",
+   "type": "website",
+   "clause": "HotWired at launch"
+  },
+  {
+   "name": "Digiday",
+   "type": "publication",
+   "clause": "Digiday's oral history"
+  },
+  {
+   "name": "Other accounts",
+   "type": "source",
+   "clause": "other accounts"
+  },
+  {
+   "name": "Advertiser count at HotWired launch (Digiday)",
+   "type": "advertiser-count measurement",
+   "clause": "counts ... advertisers per Digiday oral history"
+  },
+  {
+   "name": "Advertiser count at HotWired launch (other accounts)",
+   "type": "advertiser-count measurement",
+   "clause": "counts ... advertisers per other accounts"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Brands",
+   "type": "UTILIZED",
+   "to": "Banner advertising",
+   "clause": "live with banner advertising on HotWired"
+  },
+  {
+   "from": "Banner advertising",
+   "type": "PLACED_ON",
+   "to": "HotWired",
+   "clause": "banner advertising on HotWired"
+  },
+  {
+   "from": "Advertiser count at HotWired launch (Digiday)",
+   "type": "MEASURES",
+   "to": "Brands",
+   "clause": "counts ... advertisers at launch"
+  },
+  {
+   "from": "Advertiser count at HotWired launch (other accounts)",
+   "type": "MEASURES",
+   "to": "Brands",
+   "clause": "counts ... advertisers at launch"
+  },
+  {
+   "from": "Digiday",
+   "type": "REPORTS",
+   "to": "Advertiser count at HotWired launch (Digiday)",
+   "clause": "Digiday's oral history counts ..."
+  },
+  {
+   "from": "Other accounts",
+   "type": "REPORTS",
+   "to": "Advertiser count at HotWired launch (other accounts)",
+   "clause": "other accounts say ... signed advertisers"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Brands|advertiser|Brands live with banner advertising on HotWired\nNODE|Banner advertising|ad format|banner advertising\nNODE|HotWired|website|HotWired at launch\nNODE|Digiday|publication|Digiday's oral history\nNODE|Other accounts|source|other accounts\nNODE|Advertiser count at HotWired launch (Digiday)|advertiser-count measurement|counts ... advertisers per Digiday oral history\nNODE|Advertiser count at HotWired launch (other accounts)|advertiser-count measurement|counts ... advertisers per other accounts\nEDGE|Brands|UTILIZED|Banner advertising|live with banner advertising on HotWired\nEDGE|Banner advertising|PLACED_ON|HotWired|banner advertising on HotWired\nEDGE|Advertiser count at HotWired launch (Digiday)|MEASURES|Brands|counts ... advertisers at launch\nEDGE|Advertiser count at HotWired launch (other accounts)|MEASURES|Brands|counts ... advertisers at launch\nEDGE|Digiday|REPORTS|Advertiser count at HotWired launch (Digiday)|Digiday's oral history counts ...\nEDGE|Other accounts|REPORTS|Advertiser count at HotWired launch (other accounts)|other accounts say ... signed advertisers"
+}

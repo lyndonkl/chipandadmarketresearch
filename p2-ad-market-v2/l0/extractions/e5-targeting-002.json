@@ -1,0 +1,153 @@
+{
+ "id": "e5-targeting-002",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "percent of the US internet audience (company-claimed)",
+ "elapsed_s": 87.0,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 9,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "DoubleClick",
+   "type": "advertising technology company",
+   "clause": "DoubleClick"
+  },
+  {
+   "name": "Select network",
+   "type": "ad network",
+   "clause": "DoubleClick's Select network"
+  },
+  {
+   "name": "US internet audience",
+   "type": "audience segment",
+   "clause": "US internet audience"
+  },
+  {
+   "name": "DoubleClick Select network reach",
+   "type": "reach measurement",
+   "clause": "DoubleClick's claimed reach ... of the US internet audience"
+  },
+  {
+   "name": "Engage",
+   "type": "advertising company",
+   "clause": "Engage"
+  },
+  {
+   "name": "Engage 4,700-site network",
+   "type": "publisher network",
+   "clause": "Engage's 4,700-site network"
+  },
+  {
+   "name": "US internet market",
+   "type": "market segment",
+   "clause": "US internet market"
+  },
+  {
+   "name": "Engage market share claim",
+   "type": "market-share measurement",
+   "clause": "Engage claimed ... of the US internet market"
+  },
+  {
+   "name": "ValueClick",
+   "type": "advertising technology company",
+   "clause": "ValueClick"
+  },
+  {
+   "name": "ValueClick network",
+   "type": "ad network",
+   "clause": "ValueClick's network"
+  },
+  {
+   "name": "Jupiter Media Metrix",
+   "type": "media measurement firm",
+   "clause": "third party Jupiter Media Metix"
+  },
+  {
+   "name": "ValueClick market share measurement",
+   "type": "market-share measurement",
+   "clause": "ValueClick's 'more than 30%' ... measured by a third party"
+  },
+  {
+   "name": "Network reach",
+   "type": "reach concept",
+   "clause": "network reach"
+  },
+  {
+   "name": "Publisher relationships",
+   "type": "relationship concept",
+   "clause": "publisher relationships"
+  },
+  {
+   "name": "Cookie-based targeting",
+   "type": "targeting mechanism",
+   "clause": "cookie-based targeting"
+  }
+ ],
+ "edges": [
+  {
+   "from": "DoubleClick Select network reach",
+   "type": "CLAIMED_BY",
+   "to": "DoubleClick",
+   "clause": "... claimed reach ... of the US internet audience"
+  },
+  {
+   "from": "DoubleClick Select network reach",
+   "type": "SHARE_OF",
+   "to": "US internet audience",
+   "clause": "... of the US internet audience"
+  },
+  {
+   "from": "Engage market share claim",
+   "type": "CLAIMED_BY",
+   "to": "Engage",
+   "clause": "... claimed ... of the US internet market"
+  },
+  {
+   "from": "Engage market share claim",
+   "type": "SHARE_OF",
+   "to": "US internet market",
+   "clause": "... of the US internet market"
+  },
+  {
+   "from": "ValueClick market share measurement",
+   "type": "CLAIMED_BY",
+   "to": "ValueClick",
+   "clause": "... measured by a third party"
+  },
+  {
+   "from": "ValueClick market share measurement",
+   "type": "MEASURED_BY",
+   "to": "Jupiter Media Metrix",
+   "clause": "... measured by a third party"
+  },
+  {
+   "from": "ValueClick market share measurement",
+   "type": "SHARE_OF",
+   "to": "US internet market",
+   "clause": "... of the US internet market"
+  },
+  {
+   "from": "Network reach",
+   "type": "MADE_ECONOMICALLY_MEANINGFUL_FOR",
+   "to": "Cookie-based targeting",
+   "clause": "network reach made cookie-based targeting meaningful"
+  },
+  {
+   "from": "Publisher relationships",
+   "type": "NOT_MADE_ECONOMICALLY_MEANINGFUL_FOR",
+   "to": "Cookie-based targeting",
+   "clause": "publisher relationships not make cookie-based targeting meaningful"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "NOT_MADE_ECONOMICALLY_MEANINGFUL_FOR",
+   "line": "EDGE|Publisher relationships|NOT_MADE_ECONOMICALLY_MEANINGFUL_FOR|Cookie-based targeting|publisher relationships not make cookie-based targeting meaningful"
+  }
+ ],
+ "raw": "NODE|DoubleClick|advertising technology company|DoubleClick\nNODE|Select network|ad network|DoubleClick's Select network\nNODE|US internet audience|audience segment|US internet audience\nNODE|DoubleClick Select network reach|reach measurement|DoubleClick's claimed reach ... of the US internet audience\nNODE|Engage|advertising company|Engage\nNODE|Engage 4,700-site network|publisher network|Engage's 4,700-site network\nNODE|US internet market|market segment|US internet market\nNODE|Engage market share claim|market-share measurement|Engage claimed ... of the US internet market\nNODE|ValueClick|advertising technology company|ValueClick\nNODE|ValueClick network|ad network|ValueClick's network\nNODE|Jupiter Media Metrix|media measurement firm|third party Jupiter Media Metix\nNODE|ValueClick market share measurement|market-share measurement|ValueClick's 'more than 30%' ... measured by a third party\nNODE|Network reach|reach concept|network reach\nNODE|Publisher relationships|relationship concept|publisher relationships\nNODE|Cookie-based targeting|targeting mechanism|cookie-based targeting\nEDGE|DoubleClick Select network reach|CLAIMED_BY|DoubleClick|... claimed reach ... of the US internet audience\nEDGE|DoubleClick Select network reach|SHARE_OF|US internet audience|... of the US internet audience\nEDGE|Engage market share claim|CLAIMED_BY|Engage|... claimed ... of the US internet market\nEDGE|Engage market share claim|SHARE_OF|US internet market|... of the US internet market\nEDGE|ValueClick market share measurement|CLAIMED_BY|ValueClick|... measured by a third party\nEDGE|ValueClick market share measurement|MEASURED_BY|Jupiter Media Metrix|... measured by a third party\nEDGE|ValueClick market share measurement|SHARE_OF|US internet market|... of the US internet market\nEDGE|Network reach|MADE_ECONOMICALLY_MEANINGFUL_FOR|Cookie-based targeting|network reach made cookie-based targeting meaningful\nEDGE|Publisher relationships|NOT_MADE_ECONOMICALLY_MEANINGFUL_FOR|Cookie-based targeting|publisher relationships not make cookie-based targeting meaningful"
+}

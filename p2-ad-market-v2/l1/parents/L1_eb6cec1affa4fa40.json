@@ -1,0 +1,36 @@
+{
+ "group_id": "L1|eb6cec1affa4fa40",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Google acquisition of DoubleClick price",
+   "type": "acquisition price measurement",
+   "grain": "Measurement",
+   "reason": "same transaction; price abstracted from year and source",
+   "child_uids": [
+    "n|e6-events-009|google-doubleclick purchase price|acquisition price measurement",
+    "n|e6-targeting-004|google-doubleclick acquisition price|usd million measurement",
+    "n|tu:era:6:event:8|doubleclick acquisition cost|monetary measurement"
+   ]
+  },
+  {
+   "name": "Saatchi & Saatchi acquisition price",
+   "type": "acquisition price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific firm acquisition price",
+   "child_uids": [
+    "n|e4-events-002|saatchi & saatchi acquisition price|monetary transaction measurement"
+   ]
+  },
+  {
+   "name": "Acquisition price measurement",
+   "type": "acquisition price measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic acquisition price without specific entity",
+   "child_uids": [
+    "n|e7-events-001|acquisition price measurement|acquisition-price measurement"
+   ]
+  }
+ ]
+}

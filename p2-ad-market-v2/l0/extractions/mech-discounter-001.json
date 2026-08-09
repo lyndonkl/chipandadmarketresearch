@@ -1,0 +1,123 @@
+{
+ "id": "mech-discounter-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2008,
+ "unit": "USD paid per click by the top advertiser bidding $1.00 against a $0.60 next bid",
+ "elapsed_s": 91.8,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google's own AdWords Discounter example"
+  },
+  {
+   "name": "AdWords Discounter example",
+   "type": "pricing example",
+   "clause": "Google's own AdWords Discounter example"
+  },
+  {
+   "name": "top advertiser maximum bid",
+   "type": "maximum bid measurement",
+   "clause": "maximum bid of ... per click"
+  },
+  {
+   "name": "second-highest bid",
+   "type": "bid measurement",
+   "clause": "maximum bid of ... per click"
+  },
+  {
+   "name": "third-highest bid",
+   "type": "bid measurement",
+   "clause": "maximum bid of ... per click"
+  },
+  {
+   "name": "top slot price",
+   "type": "price paid measurement",
+   "clause": "price of ... per click"
+  },
+  {
+   "name": "second slot price",
+   "type": "price paid measurement",
+   "clause": "price of ... per click"
+  },
+  {
+   "name": "third slot price",
+   "type": "price paid measurement",
+   "clause": "price of ... per click (minimum bid)"
+  },
+  {
+   "name": "seller reserve",
+   "type": "reserve price",
+   "clause": "the seller's reserve"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "PROVIDES",
+   "to": "AdWords Discounter example",
+   "clause": "own AdWords Discounter example"
+  },
+  {
+   "from": "AdWords Discounter example",
+   "type": "INCLUDES_BID",
+   "to": "top advertiser maximum bid",
+   "clause": "maximum bids of ..."
+  },
+  {
+   "from": "AdWords Discounter example",
+   "type": "INCLUDES_BID",
+   "to": "second-highest bid",
+   "clause": "maximum bids of ..."
+  },
+  {
+   "from": "AdWords Discounter example",
+   "type": "INCLUDES_BID",
+   "to": "third-highest bid",
+   "clause": "maximum bids of ..."
+  },
+  {
+   "from": "AdWords Discounter example",
+   "type": "PRODUCES",
+   "to": "top slot price",
+   "clause": "prices of ..."
+  },
+  {
+   "from": "AdWords Discounter example",
+   "type": "PRODUCES",
+   "to": "second slot price",
+   "clause": "prices of ..."
+  },
+  {
+   "from": "AdWords Discounter example",
+   "type": "PRODUCES",
+   "to": "third slot price",
+   "clause": "prices of ..."
+  },
+  {
+   "from": "top slot price",
+   "type": "ONE_CENT_ABOVE",
+   "to": "second-highest bid",
+   "clause": "winner pays one cent above the next bid"
+  },
+  {
+   "from": "top slot price",
+   "type": "NOT_EQUAL_TO",
+   "to": "top advertiser maximum bid",
+   "clause": "not its own bid"
+  },
+  {
+   "from": "third slot price",
+   "type": "EQUALS",
+   "to": "seller reserve",
+   "clause": "last slot pays the seller's reserve"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google's own AdWords Discounter example\nNODE|AdWords Discounter example|pricing example|Google's own AdWords Discounter example\nNODE|top advertiser maximum bid|maximum bid measurement|maximum bid of ... per click\nNODE|second-highest bid|bid measurement|maximum bid of ... per click\nNODE|third-highest bid|bid measurement|maximum bid of ... per click\nNODE|top slot price|price paid measurement|price of ... per click\nNODE|second slot price|price paid measurement|price of ... per click\nNODE|third slot price|price paid measurement|price of ... per click (minimum bid)\nNODE|seller reserve|reserve price|the seller's reserve\nEDGE|Google|PROVIDES|AdWords Discounter example|own AdWords Discounter example\nEDGE|AdWords Discounter example|INCLUDES_BID|top advertiser maximum bid|maximum bids of ...\nEDGE|AdWords Discounter example|INCLUDES_BID|second-highest bid|maximum bids of ...\nEDGE|AdWords Discounter example|INCLUDES_BID|third-highest bid|maximum bids of ...\nEDGE|AdWords Discounter example|PRODUCES|top slot price|prices of ...\nEDGE|AdWords Discounter example|PRODUCES|second slot price|prices of ...\nEDGE|AdWords Discounter example|PRODUCES|third slot price|prices of ...\nEDGE|top slot price|ONE_CENT_ABOVE|second-highest bid|winner pays one cent above the next bid\nEDGE|top slot price|NOT_EQUAL_TO|top advertiser maximum bid|not its own bid\nEDGE|third slot price|EQUALS|seller reserve|last slot pays the seller's reserve"
+}

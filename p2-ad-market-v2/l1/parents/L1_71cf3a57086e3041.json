@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|71cf3a57086e3041",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total advertising revenue measure across years abstracted to children",
+   "child_uids": [
+    "n|e1-sellers-003|advertising revenue measurement|revenue measurement"
+   ]
+  },
+  {
+   "name": "Human ad sales force cost",
+   "type": "labor cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: labor cost of human ad sales force",
+   "child_uids": [
+    "n|e5-unit_econ-002|human ad sales force cost|labor cost measurement"
+   ]
+  },
+  {
+   "name": "Cable advertising revenue",
+   "type": "advertising revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: advertising revenue specific to cable medium",
+   "child_uids": [
+    "n|tu:era:4:field:SELLERS|cable advertising revenue|advertising revenue measurement"
+   ]
+  },
+  {
+   "name": "Recruitment advertising revenue",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: advertising revenue for recruitment sector",
+   "child_uids": [
+    "n|tu:era:5:field:MEDIUM|recruitment advertising revenue|spend measurement"
+   ]
+  }
+ ]
+}

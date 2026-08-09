@@ -1,0 +1,100 @@
+{
+ "group_id": "L1|41176be6d3984a4b",
+ "source": "kmeans",
+ "n_in": 13,
+ "parents": [
+  {
+   "name": "NBC/CBS owned stations count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique measure of owned stations count",
+   "child_uids": [
+    "n|e2-sellers-001|nbc and cbs owned station count|count measurement"
+   ]
+  },
+  {
+   "name": "Affiliated broadcast stations count",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "same metric across sources; year abstracted",
+   "child_uids": [
+    "n|e2-sellers-002|affiliated station count|count measurement",
+    "n|e2-sellers-003|affiliated stations count|station-count measurement"
+   ]
+  },
+  {
+   "name": "Total commercial broadcast stations count",
+   "type": "station-count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total commercial broadcast stations at 1938",
+   "child_uids": [
+    "n|e2-sellers-003|total commercial broadcast stations count|station-count measurement"
+   ]
+  },
+  {
+   "name": "NBC/CBS-affiliated stations share of unlimited-time nighttime wattage",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of unlimited-time stations nighttime wattage",
+   "child_uids": [
+    "n|e2-events-003|nbc/cbs-affiliated stations share of us unlimited-time stations nighttime wattage|media-share measurement"
+   ]
+  },
+  {
+   "name": "NBC/CBS-affiliated stations share of total US nighttime wattage",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "same share metric across sources; year abstracted",
+   "child_uids": [
+    "n|e2-events-003|fcc reported nbc/cbs-affiliated stations share of total us nighttime wattage|media-share measurement",
+    "n|e2-events-003|nbc/cbs-affiliated stations share of all us nighttime wattage|media-share measurement"
+   ]
+  },
+  {
+   "name": "Maximum television stations per owner",
+   "type": "ownership cap measurement",
+   "grain": "Measurement",
+   "reason": "singleton: ownership cap for TV stations 1954",
+   "child_uids": [
+    "n|e3-sellers-002|maximum television stations per owner|ownership cap measurement"
+   ]
+  },
+  {
+   "name": "Maximum VHF stations per owner",
+   "type": "VHF ownership cap measurement",
+   "grain": "Measurement",
+   "reason": "singleton: VHF ownership cap 1954",
+   "child_uids": [
+    "n|e3-sellers-002|maximum vhf stations per owner|vhf ownership cap measurement"
+   ]
+  },
+  {
+   "name": "Commercial television stations on air count",
+   "type": "station count measurement",
+   "grain": "Measurement",
+   "reason": "same count metric earlier and later; year abstracted",
+   "child_uids": [
+    "n|e3-sellers-003|commercial tv stations on air earlier|station count measurement",
+    "n|e3-sellers-003|commercial tv stations on air later|station count measurement"
+   ]
+  },
+  {
+   "name": "VHF commercial TV stations on air count",
+   "type": "station count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: VHF component of commercial TV stations 1975",
+   "child_uids": [
+    "n|e3-sellers-003|vhf commercial tv stations on air|station count measurement"
+   ]
+  },
+  {
+   "name": "UHF commercial TV stations on air count",
+   "type": "station count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: UHF component of commercial TV stations 1975",
+   "child_uids": [
+    "n|e3-sellers-003|uhf commercial tv stations on air|station count measurement"
+   ]
+  }
+ ]
+}

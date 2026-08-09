@@ -1,0 +1,143 @@
+{
+ "id": "e1-measurement-003",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1926,
+ "unit": "member newspapers",
+ "elapsed_s": 70.1,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "ABC membership",
+   "type": "membership organization",
+   "clause": "within a dozen years of founding"
+  },
+  {
+   "name": "newspapers",
+   "type": "publication type",
+   "clause": "covered ..."
+  },
+  {
+   "name": "general magazines and periodicals",
+   "type": "publication type",
+   "clause": "covered ..."
+  },
+  {
+   "name": "business publications",
+   "type": "publication type",
+   "clause": "covered ..."
+  },
+  {
+   "name": "farm publications",
+   "type": "publication type",
+   "clause": "covered ..."
+  },
+  {
+   "name": "newspaper membership count",
+   "type": "member-count measurement",
+   "clause": "covered ..."
+  },
+  {
+   "name": "magazine membership count",
+   "type": "member-count measurement",
+   "clause": "covered ..."
+  },
+  {
+   "name": "business publication membership count",
+   "type": "member-count measurement",
+   "clause": "covered ..."
+  },
+  {
+   "name": "farm publication membership count",
+   "type": "member-count measurement",
+   "clause": "covered ..."
+  },
+  {
+   "name": "publisher statements",
+   "type": "reporting document",
+   "clause": "with publisher statements filed every ... months"
+  },
+  {
+   "name": "publisher statement filing interval",
+   "type": "frequency measurement",
+   "clause": "filed every ... months"
+  },
+  {
+   "name": "audited report",
+   "type": "audit document",
+   "clause": "and an audited report once a year"
+  },
+  {
+   "name": "audited report frequency",
+   "type": "frequency measurement",
+   "clause": "once a year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "ABC membership",
+   "type": "HAS_MEASUREMENT",
+   "to": "newspaper membership count",
+   "clause": "covered ..."
+  },
+  {
+   "from": "newspaper membership count",
+   "type": "MEASURES",
+   "to": "newspapers",
+   "clause": "covers ..."
+  },
+  {
+   "from": "ABC membership",
+   "type": "HAS_MEASUREMENT",
+   "to": "magazine membership count",
+   "clause": "covered ..."
+  },
+  {
+   "from": "magazine membership count",
+   "type": "MEASURES",
+   "to": "general magazines and periodicals",
+   "clause": "covers ..."
+  },
+  {
+   "from": "ABC membership",
+   "type": "HAS_MEASUREMENT",
+   "to": "business publication membership count",
+   "clause": "covered ..."
+  },
+  {
+   "from": "business publication membership count",
+   "type": "MEASURES",
+   "to": "business publications",
+   "clause": "covers ..."
+  },
+  {
+   "from": "ABC membership",
+   "type": "HAS_MEASUREMENT",
+   "to": "farm publication membership count",
+   "clause": "covered ..."
+  },
+  {
+   "from": "farm publication membership count",
+   "type": "MEASURES",
+   "to": "farm publications",
+   "clause": "covers ..."
+  },
+  {
+   "from": "publisher statements",
+   "type": "HAS_MEASUREMENT",
+   "to": "publisher statement filing interval",
+   "clause": "filed every ... months"
+  },
+  {
+   "from": "audited report",
+   "type": "HAS_MEASUREMENT",
+   "to": "audited report frequency",
+   "clause": "once a year"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|ABC membership|membership organization|within a dozen years of founding\nNODE|newspapers|publication type|covered ...\nNODE|general magazines and periodicals|publication type|covered ...\nNODE|business publications|publication type|covered ...\nNODE|farm publications|publication type|covered ...\nNODE|newspaper membership count|member-count measurement|covered ...\nNODE|magazine membership count|member-count measurement|covered ...\nNODE|business publication membership count|member-count measurement|covered ...\nNODE|farm publication membership count|member-count measurement|covered ...\nNODE|publisher statements|reporting document|with publisher statements filed every ... months\nNODE|publisher statement filing interval|frequency measurement|filed every ... months\nNODE|audited report|audit document|and an audited report once a year\nNODE|audited report frequency|frequency measurement|once a year\nEDGE|ABC membership|HAS_MEASUREMENT|newspaper membership count|covered ...\nEDGE|newspaper membership count|MEASURES|newspapers|covers ...\nEDGE|ABC membership|HAS_MEASUREMENT|magazine membership count|covered ...\nEDGE|magazine membership count|MEASURES|general magazines and periodicals|covers ...\nEDGE|ABC membership|HAS_MEASUREMENT|business publication membership count|covered ...\nEDGE|business publication membership count|MEASURES|business publications|covers ...\nEDGE|ABC membership|HAS_MEASUREMENT|farm publication membership count|covered ...\nEDGE|farm publication membership count|MEASURES|farm publications|covers ...\nEDGE|publisher statements|HAS_MEASUREMENT|publisher statement filing interval|filed every ... months\nEDGE|audited report|HAS_MEASUREMENT|audited report frequency|once a year"
+}

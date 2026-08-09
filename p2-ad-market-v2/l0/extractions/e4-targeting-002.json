@@ -1,0 +1,94 @@
+{
+ "id": "e4-targeting-002",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1974,
+ "unit": "year of commercial launch",
+ "elapsed_s": 79.3,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "PRIZM",
+   "type": "segmentation system",
+   "clause": "launch year contested"
+  },
+  {
+   "name": "Griffith's peer-reviewed history in IEEE Annals",
+   "type": "scholarly source",
+   "clause": "strongest source dates system to ..."
+  },
+  {
+   "name": "Robbin",
+   "type": "person",
+   "clause": "independent accounts agree Robbin founded Claritas"
+  },
+  {
+   "name": "Claritas",
+   "type": "company",
+   "clause": "founded by Robbin to commercialise model"
+  },
+  {
+   "name": "forty-cluster model",
+   "type": "segmentation model",
+   "clause": "model commercialised by Claritas founder"
+  },
+  {
+   "name": "ZIP classification",
+   "type": "classification scheme",
+   "clause": "produced by Robbin same year"
+  },
+  {
+   "name": "secondary accounts",
+   "type": "generic source",
+   "clause": "later launch dates circulate"
+  },
+  {
+   "name": "commercial launch year",
+   "type": "temporal attribute",
+   "clause": "launch year of PRIZM"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Griffith's peer-reviewed history in IEEE Annals",
+   "type": "DATES_LAUNCH_YEAR_OF",
+   "to": "PRIZM",
+   "clause": "dates system to ..."
+  },
+  {
+   "from": "secondary accounts",
+   "type": "CIRCULATES_ALTERNATE_LAUNCH_DATES",
+   "to": "PRIZM",
+   "clause": "later launch dates of ... and ..."
+  },
+  {
+   "from": "Robbin",
+   "type": "FOUNDED",
+   "to": "Claritas",
+   "clause": "founded Claritas in ..."
+  },
+  {
+   "from": "Robbin",
+   "type": "COMMERCIALIZED",
+   "to": "forty-cluster model",
+   "clause": "to commercialise the model"
+  },
+  {
+   "from": "Robbin",
+   "type": "PRODUCED",
+   "to": "ZIP classification",
+   "clause": "produced ZIP classification same year"
+  },
+  {
+   "from": "PRIZM",
+   "type": "LAUNCH_YEAR_IS_CONTESTED",
+   "to": "commercial launch year",
+   "clause": "launch year is contested"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|PRIZM|segmentation system|launch year contested\nNODE|Griffith's peer-reviewed history in IEEE Annals|scholarly source|strongest source dates system to ...\nNODE|Robbin|person|independent accounts agree Robbin founded Claritas\nNODE|Claritas|company|founded by Robbin to commercialise model\nNODE|forty-cluster model|segmentation model|model commercialised by Claritas founder\nNODE|ZIP classification|classification scheme|produced by Robbin same year\nNODE|secondary accounts|generic source|later launch dates circulate\nNODE|commercial launch year|temporal attribute|launch year of PRIZM\nEDGE|Griffith's peer-reviewed history in IEEE Annals|DATES_LAUNCH_YEAR_OF|PRIZM|dates system to ...\nEDGE|secondary accounts|CIRCULATES_ALTERNATE_LAUNCH_DATES|PRIZM|later launch dates of ... and ...\nEDGE|Robbin|FOUNDED|Claritas|founded Claritas in ...\nEDGE|Robbin|COMMERCIALIZED|forty-cluster model|to commercialise the model\nEDGE|Robbin|PRODUCED|ZIP classification|produced ZIP classification same year\nEDGE|PRIZM|LAUNCH_YEAR_IS_CONTESTED|commercial launch year|launch year is contested"
+}

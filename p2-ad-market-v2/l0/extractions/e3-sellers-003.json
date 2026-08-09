@@ -1,0 +1,67 @@
+{
+ "id": "e3-sellers-003",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "commercial television stations on air",
+ "elapsed_s": 74.9,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "commercial TV stations on air later",
+   "type": "station count measurement",
+   "clause": "there were ... on the air in the United States"
+  },
+  {
+   "name": "commercial TV stations on air earlier",
+   "type": "station count measurement",
+   "clause": "up from ..."
+  },
+  {
+   "name": "VHF commercial TV stations on air",
+   "type": "station count measurement",
+   "clause": "... VHF component"
+  },
+  {
+   "name": "UHF commercial TV stations on air",
+   "type": "station count measurement",
+   "clause": "... UHF component"
+  },
+  {
+   "name": "United States",
+   "type": "market",
+   "clause": "in the United States"
+  }
+ ],
+ "edges": [
+  {
+   "from": "commercial TV stations on air later",
+   "type": "LOCATED_IN",
+   "to": "United States",
+   "clause": "... in the United States"
+  },
+  {
+   "from": "commercial TV stations on air later",
+   "type": "UP_FROM",
+   "to": "commercial TV stations on air earlier",
+   "clause": "up from ..."
+  },
+  {
+   "from": "VHF commercial TV stations on air",
+   "type": "PART_OF",
+   "to": "commercial TV stations on air later",
+   "clause": "... VHF component"
+  },
+  {
+   "from": "UHF commercial TV stations on air",
+   "type": "PART_OF",
+   "to": "commercial TV stations on air later",
+   "clause": "... UHF component"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|commercial TV stations on air later|station count measurement|there were ... on the air in the United States\nNODE|commercial TV stations on air earlier|station count measurement|up from ...\nNODE|VHF commercial TV stations on air|station count measurement|... VHF component\nNODE|UHF commercial TV stations on air|station count measurement|... UHF component\nNODE|United States|market|in the United States\nEDGE|commercial TV stations on air later|LOCATED_IN|United States|... in the United States\nEDGE|commercial TV stations on air later|UP_FROM|commercial TV stations on air earlier|up from ...\nEDGE|VHF commercial TV stations on air|PART_OF|commercial TV stations on air later|... VHF component\nEDGE|UHF commercial TV stations on air|PART_OF|commercial TV stations on air later|... UHF component"
+}

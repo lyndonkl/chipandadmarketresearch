@@ -1,0 +1,88 @@
+{
+ "id": "mech-format_pricing-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2019,
+ "unit": "percent of Google search text-ads RPM attributable to format pricing",
+ "elapsed_s": 58.5,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "format pricing",
+   "type": "pricing mechanism",
+   "clause": "format pricing"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google"
+  },
+  {
+   "name": "rGSP",
+   "type": "pricing mechanism",
+   "clause": "rGSP"
+  },
+  {
+   "name": "Google search text-ads RPM",
+   "type": "revenue metric",
+   "clause": "Google's general search text-ads revenue per thousand queries"
+  },
+  {
+   "name": "individual format-price experiments",
+   "type": "experiment series",
+   "clause": "individual format-price experiments"
+  },
+  {
+   "name": "format pricing share of Google search text-ads RPM",
+   "type": "share measurement",
+   "clause": "percent of Google search text-ads RPM attributable to format pricing"
+  },
+  {
+   "name": "format-price experiment launch gain",
+   "type": "percentage measurement",
+   "clause": "launch gain of format-price experiments"
+  },
+  {
+   "name": "format-price experiment retained share",
+   "type": "percentage measurement",
+   "clause": "long-term retained portion of the gain"
+  }
+ ],
+ "edges": [
+  {
+   "from": "format pricing",
+   "type": "HAS_RATE",
+   "to": "format pricing share of Google search text-ads RPM",
+   "clause": "had grown to ..."
+  },
+  {
+   "from": "format pricing share of Google search text-ads RPM",
+   "type": "SHARE_OF",
+   "to": "Google search text-ads RPM",
+   "clause": "of Google's general search text-ads revenue per thousand queries"
+  },
+  {
+   "from": "rGSP",
+   "type": "REPLACED",
+   "to": "format pricing",
+   "clause": "replaced it"
+  },
+  {
+   "from": "individual format-price experiments",
+   "type": "HAS_RATE",
+   "to": "format-price experiment launch gain",
+   "clause": "launched at ..."
+  },
+  {
+   "from": "individual format-price experiments",
+   "type": "RETENTION_SHARE",
+   "to": "format-price experiment retained share",
+   "clause": "retained roughly ... the gain long term"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|format pricing|pricing mechanism|format pricing\nNODE|Google|technology company|Google\nNODE|rGSP|pricing mechanism|rGSP\nNODE|Google search text-ads RPM|revenue metric|Google's general search text-ads revenue per thousand queries\nNODE|individual format-price experiments|experiment series|individual format-price experiments\nNODE|format pricing share of Google search text-ads RPM|share measurement|percent of Google search text-ads RPM attributable to format pricing\nNODE|format-price experiment launch gain|percentage measurement|launch gain of format-price experiments\nNODE|format-price experiment retained share|percentage measurement|long-term retained portion of the gain\nEDGE|format pricing|HAS_RATE|format pricing share of Google search text-ads RPM|had grown to ...\nEDGE|format pricing share of Google search text-ads RPM|SHARE_OF|Google search text-ads RPM|of Google's general search text-ads revenue per thousand queries\nEDGE|rGSP|REPLACED|format pricing|replaced it\nEDGE|individual format-price experiments|HAS_RATE|format-price experiment launch gain|launched at ...\nEDGE|individual format-price experiments|RETENTION_SHARE|format-price experiment retained share|retained roughly ... the gain long term"
+}

@@ -1,0 +1,27 @@
+{
+ "group_id": "L1|a07431252372a27e",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Media commission rate (share of media billings)",
+   "type": "commission share measurement",
+   "grain": "Measurement",
+   "reason": "one measure across wording variants; share of commissions on media billings",
+   "child_uids": [
+    "n|e4-pricing-001|media commission share of media billings|take-rate measurement",
+    "n|tu:era:4:boundary|commissions actually received share of media billings|commission receipt share measurement",
+    "n|tu:era:4:field:PRICING|actual brand media commission rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Share of advertisers paying media commission",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: a distinct share of payers measure",
+   "child_uids": [
+    "n|tu:era:5:field:CREATORS|share paying media commission|share measurement"
+   ]
+  }
+ ]
+}

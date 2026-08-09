@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|9804f66334dfbd18",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Broadcast history source",
+   "type": "information source",
+   "grain": "Entity",
+   "reason": "singleton: unique entity concept",
+   "child_uids": [
+    "n|e2-pricing-001|broadcast-history source|information source"
+   ]
+  },
+  {
+   "name": "AM radio stations",
+   "type": "radio station",
+   "grain": "Entity",
+   "reason": "singleton: distinct category of stations",
+   "child_uids": [
+    "n|e2-sellers-006|am radio stations|radio station"
+   ]
+  },
+  {
+   "name": "US unlimited-time stations",
+   "type": "radio station class",
+   "grain": "Entity",
+   "reason": "singleton: specific station class entity",
+   "child_uids": [
+    "n|e2-events-003|us unlimited-time stations|radio station class"
+   ]
+  },
+  {
+   "name": "WMCA",
+   "type": "radio station",
+   "grain": "Entity",
+   "reason": "singleton: individual radio station entity",
+   "child_uids": [
+    "n|tu:era:2:event:8|wmca|radio station"
+   ]
+  },
+  {
+   "name": "Independent stations",
+   "type": "broadcast station",
+   "grain": "Entity",
+   "reason": "singleton: distinct group of independent broadcasters",
+   "child_uids": [
+    "n|tu:era:4:event:7|independent stations|broadcast station"
+   ]
+  }
+ ]
+}

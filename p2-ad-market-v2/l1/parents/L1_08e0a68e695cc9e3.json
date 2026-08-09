@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|08e0a68e695cc9e3",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Spot market mechanism change",
+   "type": "pricing mechanism transition",
+   "grain": "Entity",
+   "reason": "singleton: specific spot\u2011market pricing change",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|spot market mechanism change|pricing mechanism transition"
+   ]
+  },
+  {
+   "name": "Pricing mechanism change",
+   "type": "market change",
+   "grain": "Entity",
+   "reason": "singleton: generic pricing mechanism change event",
+   "child_uids": [
+    "n|tu:era:7:event:4|pricing mechanism change|market change"
+   ]
+  },
+  {
+   "name": "rGSP knob",
+   "type": "pricing knob",
+   "grain": "Entity",
+   "reason": "singleton: distinct pricing knob entity",
+   "child_uids": [
+    "n|tu:era:7:event:6|rgsp knob|pricing knob"
+   ]
+  },
+  {
+   "name": "rGSP replacement of format pricing",
+   "type": "transition",
+   "grain": "Entity",
+   "reason": "singleton: transition event replacing format pricing",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|rgsp replacement of format pricing|transition"
+   ]
+  }
+ ]
+}

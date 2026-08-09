@@ -1,0 +1,83 @@
+{
+ "id": "e4-sellers-005",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 58.2,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US Postal Service",
+   "type": "organization",
+   "clause": "the US Postal Service"
+  },
+  {
+   "name": "third-class mail revenue FY1993",
+   "type": "revenue measurement",
+   "clause": "collected ... in ..."
+  },
+  {
+   "name": "bulk rate revenue FY1993",
+   "type": "revenue measurement",
+   "clause": "bulk rate ... in ..."
+  },
+  {
+   "name": "third-class mail revenue FY1980",
+   "type": "revenue measurement",
+   "clause": "... in ..."
+  },
+  {
+   "name": "growth multiple 4.1x rise",
+   "type": "ratio measurement",
+   "clause": "a ... rise"
+  },
+  {
+   "name": "single sellers in US advertising economy",
+   "type": "market participant group",
+   "clause": "one of the largest single sellers in the US advertising economy"
+  },
+  {
+   "name": "US advertising economy",
+   "type": "market",
+   "clause": "the US advertising economy"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US Postal Service",
+   "type": "COLLECTED",
+   "to": "third-class mail revenue FY1993",
+   "clause": "collected ... in ..."
+  },
+  {
+   "from": "US Postal Service",
+   "type": "COLLECTED",
+   "to": "bulk rate revenue FY1993",
+   "clause": "bulk rate ... in ..."
+  },
+  {
+   "from": "third-class mail revenue FY1993",
+   "type": "UP_FROM",
+   "to": "third-class mail revenue FY1980",
+   "clause": "up from ... in ..."
+  },
+  {
+   "from": "growth multiple 4.1x rise",
+   "type": "MEASURES_GROWTH_OF",
+   "to": "third-class mail revenue FY1993",
+   "clause": "a ... rise"
+  },
+  {
+   "from": "US Postal Service",
+   "type": "WAS_ONE_OF_LARGEST",
+   "to": "single sellers in US advertising economy",
+   "clause": "one of the largest single sellers in the US advertising economy"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US Postal Service|organization|the US Postal Service\nNODE|third-class mail revenue FY1993|revenue measurement|collected ... in ...\nNODE|bulk rate revenue FY1993|revenue measurement|bulk rate ... in ...\nNODE|third-class mail revenue FY1980|revenue measurement|... in ...\nNODE|growth multiple 4.1x rise|ratio measurement|a ... rise\nNODE|single sellers in US advertising economy|market participant group|one of the largest single sellers in the US advertising economy\nNODE|US advertising economy|market|the US advertising economy\nEDGE|US Postal Service|COLLECTED|third-class mail revenue FY1993|collected ... in ...\nEDGE|US Postal Service|COLLECTED|bulk rate revenue FY1993|bulk rate ... in ...\nEDGE|third-class mail revenue FY1993|UP_FROM|third-class mail revenue FY1980|up from ... in ...\nEDGE|growth multiple 4.1x rise|MEASURES_GROWTH_OF|third-class mail revenue FY1993|a ... rise\nEDGE|US Postal Service|WAS_ONE_OF_LARGEST|single sellers in US advertising economy|one of the largest single sellers in the US advertising economy"
+}

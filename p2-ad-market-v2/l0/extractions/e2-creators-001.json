@@ -1,0 +1,105 @@
+{
+ "id": "e2-creators-001",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1933,
+ "unit": "weekly network radio programs sponsored by JWT clients, 1933",
+ "elapsed_s": 77.6,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "J. Walter Thompson",
+   "type": "advertising agency",
+   "clause": "J. Walter Thompson's clients"
+  },
+  {
+   "name": "JWT clients",
+   "type": "client group",
+   "clause": "J. Walter Thompson's clients"
+  },
+  {
+   "name": "weekly network radio shows",
+   "type": "weekly network radio show",
+   "clause": "sponsored ... weekly network radio shows"
+  },
+  {
+   "name": "weekly network radio programs sponsored by JWT clients",
+   "type": "program count measurement",
+   "clause": "weekly network radio programs sponsored by JWT clients"
+  },
+  {
+   "name": "Kraft Music Hall",
+   "type": "radio program",
+   "clause": "including Kraft Music Hall"
+  },
+  {
+   "name": "Fleischmann Yeast Hour",
+   "type": "radio program",
+   "clause": "including Fleischmann Yeast Hour"
+  },
+  {
+   "name": "advertising agencies",
+   "type": "advertising agency",
+   "clause": "... advertising agencies were producing most nationally sponsored network programs"
+  },
+  {
+   "name": "networks",
+   "type": "broadcast network",
+   "clause": "not networks were producing most nationally sponsored network programs"
+  },
+  {
+   "name": "nationally sponsored network programs",
+   "type": "network program collection",
+   "clause": "most nationally sponsored network programs"
+  }
+ ],
+ "edges": [
+  {
+   "from": "JWT clients",
+   "type": "CLIENTS_OF",
+   "to": "J. Walter Thompson",
+   "clause": "J. Walter Thompson's clients"
+  },
+  {
+   "from": "JWT clients",
+   "type": "SPONSORED",
+   "to": "weekly network radio shows",
+   "clause": "sponsored ... weekly network radio shows"
+  },
+  {
+   "from": "weekly network radio programs sponsored by JWT clients",
+   "type": "MEASURES",
+   "to": "weekly network radio shows",
+   "clause": "weekly network radio programs sponsored by JWT clients"
+  },
+  {
+   "from": "Kraft Music Hall",
+   "type": "EXAMPLE_OF",
+   "to": "weekly network radio shows",
+   "clause": "including Kraft Music Hall"
+  },
+  {
+   "from": "Fleischmann Yeast Hour",
+   "type": "EXAMPLE_OF",
+   "to": "weekly network radio shows",
+   "clause": "including Fleischmann Yeast Hour"
+  },
+  {
+   "from": "advertising agencies",
+   "type": "PRODUCED_MOST_OF",
+   "to": "nationally sponsored network programs",
+   "clause": "... advertising agencies were producing most nationally sponsored network programs"
+  },
+  {
+   "from": "networks",
+   "type": "NOT_PRODUCING",
+   "to": "nationally sponsored network programs",
+   "clause": "not networks were producing most nationally sponsored network programs"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|J. Walter Thompson|advertising agency|J. Walter Thompson's clients\nNODE|JWT clients|client group|J. Walter Thompson's clients\nNODE|weekly network radio shows|weekly network radio show|sponsored ... weekly network radio shows\nNODE|weekly network radio programs sponsored by JWT clients|program count measurement|weekly network radio programs sponsored by JWT clients\nNODE|Kraft Music Hall|radio program|including Kraft Music Hall\nNODE|Fleischmann Yeast Hour|radio program|including Fleischmann Yeast Hour\nNODE|advertising agencies|advertising agency|... advertising agencies were producing most nationally sponsored network programs\nNODE|networks|broadcast network|not networks were producing most nationally sponsored network programs\nNODE|nationally sponsored network programs|network program collection|most nationally sponsored network programs\nEDGE|JWT clients|CLIENTS_OF|J. Walter Thompson|J. Walter Thompson's clients\nEDGE|JWT clients|SPONSORED|weekly network radio shows|sponsored ... weekly network radio shows\nEDGE|weekly network radio programs sponsored by JWT clients|MEASURES|weekly network radio shows|weekly network radio programs sponsored by JWT clients\nEDGE|Kraft Music Hall|EXAMPLE_OF|weekly network radio shows|including Kraft Music Hall\nEDGE|Fleischmann Yeast Hour|EXAMPLE_OF|weekly network radio shows|including Fleischmann Yeast Hour\nEDGE|advertising agencies|PRODUCED_MOST_OF|nationally sponsored network programs|... advertising agencies were producing most nationally sponsored network programs\nEDGE|networks|NOT_PRODUCING|nationally sponsored network programs|not networks were producing most nationally sponsored network programs"
+}

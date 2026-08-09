@@ -1,0 +1,84 @@
+{
+ "group_id": "L1|a791f10dd1997b9b",
+ "source": "name-block",
+ "n_in": 13,
+ "parents": [
+  {
+   "name": "Agency commission rate (percent of gross billings)",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "one rate measure across years and sources; percent of gross billings abstracted",
+   "child_uids": [
+    "n|e1-pricing-002|agency commission rate|take-rate measurement",
+    "n|e1-pricing-004|agency commission rate|take-rate measurement",
+    "n|e2-creators-002|agency commission rate|take-rate measurement",
+    "n|e3-pricing-001|agency commission rate|take-rate measurement",
+    "n|tu:era:1:field:PRICING|agency commission rate|take-rate measurement",
+    "n|tu:era:2:field:PRICING|agency commission rate|commission measurement"
+   ]
+  },
+  {
+   "name": "Agency commission rate (year unit)",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: different quantity unit (year) not a percentage rate",
+   "child_uids": [
+    "n|e3-creators-001|agency commission rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Agency commission rate (additional component)",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: ambiguous additional commission component, not standard percent of gross",
+   "child_uids": [
+    "n|e3-pricing-002|agency commission rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Agency commission rate (vague statement)",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: vague commission statement lacking clear rate definition",
+   "child_uids": [
+    "n|e3-pricing-003|agency commission rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Agency commission rate (generic mention)",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic agency commission mention without quantitative detail",
+   "child_uids": [
+    "n|tu:era:2:boundary|agency commission rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Agency commission rate (unspecified keep)",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unspecified agency keep statement, not a defined rate",
+   "child_uids": [
+    "n|tu:era:3:field:PRICING|agency commission rate|take\u2011rate measurement"
+   ]
+  },
+  {
+   "name": "Agency commission rate by sellers",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: breakdown by sellers, distinct commission measure",
+   "child_uids": [
+    "n|tu:era:3:field:SELLERS|agency commission rate|take-rate measurement"
+   ]
+  },
+  {
+   "name": "Agency commission rate creators dimension",
+   "type": "measurement",
+   "grain": "Measurement",
+   "reason": "singleton: creators dimension, commission ceased existence, not numeric",
+   "child_uids": [
+    "n|tu:era:6:field:CREATORS|agency commission rate|measurement"
+   ]
+  }
+ ]
+}

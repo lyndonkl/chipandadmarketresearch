@@ -1,0 +1,128 @@
+{
+ "id": "mech-aol-004",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "Google shares underlying the May 2002 warrant issued in connection with the AOL agreement",
+ "elapsed_s": 84.8,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "America Online",
+   "type": "company",
+   "clause": "America Online"
+  },
+  {
+   "name": "May 2002 Google warrant",
+   "type": "financial warrant",
+   "clause": "the warrant issued by Google"
+  },
+  {
+   "name": "Series D preferred stock",
+   "type": "security class",
+   "clause": "Series D preferred stock"
+  },
+  {
+   "name": "shares underlying May 2002 warrant",
+   "type": "share count measurement",
+   "clause": "number of shares purchasable under the warrant"
+  },
+  {
+   "name": "aggregate exercise price of May 2002 warrant",
+   "type": "monetary amount measurement",
+   "clause": "total price to purchase the shares"
+  },
+  {
+   "name": "balance sheet value of May 2002 warrant through 2003",
+   "type": "monetary amount measurement",
+   "clause": "carried on the balance sheet through ..."
+  },
+  {
+   "name": "exercise payment for May 2004 warrant exercise",
+   "type": "monetary amount measurement",
+   "clause": "amount paid by America Online to exercise the warrant"
+  },
+  {
+   "name": "shares received by America Online from warrant exercise",
+   "type": "share count measurement",
+   "clause": "shares received by America Online upon exercising the warrant"
+  },
+  {
+   "name": "common stock",
+   "type": "equity class",
+   "clause": "common stock"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "ISSUED",
+   "to": "May 2002 Google warrant",
+   "clause": "issued a warrant"
+  },
+  {
+   "from": "May 2002 Google warrant",
+   "type": "GRANTS_PURCHASE_RIGHT_FOR",
+   "to": "Series D preferred stock",
+   "clause": "to purchase shares of"
+  },
+  {
+   "from": "May 2002 Google warrant",
+   "type": "HAS_SHARE_COUNT",
+   "to": "shares underlying May 2002 warrant",
+   "clause": "share count purchasable under the warrant"
+  },
+  {
+   "from": "May 2002 Google warrant",
+   "type": "HAS_EXERCISE_PRICE",
+   "to": "aggregate exercise price of May 2002 warrant",
+   "clause": "total price to purchase the shares"
+  },
+  {
+   "from": "May 2002 Google warrant",
+   "type": "CARRIED_ON_BALANCE_SHEET_AT",
+   "to": "balance sheet value of May 2002 warrant through 2003",
+   "clause": "carried on the balance sheet"
+  },
+  {
+   "from": "America Online",
+   "type": "EXERCISED",
+   "to": "May 2002 Google warrant",
+   "clause": "exercised the warrant"
+  },
+  {
+   "from": "America Online",
+   "type": "PAID",
+   "to": "exercise payment for May 2004 warrant exercise",
+   "clause": "paid to exercise the warrant"
+  },
+  {
+   "from": "America Online",
+   "type": "RECEIVED",
+   "to": "shares received by America Online from warrant exercise",
+   "clause": "received shares upon exercising the warrant"
+  },
+  {
+   "from": "shares received by America Online from warrant exercise",
+   "type": "CONVERTED_TO",
+   "to": "common stock",
+   "clause": "converted to common stock at the August ... IPO"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "CARRIED_ON_BALANCE_SHEET_AT",
+   "line": "EDGE|May 2002 Google warrant|CARRIED_ON_BALANCE_SHEET_AT|balance sheet value of May 2002 warrant through 2003|carried on the balance sheet"
+  }
+ ],
+ "raw": "NODE|Google|company|Google\nNODE|America Online|company|America Online\nNODE|May 2002 Google warrant|financial warrant|the warrant issued by Google\nNODE|Series D preferred stock|security class|Series D preferred stock\nNODE|shares underlying May 2002 warrant|share count measurement|number of shares purchasable under the warrant\nNODE|aggregate exercise price of May 2002 warrant|monetary amount measurement|total price to purchase the shares\nNODE|balance sheet value of May 2002 warrant through 2003|monetary amount measurement|carried on the balance sheet through ...\nNODE|exercise payment for May 2004 warrant exercise|monetary amount measurement|amount paid by America Online to exercise the warrant\nNODE|shares received by America Online from warrant exercise|share count measurement|shares received by America Online upon exercising the warrant\nNODE|common stock|equity class|common stock\nEDGE|Google|ISSUED|May 2002 Google warrant|issued a warrant\nEDGE|May 2002 Google warrant|GRANTS_PURCHASE_RIGHT_FOR|Series D preferred stock|to purchase shares of\nEDGE|May 2002 Google warrant|HAS_SHARE_COUNT|shares underlying May 2002 warrant|share count purchasable under the warrant\nEDGE|May 2002 Google warrant|HAS_EXERCISE_PRICE|aggregate exercise price of May 2002 warrant|total price to purchase the shares\nEDGE|May 2002 Google warrant|CARRIED_ON_BALANCE_SHEET_AT|balance sheet value of May 2002 warrant through 2003|carried on the balance sheet\nEDGE|America Online|EXERCISED|May 2002 Google warrant|exercised the warrant\nEDGE|America Online|PAID|exercise payment for May 2004 warrant exercise|paid to exercise the warrant\nEDGE|America Online|RECEIVED|shares received by America Online from warrant exercise|received shares upon exercising the warrant\nEDGE|shares received by America Online from warrant exercise|CONVERTED_TO|common stock|converted to common stock at the August ... IPO"
+}

@@ -1,0 +1,79 @@
+{
+ "group_id": "L1|d484bf16765a6543",
+ "source": "kmeans",
+ "n_in": 16,
+ "parents": [
+  {
+   "name": "Billboard advertising",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: unique billboard advertising medium",
+   "child_uids": [
+    "n|ds-seam-001|billboard advertising|advertising medium"
+   ]
+  },
+  {
+   "name": "In-game advertisement",
+   "type": "ad placement type",
+   "grain": "Entity",
+   "reason": "singleton: unique in-game advertisement placement",
+   "child_uids": [
+    "n|e5-events-007|in-game advertisement|ad placement type"
+   ]
+  },
+  {
+   "name": "Voluntary advertising guidelines",
+   "type": "industry guideline",
+   "grain": "Entity",
+   "reason": "voluntary advertising guidelines from multiple sources",
+   "child_uids": [
+    "n|e5-measurement-004|fast voluntary guidelines on ad models and formats|industry guidelines",
+    "n|tu:era:5:event:3|voluntary advertising guidelines|industry guideline"
+   ]
+  },
+  {
+   "name": "Voluntary banner size specifications",
+   "type": "banner size specification",
+   "grain": "Entity",
+   "reason": "voluntary banner size specifications across documents and sets",
+   "child_uids": [
+    "n|e5-creators-005|voluntary banner size|banner format",
+    "n|e5-events-002|voluntary standard banner sizes|banner size specification",
+    "n|tu:era:5:event:1|proposal for voluntary model banner sizes|standard document",
+    "n|tu:era:5:field:CREATORS|voluntary banner sizes|ad format set"
+   ]
+  },
+  {
+   "name": "Banner advertising formats",
+   "type": "advertising format",
+   "grain": "Entity",
+   "reason": "banner ad formats covering full, average, sponsorship variants",
+   "child_uids": [
+    "n|e5-pricing-003|full banner ad|advertising format",
+    "n|e5-sellers-002|banners and sponsorships|advertising format",
+    "n|e5-unit_econ-001|banner ad format|ad format",
+    "n|tu:era:5:event:9|banner ads|advertising format",
+    "n|tu:era:5:field:PRICING|average banner|ad format",
+    "n|tu:era:5:field:PRICING|full banner|ad format"
+   ]
+  },
+  {
+   "name": "Clickable ad",
+   "type": "ad type",
+   "grain": "Entity",
+   "reason": "singleton: unique clickable ad type",
+   "child_uids": [
+    "n|tu:era:5:event:0|clickable ad|ad type"
+   ]
+  },
+  {
+   "name": "Screen ads",
+   "type": "ad format",
+   "grain": "Entity",
+   "reason": "singleton: unique screen ad format",
+   "child_uids": [
+    "n|tu:era:5:event:0|screen ads|ad format"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "group_id": "L1|1ff2774d0100a4ae",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Local retail advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "same measure across years and descriptors",
+   "child_uids": [
+    "n|e2-scale-011|local retail advertising spend measurement|spend measurement",
+    "n|e3-scale-009|earlier local retail advertising spend|spend measurement",
+    "n|e3-scale-009|latest local retail advertising spend|spend measurement"
+   ]
+  },
+  {
+   "name": "Retail advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct from local retail measure",
+   "child_uids": [
+    "n|e4-scale-009|retail advertising amount|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Local and retail buyers spend amount",
+   "type": "dollar measurement",
+   "grain": "Measurement",
+   "reason": "singleton: buyer\u2011segment spend measure",
+   "child_uids": [
+    "n|e7-buyers-006|local and retail buyers spend amount|dollar measurement"
+   ]
+  },
+  {
+   "name": "Directory advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific medium separate from others",
+   "child_uids": [
+    "n|tu:era:3:field:MEDIUM|directory advertising spend|spend measurement"
+   ]
+  },
+  {
+   "name": "Children's advertising spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: age\u2011targeted advertising spend",
+   "child_uids": [
+    "n|tu:era:4:event:8|children's advertising spend|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Cigarette advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: product\u2011specific advertising spend",
+   "child_uids": [
+    "n|e3-events-002|cigarette advertising spend|spend measurement"
+   ]
+  }
+ ]
+}

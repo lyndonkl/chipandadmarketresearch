@@ -1,0 +1,197 @@
+{
+ "id": "e5-scale-015",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of total US ad spend",
+ "elapsed_s": 154.2,
+ "error": null,
+ "n_nodes": 19,
+ "n_edges": 13,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "local-retail advertising",
+   "type": "advertising segment",
+   "clause": "local-retail advertising"
+  },
+  {
+   "name": "direct response",
+   "type": "advertising segment",
+   "clause": "direct response"
+  },
+  {
+   "name": "US measured advertising market",
+   "type": "advertising market",
+   "clause": "US measured advertising market"
+  },
+  {
+   "name": "local-retail advertising share of US measured advertising market",
+   "type": "percentage measurement",
+   "clause": "local-retail advertising was ... percent of the US measured advertising market"
+  },
+  {
+   "name": "local-retail advertising spend",
+   "type": "dollar measurement",
+   "clause": "local-retail advertising amounted to ..."
+  },
+  {
+   "name": "US measured advertising market total spend",
+   "type": "dollar measurement",
+   "clause": "the US measured advertising market totaled ..."
+  },
+  {
+   "name": "era-native pool share of US measured advertising market",
+   "type": "percentage measurement",
+   "clause": "era-native pool was ... percent of the market"
+  },
+  {
+   "name": "Yellow Pages contribution",
+   "type": "spend measurement",
+   "clause": "Yellow Pages contributed ... billion and ... points of the market"
+  },
+  {
+   "name": "cross-era comparable rule",
+   "type": "measurement rule",
+   "clause": "cross-era comparable rule where all directory money sits in the same intent pool"
+  },
+  {
+   "name": "era-native geographic rule",
+   "type": "measurement rule",
+   "clause": "era-native geographic rule under which local retail leads direct response"
+  },
+  {
+   "name": "unified-intent rule",
+   "type": "measurement rule",
+   "clause": "unified-intent rule under which direct response leads local retail"
+  },
+  {
+   "name": "local-retail advertising share under era-native geographic rule",
+   "type": "percentage measurement",
+   "clause": "local-retail advertising was ... under era-native geographic rule"
+  },
+  {
+   "name": "direct response share under era-native geographic rule",
+   "type": "percentage measurement",
+   "clause": "direct response was ... under era-native geographic rule"
+  },
+  {
+   "name": "direct response share under unified-intent rule",
+   "type": "percentage measurement",
+   "clause": "direct response was ... under unified-intent rule"
+  },
+  {
+   "name": "local-retail advertising share under unified-intent rule",
+   "type": "percentage measurement",
+   "clause": "local-retail advertising was ... under unified-intent rule"
+  },
+  {
+   "name": "chart sorting of bars",
+   "type": "visualization constraint",
+   "clause": "chart must not sort these two bars"
+  },
+  {
+   "name": "1994-2001 evidence",
+   "type": "evidence",
+   "clause": "no 1994-2001 evidence decides which rule is right"
+  },
+  {
+   "name": "rule choice",
+   "type": "decision point",
+   "clause": "which rule is right"
+  },
+  {
+   "name": "Yellow Pages",
+   "type": "(promoted)",
+   "clause": ""
+  }
+ ],
+ "edges": [
+  {
+   "from": "local-retail advertising share of US measured advertising market",
+   "type": "MEASURES",
+   "to": "local-retail advertising",
+   "clause": "local-retail advertising was ... percent of the US measured advertising market"
+  },
+  {
+   "from": "local-retail advertising share of US measured advertising market",
+   "type": "SHARE_OF",
+   "to": "US measured advertising market",
+   "clause": "share of US measured advertising market"
+  },
+  {
+   "from": "local-retail advertising spend",
+   "type": "MEASURES",
+   "to": "local-retail advertising",
+   "clause": "local-retail advertising amounted to ..."
+  },
+  {
+   "from": "local-retail advertising spend",
+   "type": "PART_OF",
+   "to": "US measured advertising market total spend",
+   "clause": "part of total market spend"
+  },
+  {
+   "from": "era-native pool share of US measured advertising market",
+   "type": "SHARE_OF",
+   "to": "US measured advertising market",
+   "clause": "era-native pool was ... percent of the market"
+  },
+  {
+   "from": "Yellow Pages contribution",
+   "type": "MEASURES",
+   "to": "Yellow Pages",
+   "clause": "Yellow Pages contributed ... billion and ... points of the market"
+  },
+  {
+   "from": "Yellow Pages contribution",
+   "type": "SHARE_OF",
+   "to": "US measured advertising market",
+   "clause": "contribution is part of market share"
+  },
+  {
+   "from": "local-retail advertising share of US measured advertising market",
+   "type": "LESS_THAN",
+   "to": "era-native pool share of US measured advertising market",
+   "clause": "less Yellow Pages contribution"
+  },
+  {
+   "from": "local-retail advertising share under era-native geographic rule",
+   "type": "LEADS",
+   "to": "direct response share under era-native geographic rule",
+   "clause": "under era-native geographic rule, local retail leads direct response"
+  },
+  {
+   "from": "direct response share under unified-intent rule",
+   "type": "LEADS",
+   "to": "local-retail advertising share under unified-intent rule",
+   "clause": "under unified-intent rule, direct response leads local retail"
+  },
+  {
+   "from": "local-retail advertising share under era-native geographic rule",
+   "type": "UNRANKED_WITH",
+   "to": "direct response share under era-native geographic rule",
+   "clause": "intervals still overlap, pair stays unranked"
+  },
+  {
+   "from": "local-retail advertising share under era-native geographic rule",
+   "type": "NOT_SORTED_WITH",
+   "to": "direct response share under era-native geographic rule",
+   "clause": "chart must not sort these two bars"
+  },
+  {
+   "from": "1994-2001 evidence",
+   "type": "NOT_DECIDES",
+   "to": "rule choice",
+   "clause": "no evidence decides which rule is right"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "undeclared_endpoint_promoted",
+   "endpoint": "Yellow Pages",
+   "line": "EDGE|Yellow Pages contribution|MEASURES|Yellow Pages|Yellow Pages contributed ... billion and ... points of the market"
+  }
+ ],
+ "raw": "NODE|local-retail advertising|advertising segment|local-retail advertising\nNODE|direct response|advertising segment|direct response\nNODE|US measured advertising market|advertising market|US measured advertising market\nNODE|local-retail advertising share of US measured advertising market|percentage measurement|local-retail advertising was ... percent of the US measured advertising market\nNODE|local-retail advertising spend|dollar measurement|local-retail advertising amounted to ...\nNODE|US measured advertising market total spend|dollar measurement|the US measured advertising market totaled ...\nNODE|era-native pool share of US measured advertising market|percentage measurement|era-native pool was ... percent of the market\nNODE|Yellow Pages contribution|spend measurement|Yellow Pages contributed ... billion and ... points of the market\nNODE|cross-era comparable rule|measurement rule|cross-era comparable rule where all directory money sits in the same intent pool\nNODE|era-native geographic rule|measurement rule|era-native geographic rule under which local retail leads direct response\nNODE|unified-intent rule|measurement rule|unified-intent rule under which direct response leads local retail\nNODE|local-retail advertising share under era-native geographic rule|percentage measurement|local-retail advertising was ... under era-native geographic rule\nNODE|direct response share under era-native geographic rule|percentage measurement|direct response was ... under era-native geographic rule\nNODE|direct response share under unified-intent rule|percentage measurement|direct response was ... under unified-intent rule\nNODE|local-retail advertising share under unified-intent rule|percentage measurement|local-retail advertising was ... under unified-intent rule\nNODE|chart sorting of bars|visualization constraint|chart must not sort these two bars\nNODE|1994-2001 evidence|evidence|no 1994-2001 evidence decides which rule is right\nNODE|rule choice|decision point|which rule is right\nEDGE|local-retail advertising share of US measured advertising market|MEASURES|local-retail advertising|local-retail advertising was ... percent of the US measured advertising market\nEDGE|local-retail advertising share of US measured advertising market|SHARE_OF|US measured advertising market|share of US measured advertising market\nEDGE|local-retail advertising spend|MEASURES|local-retail advertising|local-retail advertising amounted to ...\nEDGE|local-retail advertising spend|PART_OF|US measured advertising market total spend|part of total market spend\nEDGE|era-native pool share of US measured advertising market|SHARE_OF|US measured advertising market|era-native pool was ... percent of the market\nEDGE|Yellow Pages contribution|MEASURES|Yellow Pages|Yellow Pages contributed ... billion and ... points of the market\nEDGE|Yellow Pages contribution|SHARE_OF|US measured advertising market|contribution is part of market share\nEDGE|local-retail advertising share of US measured advertising market|LESS_THAN|era-native pool share of US measured advertising market|less Yellow Pages contribution\nEDGE|local-retail advertising share under era-native geographic rule|LEADS|direct response share under era-native geographic rule|under era-native geographic rule, local retail leads direct response\nEDGE|direct response share under unified-intent rule|LEADS|local-retail advertising share under unified-intent rule|under unified-intent rule, direct response leads local retail\nEDGE|local-retail advertising share under era-native geographic rule|UNRANKED_WITH|direct response share under era-native geographic rule|intervals still overlap, pair stays unranked\nEDGE|local-retail advertising share under era-native geographic rule|NOT_SORTED_WITH|direct response share under era-native geographic rule|chart must not sort these two bars\nEDGE|1994-2001 evidence|NOT_DECIDES|rule choice|no evidence decides which rule is right"
+}

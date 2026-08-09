@@ -1,0 +1,138 @@
+{
+ "id": "e7-unit_econ-007",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2026,
+ "unit": "USD list-price cost of a fixed 1,000-in / 300-out answer at the cheapest generally available model at or above GPT-4 capability, 2026-06-30 freeze",
+ "elapsed_s": 112.8,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "cheap tier",
+   "type": "pricing segment",
+   "clause": "the cheap tier"
+  },
+  {
+   "name": "price falling",
+   "type": "trend",
+   "clause": "the price was falling"
+  },
+  {
+   "name": "price rising",
+   "type": "trend",
+   "clause": "the price began to rise"
+  },
+  {
+   "name": "cheapest model on Google public price list",
+   "type": "ai model",
+   "clause": "the cheapest model on Google's public price list"
+  },
+  {
+   "name": "Google public price list",
+   "type": "price list",
+   "clause": "Google's public price list"
+  },
+  {
+   "name": "cheapest model list-price cost per answer",
+   "type": "cost measurement",
+   "clause": "cost ... per answer"
+  },
+  {
+   "name": "old floor price",
+   "type": "price floor",
+   "clause": "the old floor"
+  },
+  {
+   "name": "Gemini 2.0 Flash-Lite",
+   "type": "ai model",
+   "clause": "Gemini 2.0 Flash-Lite"
+  },
+  {
+   "name": "cheap tier models launched since",
+   "type": "model cohort",
+   "clause": "every cheap tier launched since"
+  },
+  {
+   "name": "Frontier reasoning models",
+   "type": "ai model category",
+   "clause": "Frontier reasoning models"
+  },
+  {
+   "name": "token emission per answer",
+   "type": "performance characteristic",
+   "clause": "emit far more tokens per answer"
+  },
+  {
+   "name": "fixed-length assumption",
+   "type": "modeling assumption",
+   "clause": "the fixed-length assumption"
+  }
+ ],
+ "edges": [
+  {
+   "from": "cheap tier",
+   "type": "STOPPED_FALLING",
+   "to": "price falling",
+   "clause": "had stopped falling"
+  },
+  {
+   "from": "cheap tier",
+   "type": "BEGAN_RISING",
+   "to": "price rising",
+   "clause": "had begun to tick back up"
+  },
+  {
+   "from": "cheapest model on Google public price list",
+   "type": "LISTED_ON",
+   "to": "Google public price list",
+   "clause": "on Google's public price list"
+  },
+  {
+   "from": "cheapest model on Google public price list",
+   "type": "HAS_COST",
+   "to": "cheapest model list-price cost per answer",
+   "clause": "cost ... per answer"
+  },
+  {
+   "from": "cheapest model list-price cost per answer",
+   "type": "INCREASED_FROM",
+   "to": "old floor price",
+   "clause": "up from ..."
+  },
+  {
+   "from": "cheapest model list-price cost per answer",
+   "type": "CAUSED_BY_SHUTDOWN_OF",
+   "to": "Gemini 2.0 Flash-Lite",
+   "clause": "because Gemini 2.0 Flash-Lite was shut down"
+  },
+  {
+   "from": "cheap tier models launched since",
+   "type": "PRICED_ABOVE",
+   "to": "old floor price",
+   "clause": "priced above the old floor"
+  },
+  {
+   "from": "Frontier reasoning models",
+   "type": "PUSHED_COST_UP",
+   "to": "cheapest model list-price cost per answer",
+   "clause": "pushed per-answer cost up much further"
+  },
+  {
+   "from": "cheapest model list-price cost per answer",
+   "type": "CAUSED_BY",
+   "to": "token emission per answer",
+   "clause": "because they emit far more tokens per answer than the fixed-length assumption allows"
+  },
+  {
+   "from": "Frontier reasoning models",
+   "type": "EMIT_MORE_TOKENS_THAN",
+   "to": "fixed-length assumption",
+   "clause": "emit far more tokens per answer than the fixed-length assumption allows"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|cheap tier|pricing segment|the cheap tier\nNODE|price falling|trend|the price was falling\nNODE|price rising|trend|the price began to rise\nNODE|cheapest model on Google public price list|ai model|the cheapest model on Google's public price list\nNODE|Google public price list|price list|Google's public price list\nNODE|cheapest model list-price cost per answer|cost measurement|cost ... per answer\nNODE|old floor price|price floor|the old floor\nNODE|Gemini 2.0 Flash-Lite|ai model|Gemini 2.0 Flash-Lite\nNODE|cheap tier models launched since|model cohort|every cheap tier launched since\nNODE|Frontier reasoning models|ai model category|Frontier reasoning models\nNODE|token emission per answer|performance characteristic|emit far more tokens per answer\nNODE|fixed-length assumption|modeling assumption|the fixed-length assumption\nEDGE|cheap tier|STOPPED_FALLING|price falling|had stopped falling\nEDGE|cheap tier|BEGAN_RISING|price rising|had begun to tick back up\nEDGE|cheapest model on Google public price list|LISTED_ON|Google public price list|on Google's public price list\nEDGE|cheapest model on Google public price list|HAS_COST|cheapest model list-price cost per answer|cost ... per answer\nEDGE|cheapest model list-price cost per answer|INCREASED_FROM|old floor price|up from ...\nEDGE|cheapest model list-price cost per answer|CAUSED_BY_SHUTDOWN_OF|Gemini 2.0 Flash-Lite|because Gemini 2.0 Flash-Lite was shut down\nEDGE|cheap tier models launched since|PRICED_ABOVE|old floor price|priced above the old floor\nEDGE|Frontier reasoning models|PUSHED_COST_UP|cheapest model list-price cost per answer|pushed per-answer cost up much further\nEDGE|cheapest model list-price cost per answer|CAUSED_BY|token emission per answer|because they emit far more tokens per answer than the fixed-length assumption allows\nEDGE|Frontier reasoning models|EMIT_MORE_TOKENS_THAN|fixed-length assumption|emit far more tokens per answer than the fixed-length assumption allows"
+}

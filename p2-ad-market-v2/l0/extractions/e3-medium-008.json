@@ -1,0 +1,79 @@
+{
+ "id": "e3-medium-008",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1954,
+ "unit": "year television national spend overtook newspaper national spend",
+ "elapsed_s": 75.3,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Television national advertising",
+   "type": "advertising spend",
+   "clause": "Television's national advertising (network plus national spot)"
+  },
+  {
+   "name": "Newspapers' national advertising",
+   "type": "advertising spend",
+   "clause": "newspapers' national advertising"
+  },
+  {
+   "name": "Newspapers' total advertising",
+   "type": "advertising spend",
+   "clause": "newspapers' total advertising"
+  },
+  {
+   "name": "Television national advertising amount",
+   "type": "spend measurement",
+   "clause": "television's national advertising ..."
+  },
+  {
+   "name": "Newspaper national advertising amount",
+   "type": "spend measurement",
+   "clause": "newspapers' national advertising ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Television national advertising",
+   "type": "HAS_AMOUNT",
+   "to": "Television national advertising amount",
+   "clause": "television's national advertising ..."
+  },
+  {
+   "from": "Newspapers' national advertising",
+   "type": "HAS_AMOUNT",
+   "to": "Newspaper national advertising amount",
+   "clause": "newspapers' national advertising ..."
+  },
+  {
+   "from": "Television national advertising",
+   "type": "PASSED",
+   "to": "Newspapers' national advertising",
+   "clause": "passed newspapers' national advertising ..."
+  },
+  {
+   "from": "Television national advertising",
+   "type": "CAME_CLOSE_TO",
+   "to": "Newspapers' total advertising",
+   "clause": "came close to newspapers' total"
+  },
+  {
+   "from": "Television national advertising",
+   "type": "PRECEDED_BY_YEARS",
+   "to": "Newspapers' total advertising",
+   "clause": "... before it came close to newspapers' total"
+  },
+  {
+   "from": "Television national advertising",
+   "type": "NEVER_REACHED",
+   "to": "Newspapers' total advertising",
+   "clause": "never reached in this era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Television national advertising|advertising spend|Television's national advertising (network plus national spot)\nNODE|Newspapers' national advertising|advertising spend|newspapers' national advertising\nNODE|Newspapers' total advertising|advertising spend|newspapers' total advertising\nNODE|Television national advertising amount|spend measurement|television's national advertising ...\nNODE|Newspaper national advertising amount|spend measurement|newspapers' national advertising ...\n\nEDGE|Television national advertising|HAS_AMOUNT|Television national advertising amount|television's national advertising ...\nEDGE|Newspapers' national advertising|HAS_AMOUNT|Newspaper national advertising amount|newspapers' national advertising ...\nEDGE|Television national advertising|PASSED|Newspapers' national advertising|passed newspapers' national advertising ...\nEDGE|Television national advertising|CAME_CLOSE_TO|Newspapers' total advertising|came close to newspapers' total\nEDGE|Television national advertising|PRECEDED_BY_YEARS|Newspapers' total advertising|... before it came close to newspapers' total\nEDGE|Television national advertising|NEVER_REACHED|Newspapers' total advertising|never reached in this era"
+}

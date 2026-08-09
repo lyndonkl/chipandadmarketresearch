@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|7dc5fa987e865b74",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "AOL revenue guarantee",
+   "type": "revenue guarantee measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific guarantee measure for AOL deal",
+   "child_uids": [
+    "n|e6-pricing-007|aol deal revenue guarantee|revenue guarantee measurement"
+   ]
+  },
+  {
+   "name": "AOL revenue share",
+   "type": "revenue share measurement",
+   "grain": "Measurement",
+   "reason": "same subject and quantity across sources; years abstracted",
+   "child_uids": [
+    "n|e6-pricing-007|aol deal revenue share|revenue share measurement",
+    "n|tu:era:6:field:SELLERS|aol revenue share of google total revenue|revenue share measurement"
+   ]
+  },
+  {
+   "name": "AOL supply share",
+   "type": "share of revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct breakdown (supply) from revenue share",
+   "child_uids": [
+    "n|mech-aol-001|aol supply share measurement|share of revenue measurement"
+   ]
+  },
+  {
+   "name": "Google warrant realized value",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: value realised from Google warrant",
+   "child_uids": [
+    "n|mech-aol-005|google warrant realized value|revenue measurement"
+   ]
+  }
+ ]
+}

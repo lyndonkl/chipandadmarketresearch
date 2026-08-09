@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|7349a57f111c2481",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Copies per day",
+   "type": "circulation unit",
+   "grain": "Entity",
+   "reason": "singleton: distinct unit not shared with others",
+   "child_uids": [
+    "n|e1-events-001|copies per day|circulation unit"
+   ]
+  },
+  {
+   "name": "American newspapers",
+   "type": "newspaper set",
+   "grain": "Entity",
+   "reason": "singleton: unique newspaper collection entity",
+   "child_uids": [
+    "n|e1-measurement-001|american newspapers|newspaper set"
+   ]
+  },
+  {
+   "name": "Business publications",
+   "type": "publication type",
+   "grain": "Entity",
+   "reason": "singleton: specific publication category",
+   "child_uids": [
+    "n|e1-measurement-003|business publications|publication type"
+   ]
+  },
+  {
+   "name": "Aggregate US newspaper and periodical circulation per issue",
+   "type": "circulation metric",
+   "grain": "Entity",
+   "reason": "singleton: aggregate metric distinct from other entities",
+   "child_uids": [
+    "n|e1-measurement-004|aggregate us newspaper and periodical circulation per issue|circulation metric"
+   ]
+  },
+  {
+   "name": "Copies per issue",
+   "type": "unit of measure",
+   "grain": "Entity",
+   "reason": "singleton: another unique circulation unit",
+   "child_uids": [
+    "n|e1-sellers-002|copies per issue|unit of measure"
+   ]
+  },
+  {
+   "name": "American Newspaper Annual",
+   "type": "circulation annual",
+   "grain": "Entity",
+   "reason": "singleton: specific annual report publication",
+   "child_uids": [
+    "n|tu:era:1:field:MEASUREMENT|american newspaper annual|circulation annual"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "id": "e2-measurement-006",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "percent of US homes covered by the Nielsen Radio Index sample frame, April 1949",
+ "elapsed_s": 45.0,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Nielsen Radio Index",
+   "type": "radio audience measurement system",
+   "clause": "the Nielsen Radio Index"
+  },
+  {
+   "name": "US homes",
+   "type": "household aggregate",
+   "clause": "US homes"
+  },
+  {
+   "name": "Nielsen Radio Index coverage rate",
+   "type": "sample-frame coverage measurement",
+   "clause": "covered ... percent of US homes"
+  },
+  {
+   "name": "genuinely projectable national audience estimates",
+   "type": "audience estimate set",
+   "clause": "first genuinely projectable national audience estimates"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Nielsen Radio Index",
+   "type": "HAS_COVERAGE_RATE",
+   "to": "Nielsen Radio Index coverage rate",
+   "clause": "covered ... percent of US homes"
+  },
+  {
+   "from": "Nielsen Radio Index coverage rate",
+   "type": "SHARE_OF",
+   "to": "US homes",
+   "clause": "covered ... of US homes"
+  },
+  {
+   "from": "Nielsen Radio Index",
+   "type": "PRODUCED_FIRST",
+   "to": "genuinely projectable national audience estimates",
+   "clause": "producing the first genuinely projectable national audience estimates"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Nielsen Radio Index|radio audience measurement system|the Nielsen Radio Index\nNODE|US homes|household aggregate|US homes\nNODE|Nielsen Radio Index coverage rate|sample-frame coverage measurement|covered ... percent of US homes\nNODE|genuinely projectable national audience estimates|audience estimate set|first genuinely projectable national audience estimates\nEDGE|Nielsen Radio Index|HAS_COVERAGE_RATE|Nielsen Radio Index coverage rate|covered ... percent of US homes\nEDGE|Nielsen Radio Index coverage rate|SHARE_OF|US homes|covered ... of US homes\nEDGE|Nielsen Radio Index|PRODUCED_FIRST|genuinely projectable national audience estimates|producing the first genuinely projectable national audience estimates"
+}

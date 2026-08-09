@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|385a84255041aa34",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Coen vintage series",
+   "type": "data series version",
+   "grain": "Entity",
+   "reason": "grouping versions across years; year abstracted to children",
+   "child_uids": [
+    "n|tu:era:4:boundary|coen vintage 2001|data series version",
+    "n|tu:era:4:boundary|coen vintage 2009|data series version"
+   ]
+  },
+  {
+   "name": "Coen 1999",
+   "type": "data series",
+   "grain": "Entity",
+   "reason": "singleton: specific Coen data series from 1999",
+   "child_uids": [
+    "n|e1-scale-007|coen 1999|data series"
+   ]
+  },
+  {
+   "name": "movement between vintages",
+   "type": "series variability indicator",
+   "grain": "Entity",
+   "reason": "singleton: indicator of vintage movement variability",
+   "child_uids": [
+    "n|e4-scale-006|movement between vintages|series variability indicator"
+   ]
+  },
+  {
+   "name": "Coen syndication series",
+   "type": "data series",
+   "grain": "Entity",
+   "reason": "singleton: Coen series focusing on syndication",
+   "child_uids": [
+    "n|tu:era:4:event:7|coen syndication series|data series"
+   ]
+  }
+ ]
+}

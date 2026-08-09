@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|34da85eae1e2ba51",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "MAGNA US advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: US spend measure from MAGNA, year abstracted",
+   "child_uids": [
+    "n|e7-scale-001|magna us advertising spend measurement|spend measurement"
+   ]
+  },
+  {
+   "name": "MAGNA global advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "global revenue measure across sources; year abstracted",
+   "child_uids": [
+    "n|e7-scale-003|magna global advertising revenue estimate|revenue measurement",
+    "n|tu:era:7:field:SCALE|magna global ad spend amount|revenue measurement"
+   ]
+  },
+  {
+   "name": "Digital ad spend on MAGNA/IAB rail",
+   "type": "monetary measurement",
+   "grain": "Measurement",
+   "reason": "singleton: digital segment spend on MAGNA/IAB rail",
+   "child_uids": [
+    "n|e7-sellers-004|digital spend on magna/iab rail|monetary measurement"
+   ]
+  },
+  {
+   "name": "Total ad spend on MAGNA/IAB rail",
+   "type": "monetary measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total spend on MAGNA/IAB rail",
+   "child_uids": [
+    "n|e7-sellers-004|total ad spend on magna/iab rail|monetary measurement"
+   ]
+  }
+ ]
+}

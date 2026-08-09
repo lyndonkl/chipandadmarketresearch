@@ -1,0 +1,100 @@
+{
+ "id": "e5-measurement-006",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2001,
+ "unit": "percent of reported US internet ad revenue",
+ "elapsed_s": 59.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "cash deals share measurement",
+   "type": "share of ad revenue measurement",
+   "clause": "cash deals as a share of reported US internet advertising revenue"
+  },
+  {
+   "name": "cash deals share 2000 measurement",
+   "type": "share of ad revenue measurement",
+   "clause": "cash deals share in 2000"
+  },
+  {
+   "name": "US internet advertising revenue",
+   "type": "advertising revenue aggregate",
+   "clause": "reported US internet advertising revenue"
+  },
+  {
+   "name": "measurement problem",
+   "type": "issue",
+   "clause": "a measurement problem"
+  },
+  {
+   "name": "pricing problem",
+   "type": "issue",
+   "clause": "a pricing problem"
+  },
+  {
+   "name": "barter revenue",
+   "type": "revenue type",
+   "clause": "barter revenue was booked at nominal rate-card values"
+  },
+  {
+   "name": "nominal rate-card values",
+   "type": "price reference",
+   "clause": "nominal rate-card values"
+  },
+  {
+   "name": "cash buyer",
+   "type": "buyer class",
+   "clause": "no cash buyer was paying"
+  }
+ ],
+ "edges": [
+  {
+   "from": "cash deals share measurement",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "as a share of ..."
+  },
+  {
+   "from": "cash deals share 2000 measurement",
+   "type": "SHARE_OF",
+   "to": "US internet advertising revenue",
+   "clause": "as a share of ..."
+  },
+  {
+   "from": "cash deals share measurement",
+   "type": "DOWN_FROM",
+   "to": "cash deals share 2000 measurement",
+   "clause": "down from ... in ..."
+  },
+  {
+   "from": "measurement problem",
+   "type": "AS_MUCH_AS",
+   "to": "pricing problem",
+   "clause": "as much as a pricing one"
+  },
+  {
+   "from": "barter revenue",
+   "type": "BOOKED_AT",
+   "to": "nominal rate-card values",
+   "clause": "was booked at nominal rate-card values"
+  },
+  {
+   "from": "cash buyer",
+   "type": "DID_NOT_PAY",
+   "to": "nominal rate-card values",
+   "clause": "no cash buyer was paying"
+  },
+  {
+   "from": "measurement problem",
+   "type": "CAUSED_BY",
+   "to": "barter revenue",
+   "clause": "because barter revenue was booked"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|cash deals share measurement|share of ad revenue measurement|cash deals as a share of reported US internet advertising revenue\nNODE|cash deals share 2000 measurement|share of ad revenue measurement|cash deals share in 2000\nNODE|US internet advertising revenue|advertising revenue aggregate|reported US internet advertising revenue\nNODE|measurement problem|issue|a measurement problem\nNODE|pricing problem|issue|a pricing problem\nNODE|barter revenue|revenue type|barter revenue was booked at nominal rate-card values\nNODE|nominal rate-card values|price reference|nominal rate-card values\nNODE|cash buyer|buyer class|no cash buyer was paying\nEDGE|cash deals share measurement|SHARE_OF|US internet advertising revenue|as a share of ...\nEDGE|cash deals share 2000 measurement|SHARE_OF|US internet advertising revenue|as a share of ...\nEDGE|cash deals share measurement|DOWN_FROM|cash deals share 2000 measurement|down from ... in ...\nEDGE|measurement problem|AS_MUCH_AS|pricing problem|as much as a pricing one\nEDGE|barter revenue|BOOKED_AT|nominal rate-card values|was booked at nominal rate-card values\nEDGE|cash buyer|DID_NOT_PAY|nominal rate-card values|no cash buyer was paying\nEDGE|measurement problem|CAUSED_BY|barter revenue|because barter revenue was booked"
+}

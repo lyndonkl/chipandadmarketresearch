@@ -1,0 +1,101 @@
+{
+ "id": "e2-scale-003",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1933,
+ "unit": "percent change in US advertising spend, 1929 to 1933",
+ "elapsed_s": 59.9,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 7,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "US advertising spend",
+   "type": "advertising expenditure",
+   "clause": "US advertising spend"
+  },
+  {
+   "name": "us advertising spend percent change (coen series)",
+   "type": "percent change measurement",
+   "clause": "fell ... on the Coen series"
+  },
+  {
+   "name": "us advertising spend peak amount",
+   "type": "amount measurement",
+   "clause": "its 1929 peak of ... million"
+  },
+  {
+   "name": "us advertising spend trough amount",
+   "type": "amount measurement",
+   "clause": "its 1933 trough of ... million"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "on the Coen series"
+  },
+  {
+   "name": "Historical Statistics series",
+   "type": "advertising-spend dataset",
+   "clause": "on the older Historical Statistics series"
+  },
+  {
+   "name": "us advertising spend percent change (historical statistics series)",
+   "type": "percent change measurement",
+   "clause": "same contraction is ... on Historical Statistics series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "us advertising spend percent change (coen series)",
+   "type": "MEASURES",
+   "to": "US advertising spend",
+   "clause": "fell ... on the Coen series"
+  },
+  {
+   "from": "us advertising spend percent change (coen series)",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "on the Coen series"
+  },
+  {
+   "from": "us advertising spend percent change (coen series)",
+   "type": "WAS_DEEPEST_PEACETIME_CONTRACTION_IN",
+   "to": "Coen series",
+   "clause": "deepest peacetime contraction in the whole series"
+  },
+  {
+   "from": "us advertising spend peak amount",
+   "type": "MEASURES",
+   "to": "US advertising spend",
+   "clause": "its 1929 peak of ... million"
+  },
+  {
+   "from": "us advertising spend trough amount",
+   "type": "MEASURES",
+   "to": "US advertising spend",
+   "clause": "its 1933 trough of ... million"
+  },
+  {
+   "from": "us advertising spend percent change (historical statistics series)",
+   "type": "MEASURES",
+   "to": "US advertising spend",
+   "clause": "same contraction is ... on Historical Statistics series"
+  },
+  {
+   "from": "us advertising spend percent change (historical statistics series)",
+   "type": "MEASURED_ON",
+   "to": "Historical Statistics series",
+   "clause": "on the older Historical Statistics series"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "WAS_DEEPEST_PEACETIME_CONTRACTION_IN",
+   "line": "EDGE|us advertising spend percent change (coen series)|WAS_DEEPEST_PEACETIME_CONTRACTION_IN|Coen series|deepest peacetime contraction in the whole series"
+  }
+ ],
+ "raw": "NODE|US advertising spend|advertising expenditure|US advertising spend\nNODE|us advertising spend percent change (coen series)|percent change measurement|fell ... on the Coen series\nNODE|us advertising spend peak amount|amount measurement|its 1929 peak of ... million\nNODE|us advertising spend trough amount|amount measurement|its 1933 trough of ... million\nNODE|Coen series|advertising-spend dataset|on the Coen series\nNODE|Historical Statistics series|advertising-spend dataset|on the older Historical Statistics series\nNODE|us advertising spend percent change (historical statistics series)|percent change measurement|same contraction is ... on Historical Statistics series\nEDGE|us advertising spend percent change (coen series)|MEASURES|US advertising spend|fell ... on the Coen series\nEDGE|us advertising spend percent change (coen series)|MEASURED_ON|Coen series|on the Coen series\nEDGE|us advertising spend percent change (coen series)|WAS_DEEPEST_PEACETIME_CONTRACTION_IN|Coen series|deepest peacetime contraction in the whole series\nEDGE|us advertising spend peak amount|MEASURES|US advertising spend|its 1929 peak of ... million\nEDGE|us advertising spend trough amount|MEASURES|US advertising spend|its 1933 trough of ... million\nEDGE|us advertising spend percent change (historical statistics series)|MEASURES|US advertising spend|same contraction is ... on Historical Statistics series\nEDGE|us advertising spend percent change (historical statistics series)|MEASURED_ON|Historical Statistics series|on the older Historical Statistics series"
+}

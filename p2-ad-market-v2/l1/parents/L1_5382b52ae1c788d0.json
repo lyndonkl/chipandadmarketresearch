@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|5382b52ae1c788d0",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Broadcast industry net time sales",
+   "type": "industry metric",
+   "grain": "Entity",
+   "reason": "same measure across sources; year abstracted to children",
+   "child_uids": [
+    "n|e2-scale-009|broadcast industry's net time sales|revenue metric",
+    "n|tu:era:2:boundary|fcc audited industry net time sales 1938|industry metric"
+   ]
+  },
+  {
+   "name": "US broadcast industry net operating income",
+   "type": "industry earnings total",
+   "grain": "Entity",
+   "reason": "singleton: net operating income total for US broadcast industry",
+   "child_uids": [
+    "n|e2-sellers-004|us broadcast industry net operating income|industry earnings total"
+   ]
+  },
+  {
+   "name": "First broadcast airtime sale",
+   "type": "airtime transaction",
+   "grain": "Entity",
+   "reason": "singleton: first documented broadcast airtime sale in 1922",
+   "child_uids": [
+    "n|e2-pricing-001|broadcast airtime sale|airtime transaction"
+   ]
+  }
+ ]
+}

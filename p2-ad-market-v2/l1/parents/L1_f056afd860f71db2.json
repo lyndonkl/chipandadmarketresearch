@@ -1,0 +1,233 @@
+{
+ "group_id": "L1|f056afd860f71db2",
+ "source": "kmeans",
+ "n_in": 26,
+ "parents": [
+  {
+   "name": "Advertiser subscriber",
+   "type": "subscriber group",
+   "grain": "Entity",
+   "reason": "same concept advertiser subscribers, abstracting plural vs singular",
+   "child_uids": [
+    "n|e2-buyers-003|advertiser subscribers|subscriber group",
+    "n|e2-measurement-001|advertiser subscriber|advertiser"
+   ]
+  },
+  {
+   "name": "Agency subscribers",
+   "type": "subscriber group",
+   "grain": "Entity",
+   "reason": "singleton: agency subscriber group in 1934",
+   "child_uids": [
+    "n|e2-buyers-003|agency subscribers|subscriber group"
+   ]
+  },
+  {
+   "name": "Services",
+   "type": "advertiser category",
+   "grain": "Entity",
+   "reason": "singleton: generic advertiser category from 1949",
+   "child_uids": [
+    "n|e2-buyers-005|services|advertiser category"
+   ]
+  },
+  {
+   "name": "Advertising data set",
+   "type": "data set",
+   "grain": "Entity",
+   "reason": "singleton: specific advertising data set from 1999",
+   "child_uids": [
+    "n|ds-seam-001|advertising data set|data set"
+   ]
+  },
+  {
+   "name": "Paying advertisers",
+   "type": "advertiser cohort",
+   "grain": "Entity",
+   "reason": "singleton: paying advertisers in Overture marketplace, 2001",
+   "child_uids": [
+    "n|e5-buyers-002|paying advertisers|advertiser cohort"
+   ]
+  },
+  {
+   "name": "Traditional advertisers",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: non\u2011internet traditional advertisers, 2000",
+   "child_uids": [
+    "n|e5-buyers-004|traditional advertisers|advertiser segment"
+   ]
+  },
+  {
+   "name": "Consumer-brand advertisers",
+   "type": "advertiser group",
+   "grain": "Entity",
+   "reason": "singleton: consumer\u2011brand advertisers share, 2001",
+   "child_uids": [
+    "n|e5-buyers-005|consumer-brand advertisers|advertiser group"
+   ]
+  },
+  {
+   "name": "Consumer sector",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: advertiser segment within consumer sector, 2001",
+   "child_uids": [
+    "n|e5-buyers-005|consumer sector|advertiser segment"
+   ]
+  },
+  {
+   "name": "Business-to-business advertisers",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: B2B advertiser segment, 2000",
+   "child_uids": [
+    "n|e5-measurement-001|business-to-business advertisers|advertiser segment"
+   ]
+  },
+  {
+   "name": "Engage",
+   "type": "advertising company",
+   "grain": "Entity",
+   "reason": "singleton: advertising company Engage, 2001",
+   "child_uids": [
+    "n|e5-targeting-002|engage|advertising company"
+   ]
+  },
+  {
+   "name": "Ad networks",
+   "type": "market participant",
+   "grain": "Entity",
+   "reason": "singleton: market participants \u2013 ad networks, 2000",
+   "child_uids": [
+    "n|e5-unit_econ-003|ad networks|market participant"
+   ]
+  },
+  {
+   "name": "Professionalised paid-search buyer base",
+   "type": "buyer constituency",
+   "grain": "Entity",
+   "reason": "singleton: professionalised paid\u2011search buyers, 2002",
+   "child_uids": [
+    "n|e6-buyers-001|professionalised paid-search buyer base|buyer constituency"
+   ]
+  },
+  {
+   "name": "Overture advertiser base",
+   "type": "advertiser base",
+   "grain": "Entity",
+   "reason": "singleton: Overture's advertiser base, 2008",
+   "child_uids": [
+    "n|e6-buyers-002|overture advertiser base|advertiser base"
+   ]
+  },
+  {
+   "name": "US advertisers",
+   "type": "advertiser group",
+   "grain": "Entity",
+   "reason": "singleton: US advertisers group, 2003",
+   "child_uids": [
+    "n|e6-creators-002|us advertisers|advertiser group"
+   ]
+  },
+  {
+   "name": "Advertiser-written copy",
+   "type": "ad copy",
+   "grain": "Entity",
+   "reason": "singleton: copy written by advertisers, 2008",
+   "child_uids": [
+    "n|e6-creators-003|advertiser-written copy|ad copy"
+   ]
+  },
+  {
+   "name": "Advertising credits",
+   "type": "ad credit",
+   "grain": "Entity",
+   "reason": "singleton: advertising credits, mostly in 2006",
+   "child_uids": [
+    "n|e6-measurement-001|advertising credits|ad credit"
+   ]
+  },
+  {
+   "name": "Top-ranked advertiser",
+   "type": "advertiser",
+   "grain": "Entity",
+   "reason": "singleton: top\u2011ranked advertiser mentioned, 2008",
+   "child_uids": [
+    "n|e6-pricing-002|top-ranked advertiser|advertiser"
+   ]
+  },
+  {
+   "name": "Active advertisers",
+   "type": "advertiser population",
+   "grain": "Entity",
+   "reason": "singleton: active advertisers across services, 2025",
+   "child_uids": [
+    "n|e7-buyers-001|active advertisers|advertiser population"
+   ]
+  },
+  {
+   "name": "Advertiser pools",
+   "type": "market segment group",
+   "grain": "Entity",
+   "reason": "singleton: advertiser pools in market, 2025",
+   "child_uids": [
+    "n|e7-buyers-005|advertiser pools|market segment group"
+   ]
+  },
+  {
+   "name": "VP of ads",
+   "type": "corporate officer",
+   "grain": "Entity",
+   "reason": "singleton: VP of advertising testified, 2023",
+   "child_uids": [
+    "n|e7-pricing-003|vp of ads|corporate officer"
+   ]
+  },
+  {
+   "name": "Local audience inventory",
+   "type": "advertising inventory",
+   "grain": "Entity",
+   "reason": "singleton: local\u2011audience inventory sold to all advertisers, 2025",
+   "child_uids": [
+    "n|e7-scale-007|local audience inventory|advertising inventory"
+   ]
+  },
+  {
+   "name": "Triopoly",
+   "type": "advertising seller group",
+   "grain": "Entity",
+   "reason": "singleton: Google, Meta and Amazon together, 2025",
+   "child_uids": [
+    "n|e7-sellers-004|triopoly|advertising seller group"
+   ]
+  },
+  {
+   "name": "Substantial advertisers",
+   "type": "advertiser group",
+   "grain": "Entity",
+   "reason": "singleton: substantial advertisers mentioned, 2024",
+   "child_uids": [
+    "n|mech-mehta-004|substantial advertisers|advertiser group"
+   ]
+  },
+  {
+   "name": "Low-relevance advertisers",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: low\u2011relevance advertisers pay more, 2005",
+   "child_uids": [
+    "n|tu:era:6:event:5|low-relevance advertisers|advertiser segment"
+   ]
+  },
+  {
+   "name": "High-relevance advertisers",
+   "type": "advertiser segment",
+   "grain": "Entity",
+   "reason": "singleton: high\u2011relevance advertisers pay less, 2005",
+   "child_uids": [
+    "n|tu:era:6:event:5|high-relevance advertisers|advertiser segment"
+   ]
+  }
+ ]
+}

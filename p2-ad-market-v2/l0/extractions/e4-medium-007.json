@@ -1,0 +1,73 @@
+{
+ "id": "e4-medium-007",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million pieces",
+ "elapsed_s": 69.4,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US third-class bulk advertising mail",
+   "type": "mail category",
+   "clause": "US third-class (bulk advertising) mail"
+  },
+  {
+   "name": "all mail delivered",
+   "type": "mail aggregate",
+   "clause": "all mail delivered"
+  },
+  {
+   "name": "US third-class bulk advertising mail volume",
+   "type": "volume measurement",
+   "clause": "mail volume rose from ... to ..."
+  },
+  {
+   "name": "US third-class bulk advertising mail share of total mail",
+   "type": "share measurement",
+   "clause": "share rose from ... to ... of all mail delivered"
+  },
+  {
+   "name": "US third-class bulk advertising mail pieces per person per year",
+   "type": "per-capita volume measurement",
+   "clause": "... pieces per person per year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US third-class bulk advertising mail volume",
+   "type": "MEASURES",
+   "to": "US third-class bulk advertising mail",
+   "clause": "mail volume rose ..."
+  },
+  {
+   "from": "US third-class bulk advertising mail share of total mail",
+   "type": "MEASURES",
+   "to": "US third-class bulk advertising mail",
+   "clause": "share of total mail"
+  },
+  {
+   "from": "US third-class bulk advertising mail share of total mail",
+   "type": "SHARE_OF",
+   "to": "all mail delivered",
+   "clause": "share of all mail delivered"
+  },
+  {
+   "from": "US third-class bulk advertising mail pieces per person per year",
+   "type": "MEASURES",
+   "to": "US third-class bulk advertising mail",
+   "clause": "pieces per person per year"
+  },
+  {
+   "from": "US third-class bulk advertising mail pieces per person per year",
+   "type": "COMPARES_WITH",
+   "to": "US third-class bulk advertising mail pieces per person per year",
+   "clause": "against 133 in 1980"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US third-class bulk advertising mail|mail category|US third-class (bulk advertising) mail\nNODE|all mail delivered|mail aggregate|all mail delivered\nNODE|US third-class bulk advertising mail volume|volume measurement|mail volume rose from ... to ...\nNODE|US third-class bulk advertising mail share of total mail|share measurement|share rose from ... to ... of all mail delivered\nNODE|US third-class bulk advertising mail pieces per person per year|per-capita volume measurement|... pieces per person per year\nEDGE|US third-class bulk advertising mail volume|MEASURES|US third-class bulk advertising mail|mail volume rose ...\nEDGE|US third-class bulk advertising mail share of total mail|MEASURES|US third-class bulk advertising mail|share of total mail\nEDGE|US third-class bulk advertising mail share of total mail|SHARE_OF|all mail delivered|share of all mail delivered\nEDGE|US third-class bulk advertising mail pieces per person per year|MEASURES|US third-class bulk advertising mail|pieces per person per year\nEDGE|US third-class bulk advertising mail pieces per person per year|COMPARES_WITH|US third-class bulk advertising mail pieces per person per year|against 133 in 1980"
+}

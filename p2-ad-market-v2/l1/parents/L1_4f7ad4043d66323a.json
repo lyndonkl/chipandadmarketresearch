@@ -1,0 +1,74 @@
+{
+ "group_id": "L1|4f7ad4043d66323a",
+ "source": "kmeans",
+ "n_in": 11,
+ "parents": [
+  {
+   "name": "Coen US advertising total spend",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "same subject and quantity across years and sources",
+   "child_uids": [
+    "n|e1-scale-006|coen us advertising volume estimate|advertising spend measurement",
+    "n|e4-scale-006|coen total amount 2001|monetary total measurement",
+    "n|e6-scale-006|coen us total amount|monetary amount measurement",
+    "n|tu:era:6:boundary|coen us advertising 2007|spend measurement"
+   ]
+  },
+  {
+   "name": "Coen newspaper advertising total spend",
+   "type": "advertiser outlay measurement",
+   "grain": "Measurement",
+   "reason": "same newspaper total measure across years",
+   "child_uids": [
+    "n|e1-scale-010|coen newspaper advertising expenditure|advertiser outlay measurement",
+    "n|e4-scale-009|coen newspaper total|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Coen radio advertising figure",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique medium-specific figure",
+   "child_uids": [
+    "n|e2-scale-009|coen radio advertising figure|revenue measurement"
+   ]
+  },
+  {
+   "name": "Coen internet advertising estimate",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique internet\u2011media estimate",
+   "child_uids": [
+    "n|e6-scale-002|coen internet advertising estimate|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Advertising expenditure to receipt ratio",
+   "type": "ratio measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct ratio concept",
+   "child_uids": [
+    "n|e1-scale-010|advertising expenditure to receipt ratio|ratio measurement"
+   ]
+  },
+  {
+   "name": "Local advertising share of Coen US total",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique share\u2011of\u2011total metric",
+   "child_uids": [
+    "n|ds-money_type-002|local advertising share of coen us total|share measurement"
+   ]
+  },
+  {
+   "name": "Coen estimate measurement",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: generic estimate without further breakdown",
+   "child_uids": [
+    "n|e6-medium-006|coen estimate measurement|advertising spend measurement"
+   ]
+  }
+ ]
+}

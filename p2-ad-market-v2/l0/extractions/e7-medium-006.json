@@ -1,0 +1,95 @@
+{
+ "id": "e7-medium-006",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2024,
+ "unit": "USD billions of US directory advertising revenue, 2024",
+ "elapsed_s": 65.2,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US directory advertising",
+   "type": "advertising market segment",
+   "clause": "US directory (Yellow Pages) advertising"
+  },
+  {
+   "name": "Yellow Pages",
+   "type": "directory listing service",
+   "clause": "... part of US directory advertising"
+  },
+  {
+   "name": "US directory advertising revenue, 2024",
+   "type": "revenue measurement",
+   "clause": "US directory advertising revenue in ..."
+  },
+  {
+   "name": "US directory advertising revenue peak",
+   "type": "revenue measurement",
+   "clause": "peak of US directory advertising revenue"
+  },
+  {
+   "name": "US directory advertising revenue decline",
+   "type": "decline measurement",
+   "clause": "decline across eras ... and ..."
+  },
+  {
+   "name": "era 6",
+   "type": "historical period",
+   "clause": "era 6"
+  },
+  {
+   "name": "era 7",
+   "type": "historical period",
+   "clause": "era 7"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Yellow Pages",
+   "type": "PART_OF",
+   "to": "US directory advertising",
+   "clause": "... part of US directory advertising"
+  },
+  {
+   "from": "US directory advertising revenue, 2024",
+   "type": "MEASURES",
+   "to": "US directory advertising",
+   "clause": "measures US directory advertising"
+  },
+  {
+   "from": "US directory advertising revenue peak",
+   "type": "MEASURES",
+   "to": "US directory advertising",
+   "clause": "measures US directory advertising"
+  },
+  {
+   "from": "US directory advertising revenue decline",
+   "type": "MEASURES",
+   "to": "US directory advertising",
+   "clause": "applies to US directory advertising"
+  },
+  {
+   "from": "US directory advertising revenue, 2024",
+   "type": "DECREASED_FROM",
+   "to": "US directory advertising revenue peak",
+   "clause": "fell from ... to ..."
+  },
+  {
+   "from": "US directory advertising revenue decline",
+   "type": "ACROSS",
+   "to": "era 6",
+   "clause": "decline across era ..."
+  },
+  {
+   "from": "US directory advertising revenue decline",
+   "type": "ACROSS",
+   "to": "era 7",
+   "clause": "decline across era ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US directory advertising|advertising market segment|US directory (Yellow Pages) advertising\nNODE|Yellow Pages|directory listing service|... part of US directory advertising\nNODE|US directory advertising revenue, 2024|revenue measurement|US directory advertising revenue in ...\nNODE|US directory advertising revenue peak|revenue measurement|peak of US directory advertising revenue\nNODE|US directory advertising revenue decline|decline measurement|decline across eras ... and ...\nNODE|era 6|historical period|era 6\nNODE|era 7|historical period|era 7\nEDGE|Yellow Pages|PART_OF|US directory advertising|... part of US directory advertising\nEDGE|US directory advertising revenue, 2024|MEASURES|US directory advertising|measures US directory advertising\nEDGE|US directory advertising revenue peak|MEASURES|US directory advertising|measures US directory advertising\nEDGE|US directory advertising revenue decline|MEASURES|US directory advertising|applies to US directory advertising\nEDGE|US directory advertising revenue, 2024|DECREASED_FROM|US directory advertising revenue peak|fell from ... to ...\nEDGE|US directory advertising revenue decline|ACROSS|era 6|decline across era ...\nEDGE|US directory advertising revenue decline|ACROSS|era 7|decline across era ..."
+}

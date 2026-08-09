@@ -1,0 +1,124 @@
+{
+ "id": "e6-medium-005",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "% of US internet ad revenue from search, FY2008",
+ "elapsed_s": 77.0,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "search advertising format",
+   "type": "ad format",
+   "clause": "Search became the dominant internet ad format during the era"
+  },
+  {
+   "name": "US internet ad revenue",
+   "type": "market aggregate",
+   "clause": "of US internet ad revenue"
+  },
+  {
+   "name": "Auction era",
+   "type": "advertising era",
+   "clause": "during the era"
+  },
+  {
+   "name": "classifieds and directories ad segment",
+   "type": "ad segment",
+   "clause": "classifiers/directories fell ... in 2008"
+  },
+  {
+   "name": "search share of US internet ad revenue FY2008",
+   "type": "media-share measurement",
+   "clause": "reaching ... of US internet ad revenue ... in ..."
+  },
+  {
+   "name": "search share of US internet ad revenue FY2007",
+   "type": "media-share measurement",
+   "clause": "up from ... in ..."
+  },
+  {
+   "name": "classifieds share of US internet ad revenue FY2004",
+   "type": "media-share measurement",
+   "clause": "fell ... from ... in ..."
+  },
+  {
+   "name": "classifieds share of US internet ad revenue FY2008",
+   "type": "media-share measurement",
+   "clause": "to ... in ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "search advertising format",
+   "type": "BECAME_DOMINANT_IN",
+   "to": "Auction era",
+   "clause": "became the dominant ... during the era"
+  },
+  {
+   "from": "search share of US internet ad revenue FY2008",
+   "type": "MEASURES",
+   "to": "search advertising format",
+   "clause": "reaching ... of US internet ad revenue"
+  },
+  {
+   "from": "search share of US internet ad revenue FY2008",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "reaching ... of US internet ad revenue"
+  },
+  {
+   "from": "search share of US internet ad revenue FY2007",
+   "type": "MEASURES",
+   "to": "search advertising format",
+   "clause": "up from ..."
+  },
+  {
+   "from": "search share of US internet ad revenue FY2007",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "up from ..."
+  },
+  {
+   "from": "classifieds share of US internet ad revenue FY2004",
+   "type": "MEASURES",
+   "to": "classifieds and directories ad segment",
+   "clause": "fell ... from ... in ..."
+  },
+  {
+   "from": "classifieds share of US internet ad revenue FY2004",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "fell ... from ... in ..."
+  },
+  {
+   "from": "classifieds share of US internet ad revenue FY2008",
+   "type": "MEASURES",
+   "to": "classifieds and directories ad segment",
+   "clause": "to ... in ..."
+  },
+  {
+   "from": "classifieds share of US internet ad revenue FY2008",
+   "type": "SHARE_OF",
+   "to": "US internet ad revenue",
+   "clause": "to ... in ..."
+  },
+  {
+   "from": "search share of US internet ad revenue FY2008",
+   "type": "UP_FROM",
+   "to": "search share of US internet ad revenue FY2007",
+   "clause": "up from ..."
+  },
+  {
+   "from": "classifieds share of US internet ad revenue FY2008",
+   "type": "DOWN_FROM",
+   "to": "classifieds share of US internet ad revenue FY2004",
+   "clause": "fell ... from ... to ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|search advertising format|ad format|Search became the dominant internet ad format during the era\nNODE|US internet ad revenue|market aggregate|of US internet ad revenue\nNODE|Auction era|advertising era|during the era\nNODE|classifieds and directories ad segment|ad segment|classifiers/directories fell ... in 2008\nNODE|search share of US internet ad revenue FY2008|media-share measurement|reaching ... of US internet ad revenue ... in ...\nNODE|search share of US internet ad revenue FY2007|media-share measurement|up from ... in ...\nNODE|classifieds share of US internet ad revenue FY2004|media-share measurement|fell ... from ... in ...\nNODE|classifieds share of US internet ad revenue FY2008|media-share measurement|to ... in ...\nEDGE|search advertising format|BECAME_DOMINANT_IN|Auction era|became the dominant ... during the era\nEDGE|search share of US internet ad revenue FY2008|MEASURES|search advertising format|reaching ... of US internet ad revenue\nEDGE|search share of US internet ad revenue FY2008|SHARE_OF|US internet ad revenue|reaching ... of US internet ad revenue\nEDGE|search share of US internet ad revenue FY2007|MEASURES|search advertising format|up from ...\nEDGE|search share of US internet ad revenue FY2007|SHARE_OF|US internet ad revenue|up from ...\nEDGE|classifieds share of US internet ad revenue FY2004|MEASURES|classifieds and directories ad segment|fell ... from ... in ...\nEDGE|classifieds share of US internet ad revenue FY2004|SHARE_OF|US internet ad revenue|fell ... from ... in ...\nEDGE|classifieds share of US internet ad revenue FY2008|MEASURES|classifieds and directories ad segment|to ... in ...\nEDGE|classifieds share of US internet ad revenue FY2008|SHARE_OF|US internet ad revenue|to ... in ...\nEDGE|search share of US internet ad revenue FY2008|UP_FROM|search share of US internet ad revenue FY2007|up from ...\nEDGE|classifieds share of US internet ad revenue FY2008|DOWN_FROM|classifieds share of US internet ad revenue FY2004|fell ... from ... to ..."
+}

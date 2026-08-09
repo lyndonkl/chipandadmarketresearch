@@ -1,0 +1,145 @@
+{
+ "id": "e7-pricing-001",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2019,
+ "unit": "percent increase in top-slot CPC on PC/tablet from rGSP",
+ "elapsed_s": 79.0,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 12,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's rGSP auction"
+  },
+  {
+   "name": "rGSP auction",
+   "type": "auction mechanism",
+   "clause": "randomized generalized second-price auction"
+  },
+  {
+   "name": "non-navigational queries",
+   "type": "query type",
+   "clause": "non\u2011navigational queries"
+  },
+  {
+   "name": "top-slot cost-per-click",
+   "type": "ad metric",
+   "clause": "top\u2011slot cost\u2011per\u2011click"
+  },
+  {
+   "name": "PCs and tablets",
+   "type": "device category",
+   "clause": "on PCs and tablets"
+  },
+  {
+   "name": "mobile devices",
+   "type": "device category",
+   "clause": "on mobile"
+  },
+  {
+   "name": "top-slot CPC increase (PCs and tablets)",
+   "type": "percentage increase measurement",
+   "clause": "percent increase in top\u2011slot CPC on PCs and tablets"
+  },
+  {
+   "name": "top-slot CPC increase (mobile)",
+   "type": "percentage increase measurement",
+   "clause": "percent increase in top\u2011slot CPC on mobile"
+  },
+  {
+   "name": "long-term stickage factor",
+   "type": "percentage measurement",
+   "clause": "long\u2011term stickage factor percentage"
+  },
+  {
+   "name": "revenue gain",
+   "type": "percentage measurement",
+   "clause": "revenue gain percentage persisting after launch"
+  },
+  {
+   "name": "rGSP auction launch",
+   "type": "event",
+   "clause": "launch of rGSP auction"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "OPERATES",
+   "to": "rGSP auction",
+   "clause": "Google's rGSP auction"
+  },
+  {
+   "from": "rGSP auction",
+   "type": "LAUNCHED_AS",
+   "to": "rGSP auction launch",
+   "clause": "launched in ..."
+  },
+  {
+   "from": "rGSP auction",
+   "type": "RAISED",
+   "to": "top-slot CPC increase (PCs and tablets)",
+   "clause": "raised top\u2011slot CPC on PCs and tablets"
+  },
+  {
+   "from": "rGSP auction",
+   "type": "RAISED",
+   "to": "top-slot CPC increase (mobile)",
+   "clause": "raised top\u2011slot CPC on mobile"
+  },
+  {
+   "from": "top-slot CPC increase (PCs and tablets)",
+   "type": "MEASURES",
+   "to": "top-slot cost-per-click",
+   "clause": "increase in top\u2011slot cost\u2011per\u2011click"
+  },
+  {
+   "from": "top-slot CPC increase (PCs and tablets)",
+   "type": "APPLIES_TO_DEVICE",
+   "to": "PCs and tablets",
+   "clause": "on PCs and tablets"
+  },
+  {
+   "from": "top-slot CPC increase (PCs and tablets)",
+   "type": "APPLIES_TO_QUERY",
+   "to": "non-navigational queries",
+   "clause": "on non\u2011navigational queries"
+  },
+  {
+   "from": "top-slot CPC increase (mobile)",
+   "type": "MEASURES",
+   "to": "top-slot cost-per-click",
+   "clause": "increase in top\u2011slot cost\u2011per\u2011click"
+  },
+  {
+   "from": "top-slot CPC increase (mobile)",
+   "type": "APPLIES_TO_DEVICE",
+   "to": "mobile devices",
+   "clause": "on mobile"
+  },
+  {
+   "from": "top-slot CPC increase (mobile)",
+   "type": "APPLIES_TO_QUERY",
+   "to": "non-navigational queries",
+   "clause": "on non\u2011navigational queries"
+  },
+  {
+   "from": "rGSP auction",
+   "type": "HAS_STICKAGE_FACTOR",
+   "to": "long-term stickage factor",
+   "clause": "with long\u2011term stickage factor"
+  },
+  {
+   "from": "rGSP auction",
+   "type": "GENERATED",
+   "to": "revenue gain",
+   "clause": "revenue gain persisted after launch"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google's rGSP auction\nNODE|rGSP auction|auction mechanism|randomized generalized second-price auction\nNODE|non-navigational queries|query type|non\u2011navigational queries\nNODE|top-slot cost-per-click|ad metric|top\u2011slot cost\u2011per\u2011click\nNODE|PCs and tablets|device category|on PCs and tablets\nNODE|mobile devices|device category|on mobile\nNODE|top-slot CPC increase (PCs and tablets)|percentage increase measurement|percent increase in top\u2011slot CPC on PCs and tablets\nNODE|top-slot CPC increase (mobile)|percentage increase measurement|percent increase in top\u2011slot CPC on mobile\nNODE|long-term stickage factor|percentage measurement|long\u2011term stickage factor percentage\nNODE|revenue gain|percentage measurement|revenue gain percentage persisting after launch\nNODE|rGSP auction launch|event|launch of rGSP auction\nEDGE|Google|OPERATES|rGSP auction|Google's rGSP auction\nEDGE|rGSP auction|LAUNCHED_AS|rGSP auction launch|launched in ...\nEDGE|rGSP auction|RAISED|top-slot CPC increase (PCs and tablets)|raised top\u2011slot CPC on PCs and tablets\nEDGE|rGSP auction|RAISED|top-slot CPC increase (mobile)|raised top\u2011slot CPC on mobile\nEDGE|top-slot CPC increase (PCs and tablets)|MEASURES|top-slot cost-per-click|increase in top\u2011slot cost\u2011per\u2011click\nEDGE|top-slot CPC increase (PCs and tablets)|APPLIES_TO_DEVICE|PCs and tablets|on PCs and tablets\nEDGE|top-slot CPC increase (PCs and tablets)|APPLIES_TO_QUERY|non-navigational queries|on non\u2011navigational queries\nEDGE|top-slot CPC increase (mobile)|MEASURES|top-slot cost-per-click|increase in top\u2011slot cost\u2011per\u2011click\nEDGE|top-slot CPC increase (mobile)|APPLIES_TO_DEVICE|mobile devices|on mobile\nEDGE|top-slot CPC increase (mobile)|APPLIES_TO_QUERY|non-navigational queries|on non\u2011navigational queries\nEDGE|rGSP auction|HAS_STICKAGE_FACTOR|long-term stickage factor|with long\u2011term stickage factor\nEDGE|rGSP auction|GENERATED|revenue gain|revenue gain persisted after launch"
+}

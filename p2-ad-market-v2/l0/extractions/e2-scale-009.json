@@ -1,0 +1,94 @@
+{
+ "id": "e2-scale-009",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1938,
+ "unit": "ratio of Coen radio advertising to FCC audited industry net time sales, 1938",
+ "elapsed_s": 85.6,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen advertising series",
+   "type": "advertising-spend dataset",
+   "clause": "Coen's radio advertising figure"
+  },
+  {
+   "name": "Federal Communications Commission",
+   "type": "regulator agency",
+   "clause": "FCC's audited figure"
+  },
+  {
+   "name": "broadcast industry",
+   "type": "market sector",
+   "clause": "whole broadcast industry's net time sales"
+  },
+  {
+   "name": "radio advertising",
+   "type": "advertising medium",
+   "clause": "radio advertising figure"
+  },
+  {
+   "name": "Coen radio advertising figure",
+   "type": "revenue measurement",
+   "clause": "Coen's 1938 radio advertising figure"
+  },
+  {
+   "name": "FCC broadcast industry net time sales figure",
+   "type": "revenue measurement",
+   "clause": "FCC's audited figure for net time sales"
+  },
+  {
+   "name": "broadcast industry's net time sales",
+   "type": "revenue metric",
+   "clause": "broadcast industry's net time sales"
+  },
+  {
+   "name": "ratio of Coen radio advertising to FCC audited industry net time sales",
+   "type": "ratio measurement",
+   "clause": "Coen's ... is about ... times ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Coen radio advertising figure",
+   "type": "MEASURES",
+   "to": "radio advertising",
+   "clause": "... radio advertising figure"
+  },
+  {
+   "from": "Coen radio advertising figure",
+   "type": "MEASURED_ON",
+   "to": "Coen advertising series",
+   "clause": "... from Coen series"
+  },
+  {
+   "from": "FCC broadcast industry net time sales figure",
+   "type": "MEASURES",
+   "to": "broadcast industry's net time sales",
+   "clause": "... audited figure for net time sales"
+  },
+  {
+   "from": "FCC broadcast industry net time sales figure",
+   "type": "AUDITED_BY",
+   "to": "Federal Communications Commission",
+   "clause": "audited by FCC"
+  },
+  {
+   "from": "ratio of Coen radio advertising to FCC audited industry net time sales",
+   "type": "HAS_NUMERATOR",
+   "to": "Coen radio advertising figure",
+   "clause": "... ratio numerator"
+  },
+  {
+   "from": "ratio of Coen radio advertising to FCC audited industry net time sales",
+   "type": "HAS_DENOMINATOR",
+   "to": "FCC broadcast industry net time sales figure",
+   "clause": "... ratio denominator"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen advertising series|advertising-spend dataset|Coen's radio advertising figure\nNODE|Federal Communications Commission|regulator agency|FCC's audited figure\nNODE|broadcast industry|market sector|whole broadcast industry's net time sales\nNODE|radio advertising|advertising medium|radio advertising figure\nNODE|Coen radio advertising figure|revenue measurement|Coen's 1938 radio advertising figure\nNODE|FCC broadcast industry net time sales figure|revenue measurement|FCC's audited figure for net time sales\nNODE|broadcast industry's net time sales|revenue metric|broadcast industry's net time sales\nNODE|ratio of Coen radio advertising to FCC audited industry net time sales|ratio measurement|Coen's ... is about ... times ...\nEDGE|Coen radio advertising figure|MEASURES|radio advertising|... radio advertising figure\nEDGE|Coen radio advertising figure|MEASURED_ON|Coen advertising series|... from Coen series\nEDGE|FCC broadcast industry net time sales figure|MEASURES|broadcast industry's net time sales|... audited figure for net time sales\nEDGE|FCC broadcast industry net time sales figure|AUDITED_BY|Federal Communications Commission|audited by FCC\nEDGE|ratio of Coen radio advertising to FCC audited industry net time sales|HAS_NUMERATOR|Coen radio advertising figure|... ratio numerator\nEDGE|ratio of Coen radio advertising to FCC audited industry net time sales|HAS_DENOMINATOR|FCC broadcast industry net time sales figure|... ratio denominator"
+}

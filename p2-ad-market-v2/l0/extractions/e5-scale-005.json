@@ -1,0 +1,95 @@
+{
+ "id": "e5-scale-005",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions",
+ "elapsed_s": 67.0,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US internet advertising",
+   "type": "advertising market segment",
+   "clause": "US internet advertising revenue in 2000"
+  },
+  {
+   "name": "US internet advertising revenue (seller revenue basis)",
+   "type": "advertising revenue measurement",
+   "clause": "IAB/PwC first reported ..."
+  },
+  {
+   "name": "US internet advertising revenue (advertiser billing basis)",
+   "type": "advertising revenue measurement",
+   "clause": "Coen/McCann series carries ..."
+  },
+  {
+   "name": "IAB/PwC",
+   "type": "industry research firm",
+   "clause": "IAB/PwC first reported ..."
+  },
+  {
+   "name": "Coen/McCann series",
+   "type": "advertising spend dataset",
+   "clause": "Coen/McCann series carries ..."
+  },
+  {
+   "name": "advertiser billings",
+   "type": "revenue source",
+   "clause": "built from advertiser billings"
+  },
+  {
+   "name": "seller revenue",
+   "type": "revenue source",
+   "clause": "rather than seller revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US internet advertising revenue (seller revenue basis)",
+   "type": "MEASURES",
+   "to": "US internet advertising",
+   "clause": "IAB/PwC first reported ..."
+  },
+  {
+   "from": "US internet advertising revenue (advertiser billing basis)",
+   "type": "MEASURES",
+   "to": "US internet advertising",
+   "clause": "Coen/McCann series carries ..."
+  },
+  {
+   "from": "IAB/PwC",
+   "type": "REPORTED",
+   "to": "US internet advertising revenue (seller revenue basis)",
+   "clause": "first reported ..."
+  },
+  {
+   "from": "IAB/PwC",
+   "type": "RESTATED",
+   "to": "US internet advertising revenue (seller revenue basis)",
+   "clause": "later restated ..."
+  },
+  {
+   "from": "Coen/McCann series",
+   "type": "CARRIES",
+   "to": "US internet advertising revenue (advertiser billing basis)",
+   "clause": "carries ... for the same year"
+  },
+  {
+   "from": "Coen/McCann series",
+   "type": "BUILT_FROM",
+   "to": "advertiser billings",
+   "clause": "built from advertiser billings rather than seller revenue"
+  },
+  {
+   "from": "Coen/McCann series",
+   "type": "EXCLUDES",
+   "to": "seller revenue",
+   "clause": "rather than seller revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US internet advertising|advertising market segment|US internet advertising revenue in 2000\nNODE|US internet advertising revenue (seller revenue basis)|advertising revenue measurement|IAB/PwC first reported ...\nNODE|US internet advertising revenue (advertiser billing basis)|advertising revenue measurement|Coen/McCann series carries ...\nNODE|IAB/PwC|industry research firm|IAB/PwC first reported ...\nNODE|Coen/McCann series|advertising spend dataset|Coen/McCann series carries ...\nNODE|advertiser billings|revenue source|built from advertiser billings\nNODE|seller revenue|revenue source|rather than seller revenue\nEDGE|US internet advertising revenue (seller revenue basis)|MEASURES|US internet advertising|IAB/PwC first reported ...\nEDGE|US internet advertising revenue (advertiser billing basis)|MEASURES|US internet advertising|Coen/McCann series carries ...\nEDGE|IAB/PwC|REPORTED|US internet advertising revenue (seller revenue basis)|first reported ...\nEDGE|IAB/PwC|RESTATED|US internet advertising revenue (seller revenue basis)|later restated ...\nEDGE|Coen/McCann series|CARRIES|US internet advertising revenue (advertiser billing basis)|carries ... for the same year\nEDGE|Coen/McCann series|BUILT_FROM|advertiser billings|built from advertiser billings rather than seller revenue\nEDGE|Coen/McCann series|EXCLUDES|seller revenue|rather than seller revenue"
+}

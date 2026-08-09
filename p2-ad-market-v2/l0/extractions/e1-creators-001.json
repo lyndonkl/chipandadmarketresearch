@@ -1,0 +1,67 @@
+{
+ "id": "e1-creators-001",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1841,
+ "unit": "percent of space price",
+ "elapsed_s": 47.3,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Volney B. Palmer",
+   "type": "person",
+   "clause": "Volney B. Palmer"
+  },
+  {
+   "name": "US advertising agent",
+   "type": "occupation",
+   "clause": "first US advertising agents"
+  },
+  {
+   "name": "publishers",
+   "type": "actor class",
+   "clause": "publishers who paid him"
+  },
+  {
+   "name": "Palmer's commission rate",
+   "type": "take-rate measurement",
+   "clause": "commission rate reported as ... percent of the space price"
+  },
+  {
+   "name": "space price",
+   "type": "published space price",
+   "clause": "space price he sold"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Volney B. Palmer",
+   "type": "WAS_FIRST_AMONG",
+   "to": "US advertising agent",
+   "clause": "the first or among the first US advertising agents"
+  },
+  {
+   "from": "publishers",
+   "type": "PAID",
+   "to": "Volney B. Palmer",
+   "clause": "was paid by publishers"
+  },
+  {
+   "from": "Volney B. Palmer",
+   "type": "RECEIVED",
+   "to": "Palmer's commission rate",
+   "clause": "at a commission ... of the space price he sold"
+  },
+  {
+   "from": "Palmer's commission rate",
+   "type": "SHARE_OF",
+   "to": "space price",
+   "clause": "of the space price he sold"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Volney B. Palmer|person|Volney B. Palmer\nNODE|US advertising agent|occupation|first US advertising agents\nNODE|publishers|actor class|publishers who paid him\nNODE|Palmer's commission rate|take-rate measurement|commission rate reported as ... percent of the space price\nNODE|space price|published space price|space price he sold\nEDGE|Volney B. Palmer|WAS_FIRST_AMONG|US advertising agent|the first or among the first US advertising agents\nEDGE|publishers|PAID|Volney B. Palmer|was paid by publishers\nEDGE|Volney B. Palmer|RECEIVED|Palmer's commission rate|at a commission ... of the space price he sold\nEDGE|Palmer's commission rate|SHARE_OF|space price|of the space price he sold"
+}

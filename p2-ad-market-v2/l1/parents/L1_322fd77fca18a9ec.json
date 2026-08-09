@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|322fd77fca18a9ec",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Postal-rate increase proposal",
+   "type": "policy proposal",
+   "grain": "Entity",
+   "reason": "singleton: unique policy proposal entity",
+   "child_uids": [
+    "n|e3-sellers-005|postal-rate increase proposal|policy proposal"
+   ]
+  },
+  {
+   "name": "Post Office Department",
+   "type": "government agency",
+   "grain": "Entity",
+   "reason": "singleton: unique government agency entity",
+   "child_uids": [
+    "n|e3-targeting-004|post office department|government agency"
+   ]
+  },
+  {
+   "name": "USPS records",
+   "type": "government record",
+   "grain": "Entity",
+   "reason": "singleton: unique record collection entity",
+   "child_uids": [
+    "n|e3-targeting-004|usps records|government record"
+   ]
+  },
+  {
+   "name": "All mail delivered",
+   "type": "mail aggregate",
+   "grain": "Entity",
+   "reason": "singleton: unique mail aggregate entity",
+   "child_uids": [
+    "n|e4-medium-007|all mail delivered|mail aggregate"
+   ]
+  },
+  {
+   "name": "Mailbox",
+   "type": "postal medium",
+   "grain": "Entity",
+   "reason": "singleton: unique postal medium entity",
+   "child_uids": [
+    "n|tu:era:4:event:2|mailbox|postal medium"
+   ]
+  },
+  {
+   "name": "Delivery segment",
+   "type": "postal delivery segment",
+   "grain": "Entity",
+   "reason": "singleton: unique delivery segment entity",
+   "child_uids": [
+    "n|tu:era:4:event:3|delivery segment|postal delivery segment"
+   ]
+  }
+ ]
+}

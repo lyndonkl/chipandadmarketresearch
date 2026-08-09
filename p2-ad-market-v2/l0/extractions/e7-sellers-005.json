@@ -1,0 +1,101 @@
+{
+ "id": "e7-sellers-005",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2020,
+ "unit": "percent share of US general search queries, 2020",
+ "elapsed_s": 82.3,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "search engine company",
+   "clause": "Google held ... share of US general search queries"
+  },
+  {
+   "name": "US general search queries",
+   "type": "search query pool",
+   "clause": "share of US general search queries"
+  },
+  {
+   "name": "Google share of US general search queries",
+   "type": "share measurement",
+   "clause": "held ... share of US general search queries"
+  },
+  {
+   "name": "Google mobile share of US general search queries",
+   "type": "share measurement",
+   "clause": "... on mobile"
+  },
+  {
+   "name": "general search text advertising market",
+   "type": "advertising market",
+   "clause": "share of the general search text advertising market"
+  },
+  {
+   "name": "Google share of general search text advertising market",
+   "type": "share measurement",
+   "clause": "held ... share of the general search text advertising market"
+  },
+  {
+   "name": "previous share of general search text advertising market",
+   "type": "share measurement",
+   "clause": "up from ... in ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "MEASURES",
+   "to": "Google share of US general search queries",
+   "clause": "held ... share of US general search queries"
+  },
+  {
+   "from": "Google share of US general search queries",
+   "type": "SHARE_OF",
+   "to": "US general search queries",
+   "clause": "share of US general search queries"
+  },
+  {
+   "from": "Google",
+   "type": "MEASURES",
+   "to": "Google mobile share of US general search queries",
+   "clause": "... on mobile"
+  },
+  {
+   "from": "Google mobile share of US general search queries",
+   "type": "SHARE_OF",
+   "to": "US general search queries",
+   "clause": "mobile share of US general search queries"
+  },
+  {
+   "from": "Google",
+   "type": "MEASURES",
+   "to": "Google share of general search text advertising market",
+   "clause": "held ... share of the general search text advertising market"
+  },
+  {
+   "from": "Google share of general search text advertising market",
+   "type": "SHARE_OF",
+   "to": "general search text advertising market",
+   "clause": "share of the general search text advertising market"
+  },
+  {
+   "from": "previous share of general search text advertising market",
+   "type": "SHARE_OF",
+   "to": "general search text advertising market",
+   "clause": "... in ..."
+  },
+  {
+   "from": "Google share of general search text advertising market",
+   "type": "UP_FROM",
+   "to": "previous share of general search text advertising market",
+   "clause": "up from ... in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|search engine company|Google held ... share of US general search queries\nNODE|US general search queries|search query pool|share of US general search queries\nNODE|Google share of US general search queries|share measurement|held ... share of US general search queries\nNODE|Google mobile share of US general search queries|share measurement|... on mobile\nNODE|general search text advertising market|advertising market|share of the general search text advertising market\nNODE|Google share of general search text advertising market|share measurement|held ... share of the general search text advertising market\nNODE|previous share of general search text advertising market|share measurement|up from ... in ...\nEDGE|Google|MEASURES|Google share of US general search queries|held ... share of US general search queries\nEDGE|Google share of US general search queries|SHARE_OF|US general search queries|share of US general search queries\nEDGE|Google|MEASURES|Google mobile share of US general search queries|... on mobile\nEDGE|Google mobile share of US general search queries|SHARE_OF|US general search queries|mobile share of US general search queries\nEDGE|Google|MEASURES|Google share of general search text advertising market|held ... share of the general search text advertising market\nEDGE|Google share of general search text advertising market|SHARE_OF|general search text advertising market|share of the general search text advertising market\nEDGE|previous share of general search text advertising market|SHARE_OF|general search text advertising market|... in ...\nEDGE|Google share of general search text advertising market|UP_FROM|previous share of general search text advertising market|up from ... in ..."
+}

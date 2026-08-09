@@ -1,0 +1,78 @@
+{
+ "id": "e2-sellers-003",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1938,
+ "unit": "US commercial broadcast stations, end of 1938",
+ "elapsed_s": 51.2,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "United States",
+   "type": "country",
+   "clause": "the United States"
+  },
+  {
+   "name": "US commercial broadcast stations",
+   "type": "broadcast station inventory",
+   "clause": "commercial broadcast stations in the United States"
+  },
+  {
+   "name": "national network",
+   "type": "broadcast network",
+   "clause": "a national network"
+  },
+  {
+   "name": "stations affiliated with national network",
+   "type": "station subset",
+   "clause": "stations affiliated with a national network"
+  },
+  {
+   "name": "total commercial broadcast stations count",
+   "type": "station-count measurement",
+   "clause": "... commercial broadcast stations ... at the end of ..."
+  },
+  {
+   "name": "affiliated stations count",
+   "type": "station-count measurement",
+   "clause": "... were affiliated with a national network"
+  }
+ ],
+ "edges": [
+  {
+   "from": "total commercial broadcast stations count",
+   "type": "MEASURES",
+   "to": "US commercial broadcast stations",
+   "clause": "... commercial broadcast stations ... at the end of ..."
+  },
+  {
+   "from": "US commercial broadcast stations",
+   "type": "LOCATED_IN",
+   "to": "United States",
+   "clause": "in the United States"
+  },
+  {
+   "from": "stations affiliated with national network",
+   "type": "SUBSET_OF",
+   "to": "US commercial broadcast stations",
+   "clause": "of which ..."
+  },
+  {
+   "from": "stations affiliated with national network",
+   "type": "AFFILIATED_WITH",
+   "to": "national network",
+   "clause": "were affiliated with a national network"
+  },
+  {
+   "from": "affiliated stations count",
+   "type": "MEASURES",
+   "to": "stations affiliated with national network",
+   "clause": "... were affiliated with a national network"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|United States|country|the United States\nNODE|US commercial broadcast stations|broadcast station inventory|commercial broadcast stations in the United States\nNODE|national network|broadcast network|a national network\nNODE|stations affiliated with national network|station subset|stations affiliated with a national network\nNODE|total commercial broadcast stations count|station-count measurement|... commercial broadcast stations ... at the end of ...\nNODE|affiliated stations count|station-count measurement|... were affiliated with a national network\nEDGE|total commercial broadcast stations count|MEASURES|US commercial broadcast stations|... commercial broadcast stations ... at the end of ...\nEDGE|US commercial broadcast stations|LOCATED_IN|United States|in the United States\nEDGE|stations affiliated with national network|SUBSET_OF|US commercial broadcast stations|of which ...\nEDGE|stations affiliated with national network|AFFILIATED_WITH|national network|were affiliated with a national network\nEDGE|affiliated stations count|MEASURES|stations affiliated with national network|... were affiliated with a national network"
+}

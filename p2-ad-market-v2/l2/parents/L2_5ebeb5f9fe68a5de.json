@@ -1,0 +1,34 @@
+{
+ "group_id": "L2|5ebeb5f9fe68a5de",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "gross margin metric",
+   "type": "gross margin metric kind",
+   "grain": "Entity",
+   "reason": "margin metrics share the same profitability measurement role",
+   "child_uids": [
+    "L1|040e375f11da4722",
+    "L1|8ed1d56d623ecf2d"
+   ]
+  },
+  {
+   "name": "operating results report",
+   "type": "operating results report kind",
+   "grain": "Entity",
+   "reason": "singleton: operating results are a distinct financial performance report",
+   "child_uids": [
+    "L1|5bd5615707efcb03"
+   ]
+  },
+  {
+   "name": "operating profit metric",
+   "type": "operating profit metric kind",
+   "grain": "Entity",
+   "reason": "singleton: operating profit is a separate financial metric from margin",
+   "child_uids": [
+    "L1|23fa238bf0b5c63e"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,122 @@
+{
+ "id": "e7-measurement-002",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2021,
+ "unit": "USD millions of national TV ad revenue attributed to the Nielsen undercount (VAB estimate)",
+ "elapsed_s": 97.5,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Media Rating Council",
+   "type": "organization",
+   "clause": "the Media Rating Council"
+  },
+  {
+   "name": "Nielsen",
+   "type": "measurement organization",
+   "clause": "Nielsen's national and local TV accreditation"
+  },
+  {
+   "name": "VAB",
+   "type": "industry body",
+   "clause": "the VAB"
+  },
+  {
+   "name": "prime\u2011age adult demographic",
+   "type": "demographic group",
+   "clause": "adults 18-49"
+  },
+  {
+   "name": "national TV accreditation",
+   "type": "accreditation status",
+   "clause": "national TV accreditation"
+  },
+  {
+   "name": "local market TV service",
+   "type": "accreditation status",
+   "clause": "local market TV service"
+  },
+  {
+   "name": "pandemic-era undercount rate",
+   "type": "share measurement",
+   "clause": "pandemic-era undercounts among adults ..."
+  },
+  {
+   "name": "national TV ad revenue",
+   "type": "revenue stream",
+   "clause": "national TV ad revenue"
+  },
+  {
+   "name": "Nielsen undercount cost measurement",
+   "type": "revenue loss measurement",
+   "clause": "undercount cost of national ad revenue"
+  },
+  {
+   "name": "Nielsen out-of-home viewing error loss measurement",
+   "type": "revenue loss measurement",
+   "clause": "out\u2011of\u2011home viewing error loss"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Media Rating Council",
+   "type": "SUSPENDED",
+   "to": "national TV accreditation",
+   "clause": "suspended ... in September ..."
+  },
+  {
+   "from": "Media Rating Council",
+   "type": "SUSPENDED",
+   "to": "local market TV service",
+   "clause": "suspended ..."
+  },
+  {
+   "from": "pandemic-era undercount rate",
+   "type": "MEASURES",
+   "to": "prime\u2011age adult demographic",
+   "clause": "undercount ... among adults ..."
+  },
+  {
+   "from": "VAB",
+   "type": "ESTIMATED",
+   "to": "Nielsen undercount cost measurement",
+   "clause": "VAB estimated the undercount cost networks at least ... of national ad revenue over twelve months"
+  },
+  {
+   "from": "Nielsen undercount cost measurement",
+   "type": "MEASURES",
+   "to": "national TV ad revenue",
+   "clause": "cost ... of national ad revenue"
+  },
+  {
+   "from": "VAB",
+   "type": "ANALYZED",
+   "to": "Nielsen out-of-home viewing error loss measurement",
+   "clause": "separate VAB analysis ... put losses at ... between September ... and December ..."
+  },
+  {
+   "from": "Nielsen out-of-home viewing error loss measurement",
+   "type": "MEASURES",
+   "to": "national TV ad revenue",
+   "clause": "losses ... of national ad revenue"
+  },
+  {
+   "from": "national TV accreditation",
+   "type": "REINSTATED",
+   "to": "Media Rating Council",
+   "clause": "National TV accreditation was reinstated on ..."
+  },
+  {
+   "from": "local market TV service",
+   "type": "REMAINS_SUSPENDED",
+   "to": "Media Rating Council",
+   "clause": "the local market TV service remained suspended"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Media Rating Council|organization|the Media Rating Council\nNODE|Nielsen|measurement organization|Nielsen's national and local TV accreditation\nNODE|VAB|industry body|the VAB\nNODE|prime\u2011age adult demographic|demographic group|adults 18-49\nNODE|national TV accreditation|accreditation status|national TV accreditation\nNODE|local market TV service|accreditation status|local market TV service\nNODE|pandemic-era undercount rate|share measurement|pandemic-era undercounts among adults ...\nNODE|national TV ad revenue|revenue stream|national TV ad revenue\nNODE|Nielsen undercount cost measurement|revenue loss measurement|undercount cost of national ad revenue\nNODE|Nielsen out-of-home viewing error loss measurement|revenue loss measurement|out\u2011of\u2011home viewing error loss\nEDGE|Media Rating Council|SUSPENDED|national TV accreditation|suspended ... in September ...\nEDGE|Media Rating Council|SUSPENDED|local market TV service|suspended ...\nEDGE|pandemic-era undercount rate|MEASURES|prime\u2011age adult demographic|undercount ... among adults ...\nEDGE|VAB|ESTIMATED|Nielsen undercount cost measurement|VAB estimated the undercount cost networks at least ... of national ad revenue over twelve months\nEDGE|Nielsen undercount cost measurement|MEASURES|national TV ad revenue|cost ... of national ad revenue\nEDGE|VAB|ANALYZED|Nielsen out-of-home viewing error loss measurement|separate VAB analysis ... put losses at ... between September ... and December ...\nEDGE|Nielsen out-of-home viewing error loss measurement|MEASURES|national TV ad revenue|losses ... of national ad revenue\nEDGE|national TV accreditation|REINSTATED|Media Rating Council|National TV accreditation was reinstated on ...\nEDGE|local market TV service|REMAINS_SUSPENDED|Media Rating Council|the local market TV service remained suspended"
+}

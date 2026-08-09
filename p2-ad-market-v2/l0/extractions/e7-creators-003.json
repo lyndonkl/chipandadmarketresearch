@@ -1,0 +1,67 @@
+{
+ "id": "e7-creators-003",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of US creator advertising revenue",
+ "elapsed_s": 51.1,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US creator advertising",
+   "type": "advertising segment",
+   "clause": "US creator advertising"
+  },
+  {
+   "name": "US creator advertising revenue",
+   "type": "revenue measurement",
+   "clause": "US creator advertising reached about ... in ... and projected at ... in ..."
+  },
+  {
+   "name": "overall advertising market",
+   "type": "advertising market",
+   "clause": "the overall advertising market"
+  },
+  {
+   "name": "growth rate of US creator advertising",
+   "type": "growth rate measurement",
+   "clause": "growing at roughly twice the rate of the overall advertising market"
+  },
+  {
+   "name": "growth rate of overall advertising market",
+   "type": "growth rate measurement",
+   "clause": "the overall advertising market"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US creator advertising revenue",
+   "type": "MEASURES",
+   "to": "US creator advertising",
+   "clause": "US creator advertising reached about ... in ... and projected at ... in ..."
+  },
+  {
+   "from": "growth rate of US creator advertising",
+   "type": "MEASURES",
+   "to": "US creator advertising",
+   "clause": "growing at roughly twice the rate of the overall advertising market"
+  },
+  {
+   "from": "growth rate of overall advertising market",
+   "type": "MEASURES",
+   "to": "overall advertising market",
+   "clause": "the overall advertising market"
+  },
+  {
+   "from": "growth rate of US creator advertising",
+   "type": "TWICE_OF",
+   "to": "growth rate of overall advertising market",
+   "clause": "growing at roughly twice the rate of the overall advertising market"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US creator advertising|advertising segment|US creator advertising\nNODE|US creator advertising revenue|revenue measurement|US creator advertising reached about ... in ... and projected at ... in ...\nNODE|overall advertising market|advertising market|the overall advertising market\nNODE|growth rate of US creator advertising|growth rate measurement|growing at roughly twice the rate of the overall advertising market\nNODE|growth rate of overall advertising market|growth rate measurement|the overall advertising market\nEDGE|US creator advertising revenue|MEASURES|US creator advertising|US creator advertising reached about ... in ... and projected at ... in ...\nEDGE|growth rate of US creator advertising|MEASURES|US creator advertising|growing at roughly twice the rate of the overall advertising market\nEDGE|growth rate of overall advertising market|MEASURES|overall advertising market|the overall advertising market\nEDGE|growth rate of US creator advertising|TWICE_OF|growth rate of overall advertising market|growing at roughly twice the rate of the overall advertising market"
+}

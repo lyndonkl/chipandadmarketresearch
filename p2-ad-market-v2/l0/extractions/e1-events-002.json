@@ -1,0 +1,45 @@
+{
+ "id": "e1-events-002",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1872,
+ "unit": "items listed",
+ "elapsed_s": 33.8,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 2,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Montgomery Ward",
+   "type": "company",
+   "clause": "Montgomery Ward's first mail-order catalogue"
+  },
+  {
+   "name": "Montgomery Ward first mail-order catalogue",
+   "type": "catalogue",
+   "clause": "first mail-order catalogue"
+  },
+  {
+   "name": "items listed count",
+   "type": "count measurement",
+   "clause": "listing ... items"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Montgomery Ward",
+   "type": "ISSUED",
+   "to": "Montgomery Ward first mail-order catalogue",
+   "clause": "first mail-order catalogue"
+  },
+  {
+   "from": "Montgomery Ward first mail-order catalogue",
+   "type": "HAS_COUNT",
+   "to": "items listed count",
+   "clause": "listing ... items"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Montgomery Ward|company|Montgomery Ward's first mail-order catalogue\nNODE|Montgomery Ward first mail-order catalogue|catalogue|first mail-order catalogue\nNODE|items listed count|count measurement|listing ... items\nEDGE|Montgomery Ward|ISSUED|Montgomery Ward first mail-order catalogue|first mail-order catalogue\nEDGE|Montgomery Ward first mail-order catalogue|HAS_COUNT|items listed count|listing ... items"
+}

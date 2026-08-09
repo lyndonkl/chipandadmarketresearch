@@ -1,0 +1,72 @@
+{
+ "id": "e5-scale-009",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions (worldwide major-media ad spend, Zenith basis: excludes direct mail and directories)",
+ "elapsed_s": 68.7,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "worldwide major-media advertising expenditure",
+   "type": "media-spend measurement",
+   "clause": "worldwide major-media advertising expenditure"
+  },
+  {
+   "name": "Zenith basis",
+   "type": "measurement basis",
+   "clause": "excludes direct mail and directories"
+  },
+  {
+   "name": "Zenith Media series",
+   "type": "advertising spend dataset",
+   "clause": "Zenith Media's series"
+  },
+  {
+   "name": "WARC series",
+   "type": "advertising spend dataset",
+   "clause": "WARC's series"
+  },
+  {
+   "name": "global advertising decline",
+   "type": "media-change measurement",
+   "clause": "global decline in 2001"
+  },
+  {
+   "name": "era global peak",
+   "type": "milestone",
+   "clause": "the era's global peak"
+  }
+ ],
+ "edges": [
+  {
+   "from": "worldwide major-media advertising expenditure",
+   "type": "BASED_ON",
+   "to": "Zenith basis",
+   "clause": "excluding direct mail and directories"
+  },
+  {
+   "from": "Zenith Media series",
+   "type": "PROVIDES",
+   "to": "worldwide major-media advertising expenditure",
+   "clause": "put global adspend at ... actual and projected values"
+  },
+  {
+   "from": "WARC series",
+   "type": "RECORDS",
+   "to": "global advertising decline",
+   "clause": "records a ... global decline in ..."
+  },
+  {
+   "from": "worldwide major-media advertising expenditure",
+   "type": "ACHIEVES",
+   "to": "era global peak",
+   "clause": "in ... the era's global peak"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|worldwide major-media advertising expenditure|media-spend measurement|worldwide major-media advertising expenditure\nNODE|Zenith basis|measurement basis|excludes direct mail and directories\nNODE|Zenith Media series|advertising spend dataset|Zenith Media's series\nNODE|WARC series|advertising spend dataset|WARC's series\nNODE|global advertising decline|media-change measurement|global decline in 2001\nNODE|era global peak|milestone|the era's global peak\nEDGE|worldwide major-media advertising expenditure|BASED_ON|Zenith basis|excluding direct mail and directories\nEDGE|Zenith Media series|PROVIDES|worldwide major-media advertising expenditure|put global adspend at ... actual and projected values\nEDGE|WARC series|RECORDS|global advertising decline|records a ... global decline in ...\nEDGE|worldwide major-media advertising expenditure|ACHIEVES|era global peak|in ... the era's global peak"
+}

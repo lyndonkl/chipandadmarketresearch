@@ -1,0 +1,162 @@
+{
+ "id": "mech-mehta-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2024,
+ "unit": "% of US general search queries covered by the challenged distribution contracts",
+ "elapsed_s": 82.9,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 14,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US general search queries",
+   "type": "search query pool",
+   "clause": "all US general search queries"
+  },
+  {
+   "name": "challenged distribution contracts",
+   "type": "distribution agreement set",
+   "clause": "the challenged distribution contracts"
+  },
+  {
+   "name": "challenged distribution contracts coverage share",
+   "type": "share measurement",
+   "clause": "roughly ... of all US general search queries flow through access points covered by the challenged distribution contracts"
+  },
+  {
+   "name": "Apple Information Services Agreement",
+   "type": "distribution agreement",
+   "clause": "the Apple Information Services Agreement"
+  },
+  {
+   "name": "Apple Information Services Agreement coverage share",
+   "type": "share measurement",
+   "clause": "... through the Apple Information Services Agreement"
+  },
+  {
+   "name": "Android OEM and carrier agreements",
+   "type": "distribution agreements",
+   "clause": "Android OEM and carrier agreements"
+  },
+  {
+   "name": "Android OEM and carrier agreements coverage share",
+   "type": "share measurement",
+   "clause": "... through Android OEM and carrier agreements"
+  },
+  {
+   "name": "third-party browser agreements",
+   "type": "distribution agreements",
+   "clause": "third-party browser agreements"
+  },
+  {
+   "name": "third-party browser agreements coverage share",
+   "type": "share measurement",
+   "clause": "... through third-party browser agreements"
+  },
+  {
+   "name": "user-downloaded Chrome",
+   "type": "web browser",
+   "clause": "user-downloaded Chrome"
+  },
+  {
+   "name": "Chrome coverage share",
+   "type": "share measurement",
+   "clause": "a further ... flow through user-downloaded Chrome"
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  }
+ ],
+ "edges": [
+  {
+   "from": "challenged distribution contracts coverage share",
+   "type": "SHARE_OF",
+   "to": "US general search queries",
+   "clause": "roughly ... of all US general search queries flow through ..."
+  },
+  {
+   "from": "challenged distribution contracts coverage share",
+   "type": "MEASURES_FLOW_THROUGH",
+   "to": "challenged distribution contracts",
+   "clause": "flow through access points covered by the challenged distribution contracts"
+  },
+  {
+   "from": "Apple Information Services Agreement coverage share",
+   "type": "SHARE_OF",
+   "to": "US general search queries",
+   "clause": "... through the Apple Information Services Agreement"
+  },
+  {
+   "from": "Apple Information Services Agreement coverage share",
+   "type": "MEASURES_FLOW_THROUGH",
+   "to": "Apple Information Services Agreement",
+   "clause": "through the Apple Information Services Agreement"
+  },
+  {
+   "from": "Apple Information Services Agreement",
+   "type": "COVERED_BY",
+   "to": "challenged distribution contracts",
+   "clause": "Apple ... covered by the challenged distribution contracts"
+  },
+  {
+   "from": "Android OEM and carrier agreements coverage share",
+   "type": "SHARE_OF",
+   "to": "US general search queries",
+   "clause": "... through Android OEM and carrier agreements"
+  },
+  {
+   "from": "Android OEM and carrier agreements coverage share",
+   "type": "MEASURES_FLOW_THROUGH",
+   "to": "Android OEM and carrier agreements",
+   "clause": "through Android OEM and carrier agreements"
+  },
+  {
+   "from": "Android OEM and carrier agreements",
+   "type": "COVERED_BY",
+   "to": "challenged distribution contracts",
+   "clause": "Android ... covered by the challenged distribution contracts"
+  },
+  {
+   "from": "third-party browser agreements coverage share",
+   "type": "SHARE_OF",
+   "to": "US general search queries",
+   "clause": "... through third-party browser agreements"
+  },
+  {
+   "from": "third-party browser agreements coverage share",
+   "type": "MEASURES_FLOW_THROUGH",
+   "to": "third-party browser agreements",
+   "clause": "through third-party browser agreements"
+  },
+  {
+   "from": "third-party browser agreements",
+   "type": "COVERED_BY",
+   "to": "challenged distribution contracts",
+   "clause": "third-party ... covered by the challenged distribution contracts"
+  },
+  {
+   "from": "Chrome coverage share",
+   "type": "SHARE_OF",
+   "to": "US general search queries",
+   "clause": "a further ... flow through user-downloaded Chrome"
+  },
+  {
+   "from": "Chrome coverage share",
+   "type": "MEASURES_FLOW_THROUGH",
+   "to": "user-downloaded Chrome",
+   "clause": "flow through user-downloaded Chrome"
+  },
+  {
+   "from": "user-downloaded Chrome",
+   "type": "DEFAULTS_TO",
+   "to": "Google",
+   "clause": "defaults to Google"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US general search queries|search query pool|all US general search queries\nNODE|challenged distribution contracts|distribution agreement set|the challenged distribution contracts\nNODE|challenged distribution contracts coverage share|share measurement|roughly ... of all US general search queries flow through access points covered by the challenged distribution contracts\nNODE|Apple Information Services Agreement|distribution agreement|the Apple Information Services Agreement\nNODE|Apple Information Services Agreement coverage share|share measurement|... through the Apple Information Services Agreement\nNODE|Android OEM and carrier agreements|distribution agreements|Android OEM and carrier agreements\nNODE|Android OEM and carrier agreements coverage share|share measurement|... through Android OEM and carrier agreements\nNODE|third-party browser agreements|distribution agreements|third-party browser agreements\nNODE|third-party browser agreements coverage share|share measurement|... through third-party browser agreements\nNODE|user-downloaded Chrome|web browser|user-downloaded Chrome\nNODE|Chrome coverage share|share measurement|a further ... flow through user-downloaded Chrome\nNODE|Google|company|Google\nEDGE|challenged distribution contracts coverage share|SHARE_OF|US general search queries|roughly ... of all US general search queries flow through ...\nEDGE|challenged distribution contracts coverage share|MEASURES_FLOW_THROUGH|challenged distribution contracts|flow through access points covered by the challenged distribution contracts\nEDGE|Apple Information Services Agreement coverage share|SHARE_OF|US general search queries|... through the Apple Information Services Agreement\nEDGE|Apple Information Services Agreement coverage share|MEASURES_FLOW_THROUGH|Apple Information Services Agreement|through the Apple Information Services Agreement\nEDGE|Apple Information Services Agreement|COVERED_BY|challenged distribution contracts|Apple ... covered by the challenged distribution contracts\nEDGE|Android OEM and carrier agreements coverage share|SHARE_OF|US general search queries|... through Android OEM and carrier agreements\nEDGE|Android OEM and carrier agreements coverage share|MEASURES_FLOW_THROUGH|Android OEM and carrier agreements|through Android OEM and carrier agreements\nEDGE|Android OEM and carrier agreements|COVERED_BY|challenged distribution contracts|Android ... covered by the challenged distribution contracts\nEDGE|third-party browser agreements coverage share|SHARE_OF|US general search queries|... through third-party browser agreements\nEDGE|third-party browser agreements coverage share|MEASURES_FLOW_THROUGH|third-party browser agreements|through third-party browser agreements\nEDGE|third-party browser agreements|COVERED_BY|challenged distribution contracts|third-party ... covered by the challenged distribution contracts\nEDGE|Chrome coverage share|SHARE_OF|US general search queries|a further ... flow through user-downloaded Chrome\nEDGE|Chrome coverage share|MEASURES_FLOW_THROUGH|user-downloaded Chrome|flow through user-downloaded Chrome\nEDGE|user-downloaded Chrome|DEFAULTS_TO|Google|defaults to Google"
+}

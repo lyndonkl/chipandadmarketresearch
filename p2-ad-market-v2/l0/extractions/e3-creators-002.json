@@ -1,0 +1,99 @@
+{
+ "id": "e3-creators-002",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1982,
+ "unit": "percent of large US national advertisers using commission-based agency compensation",
+ "elapsed_s": 56.0,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "agency media commission rate",
+   "type": "take-rate measurement",
+   "clause": "the 15% commission"
+  },
+  {
+   "name": "decree",
+   "type": "regulation",
+   "clause": "the decree"
+  },
+  {
+   "name": "ANA tracking studies",
+   "type": "research organization",
+   "clause": "ANA tracking studies"
+  },
+  {
+   "name": "large US national advertisers",
+   "type": "advertiser cohort",
+   "clause": "the largest US national advertisers"
+  },
+  {
+   "name": "media commission agency compensation",
+   "type": "agency compensation method",
+   "clause": "compensating agencies by media commission"
+  },
+  {
+   "name": "commission usage share",
+   "type": "media-commission usage measurement",
+   "clause": "71% of the largest US national advertisers using commission-based agency compensation"
+  },
+  {
+   "name": "Era 3",
+   "type": "advertising era",
+   "clause": "era 3"
+  },
+  {
+   "name": "commission peak",
+   "type": "market condition",
+   "clause": "the commission's peak"
+  },
+  {
+   "name": "commission death",
+   "type": "event",
+   "clause": "the commission's death"
+  }
+ ],
+ "edges": [
+  {
+   "from": "agency media commission rate",
+   "type": "OUTLIVED",
+   "to": "decree",
+   "clause": "outlived the decree"
+  },
+  {
+   "from": "ANA tracking studies",
+   "type": "SHOWS",
+   "to": "commission usage share",
+   "clause": "show ... were still compensating agencies by media commission"
+  },
+  {
+   "from": "commission usage share",
+   "type": "SHARE_OF",
+   "to": "large US national advertisers",
+   "clause": "... of the largest US national advertisers"
+  },
+  {
+   "from": "commission usage share",
+   "type": "MEASURES",
+   "to": "media commission agency compensation",
+   "clause": "using commission-based agency compensation"
+  },
+  {
+   "from": "Era 3",
+   "type": "READ_AS",
+   "to": "commission peak",
+   "clause": "should be read as the commission's peak"
+  },
+  {
+   "from": "Era 3",
+   "type": "EXCLUDES",
+   "to": "commission death",
+   "clause": "not its death"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|agency media commission rate|take-rate measurement|the 15% commission\nNODE|decree|regulation|the decree\nNODE|ANA tracking studies|research organization|ANA tracking studies\nNODE|large US national advertisers|advertiser cohort|the largest US national advertisers\nNODE|media commission agency compensation|agency compensation method|compensating agencies by media commission\nNODE|commission usage share|media-commission usage measurement|71% of the largest US national advertisers using commission-based agency compensation\nNODE|Era 3|advertising era|era 3\nNODE|commission peak|market condition|the commission's peak\nNODE|commission death|event|the commission's death\nEDGE|agency media commission rate|OUTLIVED|decree|outlived the decree\nEDGE|ANA tracking studies|SHOWS|commission usage share|show ... were still compensating agencies by media commission\nEDGE|commission usage share|SHARE_OF|large US national advertisers|... of the largest US national advertisers\nEDGE|commission usage share|MEASURES|media commission agency compensation|using commission-based agency compensation\nEDGE|Era 3|READ_AS|commission peak|should be read as the commission's peak\nEDGE|Era 3|EXCLUDES|commission death|not its death"
+}

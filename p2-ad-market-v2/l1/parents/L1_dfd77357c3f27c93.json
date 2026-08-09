@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|dfd77357c3f27c93",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Industry-wide click-fraud rate",
+   "type": "click-fraud rate measurement",
+   "grain": "Measurement",
+   "reason": "one measure across wording variants; year and source in children",
+   "child_uids": [
+    "n|e6-measurement-002|industry-wide invalid-click rate|click-fraud rate measurement",
+    "n|tu:era:6:field:MEASUREMENT|industry-wide click-fraud rate|fraud rate measurement"
+   ]
+  },
+  {
+   "name": "Google internal click-fraud rate",
+   "type": "click-fraud rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific internal rate for Google",
+   "child_uids": [
+    "n|e6-measurement-002|google internal click-fraud rate|click-fraud rate measurement"
+   ]
+  },
+  {
+   "name": "Google internal click fraud numbers",
+   "type": "internal measurement",
+   "grain": "Measurement",
+   "reason": "singleton: internal count figures for Google",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|google internal click fraud numbers|internal measurement"
+   ]
+  },
+  {
+   "name": "IAB Click Measurement Guidelines",
+   "type": "measurement guideline",
+   "grain": "Measurement",
+   "reason": "singleton: guidelines defining click measurement standards",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|iab click measurement guidelines|measurement guideline"
+   ]
+  }
+ ]
+}

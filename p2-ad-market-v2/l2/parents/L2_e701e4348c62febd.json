@@ -1,0 +1,316 @@
+{
+ "group_id": "L2|e701e4348c62febd",
+ "n_in": 46,
+ "parents": [
+  {
+   "name": "bankruptcy event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "bankruptcy filings share same legal insolvency role",
+   "child_uids": [
+    "L1|11e8f368215a89ed",
+    "L1|156daeab9be84103",
+    "L1|3df4f199237a23d6"
+   ]
+  },
+  {
+   "name": "liquidation event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: liquidation event, distinct from bankruptcy filings",
+   "child_uids": [
+    "L1|865ab6af5c54360b"
+   ]
+  },
+  {
+   "name": "sports event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "Super Bowl editions are sports events",
+   "child_uids": [
+    "L1|3d15db8b674ef865",
+    "L1|d6fd50b123af4c2e"
+   ]
+  },
+  {
+   "name": "lead direction flip",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: lead direction flip, a programming change event",
+   "child_uids": [
+    "L1|e25fa7d0f3796a1c"
+   ]
+  },
+  {
+   "name": "phenomenon",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: periodic black weeks, a market phenomenon",
+   "child_uids": [
+    "L1|8efd7fd9c780a0da"
+   ]
+  },
+  {
+   "name": "content transfer event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: content transfer event for programming inventory handover",
+   "child_uids": [
+    "L1|261fb43074364a3b"
+   ]
+  },
+  {
+   "name": "people-meter switchover",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: people\u2011meter switchover, measurement system change",
+   "child_uids": [
+    "L1|c6455af38a0e02e2"
+   ]
+  },
+  {
+   "name": "earnings call",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: corporate earnings call, financial reporting event",
+   "child_uids": [
+    "L1|ce73ac96a82bcecd"
+   ]
+  },
+  {
+   "name": "auction launch event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: rGSP auction launch, new auction platform debut",
+   "child_uids": [
+    "L1|ea94b03e7b6774cc"
+   ]
+  },
+  {
+   "name": "conflict event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: war, a conflict event in market history",
+   "child_uids": [
+    "L1|d52561ddd1797225"
+   ]
+  },
+  {
+   "name": "collapse event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "collapse events share same failure type across entities",
+   "child_uids": [
+    "L1|2e5b4766351fa635",
+    "L1|edf7ac5b4e26ebb0"
+   ]
+  },
+  {
+   "name": "website",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: History.com website, an online property entity",
+   "child_uids": [
+    "L1|aa4c0a7426bcfd49"
+   ]
+  },
+  {
+   "name": "automotive product launch timing",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: automotive product launch timing, car model release schedule",
+   "child_uids": [
+    "L1|2abbecea01fd98dc"
+   ]
+  },
+  {
+   "name": "meeting event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: meeting event, generic gathering of stakeholders",
+   "child_uids": [
+    "L1|57d719a31737fb47"
+   ]
+  },
+  {
+   "name": "political election cycle",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: US political election cycle, national voting period",
+   "child_uids": [
+    "L1|5018091d9ce03e9f"
+   ]
+  },
+  {
+   "name": "economic event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "economic events share macro\u2011level market impact measurement",
+   "child_uids": [
+    "L1|03c9e75bd9e46ca3",
+    "L1|8ab501b721edc4fa"
+   ]
+  },
+  {
+   "name": "dissolution event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "dissolution events denote organizational termination across contexts",
+   "child_uids": [
+    "L1|005c54f129832cba",
+    "L1|e25309c7d751ce12"
+   ]
+  },
+  {
+   "name": "time period",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: Listening day, a defined time period",
+   "child_uids": [
+    "L1|69e307f3b67baa8e"
+   ]
+  },
+  {
+   "name": "market event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "market events capture industry\u2011wide disruptions or policy shocks",
+   "child_uids": [
+    "L1|a4e844cfc51dc3bc",
+    "L1|a66bd7733905e6df"
+   ]
+  },
+  {
+   "name": "feature removal event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: feature removal event, UI element deprecation",
+   "child_uids": [
+    "L1|1484a2ec11988fa4"
+   ]
+  },
+  {
+   "name": "renaming event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: renaming event, corporate brand name change",
+   "child_uids": [
+    "L1|d6bd4e992ed622c8"
+   ]
+  },
+  {
+   "name": "public hearing event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "public hearings are distinct regulatory hearing events",
+   "child_uids": [
+    "L1|4d0553780031c565",
+    "L1|97c1fa6a1bb37863"
+   ]
+  },
+  {
+   "name": "public offering event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: public offering event, equity IPO launch",
+   "child_uids": [
+    "L1|9e4450e5a956efed"
+   ]
+  },
+  {
+   "name": "launch event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "launch events share same market\u2011entry role for products/services",
+   "child_uids": [
+    "L1|427067ec3144198e",
+    "L1|c85acab49361f66c",
+    "L1|e2f36e1a47f3baef",
+    "L1|e6ab4e10280b859f"
+   ]
+  },
+  {
+   "name": "conference event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: bible conference, thematic gathering event",
+   "child_uids": [
+    "L1|12d642ccf4930d4a"
+   ]
+  },
+  {
+   "name": "commission termination event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: commission death, termination of official body",
+   "child_uids": [
+    "L1|2a1d05f98af23672"
+   ]
+  },
+  {
+   "name": "event characteristic",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "event characteristics capture specific trait instances of events",
+   "child_uids": [
+    "L1|5c80fa8f8ffa51dc",
+    "L1|bcc1611f7bcddf4f"
+   ]
+  },
+  {
+   "name": "announcement event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "announcement events are distinct general\u2011availability communications",
+   "child_uids": [
+    "L1|495270a058e71e36",
+    "L1|87fc4610a22b7bfa"
+   ]
+  },
+  {
+   "name": "technological event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: Web arrival, a technological event in internet history",
+   "child_uids": [
+    "L1|e25252220de6da10"
+   ]
+  },
+  {
+   "name": "scheduling practice",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: September week premiere concentration, scheduling practice pattern",
+   "child_uids": [
+    "L1|cfb0e5d139ac670a"
+   ]
+  },
+  {
+   "name": "deprecation delay event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: multiple delays, deprecation delay event type",
+   "child_uids": [
+    "L1|1deb4b58b5e62540"
+   ]
+  },
+  {
+   "name": "deprecation abandonment event",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: abandonment, deprecation abandonment event for assets",
+   "child_uids": [
+    "L1|5c691fdbf6adb0e6"
+   ]
+  },
+  {
+   "name": "speech",
+   "type": "entity role",
+   "grain": "Entity",
+   "reason": "singleton: March 1946 speech, historic public address",
+   "child_uids": [
+    "L1|fa1bb8111c08b32a"
+   ]
+  }
+ ]
+}

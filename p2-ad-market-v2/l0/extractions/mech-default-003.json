@@ -1,0 +1,93 @@
+{
+ "id": "mech-default-003",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2023,
+ "unit": "% of Safari-generated search advertising revenue paid by Google to Apple",
+ "elapsed_s": 62.6,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "Apple",
+   "type": "company",
+   "clause": "Apple"
+  },
+  {
+   "name": "Google-to-Apple Safari search ad revenue share",
+   "type": "take-rate measurement",
+   "clause": "percentage of Safari-generated search advertising revenue paid by Google to Apple"
+  },
+  {
+   "name": "search advertising revenue earned through Safari",
+   "type": "advertising revenue stream",
+   "clause": "search advertising revenue it earns through Safari"
+  },
+  {
+   "name": "Google's economic expert",
+   "type": "person role",
+   "clause": "Google's own economic expert"
+  },
+  {
+   "name": "Alphabet's CEO",
+   "type": "person role",
+   "clause": "Alphabet's CEO"
+  },
+  {
+   "name": "open court",
+   "type": "legal venue",
+   "clause": "disclosed inadvertently in open court"
+  },
+  {
+   "name": "public opinion paragraph FOF para 298",
+   "type": "document segment",
+   "clause": "corresponding paragraph of the public opinion is redacted"
+  },
+  {
+   "name": "redacted",
+   "type": "status",
+   "clause": "redacted"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "PAYS",
+   "to": "Apple",
+   "clause": "Google pays Apple ..."
+  },
+  {
+   "from": "Google-to-Apple Safari search ad revenue share",
+   "type": "SHARE_OF",
+   "to": "search advertising revenue earned through Safari",
+   "clause": "... of the search advertising revenue it earns through Safari"
+  },
+  {
+   "from": "Google's economic expert",
+   "type": "DISCLOSED",
+   "to": "Google-to-Apple Safari search ad revenue share",
+   "clause": "disclosed inadvertently in open court"
+  },
+  {
+   "from": "Alphabet's CEO",
+   "type": "CONFIRMED",
+   "to": "Google-to-Apple Safari search ad revenue share",
+   "clause": "later confirmed by Alphabet's CEO"
+  },
+  {
+   "from": "public opinion paragraph FOF para 298",
+   "type": "REDACTED",
+   "to": "redacted",
+   "clause": "is redacted"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|Apple|company|Apple\nNODE|Google-to-Apple Safari search ad revenue share|take-rate measurement|percentage of Safari-generated search advertising revenue paid by Google to Apple\nNODE|search advertising revenue earned through Safari|advertising revenue stream|search advertising revenue it earns through Safari\nNODE|Google's economic expert|person role|Google's own economic expert\nNODE|Alphabet's CEO|person role|Alphabet's CEO\nNODE|open court|legal venue|disclosed inadvertently in open court\nNODE|public opinion paragraph FOF para 298|document segment|corresponding paragraph of the public opinion is redacted\nNODE|redacted|status|redacted\nEDGE|Google|PAYS|Apple|Google pays Apple ...\nEDGE|Google-to-Apple Safari search ad revenue share|SHARE_OF|search advertising revenue earned through Safari|... of the search advertising revenue it earns through Safari\nEDGE|Google's economic expert|DISCLOSED|Google-to-Apple Safari search ad revenue share|disclosed inadvertently in open court\nEDGE|Alphabet's CEO|CONFIRMED|Google-to-Apple Safari search ad revenue share|later confirmed by Alphabet's CEO\nEDGE|public opinion paragraph FOF para 298|REDACTED|redacted|is redacted"
+}

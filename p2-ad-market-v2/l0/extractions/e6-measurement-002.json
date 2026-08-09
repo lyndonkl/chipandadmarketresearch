@@ -1,0 +1,94 @@
+{
+ "id": "e6-measurement-002",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "% of paid clicks estimated fraudulent, industry-wide, 2007-2008",
+ "elapsed_s": 78.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "independent click-fraud estimators",
+   "type": "click-fraud estimator",
+   "clause": "Independent click-fraud estimators"
+  },
+  {
+   "name": "Click Forensics",
+   "type": "organization",
+   "clause": "Click Forensics"
+  },
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "accredited third party",
+   "type": "actor class",
+   "clause": "no accredited third party"
+  },
+  {
+   "name": "industry-wide invalid-click rate",
+   "type": "click-fraud rate measurement",
+   "clause": "industry-wide invalid-click rates in the mid-teens"
+  },
+  {
+   "name": "ad clicks",
+   "type": "advertising action",
+   "clause": "ad clicks as fraudulent"
+  },
+  {
+   "name": "Google internal click-fraud rate",
+   "type": "click-fraud rate measurement",
+   "clause": "Google's own materially lower internal figures"
+  },
+  {
+   "name": "click-fraud adjudication",
+   "type": "decision process",
+   "clause": "adjudicate click fraud"
+  }
+ ],
+ "edges": [
+  {
+   "from": "independent click-fraud estimators",
+   "type": "ESTIMATED",
+   "to": "industry-wide invalid-click rate",
+   "clause": "put industry-wide invalid-click rates in the mid-teens during the era"
+  },
+  {
+   "from": "Click Forensics",
+   "type": "REPORTED",
+   "to": "industry-wide invalid-click rate",
+   "clause": "reported roughly ... of ad clicks as fraudulent in ..."
+  },
+  {
+   "from": "industry-wide invalid-click rate",
+   "type": "SHARE_OF",
+   "to": "ad clicks",
+   "clause": "of ad clicks as fraudulent"
+  },
+  {
+   "from": "Google",
+   "type": "HAS_MEASUREMENT",
+   "to": "Google internal click-fraud rate",
+   "clause": "Google's own materially lower internal figures"
+  },
+  {
+   "from": "Google internal click-fraud rate",
+   "type": "LOWER_THAN",
+   "to": "industry-wide invalid-click rate",
+   "clause": "materially lower internal figures"
+  },
+  {
+   "from": "accredited third party",
+   "type": "UNABLE_TO",
+   "to": "click-fraud adjudication",
+   "clause": "no accredited third party able to adjudicate"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|independent click-fraud estimators|click-fraud estimator|Independent click-fraud estimators\nNODE|Click Forensics|organization|Click Forensics\nNODE|Google|company|Google\nNODE|accredited third party|actor class|no accredited third party\nNODE|industry-wide invalid-click rate|click-fraud rate measurement|industry-wide invalid-click rates in the mid-teens\nNODE|ad clicks|advertising action|ad clicks as fraudulent\nNODE|Google internal click-fraud rate|click-fraud rate measurement|Google's own materially lower internal figures\nNODE|click-fraud adjudication|decision process|adjudicate click fraud\nEDGE|independent click-fraud estimators|ESTIMATED|industry-wide invalid-click rate|put industry-wide invalid-click rates in the mid-teens during the era\nEDGE|Click Forensics|REPORTED|industry-wide invalid-click rate|reported roughly ... of ad clicks as fraudulent in ...\nEDGE|industry-wide invalid-click rate|SHARE_OF|ad clicks|of ad clicks as fraudulent\nEDGE|Google|HAS_MEASUREMENT|Google internal click-fraud rate|Google's own materially lower internal figures\nEDGE|Google internal click-fraud rate|LOWER_THAN|industry-wide invalid-click rate|materially lower internal figures\nEDGE|accredited third party|UNABLE_TO|click-fraud adjudication|no accredited third party able to adjudicate"
+}

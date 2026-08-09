@@ -1,0 +1,83 @@
+{
+ "id": "e1-scale-011",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "percent of total US advertising outlay",
+ "elapsed_s": 54.4,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national brand advertising",
+   "type": "advertising category",
+   "clause": "National brand advertising"
+  },
+  {
+   "name": "local retail",
+   "type": "advertising category",
+   "clause": "local retail"
+  },
+  {
+   "name": "total US advertising outlay",
+   "type": "aggregate advertising expenditure",
+   "clause": "total US advertising outlay"
+  },
+  {
+   "name": "national brand advertising share of total US advertising outlay",
+   "type": "percentage measurement",
+   "clause": "about ... percent of total US advertising outlay"
+  },
+  {
+   "name": "national brand advertising spend",
+   "type": "monetary amount measurement",
+   "clause": "roughly ... of ..."
+  },
+  {
+   "name": "total US advertising outlay amount",
+   "type": "monetary amount measurement",
+   "clause": "roughly ... of ..."
+  },
+  {
+   "name": "previous national brand advertising share of total US advertising outlay",
+   "type": "percentage measurement",
+   "clause": "the 16 percent the record carried before re\u2011research"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national brand advertising share of total US advertising outlay",
+   "type": "SHARE_OF",
+   "to": "total US advertising outlay",
+   "clause": "about ... percent of total US advertising outlay"
+  },
+  {
+   "from": "national brand advertising spend",
+   "type": "PART_OF",
+   "to": "total US advertising outlay amount",
+   "clause": "roughly ... of ..."
+  },
+  {
+   "from": "national brand advertising",
+   "type": "JOINT_LARGEST_WITH",
+   "to": "local retail",
+   "clause": "joint-largest with local retail"
+  },
+  {
+   "from": "national brand advertising",
+   "type": "NOT_SEPARATED_FROM",
+   "to": "local retail",
+   "clause": "no surviving evidence separates the two"
+  },
+  {
+   "from": "national brand advertising share of total US advertising outlay",
+   "type": "SUPERCEDES",
+   "to": "previous national brand advertising share of total US advertising outlay",
+   "clause": "supersedes the 16 percent ... before re\u2011research"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national brand advertising|advertising category|National brand advertising\nNODE|local retail|advertising category|local retail\nNODE|total US advertising outlay|aggregate advertising expenditure|total US advertising outlay\nNODE|national brand advertising share of total US advertising outlay|percentage measurement|about ... percent of total US advertising outlay\nNODE|national brand advertising spend|monetary amount measurement|roughly ... of ...\nNODE|total US advertising outlay amount|monetary amount measurement|roughly ... of ...\nNODE|previous national brand advertising share of total US advertising outlay|percentage measurement|the 16 percent the record carried before re\u2011research\nEDGE|national brand advertising share of total US advertising outlay|SHARE_OF|total US advertising outlay|about ... percent of total US advertising outlay\nEDGE|national brand advertising spend|PART_OF|total US advertising outlay amount|roughly ... of ...\nEDGE|national brand advertising|JOINT_LARGEST_WITH|local retail|joint-largest with local retail\nEDGE|national brand advertising|NOT_SEPARATED_FROM|local retail|no surviving evidence separates the two\nEDGE|national brand advertising share of total US advertising outlay|SUPERCEDES|previous national brand advertising share of total US advertising outlay|supersedes the 16 percent ... before re\u2011research"
+}

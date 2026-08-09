@@ -1,0 +1,106 @@
+{
+ "id": "e7-pricing-004",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2020,
+ "unit": "percent of advertiser programmatic spend reaching the publisher",
+ "elapsed_s": 71.4,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "ISBA/PwC UK supply-chain study",
+   "type": "research study",
+   "clause": "the ISBA/PwC UK supply-chain study"
+  },
+  {
+   "name": "advertiser programmatic spend",
+   "type": "programmatic ad spend",
+   "clause": "advertiser programmatic spend"
+  },
+  {
+   "name": "publisher",
+   "type": "media owner",
+   "clause": "publisher"
+  },
+  {
+   "name": "market participants",
+   "type": "industry actors",
+   "clause": "any participant"
+  },
+  {
+   "name": "impressions",
+   "type": "ad impressions",
+   "clause": "impressions"
+  },
+  {
+   "name": "advertiser programmatic spend reach share",
+   "type": "share measurement",
+   "clause": "... of advertiser programmatic spend reached the publisher"
+  },
+  {
+   "name": "unknown delta share",
+   "type": "share measurement",
+   "clause": "... 'unknown delta' that could not be attributed to any participant"
+  },
+  {
+   "name": "impressions end-to-end traceability share",
+   "type": "share measurement",
+   "clause": "... of impressions could be traced end to end"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertiser programmatic spend reach share",
+   "type": "SHARE_OF",
+   "to": "advertiser programmatic spend",
+   "clause": "of advertiser programmatic spend"
+  },
+  {
+   "from": "advertiser programmatic spend reach share",
+   "type": "REACHES",
+   "to": "publisher",
+   "clause": "reached the publisher"
+  },
+  {
+   "from": "advertiser programmatic spend reach share",
+   "type": "REPORTED_IN",
+   "to": "ISBA/PwC UK supply-chain study",
+   "clause": "in the ... study"
+  },
+  {
+   "from": "unknown delta share",
+   "type": "SHARE_OF",
+   "to": "advertiser programmatic spend",
+   "clause": "of advertiser programmatic spend"
+  },
+  {
+   "from": "unknown delta share",
+   "type": "NOT_ATTRIBUTED_TO",
+   "to": "market participants",
+   "clause": "could not be attributed to any participant"
+  },
+  {
+   "from": "unknown delta share",
+   "type": "REPORTED_IN",
+   "to": "ISBA/PwC UK supply-chain study",
+   "clause": "in the ... study"
+  },
+  {
+   "from": "impressions end-to-end traceability share",
+   "type": "SHARE_OF",
+   "to": "impressions",
+   "clause": "of impressions"
+  },
+  {
+   "from": "impressions end-to-end traceability share",
+   "type": "REPORTED_IN",
+   "to": "ISBA/PwC UK supply-chain study",
+   "clause": "in the ... study"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|ISBA/PwC UK supply-chain study|research study|the ISBA/PwC UK supply-chain study\nNODE|advertiser programmatic spend|programmatic ad spend|advertiser programmatic spend\nNODE|publisher|media owner|publisher\nNODE|market participants|industry actors|any participant\nNODE|impressions|ad impressions|impressions\nNODE|advertiser programmatic spend reach share|share measurement|... of advertiser programmatic spend reached the publisher\nNODE|unknown delta share|share measurement|... 'unknown delta' that could not be attributed to any participant\nNODE|impressions end-to-end traceability share|share measurement|... of impressions could be traced end to end\nEDGE|advertiser programmatic spend reach share|SHARE_OF|advertiser programmatic spend|of advertiser programmatic spend\nEDGE|advertiser programmatic spend reach share|REACHES|publisher|reached the publisher\nEDGE|advertiser programmatic spend reach share|REPORTED_IN|ISBA/PwC UK supply-chain study|in the ... study\nEDGE|unknown delta share|SHARE_OF|advertiser programmatic spend|of advertiser programmatic spend\nEDGE|unknown delta share|NOT_ATTRIBUTED_TO|market participants|could not be attributed to any participant\nEDGE|unknown delta share|REPORTED_IN|ISBA/PwC UK supply-chain study|in the ... study\nEDGE|impressions end-to-end traceability share|SHARE_OF|impressions|of impressions\nEDGE|impressions end-to-end traceability share|REPORTED_IN|ISBA/PwC UK supply-chain study|in the ... study"
+}

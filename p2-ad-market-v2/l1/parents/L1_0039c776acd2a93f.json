@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|0039c776acd2a93f",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Space broker",
+   "type": "intermediary role",
+   "grain": "Entity",
+   "reason": "same concept across role label variants; abstracts wording differences",
+   "child_uids": [
+    "n|tu:era:1:field:CREATORS|space broker role|intermediary function",
+    "n|tu:era:2:field:CREATORS|space broker|intermediary role"
+   ]
+  },
+  {
+   "name": "Room",
+   "type": "housing category",
+   "grain": "Entity",
+   "reason": "singleton: a unique housing category",
+   "child_uids": [
+    "n|tu:era:1:field:TARGETING|room|housing category"
+   ]
+  },
+  {
+   "name": "Star",
+   "type": "talent",
+   "grain": "Entity",
+   "reason": "singleton: distinct talent type representing a star",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|star|talent"
+   ]
+  },
+  {
+   "name": "Talent",
+   "type": "performers",
+   "grain": "Entity",
+   "reason": "singleton: generic performers entity, no equivalents",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|talent|performers"
+   ]
+  },
+  {
+   "name": "Airline",
+   "type": "industry participant",
+   "grain": "Entity",
+   "reason": "singleton: industry participant airline, stands alone",
+   "child_uids": [
+    "n|tu:era:4:field:TARGETING|airline|industry participant"
+   ]
+  },
+  {
+   "name": "InfoSpace",
+   "type": "company",
+   "grain": "Entity",
+   "reason": "singleton: company InfoSpace, unique in this set",
+   "child_uids": [
+    "n|tu:era:6:field:SELLERS|infospace|company"
+   ]
+  }
+ ]
+}

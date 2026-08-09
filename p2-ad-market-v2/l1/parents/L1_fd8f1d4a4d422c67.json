@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|fd8f1d4a4d422c67",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "motion-to-dismiss stage",
+   "type": "legal procedural stage",
+   "grain": "Entity",
+   "reason": "singleton: distinct legal procedural stage (motion-to-dismiss) not shared",
+   "child_uids": [
+    "n|e6-events-004|motion-to-dismiss stage|legal procedural stage"
+   ]
+  },
+  {
+   "name": "related warrant dispute",
+   "type": "legal dispute",
+   "grain": "Entity",
+   "reason": "singleton: unique dispute type (related warrant dispute) stands alone",
+   "child_uids": [
+    "n|e6-events-005|related warrant dispute|legal dispute"
+   ]
+  },
+  {
+   "name": "settlement agreement",
+   "type": "legal settlement",
+   "grain": "Entity",
+   "reason": "singleton: generic settlement agreement entity separate from specific settlements",
+   "child_uids": [
+    "n|e6-events-007|settlement agreement|legal settlement"
+   ]
+  },
+  {
+   "name": "Google-Lane's settlement",
+   "type": "legal settlement",
+   "grain": "Entity",
+   "reason": "singleton: specific Google-Lane settlement event, distinct from generic settlement",
+   "child_uids": [
+    "n|tu:era:6:event:6|google-lane's settlement|legal settlement"
+   ]
+  },
+  {
+   "name": "contested assessment",
+   "type": "dispute status",
+   "grain": "Entity",
+   "reason": "singleton: contested assessment status, no other similar nodes",
+   "child_uids": [
+    "n|tu:era:7:event:3|contested assessment|dispute status"
+   ]
+  }
+ ]
+}

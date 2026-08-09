@@ -1,0 +1,128 @@
+{
+ "id": "e1-buyers-007",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "percent of US newspaper advertising receipts",
+ "elapsed_s": 73.8,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "classified advertising",
+   "type": "advertising category",
+   "clause": "Classified advertising bought by individuals and very small businesses"
+  },
+  {
+   "name": "individuals and very small businesses",
+   "type": "buyer segment",
+   "clause": "bought by individuals and very small businesses"
+  },
+  {
+   "name": "US newspaper advertising receipts",
+   "type": "aggregate revenue metric",
+   "clause": "of US newspaper advertising receipts"
+  },
+  {
+   "name": "advertiser outlay",
+   "type": "aggregate spending metric",
+   "clause": "share of advertiser outlay"
+  },
+  {
+   "name": "classified advertising share of US newspaper advertising receipts",
+   "type": "media-share measurement",
+   "clause": "about ... percent of US newspaper advertising receipts"
+  },
+  {
+   "name": "classified advertising receipt amount",
+   "type": "revenue measurement",
+   "clause": "about ... million"
+  },
+  {
+   "name": "classified advertising share of advertiser outlay",
+   "type": "media-share measurement",
+   "clause": "its share of advertiser outlay is lower"
+  },
+  {
+   "name": "receipts-to-outlay wedge",
+   "type": "market mechanism",
+   "clause": "receipts-to-outlay wedge does not apply"
+  },
+  {
+   "name": "agency commission",
+   "type": "cost component",
+   "clause": "no agency commission"
+  },
+  {
+   "name": "cost of preparation",
+   "type": "cost component",
+   "clause": "no cost of preparation"
+  }
+ ],
+ "edges": [
+  {
+   "from": "individuals and very small businesses",
+   "type": "PURCHASED",
+   "to": "classified advertising",
+   "clause": "bought by individuals and very small businesses"
+  },
+  {
+   "from": "classified advertising share of US newspaper advertising receipts",
+   "type": "MEASURES",
+   "to": "classified advertising",
+   "clause": "about ... percent of US newspaper advertising receipts"
+  },
+  {
+   "from": "classified advertising share of US newspaper advertising receipts",
+   "type": "SHARE_OF",
+   "to": "US newspaper advertising receipts",
+   "clause": "... of US newspaper advertising receipts"
+  },
+  {
+   "from": "classified advertising receipt amount",
+   "type": "MEASURES",
+   "to": "classified advertising",
+   "clause": "about ... million"
+  },
+  {
+   "from": "classified advertising share of advertiser outlay",
+   "type": "MEASURES",
+   "to": "classified advertising",
+   "clause": "share of advertiser outlay is lower"
+  },
+  {
+   "from": "classified advertising share of advertiser outlay",
+   "type": "SHARE_OF",
+   "to": "advertiser outlay",
+   "clause": "share of advertiser outlay"
+  },
+  {
+   "from": "classified advertising share of advertiser outlay",
+   "type": "LOWER_THAN",
+   "to": "classified advertising share of US newspaper advertising receipts",
+   "clause": "its share ... is lower"
+  },
+  {
+   "from": "receipts-to-outlay wedge",
+   "type": "NOT_APPLY_TO",
+   "to": "classified advertising",
+   "clause": "wedge does not apply to a channel"
+  },
+  {
+   "from": "classified advertising",
+   "type": "EXCLUDES",
+   "to": "agency commission",
+   "clause": "carried no agency commission"
+  },
+  {
+   "from": "classified advertising",
+   "type": "EXCLUDES",
+   "to": "cost of preparation",
+   "clause": "no cost of preparation"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|classified advertising|advertising category|Classified advertising bought by individuals and very small businesses\nNODE|individuals and very small businesses|buyer segment|bought by individuals and very small businesses\nNODE|US newspaper advertising receipts|aggregate revenue metric|of US newspaper advertising receipts\nNODE|advertiser outlay|aggregate spending metric|share of advertiser outlay\nNODE|classified advertising share of US newspaper advertising receipts|media-share measurement|about ... percent of US newspaper advertising receipts\nNODE|classified advertising receipt amount|revenue measurement|about ... million\nNODE|classified advertising share of advertiser outlay|media-share measurement|its share of advertiser outlay is lower\nNODE|receipts-to-outlay wedge|market mechanism|receipts-to-outlay wedge does not apply\nNODE|agency commission|cost component|no agency commission\nNODE|cost of preparation|cost component|no cost of preparation\nEDGE|individuals and very small businesses|PURCHASED|classified advertising|bought by individuals and very small businesses\nEDGE|classified advertising share of US newspaper advertising receipts|MEASURES|classified advertising|about ... percent of US newspaper advertising receipts\nEDGE|classified advertising share of US newspaper advertising receipts|SHARE_OF|US newspaper advertising receipts|... of US newspaper advertising receipts\nEDGE|classified advertising receipt amount|MEASURES|classified advertising|about ... million\nEDGE|classified advertising share of advertiser outlay|MEASURES|classified advertising|share of advertiser outlay is lower\nEDGE|classified advertising share of advertiser outlay|SHARE_OF|advertiser outlay|share of advertiser outlay\nEDGE|classified advertising share of advertiser outlay|LOWER_THAN|classified advertising share of US newspaper advertising receipts|its share ... is lower\nEDGE|receipts-to-outlay wedge|NOT_APPLY_TO|classified advertising|wedge does not apply to a channel\nEDGE|classified advertising|EXCLUDES|agency commission|carried no agency commission\nEDGE|classified advertising|EXCLUDES|cost of preparation|no cost of preparation"
+}

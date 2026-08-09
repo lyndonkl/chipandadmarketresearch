@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|27e06eacc667aaab",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Reuben H. Donnelley's classified telephone directory",
+   "type": "product",
+   "grain": "Entity",
+   "reason": "singleton: single product entity, unique in group",
+   "child_uids": [
+    "n|tu:era:1:field:MEDIUM|reuben h. donnelley's classified telephone directory|product"
+   ]
+  },
+  {
+   "name": "classified directory publishers",
+   "type": "seller group",
+   "grain": "Entity",
+   "reason": "singleton: single seller\u2011group entity, no broader match here",
+   "child_uids": [
+    "n|tu:era:1:field:SELLERS|classified directory publishers|seller group"
+   ]
+  },
+  {
+   "name": "D.P. Smelser",
+   "type": "person",
+   "grain": "Entity",
+   "reason": "singleton: individual person entity, stands alone in this set",
+   "child_uids": [
+    "n|tu:era:2:field:BUYERS|d.p. smelser|person"
+   ]
+  },
+  {
+   "name": "Bell",
+   "type": "company",
+   "grain": "Entity",
+   "reason": "singleton: single company entity, distinct from other items",
+   "child_uids": [
+    "n|tu:era:2:field:MEDIUM|bell|company"
+   ]
+  },
+  {
+   "name": "AT&T divestiture",
+   "type": "industry event",
+   "grain": "Entity",
+   "reason": "singleton: one industry\u2011event entity, no related peers present",
+   "child_uids": [
+    "n|tu:era:4:field:SELLERS|at&t divestiture|industry event"
+   ]
+  },
+  {
+   "name": "directory of firms",
+   "type": "buyer composition",
+   "grain": "Entity",
+   "reason": "singleton: unique buyer\u2011composition entity within this cluster",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|directory of firms|buyer composition"
+   ]
+  }
+ ]
+}

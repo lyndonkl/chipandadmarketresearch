@@ -1,0 +1,53 @@
+{
+ "group_id": "L1|2de9a6158c51b6a9",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Ayer handling share of total US advertising outlay",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "share of total US ad outlay handled by Ayer; distinct agency subset",
+   "child_uids": [
+    "n|e1-creators-004|share of total us advertising outlay handled by ayer|share measurement"
+   ]
+  },
+  {
+   "name": "Print media share of total US advertising outlay",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "print media's portion of total US advertising outlay; separate medium breakdown",
+   "child_uids": [
+    "n|e1-medium-005|print share of total us advertising outlay|media-share measurement"
+   ]
+  },
+  {
+   "name": "National brand advertising share of total US advertising outlay",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "national brand share of total US ad outlay, includes previous record",
+   "child_uids": [
+    "n|e1-scale-011|national brand advertising share of total us advertising outlay|percentage measurement",
+    "n|e1-scale-011|previous national brand advertising share of total us advertising outlay|percentage measurement"
+   ]
+  },
+  {
+   "name": "Direct-response share of total US advertising outlay",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "direct-response share of total US advertising outlay; distinct response segment",
+   "child_uids": [
+    "n|e1-scale-014|direct-response share of total us advertising outlay|percentage measurement"
+   ]
+  },
+  {
+   "name": "Total US advertising outlay amount",
+   "type": "monetary amount measurement",
+   "grain": "Measurement",
+   "reason": "total amount of US advertising outlay measured in monetary terms",
+   "child_uids": [
+    "n|e1-scale-011|total us advertising outlay amount|monetary amount measurement"
+   ]
+  }
+ ]
+}

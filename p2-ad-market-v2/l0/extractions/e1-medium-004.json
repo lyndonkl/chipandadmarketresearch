@@ -1,0 +1,67 @@
+{
+ "id": "e1-medium-004",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1897,
+ "unit": "USD millions (current), annual sales",
+ "elapsed_s": 43.3,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Montgomery Ward",
+   "type": "company",
+   "clause": "Montgomery Ward"
+  },
+  {
+   "name": "Montgomery Ward catalogue",
+   "type": "product",
+   "clause": "Montgomery Ward's catalogue"
+  },
+  {
+   "name": "catalogue page count",
+   "type": "page-count measurement",
+   "clause": "reached nearly ... pages by ..."
+  },
+  {
+   "name": "annual sales amount",
+   "type": "revenue measurement",
+   "clause": "supporting about ... of annual sales"
+  },
+  {
+   "name": "catalogue mailing volume",
+   "type": "distribution-volume measurement",
+   "clause": "mailing roughly ... catalogues a year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Montgomery Ward",
+   "type": "PRODUCED",
+   "to": "Montgomery Ward catalogue",
+   "clause": "Montgomery Ward's catalogue"
+  },
+  {
+   "from": "Montgomery Ward catalogue",
+   "type": "HAS_PAGE_COUNT",
+   "to": "catalogue page count",
+   "clause": "reached nearly ... pages by ..."
+  },
+  {
+   "from": "Montgomery Ward catalogue",
+   "type": "SUPPORTS",
+   "to": "annual sales amount",
+   "clause": "supporting about ... of annual sales"
+  },
+  {
+   "from": "Montgomery Ward catalogue",
+   "type": "HAS_MAILING_VOLUME",
+   "to": "catalogue mailing volume",
+   "clause": "mailing roughly ... catalogues a year"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Montgomery Ward|company|Montgomery Ward\nNODE|Montgomery Ward catalogue|product|Montgomery Ward's catalogue\nNODE|catalogue page count|page-count measurement|reached nearly ... pages by ...\nNODE|annual sales amount|revenue measurement|supporting about ... of annual sales\nNODE|catalogue mailing volume|distribution-volume measurement|mailing roughly ... catalogues a year\nEDGE|Montgomery Ward|PRODUCED|Montgomery Ward catalogue|Montgomery Ward's catalogue\nEDGE|Montgomery Ward catalogue|HAS_PAGE_COUNT|catalogue page count|reached nearly ... pages by ...\nEDGE|Montgomery Ward catalogue|SUPPORTS|annual sales amount|supporting about ... of annual sales\nEDGE|Montgomery Ward catalogue|HAS_MAILING_VOLUME|catalogue mailing volume|mailing roughly ... catalogues a year"
+}

@@ -1,0 +1,89 @@
+{
+ "id": "e7-creators-002",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2023,
+ "unit": "percent of ANA member respondents",
+ "elapsed_s": 109.6,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "ANA",
+   "type": "organization",
+   "clause": "ANA"
+  },
+  {
+   "name": "ANA member marketers",
+   "type": "marketer constituency",
+   "clause": "ANA member marketers"
+  },
+  {
+   "name": "in\u2011house agency",
+   "type": "agency form",
+   "clause": "in\u2011house agency"
+  },
+  {
+   "name": "media planning or buying",
+   "type": "advertising activity",
+   "clause": "media planning or buying"
+  },
+  {
+   "name": "ANA in\u2011house agency prevalence",
+   "type": "take-rate measurement",
+   "clause": "reported having an in\u2011house agency"
+  },
+  {
+   "name": "earlier ANA in\u2011house agency prevalence",
+   "type": "take-rate measurement",
+   "clause": "up from ..."
+  },
+  {
+   "name": "percentage of in\u2011house agencies doing media planning or buying",
+   "type": "take-rate measurement",
+   "clause": "did some media planning or buying"
+  }
+ ],
+ "edges": [
+  {
+   "from": "ANA member marketers",
+   "type": "MEMBER_OF",
+   "to": "ANA",
+   "clause": "ANA member marketers"
+  },
+  {
+   "from": "ANA in\u2011house agency prevalence",
+   "type": "SHARE_OF",
+   "to": "ANA member marketers",
+   "clause": "reported having an in\u2011house agency"
+  },
+  {
+   "from": "earlier ANA in\u2011house agency prevalence",
+   "type": "SHARE_OF",
+   "to": "ANA member marketers",
+   "clause": "up from ..."
+  },
+  {
+   "from": "ANA in\u2011house agency prevalence",
+   "type": "UP_FROM",
+   "to": "earlier ANA in\u2011house agency prevalence",
+   "clause": "up from ..."
+  },
+  {
+   "from": "percentage of in\u2011house agencies doing media planning or buying",
+   "type": "SHARE_OF",
+   "to": "in\u2011house agency",
+   "clause": "did some media planning or buying"
+  },
+  {
+   "from": "percentage of in\u2011house agencies doing media planning or buying",
+   "type": "OF_ACTIVITY",
+   "to": "media planning or buying",
+   "clause": "some media planning or buying"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|ANA|organization|ANA\nNODE|ANA member marketers|marketer constituency|ANA member marketers\nNODE|in\u2011house agency|agency form|in\u2011house agency\nNODE|media planning or buying|advertising activity|media planning or buying\nNODE|ANA in\u2011house agency prevalence|take-rate measurement|reported having an in\u2011house agency\nNODE|earlier ANA in\u2011house agency prevalence|take-rate measurement|up from ...\nNODE|percentage of in\u2011house agencies doing media planning or buying|take-rate measurement|did some media planning or buying\nEDGE|ANA member marketers|MEMBER_OF|ANA|ANA member marketers\nEDGE|ANA in\u2011house agency prevalence|SHARE_OF|ANA member marketers|reported having an in\u2011house agency\nEDGE|earlier ANA in\u2011house agency prevalence|SHARE_OF|ANA member marketers|up from ...\nEDGE|ANA in\u2011house agency prevalence|UP_FROM|earlier ANA in\u2011house agency prevalence|up from ...\nEDGE|percentage of in\u2011house agencies doing media planning or buying|SHARE_OF|in\u2011house agency|did some media planning or buying\nEDGE|percentage of in\u2011house agencies doing media planning or buying|OF_ACTIVITY|media planning or buying|some media planning or buying"
+}

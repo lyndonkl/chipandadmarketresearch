@@ -1,0 +1,148 @@
+{
+ "id": "mech-audit-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2009,
+ "unit": "year the first industry click-measurement standard was published (era ran 2002-2008)",
+ "elapsed_s": 107.3,
+ "error": null,
+ "n_nodes": 14,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "independent audit standard for search click counting",
+   "type": "audit standard",
+   "clause": "No independent audit standard for search click counting existed during the deployed-auction era"
+  },
+  {
+   "name": "deployed-auction era",
+   "type": "market period",
+   "clause": "during the deployed-auction era"
+  },
+  {
+   "name": "IAB Click Measurement Working Group",
+   "type": "industry working group",
+   "clause": "the IAB Click Measurement Working Group convened in late ..."
+  },
+  {
+   "name": "IAB Click Measurement Working Group meeting",
+   "type": "meeting event",
+   "clause": "the IAB Click Measurement Working Group convened in late ..."
+  },
+  {
+   "name": "Click Measurement Guidelines",
+   "type": "industry guideline",
+   "clause": "the Click Measurement Guidelines ... were not published until ..."
+  },
+  {
+   "name": "valid click",
+   "type": "click definition",
+   "clause": "first industry definition of a valid click"
+  },
+  {
+   "name": "Media Rating Council",
+   "type": "accreditation body",
+   "clause": "Media Rating Council accreditation of search click counting"
+  },
+  {
+   "name": "Media Rating Council accreditation of search click counting",
+   "type": "accreditation",
+   "clause": "there was no Media Rating Council accreditation of search click counting in period"
+  },
+  {
+   "name": "seller",
+   "type": "market participant",
+   "clause": "The seller estimated the quality weight, ran the auction, validated the click and billed against its own log"
+  },
+  {
+   "name": "quality weight",
+   "type": "metric",
+   "clause": "estimated the quality weight"
+  },
+  {
+   "name": "auction",
+   "type": "auction mechanism",
+   "clause": "ran the auction"
+  },
+  {
+   "name": "click",
+   "type": "click event",
+   "clause": "validated the click"
+  },
+  {
+   "name": "seller log",
+   "type": "data record",
+   "clause": "billed against its own log"
+  },
+  {
+   "name": "search click counting",
+   "type": "measurement activity",
+   "clause": "independent audit standard for search click counting"
+  }
+ ],
+ "edges": [
+  {
+   "from": "independent audit standard for search click counting",
+   "type": "NOT_PRESENT_IN",
+   "to": "deployed-auction era",
+   "clause": "No independent audit standard ... existed during the deployed-auction era"
+  },
+  {
+   "from": "IAB Click Measurement Working Group",
+   "type": "CONVENER",
+   "to": "IAB Click Measurement Working Group meeting",
+   "clause": "the IAB Click Measurement Working Group convened in late ..."
+  },
+  {
+   "from": "Click Measurement Guidelines",
+   "type": "FIRST_DEFINITION_OF",
+   "to": "valid click",
+   "clause": "first industry definition of a valid click"
+  },
+  {
+   "from": "Media Rating Council accreditation of search click counting",
+   "type": "NOT_PRESENT_IN",
+   "to": "deployed-auction era",
+   "clause": "there was no Media Rating Council accreditation ... in period"
+  },
+  {
+   "from": "seller",
+   "type": "ESTIMATED",
+   "to": "quality weight",
+   "clause": "The seller estimated the quality weight"
+  },
+  {
+   "from": "seller",
+   "type": "RAN",
+   "to": "auction",
+   "clause": "ran the auction"
+  },
+  {
+   "from": "seller",
+   "type": "VALIDATED",
+   "to": "click",
+   "clause": "validated the click"
+  },
+  {
+   "from": "seller",
+   "type": "BILLED_AGAINST",
+   "to": "seller log",
+   "clause": "billed against its own log"
+  },
+  {
+   "from": "independent audit standard for search click counting",
+   "type": "FOR",
+   "to": "search click counting",
+   "clause": "independent audit standard for search click counting"
+  },
+  {
+   "from": "Media Rating Council accreditation of search click counting",
+   "type": "FOR",
+   "to": "search click counting",
+   "clause": "accreditation of search click counting"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|independent audit standard for search click counting|audit standard|No independent audit standard for search click counting existed during the deployed-auction era\nNODE|deployed-auction era|market period|during the deployed-auction era\nNODE|IAB Click Measurement Working Group|industry working group|the IAB Click Measurement Working Group convened in late ...\nNODE|IAB Click Measurement Working Group meeting|meeting event|the IAB Click Measurement Working Group convened in late ...\nNODE|Click Measurement Guidelines|industry guideline|the Click Measurement Guidelines ... were not published until ...\nNODE|valid click|click definition|first industry definition of a valid click\nNODE|Media Rating Council|accreditation body|Media Rating Council accreditation of search click counting\nNODE|Media Rating Council accreditation of search click counting|accreditation|there was no Media Rating Council accreditation of search click counting in period\nNODE|seller|market participant|The seller estimated the quality weight, ran the auction, validated the click and billed against its own log\nNODE|quality weight|metric|estimated the quality weight\nNODE|auction|auction mechanism|ran the auction\nNODE|click|click event|validated the click\nNODE|seller log|data record|billed against its own log\nNODE|search click counting|measurement activity|independent audit standard for search click counting\nEDGE|independent audit standard for search click counting|NOT_PRESENT_IN|deployed-auction era|No independent audit standard ... existed during the deployed-auction era\nEDGE|IAB Click Measurement Working Group|CONVENER|IAB Click Measurement Working Group meeting|the IAB Click Measurement Working Group convened in late ...\nEDGE|Click Measurement Guidelines|FIRST_DEFINITION_OF|valid click|first industry definition of a valid click\nEDGE|Media Rating Council accreditation of search click counting|NOT_PRESENT_IN|deployed-auction era|there was no Media Rating Council accreditation ... in period\nEDGE|seller|ESTIMATED|quality weight|The seller estimated the quality weight\nEDGE|seller|RAN|auction|ran the auction\nEDGE|seller|VALIDATED|click|validated the click\nEDGE|seller|BILLED_AGAINST|seller log|billed against its own log\nEDGE|independent audit standard for search click counting|FOR|search click counting|independent audit standard for search click counting\nEDGE|Media Rating Council accreditation of search click counting|FOR|search click counting|accreditation of search click counting"
+}

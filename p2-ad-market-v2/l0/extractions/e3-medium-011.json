@@ -1,0 +1,83 @@
+{
+ "id": "e3-medium-011",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1971,
+ "unit": "percent year-on-year change in US television advertising expenditure, 1970 to 1971",
+ "elapsed_s": 60.8,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US television advertising expenditure",
+   "type": "advertising spend category",
+   "clause": "US television advertising"
+  },
+  {
+   "name": "total US advertising expenditure",
+   "type": "advertising spend category",
+   "clause": "total US advertising"
+  },
+  {
+   "name": "US television advertising percent change measurement",
+   "type": "percent change measurement",
+   "clause": "percent year-on-year change in US television advertising"
+  },
+  {
+   "name": "total US advertising percent change measurement",
+   "type": "percent change measurement",
+   "clause": "percent year-on-year change in total US advertising"
+  },
+  {
+   "name": "cigarette ban",
+   "type": "policy",
+   "clause": "the cigarette ban"
+  },
+  {
+   "name": "Prime Time Access Rule",
+   "type": "regulation",
+   "clause": "the Prime Time Access Rule"
+  },
+  {
+   "name": "Spot Market era",
+   "type": "advertising era",
+   "clause": "the Spot Market era (1950-1971)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US television advertising percent change measurement",
+   "type": "MEASURES",
+   "to": "US television advertising expenditure",
+   "clause": "dropped ... from ... to ..."
+  },
+  {
+   "from": "total US advertising percent change measurement",
+   "type": "MEASURES",
+   "to": "total US advertising expenditure",
+   "clause": "rose ..."
+  },
+  {
+   "from": "total US advertising percent change measurement",
+   "type": "DRIVEN_BY",
+   "to": "cigarette ban",
+   "clause": "combined mark of the cigarette ban"
+  },
+  {
+   "from": "total US advertising percent change measurement",
+   "type": "DRIVEN_BY",
+   "to": "Prime Time Access Rule",
+   "clause": "combined mark of the Prime Time Access Rule"
+  },
+  {
+   "from": "Spot Market era",
+   "type": "ONLY_YEAR_WITH_FALL",
+   "to": "US television advertising expenditure",
+   "clause": "only year ... fell"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US television advertising expenditure|advertising spend category|US television advertising\nNODE|total US advertising expenditure|advertising spend category|total US advertising\nNODE|US television advertising percent change measurement|percent change measurement|percent year-on-year change in US television advertising\nNODE|total US advertising percent change measurement|percent change measurement|percent year-on-year change in total US advertising\nNODE|cigarette ban|policy|the cigarette ban\nNODE|Prime Time Access Rule|regulation|the Prime Time Access Rule\nNODE|Spot Market era|advertising era|the Spot Market era (1950-1971)\nEDGE|US television advertising percent change measurement|MEASURES|US television advertising expenditure|dropped ... from ... to ...\nEDGE|total US advertising percent change measurement|MEASURES|total US advertising expenditure|rose ...\nEDGE|total US advertising percent change measurement|DRIVEN_BY|cigarette ban|combined mark of the cigarette ban\nEDGE|total US advertising percent change measurement|DRIVEN_BY|Prime Time Access Rule|combined mark of the Prime Time Access Rule\nEDGE|Spot Market era|ONLY_YEAR_WITH_FALL|US television advertising expenditure|only year ... fell"
+}

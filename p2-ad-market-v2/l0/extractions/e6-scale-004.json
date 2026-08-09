@@ -1,0 +1,100 @@
+{
+ "id": "e6-scale-004",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "% of US total ad spend taken by internet advertising, 2007",
+ "elapsed_s": 56.4,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "internet advertising",
+   "type": "advertising medium",
+   "clause": "Internet advertising was still only about ... of total US advertising spending"
+  },
+  {
+   "name": "search advertising",
+   "type": "advertising medium",
+   "clause": "search alone about ..."
+  },
+  {
+   "name": "US total advertising spending",
+   "type": "advertising spend aggregate",
+   "clause": "total US advertising spending in 2007"
+  },
+  {
+   "name": "internet ad share of US total advertising spending",
+   "type": "media-share measurement",
+   "clause": "about ... of total US advertising spending"
+  },
+  {
+   "name": "search ad share of US total advertising spending",
+   "type": "media-share measurement",
+   "clause": "search alone about ..."
+  },
+  {
+   "name": "internet ad spend amount",
+   "type": "spend measurement",
+   "clause": "Internet advertising ... $... of ~$..."
+  },
+  {
+   "name": "search ad spend amount",
+   "type": "spend measurement",
+   "clause": "search ... $..."
+  },
+  {
+   "name": "total US ad spend amount",
+   "type": "spend measurement",
+   "clause": "~$... of total US advertising spending"
+  }
+ ],
+ "edges": [
+  {
+   "from": "internet ad share of US total advertising spending",
+   "type": "MEASURES",
+   "to": "internet advertising",
+   "clause": "about ... of total US advertising spending"
+  },
+  {
+   "from": "internet ad share of US total advertising spending",
+   "type": "MEASURED_ON",
+   "to": "US total advertising spending",
+   "clause": "of total US advertising spending"
+  },
+  {
+   "from": "search ad share of US total advertising spending",
+   "type": "MEASURES",
+   "to": "search advertising",
+   "clause": "search alone about ..."
+  },
+  {
+   "from": "search ad share of US total advertising spending",
+   "type": "MEASURED_ON",
+   "to": "US total advertising spending",
+   "clause": "of total US advertising spending"
+  },
+  {
+   "from": "internet ad spend amount",
+   "type": "MEASURES",
+   "to": "internet advertising",
+   "clause": "Internet advertising ... $... of ~$..."
+  },
+  {
+   "from": "search ad spend amount",
+   "type": "MEASURES",
+   "to": "search advertising",
+   "clause": "search ... $..."
+  },
+  {
+   "from": "total US ad spend amount",
+   "type": "MEASURES",
+   "to": "US total advertising spending",
+   "clause": "~$... of total US advertising spending"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|internet advertising|advertising medium|Internet advertising was still only about ... of total US advertising spending\nNODE|search advertising|advertising medium|search alone about ...\nNODE|US total advertising spending|advertising spend aggregate|total US advertising spending in 2007\nNODE|internet ad share of US total advertising spending|media-share measurement|about ... of total US advertising spending\nNODE|search ad share of US total advertising spending|media-share measurement|search alone about ...\nNODE|internet ad spend amount|spend measurement|Internet advertising ... $... of ~$...\nNODE|search ad spend amount|spend measurement|search ... $...\nNODE|total US ad spend amount|spend measurement|~$... of total US advertising spending\nEDGE|internet ad share of US total advertising spending|MEASURES|internet advertising|about ... of total US advertising spending\nEDGE|internet ad share of US total advertising spending|MEASURED_ON|US total advertising spending|of total US advertising spending\nEDGE|search ad share of US total advertising spending|MEASURES|search advertising|search alone about ...\nEDGE|search ad share of US total advertising spending|MEASURED_ON|US total advertising spending|of total US advertising spending\nEDGE|internet ad spend amount|MEASURES|internet advertising|Internet advertising ... $... of ~$...\nEDGE|search ad spend amount|MEASURES|search advertising|search ... $...\nEDGE|total US ad spend amount|MEASURES|US total advertising spending|~$... of total US advertising spending"
+}

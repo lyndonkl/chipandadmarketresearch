@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|0734d0ee14e190c5",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "ads live immediately",
+   "type": "ad activation outcome",
+   "grain": "Entity",
+   "reason": "singleton: distinct entity about ad activation timing",
+   "child_uids": [
+    "n|tu:era:6:event:0|ads live immediately|ad activation outcome"
+   ]
+  },
+  {
+   "name": "online ad",
+   "type": "ad product",
+   "grain": "Entity",
+   "reason": "singleton: distinct ad product type",
+   "child_uids": [
+    "n|tu:era:6:field:CREATORS|online ad|ad product"
+   ]
+  },
+  {
+   "name": "ad delivery immediacy",
+   "type": "metric",
+   "grain": "Entity",
+   "reason": "singleton: distinct metric concept for delivery speed",
+   "child_uids": [
+    "n|tu:era:6:field:CREATORS|ad delivery immediacy|metric"
+   ]
+  }
+ ]
+}

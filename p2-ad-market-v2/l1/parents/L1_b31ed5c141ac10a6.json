@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|b31ed5c141ac10a6",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "US national cable networks",
+   "type": "cable network set",
+   "grain": "Entity",
+   "reason": "singleton: a specific entity distinct from networks and subscribers",
+   "child_uids": [
+    "n|e4-sellers-002|us national cable networks|cable network set"
+   ]
+  },
+  {
+   "name": "US cable industry",
+   "type": "industry entity",
+   "grain": "Entity",
+   "reason": "singleton: distinct industry entity separate from networks and subscribers",
+   "child_uids": [
+    "n|tu:era:4:field:SELLERS|us cable industry|industry entity"
+   ]
+  },
+  {
+   "name": "subscriber",
+   "type": "customer",
+   "grain": "Entity",
+   "reason": "singleton: individual customer distinct from network set and industry",
+   "child_uids": [
+    "n|tu:era:4:field:SELLERS|subscriber|customer"
+   ]
+  }
+ ]
+}

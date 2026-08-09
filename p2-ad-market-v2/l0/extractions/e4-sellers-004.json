@@ -1,0 +1,100 @@
+{
+ "id": "e4-sellers-004",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 56.4,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Yellow Pages directory publishers",
+   "type": "publisher group",
+   "clause": "Yellow Pages directory publishers"
+  },
+  {
+   "name": "Regional Bell Operating Companies",
+   "type": "telecommunications company group",
+   "clause": "mostly the Regional Bell Operating Companies after ..."
+  },
+  {
+   "name": "Yellow Pages advertising sales",
+   "type": "advertising spend measurement",
+   "clause": "sold ... of advertising in ..."
+  },
+  {
+   "name": "local share of Yellow Pages advertising",
+   "type": "share measurement",
+   "clause": "... of it local"
+  },
+  {
+   "name": "radio advertising",
+   "type": "advertising medium",
+   "clause": "radio"
+  },
+  {
+   "name": "magazine advertising",
+   "type": "advertising medium",
+   "clause": "magazines"
+  },
+  {
+   "name": "radio advertising sales",
+   "type": "advertising spend measurement",
+   "clause": "radio ..."
+  },
+  {
+   "name": "magazine advertising sales",
+   "type": "advertising spend measurement",
+   "clause": "magazines ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Yellow Pages directory publishers",
+   "type": "WAS_MOSTLY",
+   "to": "Regional Bell Operating Companies",
+   "clause": "after ... mostly the Regional Bell Operating Companies"
+  },
+  {
+   "from": "Yellow Pages directory publishers",
+   "type": "SOLD_ADVERTISING",
+   "to": "Yellow Pages advertising sales",
+   "clause": "sold ... of advertising in ..."
+  },
+  {
+   "from": "local share of Yellow Pages advertising",
+   "type": "SHARE_OF",
+   "to": "Yellow Pages advertising sales",
+   "clause": "... of it local"
+  },
+  {
+   "from": "radio advertising",
+   "type": "HAS_SPEND",
+   "to": "radio advertising sales",
+   "clause": "radio ..."
+  },
+  {
+   "from": "magazine advertising",
+   "type": "HAS_SPEND",
+   "to": "magazine advertising sales",
+   "clause": "magazines ..."
+  },
+  {
+   "from": "Yellow Pages advertising sales",
+   "type": "EXCEEDS",
+   "to": "radio advertising sales",
+   "clause": "exceeding both radio ..."
+  },
+  {
+   "from": "Yellow Pages advertising sales",
+   "type": "EXCEEDS",
+   "to": "magazine advertising sales",
+   "clause": "exceeding ... magazines ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Yellow Pages directory publishers|publisher group|Yellow Pages directory publishers\nNODE|Regional Bell Operating Companies|telecommunications company group|mostly the Regional Bell Operating Companies after ...\nNODE|Yellow Pages advertising sales|advertising spend measurement|sold ... of advertising in ...\nNODE|local share of Yellow Pages advertising|share measurement|... of it local\nNODE|radio advertising|advertising medium|radio\nNODE|magazine advertising|advertising medium|magazines\nNODE|radio advertising sales|advertising spend measurement|radio ...\nNODE|magazine advertising sales|advertising spend measurement|magazines ...\n\nEDGE|Yellow Pages directory publishers|WAS_MOSTLY|Regional Bell Operating Companies|after ... mostly the Regional Bell Operating Companies\nEDGE|Yellow Pages directory publishers|SOLD_ADVERTISING|Yellow Pages advertising sales|sold ... of advertising in ...\nEDGE|local share of Yellow Pages advertising|SHARE_OF|Yellow Pages advertising sales|... of it local\nEDGE|radio advertising|HAS_SPEND|radio advertising sales|radio ...\nEDGE|magazine advertising|HAS_SPEND|magazine advertising sales|magazines ...\nEDGE|Yellow Pages advertising sales|EXCEEDS|radio advertising sales|exceeding both radio ...\nEDGE|Yellow Pages advertising sales|EXCEEDS|magazine advertising sales|exceeding ... magazines ..."
+}

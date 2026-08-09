@@ -1,0 +1,133 @@
+{
+ "id": "e6-medium-001",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions, US direct mail advertising 2007",
+ "elapsed_s": 85.7,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Direct mail",
+   "type": "advertising medium",
+   "clause": "Direct mail was the largest single line ..."
+  },
+  {
+   "name": "Coen medium taxonomy",
+   "type": "taxonomy dataset",
+   "clause": "Coen's medium taxonomy"
+  },
+  {
+   "name": "US direct mail advertising amount",
+   "type": "spend measurement",
+   "clause": "at ... in 2002 and ... in 2007"
+  },
+  {
+   "name": "Broadcast television",
+   "type": "advertising medium",
+   "clause": "broadcast television"
+  },
+  {
+   "name": "Cable television",
+   "type": "advertising medium",
+   "clause": "cable television"
+  },
+  {
+   "name": "Broadcast television advertising amount",
+   "type": "spend measurement",
+   "clause": "..."
+  },
+  {
+   "name": "Cable television advertising amount",
+   "type": "spend measurement",
+   "clause": "..."
+  },
+  {
+   "name": "Television advertising amount",
+   "type": "spend measurement",
+   "clause": "broadcast ... plus cable ... = ... in ..."
+  },
+  {
+   "name": "Total US ad spend",
+   "type": "spend measurement",
+   "clause": "total US ad spend in 2007"
+  },
+  {
+   "name": "Direct mail share of total US ad spend",
+   "type": "share measurement",
+   "clause": "... of total US ad spend ..."
+  },
+  {
+   "name": "Coen separate broadcast and cable booking",
+   "type": "classification practice",
+   "clause": "Coen booking broadcast and cable separately"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Direct mail",
+   "type": "LARGEST_SINGLE_LINE_IN",
+   "to": "Coen medium taxonomy",
+   "clause": "largest single line in Coen's medium taxonomy"
+  },
+  {
+   "from": "US direct mail advertising amount",
+   "type": "MEASURES",
+   "to": "Direct mail",
+   "clause": "spend amounts for 2002 and 2007"
+  },
+  {
+   "from": "Broadcast television advertising amount",
+   "type": "MEASURES",
+   "to": "Broadcast television",
+   "clause": "broadcast TV spend ..."
+  },
+  {
+   "from": "Cable television advertising amount",
+   "type": "MEASURES",
+   "to": "Cable television",
+   "clause": "cable TV spend ..."
+  },
+  {
+   "from": "Television advertising amount",
+   "type": "MEASURES",
+   "to": "Television advertising amount",
+   "clause": "combined TV spend ..."
+  },
+  {
+   "from": "Direct mail share of total US ad spend",
+   "type": "MEASURES",
+   "to": "Direct mail",
+   "clause": "share of total US ad spend ..."
+  },
+  {
+   "from": "Direct mail share of total US ad spend",
+   "type": "SHARE_OF",
+   "to": "Total US ad spend",
+   "clause": "share of total US ad spend"
+  },
+  {
+   "from": "Direct mail",
+   "type": "OUTPERFORMS",
+   "to": "Broadcast television",
+   "clause": "ahead of broadcast television in every year"
+  },
+  {
+   "from": "Television advertising amount",
+   "type": "LARGER_THAN",
+   "to": "Direct mail",
+   "clause": "remained larger throughout when TV taken as one medium"
+  },
+  {
+   "from": "Direct mail",
+   "type": "RESULT_DEPENDS_ON",
+   "to": "Coen separate broadcast and cable booking",
+   "clause": "direct-mail-is-biggest result depends on Coen booking broadcast and cable separately"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Direct mail|advertising medium|Direct mail was the largest single line ...\nNODE|Coen medium taxonomy|taxonomy dataset|Coen's medium taxonomy\nNODE|US direct mail advertising amount|spend measurement|at ... in 2002 and ... in 2007\nNODE|Broadcast television|advertising medium|broadcast television\nNODE|Cable television|advertising medium|cable television\nNODE|Broadcast television advertising amount|spend measurement|...\nNODE|Cable television advertising amount|spend measurement|...\nNODE|Television advertising amount|spend measurement|broadcast ... plus cable ... = ... in ...\nNODE|Total US ad spend|spend measurement|total US ad spend in 2007\nNODE|Direct mail share of total US ad spend|share measurement|... of total US ad spend ...\nNODE|Coen separate broadcast and cable booking|classification practice|Coen booking broadcast and cable separately\nEDGE|Direct mail|LARGEST_SINGLE_LINE_IN|Coen medium taxonomy|largest single line in Coen's medium taxonomy\nEDGE|US direct mail advertising amount|MEASURES|Direct mail|spend amounts for 2002 and 2007\nEDGE|Broadcast television advertising amount|MEASURES|Broadcast television|broadcast TV spend ...\nEDGE|Cable television advertising amount|MEASURES|Cable television|cable TV spend ...\nEDGE|Television advertising amount|MEASURES|Television advertising amount|combined TV spend ...\nEDGE|Direct mail share of total US ad spend|MEASURES|Direct mail|share of total US ad spend ...\nEDGE|Direct mail share of total US ad spend|SHARE_OF|Total US ad spend|share of total US ad spend\nEDGE|Direct mail|OUTPERFORMS|Broadcast television|ahead of broadcast television in every year\nEDGE|Television advertising amount|LARGER_THAN|Direct mail|remained larger throughout when TV taken as one medium\nEDGE|Direct mail|RESULT_DEPENDS_ON|Coen separate broadcast and cable booking|direct-mail-is-biggest result depends on Coen booking broadcast and cable separately"
+}

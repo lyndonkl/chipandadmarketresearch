@@ -1,0 +1,184 @@
+{
+ "group_id": "L1|74c89e9a362c9861",
+ "source": "kmeans",
+ "n_in": 25,
+ "parents": [
+  {
+   "name": "Seller group",
+   "type": "seller group",
+   "grain": "Entity",
+   "reason": "multiple ranking-based seller groups share a common higher concept",
+   "child_uids": [
+    "n|e7-sellers-001|other sellers|seller group",
+    "n|e7-sellers-001|ranked 11-25 companies|seller group",
+    "n|e7-sellers-001|top 10 sellers|seller group"
+   ]
+  },
+  {
+   "name": "Fund source",
+   "type": "fund source",
+   "grain": "Entity",
+   "reason": "different fund sources grouped under generic fund source concept",
+   "child_uids": [
+    "n|tu:era:7:field:SELLERS|co-op money|fund source",
+    "n|tu:era:7:field:SELLERS|trade-promotion money|fund source"
+   ]
+  },
+  {
+   "name": "Seller type",
+   "type": "seller type",
+   "grain": "Entity",
+   "reason": "seller types like radio network and large retailer share category",
+   "child_uids": [
+    "n|tu:era:2:field:SELLERS|radio network|seller type",
+    "n|tu:era:7:field:SELLERS|large retailer|seller type"
+   ]
+  },
+  {
+   "name": "Seller model",
+   "type": "seller model",
+   "grain": "Entity",
+   "reason": "seller models, predictive and algorithmic, belong to same model class",
+   "child_uids": [
+    "n|tu:era:7:field:BUYERS|seller's model|predictive model",
+    "n|tu:era:7:field:CREATORS|seller's own model|algorithmic creation model"
+   ]
+  },
+  {
+   "name": "Transaction type",
+   "type": "transaction type",
+   "grain": "Entity",
+   "reason": "transaction types barter and barter\u2011trade deals abstracted under one parent",
+   "child_uids": [
+    "n|e5-pricing-007|barter and trade deals|transaction type",
+    "n|e5-unit_econ-001|barter|transaction type"
+   ]
+  },
+  {
+   "name": "single selling unit",
+   "type": "consolidated organization",
+   "grain": "Entity",
+   "reason": "singleton: a distinct consolidated organization entity",
+   "child_uids": [
+    "n|e1-sellers-006|single selling unit|consolidated organization"
+   ]
+  },
+  {
+   "name": "trade sources",
+   "type": "information source",
+   "grain": "Entity",
+   "reason": "singleton: specific information source about trade",
+   "child_uids": [
+    "n|e6-medium-002|trade sources|information source"
+   ]
+  },
+  {
+   "name": "US online sell side",
+   "type": "sell-side market",
+   "grain": "Entity",
+   "reason": "singleton: the US online sell\u2011side market",
+   "child_uids": [
+    "n|e6-sellers-005|us online sell side|sell-side market"
+   ]
+  },
+  {
+   "name": "salesmen",
+   "type": "sales personnel",
+   "grain": "Entity",
+   "reason": "singleton: sales personnel entity",
+   "child_uids": [
+    "n|tu:era:1:field:BUYERS|salesmen|sales personnel"
+   ]
+  },
+  {
+   "name": "pitch",
+   "type": "sales approach",
+   "grain": "Entity",
+   "reason": "singleton: sales approach concept",
+   "child_uids": [
+    "n|tu:era:1:field:CREATORS|pitch|sales approach"
+   ]
+  },
+  {
+   "name": "manufacturer",
+   "type": "business actor",
+   "grain": "Entity",
+   "reason": "singleton: business actor manufacturing entity",
+   "child_uids": [
+    "n|tu:era:1:field:MEDIUM|manufacturer|business actor"
+   ]
+  },
+  {
+   "name": "sellers",
+   "type": "market participant group",
+   "grain": "Entity",
+   "reason": "singleton: generic market participant seller group",
+   "child_uids": [
+    "n|tu:era:1:field:SELLERS|sellers|market participant group"
+   ]
+  },
+  {
+   "name": "private vendors",
+   "type": "vendor group",
+   "grain": "Entity",
+   "reason": "singleton: vendor group selling to both sides",
+   "child_uids": [
+    "n|tu:era:2:event:9|private vendors|vendor group"
+   ]
+  },
+  {
+   "name": "long tail of small businesses",
+   "type": "buyer composition",
+   "grain": "Entity",
+   "reason": "singleton: buyer composition of many small firms",
+   "child_uids": [
+    "n|tu:era:6:field:BUYERS|long tail of small businesses|buyer composition"
+   ]
+  },
+  {
+   "name": "other people's inventory",
+   "type": "inventory",
+   "grain": "Entity",
+   "reason": "singleton: external inventory entity",
+   "child_uids": [
+    "n|tu:era:6:field:PRICING|other people's inventory|inventory"
+   ]
+  },
+  {
+   "name": "integrated supply chain firm",
+   "type": "advertising firm",
+   "grain": "Entity",
+   "reason": "singleton: advertising firm integrating supply chain",
+   "child_uids": [
+    "n|tu:era:7:field:MEASUREMENT|integrated supply chain firm|advertising firm"
+   ]
+  },
+  {
+   "name": "Judge Mehta",
+   "type": "judge",
+   "grain": "Entity",
+   "reason": "singleton: individual judge person",
+   "child_uids": [
+    "n|tu:era:7:field:SELLERS|judge mehta|judge"
+   ]
+  },
+  {
+   "name": "open web",
+   "type": "digital medium",
+   "grain": "Entity",
+   "reason": "singleton: digital medium representing the open web",
+   "child_uids": [
+    "n|tu:era:7:field:SELLERS|open web|digital medium"
+   ]
+  },
+  {
+   "name": "auction inventory",
+   "type": "ad inventory",
+   "grain": "Entity",
+   "reason": "singleton: ad inventory used in auctions",
+   "child_uids": [
+    "n|tu:era:7:field:SELLERS|auction inventory|ad inventory"
+   ]
+  }
+ ]
+}

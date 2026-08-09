@@ -1,0 +1,111 @@
+{
+ "group_id": "L2|b60e39bf621f8fac",
+ "n_in": 17,
+ "parents": [
+  {
+   "name": "search query volume",
+   "type": "query volume entity kind",
+   "grain": "Entity",
+   "reason": "search query volume across overall, iOS, MacOS are same metric kind",
+   "child_uids": [
+    "L1|46b26b63fc0e7f98",
+    "L1|9b3edb43d18156ff",
+    "L1|d5400342685f41bd"
+   ]
+  },
+  {
+   "name": "traffic channel",
+   "type": "channel entity kind",
+   "grain": "Entity",
+   "reason": "both represent channels delivering web traffic to sites",
+   "child_uids": [
+    "L1|2cf51f4bd2af9680",
+    "L1|e31ed824683bccee"
+   ]
+  },
+  {
+   "name": "traffic source",
+   "type": "source entity kind",
+   "grain": "Entity",
+   "reason": "specific providers that act as origins of incoming traffic",
+   "child_uids": [
+    "L1|392045fdfc21af81",
+    "L1|9a0971f4a1c6a502"
+   ]
+  },
+  {
+   "name": "search session subset",
+   "type": "session subset entity kind",
+   "grain": "Entity",
+   "reason": "different subsets of a search session distinguished by AI summarization",
+   "child_uids": [
+    "L1|2cfe332d3633f682",
+    "L1|fb31c50ce230f81c"
+   ]
+  },
+  {
+   "name": "visit category",
+   "type": "visit category entity kind",
+   "grain": "Entity",
+   "reason": "categorizes visits based on presence or absence of AI summaries",
+   "child_uids": [
+    "L1|9c712c1d0dd85dd7",
+    "L1|abaf9f92da38f44b"
+   ]
+  },
+  {
+   "name": "automated web traffic",
+   "type": "automated traffic entity kind",
+   "grain": "Entity",
+   "reason": "singleton: automated bots generate this distinct traffic type",
+   "child_uids": [
+    "L1|74645852ee477d66"
+   ]
+  },
+  {
+   "name": "web traffic aggregate",
+   "type": "aggregate traffic entity kind",
+   "grain": "Entity",
+   "reason": "singleton: overall aggregated web traffic metric, not broken by source",
+   "child_uids": [
+    "L1|a7974710e8089423"
+   ]
+  },
+  {
+   "name": "traffic volume",
+   "type": "traffic volume entity kind",
+   "grain": "Entity",
+   "reason": "singleton: total volume of ad exchange generated traffic",
+   "child_uids": [
+    "L1|812b83420d36a4a0"
+   ]
+  },
+  {
+   "name": "invalid traffic",
+   "type": "invalid traffic entity kind",
+   "grain": "Entity",
+   "reason": "singleton: traffic identified as invalid or fraudulent",
+   "child_uids": [
+    "L1|2a76c15ff2c87805"
+   ]
+  },
+  {
+   "name": "user search activity",
+   "type": "search activity entity kind",
+   "grain": "Entity",
+   "reason": "singleton: raw count of user-initiated search queries",
+   "child_uids": [
+    "L1|46ab2f20ad9a7713"
+   ]
+  },
+  {
+   "name": "query scope",
+   "type": "query scope entity kind",
+   "grain": "Entity",
+   "reason": "singleton: defines geographic scope for query aggregation",
+   "child_uids": [
+    "L1|67831dca79ebc10e"
+   ]
+  }
+ ]
+}

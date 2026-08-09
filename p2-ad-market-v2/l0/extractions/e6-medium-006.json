@@ -1,0 +1,112 @@
+{
+ "id": "e6-medium-006",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions, gap between IAB/PwC and Coen internet estimates for 2007",
+ "elapsed_s": 98.2,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Coen/McCann series",
+   "type": "advertising data series",
+   "clause": "the Coen/McCann series understates internet advertising"
+  },
+  {
+   "name": "IAB/PwC",
+   "type": "research firm",
+   "clause": "IAB/PwC's estimate of internet advertising spend"
+  },
+  {
+   "name": "US internet advertising spend 2007",
+   "type": "advertising spend amount",
+   "clause": "internet advertising spend in 2007"
+  },
+  {
+   "name": "Coen estimate measurement",
+   "type": "advertising spend measurement",
+   "clause": "$...m for ..."
+  },
+  {
+   "name": "IAB/PwC estimate measurement",
+   "type": "advertising spend measurement",
+   "clause": "$...m for ..."
+  },
+  {
+   "name": "gap between IAB/PwC and Coen internet advertising estimates for 2007",
+   "type": "difference measurement",
+   "clause": "gap between ... for ..."
+  },
+  {
+   "name": "hard seam of 2008",
+   "type": "discontinuity point",
+   "clause": "hard seam of 2008"
+  },
+  {
+   "name": "US advertising series (1919 onward)",
+   "type": "advertising data series",
+   "clause": "every US series from 1919 onward"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Coen/McCann series",
+   "type": "UNDERSTATES",
+   "to": "US internet advertising spend 2007",
+   "clause": "understates internet advertising by roughly half at the end of the era"
+  },
+  {
+   "from": "Coen estimate measurement",
+   "type": "MEASURES",
+   "to": "US internet advertising spend 2007",
+   "clause": "... for ..."
+  },
+  {
+   "from": "IAB/PwC estimate measurement",
+   "type": "MEASURES",
+   "to": "US internet advertising spend 2007",
+   "clause": "... for ..."
+  },
+  {
+   "from": "gap between IAB/PwC and Coen internet advertising estimates for 2007",
+   "type": "MEASURES",
+   "to": "US internet advertising spend 2007",
+   "clause": "gap between ... for ..."
+  },
+  {
+   "from": "Coen estimate measurement",
+   "type": "AGAINST",
+   "to": "IAB/PwC estimate measurement",
+   "clause": "against ..."
+  },
+  {
+   "from": "Coen/McCann series",
+   "type": "TERMINATES_WITH_DATA",
+   "to": "US internet advertising spend 2007",
+   "clause": "terminates with ... data"
+  },
+  {
+   "from": "hard seam of 2008",
+   "type": "APPEARS_IN",
+   "to": "US advertising series (1919 onward)",
+   "clause": "hard seam in every ... US series"
+  },
+  {
+   "from": "Coen/McCann series",
+   "type": "PROVIDED_ESTIMATE",
+   "to": "Coen estimate measurement",
+   "clause": "... for ..."
+  },
+  {
+   "from": "IAB/PwC",
+   "type": "PROVIDED_ESTIMATE",
+   "to": "IAB/PwC estimate measurement",
+   "clause": "... for ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Coen/McCann series|advertising data series|the Coen/McCann series understates internet advertising\nNODE|IAB/PwC|research firm|IAB/PwC's estimate of internet advertising spend\nNODE|US internet advertising spend 2007|advertising spend amount|internet advertising spend in 2007\nNODE|Coen estimate measurement|advertising spend measurement|$...m for ...\nNODE|IAB/PwC estimate measurement|advertising spend measurement|$...m for ...\nNODE|gap between IAB/PwC and Coen internet advertising estimates for 2007|difference measurement|gap between ... for ...\nNODE|hard seam of 2008|discontinuity point|hard seam of 2008\nNODE|US advertising series (1919 onward)|advertising data series|every US series from 1919 onward\nEDGE|Coen/McCann series|UNDERSTATES|US internet advertising spend 2007|understates internet advertising by roughly half at the end of the era\nEDGE|Coen estimate measurement|MEASURES|US internet advertising spend 2007|... for ...\nEDGE|IAB/PwC estimate measurement|MEASURES|US internet advertising spend 2007|... for ...\nEDGE|gap between IAB/PwC and Coen internet advertising estimates for 2007|MEASURES|US internet advertising spend 2007|gap between ... for ...\nEDGE|Coen estimate measurement|AGAINST|IAB/PwC estimate measurement|against ...\nEDGE|Coen/McCann series|TERMINATES_WITH_DATA|US internet advertising spend 2007|terminates with ... data\nEDGE|hard seam of 2008|APPEARS_IN|US advertising series (1919 onward)|hard seam in every ... US series\nEDGE|Coen/McCann series|PROVIDED_ESTIMATE|Coen estimate measurement|... for ...\nEDGE|IAB/PwC|PROVIDED_ESTIMATE|IAB/PwC estimate measurement|... for ..."
+}

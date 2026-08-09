@@ -1,0 +1,133 @@
+{
+ "id": "e1-scale-014",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "percent of total US advertising outlay",
+ "elapsed_s": 65.8,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct-response money",
+   "type": "aggregate advertising spend",
+   "clause": "direct-response money ..."
+  },
+  {
+   "name": "catalogues",
+   "type": "advertising medium",
+   "clause": "catalogues ... part of direct-response money"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail ... part of direct-response money"
+  },
+  {
+   "name": "keyed print space",
+   "type": "ad format",
+   "clause": "keyed print space ... part of direct-response money"
+  },
+  {
+   "name": "mail-order houses",
+   "type": "buyer category",
+   "clause": "bought by mail-order houses"
+  },
+  {
+   "name": "patent-medicine makers",
+   "type": "buyer category",
+   "clause": "bought by patent-medicine makers"
+  },
+  {
+   "name": "total US advertising outlay",
+   "type": "aggregate advertising spend",
+   "clause": "total US advertising outlay"
+  },
+  {
+   "name": "direct-response share of total US advertising outlay",
+   "type": "percentage measurement",
+   "clause": "about ... percent of total US advertising outlay"
+  },
+  {
+   "name": "direct-response spending",
+   "type": "dollar amount measurement",
+   "clause": "roughly ..."
+  },
+  {
+   "name": "national brand advertising",
+   "type": "advertising type",
+   "clause": "national brand"
+  },
+  {
+   "name": "local retail advertising",
+   "type": "advertising type",
+   "clause": "local retail"
+  }
+ ],
+ "edges": [
+  {
+   "from": "catalogues",
+   "type": "PART_OF",
+   "to": "direct-response money",
+   "clause": "catalogues ... part of direct-response money"
+  },
+  {
+   "from": "direct mail",
+   "type": "PART_OF",
+   "to": "direct-response money",
+   "clause": "direct mail ... part of direct-response money"
+  },
+  {
+   "from": "keyed print space",
+   "type": "PART_OF",
+   "to": "direct-response money",
+   "clause": "keyed print space ... part of direct-response money"
+  },
+  {
+   "from": "mail-order houses",
+   "type": "BOUGHT",
+   "to": "direct-response money",
+   "clause": "bought by mail-order houses"
+  },
+  {
+   "from": "patent-medicine makers",
+   "type": "BOUGHT",
+   "to": "direct-response money",
+   "clause": "bought by patent-medicine makers"
+  },
+  {
+   "from": "direct-response share of total US advertising outlay",
+   "type": "MEASURES",
+   "to": "direct-response money",
+   "clause": "share ... of total US advertising outlay"
+  },
+  {
+   "from": "direct-response share of total US advertising outlay",
+   "type": "SHARE_OF",
+   "to": "total US advertising outlay",
+   "clause": "... of total US advertising outlay"
+  },
+  {
+   "from": "direct-response spending",
+   "type": "MEASURES",
+   "to": "direct-response money",
+   "clause": "roughly ..."
+  },
+  {
+   "from": "direct-response money",
+   "type": "NOT_RANKED_AGAINST",
+   "to": "national brand advertising",
+   "clause": "cannot be ranked against national brand"
+  },
+  {
+   "from": "direct-response money",
+   "type": "NOT_RANKED_AGAINST",
+   "to": "local retail advertising",
+   "clause": "cannot be ranked against local retail"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct-response money|aggregate advertising spend|direct-response money ...\nNODE|catalogues|advertising medium|catalogues ... part of direct-response money\nNODE|direct mail|advertising medium|direct mail ... part of direct-response money\nNODE|keyed print space|ad format|keyed print space ... part of direct-response money\nNODE|mail-order houses|buyer category|bought by mail-order houses\nNODE|patent-medicine makers|buyer category|bought by patent-medicine makers\nNODE|total US advertising outlay|aggregate advertising spend|total US advertising outlay\nNODE|direct-response share of total US advertising outlay|percentage measurement|about ... percent of total US advertising outlay\nNODE|direct-response spending|dollar amount measurement|roughly ...\nNODE|national brand advertising|advertising type|national brand\nNODE|local retail advertising|advertising type|local retail\nEDGE|catalogues|PART_OF|direct-response money|catalogues ... part of direct-response money\nEDGE|direct mail|PART_OF|direct-response money|direct mail ... part of direct-response money\nEDGE|keyed print space|PART_OF|direct-response money|keyed print space ... part of direct-response money\nEDGE|mail-order houses|BOUGHT|direct-response money|bought by mail-order houses\nEDGE|patent-medicine makers|BOUGHT|direct-response money|bought by patent-medicine makers\nEDGE|direct-response share of total US advertising outlay|MEASURES|direct-response money|share ... of total US advertising outlay\nEDGE|direct-response share of total US advertising outlay|SHARE_OF|total US advertising outlay|... of total US advertising outlay\nEDGE|direct-response spending|MEASURES|direct-response money|roughly ...\nEDGE|direct-response money|NOT_RANKED_AGAINST|national brand advertising|cannot be ranked against national brand\nEDGE|direct-response money|NOT_RANKED_AGAINST|local retail advertising|cannot be ranked against local retail"
+}

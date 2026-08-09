@@ -1,0 +1,90 @@
+{
+ "group_id": "L2|65e3f8a7d7a64511",
+ "n_in": 12,
+ "parents": [
+  {
+   "name": "market issue",
+   "type": "issue kind",
+   "grain": "Entity",
+   "reason": "market issues share same role as problems affecting trade or measurement",
+   "child_uids": [
+    "L1|2f2c9e553d0df189",
+    "L1|5bc34182ed1863bc",
+    "L1|5c8e1a02d211de9d",
+    "L1|823db4c032d779f1"
+   ]
+  },
+  {
+   "name": "outcome",
+   "type": "outcome kind",
+   "grain": "Entity",
+   "reason": "singleton: catastrophic operating outcome, distinct from crises and issues",
+   "child_uids": [
+    "L1|d2ed638f8865f00b"
+   ]
+  },
+  {
+   "name": "crisis",
+   "type": "crisis kind",
+   "grain": "Entity",
+   "reason": "singleton: counting crisis, a market-wide emergency different from other problems",
+   "child_uids": [
+    "L1|17256b3e16231a37"
+   ]
+  },
+  {
+   "name": "unresolved issue",
+   "type": "issue kind",
+   "grain": "Entity",
+   "reason": "singleton: open questions represent unresolved issues, not specific market problems",
+   "child_uids": [
+    "L1|7f90859f6ff50c9d"
+   ]
+  },
+  {
+   "name": "taxonomy issue",
+   "type": "classification issue kind",
+   "grain": "Entity",
+   "reason": "singleton: taxonomy seam is a classification issue distinct from market crises",
+   "child_uids": [
+    "L1|2df041dcd1896ffa"
+   ]
+  },
+  {
+   "name": "risk factor",
+   "type": "risk factor kind",
+   "grain": "Entity",
+   "reason": "singleton: production risk denotes a risk factor, separate from outcomes or issues",
+   "child_uids": [
+    "L1|ff25e8db879b084e"
+   ]
+  },
+  {
+   "name": "market problem",
+   "type": "problem kind",
+   "grain": "Entity",
+   "reason": "singleton: false circulation claims are a market problem, not a measurement issue",
+   "child_uids": [
+    "L1|29f63cb3d527b7af"
+   ]
+  },
+  {
+   "name": "causal claim",
+   "type": "claim kind",
+   "grain": "Entity",
+   "reason": "singleton: funding shapes measurement output claim is a causal claim",
+   "child_uids": [
+    "L1|81644d7f4542066c"
+   ]
+  },
+  {
+   "name": "marketing problem",
+   "type": "problem kind",
+   "grain": "Entity",
+   "reason": "singleton: brand-name request problem is a marketing problem distinct from market issues",
+   "child_uids": [
+    "L1|9533a264f1430b10"
+   ]
+  }
+ ]
+}

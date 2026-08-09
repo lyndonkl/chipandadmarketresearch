@@ -1,0 +1,67 @@
+{
+ "id": "e1-buyers-002",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1900,
+ "unit": "percent of agency revenue",
+ "elapsed_s": 56.4,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Ayer",
+   "type": "advertising agency",
+   "clause": "Ayer advertising agency"
+  },
+  {
+   "name": "patent medicine",
+   "type": "product category",
+   "clause": "patent medicine"
+  },
+  {
+   "name": "branded packaged goods",
+   "type": "product category",
+   "clause": "branded packaged goods"
+  },
+  {
+   "name": "patent medicine revenue share",
+   "type": "revenue-share measurement",
+   "clause": "... of agency revenue"
+  },
+  {
+   "name": "Ayer agency revenue",
+   "type": "agency revenue",
+   "clause": "agency revenue for Ayer"
+  }
+ ],
+ "edges": [
+  {
+   "from": "patent medicine",
+   "type": "SECOND_MOST_LUCRATIVE",
+   "to": "Ayer",
+   "clause": "second-most lucrative category"
+  },
+  {
+   "from": "patent medicine revenue share",
+   "type": "MEASURES",
+   "to": "patent medicine",
+   "clause": "... of agency revenue"
+  },
+  {
+   "from": "patent medicine revenue share",
+   "type": "SHARE_OF",
+   "to": "Ayer agency revenue",
+   "clause": "of agency revenue"
+  },
+  {
+   "from": "branded packaged goods",
+   "type": "FIRST_MOST_LUCRATIVE",
+   "to": "Ayer",
+   "clause": "took the lead"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Ayer|advertising agency|Ayer advertising agency\nNODE|patent medicine|product category|patent medicine\nNODE|branded packaged goods|product category|branded packaged goods\nNODE|patent medicine revenue share|revenue-share measurement|... of agency revenue\nNODE|Ayer agency revenue|agency revenue|agency revenue for Ayer\nEDGE|patent medicine|SECOND_MOST_LUCRATIVE|Ayer|second-most lucrative category\nEDGE|patent medicine revenue share|MEASURES|patent medicine|... of agency revenue\nEDGE|patent medicine revenue share|SHARE_OF|Ayer agency revenue|of agency revenue\nEDGE|branded packaged goods|FIRST_MOST_LUCRATIVE|Ayer|took the lead"
+}

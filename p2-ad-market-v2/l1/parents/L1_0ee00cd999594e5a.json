@@ -1,0 +1,26 @@
+{
+ "group_id": "L1|0ee00cd999594e5a",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Radio advertising sales",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: only this measure in group",
+   "child_uids": [
+    "n|e4-sellers-004|radio advertising sales|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Radio peak share of US advertising",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years; year abstracted to children",
+   "child_uids": [
+    "n|tu:era:2:boundary|radio peak share of us advertising 1945|media-share measurement",
+    "n|tu:era:3:boundary|radio advertising share peak|media share measurement"
+   ]
+  }
+ ]
+}

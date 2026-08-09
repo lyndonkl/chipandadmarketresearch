@@ -1,0 +1,150 @@
+{
+ "id": "e2-pricing-004",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1940,
+ "unit": "ratio of the daytime network hour rate to the evening hour rate",
+ "elapsed_s": 72.4,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 12,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "daytime network hour",
+   "type": "ad slot",
+   "clause": "daytime network hour"
+  },
+  {
+   "name": "evening-hour station rate",
+   "type": "price base",
+   "clause": "evening-hour station rate"
+  },
+  {
+   "name": "NBC",
+   "type": "broadcast network",
+   "clause": "on NBC"
+  },
+  {
+   "name": "CBS",
+   "type": "broadcast network",
+   "clause": "on CBS"
+  },
+  {
+   "name": "daytime to evening rate ratio (NBC)",
+   "type": "take-rate measurement",
+   "clause": "priced at half ... on NBC"
+  },
+  {
+   "name": "daytime to evening rate ratio (CBS)",
+   "type": "take-rate measurement",
+   "clause": "priced at half ... on CBS"
+  },
+  {
+   "name": "sunday afternoon hour",
+   "type": "ad slot",
+   "clause": "sunday afternoon hour"
+  },
+  {
+   "name": "sunday afternoon to evening rate ratio (NBC)",
+   "type": "take-rate measurement",
+   "clause": "was three quarters ... NBC"
+  },
+  {
+   "name": "sunday afternoon to evening rate ratio (CBS)",
+   "type": "take-rate measurement",
+   "clause": "was two thirds ... CBS"
+  },
+  {
+   "name": "midnight hour",
+   "type": "ad slot",
+   "clause": "hour after midnight"
+  },
+  {
+   "name": "midnight hour to evening rate ratio (NBC)",
+   "type": "take-rate measurement",
+   "clause": "one third ... on NBC"
+  },
+  {
+   "name": "midnight hour to evening rate ratio (CBS)",
+   "type": "take-rate measurement",
+   "clause": "one third ... on CBS"
+  }
+ ],
+ "edges": [
+  {
+   "from": "daytime network hour",
+   "type": "MEASURES",
+   "to": "daytime to evening rate ratio (NBC)",
+   "clause": "was priced at half ... on NBC"
+  },
+  {
+   "from": "daytime network hour",
+   "type": "MEASURES",
+   "to": "daytime to evening rate ratio (CBS)",
+   "clause": "was priced at half ... on CBS"
+  },
+  {
+   "from": "daytime to evening rate ratio (NBC)",
+   "type": "SHARE_OF",
+   "to": "evening-hour station rate",
+   "clause": "half of the evening-hour station rate"
+  },
+  {
+   "from": "daytime to evening rate ratio (CBS)",
+   "type": "SHARE_OF",
+   "to": "evening-hour station rate",
+   "clause": "half of the evening-hour station rate"
+  },
+  {
+   "from": "sunday afternoon hour",
+   "type": "MEASURES",
+   "to": "sunday afternoon to evening rate ratio (NBC)",
+   "clause": "was three quarters ... NBC"
+  },
+  {
+   "from": "sunday afternoon hour",
+   "type": "MEASURES",
+   "to": "sunday afternoon to evening rate ratio (CBS)",
+   "clause": "was two thirds ... CBS"
+  },
+  {
+   "from": "sunday afternoon to evening rate ratio (NBC)",
+   "type": "SHARE_OF",
+   "to": "evening-hour station rate",
+   "clause": "three quarters of the evening-hour station rate"
+  },
+  {
+   "from": "sunday afternoon to evening rate ratio (CBS)",
+   "type": "SHARE_OF",
+   "to": "evening-hour station rate",
+   "clause": "two thirds of the evening-hour station rate"
+  },
+  {
+   "from": "midnight hour",
+   "type": "MEASURES",
+   "to": "midnight hour to evening rate ratio (NBC)",
+   "clause": "one third ... on NBC"
+  },
+  {
+   "from": "midnight hour",
+   "type": "MEASURES",
+   "to": "midnight hour to evening rate ratio (CBS)",
+   "clause": "one third ... on CBS"
+  },
+  {
+   "from": "midnight hour to evening rate ratio (NBC)",
+   "type": "SHARE_OF",
+   "to": "evening-hour station rate",
+   "clause": "one third of the evening-hour station rate"
+  },
+  {
+   "from": "midnight hour to evening rate ratio (CBS)",
+   "type": "SHARE_OF",
+   "to": "evening-hour station rate",
+   "clause": "one third of the evening-hour station rate"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|daytime network hour|ad slot|daytime network hour\nNODE|evening-hour station rate|price base|evening-hour station rate\nNODE|NBC|broadcast network|on NBC\nNODE|CBS|broadcast network|on CBS\nNODE|daytime to evening rate ratio (NBC)|take-rate measurement|priced at half ... on NBC\nNODE|daytime to evening rate ratio (CBS)|take-rate measurement|priced at half ... on CBS\nNODE|sunday afternoon hour|ad slot|sunday afternoon hour\nNODE|sunday afternoon to evening rate ratio (NBC)|take-rate measurement|was three quarters ... NBC\nNODE|sunday afternoon to evening rate ratio (CBS)|take-rate measurement|was two thirds ... CBS\nNODE|midnight hour|ad slot|hour after midnight\nNODE|midnight hour to evening rate ratio (NBC)|take-rate measurement|one third ... on NBC\nNODE|midnight hour to evening rate ratio (CBS)|take-rate measurement|one third ... on CBS\nEDGE|daytime network hour|MEASURES|daytime to evening rate ratio (NBC)|was priced at half ... on NBC\nEDGE|daytime network hour|MEASURES|daytime to evening rate ratio (CBS)|was priced at half ... on CBS\nEDGE|daytime to evening rate ratio (NBC)|SHARE_OF|evening-hour station rate|half of the evening-hour station rate\nEDGE|daytime to evening rate ratio (CBS)|SHARE_OF|evening-hour station rate|half of the evening-hour station rate\nEDGE|sunday afternoon hour|MEASURES|sunday afternoon to evening rate ratio (NBC)|was three quarters ... NBC\nEDGE|sunday afternoon hour|MEASURES|sunday afternoon to evening rate ratio (CBS)|was two thirds ... CBS\nEDGE|sunday afternoon to evening rate ratio (NBC)|SHARE_OF|evening-hour station rate|three quarters of the evening-hour station rate\nEDGE|sunday afternoon to evening rate ratio (CBS)|SHARE_OF|evening-hour station rate|two thirds of the evening-hour station rate\nEDGE|midnight hour|MEASURES|midnight hour to evening rate ratio (NBC)|one third ... on NBC\nEDGE|midnight hour|MEASURES|midnight hour to evening rate ratio (CBS)|one third ... on CBS\nEDGE|midnight hour to evening rate ratio (NBC)|SHARE_OF|evening-hour station rate|one third of the evening-hour station rate\nEDGE|midnight hour to evening rate ratio (CBS)|SHARE_OF|evening-hour station rate|one third of the evening-hour station rate"
+}

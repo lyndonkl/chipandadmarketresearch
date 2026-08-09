@@ -1,0 +1,53 @@
+{
+ "group_id": "L1|e1e2b20767afef6a",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Retail advertisers revenue amount",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: retail advertisers revenue amount for FY2008",
+   "child_uids": [
+    "n|e6-buyers-003|retail advertisers revenue amount fy2008|revenue measurement"
+   ]
+  },
+  {
+   "name": "US internet advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "one measure across start and end of era; years abstracted to children",
+   "child_uids": [
+    "n|e6-medium-004|us internet advertising revenue at end of era|revenue measurement",
+    "n|e6-medium-004|us internet advertising revenue at start of era|revenue measurement"
+   ]
+  },
+  {
+   "name": "US internet ad revenue YoY percent change",
+   "type": "percent change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: US internet ad revenue YoY percent change",
+   "child_uids": [
+    "n|e7-events-002|us internet ad revenue percent yoy change|percent change measurement"
+   ]
+  },
+  {
+   "name": "Advertising revenue increase amount",
+   "type": "monetary increase measurement",
+   "grain": "Measurement",
+   "reason": "singleton: advertising revenue increase amount measurement",
+   "child_uids": [
+    "n|mech-capture-001|advertising revenue increase amount|monetary increase measurement"
+   ]
+  },
+  {
+   "name": "Cumulative advertising revenue",
+   "type": "advertising revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: cumulative advertising revenue 2002-2008",
+   "child_uids": [
+    "n|mech-network-003|cumulative advertising revenue 2002-2008|advertising revenue measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,72 @@
+{
+ "id": "e3-buyers-005",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "ratio of 1975 to 1950 US newspaper classified advertising revenue",
+ "elapsed_s": 72.8,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "classified buyers",
+   "type": "buyer group",
+   "clause": "classified buyers"
+  },
+  {
+   "name": "advertising agency",
+   "type": "organization",
+   "clause": "agency"
+  },
+  {
+   "name": "US newspaper classified advertising revenue",
+   "type": "market aggregate",
+   "clause": "US newspaper classified advertising revenue"
+  },
+  {
+   "name": "classified advertising revenue 1950",
+   "type": "revenue measurement",
+   "clause": "from ..."
+  },
+  {
+   "name": "classified advertising revenue 1975",
+   "type": "revenue measurement",
+   "clause": "to ..."
+  },
+  {
+   "name": "classified advertising revenue growth ratio",
+   "type": "ratio measurement",
+   "clause": "multiplied ... across the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "classified buyers",
+   "type": "EXCLUDES",
+   "to": "advertising agency",
+   "clause": "without an agency"
+  },
+  {
+   "from": "classified advertising revenue growth ratio",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising revenue",
+   "clause": "multiplied ... across the era"
+  },
+  {
+   "from": "classified advertising revenue 1950",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising revenue",
+   "clause": "from ..."
+  },
+  {
+   "from": "classified advertising revenue 1975",
+   "type": "MEASURES",
+   "to": "US newspaper classified advertising revenue",
+   "clause": "to ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|classified buyers|buyer group|classified buyers\nNODE|advertising agency|organization|agency\nNODE|US newspaper classified advertising revenue|market aggregate|US newspaper classified advertising revenue\nNODE|classified advertising revenue 1950|revenue measurement|from ...\nNODE|classified advertising revenue 1975|revenue measurement|to ...\nNODE|classified advertising revenue growth ratio|ratio measurement|multiplied ... across the era\nEDGE|classified buyers|EXCLUDES|advertising agency|without an agency\nEDGE|classified advertising revenue growth ratio|MEASURES|US newspaper classified advertising revenue|multiplied ... across the era\nEDGE|classified advertising revenue 1950|MEASURES|US newspaper classified advertising revenue|from ...\nEDGE|classified advertising revenue 1975|MEASURES|US newspaper classified advertising revenue|to ..."
+}

@@ -1,0 +1,54 @@
+{
+ "group_id": "L1|ef75ec6be062ed35",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Media-owner revenue basis",
+   "type": "measurement base",
+   "grain": "Measurement",
+   "reason": "singleton: defines revenue basis, distinct from amount measures",
+   "child_uids": [
+    "n|e7-scale-001|media-owner-revenue basis|measurement base"
+   ]
+  },
+  {
+   "name": "Global advertising revenue total",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: market\u2011wide total, no entity specified",
+   "child_uids": [
+    "n|e7-scale-003|global advertising revenue amount|revenue measurement"
+   ]
+  },
+  {
+   "name": "WPP Media global advertising revenue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "same subject and quantity across estimate and amount variations",
+   "child_uids": [
+    "n|e7-scale-003|wpp media global advertising revenue estimate|revenue measurement",
+    "n|tu:era:7:field:SCALE|wpp media global ad spend amount|revenue measurement"
+   ]
+  },
+  {
+   "name": "Commerce media advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "same entity and quantity, year abstracted away",
+   "child_uids": [
+    "n|e7-sellers-007|commerce media spend amount|spend measurement",
+    "n|tu:era:7:field:MEDIUM|commerce media ad spend 2025|revenue measurement"
+   ]
+  },
+  {
+   "name": "Media-owner ad revenue amount",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: eMarketer source, distinct from basis definition",
+   "child_uids": [
+    "n|tu:era:7:field:SCALE|emarketer media-owner ad revenue 2025 amount|revenue measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "id": "e2-buyers-007",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ of direct-mail advertising spend per US household, 1949",
+ "elapsed_s": 61.3,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct-response buyers",
+   "type": "buyer class",
+   "clause": "Direct-response buyers"
+  },
+  {
+   "name": "average US household",
+   "type": "household unit",
+   "clause": "the average US household"
+  },
+  {
+   "name": "advertising mail",
+   "type": "ad medium",
+   "clause": "advertising mail"
+  },
+  {
+   "name": "direct-mail advertising spend per US household",
+   "type": "spend measurement",
+   "clause": "US$ of direct-mail advertising spend per US household"
+  },
+  {
+   "name": "prior direct-mail advertising spend per US household",
+   "type": "spend measurement",
+   "clause": "... in 1935"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct-response buyers",
+   "type": "PUT_INTO",
+   "to": "average US household",
+   "clause": "put ... into the average US household"
+  },
+  {
+   "from": "direct-mail advertising spend per US household",
+   "type": "MEASURES",
+   "to": "advertising mail",
+   "clause": "... of advertising mail"
+  },
+  {
+   "from": "direct-mail advertising spend per US household",
+   "type": "PER_UNIT_OF",
+   "to": "average US household",
+   "clause": "... per US household"
+  },
+  {
+   "from": "direct-mail advertising spend per US household",
+   "type": "GREATER_THAN",
+   "to": "prior direct-mail advertising spend per US household",
+   "clause": "up from ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct-response buyers|buyer class|Direct-response buyers\nNODE|average US household|household unit|the average US household\nNODE|advertising mail|ad medium|advertising mail\nNODE|direct-mail advertising spend per US household|spend measurement|US$ of direct-mail advertising spend per US household\nNODE|prior direct-mail advertising spend per US household|spend measurement|... in 1935\nEDGE|direct-response buyers|PUT_INTO|average US household|put ... into the average US household\nEDGE|direct-mail advertising spend per US household|MEASURES|advertising mail|... of advertising mail\nEDGE|direct-mail advertising spend per US household|PER_UNIT_OF|average US household|... per US household\nEDGE|direct-mail advertising spend per US household|GREATER_THAN|prior direct-mail advertising spend per US household|up from ..."
+}

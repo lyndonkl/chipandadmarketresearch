@@ -1,0 +1,56 @@
+{
+ "id": "e7-unit_econ-001",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD of advertising revenue per Google search query, 2025",
+ "elapsed_s": 25.7,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google"
+  },
+  {
+   "name": "advertising revenue",
+   "type": "revenue stream",
+   "clause": "advertising revenue"
+  },
+  {
+   "name": "Google search query",
+   "type": "search interaction",
+   "clause": "Google search query"
+  },
+  {
+   "name": "advertising revenue per search query measurement",
+   "type": "revenue-per-query measurement",
+   "clause": "advertising revenue per search query"
+  }
+ ],
+ "edges": [
+  {
+   "from": "advertising revenue per search query measurement",
+   "type": "MEASURES",
+   "to": "advertising revenue",
+   "clause": "advertising revenue per search query"
+  },
+  {
+   "from": "advertising revenue per search query measurement",
+   "type": "BASED_ON",
+   "to": "Google search query",
+   "clause": "per search query"
+  },
+  {
+   "from": "Google",
+   "type": "EARNED",
+   "to": "advertising revenue per search query measurement",
+   "clause": "earned ... advertising revenue per search query"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google\nNODE|advertising revenue|revenue stream|advertising revenue\nNODE|Google search query|search interaction|Google search query\nNODE|advertising revenue per search query measurement|revenue-per-query measurement|advertising revenue per search query\nEDGE|advertising revenue per search query measurement|MEASURES|advertising revenue|advertising revenue per search query\nEDGE|advertising revenue per search query measurement|BASED_ON|Google search query|per search query\nEDGE|Google|EARNED|advertising revenue per search query measurement|earned ... advertising revenue per search query"
+}

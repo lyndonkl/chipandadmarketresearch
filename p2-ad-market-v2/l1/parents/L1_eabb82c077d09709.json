@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|eabb82c077d09709",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "CTV",
+   "type": "advertising channel",
+   "grain": "Entity",
+   "reason": "same entity across naming variants; CTV and national CTV and video",
+   "child_uids": [
+    "n|e7-buyers-005|national ctv and video|advertising channel",
+    "n|e7-pricing-005|ctv|advertising channel"
+   ]
+  },
+  {
+   "name": "national linear TV",
+   "type": "advertising channel",
+   "grain": "Entity",
+   "reason": "singleton: distinct channel separate from CTV and traditional TV",
+   "child_uids": [
+    "n|e7-buyers-005|national linear tv|advertising channel"
+   ]
+  },
+  {
+   "name": "traditional TV advertising",
+   "type": "advertising medium",
+   "grain": "Entity",
+   "reason": "singleton: distinct medium separate from linear TV channel",
+   "child_uids": [
+    "n|e7-medium-005|traditional tv advertising|advertising medium"
+   ]
+  }
+ ]
+}

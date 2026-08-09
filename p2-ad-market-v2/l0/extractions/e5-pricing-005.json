@@ -1,0 +1,94 @@
+{
+ "id": "e5-pricing-005",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD per thousand impressions",
+ "elapsed_s": 50.8,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google's AdWords"
+  },
+  {
+   "name": "AdWords",
+   "type": "advertising platform",
+   "clause": "Google's AdWords"
+  },
+  {
+   "name": "top-position CPM",
+   "type": "cpm rate",
+   "clause": "top-position CPM in Google's AdWords"
+  },
+  {
+   "name": "middle position CPM rate",
+   "type": "cpm rate",
+   "clause": "... for middle positions"
+  },
+  {
+   "name": "bottom position CPM rate",
+   "type": "cpm rate",
+   "clause": "... for bottom positions"
+  },
+  {
+   "name": "fixed-rate self-serve impression product",
+   "type": "advertising product",
+   "clause": "a fixed-rate, self-serve impression product"
+  },
+  {
+   "name": "auction",
+   "type": "auction mechanism",
+   "clause": "not an auction"
+  },
+  {
+   "name": "AdWords Select",
+   "type": "product feature",
+   "clause": "AdWords Select in February 2002"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "OPERATES",
+   "to": "AdWords",
+   "clause": "Google's AdWords"
+  },
+  {
+   "from": "AdWords",
+   "type": "HAS_RATE",
+   "to": "top-position CPM",
+   "clause": "top-position CPM in Google's AdWords"
+  },
+  {
+   "from": "fixed-rate self-serve impression product",
+   "type": "HAS_RATE",
+   "to": "middle position CPM rate",
+   "clause": "... for middle positions"
+  },
+  {
+   "from": "fixed-rate self-serve impression product",
+   "type": "HAS_RATE",
+   "to": "bottom position CPM rate",
+   "clause": "... for bottom positions"
+  },
+  {
+   "from": "fixed-rate self-serve impression product",
+   "type": "EXCLUDES",
+   "to": "auction",
+   "clause": "not an auction"
+  },
+  {
+   "from": "AdWords Select",
+   "type": "INTRODUCED",
+   "to": "auction",
+   "clause": "the auction arrives with AdWords Select"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google's AdWords\nNODE|AdWords|advertising platform|Google's AdWords\nNODE|top-position CPM|cpm rate|top-position CPM in Google's AdWords\nNODE|middle position CPM rate|cpm rate|... for middle positions\nNODE|bottom position CPM rate|cpm rate|... for bottom positions\nNODE|fixed-rate self-serve impression product|advertising product|a fixed-rate, self-serve impression product\nNODE|auction|auction mechanism|not an auction\nNODE|AdWords Select|product feature|AdWords Select in February 2002\nEDGE|Google|OPERATES|AdWords|Google's AdWords\nEDGE|AdWords|HAS_RATE|top-position CPM|top-position CPM in Google's AdWords\nEDGE|fixed-rate self-serve impression product|HAS_RATE|middle position CPM rate|... for middle positions\nEDGE|fixed-rate self-serve impression product|HAS_RATE|bottom position CPM rate|... for bottom positions\nEDGE|fixed-rate self-serve impression product|EXCLUDES|auction|not an auction\nEDGE|AdWords Select|INTRODUCED|auction|the auction arrives with AdWords Select"
+}

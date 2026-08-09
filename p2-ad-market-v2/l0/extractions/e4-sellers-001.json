@@ -1,0 +1,144 @@
+{
+ "id": "e4-sellers-001",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1989,
+ "unit": "percent share of prime-time audience",
+ "elapsed_s": 117.5,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "combined broadcast network prime-time audience share",
+   "type": "audience-share metric",
+   "clause": "the combined ABC/CBS/NBC prime-time audience share"
+  },
+  {
+   "name": "mid\u2011seventies broadcast audience share measurement",
+   "type": "share measurement",
+   "clause": "fell from about ... in the mid\u2011seventies period"
+  },
+  {
+   "name": "late\u2011eighties season broadcast audience share range measurement",
+   "type": "share measurement",
+   "clause": "fell to somewhere between ... by the late\u2011eighty\u2011nine season"
+  },
+  {
+   "name": "cable prime-time audience share",
+   "type": "audience-share metric",
+   "clause": "cable's share"
+  },
+  {
+   "name": "cable audience share measurement",
+   "type": "share measurement",
+   "clause": "reached a share"
+  },
+  {
+   "name": "Forbes",
+   "type": "media outlet",
+   "clause": "Forbes (citing NCTA)"
+  },
+  {
+   "name": "NCTA",
+   "type": "industry association",
+   "clause": "NCTA"
+  },
+  {
+   "name": "Encyclopedia.com",
+   "type": "reference website",
+   "clause": "Encyclopedia.com"
+  },
+  {
+   "name": "Nielsen",
+   "type": "market research firm",
+   "clause": "Nielsen"
+  },
+  {
+   "name": "Forbes broadcast audience share report",
+   "type": "share measurement",
+   "clause": "reports the lower figure for that season"
+  },
+  {
+   "name": "Encyclopedia.com broadcast audience share report",
+   "type": "share measurement",
+   "clause": "puts near ... consistent with summing Nielsen's published household shares"
+  },
+  {
+   "name": "Nielsen late\u2011eighties household shares dataset",
+   "type": "household-share dataset",
+   "clause": "published late\u2011eighty\u2011nine season household shares"
+  }
+ ],
+ "edges": [
+  {
+   "from": "combined broadcast network prime-time audience share",
+   "type": "FELL_FROM",
+   "to": "mid\u2011seventies broadcast audience share measurement",
+   "clause": "fell from about ... in the mid\u2011seventies period"
+  },
+  {
+   "from": "combined broadcast network prime-time audience share",
+   "type": "FELL_TO",
+   "to": "late\u2011eighties season broadcast audience share range measurement",
+   "clause": "fell to somewhere between ... by the late\u2011eighty\u2011nine season"
+  },
+  {
+   "from": "cable prime-time audience share",
+   "type": "HAS_MEASUREMENT",
+   "to": "cable audience share measurement",
+   "clause": "reached a share"
+  },
+  {
+   "from": "Forbes",
+   "type": "CITES",
+   "to": "NCTA",
+   "clause": "citing NCTA"
+  },
+  {
+   "from": "Forbes broadcast audience share report",
+   "type": "REPORTS",
+   "to": "combined broadcast network prime-time audience share",
+   "clause": "reports the lower figure for that season"
+  },
+  {
+   "from": "Encyclopedia.com broadcast audience share report",
+   "type": "REPORTS",
+   "to": "combined broadcast network prime-time audience share",
+   "clause": "puts near ... consistent with summing Nielsen's published household shares"
+  },
+  {
+   "from": "Nielsen late\u2011eighties household shares dataset",
+   "type": "CONSISTENT_WITH",
+   "to": "Encyclopedia.com broadcast audience share report",
+   "clause": "consistent with summing Nielsen's published household shares"
+  },
+  {
+   "from": "Forbes broadcast audience share report",
+   "type": "DISAGREES_WITH",
+   "to": "Encyclopedia.com broadcast audience share report",
+   "clause": "the two cited sources disagree"
+  },
+  {
+   "from": "Forbes broadcast audience share report",
+   "type": "CARRIED_AS_CENTRAL",
+   "to": "combined broadcast network prime-time audience share",
+   "clause": "the lower figure is carried as the central"
+  },
+  {
+   "from": "late\u2011eighties season broadcast audience share range measurement",
+   "type": "SPANS",
+   "to": "Forbes broadcast audience share report",
+   "clause": "interval spans both"
+  },
+  {
+   "from": "late\u2011eighties season broadcast audience share range measurement",
+   "type": "SPANS",
+   "to": "Encyclopedia.com broadcast audience share report",
+   "clause": "interval spans both"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|combined broadcast network prime-time audience share|audience-share metric|the combined ABC/CBS/NBC prime-time audience share\nNODE|mid\u2011seventies broadcast audience share measurement|share measurement|fell from about ... in the mid\u2011seventies period\nNODE|late\u2011eighties season broadcast audience share range measurement|share measurement|fell to somewhere between ... by the late\u2011eighty\u2011nine season\nNODE|cable prime-time audience share|audience-share metric|cable's share\nNODE|cable audience share measurement|share measurement|reached a share\nNODE|Forbes|media outlet|Forbes (citing NCTA)\nNODE|NCTA|industry association|NCTA\nNODE|Encyclopedia.com|reference website|Encyclopedia.com\nNODE|Nielsen|market research firm|Nielsen\nNODE|Forbes broadcast audience share report|share measurement|reports the lower figure for that season\nNODE|Encyclopedia.com broadcast audience share report|share measurement|puts near ... consistent with summing Nielsen's published household shares\nNODE|Nielsen late\u2011eighties household shares dataset|household-share dataset|published late\u2011eighty\u2011nine season household shares\nEDGE|combined broadcast network prime-time audience share|FELL_FROM|mid\u2011seventies broadcast audience share measurement|fell from about ... in the mid\u2011seventies period\nEDGE|combined broadcast network prime-time audience share|FELL_TO|late\u2011eighties season broadcast audience share range measurement|fell to somewhere between ... by the late\u2011eighty\u2011nine season\nEDGE|cable prime-time audience share|HAS_MEASUREMENT|cable audience share measurement|reached a share\nEDGE|Forbes|CITES|NCTA|citing NCTA\nEDGE|Forbes broadcast audience share report|REPORTS|combined broadcast network prime-time audience share|reports the lower figure for that season\nEDGE|Encyclopedia.com broadcast audience share report|REPORTS|combined broadcast network prime-time audience share|puts near ... consistent with summing Nielsen's published household shares\nEDGE|Nielsen late\u2011eighties household shares dataset|CONSISTENT_WITH|Encyclopedia.com broadcast audience share report|consistent with summing Nielsen's published household shares\nEDGE|Forbes broadcast audience share report|DISAGREES_WITH|Encyclopedia.com broadcast audience share report|the two cited sources disagree\nEDGE|Forbes broadcast audience share report|CARRIED_AS_CENTRAL|combined broadcast network prime-time audience share|the lower figure is carried as the central\nEDGE|late\u2011eighties season broadcast audience share range measurement|SPANS|Forbes broadcast audience share report|interval spans both\nEDGE|late\u2011eighties season broadcast audience share range measurement|SPANS|Encyclopedia.com broadcast audience share report|interval spans both"
+}

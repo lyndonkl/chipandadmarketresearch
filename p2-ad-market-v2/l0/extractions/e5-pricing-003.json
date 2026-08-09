@@ -1,0 +1,72 @@
+{
+ "id": "e5-pricing-003",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD per thousand impressions (rate card)",
+ "elapsed_s": 99.2,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "average rate-card cost of full banner ad",
+   "type": "rate-card cost measurement",
+   "clause": "Average rate-card cost of a full banner ad"
+  },
+  {
+   "name": "full banner ad",
+   "type": "advertising format",
+   "clause": "full banner ad"
+  },
+  {
+   "name": "AdKnowledge's Online Advertising Report",
+   "type": "industry report",
+   "clause": "AdKnowledge's Online Advertising Report"
+  },
+  {
+   "name": "average gross web ad rate",
+   "type": "gross web ad rate measurement",
+   "clause": "average gross web ad rate"
+  },
+  {
+   "name": "gross web ad",
+   "type": "advertising product",
+   "clause": "gross web ad"
+  },
+  {
+   "name": "year-on-year decline percentage",
+   "type": "decline percentage measurement",
+   "clause": "... year on year"
+  }
+ ],
+ "edges": [
+  {
+   "from": "average rate-card cost of full banner ad",
+   "type": "MEASURES",
+   "to": "full banner ad",
+   "clause": "average rate-card cost of a full banner ad"
+  },
+  {
+   "from": "AdKnowledge's Online Advertising Report",
+   "type": "PUT",
+   "to": "average gross web ad rate",
+   "clause": "put the average gross web ad rate"
+  },
+  {
+   "from": "average gross web ad rate",
+   "type": "MEASURES",
+   "to": "gross web ad",
+   "clause": "average gross web ad rate"
+  },
+  {
+   "from": "average gross web ad rate",
+   "type": "HAS_DECLINE",
+   "to": "year-on-year decline percentage",
+   "clause": "down ... year on year"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|average rate-card cost of full banner ad|rate-card cost measurement|Average rate-card cost of a full banner ad\nNODE|full banner ad|advertising format|full banner ad\nNODE|AdKnowledge's Online Advertising Report|industry report|AdKnowledge's Online Advertising Report\nNODE|average gross web ad rate|gross web ad rate measurement|average gross web ad rate\nNODE|gross web ad|advertising product|gross web ad\nNODE|year-on-year decline percentage|decline percentage measurement|... year on year\nEDGE|average rate-card cost of full banner ad|MEASURES|full banner ad|average rate-card cost of a full banner ad\nEDGE|AdKnowledge's Online Advertising Report|PUT|average gross web ad rate|put the average gross web ad rate\nEDGE|average gross web ad rate|MEASURES|gross web ad|average gross web ad rate\nEDGE|average gross web ad rate|HAS_DECLINE|year-on-year decline percentage|down ... year on year"
+}

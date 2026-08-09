@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|2679ffffd5307d93",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "American Tobacco",
+   "type": "sponsor company",
+   "grain": "Entity",
+   "reason": "singleton: only one node representing this sponsor company",
+   "child_uids": [
+    "n|e2-measurement-008|american tobacco|sponsor company"
+   ]
+  },
+  {
+   "name": "cigarette manufacturers",
+   "type": "advertiser",
+   "grain": "Entity",
+   "reason": "singleton: unique advertiser entity in this set",
+   "child_uids": [
+    "n|e3-buyers-004|cigarette manufacturers|advertiser"
+   ]
+  },
+  {
+   "name": "US broadcasters",
+   "type": "media outlet",
+   "grain": "Entity",
+   "reason": "singleton: unique media outlet entity in this set",
+   "child_uids": [
+    "n|e3-buyers-004|us broadcasters|media outlet"
+   ]
+  },
+  {
+   "name": "cigarette advertising",
+   "type": "advertising product category",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertising product category entity",
+   "child_uids": [
+    "n|e3-events-002|cigarette advertising|advertising product category"
+   ]
+  },
+  {
+   "name": "tobacco advertising spend",
+   "type": "advertising spend",
+   "grain": "Entity",
+   "reason": "singleton: single advertising spend entity",
+   "child_uids": [
+    "n|tu:era:3:event:7|tobacco advertising spend|advertising spend"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "group_id": "L1|290265985c18a9a4",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "US broadcast TV advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "specific medium spend distinct from total and national measures",
+   "child_uids": [
+    "n|e6-buyers-004|us broadcast tv advertising spend|spend measurement"
+   ]
+  },
+  {
+   "name": "US national ad spend share",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "percentage share of national ad spend within US advertising market",
+   "child_uids": [
+    "n|e6-buyers-005|national ad spend share of us advertising dollars|media-share measurement"
+   ]
+  },
+  {
+   "name": "US total advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "overall US advertising expenditure across all media and years",
+   "child_uids": [
+    "n|e6-buyers-005|total us advertising dollars amount|market size measurement",
+    "n|e6-scale-001|us total advertising spend measurement|spend measurement",
+    "n|e6-scale-002|us total advertising expenditure amount|expenditure measurement",
+    "n|e6-scale-002|us total advertising expenditure corrected amount|expenditure measurement"
+   ]
+  },
+  {
+   "name": "US national advertising spend amount",
+   "type": "advertising spend measurement",
+   "grain": "Measurement",
+   "reason": "national advertising expenditure amount separate from total market figure",
+   "child_uids": [
+    "n|e6-buyers-005|national advertising spend amount|advertising spend measurement",
+    "n|e6-scale-007|us national advertising total|advertising spend measurement"
+   ]
+  },
+  {
+   "name": "Worldwide advertising spend amount",
+   "type": "monetary amount measurement",
+   "grain": "Measurement",
+   "reason": "global advertising expenditure amount distinct geographic scope",
+   "child_uids": [
+    "n|e6-scale-006|worldwide advertising spend amount|monetary amount measurement"
+   ]
+  }
+ ]
+}

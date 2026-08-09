@@ -1,0 +1,96 @@
+{
+ "group_id": "L2|6ff3dbce475e38a5",
+ "n_in": 18,
+ "parents": [
+  {
+   "name": "programming duration metric",
+   "type": "duration metric kind",
+   "grain": "Entity",
+   "reason": "Prime time length and slot duration share same measurement role",
+   "child_uids": [
+    "L1|e8e5651b85255bb5",
+    "L1|fd49360bb233f936"
+   ]
+  },
+  {
+   "name": "time slot definition",
+   "type": "slot definition kind",
+   "grain": "Entity",
+   "reason": "All entries define specific broadcast or ad time slots",
+   "child_uids": [
+    "L1|4a3551643388e5cc",
+    "L1|759a2234ce3dade2",
+    "L1|9af3560e7eb50d24",
+    "L1|cd726ae2d1054267",
+    "L1|f3815e87fd1197c9"
+   ]
+  },
+  {
+   "name": "advertising time unit",
+   "type": "ad time unit kind",
+   "grain": "Entity",
+   "reason": "Commercial minute and converted hour are ad time units",
+   "child_uids": [
+    "L1|23bc3c22fc10e390",
+    "L1|74561a866d5dba55"
+   ]
+  },
+  {
+   "name": "targeting dimension",
+   "type": "targeting dimension kind",
+   "grain": "Entity",
+   "reason": "Day\u2011parting entries represent same targeting dimension",
+   "child_uids": [
+    "L1|41f42bd4e2723e79",
+    "L1|98082b7bc55ec35a"
+   ]
+  },
+  {
+   "name": "time cap rule",
+   "type": "cap rule kind",
+   "grain": "Entity",
+   "reason": "Maximum minutes per hour and 66\u2011hour threshold are time caps",
+   "child_uids": [
+    "L1|e71ba534fdb40e30",
+    "L1|ffdca6b17794173c"
+   ]
+  },
+  {
+   "name": "commercial length restriction",
+   "type": "restriction kind",
+   "grain": "Entity",
+   "reason": "singleton: specific bar limiting commercial length",
+   "child_uids": [
+    "L1|99730912e35a7762"
+   ]
+  },
+  {
+   "name": "time inventory measurement",
+   "type": "inventory measurement kind",
+   "grain": "Entity",
+   "reason": "Hour of time and upfront time sold measure inventory",
+   "child_uids": [
+    "L1|220af1c25c621907",
+    "L1|c2910ebc06590f3c"
+   ]
+  },
+  {
+   "name": "wattage metric",
+   "type": "metric kind",
+   "grain": "Entity",
+   "reason": "singleton: measures station wattage for unlimited\u2011time stations",
+   "child_uids": [
+    "L1|d19cace7957a73ed"
+   ]
+  },
+  {
+   "name": "currency component",
+   "type": "value component kind",
+   "grain": "Entity",
+   "reason": "singleton: adjusts commercial minute value with DVR playback",
+   "child_uids": [
+    "L1|acf162c9aeb7d57a"
+   ]
+  }
+ ]
+}

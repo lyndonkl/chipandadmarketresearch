@@ -1,0 +1,110 @@
+{
+ "id": "e3-targeting-004",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1963,
+ "unit": "year the US ZIP code was introduced",
+ "elapsed_s": 62.8,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "ZIP code",
+   "type": "postal identifier",
+   "clause": "the ZIP code was introduced"
+  },
+  {
+   "name": "Post Office Department",
+   "type": "government agency",
+   "clause": "the Post Office Department planned..."
+  },
+  {
+   "name": "announcement mailing card count",
+   "type": "mailing volume measurement",
+   "clause": "announcement mailing of ... cards to US addresses"
+  },
+  {
+   "name": "period press reporting",
+   "type": "media source",
+   "clause": "figure comes from period press reporting"
+  },
+  {
+   "name": "USPS records",
+   "type": "government record",
+   "clause": "rather than from the USPS records"
+  },
+  {
+   "name": "Library of Congress records",
+   "type": "library record",
+   "clause": "rather than from Library of Congress records"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising channel",
+   "clause": "gave direct mail a machine-readable geographic key"
+  },
+  {
+   "name": "machine-readable geographic key",
+   "type": "data element",
+   "clause": "machine-readable geographic key"
+  },
+  {
+   "name": "geodemographic segmentation",
+   "type": "market practice",
+   "clause": "geodemographic segmentation was commercialised"
+  },
+  {
+   "name": "US addresses",
+   "type": "address set",
+   "clause": "cards to US addresses"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Post Office Department",
+   "type": "PLANNED_MAILING_VOLUME",
+   "to": "announcement mailing card count",
+   "clause": "planned an announcement mailing of ... cards to US addresses"
+  },
+  {
+   "from": "announcement mailing card count",
+   "type": "TARGETS",
+   "to": "US addresses",
+   "clause": "... cards to US addresses"
+  },
+  {
+   "from": "announcement mailing card count",
+   "type": "DERIVED_FROM",
+   "to": "period press reporting",
+   "clause": "figure comes from period press reporting"
+  },
+  {
+   "from": "announcement mailing card count",
+   "type": "NOT_DERIVED_FROM",
+   "to": "USPS records",
+   "clause": "rather than from the USPS records"
+  },
+  {
+   "from": "announcement mailing card count",
+   "type": "NOT_DERIVED_FROM",
+   "to": "Library of Congress records",
+   "clause": "rather than from Library of Congress records"
+  },
+  {
+   "from": "ZIP code",
+   "type": "PROVIDED_KEY_FOR",
+   "to": "direct mail",
+   "clause": "gave direct mail a machine-readable geographic key"
+  },
+  {
+   "from": "machine-readable geographic key",
+   "type": "PRECEDES",
+   "to": "geodemographic segmentation",
+   "clause": "more than a decade before geodemographic segmentation was commercialised"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|ZIP code|postal identifier|the ZIP code was introduced\nNODE|Post Office Department|government agency|the Post Office Department planned...\nNODE|announcement mailing card count|mailing volume measurement|announcement mailing of ... cards to US addresses\nNODE|period press reporting|media source|figure comes from period press reporting\nNODE|USPS records|government record|rather than from the USPS records\nNODE|Library of Congress records|library record|rather than from Library of Congress records\nNODE|direct mail|advertising channel|gave direct mail a machine-readable geographic key\nNODE|machine-readable geographic key|data element|machine-readable geographic key\nNODE|geodemographic segmentation|market practice|geodemographic segmentation was commercialised\nNODE|US addresses|address set|cards to US addresses\nEDGE|Post Office Department|PLANNED_MAILING_VOLUME|announcement mailing card count|planned an announcement mailing of ... cards to US addresses\nEDGE|announcement mailing card count|TARGETS|US addresses|... cards to US addresses\nEDGE|announcement mailing card count|DERIVED_FROM|period press reporting|figure comes from period press reporting\nEDGE|announcement mailing card count|NOT_DERIVED_FROM|USPS records|rather than from the USPS records\nEDGE|announcement mailing card count|NOT_DERIVED_FROM|Library of Congress records|rather than from Library of Congress records\nEDGE|ZIP code|PROVIDED_KEY_FOR|direct mail|gave direct mail a machine-readable geographic key\nEDGE|machine-readable geographic key|PRECEDES|geodemographic segmentation|more than a decade before geodemographic segmentation was commercialised"
+}

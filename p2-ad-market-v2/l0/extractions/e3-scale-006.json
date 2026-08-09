@@ -1,0 +1,78 @@
+{
+ "id": "e3-scale-006",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent of total US advertising expenditure classified as national",
+ "elapsed_s": 77.8,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national advertising",
+   "type": "advertising segment",
+   "clause": "National advertising"
+  },
+  {
+   "name": "total US advertising expenditure",
+   "type": "market aggregate spend",
+   "clause": "total US advertising expenditure"
+  },
+  {
+   "name": "national advertising share of total US ad expenditure",
+   "type": "media-share measurement",
+   "clause": "percent of total US advertising classified as national"
+  },
+  {
+   "name": "national advertising expenditure amount",
+   "type": "spend measurement",
+   "clause": "$...bn of $...bn"
+  },
+  {
+   "name": "total US advertising expenditure amount",
+   "type": "spend measurement",
+   "clause": "$...bn of $...bn"
+  },
+  {
+   "name": "local advertising expenditure amount",
+   "type": "spend measurement",
+   "clause": "local money grew slightly faster over the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national advertising share of total US ad expenditure",
+   "type": "MEASURES",
+   "to": "national advertising",
+   "clause": "percent of total US advertising classified as national"
+  },
+  {
+   "from": "national advertising share of total US ad expenditure",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "percent of total US advertising classified as national"
+  },
+  {
+   "from": "national advertising expenditure amount",
+   "type": "PART_OF",
+   "to": "total US advertising expenditure amount",
+   "clause": "part of total US advertising expenditure"
+  },
+  {
+   "from": "national advertising share of total US ad expenditure",
+   "type": "DOWN_FROM",
+   "to": "national advertising share of total US ad expenditure",
+   "clause": "down from ... in 1950"
+  },
+  {
+   "from": "local advertising expenditure amount",
+   "type": "GREW_FASTER_THAN",
+   "to": "national advertising expenditure amount",
+   "clause": "grew slightly faster over the era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national advertising|advertising segment|National advertising\nNODE|total US advertising expenditure|market aggregate spend|total US advertising expenditure\nNODE|national advertising share of total US ad expenditure|media-share measurement|percent of total US advertising classified as national\nNODE|national advertising expenditure amount|spend measurement|$...bn of $...bn\nNODE|total US advertising expenditure amount|spend measurement|$...bn of $...bn\nNODE|local advertising expenditure amount|spend measurement|local money grew slightly faster over the era\nEDGE|national advertising share of total US ad expenditure|MEASURES|national advertising|percent of total US advertising classified as national\nEDGE|national advertising share of total US ad expenditure|SHARE_OF|total US advertising expenditure|percent of total US advertising classified as national\nEDGE|national advertising expenditure amount|PART_OF|total US advertising expenditure amount|part of total US advertising expenditure\nEDGE|national advertising share of total US ad expenditure|DOWN_FROM|national advertising share of total US ad expenditure|down from ... in 1950\nEDGE|local advertising expenditure amount|GREW_FASTER_THAN|national advertising expenditure amount|grew slightly faster over the era"
+}

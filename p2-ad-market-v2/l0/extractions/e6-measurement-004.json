@@ -1,0 +1,94 @@
+{
+ "id": "e6-measurement-004",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2005,
+ "unit": "Google Analytics accounts created in the first week after the November 2005 launch",
+ "elapsed_s": 56.6,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google made web analytics free and proprietary"
+  },
+  {
+   "name": "web analytics",
+   "type": "analytics product",
+   "clause": "web analytics (the service)"
+  },
+  {
+   "name": "Urchin",
+   "type": "software product",
+   "clause": "acquired Urchin in April 2005"
+  },
+  {
+   "name": "Google Analytics",
+   "type": "analytics platform",
+   "clause": "launched Google Analytics on ... at no charge"
+  },
+  {
+   "name": "first-week Google Analytics account creations",
+   "type": "account creation count measurement",
+   "clause": "signing up ... accounts in the first week"
+  },
+  {
+   "name": "seller",
+   "type": "market participant role",
+   "clause": "the seller supplying the buyer's measuring instrument"
+  },
+  {
+   "name": "buyer",
+   "type": "market participant role",
+   "clause": "the buyer's measuring instrument"
+  },
+  {
+   "name": "measuring instrument",
+   "type": "analytics tool",
+   "clause": "the buyer's measuring instrument"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "MADE_FREE",
+   "to": "web analytics",
+   "clause": "made web analytics free"
+  },
+  {
+   "from": "Google",
+   "type": "KEPT_PROPRIETARY",
+   "to": "web analytics",
+   "clause": "free and proprietary"
+  },
+  {
+   "from": "Google",
+   "type": "ACQUIRED",
+   "to": "Urchin",
+   "clause": "acquired Urchin in ..."
+  },
+  {
+   "from": "Google",
+   "type": "LAUNCHED",
+   "to": "Google Analytics",
+   "clause": "launched ... at no charge"
+  },
+  {
+   "from": "Google",
+   "type": "GENERATED",
+   "to": "first-week Google Analytics account creations",
+   "clause": "signing up ... accounts in the first week"
+  },
+  {
+   "from": "seller",
+   "type": "SUPPLIES",
+   "to": "measuring instrument",
+   "clause": "the seller supplying the buyer's measuring instrument"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|technology company|Google made web analytics free and proprietary\nNODE|web analytics|analytics product|web analytics (the service)\nNODE|Urchin|software product|acquired Urchin in April 2005\nNODE|Google Analytics|analytics platform|launched Google Analytics on ... at no charge\nNODE|first-week Google Analytics account creations|account creation count measurement|signing up ... accounts in the first week\nNODE|seller|market participant role|the seller supplying the buyer's measuring instrument\nNODE|buyer|market participant role|the buyer's measuring instrument\nNODE|measuring instrument|analytics tool|the buyer's measuring instrument\nEDGE|Google|MADE_FREE|web analytics|made web analytics free\nEDGE|Google|KEPT_PROPRIETARY|web analytics|free and proprietary\nEDGE|Google|ACQUIRED|Urchin|acquired Urchin in ...\nEDGE|Google|LAUNCHED|Google Analytics|launched ... at no charge\nEDGE|Google|GENERATED|first-week Google Analytics account creations|signing up ... accounts in the first week\nEDGE|seller|SUPPLIES|measuring instrument|the seller supplying the buyer's measuring instrument"
+}

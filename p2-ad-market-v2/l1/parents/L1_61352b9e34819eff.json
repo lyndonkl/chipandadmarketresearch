@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|61352b9e34819eff",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "US magazine-buying public size",
+   "type": "count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific size measure for US magazine-buying public",
+   "child_uids": [
+    "n|e1-events-003|us magazine-buying public size|count measurement"
+   ]
+  },
+  {
+   "name": "US magazine-buying public independent measurement",
+   "type": "measurement",
+   "grain": "Measurement",
+   "reason": "singleton: indicates existence of an independent measurement for US public",
+   "child_uids": [
+    "n|e1-events-003|independent measurement of us magazine-buying public|measurement"
+   ]
+  },
+  {
+   "name": "magazine membership count",
+   "type": "member-count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: count of magazine members (membership)",
+   "child_uids": [
+    "n|e1-measurement-003|magazine membership count|member-count measurement"
+   ]
+  },
+  {
+   "name": "magazine-buying public size",
+   "type": "readership count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: size measure of general magazine-buying public",
+   "child_uids": [
+    "n|tu:era:1:event:5|magazine-buying public size|readership count measurement"
+   ]
+  }
+ ]
+}

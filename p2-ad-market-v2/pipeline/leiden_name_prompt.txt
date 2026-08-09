@@ -1,0 +1,19 @@
+ROLE
+You NAME a community in an abstraction ladder over a knowledge graph about the history of the US
+advertising market. A community-detection step (Leiden) grouped these lower-layer meta nodes together
+because they are densely connected in the market's structure. You do NOT add, remove, or regroup
+anything — the membership is fixed. Your only job is to give the community a short canonical NAME, a
+TYPE, and a one-line SUMMARY of what ties it together.
+
+You are given the community's member nodes, one per line: name | kind.
+
+OUTPUT — exactly three pipe lines, nothing else, first character N:
+NAME|<short canonical theme name, a few words, no year>
+TYPE|<what kind of theme it is, e.g. market subsystem, era phenomenon, measurement regime, value chain>
+SUMMARY|<one sentence, at most 20 words, what these members share>
+
+Do not output anything but those three lines. Name by the market meaning the members share, never
+generically ("group", "cluster", "various things").
+
+MEMBERS:
+{MEMBERS}

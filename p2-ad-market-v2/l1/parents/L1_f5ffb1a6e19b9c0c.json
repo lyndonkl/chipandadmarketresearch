@@ -1,0 +1,65 @@
+{
+ "group_id": "L1|f5ffb1a6e19b9c0c",
+ "source": "kmeans",
+ "n_in": 10,
+ "parents": [
+  {
+   "name": "Classified advertising receipt amount",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique classified advertising receipt amount measure",
+   "child_uids": [
+    "n|e1-buyers-007|classified advertising receipt amount|revenue measurement"
+   ]
+  },
+  {
+   "name": "Newspaper advertising receipts amount",
+   "type": "advertising receipt measurement",
+   "grain": "Measurement",
+   "reason": "same newspaper receipt amount across sources and years abstracted away",
+   "child_uids": [
+    "n|e1-medium-001|us newspaper advertising receipts amount|advertising receipt measurement",
+    "n|e1-scale-010|census of manufactures newspaper advertising receipts|publisher receipt measurement"
+   ]
+  },
+  {
+   "name": "Other periodicals advertising receipts amount",
+   "type": "advertising receipt measurement",
+   "grain": "Measurement",
+   "reason": "same other periodicals receipt amount, year/source abstracted",
+   "child_uids": [
+    "n|e1-medium-001|other periodicals advertising receipts amount|advertising receipt measurement",
+    "n|tu:era:1:boundary|other periodical advertising receipts|sub-category receipt measurement",
+    "n|tu:era:1:field:MEDIUM|other periodicals advertising receipts|revenue measurement"
+   ]
+  },
+  {
+   "name": "US newspapers and periodicals total advertising receipts",
+   "type": "monetary amount measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total receipts for US newspapers and periodicals combined",
+   "child_uids": [
+    "n|e1-scale-008|advertising receipts taken by us newspapers and periodicals|monetary amount measurement"
+   ]
+  },
+  {
+   "name": "Advertising revenue per issue",
+   "type": "revenue measurement",
+   "grain": "Measurement",
+   "reason": "singleton: revenue per issue distinct quantity",
+   "child_uids": [
+    "n|e1-sellers-005|advertising revenue per issue|revenue measurement"
+   ]
+  },
+  {
+   "name": "Advertising receipts total",
+   "type": "advertising-receipts measurement",
+   "grain": "Measurement",
+   "reason": "same overall advertising receipts total, abstracting year and source",
+   "child_uids": [
+    "n|tu:era:1:boundary|1914 advertising receipts total|advertising-receipts measurement",
+    "n|tu:era:1:boundary|census of manufactures advertising receipts|advertising-receipts measurement"
+   ]
+  }
+ ]
+}

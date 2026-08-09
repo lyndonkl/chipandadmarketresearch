@@ -1,0 +1,199 @@
+{
+ "id": "e5-scale-011",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of total US ad spend",
+ "elapsed_s": 90.6,
+ "error": null,
+ "n_nodes": 17,
+ "n_edges": 16,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local-retail advertising",
+   "type": "advertising segment",
+   "clause": "Local-retail advertising was ... percent of the US measured advertising market"
+  },
+  {
+   "name": "US measured advertising market",
+   "type": "advertising market aggregate",
+   "clause": "US measured advertising market in ... was ..."
+  },
+  {
+   "name": "local-retail advertising share of US measured advertising market",
+   "type": "percent-of-market measurement",
+   "clause": "was ... percent of the US measured advertising market"
+  },
+  {
+   "name": "US measured advertising market size",
+   "type": "market value measurement",
+   "clause": "US measured advertising market in ... was ..."
+  },
+  {
+   "name": "local-retail advertising spend",
+   "type": "spend amount measurement",
+   "clause": "about ..."
+  },
+  {
+   "name": "local newspaper retail display",
+   "type": "advertising medium",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "name": "local spot TV",
+   "type": "advertising medium",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "name": "local radio",
+   "type": "advertising medium",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "name": "local cable",
+   "type": "advertising medium",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "name": "local out-of-home",
+   "type": "advertising medium",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "name": "local miscellaneous",
+   "type": "advertising category",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "name": "newspaper classified",
+   "type": "advertising category",
+   "clause": "after removing newspaper classified"
+  },
+  {
+   "name": "classified inside shoppers and weeklies",
+   "type": "advertising category",
+   "clause": "after removing the classified inside shoppers and weeklies"
+  },
+  {
+   "name": "local share of general-media direct response",
+   "type": "advertising category",
+   "clause": "after removing the local share of general-media direct response"
+  },
+  {
+   "name": "local Yellow Pages",
+   "type": "advertising channel",
+   "clause": "local Yellow Pages ... spend amount and ... share percent"
+  },
+  {
+   "name": "local Yellow Pages spend",
+   "type": "spend amount measurement",
+   "clause": "local Yellow Pages ... spend amount"
+  },
+  {
+   "name": "local Yellow Pages share percent",
+   "type": "percent-of-market measurement",
+   "clause": "local Yellow Pages ... share percent"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local-retail advertising",
+   "type": "HAS_SHARE",
+   "to": "local-retail advertising share of US measured advertising market",
+   "clause": "was ... percent of the US measured advertising market"
+  },
+  {
+   "from": "local-retail advertising share of US measured advertising market",
+   "type": "SHARE_OF",
+   "to": "US measured advertising market",
+   "clause": "... percent of the US measured advertising market"
+  },
+  {
+   "from": "US measured advertising market",
+   "type": "HAS_VALUE",
+   "to": "US measured advertising market size",
+   "clause": "US measured advertising market in ... was ..."
+  },
+  {
+   "from": "local-retail advertising",
+   "type": "SPEND_AMOUNT",
+   "to": "local-retail advertising spend",
+   "clause": "about ..."
+  },
+  {
+   "from": "local newspaper retail display",
+   "type": "PART_OF",
+   "to": "local-retail advertising",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "from": "local spot TV",
+   "type": "PART_OF",
+   "to": "local-retail advertising",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "from": "local radio",
+   "type": "PART_OF",
+   "to": "local-retail advertising",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "from": "local cable",
+   "type": "PART_OF",
+   "to": "local-retail advertising",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "from": "local out-of-home",
+   "type": "PART_OF",
+   "to": "local-retail advertising",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "from": "local miscellaneous",
+   "type": "PART_OF",
+   "to": "local-retail advertising",
+   "clause": "component of local-retail advertising"
+  },
+  {
+   "from": "newspaper classified",
+   "type": "EXCLUDED_FROM",
+   "to": "local-retail advertising",
+   "clause": "after removing newspaper classified"
+  },
+  {
+   "from": "classified inside shoppers and weeklies",
+   "type": "EXCLUDED_FROM",
+   "to": "local-retail advertising",
+   "clause": "after removing the classified inside shoppers and weeklies"
+  },
+  {
+   "from": "local share of general-media direct response",
+   "type": "EXCLUDED_FROM",
+   "to": "local-retail advertising",
+   "clause": "after removing the local share of general-media direct response"
+  },
+  {
+   "from": "local Yellow Pages",
+   "type": "HAS_SPEND",
+   "to": "local Yellow Pages spend",
+   "clause": "local Yellow Pages ... spend amount"
+  },
+  {
+   "from": "local Yellow Pages",
+   "type": "HAS_SHARE",
+   "to": "local Yellow Pages share percent",
+   "clause": "local Yellow Pages ... share percent"
+  },
+  {
+   "from": "local Yellow Pages",
+   "type": "UNRESOLVED_INCLUSION_IN",
+   "to": "local-retail advertising",
+   "clause": "belongs here at all is unresolved"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local-retail advertising|advertising segment|Local-retail advertising was ... percent of the US measured advertising market\nNODE|US measured advertising market|advertising market aggregate|US measured advertising market in ... was ...\nNODE|local-retail advertising share of US measured advertising market|percent-of-market measurement|was ... percent of the US measured advertising market\nNODE|US measured advertising market size|market value measurement|US measured advertising market in ... was ...\nNODE|local-retail advertising spend|spend amount measurement|about ...\nNODE|local newspaper retail display|advertising medium|component of local-retail advertising\nNODE|local spot TV|advertising medium|component of local-retail advertising\nNODE|local radio|advertising medium|component of local-retail advertising\nNODE|local cable|advertising medium|component of local-retail advertising\nNODE|local out-of-home|advertising medium|component of local-retail advertising\nNODE|local miscellaneous|advertising category|component of local-retail advertising\nNODE|newspaper classified|advertising category|after removing newspaper classified\n NODE|classified inside shoppers and weeklies|advertising category|after removing the classified inside shoppers and weeklies\nNODE|local share of general-media direct response|advertising category|after removing the local share of general-media direct response\nNODE|local Yellow Pages|advertising channel|local Yellow Pages ... spend amount and ... share percent\nNODE|local Yellow Pages spend|spend amount measurement|local Yellow Pages ... spend amount\nNODE|local Yellow Pages share percent|percent-of-market measurement|local Yellow Pages ... share percent\nEDGE|local-retail advertising|HAS_SHARE|local-retail advertising share of US measured advertising market|was ... percent of the US measured advertising market\nEDGE|local-retail advertising share of US measured advertising market|SHARE_OF|US measured advertising market|... percent of the US measured advertising market\nEDGE|US measured advertising market|HAS_VALUE|US measured advertising market size|US measured advertising market in ... was ...\nEDGE|local-retail advertising|SPEND_AMOUNT|local-retail advertising spend|about ...\nEDGE|local newspaper retail display|PART_OF|local-retail advertising|component of local-retail advertising\nEDGE|local spot TV|PART_OF|local-retail advertising|component of local-retail advertising\nEDGE|local radio|PART_OF|local-retail advertising|component of local-retail advertising\nEDGE|local cable|PART_OF|local-retail advertising|component of local-retail advertising\nEDGE|local out-of-home|PART_OF|local-retail advertising|component of local-retail advertising\nEDGE|local miscellaneous|PART_OF|local-retail advertising|component of local-retail advertising\nEDGE|newspaper classified|EXCLUDED_FROM|local-retail advertising|after removing newspaper classified\nEDGE|classified inside shoppers and weeklies|EXCLUDED_FROM|local-retail advertising|after removing the classified inside shoppers and weeklies\nEDGE|local share of general-media direct response|EXCLUDED_FROM|local-retail advertising|after removing the local share of general-media direct response\nEDGE|local Yellow Pages|HAS_SPEND|local Yellow Pages spend|local Yellow Pages ... spend amount\nEDGE|local Yellow Pages|HAS_SHARE|local Yellow Pages share percent|local Yellow Pages ... share percent\nEDGE|local Yellow Pages|UNRESOLVED_INCLUSION_IN|local-retail advertising|belongs here at all is unresolved"
+}

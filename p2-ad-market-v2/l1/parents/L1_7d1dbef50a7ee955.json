@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|7d1dbef50a7ee955",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Addressable US household universe size",
+   "type": "household-count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: count of addressable US households",
+   "child_uids": [
+    "n|e3-targeting-005|addressable universe size|household-count measurement"
+   ]
+  },
+  {
+   "name": "US household coverage by Abacus cooperative purchase database",
+   "type": "coverage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of households covered by Abacus database",
+   "child_uids": [
+    "n|e5-targeting-001|share of us households covered by abacus cooperative purchase database|coverage measurement"
+   ]
+  },
+  {
+   "name": "East Central states US household share",
+   "type": "household share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: regional share of US households",
+   "child_uids": [
+    "n|tu:era:2:field:MEASUREMENT|east central states household share|household share measurement"
+   ]
+  },
+  {
+   "name": "Purchase-history coverage rate for US households",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: share of households with purchase histories",
+   "child_uids": [
+    "n|tu:era:5:event:4|purchase-history coverage rate|share measurement"
+   ]
+  }
+ ]
+}

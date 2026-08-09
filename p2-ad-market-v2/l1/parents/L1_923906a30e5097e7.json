@@ -1,0 +1,53 @@
+{
+ "group_id": "L1|923906a30e5097e7",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Network prime-time advertising inventory",
+   "type": "advertising inventory",
+   "grain": "Entity",
+   "reason": "same concept across type labels",
+   "child_uids": [
+    "n|e3-pricing-004|network prime-time advertising|advertising inventory",
+    "n|e3-pricing-005|prime-time network television|advertising slot"
+   ]
+  },
+  {
+   "name": "Network net time sales revenue",
+   "type": "advertising inventory revenue",
+   "grain": "Entity",
+   "reason": "singleton: distinct revenue entity",
+   "child_uids": [
+    "n|e2-sellers-002|network net time sales|advertising inventory revenue"
+   ]
+  },
+  {
+   "name": "Television and radio broadcast ad inventory",
+   "type": "broadcast ad inventory",
+   "grain": "Entity",
+   "reason": "singleton: distinct medium-time inventory",
+   "child_uids": [
+    "n|e3-buyers-004|television and radio time|broadcast ad inventory"
+   ]
+  },
+  {
+   "name": "Network advertising inventory",
+   "type": "advertising inventory",
+   "grain": "Entity",
+   "reason": "singleton: distinct network inventory concept",
+   "child_uids": [
+    "n|e3-measurement-005|network inventory|advertising inventory"
+   ]
+  },
+  {
+   "name": "Advertising supply concept",
+   "type": "supply concept",
+   "grain": "Entity",
+   "reason": "singleton: abstract supply notion",
+   "child_uids": [
+    "n|tu:era:3:event:4|advertising supply|supply concept"
+   ]
+  }
+ ]
+}

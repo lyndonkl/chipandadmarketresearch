@@ -1,0 +1,193 @@
+{
+ "id": "tu:era:1:event:5",
+ "kind": "prose:event",
+ "era": 1,
+ "about_year": 1893,
+ "unit": null,
+ "elapsed_s": 118.9,
+ "error": null,
+ "n_nodes": 17,
+ "n_edges": 15,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Frank Munsey",
+   "type": "person",
+   "clause": "Frank Munsey"
+  },
+  {
+   "name": "Munsey's Magazine",
+   "type": "magazine publication",
+   "clause": "Munsey's Magazine"
+  },
+  {
+   "name": "McClure's",
+   "type": "magazine publication",
+   "clause": "McClure's"
+  },
+  {
+   "name": "Cosmopolitan",
+   "type": "magazine publication",
+   "clause": "Cosmopolitan"
+  },
+  {
+   "name": "newspaper publishers' association",
+   "type": "industry organization",
+   "clause": "newspaper publishers' association"
+  },
+  {
+   "name": "recognised advertising agents",
+   "type": "actor class",
+   "clause": "recognised advertising agents"
+  },
+  {
+   "name": "advertisers",
+   "type": "actor class",
+   "clause": "advertisers"
+  },
+  {
+   "name": "Munsey's Magazine cover price",
+   "type": "price measurement",
+   "clause": "cover price of Munsey's Magazine"
+  },
+  {
+   "name": "McClure's cover price",
+   "type": "price measurement",
+   "clause": "cover price of McClure's"
+  },
+  {
+   "name": "Cosmopolitan cover price",
+   "type": "price measurement",
+   "clause": "cover price of Cosmopolitan"
+  },
+  {
+   "name": "magazine production cost",
+   "type": "cost basis",
+   "clause": "cost of magazine production"
+  },
+  {
+   "name": "advertiser-paid price differential",
+   "type": "payment practice",
+   "clause": "advertisers paying the difference"
+  },
+  {
+   "name": "selling magazines below production cost",
+   "type": "business model",
+   "clause": "selling a magazine below its cost"
+  },
+  {
+   "name": "magazine-buying public size",
+   "type": "readership count measurement",
+   "clause": "size of magazine-buying public"
+  },
+  {
+   "name": "commission payment rule",
+   "type": "policy",
+   "clause": "rule that commissions paid only to recognised agents"
+  },
+  {
+   "name": "customary commission rate",
+   "type": "share measurement",
+   "clause": "customary 15 percent commission rate"
+  },
+  {
+   "name": "cartel commission price",
+   "type": "price level",
+   "clause": "cartel price for commissions"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Frank Munsey",
+   "type": "REDUCED",
+   "to": "Munsey's Magazine cover price",
+   "clause": "cut ... from ... to ..."
+  },
+  {
+   "from": "Munsey's Magazine cover price",
+   "type": "MEASURES",
+   "to": "Munsey's Magazine",
+   "clause": "price of Munsey's Magazine"
+  },
+  {
+   "from": "McClure's",
+   "type": "HAS_LAUNCH_PRICE",
+   "to": "McClure's cover price",
+   "clause": "launched at ..."
+  },
+  {
+   "from": "McClure's cover price",
+   "type": "MEASURES",
+   "to": "McClure's",
+   "clause": "price of McClure's"
+  },
+  {
+   "from": "Cosmopolitan",
+   "type": "REDUCED",
+   "to": "Cosmopolitan cover price",
+   "clause": "cut to ..."
+  },
+  {
+   "from": "Cosmopolitan cover price",
+   "type": "MEASURES",
+   "to": "Cosmopolitan",
+   "clause": "price of Cosmopolitan"
+  },
+  {
+   "from": "Munsey's Magazine cover price",
+   "type": "ENABLED",
+   "to": "selling magazines below production cost",
+   "clause": "made selling below cost possible"
+  },
+  {
+   "from": "McClure's cover price",
+   "type": "ENABLED",
+   "to": "selling magazines below production cost",
+   "clause": "made selling below cost possible"
+  },
+  {
+   "from": "Cosmopolitan cover price",
+   "type": "ENABLED",
+   "to": "selling magazines below production cost",
+   "clause": "made selling below cost possible"
+  },
+  {
+   "from": "selling magazines below production cost",
+   "type": "RESULTED_IN",
+   "to": "advertiser-paid price differential",
+   "clause": "let advertisers pay the difference"
+  },
+  {
+   "from": "Munsey's Magazine",
+   "type": "GREW_READERS",
+   "to": "magazine-buying public size",
+   "clause": "grew ... from ... to ..."
+  },
+  {
+   "from": "newspaper publishers' association",
+   "type": "RESOLVED",
+   "to": "commission payment rule",
+   "clause": "resolved commissions paid only to recognised agents"
+  },
+  {
+   "from": "commission payment rule",
+   "type": "PAYABLE_TO",
+   "to": "recognised advertising agents",
+   "clause": "paid only to recognised agents"
+  },
+  {
+   "from": "commission payment rule",
+   "type": "EXCLUDES",
+   "to": "advertisers",
+   "clause": "never to advertisers"
+  },
+  {
+   "from": "commission payment rule",
+   "type": "TURNED_CUSTOMARY_RATE_INTO",
+   "to": "cartel commission price",
+   "clause": "turned customary rate into cartel price"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Frank Munsey|person|Frank Munsey\nNODE|Munsey's Magazine|magazine publication|Munsey's Magazine\nNODE|McClure's|magazine publication|McClure's\nNODE|Cosmopolitan|magazine publication|Cosmopolitan\nNODE|newspaper publishers' association|industry organization|newspaper publishers' association\nNODE|recognised advertising agents|actor class|recognised advertising agents\nNODE|advertisers|actor class|advertisers\nNODE|Munsey's Magazine cover price|price measurement|cover price of Munsey's Magazine\nNODE|McClure's cover price|price measurement|cover price of McClure's\nNODE|Cosmopolitan cover price|price measurement|cover price of Cosmopolitan\nNODE|magazine production cost|cost basis|cost of magazine production\nNODE|advertiser-paid price differential|payment practice|advertisers paying the difference\nNODE|selling magazines below production cost|business model|selling a magazine below its cost\nNODE|magazine-buying public size|readership count measurement|size of magazine-buying public\nNODE|commission payment rule|policy|rule that commissions paid only to recognised agents\nNODE|customary commission rate|share measurement|customary 15 percent commission rate\nNODE|cartel commission price|price level|cartel price for commissions\nEDGE|Frank Munsey|REDUCED|Munsey's Magazine cover price|cut ... from ... to ...\nEDGE|Munsey's Magazine cover price|MEASURES|Munsey's Magazine|price of Munsey's Magazine\nEDGE|McClure's|HAS_LAUNCH_PRICE|McClure's cover price|launched at ...\nEDGE|McClure's cover price|MEASURES|McClure's|price of McClure's\nEDGE|Cosmopolitan|REDUCED|Cosmopolitan cover price|cut to ...\nEDGE|Cosmopolitan cover price|MEASURES|Cosmopolitan|price of Cosmopolitan\nEDGE|Munsey's Magazine cover price|ENABLED|selling magazines below production cost|made selling below cost possible\nEDGE|McClure's cover price|ENABLED|selling magazines below production cost|made selling below cost possible\nEDGE|Cosmopolitan cover price|ENABLED|selling magazines below production cost|made selling below cost possible\nEDGE|selling magazines below production cost|RESULTED_IN|advertiser-paid price differential|let advertisers pay the difference\nEDGE|Munsey's Magazine|GREW_READERS|magazine-buying public size|grew ... from ... to ...\nEDGE|newspaper publishers' association|RESOLVED|commission payment rule|resolved commissions paid only to recognised agents\nEDGE|commission payment rule|PAYABLE_TO|recognised advertising agents|paid only to recognised agents\nEDGE|commission payment rule|EXCLUDES|advertisers|never to advertisers\nEDGE|commission payment rule|TURNED_CUSTOMARY_RATE_INTO|cartel commission price|turned customary rate into cartel price"
+}

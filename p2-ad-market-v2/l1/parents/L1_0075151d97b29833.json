@@ -1,0 +1,106 @@
+{
+ "group_id": "L1|0075151d97b29833",
+ "source": "kmeans",
+ "n_in": 11,
+ "parents": [
+  {
+   "name": "searches per day",
+   "type": "search query volume",
+   "grain": "Entity",
+   "reason": "singleton: generic daily search volume metric",
+   "child_uids": [
+    "n|e5-targeting-005|searches per day|search query volume"
+   ]
+  },
+  {
+   "name": "query count",
+   "type": "metric",
+   "grain": "Entity",
+   "reason": "singleton: overall number of queries, unspecified period",
+   "child_uids": [
+    "n|e6-measurement-006|query count|metric"
+   ]
+  },
+  {
+   "name": "US core search queries",
+   "type": "search query set",
+   "grain": "Entity",
+   "reason": "singleton: specific US core query subset for Dec\u202f2008",
+   "child_uids": [
+    "n|e6-sellers-006|us core search queries|search query set"
+   ]
+  },
+  {
+   "name": "era-6 owned-query volume",
+   "type": "query volume",
+   "grain": "Entity",
+   "reason": "singleton: total owned\u2011query volume during era\u20116",
+   "child_uids": [
+    "n|mech-capture-003|era-6 owned-query volume|query volume"
+   ]
+  },
+  {
+   "name": "bought owned-query volume",
+   "type": "query volume portion",
+   "grain": "Entity",
+   "reason": "singleton: bought portion of owned\u2011query volume in era\u20116",
+   "child_uids": [
+    "n|mech-capture-003|bought owned-query volume|query volume portion"
+   ]
+  },
+  {
+   "name": "won owned-query volume",
+   "type": "query volume portion",
+   "grain": "Entity",
+   "reason": "singleton: won portion of owned\u2011query volume in era\u20116",
+   "child_uids": [
+    "n|mech-capture-003|won owned-query volume|query volume portion"
+   ]
+  },
+  {
+   "name": "worldwide queries",
+   "type": "query scope",
+   "grain": "Entity",
+   "reason": "singleton: global set of search queries (2022)",
+   "child_uids": [
+    "n|mech-default-002|worldwide queries|query scope"
+   ]
+  },
+  {
+   "name": "iOS queries",
+   "type": "mobile operating system query pool",
+   "grain": "Entity",
+   "reason": "singleton: iOS\u2011specific query pool via Safari default",
+   "child_uids": [
+    "n|mech-mehta-002|ios queries|mobile operating system query pool"
+   ]
+  },
+  {
+   "name": "iOS query volume",
+   "type": "search query volume",
+   "grain": "Entity",
+   "reason": "singleton: total iOS search query count (2020)",
+   "child_uids": [
+    "n|mech-mehta-003|ios query volume|search query volume"
+   ]
+  },
+  {
+   "name": "MacOS query volume",
+   "type": "search query volume",
+   "grain": "Entity",
+   "reason": "singleton: total MacOS search query count (2020)",
+   "child_uids": [
+    "n|mech-mehta-003|macos query volume|search query volume"
+   ]
+  },
+  {
+   "name": "search queries",
+   "type": "user activity",
+   "grain": "Entity",
+   "reason": "singleton: generic overall search query activity",
+   "child_uids": [
+    "n|tu:era:7:field:MEDIUM|search queries|user activity"
+   ]
+  }
+ ]
+}

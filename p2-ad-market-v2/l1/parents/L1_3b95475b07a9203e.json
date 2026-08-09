@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|3b95475b07a9203e",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Internet search advertising spend",
+   "type": "ad-spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific medium breakdown",
+   "child_uids": [
+    "m:adspend:iab_pwc:2025:internet_search:unsplit"
+   ]
+  },
+  {
+   "name": "Internet display advertising spend",
+   "type": "ad-spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific medium breakdown",
+   "child_uids": [
+    "m:adspend:iab_pwc:2025:internet_display:unsplit"
+   ]
+  },
+  {
+   "name": "Internet digital video advertising spend",
+   "type": "ad-spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific medium breakdown",
+   "child_uids": [
+    "m:adspend:iab_pwc:2025:internet_digital_video:unsplit"
+   ]
+  },
+  {
+   "name": "Internet digital audio advertising spend",
+   "type": "ad-spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific medium breakdown",
+   "child_uids": [
+    "m:adspend:iab_pwc:2025:internet_digital_audio:unsplit"
+   ]
+  },
+  {
+   "name": "Internet other incl classified and lead gen advertising spend",
+   "type": "ad-spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: specific medium breakdown",
+   "child_uids": [
+    "m:adspend:iab_pwc:2025:internet_other_incl_classified_and_lead_gen:unsplit"
+   ]
+  },
+  {
+   "name": "Internet advertising spend amount",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "same total internet ad spend measure across sources; year abstracted",
+   "child_uids": [
+    "n|e6-scale-004|internet ad spend amount|spend measurement",
+    "n|tu:era:5:field:SCALE|internet ad amount measurement|spend measurement"
+   ]
+  }
+ ]
+}

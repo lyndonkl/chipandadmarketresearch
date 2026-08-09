@@ -1,0 +1,127 @@
+{
+ "id": "e5-events-007",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "dot-com advertisers (in-game spots)",
+ "elapsed_s": 123.1,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "dot-com advertisers",
+   "type": "advertiser group",
+   "clause": "dot-com companies running in-game advertisements"
+  },
+  {
+   "name": "in-game advertisement",
+   "type": "ad placement type",
+   "clause": "in-game advertisements in Super Bowl XXXIV"
+  },
+  {
+   "name": "Super Bowl XXXIV",
+   "type": "sports event",
+   "clause": "Super Bowl XXXIV"
+  },
+  {
+   "name": "stated average spot price",
+   "type": "average price measurement",
+   "clause": "average of roughly ... per 30-second spot"
+  },
+  {
+   "name": "derived average spot price",
+   "type": "average price measurement",
+   "clause": "average of about ... each"
+  },
+  {
+   "name": "pure dot-com in-game spot company count",
+   "type": "count measurement",
+   "clause": "... pure dot-com companies ran in-game spots"
+  },
+  {
+   "name": "total dot-com ad count",
+   "type": "count measurement",
+   "clause": "... dot-com ads in total"
+  },
+  {
+   "name": "dot-com advertising spend",
+   "type": "spend measurement",
+   "clause": "about ... of advertising"
+  },
+  {
+   "name": "cited share-of-inventory figure",
+   "type": "share-of-inventory measurement",
+   "clause": "'nearly ... of the ... spots available'"
+  },
+  {
+   "name": "Super Bowl XXXIV ad inventory count",
+   "type": "count measurement",
+   "clause": "... spots available"
+  },
+  {
+   "name": "advertising metrics used in analysis",
+   "type": "metric set",
+   "clause": "metrics included in this analysis"
+  }
+ ],
+ "edges": [
+  {
+   "from": "dot-com advertisers",
+   "type": "PLACED_ADS_IN",
+   "to": "in-game advertisement",
+   "clause": "running in-game ads"
+  },
+  {
+   "from": "dot-com advertisers",
+   "type": "ADVERTISED_IN",
+   "to": "Super Bowl XXXIV",
+   "clause": "in-game advertisements at Super Bowl XXXIV"
+  },
+  {
+   "from": "stated average spot price",
+   "type": "MEASURES",
+   "to": "in-game advertisement",
+   "clause": "average of roughly ... per 30-second spot"
+  },
+  {
+   "from": "derived average spot price",
+   "type": "MEASURES",
+   "to": "in-game advertisement",
+   "clause": "average of about ... each"
+  },
+  {
+   "from": "pure dot-com in-game spot company count",
+   "type": "MEASURES",
+   "to": "dot-com advertisers",
+   "clause": "... pure dot-com companies ran in-game spots"
+  },
+  {
+   "from": "total dot-com ad count",
+   "type": "MEASURES",
+   "to": "dot-com advertisers",
+   "clause": "... dot-com ads in total"
+  },
+  {
+   "from": "dot-com advertising spend",
+   "type": "MEASURES",
+   "to": "dot-com advertisers",
+   "clause": "about ... of advertising"
+  },
+  {
+   "from": "cited share-of-inventory figure",
+   "type": "SHARE_OF",
+   "to": "Super Bowl XXXIV ad inventory count",
+   "clause": "'nearly ... of the ... spots available'"
+  },
+  {
+   "from": "cited share-of-inventory figure",
+   "type": "EXCLUDED",
+   "to": "advertising metrics used in analysis",
+   "clause": "is dropped because arithmetically impossible"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|dot-com advertisers|advertiser group|dot-com companies running in-game advertisements\nNODE|in-game advertisement|ad placement type|in-game advertisements in Super Bowl XXXIV\nNODE|Super Bowl XXXIV|sports event|Super Bowl XXXIV\nNODE|stated average spot price|average price measurement|average of roughly ... per 30-second spot\nNODE|derived average spot price|average price measurement|average of about ... each\nNODE|pure dot-com in-game spot company count|count measurement|... pure dot-com companies ran in-game spots\nNODE|total dot-com ad count|count measurement|... dot-com ads in total\nNODE|dot-com advertising spend|spend measurement|about ... of advertising\nNODE|cited share-of-inventory figure|share-of-inventory measurement|'nearly ... of the ... spots available'\nNODE|Super Bowl XXXIV ad inventory count|count measurement|... spots available\nNODE|advertising metrics used in analysis|metric set|metrics included in this analysis\nEDGE|dot-com advertisers|PLACED_ADS_IN|in-game advertisement|running in-game ads\nEDGE|dot-com advertisers|ADVERTISED_IN|Super Bowl XXXIV|in-game advertisements at Super Bowl XXXIV\nEDGE|stated average spot price|MEASURES|in-game advertisement|average of roughly ... per 30-second spot\nEDGE|derived average spot price|MEASURES|in-game advertisement|average of about ... each\nEDGE|pure dot-com in-game spot company count|MEASURES|dot-com advertisers|... pure dot-com companies ran in-game spots\nEDGE|total dot-com ad count|MEASURES|dot-com advertisers|... dot-com ads in total\nEDGE|dot-com advertising spend|MEASURES|dot-com advertisers|about ... of advertising\nEDGE|cited share-of-inventory figure|SHARE_OF|Super Bowl XXXIV ad inventory count|'nearly ... of the ... spots available'\nEDGE|cited share-of-inventory figure|EXCLUDED|advertising metrics used in analysis|is dropped because arithmetically impossible"
+}

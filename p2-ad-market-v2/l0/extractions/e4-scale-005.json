@@ -1,0 +1,138 @@
+{
+ "id": "e4-scale-005",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1990,
+ "unit": "billion USD (current)",
+ "elapsed_s": 91.2,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 9,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "world advertising expenditure",
+   "type": "global ad spend measurement",
+   "clause": "World advertising expenditure ..."
+  },
+  {
+   "name": "five major media",
+   "type": "media group",
+   "clause": "the five major media"
+  },
+  {
+   "name": "world advertising expenditure annual growth rate",
+   "type": "percentage growth measurement",
+   "clause": "up ... on prior year"
+  },
+  {
+   "name": "world advertising expenditure real-term growth rate",
+   "type": "percentage growth measurement",
+   "clause": "... in real terms"
+  },
+  {
+   "name": "top ten countries",
+   "type": "country group",
+   "clause": "the top ten countries"
+  },
+  {
+   "name": "share of world advertising expenditure held by top ten countries",
+   "type": "media-share measurement",
+   "clause": "top ten countries taking ..."
+  },
+  {
+   "name": "world advertising expenditure including direct mail and sales promotion",
+   "type": "global ad spend measurement",
+   "clause": "including direct mail and sales promotion"
+  },
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "direct mail"
+  },
+  {
+   "name": "sales promotion",
+   "type": "marketing activity",
+   "clause": "sales promotion"
+  },
+  {
+   "name": "United States",
+   "type": "country",
+   "clause": "US"
+  },
+  {
+   "name": "US five-media advertising spend",
+   "type": "national ad spend measurement",
+   "clause": "US five-media spend ..."
+  },
+  {
+   "name": "US share of world advertising expenditure",
+   "type": "percentage share measurement",
+   "clause": "US share near ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "world advertising expenditure",
+   "type": "ACROSS",
+   "to": "five major media",
+   "clause": "across the five major media"
+  },
+  {
+   "from": "world advertising expenditure annual growth rate",
+   "type": "MEASURES_GROWTH_OF",
+   "to": "world advertising expenditure",
+   "clause": "up ... on prior year"
+  },
+  {
+   "from": "world advertising expenditure real-term growth rate",
+   "type": "MEASURES_REAL_TERM_GROWTH_OF",
+   "to": "world advertising expenditure",
+   "clause": "... in real terms"
+  },
+  {
+   "from": "share of world advertising expenditure held by top ten countries",
+   "type": "MEASURES",
+   "to": "world advertising expenditure",
+   "clause": "top ten countries taking ..."
+  },
+  {
+   "from": "share of world advertising expenditure held by top ten countries",
+   "type": "OF_GROUP",
+   "to": "top ten countries",
+   "clause": "top ten countries taking ..."
+  },
+  {
+   "from": "world advertising expenditure including direct mail and sales promotion",
+   "type": "INCLUDES",
+   "to": "direct mail",
+   "clause": "including direct mail"
+  },
+  {
+   "from": "world advertising expenditure including direct mail and sales promotion",
+   "type": "INCLUDES",
+   "to": "sales promotion",
+   "clause": "including ... sales promotion"
+  },
+  {
+   "from": "US five-media advertising spend",
+   "type": "MEASURES",
+   "to": "United States",
+   "clause": "US five-media spend ..."
+  },
+  {
+   "from": "US five-media advertising spend",
+   "type": "IMPLIES",
+   "to": "US share of world advertising expenditure",
+   "clause": "implies a US share near ..."
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "MEASURES_REAL_TERM_GROWTH_OF",
+   "line": "EDGE|world advertising expenditure real-term growth rate|MEASURES_REAL_TERM_GROWTH_OF|world advertising expenditure|... in real terms"
+  }
+ ],
+ "raw": "NODE|world advertising expenditure|global ad spend measurement|World advertising expenditure ...\nNODE|five major media|media group|the five major media\nNODE|world advertising expenditure annual growth rate|percentage growth measurement|up ... on prior year\nNODE|world advertising expenditure real-term growth rate|percentage growth measurement|... in real terms\nNODE|top ten countries|country group|the top ten countries\nNODE|share of world advertising expenditure held by top ten countries|media-share measurement|top ten countries taking ...\nNODE|world advertising expenditure including direct mail and sales promotion|global ad spend measurement|including direct mail and sales promotion\nNODE|direct mail|advertising medium|direct mail\nNODE|sales promotion|marketing activity|sales promotion\nNODE|United States|country|US\nNODE|US five-media advertising spend|national ad spend measurement|US five-media spend ...\nNODE|US share of world advertising expenditure|percentage share measurement|US share near ...\n\nEDGE|world advertising expenditure|ACROSS|five major media|across the five major media\nEDGE|world advertising expenditure annual growth rate|MEASURES_GROWTH_OF|world advertising expenditure|up ... on prior year\nEDGE|world advertising expenditure real-term growth rate|MEASURES_REAL_TERM_GROWTH_OF|world advertising expenditure|... in real terms\nEDGE|share of world advertising expenditure held by top ten countries|MEASURES|world advertising expenditure|top ten countries taking ...\nEDGE|share of world advertising expenditure held by top ten countries|OF_GROUP|top ten countries|top ten countries taking ...\nEDGE|world advertising expenditure including direct mail and sales promotion|INCLUDES|direct mail|including direct mail\nEDGE|world advertising expenditure including direct mail and sales promotion|INCLUDES|sales promotion|including ... sales promotion\nEDGE|US five-media advertising spend|MEASURES|United States|US five-media spend ...\nEDGE|US five-media advertising spend|IMPLIES|US share of world advertising expenditure|implies a US share near ..."
+}

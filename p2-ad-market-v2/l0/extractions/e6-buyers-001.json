@@ -1,0 +1,67 @@
+{
+ "id": "e6-buyers-001",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2002,
+ "unit": "advertisers (Overture, December 2002)",
+ "elapsed_s": 62.2,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "advertising platform",
+   "clause": "Overture had ... advertisers"
+  },
+  {
+   "name": "advertiser count December 2002",
+   "type": "advertiser count measurement",
+   "clause": "advertisers in December 2002"
+  },
+  {
+   "name": "advertiser count December 2001",
+   "type": "advertiser count measurement",
+   "clause": "advertisers in December 2001"
+  },
+  {
+   "name": "professionalised paid-search buyer base",
+   "type": "buyer constituency",
+   "clause": "professionalised editorially-reviewed paid-search buyer base"
+  },
+  {
+   "name": "self-serve scale",
+   "type": "market development stage",
+   "clause": "self-serve scaling phase"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "HAS_COUNT",
+   "to": "advertiser count December 2002",
+   "clause": "Overture had ... advertisers"
+  },
+  {
+   "from": "advertiser count December 2002",
+   "type": "UP_FROM",
+   "to": "advertiser count December 2001",
+   "clause": "up from ... advertisers in December 2001"
+  },
+  {
+   "from": "advertiser count December 2002",
+   "type": "REPRESENTS_SIZE_OF",
+   "to": "professionalised paid-search buyer base",
+   "clause": "size of professionalised paid-search buyer base"
+  },
+  {
+   "from": "professionalised paid-search buyer base",
+   "type": "BEFORE",
+   "to": "self-serve scale",
+   "clause": "immediately before self-serve scale"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|advertising platform|Overture had ... advertisers\nNODE|advertiser count December 2002|advertiser count measurement|advertisers in December 2002\nNODE|advertiser count December 2001|advertiser count measurement|advertisers in December 2001\nNODE|professionalised paid-search buyer base|buyer constituency|professionalised editorially-reviewed paid-search buyer base\nNODE|self-serve scale|market development stage|self-serve scaling phase\nEDGE|Overture|HAS_COUNT|advertiser count December 2002|Overture had ... advertisers\nEDGE|advertiser count December 2002|UP_FROM|advertiser count December 2001|up from ... advertisers in December 2001\nEDGE|advertiser count December 2002|REPRESENTS_SIZE_OF|professionalised paid-search buyer base|size of professionalised paid-search buyer base\nEDGE|professionalised paid-search buyer base|BEFORE|self-serve scale|immediately before self-serve scale"
+}

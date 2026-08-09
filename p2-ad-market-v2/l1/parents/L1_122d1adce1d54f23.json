@@ -1,0 +1,52 @@
+{
+ "group_id": "L1|122d1adce1d54f23",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "JWT clients",
+   "type": "client group",
+   "grain": "Entity",
+   "reason": "singleton: distinct client-group entity unrelated to others",
+   "child_uids": [
+    "n|e2-creators-001|jwt clients|client group"
+   ]
+  },
+  {
+   "name": "JWT Group",
+   "type": "company",
+   "grain": "Entity",
+   "reason": "singleton: separate corporate entity from JWT agency itself",
+   "child_uids": [
+    "n|e4-creators-008|jwt group|company"
+   ]
+  },
+  {
+   "name": "Robbin",
+   "type": "person",
+   "grain": "Entity",
+   "reason": "singleton: individual person, not linked to other entities here",
+   "child_uids": [
+    "n|e4-targeting-002|robbin|person"
+   ]
+  },
+  {
+   "name": "rejection of JWT claim",
+   "type": "verification outcome",
+   "grain": "Entity",
+   "reason": "singleton: verification outcome entity distinct from agencies",
+   "child_uids": [
+    "n|tu:era:2:boundary|rejection of jwt claim|verification outcome"
+   ]
+  },
+  {
+   "name": "JWT",
+   "type": "advertising agency",
+   "grain": "Entity",
+   "reason": "singleton: core advertising agency entity, unique in this set",
+   "child_uids": [
+    "n|tu:era:2:field:CREATORS|jwt|advertising agency"
+   ]
+  }
+ ]
+}

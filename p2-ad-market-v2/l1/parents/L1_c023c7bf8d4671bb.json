@@ -1,0 +1,71 @@
+{
+ "group_id": "L1|c023c7bf8d4671bb",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Syndicated inventory",
+   "type": "advertising inventory type",
+   "grain": "Entity",
+   "reason": "singleton: specific syndicated advertising inventory type",
+   "child_uids": [
+    "n|mech-tac-003|syndicated inventory|advertising inventory type"
+   ]
+  },
+  {
+   "name": "Cheap hours",
+   "type": "low-cost time slot",
+   "grain": "Entity",
+   "reason": "singleton: low-cost ad time slot concept",
+   "child_uids": [
+    "n|tu:era:2:field:TARGETING|cheap hours|low-cost time slot"
+   ]
+  },
+  {
+   "name": "Advertising inventory unit",
+   "type": "ad inventory unit",
+   "grain": "Entity",
+   "reason": "two related ad inventory units abstracted from exact lengths",
+   "child_uids": [
+    "n|tu:era:3:field:BUYERS|30-second unit|ad slot",
+    "n|tu:era:4:event:5|half-hour ad block|advertising inventory unit"
+   ]
+  },
+  {
+   "name": "Television airtime",
+   "type": "ad inventory slot",
+   "grain": "Entity",
+   "reason": "singleton: general television advertising inventory slot",
+   "child_uids": [
+    "n|tu:era:3:field:SELLERS|television airtime|ad inventory slot"
+   ]
+  },
+  {
+   "name": "Prime time slot duration",
+   "type": "time allocation",
+   "grain": "Entity",
+   "reason": "singleton: duration of prime-time TV slots",
+   "child_uids": [
+    "n|tu:era:3:field:SELLERS|prime time slot duration|time allocation"
+   ]
+  },
+  {
+   "name": "Television program inventory",
+   "type": "advertising inventory",
+   "grain": "Entity",
+   "reason": "singleton: television program advertising inventory concept",
+   "child_uids": [
+    "n|tu:era:3:field:SELLERS|television program inventory|advertising inventory"
+   ]
+  },
+  {
+   "name": "Prime-time ad slots",
+   "type": "advertising inventory",
+   "grain": "Entity",
+   "reason": "singleton: prime-time specific ad inventory slots",
+   "child_uids": [
+    "n|tu:era:4:boundary|prime-time ad slots|advertising inventory"
+   ]
+  }
+ ]
+}

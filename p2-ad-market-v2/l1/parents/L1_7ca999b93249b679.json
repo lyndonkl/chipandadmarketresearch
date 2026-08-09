@@ -1,0 +1,53 @@
+{
+ "group_id": "L1|7ca999b93249b679",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Advertising to GDP ratio (era1)",
+   "type": "ratio measurement",
+   "grain": "Measurement",
+   "reason": "same ad-to-GDP ratio across years; era1 breakdown abstracted",
+   "child_uids": [
+    "n|tu:era:1:boundary|ad to gdp ratio era1 1909|ratio measurement",
+    "n|tu:era:1:boundary|ad to gdp ratio era1 1914|ratio measurement"
+   ]
+  },
+  {
+   "name": "Advertising to GDP ratio (era2)",
+   "type": "ratio measurement",
+   "grain": "Measurement",
+   "reason": "singleton: ad-to-GDP ratio for era2",
+   "child_uids": [
+    "n|tu:era:1:boundary|ad to gdp ratio era2|ratio measurement"
+   ]
+  },
+  {
+   "name": "Maximum advertising to GDP ratio",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "singleton: maximum advertising to GDP ratio",
+   "child_uids": [
+    "n|tu:era:2:boundary|coen/bea series ad/gdp max 1922|media-share measurement"
+   ]
+  },
+  {
+   "name": "GDP implicit price deflator percent change",
+   "type": "percent change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: percent change of GDP implicit price deflator",
+   "child_uids": [
+    "n|e4-pricing-003|gdp implicit price deflator change percent|percent change measurement"
+   ]
+  },
+  {
+   "name": "Peak share of GDP",
+   "type": "measurement peak",
+   "grain": "Measurement",
+   "reason": "singleton: peak share of GDP measurement",
+   "child_uids": [
+    "n|e4-scale-003|peak share of gdp|measurement peak"
+   ]
+  }
+ ]
+}

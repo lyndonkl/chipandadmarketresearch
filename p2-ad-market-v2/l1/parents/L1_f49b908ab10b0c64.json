@@ -1,0 +1,88 @@
+{
+ "group_id": "L1|f49b908ab10b0c64",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "Overture traffic",
+   "type": "ad traffic volume",
+   "grain": "Entity",
+   "reason": "singleton: distinct ad traffic source",
+   "child_uids": [
+    "n|e5-sellers-005|overture traffic|ad traffic volume"
+   ]
+  },
+  {
+   "name": "affiliate traffic",
+   "type": "ad traffic volume",
+   "grain": "Entity",
+   "reason": "singleton: distinct ad traffic source",
+   "child_uids": [
+    "n|e5-sellers-005|affiliate traffic|ad traffic volume"
+   ]
+  },
+  {
+   "name": "Imperva Bad Bot Report",
+   "type": "report",
+   "grain": "Entity",
+   "reason": "singleton: specific security report",
+   "child_uids": [
+    "n|e7-measurement-003|imperva bad bot report|report"
+   ]
+  },
+  {
+   "name": "bot traffic",
+   "type": "automated web traffic",
+   "grain": "Entity",
+   "reason": "singleton: generic automated web traffic",
+   "child_uids": [
+    "n|e7-measurement-003|bot traffic|automated web traffic"
+   ]
+  },
+  {
+   "name": "global web traffic",
+   "type": "web traffic aggregate",
+   "grain": "Entity",
+   "reason": "singleton: worldwide traffic aggregate",
+   "child_uids": [
+    "n|e7-measurement-003|global web traffic|web traffic aggregate"
+   ]
+  },
+  {
+   "name": "malicious bot traffic",
+   "type": "malicious automated traffic",
+   "grain": "Entity",
+   "reason": "singleton: subset of bot traffic",
+   "child_uids": [
+    "n|e7-measurement-003|malicious bot traffic|malicious automated traffic"
+   ]
+  },
+  {
+   "name": "Yahoo-supplied traffic",
+   "type": "traffic source",
+   "grain": "Entity",
+   "reason": "singleton: traffic supplied by Yahoo",
+   "child_uids": [
+    "n|mech-ovt-002|yahoo-supplied traffic|traffic source"
+   ]
+  },
+  {
+   "name": "Ad Exchange traffic",
+   "type": "traffic volume",
+   "grain": "Entity",
+   "reason": "singleton: traffic from ad exchanges",
+   "child_uids": [
+    "n|tu:era:7:event:4|ad exchange traffic|traffic volume"
+   ]
+  },
+  {
+   "name": "invalid traffic",
+   "type": "traffic type",
+   "grain": "Entity",
+   "reason": "singleton: classified as invalid traffic",
+   "child_uids": [
+    "n|tu:era:7:field:MEASUREMENT|invalid traffic|traffic type"
+   ]
+  }
+ ]
+}

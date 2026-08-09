@@ -1,0 +1,128 @@
+{
+ "id": "mech-overture-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "USD average realised price per paid introduction (click), Overture FY2002",
+ "elapsed_s": 114.0,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "company",
+   "clause": "Overture's pure-bid auction"
+  },
+  {
+   "name": "pure-bid auction",
+   "type": "auction mechanism",
+   "clause": "pure-bid auction"
+  },
+  {
+   "name": "listings",
+   "type": "ad product",
+   "clause": "listings"
+  },
+  {
+   "name": "new US advertisers",
+   "type": "advertiser group",
+   "clause": "new US advertisers"
+  },
+  {
+   "name": "minimum bid per listing",
+   "type": "minimum bid measurement",
+   "clause": "minimum bid of ... per listing"
+  },
+  {
+   "name": "minimum monthly spend",
+   "type": "minimum spend measurement",
+   "clause": "... minimum monthly spend"
+  },
+  {
+   "name": "human editorial review",
+   "type": "listing-review process",
+   "clause": "human editorial review of every listing"
+  },
+  {
+   "name": "paid click",
+   "type": "ad interaction",
+   "clause": "paid click"
+  },
+  {
+   "name": "realised average price per paid click (later period)",
+   "type": "average price measurement",
+   "clause": "realised average price per paid click was ... in 2002"
+  },
+  {
+   "name": "realised average price per paid click (earlier period)",
+   "type": "average price measurement",
+   "clause": "up from ... in 2001"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "HAS_AUCTION",
+   "to": "pure-bid auction",
+   "clause": "Overture's pure-bid auction"
+  },
+  {
+   "from": "pure-bid auction",
+   "type": "RANKS",
+   "to": "listings",
+   "clause": "ranked listings by bid alone"
+  },
+  {
+   "from": "pure-bid auction",
+   "type": "GATED_ENTRY_FOR",
+   "to": "new US advertisers",
+   "clause": "gated entry for new US advertisers"
+  },
+  {
+   "from": "new US advertisers",
+   "type": "COMMITTED_TO",
+   "to": "minimum bid per listing",
+   "clause": "had to commit to a minimum bid of ... per listing"
+  },
+  {
+   "from": "new US advertisers",
+   "type": "COMMITTED_TO",
+   "to": "minimum monthly spend",
+   "clause": "and a ... minimum monthly spend"
+  },
+  {
+   "from": "pure-bid auction",
+   "type": "INCLUDES",
+   "to": "human editorial review",
+   "clause": "with human editorial review of every listing"
+  },
+  {
+   "from": "human editorial review",
+   "type": "REVIEWS",
+   "to": "listings",
+   "clause": "human editorial review of every listing"
+  },
+  {
+   "from": "realised average price per paid click (later period)",
+   "type": "MEASURES",
+   "to": "paid click",
+   "clause": "realised average price per paid click was ... in 2002"
+  },
+  {
+   "from": "realised average price per paid click (earlier period)",
+   "type": "MEASURES",
+   "to": "paid click",
+   "clause": "up from ... in 2001"
+  },
+  {
+   "from": "realised average price per paid click (later period)",
+   "type": "UP_FROM",
+   "to": "realised average price per paid click (earlier period)",
+   "clause": "up from ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|company|Overture's pure-bid auction\nNODE|pure-bid auction|auction mechanism|pure-bid auction\nNODE|listings|ad product|listings\nNODE|new US advertisers|advertiser group|new US advertisers\nNODE|minimum bid per listing|minimum bid measurement|minimum bid of ... per listing\nNODE|minimum monthly spend|minimum spend measurement|... minimum monthly spend\nNODE|human editorial review|listing-review process|human editorial review of every listing\nNODE|paid click|ad interaction|paid click\nNODE|realised average price per paid click (later period)|average price measurement|realised average price per paid click was ... in 2002\nNODE|realised average price per paid click (earlier period)|average price measurement|up from ... in 2001\nEDGE|Overture|HAS_AUCTION|pure-bid auction|Overture's pure-bid auction\nEDGE|pure-bid auction|RANKS|listings|ranked listings by bid alone\nEDGE|pure-bid auction|GATED_ENTRY_FOR|new US advertisers|gated entry for new US advertisers\nEDGE|new US advertisers|COMMITTED_TO|minimum bid per listing|had to commit to a minimum bid of ... per listing\nEDGE|new US advertisers|COMMITTED_TO|minimum monthly spend|and a ... minimum monthly spend\nEDGE|pure-bid auction|INCLUDES|human editorial review|with human editorial review of every listing\nEDGE|human editorial review|REVIEWS|listings|human editorial review of every listing\nEDGE|realised average price per paid click (later period)|MEASURES|paid click|realised average price per paid click was ... in 2002\nEDGE|realised average price per paid click (earlier period)|MEASURES|paid click|up from ... in 2001\nEDGE|realised average price per paid click (later period)|UP_FROM|realised average price per paid click (earlier period)|up from ..."
+}

@@ -1,0 +1,117 @@
+{
+ "id": "e4-creators-008",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1987,
+ "unit": "million USD",
+ "elapsed_s": 66.6,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "WPP",
+   "type": "company",
+   "clause": "WPP"
+  },
+  {
+   "name": "JWT Group",
+   "type": "company",
+   "clause": "the JWT Group"
+  },
+  {
+   "name": "acquisition cost measurement",
+   "type": "takeover cost measurement",
+   "clause": "for ..."
+  },
+  {
+   "name": "share price per share measurement",
+   "type": "price-per-share measurement",
+   "clause": "a share in cash for ..."
+  },
+  {
+   "name": "share count measurement",
+   "type": "share count measurement",
+   "clause": "for ... shares"
+  },
+  {
+   "name": "opening hostile tender",
+   "type": "tender offer",
+   "clause": "after an opening hostile tender"
+  },
+  {
+   "name": "hostile tender value measurement",
+   "type": "tender value measurement",
+   "clause": "worth about ..."
+  },
+  {
+   "name": "advertising business",
+   "type": "market sector",
+   "clause": "in the advertising business"
+  },
+  {
+   "name": "hostile takeover",
+   "type": "acquisition event",
+   "clause": "first successful hostile takeover"
+  }
+ ],
+ "edges": [
+  {
+   "from": "WPP",
+   "type": "ACQUIRED",
+   "to": "JWT Group",
+   "clause": "WPP acquired the JWT Group"
+  },
+  {
+   "from": "WPP",
+   "type": "PAID",
+   "to": "acquisition cost measurement",
+   "clause": "for ..."
+  },
+  {
+   "from": "WPP",
+   "type": "PAID_PER_SHARE",
+   "to": "share price per share measurement",
+   "clause": "a share in cash for ..."
+  },
+  {
+   "from": "WPP",
+   "type": "ISSUED_SHARES",
+   "to": "share count measurement",
+   "clause": "for ... shares"
+  },
+  {
+   "from": "WPP",
+   "type": "MADE_TENDER",
+   "to": "opening hostile tender",
+   "clause": "after an opening hostile tender"
+  },
+  {
+   "from": "opening hostile tender",
+   "type": "VALUED_AT",
+   "to": "hostile tender value measurement",
+   "clause": "worth about ..."
+  },
+  {
+   "from": "hostile takeover",
+   "type": "INVOLVES",
+   "to": "WPP",
+   "clause": "first successful hostile takeover"
+  },
+  {
+   "from": "hostile takeover",
+   "type": "TARGETS",
+   "to": "JWT Group",
+   "clause": "first successful hostile takeover"
+  },
+  {
+   "from": "hostile takeover",
+   "type": "FIRST_SUCCESSFUL_IN",
+   "to": "advertising business",
+   "clause": "first successful hostile takeover"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|WPP|company|WPP\nNODE|JWT Group|company|the JWT Group\nNODE|acquisition cost measurement|takeover cost measurement|for ...\nNODE|share price per share measurement|price-per-share measurement|a share in cash for ...\nNODE|share count measurement|share count measurement|for ... shares\nNODE|opening hostile tender|tender offer|after an opening hostile tender\nNODE|hostile tender value measurement|tender value measurement|worth about ...\nNODE|advertising business|market sector|in the advertising business\nNODE|hostile takeover|acquisition event|first successful hostile takeover\nEDGE|WPP|ACQUIRED|JWT Group|WPP acquired the JWT Group\nEDGE|WPP|PAID|acquisition cost measurement|for ...\nEDGE|WPP|PAID_PER_SHARE|share price per share measurement|a share in cash for ...\nEDGE|WPP|ISSUED_SHARES|share count measurement|for ... shares\nEDGE|WPP|MADE_TENDER|opening hostile tender|after an opening hostile tender\nEDGE|opening hostile tender|VALUED_AT|hostile tender value measurement|worth about ...\nEDGE|hostile takeover|INVOLVES|WPP|first successful hostile takeover\nEDGE|hostile takeover|TARGETS|JWT Group|first successful hostile takeover\nEDGE|hostile takeover|FIRST_SUCCESSFUL_IN|advertising business|first successful hostile takeover"
+}

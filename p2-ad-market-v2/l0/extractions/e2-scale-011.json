@@ -1,0 +1,67 @@
+{
+ "id": "e2-scale-011",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ millions of US local retail advertising excluding classified, 1949",
+ "elapsed_s": 42.3,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local retail advertising excluding classified",
+   "type": "advertising segment",
+   "clause": "Local retail advertising, excluding classified"
+  },
+  {
+   "name": "classified advertising",
+   "type": "advertising segment",
+   "clause": "excluding classified"
+  },
+  {
+   "name": "US advertising spend",
+   "type": "advertising market total",
+   "clause": "all US advertising spend"
+  },
+  {
+   "name": "local retail advertising spend measurement",
+   "type": "spend measurement",
+   "clause": "was about ... million in ..."
+  },
+  {
+   "name": "local retail advertising share measurement",
+   "type": "media-share measurement",
+   "clause": "roughly ... percent of all US advertising spend"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local retail advertising excluding classified",
+   "type": "EXCLUDES",
+   "to": "classified advertising",
+   "clause": "excluding classified"
+  },
+  {
+   "from": "local retail advertising spend measurement",
+   "type": "MEASURES",
+   "to": "local retail advertising excluding classified",
+   "clause": "was about ... million in ..."
+  },
+  {
+   "from": "local retail advertising share measurement",
+   "type": "MEASURES",
+   "to": "local retail advertising excluding classified",
+   "clause": "roughly ... percent of all US advertising spend"
+  },
+  {
+   "from": "local retail advertising share measurement",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "roughly ... percent of all US advertising spend"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local retail advertising excluding classified|advertising segment|Local retail advertising, excluding classified\nNODE|classified advertising|advertising segment|excluding classified\nNODE|US advertising spend|advertising market total|all US advertising spend\nNODE|local retail advertising spend measurement|spend measurement|was about ... million in ...\nNODE|local retail advertising share measurement|media-share measurement|roughly ... percent of all US advertising spend\nEDGE|local retail advertising excluding classified|EXCLUDES|classified advertising|excluding classified\nEDGE|local retail advertising spend measurement|MEASURES|local retail advertising excluding classified|was about ... million in ...\nEDGE|local retail advertising share measurement|MEASURES|local retail advertising excluding classified|roughly ... percent of all US advertising spend\nEDGE|local retail advertising share measurement|SHARE_OF|US advertising spend|roughly ... percent of all US advertising spend"
+}

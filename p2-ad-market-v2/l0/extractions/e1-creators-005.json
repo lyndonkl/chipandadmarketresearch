@@ -1,0 +1,83 @@
+{
+ "id": "e1-creators-005",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1917,
+ "unit": "charter member agencies",
+ "elapsed_s": 52.1,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "American Association of Advertising Agencies",
+   "type": "organization",
+   "clause": "the American Association of Advertising Agencies was founded"
+  },
+  {
+   "name": "City Hall",
+   "type": "building",
+   "clause": "at City Hall in St. Louis"
+  },
+  {
+   "name": "St. Louis",
+   "type": "city",
+   "clause": "location of founding"
+  },
+  {
+   "name": "charter member agencies",
+   "type": "advertising agency group",
+   "clause": "charter member agencies drawn from regional groups"
+  },
+  {
+   "name": "charter member agencies count",
+   "type": "count measurement",
+   "clause": "... charter member agencies"
+  },
+  {
+   "name": "regional groups",
+   "type": "agency grouping",
+   "clause": "... regional groups"
+  },
+  {
+   "name": "regional groups count",
+   "type": "count measurement",
+   "clause": "... regional groups"
+  }
+ ],
+ "edges": [
+  {
+   "from": "American Association of Advertising Agencies",
+   "type": "FOUNDED_AT",
+   "to": "City Hall",
+   "clause": "was founded ... at City Hall in St. Louis"
+  },
+  {
+   "from": "City Hall",
+   "type": "LOCATED_IN",
+   "to": "St. Louis",
+   "clause": "at City Hall in St. Louis"
+  },
+  {
+   "from": "charter member agencies count",
+   "type": "MEASURES",
+   "to": "charter member agencies",
+   "clause": "... charter member agencies"
+  },
+  {
+   "from": "regional groups count",
+   "type": "MEASURES",
+   "to": "regional groups",
+   "clause": "... regional groups"
+  },
+  {
+   "from": "charter member agencies",
+   "type": "DRAWN_FROM",
+   "to": "regional groups",
+   "clause": "drawn from ... regional groups"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|American Association of Advertising Agencies|organization|the American Association of Advertising Agencies was founded\nNODE|City Hall|building|at City Hall in St. Louis\nNODE|St. Louis|city|location of founding\nNODE|charter member agencies|advertising agency group|charter member agencies drawn from regional groups\nNODE|charter member agencies count|count measurement|... charter member agencies\nNODE|regional groups|agency grouping|... regional groups\nNODE|regional groups count|count measurement|... regional groups\nEDGE|American Association of Advertising Agencies|FOUNDED_AT|City Hall|was founded ... at City Hall in St. Louis\nEDGE|City Hall|LOCATED_IN|St. Louis|at City Hall in St. Louis\nEDGE|charter member agencies count|MEASURES|charter member agencies|... charter member agencies\nEDGE|regional groups count|MEASURES|regional groups|... regional groups\nEDGE|charter member agencies|DRAWN_FROM|regional groups|drawn from ... regional groups"
+}

@@ -1,0 +1,88 @@
+{
+ "id": "e5-measurement-002",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "billion ad impressions (US, Q4 2000)",
+ "elapsed_s": 56.7,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US online ad impressions",
+   "type": "ad impression volume",
+   "clause": "US online ad impressions"
+  },
+  {
+   "name": "US online ad impressions measurement",
+   "type": "ad-impression-count measurement",
+   "clause": "billion ad impressions (US, Q4 ...)"
+  },
+  {
+   "name": "AdRelevance (Jupiter Media Metrix)",
+   "type": "measurement provider",
+   "clause": "measured by AdRelevance"
+  },
+  {
+   "name": "record",
+   "type": "benchmark",
+   "clause": "a record"
+  },
+  {
+   "name": "December 2000 US online ad impressions measurement",
+   "type": "ad-impression-count measurement",
+   "clause": "more than ... billion in December"
+  },
+  {
+   "name": "November 2000 US online ad impressions measurement",
+   "type": "ad-impression-count measurement",
+   "clause": "baseline for up comparison on November"
+  },
+  {
+   "name": "Amazon.com",
+   "type": "company",
+   "clause": "Amazon.com"
+  },
+  {
+   "name": "Amazon.com impression purchase measurement",
+   "type": "ad-impression-purchase measurement",
+   "clause": "... billion impressions bought in the quarter"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US online ad impressions",
+   "type": "HAS_MEASUREMENT",
+   "to": "US online ad impressions measurement",
+   "clause": "measured by AdRelevance"
+  },
+  {
+   "from": "US online ad impressions measurement",
+   "type": "MEASURED_BY",
+   "to": "AdRelevance (Jupiter Media Metrix)",
+   "clause": "measured by AdRelevance"
+  },
+  {
+   "from": "US online ad impressions measurement",
+   "type": "SET_RECORD",
+   "to": "record",
+   "clause": "a record"
+  },
+  {
+   "from": "December 2000 US online ad impressions measurement",
+   "type": "UP_FROM",
+   "to": "November 2000 US online ad impressions measurement",
+   "clause": "up ... on November"
+  },
+  {
+   "from": "Amazon.com",
+   "type": "BOUGHT",
+   "to": "Amazon.com impression purchase measurement",
+   "clause": "bought ... impressions in the quarter"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US online ad impressions|ad impression volume|US online ad impressions\nNODE|US online ad impressions measurement|ad-impression-count measurement|billion ad impressions (US, Q4 ...)\nNODE|AdRelevance (Jupiter Media Metrix)|measurement provider|measured by AdRelevance\nNODE|record|benchmark|a record\nNODE|December 2000 US online ad impressions measurement|ad-impression-count measurement|more than ... billion in December\nNODE|November 2000 US online ad impressions measurement|ad-impression-count measurement|baseline for up comparison on November\nNODE|Amazon.com|company|Amazon.com\nNODE|Amazon.com impression purchase measurement|ad-impression-purchase measurement|... billion impressions bought in the quarter\nEDGE|US online ad impressions|HAS_MEASUREMENT|US online ad impressions measurement|measured by AdRelevance\nEDGE|US online ad impressions measurement|MEASURED_BY|AdRelevance (Jupiter Media Metrix)|measured by AdRelevance\nEDGE|US online ad impressions measurement|SET_RECORD|record|a record\nEDGE|December 2000 US online ad impressions measurement|UP_FROM|November 2000 US online ad impressions measurement|up ... on November\nEDGE|Amazon.com|BOUGHT|Amazon.com impression purchase measurement|bought ... impressions in the quarter"
+}

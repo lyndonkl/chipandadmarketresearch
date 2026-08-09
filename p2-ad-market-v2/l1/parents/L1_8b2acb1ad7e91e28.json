@@ -1,0 +1,43 @@
+{
+ "group_id": "L1|8b2acb1ad7e91e28",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "Member stations",
+   "type": "broadcaster group",
+   "grain": "Entity",
+   "reason": "singleton: distinct broadcaster group entity",
+   "child_uids": [
+    "n|e2-pricing-006|member stations|broadcaster group"
+   ]
+  },
+  {
+   "name": "Stations affiliated with national network",
+   "type": "station subset",
+   "grain": "Entity",
+   "reason": "singleton: specific station subset entity",
+   "child_uids": [
+    "n|e2-sellers-003|stations affiliated with national network|station subset"
+   ]
+  },
+  {
+   "name": "Television stations",
+   "type": "broadcast medium",
+   "grain": "Entity",
+   "reason": "singleton: television broadcast outlet entity",
+   "child_uids": [
+    "n|e3-sellers-002|television stations|broadcast medium"
+   ]
+  },
+  {
+   "name": "Television networks",
+   "type": "media network",
+   "grain": "Entity",
+   "reason": "singleton: television network organization entity",
+   "child_uids": [
+    "n|e3-sellers-002|television networks|media network"
+   ]
+  }
+ ]
+}

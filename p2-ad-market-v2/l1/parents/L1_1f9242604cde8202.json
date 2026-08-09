@@ -1,0 +1,35 @@
+{
+ "group_id": "L1|1f9242604cde8202",
+ "source": "kmeans",
+ "n_in": 4,
+ "parents": [
+  {
+   "name": "US dollar",
+   "type": "currency",
+   "grain": "Entity",
+   "reason": "same currency across unit variants; includes US dollars and USD millions",
+   "child_uids": [
+    "n|e1-scale-002|us dollars|currency",
+    "n|e5-events-003|usd millions|currency unit"
+   ]
+  },
+  {
+   "name": "four-route blend",
+   "type": "distribution blend",
+   "grain": "Entity",
+   "reason": "singleton: distinct distribution blend concept",
+   "child_uids": [
+    "n|e1-buyers-008|four-route blend|distribution blend"
+   ]
+  },
+  {
+   "name": "intent money transfer",
+   "type": "money transfer mechanism",
+   "grain": "Entity",
+   "reason": "singleton: specific money\u2011transfer mechanism in data",
+   "child_uids": [
+    "n|tu:era:6:event:9|intent-money transfer|money transfer mechanism"
+   ]
+  }
+ ]
+}

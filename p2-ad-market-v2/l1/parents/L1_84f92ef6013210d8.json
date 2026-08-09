@@ -1,0 +1,47 @@
+{
+ "group_id": "L1|84f92ef6013210d8",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Local advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "one measure across years; year abstracted to children",
+   "child_uids": [
+    "n|e3-scale-006|local advertising expenditure amount|spend measurement",
+    "n|e4-scale-008|local advertising spend 1976|spend measurement",
+    "n|e4-scale-008|local advertising spend 1993|spend measurement"
+   ]
+  },
+  {
+   "name": "Local advertising spending growth rate",
+   "type": "growth rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: a growth-rate measure of local ad spend",
+   "child_uids": [
+    "n|e6-buyers-005|local spending growth rate|spending growth rate measurement"
+   ]
+  },
+  {
+   "name": "Local advertising market share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "one share measure across years and sources; same concept for nodes5,7,8",
+   "child_uids": [
+    "n|e6-buyers-005|local ad share of us advertising dollars|media-share measurement",
+    "n|e6-buyers-006|share of total advertising by local buyers|share measurement",
+    "n|tu:era:4:field:SCALE|local advertising spend share of total|share of total measurement"
+   ]
+  },
+  {
+   "name": "Local advertising share decline",
+   "type": "change measurement",
+   "grain": "Measurement",
+   "reason": "singleton: a change measure of local ad share",
+   "child_uids": [
+    "n|e6-buyers-005|local ad share decline|change measurement"
+   ]
+  }
+ ]
+}

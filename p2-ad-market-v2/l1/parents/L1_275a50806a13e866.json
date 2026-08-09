@@ -1,0 +1,61 @@
+{
+ "group_id": "L1|275a50806a13e866",
+ "source": "kmeans",
+ "n_in": 6,
+ "parents": [
+  {
+   "name": "Classified ads",
+   "type": "ad category",
+   "grain": "Entity",
+   "reason": "singleton: unique ad category entity",
+   "child_uids": [
+    "n|e1-buyers-006|classified ads|ad category"
+   ]
+  },
+  {
+   "name": "Individuals and very small firms",
+   "type": "buyer segment",
+   "grain": "Entity",
+   "reason": "singleton: distinct buyer\u2011segment entity",
+   "child_uids": [
+    "n|e2-buyers-006|individuals and very small firms|buyer segment"
+   ]
+  },
+  {
+   "name": "Transit",
+   "type": "advertising category",
+   "grain": "Entity",
+   "reason": "singleton: separate advertising category entity",
+   "child_uids": [
+    "n|e2-medium-005|transit|advertising category"
+   ]
+  },
+  {
+   "name": "Advertising data sources",
+   "type": "source class",
+   "grain": "Entity",
+   "reason": "singleton: unique source\u2011class entity",
+   "child_uids": [
+    "n|e2-scale-012|advertising data sources|source class"
+   ]
+  },
+  {
+   "name": "Out-of-home advertising",
+   "type": "advertising segment",
+   "grain": "Entity",
+   "reason": "singleton: distinct advertising\u2011segment entity",
+   "child_uids": [
+    "n|ds-seam-001|out-of-home advertising|advertising segment"
+   ]
+  },
+  {
+   "name": "Classified ads separate reporting before 1950",
+   "type": "reporting condition",
+   "grain": "Entity",
+   "reason": "singleton: specific reporting\u2011condition entity",
+   "child_uids": [
+    "n|tu:era:2:boundary|classified ads separate reporting before 1950|reporting condition"
+   ]
+  }
+ ]
+}

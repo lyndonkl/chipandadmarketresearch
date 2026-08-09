@@ -1,0 +1,142 @@
+{
+ "id": "e5-unit_econ-003",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent gross margin per impression",
+ "elapsed_s": 87.9,
+ "error": null,
+ "n_nodes": 14,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "web ad impression",
+   "type": "advertising medium",
+   "clause": "gross margin on a web ad impression"
+  },
+  {
+   "name": "print advertising",
+   "type": "advertising medium",
+   "clause": "gross margins were print-beating"
+  },
+  {
+   "name": "Yahoo",
+   "type": "company",
+   "clause": "Yahoo's audited figure was ..."
+  },
+  {
+   "name": "Yahoo gross margin per impression",
+   "type": "margin measurement",
+   "clause": "audited figure was ..."
+  },
+  {
+   "name": "print gross margin per impression",
+   "type": "margin measurement",
+   "clause": "gross margins were print-beating"
+  },
+  {
+   "name": "Yahoo operating results",
+   "type": "financial performance",
+   "clause": "operating results were catastrophic"
+  },
+  {
+   "name": "catastrophic operating outcome",
+   "type": "outcome",
+   "clause": "operating results were catastrophic"
+  },
+  {
+   "name": "selling impression cost",
+   "type": "cost measurement",
+   "clause": "selling impression cost far more than serving it"
+  },
+  {
+   "name": "serving impression cost",
+   "type": "cost measurement",
+   "clause": "selling impression cost far more than serving it"
+  },
+  {
+   "name": "Yahoo sales and marketing expense share",
+   "type": "expense-share measurement",
+   "clause": "spent ... of revenue on sales and marketing"
+  },
+  {
+   "name": "Yahoo loss amount",
+   "type": "loss measurement",
+   "clause": "lost ... in ..."
+  },
+  {
+   "name": "ad networks",
+   "type": "market participant",
+   "clause": "made only ... gross margin"
+  },
+  {
+   "name": "ad network gross margin per impression",
+   "type": "margin measurement",
+   "clause": "made only ... gross margin"
+  },
+  {
+   "name": "publisher payment per impression",
+   "type": "payout measurement",
+   "clause": "paid the publisher out of the same impression"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Yahoo",
+   "type": "HAS_MEASUREMENT",
+   "to": "Yahoo gross margin per impression",
+   "clause": "audited figure was ..."
+  },
+  {
+   "from": "Yahoo gross margin per impression",
+   "type": "MEASURES",
+   "to": "web ad impression",
+   "clause": "gross margin on a web ad impression"
+  },
+  {
+   "from": "Yahoo gross margin per impression",
+   "type": "BEATS",
+   "to": "print gross margin per impression",
+   "clause": "gross margins were print-beating"
+  },
+  {
+   "from": "Yahoo operating results",
+   "type": "RESULTED_IN",
+   "to": "catastrophic operating outcome",
+   "clause": "operating results were catastrophic"
+  },
+  {
+   "from": "selling impression cost",
+   "type": "EXCEEDS",
+   "to": "serving impression cost",
+   "clause": "selling impression cost far more than serving it"
+  },
+  {
+   "from": "Yahoo",
+   "type": "HAS_EXPENSE_SHARE",
+   "to": "Yahoo sales and marketing expense share",
+   "clause": "spent ... of revenue on sales and marketing"
+  },
+  {
+   "from": "Yahoo",
+   "type": "INCURRED_LOSS",
+   "to": "Yahoo loss amount",
+   "clause": "lost ... in ..."
+  },
+  {
+   "from": "ad networks",
+   "type": "HAS_MEASUREMENT",
+   "to": "ad network gross margin per impression",
+   "clause": "made only ... gross margin"
+  },
+  {
+   "from": "ad networks",
+   "type": "PAY",
+   "to": "publisher payment per impression",
+   "clause": "paid the publisher out of the same impression"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|web ad impression|advertising medium|gross margin on a web ad impression\nNODE|print advertising|advertising medium|gross margins were print-beating\nNODE|Yahoo|company|Yahoo's audited figure was ...\nNODE|Yahoo gross margin per impression|margin measurement|audited figure was ...\nNODE|print gross margin per impression|margin measurement|gross margins were print-beating\nNODE|Yahoo operating results|financial performance|operating results were catastrophic\nNODE|catastrophic operating outcome|outcome|operating results were catastrophic\nNODE|selling impression cost|cost measurement|selling impression cost far more than serving it\nNODE|serving impression cost|cost measurement|selling impression cost far more than serving it\nNODE|Yahoo sales and marketing expense share|expense-share measurement|spent ... of revenue on sales and marketing\nNODE|Yahoo loss amount|loss measurement|lost ... in ...\nNODE|ad networks|market participant|made only ... gross margin\nNODE|ad network gross margin per impression|margin measurement|made only ... gross margin\nNODE|publisher payment per impression|payout measurement|paid the publisher out of the same impression\nEDGE|Yahoo|HAS_MEASUREMENT|Yahoo gross margin per impression|audited figure was ...\nEDGE|Yahoo gross margin per impression|MEASURES|web ad impression|gross margin on a web ad impression\nEDGE|Yahoo gross margin per impression|BEATS|print gross margin per impression|gross margins were print-beating\nEDGE|Yahoo operating results|RESULTED_IN|catastrophic operating outcome|operating results were catastrophic\nEDGE|selling impression cost|EXCEEDS|serving impression cost|selling impression cost far more than serving it\nEDGE|Yahoo|HAS_EXPENSE_SHARE|Yahoo sales and marketing expense share|spent ... of revenue on sales and marketing\nEDGE|Yahoo|INCURRED_LOSS|Yahoo loss amount|lost ... in ...\nEDGE|ad networks|HAS_MEASUREMENT|ad network gross margin per impression|made only ... gross margin\nEDGE|ad networks|PAY|publisher payment per impression|paid the publisher out of the same impression"
+}

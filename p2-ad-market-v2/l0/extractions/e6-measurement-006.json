@@ -1,0 +1,89 @@
+{
+ "id": "e6-measurement-006",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2008,
+ "unit": "% year-over-year growth in Google aggregate paid clicks, Q4 2008",
+ "elapsed_s": 57.0,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "began disclosing growth figure"
+  },
+  {
+   "name": "aggregate paid clicks",
+   "type": "aggregate metric",
+   "clause": "rose ... year over year"
+  },
+  {
+   "name": "Google aggregate paid-click growth rate",
+   "type": "year-over-year growth measurement",
+   "clause": "year\u2011over\u2011year growth in Q4 ..."
+  },
+  {
+   "name": "quarterly releases",
+   "type": "publication schedule",
+   "clause": "source of disclosures"
+  },
+  {
+   "name": "absolute click count",
+   "type": "metric",
+   "clause": "never disclosed absolute click count"
+  },
+  {
+   "name": "average CPC",
+   "type": "metric",
+   "clause": "never disclosed average CPC"
+  },
+  {
+   "name": "query count",
+   "type": "metric",
+   "clause": "never disclosed query count"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "DISCLOSED",
+   "to": "Google aggregate paid-click growth rate",
+   "clause": "began disclosing from quarterly releases"
+  },
+  {
+   "from": "Google aggregate paid-click growth rate",
+   "type": "MEASURES",
+   "to": "aggregate paid clicks",
+   "clause": "rose ... year over year"
+  },
+  {
+   "from": "Google aggregate paid-click growth rate",
+   "type": "MEASURED_IN",
+   "to": "quarterly releases",
+   "clause": "from quarterly releases"
+  },
+  {
+   "from": "Google",
+   "type": "EXCLUDES",
+   "to": "absolute click count",
+   "clause": "never disclosed absolute click count"
+  },
+  {
+   "from": "Google",
+   "type": "EXCLUDES",
+   "to": "average CPC",
+   "clause": "never disclosed average CPC"
+  },
+  {
+   "from": "Google",
+   "type": "EXCLUDES",
+   "to": "query count",
+   "clause": "never disclosed query count"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|began disclosing growth figure\nNODE|aggregate paid clicks|aggregate metric|rose ... year over year\nNODE|Google aggregate paid-click growth rate|year-over-year growth measurement|year\u2011over\u2011year growth in Q4 ...\nNODE|quarterly releases|publication schedule|source of disclosures\nNODE|absolute click count|metric|never disclosed absolute click count\nNODE|average CPC|metric|never disclosed average CPC\nNODE|query count|metric|never disclosed query count\nEDGE|Google|DISCLOSED|Google aggregate paid-click growth rate|began disclosing from quarterly releases\nEDGE|Google aggregate paid-click growth rate|MEASURES|aggregate paid clicks|rose ... year over year\nEDGE|Google aggregate paid-click growth rate|MEASURED_IN|quarterly releases|from quarterly releases\nEDGE|Google|EXCLUDES|absolute click count|never disclosed absolute click count\nEDGE|Google|EXCLUDES|average CPC|never disclosed average CPC\nEDGE|Google|EXCLUDES|query count|never disclosed query count"
+}

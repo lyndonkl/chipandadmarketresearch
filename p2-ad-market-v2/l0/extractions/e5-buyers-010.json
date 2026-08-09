@@ -1,0 +1,209 @@
+{
+ "id": "e5-buyers-010",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions (2000 US ad spend)",
+ "elapsed_s": 125.3,
+ "error": null,
+ "n_nodes": 19,
+ "n_edges": 16,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US national-brand advertisers",
+   "type": "advertiser group",
+   "clause": "US national-brand advertisers' measured media spend..."
+  },
+  {
+   "name": "Coen",
+   "type": "person",
+   "clause": "Coen's National geography less direct mail..."
+  },
+  {
+   "name": "Coen's National geography",
+   "type": "advertising spend dataset",
+   "clause": "Coen's National geography less direct mail, national directories, general-media direct response and non-newspaper classified"
+  },
+  {
+   "name": "direct mail",
+   "type": "media channel",
+   "clause": "less direct mail"
+  },
+  {
+   "name": "national directories",
+   "type": "media channel",
+   "clause": "less national directories"
+  },
+  {
+   "name": "general-media direct response",
+   "type": "media type",
+   "clause": "less general-media direct response"
+  },
+  {
+   "name": "non-newspaper classified",
+   "type": "media type",
+   "clause": "less non-newspaper classified"
+  },
+  {
+   "name": "IAB",
+   "type": "organization",
+   "clause": "IAB's FY2000 advertiser mix was consumer 31 percent..."
+  },
+  {
+   "name": "IAB FY2000 advertiser mix",
+   "type": "advertiser mix dataset",
+   "clause": "IAB's FY2000 advertiser mix was consumer 31 percent, computing 18, financial services 14, business services 9, media 8"
+  },
+  {
+   "name": "national-brand advertisers media spend",
+   "type": "media spend measurement",
+   "clause": "... measured media spend ... was about ..."
+  },
+  {
+   "name": "US advertising market total",
+   "type": "total ad market measurement",
+   "clause": "... market ..."
+  },
+  {
+   "name": "national-brand advertisers share of US ad market",
+   "type": "percentage measurement",
+   "clause": "... percent of ..."
+  },
+  {
+   "name": "internet market size",
+   "type": "internet ad market measurement",
+   "clause": "... internet market ..."
+  },
+  {
+   "name": "web share of advertiser budgets",
+   "type": "percentage measurement",
+   "clause": "... web was still under ... percent of their own budgets"
+  },
+  {
+   "name": "consumer advertiser mix share",
+   "type": "percentage measurement",
+   "clause": "... consumer 31 percent ..."
+  },
+  {
+   "name": "computing advertiser mix share",
+   "type": "percentage measurement",
+   "clause": "... computing 18 ..."
+  },
+  {
+   "name": "financial services advertiser mix share",
+   "type": "percentage measurement",
+   "clause": "... financial services 14 ..."
+  },
+  {
+   "name": "business services advertiser mix share",
+   "type": "percentage measurement",
+   "clause": "... business services 9 ..."
+  },
+  {
+   "name": "media advertiser mix share",
+   "type": "percentage measurement",
+   "clause": "... media 8 ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Coen",
+   "type": "CREATED",
+   "to": "Coen's National geography",
+   "clause": "Coen's National geography less direct mail..."
+  },
+  {
+   "from": "Coen's National geography",
+   "type": "EXCLUDES",
+   "to": "direct mail",
+   "clause": "less direct mail"
+  },
+  {
+   "from": "Coen's National geography",
+   "type": "EXCLUDES",
+   "to": "national directories",
+   "clause": "less national directories"
+  },
+  {
+   "from": "Coen's National geography",
+   "type": "EXCLUDES",
+   "to": "general-media direct response",
+   "clause": "less general-media direct response"
+  },
+  {
+   "from": "Coen's National geography",
+   "type": "EXCLUDES",
+   "to": "non-newspaper classified",
+   "clause": "less non-newspaper classified"
+  },
+  {
+   "from": "US national-brand advertisers",
+   "type": "HAS_MEASUREMENT",
+   "to": "national-brand advertisers media spend",
+   "clause": "... measured media spend ..."
+  },
+  {
+   "from": "national-brand advertisers share of US ad market",
+   "type": "MEASURES",
+   "to": "US national-brand advertisers",
+   "clause": "... percent of ..."
+  },
+  {
+   "from": "national-brand advertisers share of US ad market",
+   "type": "MEASURED_ON",
+   "to": "US advertising market total",
+   "clause": "... of the ... market"
+  },
+  {
+   "from": "US national-brand advertisers",
+   "type": "SUPPLIED_MOST_OF",
+   "to": "internet market size",
+   "clause": "These buyers supplied most of ..."
+  },
+  {
+   "from": "IAB",
+   "type": "PROVIDED",
+   "to": "IAB FY2000 advertiser mix",
+   "clause": "IAB's FY2000 advertiser mix was consumer 31 percent..."
+  },
+  {
+   "from": "IAB FY2000 advertiser mix",
+   "type": "INCLUDES",
+   "to": "consumer advertiser mix share",
+   "clause": "... consumer 31 percent ..."
+  },
+  {
+   "from": "IAB FY2000 advertiser mix",
+   "type": "INCLUDES",
+   "to": "computing advertiser mix share",
+   "clause": "... computing 18 ..."
+  },
+  {
+   "from": "IAB FY2000 advertiser mix",
+   "type": "INCLUDES",
+   "to": "financial services advertiser mix share",
+   "clause": "... financial services 14 ..."
+  },
+  {
+   "from": "IAB FY2000 advertiser mix",
+   "type": "INCLUDES",
+   "to": "business services advertiser mix share",
+   "clause": "... business services 9 ..."
+  },
+  {
+   "from": "IAB FY2000 advertiser mix",
+   "type": "INCLUDES",
+   "to": "media advertiser mix share",
+   "clause": "... media 8 ..."
+  },
+  {
+   "from": "US national-brand advertisers",
+   "type": "HAS_MEASUREMENT",
+   "to": "web share of advertiser budgets",
+   "clause": "... web was still under ... percent ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US national-brand advertisers|advertiser group|US national-brand advertisers' measured media spend...\nNODE|Coen|person|Coen's National geography less direct mail...\nNODE|Coen's National geography|advertising spend dataset|Coen's National geography less direct mail, national directories, general-media direct response and non-newspaper classified\nNODE|direct mail|media channel|less direct mail\nNODE|national directories|media channel|less national directories\nNODE|general-media direct response|media type|less general-media direct response\nNODE|non-newspaper classified|media type|less non-newspaper classified\nNODE|IAB|organization|IAB's FY2000 advertiser mix was consumer 31 percent...\nNODE|IAB FY2000 advertiser mix|advertiser mix dataset|IAB's FY2000 advertiser mix was consumer 31 percent, computing 18, financial services 14, business services 9, media 8\nNODE|national-brand advertisers media spend|media spend measurement|... measured media spend ... was about ...\nNODE|US advertising market total|total ad market measurement|... market ...\nNODE|national-brand advertisers share of US ad market|percentage measurement|... percent of ...\nNODE|internet market size|internet ad market measurement|... internet market ...\nNODE|web share of advertiser budgets|percentage measurement|... web was still under ... percent of their own budgets\nNODE|consumer advertiser mix share|percentage measurement|... consumer 31 percent ...\nNODE|computing advertiser mix share|percentage measurement|... computing 18 ...\n NODE|financial services advertiser mix share|percentage measurement|... financial services 14 ...\nNODE|business services advertiser mix share|percentage measurement|... business services 9 ...\nNODE|media advertiser mix share|percentage measurement|... media 8 ...\n\nEDGE|Coen|CREATED|Coen's National geography|Coen's National geography less direct mail...\nEDGE|Coen's National geography|EXCLUDES|direct mail|less direct mail\nEDGE|Coen's National geography|EXCLUDES|national directories|less national directories\nEDGE|Coen's National geography|EXCLUDES|general-media direct response|less general-media direct response\nEDGE|Coen's National geography|EXCLUDES|non-newspaper classified|less non-newspaper classified\nEDGE|US national-brand advertisers|HAS_MEASUREMENT|national-brand advertisers media spend|... measured media spend ...\nEDGE|national-brand advertisers share of US ad market|MEASURES|US national-brand advertisers|... percent of ...\nEDGE|national-brand advertisers share of US ad market|MEASURED_ON|US advertising market total|... of the ... market\nEDGE|US national-brand advertisers|SUPPLIED_MOST_OF|internet market size|These buyers supplied most of ...\nEDGE|IAB|PROVIDED|IAB FY2000 advertiser mix|IAB's FY2000 advertiser mix was consumer 31 percent...\nEDGE|IAB FY2000 advertiser mix|INCLUDES|consumer advertiser mix share|... consumer 31 percent ...\nEDGE|IAB FY2000 advertiser mix|INCLUDES|computing advertiser mix share|... computing 18 ...\nEDGE|IAB FY2000 advertiser mix|INCLUDES|financial services advertiser mix share|... financial services 14 ...\nEDGE|IAB FY2000 advertiser mix|INCLUDES|business services advertiser mix share|... business services 9 ...\nEDGE|IAB FY2000 advertiser mix|INCLUDES|media advertiser mix share|... media 8 ...\nEDGE|US national-brand advertisers|HAS_MEASUREMENT|web share of advertiser budgets|... web was still under ... percent ..."
+}

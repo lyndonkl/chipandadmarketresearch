@@ -1,0 +1,101 @@
+{
+ "id": "e4-measurement-003",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1987,
+ "unit": "percent of people-meter households with pay cable, as alleged by the networks",
+ "elapsed_s": 67.5,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "networks",
+   "type": "broadcast network",
+   "clause": "the networks"
+  },
+  {
+   "name": "people-meter panel",
+   "type": "research panel",
+   "clause": "people-meter panel's composition"
+  },
+  {
+   "name": "percent of people-meter households with pay cable",
+   "type": "take-rate measurement",
+   "clause": "33% of people-meter households on pay cable"
+  },
+  {
+   "name": "US population",
+   "type": "demographic group",
+   "clause": "26% of the US population"
+  },
+  {
+   "name": "percent of US population with pay cable",
+   "type": "take-rate measurement",
+   "clause": "26% of the US population with pay cable"
+  },
+  {
+   "name": "Nielsen",
+   "type": "audience measurement firm",
+   "clause": "Nielsen disputed both halves"
+  },
+  {
+   "name": "John Dimling",
+   "type": "person",
+   "clause": "John Dimling put the sample at about 31% pay cable"
+  }
+ ],
+ "edges": [
+  {
+   "from": "networks",
+   "type": "CHALLENGED",
+   "to": "people-meter panel",
+   "clause": "challenged the panel's composition"
+  },
+  {
+   "from": "networks",
+   "type": "PUT",
+   "to": "percent of people-meter households with pay cable",
+   "clause": "they put ... on pay cable"
+  },
+  {
+   "from": "networks",
+   "type": "COMPARED_AGAINST",
+   "to": "percent of US population with pay cable",
+   "clause": "against ... of US population"
+  },
+  {
+   "from": "percent of people-meter households with pay cable",
+   "type": "NOT_COMPARABLE_WITH",
+   "to": "percent of US population with pay cable",
+   "clause": "bases differ, not like quantities"
+  },
+  {
+   "from": "Nielsen",
+   "type": "DISPUTED",
+   "to": "percent of people-meter households with pay cable",
+   "clause": "disputed both halves"
+  },
+  {
+   "from": "Nielsen",
+   "type": "DISPUTED",
+   "to": "percent of US population with pay cable",
+   "clause": "disputed both halves"
+  },
+  {
+   "from": "John Dimling",
+   "type": "CLAIMED_RATE",
+   "to": "percent of people-meter households with pay cable",
+   "clause": "put the sample at ... pay cable"
+  },
+  {
+   "from": "John Dimling",
+   "type": "CLAIMED_RATE",
+   "to": "percent of US population with pay cable",
+   "clause": "put ... against ... nationally"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|networks|broadcast network|the networks\nNODE|people-meter panel|research panel|people-meter panel's composition\nNODE|percent of people-meter households with pay cable|take-rate measurement|33% of people-meter households on pay cable\nNODE|US population|demographic group|26% of the US population\nNODE|percent of US population with pay cable|take-rate measurement|26% of the US population with pay cable\nNODE|Nielsen|audience measurement firm|Nielsen disputed both halves\nNODE|John Dimling|person|John Dimling put the sample at about 31% pay cable\nEDGE|networks|CHALLENGED|people-meter panel|challenged the panel's composition\nEDGE|networks|PUT|percent of people-meter households with pay cable|they put ... on pay cable\nEDGE|networks|COMPARED_AGAINST|percent of US population with pay cable|against ... of US population\nEDGE|percent of people-meter households with pay cable|NOT_COMPARABLE_WITH|percent of US population with pay cable|bases differ, not like quantities\nEDGE|Nielsen|DISPUTED|percent of people-meter households with pay cable|disputed both halves\nEDGE|Nielsen|DISPUTED|percent of US population with pay cable|disputed both halves\nEDGE|John Dimling|CLAIMED_RATE|percent of people-meter households with pay cable|put the sample at ... pay cable\nEDGE|John Dimling|CLAIMED_RATE|percent of US population with pay cable|put ... against ... nationally"
+}

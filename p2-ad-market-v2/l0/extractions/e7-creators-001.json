@@ -1,0 +1,56 @@
+{
+ "id": "e7-creators-001",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "USD billions of annual revenue (pro forma combined)",
+ "elapsed_s": 49.4,
+ "error": null,
+ "n_nodes": 4,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Omnicom",
+   "type": "advertising conglomerate",
+   "clause": "advertising conglomerate Omnicom"
+  },
+  {
+   "name": "Interpublic",
+   "type": "advertising holding company",
+   "clause": "advertising holding company Interpublic"
+  },
+  {
+   "name": "largest advertising holding company",
+   "type": "advertising holding company",
+   "clause": "the largest advertising holding company"
+  },
+  {
+   "name": "pro\u2011form a combined annual revenue",
+   "type": "revenue measurement",
+   "clause": "pro\u2011form a combined annual revenue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Omnicom",
+   "type": "COMPLETED_ACQUISITION_OF",
+   "to": "Interpublic",
+   "clause": "completed its acquisition of Interpublic"
+  },
+  {
+   "from": "Omnicom",
+   "type": "FORMED",
+   "to": "largest advertising holding company",
+   "clause": "forming the largest advertising holding company"
+  },
+  {
+   "from": "pro\u2011form a combined annual revenue",
+   "type": "MEASURES",
+   "to": "largest advertising holding company",
+   "clause": "with pro\u2011form combined revenue exceeding ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Omnicom|advertising conglomerate|advertising conglomerate Omnicom\nNODE|Interpublic|advertising holding company|advertising holding company Interpublic\nNODE|largest advertising holding company|advertising holding company|the largest advertising holding company\nNODE|pro\u2011form a combined annual revenue|revenue measurement|pro\u2011form a combined annual revenue\nEDGE|Omnicom|COMPLETED_ACQUISITION_OF|Interpublic|completed its acquisition of Interpublic\nEDGE|Omnicom|FORMED|largest advertising holding company|forming the largest advertising holding company\nEDGE|pro\u2011form a combined annual revenue|MEASURES|largest advertising holding company|with pro\u2011form combined revenue exceeding ..."
+}

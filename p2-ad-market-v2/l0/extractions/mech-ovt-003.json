@@ -1,0 +1,107 @@
+{
+ "id": "mech-ovt-003",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "year (2002) in which Overture recorded the loss of its US AOL distribution relationship",
+ "elapsed_s": 77.8,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "search advertising company",
+   "clause": "Overture"
+  },
+  {
+   "name": "America Online",
+   "type": "online portal",
+   "clause": "America Online (including CompuServe)"
+  },
+  {
+   "name": "CompuServe",
+   "type": "online service",
+   "clause": "CompuServe"
+  },
+  {
+   "name": "Ask Jeeves",
+   "type": "search engine company",
+   "clause": "Ask Jeeves"
+  },
+  {
+   "name": "Earthlink",
+   "type": "internet service provider",
+   "clause": "Earthlink"
+  },
+  {
+   "name": "Overture FY2002 10-K filing",
+   "type": "regulatory filing document",
+   "clause": "Overture FY2002 10\u2011K filing"
+  },
+  {
+   "name": "America Online filing",
+   "type": "regulatory filing document",
+   "clause": "America Online filing"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "HAS_DISTRIBUTION",
+   "to": "America Online",
+   "clause": "U.S. search distribution relationship with America Online"
+  },
+  {
+   "from": "America Online",
+   "type": "INCLUDES",
+   "to": "CompuServe",
+   "clause": "including CompuServe"
+  },
+  {
+   "from": "Overture",
+   "type": "LOST_RELATIONSHIP",
+   "to": "America Online",
+   "clause": "lost US search distribution relationship in the year"
+  },
+  {
+   "from": "Overture FY2002 10-K filing",
+   "type": "RECORDED_LOSS_FOR",
+   "to": "Overture",
+   "clause": "recorded loss in Overture's filing"
+  },
+  {
+   "from": "Ask Jeeves",
+   "type": "LOST_RELATIONSHIP",
+   "to": "America Online",
+   "clause": "lost US search distribution relationship alongside Overture"
+  },
+  {
+   "from": "Earthlink",
+   "type": "LOST_RELATIONSHIP",
+   "to": "America Online",
+   "clause": "lost US search distribution relationship alongside Overture"
+  },
+  {
+   "from": "America Online filing",
+   "type": "RECORDED_FLIP_FOR",
+   "to": "Overture",
+   "clause": "flip recorded in incumbent's own filing"
+  },
+  {
+   "from": "America Online filing",
+   "type": "RECORDED_FLIP_FOR",
+   "to": "Ask Jeeves",
+   "clause": "flip recorded in incumbent's own filing"
+  },
+  {
+   "from": "America Online filing",
+   "type": "RECORDED_FLIP_FOR",
+   "to": "Earthlink",
+   "clause": "flip recorded in incumbent's own filing"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|search advertising company|Overture\nNODE|America Online|online portal|America Online (including CompuServe)\nNODE|CompuServe|online service|CompuServe\nNODE|Ask Jeeves|search engine company|Ask Jeeves\nNODE|Earthlink|internet service provider|Earthlink\nNODE|Overture FY2002 10-K filing|regulatory filing document|Overture FY2002 10\u2011K filing\nNODE|America Online filing|regulatory filing document|America Online filing\nEDGE|Overture|HAS_DISTRIBUTION|America Online|U.S. search distribution relationship with America Online\nEDGE|America Online|INCLUDES|CompuServe|including CompuServe\nEDGE|Overture|LOST_RELATIONSHIP|America Online|lost US search distribution relationship in the year\nEDGE|Overture FY2002 10-K filing|RECORDED_LOSS_FOR|Overture|recorded loss in Overture's filing\nEDGE|Ask Jeeves|LOST_RELATIONSHIP|America Online|lost US search distribution relationship alongside Overture\nEDGE|Earthlink|LOST_RELATIONSHIP|America Online|lost US search distribution relationship alongside Overture\nEDGE|America Online filing|RECORDED_FLIP_FOR|Overture|flip recorded in incumbent's own filing\nEDGE|America Online filing|RECORDED_FLIP_FOR|Ask Jeeves|flip recorded in incumbent's own filing\nEDGE|America Online filing|RECORDED_FLIP_FOR|Earthlink|flip recorded in incumbent's own filing"
+}

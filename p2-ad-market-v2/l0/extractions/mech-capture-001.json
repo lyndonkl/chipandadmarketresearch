@@ -1,0 +1,111 @@
+{
+ "id": "mech-capture-001",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2008,
+ "unit": "% of Google 2002-2008 advertising revenue growth supplied by Google Network sites (gross basis)",
+ "elapsed_s": 87.4,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 8,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google's advertising revenue growth"
+  },
+  {
+   "name": "Google web sites",
+   "type": "digital property",
+   "clause": "Google web sites supplied ... of the increase"
+  },
+  {
+   "name": "Google Network sites",
+   "type": "digital property",
+   "clause": "Google Network sites supplied ... of the increase and net share ..."
+  },
+  {
+   "name": "advertising revenue growth 2002-2008",
+   "type": "revenue growth period",
+   "clause": "Decomposition of Google's advertising revenue growth 2002-2008"
+  },
+  {
+   "name": "advertising revenue increase amount",
+   "type": "monetary increase measurement",
+   "clause": "... increase"
+  },
+  {
+   "name": "Google web sites contribution share of increase",
+   "type": "percentage measurement",
+   "clause": "Google web sites supplied ... of the increase"
+  },
+  {
+   "name": "Google Network sites contribution share of increase",
+   "type": "percentage measurement",
+   "clause": "Google Network sites ... of the increase"
+  },
+  {
+   "name": "Google 2008 advertising revenue",
+   "type": "advertising revenue amount",
+   "clause": "network's share of 2008 advertising revenue"
+  },
+  {
+   "name": "network's share of 2008 advertising revenue",
+   "type": "percentage measurement",
+   "clause": "the network's share of 2008 advertising revenue was ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "HAS_REVENUE_GROWTH",
+   "to": "advertising revenue growth 2002-2008",
+   "clause": "Google's advertising revenue growth 2002-2008"
+  },
+  {
+   "from": "advertising revenue growth 2002-2008",
+   "type": "HAS_AMOUNT",
+   "to": "advertising revenue increase amount",
+   "clause": "... increase"
+  },
+  {
+   "from": "Google web sites",
+   "type": "SUPPLIED",
+   "to": "Google web sites contribution share of increase",
+   "clause": "Google web sites supplied ... of the increase"
+  },
+  {
+   "from": "Google Network sites",
+   "type": "SUPPLIED",
+   "to": "Google Network sites contribution share of increase",
+   "clause": "Google Network sites supplied ... of the increase"
+  },
+  {
+   "from": "Google web sites contribution share of increase",
+   "type": "SHARE_OF",
+   "to": "advertising revenue increase amount",
+   "clause": "... of the increase"
+  },
+  {
+   "from": "Google Network sites contribution share of increase",
+   "type": "SHARE_OF",
+   "to": "advertising revenue increase amount",
+   "clause": "... of the increase"
+  },
+  {
+   "from": "Google Network sites",
+   "type": "SHARE_OF_2008_REVENUE",
+   "to": "network's share of 2008 advertising revenue",
+   "clause": "the network's share of 2008 advertising revenue was ..."
+  },
+  {
+   "from": "network's share of 2008 advertising revenue",
+   "type": "SHARE_OF",
+   "to": "Google 2008 advertising revenue",
+   "clause": "... of 2008 advertising revenue"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google's advertising revenue growth\nNODE|Google web sites|digital property|Google web sites supplied ... of the increase\nNODE|Google Network sites|digital property|Google Network sites supplied ... of the increase and net share ...\nNODE|advertising revenue growth 2002-2008|revenue growth period|Decomposition of Google's advertising revenue growth 2002-2008\nNODE|advertising revenue increase amount|monetary increase measurement|... increase\nNODE|Google web sites contribution share of increase|percentage measurement|Google web sites supplied ... of the increase\nNODE|Google Network sites contribution share of increase|percentage measurement|Google Network sites ... of the increase\nNODE|Google 2008 advertising revenue|advertising revenue amount|network's share of 2008 advertising revenue\nNODE|network's share of 2008 advertising revenue|percentage measurement|the network's share of 2008 advertising revenue was ...\nEDGE|Google|HAS_REVENUE_GROWTH|advertising revenue growth 2002-2008|Google's advertising revenue growth 2002-2008\nEDGE|advertising revenue growth 2002-2008|HAS_AMOUNT|advertising revenue increase amount|... increase\nEDGE|Google web sites|SUPPLIED|Google web sites contribution share of increase|Google web sites supplied ... of the increase\nEDGE|Google Network sites|SUPPLIED|Google Network sites contribution share of increase|Google Network sites supplied ... of the increase\nEDGE|Google web sites contribution share of increase|SHARE_OF|advertising revenue increase amount|... of the increase\nEDGE|Google Network sites contribution share of increase|SHARE_OF|advertising revenue increase amount|... of the increase\nEDGE|Google Network sites|SHARE_OF_2008_REVENUE|network's share of 2008 advertising revenue|the network's share of 2008 advertising revenue was ...\nEDGE|network's share of 2008 advertising revenue|SHARE_OF|Google 2008 advertising revenue|... of 2008 advertising revenue"
+}

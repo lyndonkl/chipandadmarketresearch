@@ -1,0 +1,95 @@
+{
+ "id": "mech-ovt-004",
+ "kind": "claim",
+ "era": null,
+ "about_year": 2002,
+ "unit": "USD average price per paid introduction, Overture FY2002",
+ "elapsed_s": 71.8,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Overture",
+   "type": "advertising company",
+   "clause": "Overture's average realised price per paid introduction was ..."
+  },
+  {
+   "name": "average realised price per paid introduction",
+   "type": "price measurement",
+   "clause": "average realised price per paid introduction was ..."
+  },
+  {
+   "name": "paid introductions count",
+   "type": "count measurement",
+   "clause": "on more than ... paid introductions"
+  },
+  {
+   "name": "total realised revenue from paid introductions",
+   "type": "revenue measurement",
+   "clause": "total realised revenue from paid introductions was ... over ..."
+  },
+  {
+   "name": "implied average price per paid introduction",
+   "type": "price measurement",
+   "clause": "... implies ..."
+  },
+  {
+   "name": "disclosed average price per paid introduction",
+   "type": "price measurement",
+   "clause": "consistent with the disclosed average once ... non-click revenue is removed"
+  },
+  {
+   "name": "non-click revenue share",
+   "type": "percentage measurement",
+   "clause": "sub-1% non-click revenue is removed"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Overture",
+   "type": "HAS_MEASUREMENT",
+   "to": "average realised price per paid introduction",
+   "clause": "Overture's average realised price per paid introduction was ..."
+  },
+  {
+   "from": "average realised price per paid introduction",
+   "type": "APPLIES_TO",
+   "to": "paid introductions count",
+   "clause": "... on more than ... paid introductions"
+  },
+  {
+   "from": "Overture",
+   "type": "HAS_MEASUREMENT",
+   "to": "total realised revenue from paid introductions",
+   "clause": "total realised revenue from paid introductions was ... over ..."
+  },
+  {
+   "from": "implied average price per paid introduction",
+   "type": "DERIVED_FROM",
+   "to": "total realised revenue from paid introductions",
+   "clause": "... implies ..."
+  },
+  {
+   "from": "implied average price per paid introduction",
+   "type": "BASED_ON",
+   "to": "paid introductions count",
+   "clause": "... implies ..."
+  },
+  {
+   "from": "implied average price per paid introduction",
+   "type": "CONSISTENT_WITH",
+   "to": "disclosed average price per paid introduction",
+   "clause": "consistent with the disclosed average once ... non-click revenue is removed"
+  },
+  {
+   "from": "non-click revenue share",
+   "type": "EXCLUDED_FROM",
+   "to": "disclosed average price per paid introduction",
+   "clause": "once ... non-click revenue is removed"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Overture|advertising company|Overture's average realised price per paid introduction was ...\nNODE|average realised price per paid introduction|price measurement|average realised price per paid introduction was ...\nNODE|paid introductions count|count measurement|on more than ... paid introductions\nNODE|total realised revenue from paid introductions|revenue measurement|total realised revenue from paid introductions was ... over ...\nNODE|implied average price per paid introduction|price measurement|... implies ...\nNODE|disclosed average price per paid introduction|price measurement|consistent with the disclosed average once ... non-click revenue is removed\nNODE|non-click revenue share|percentage measurement|sub-1% non-click revenue is removed\nEDGE|Overture|HAS_MEASUREMENT|average realised price per paid introduction|Overture's average realised price per paid introduction was ...\nEDGE|average realised price per paid introduction|APPLIES_TO|paid introductions count|... on more than ... paid introductions\nEDGE|Overture|HAS_MEASUREMENT|total realised revenue from paid introductions|total realised revenue from paid introductions was ... over ...\nEDGE|implied average price per paid introduction|DERIVED_FROM|total realised revenue from paid introductions|... implies ...\nEDGE|implied average price per paid introduction|BASED_ON|paid introductions count|... implies ...\nEDGE|implied average price per paid introduction|CONSISTENT_WITH|disclosed average price per paid introduction|consistent with the disclosed average once ... non-click revenue is removed\nEDGE|non-click revenue share|EXCLUDED_FROM|disclosed average price per paid introduction|once ... non-click revenue is removed"
+}

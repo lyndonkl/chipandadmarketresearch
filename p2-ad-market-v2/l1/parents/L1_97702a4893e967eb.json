@@ -1,0 +1,62 @@
+{
+ "group_id": "L1|97702a4893e967eb",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Series T 444",
+   "type": "historical data series",
+   "grain": "Entity",
+   "reason": "same series across naming variants; measurement label ignored",
+   "child_uids": [
+    "n|tu:era:1:boundary|historical statistics series t 444 advertising spend measurement|(promoted)",
+    "n|tu:era:1:field:SCALE|series t 444|historical data series"
+   ]
+  },
+  {
+   "name": "Era advertising dataset",
+   "type": "advertising dataset",
+   "grain": "Entity",
+   "reason": "singleton: distinct dataset representing an era",
+   "child_uids": [
+    "n|e2-targeting-001|era's data records|advertising dataset"
+   ]
+  },
+  {
+   "name": "Whole advertising share record",
+   "type": "complete historical advertising share record",
+   "grain": "Entity",
+   "reason": "singleton: full historical advertising share record",
+   "child_uids": [
+    "n|e5-scale-004|whole record|complete historical advertising share record"
+   ]
+  },
+  {
+   "name": "Annual advertising series",
+   "type": "data series",
+   "grain": "Entity",
+   "reason": "singleton: yearly advertising data series",
+   "child_uids": [
+    "n|tu:era:1:field:SCALE|annual advertising series|data series"
+   ]
+  },
+  {
+   "name": "Census Bureau Historical Statistics",
+   "type": "government publication",
+   "grain": "Entity",
+   "reason": "singleton: specific government statistical publication",
+   "child_uids": [
+    "n|tu:era:1:field:SCALE|census bureau historical statistics|government publication"
+   ]
+  },
+  {
+   "name": "IAB/PwC continuous US series",
+   "type": "data series",
+   "grain": "Entity",
+   "reason": "singleton: continuous US advertising series by IAB/PwC",
+   "child_uids": [
+    "n|tu:era:7:field:SCALE|iab/pwc continuous us series|data series"
+   ]
+  }
+ ]
+}

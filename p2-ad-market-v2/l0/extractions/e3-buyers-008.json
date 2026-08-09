@@ -1,0 +1,123 @@
+{
+ "id": "e3-buyers-008",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "percent of total US advertising expenditure",
+ "elapsed_s": 98.0,
+ "error": null,
+ "n_nodes": 9,
+ "n_edges": 10,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "classified buyers pool",
+   "type": "advertising buyer segment",
+   "clause": "Classified buyers - the self-serve, per-unit, intent-matched, no-agency pool"
+  },
+  {
+   "name": "total US advertising expenditure",
+   "type": "aggregate market spend",
+   "clause": "all US advertising spend"
+  },
+  {
+   "name": "classified buyers share measurement",
+   "type": "percentage share measurement",
+   "clause": "accounted for at least ... of all US advertising spend in 1975"
+  },
+  {
+   "name": "classified buyers 1950 share measurement",
+   "type": "percentage share measurement",
+   "clause": "up from ... in 1950"
+  },
+  {
+   "name": "self-serve per-unit regime",
+   "type": "advertising pricing practice",
+   "clause": "the self-serve, per-unit regime"
+  },
+  {
+   "name": "directory advertising",
+   "type": "advertising segment",
+   "clause": "directory advertising"
+  },
+  {
+   "name": "combined classified and directory pool",
+   "type": "advertising buyer segment",
+   "clause": "classified + directory pool"
+  },
+  {
+   "name": "combined pool share measurement",
+   "type": "percentage share measurement",
+   "clause": "raises the pool to roughly ..."
+  },
+  {
+   "name": "separate reporting",
+   "type": "reporting category",
+   "clause": "not separately reported before ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "classified buyers share measurement",
+   "type": "MEASURES",
+   "to": "classified buyers pool",
+   "clause": "accounted for at least ..."
+  },
+  {
+   "from": "classified buyers share measurement",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "of all US advertising spend"
+  },
+  {
+   "from": "classified buyers share measurement",
+   "type": "UP_FROM",
+   "to": "classified buyers 1950 share measurement",
+   "clause": "up from ..."
+  },
+  {
+   "from": "classified buyers pool",
+   "type": "OPERATES_IN",
+   "to": "self-serve per-unit regime",
+   "clause": "self-serve, per-unit, intent-matched, no-agency pool"
+  },
+  {
+   "from": "directory advertising",
+   "type": "USES",
+   "to": "self-serve per-unit regime",
+   "clause": "ran on the same self-serve per-unit regime"
+  },
+  {
+   "from": "directory advertising",
+   "type": "NOT_REPORTED_BEFORE",
+   "to": "separate reporting",
+   "clause": "not separately reported before ..."
+  },
+  {
+   "from": "combined classified and directory pool",
+   "type": "MEASURES",
+   "to": "combined pool share measurement",
+   "clause": "raises the pool to roughly ..."
+  },
+  {
+   "from": "combined pool share measurement",
+   "type": "SHARE_OF",
+   "to": "total US advertising expenditure",
+   "clause": "of total US advertising expenditure"
+  },
+  {
+   "from": "directory advertising",
+   "type": "CONTRIBUTES_TO",
+   "to": "combined classified and directory pool",
+   "clause": "adding directory advertising ... raises the pool"
+  },
+  {
+   "from": "combined classified and directory pool",
+   "type": "RAISES_TO",
+   "to": "combined pool share measurement",
+   "clause": "raises the pool to roughly ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|classified buyers pool|advertising buyer segment|Classified buyers - the self-serve, per-unit, intent-matched, no-agency pool\nNODE|total US advertising expenditure|aggregate market spend|all US advertising spend\nNODE|classified buyers share measurement|percentage share measurement|accounted for at least ... of all US advertising spend in 1975\nNODE|classified buyers 1950 share measurement|percentage share measurement|up from ... in 1950\nNODE|self-serve per-unit regime|advertising pricing practice|the self-serve, per-unit regime\nNODE|directory advertising|advertising segment|directory advertising\nNODE|combined classified and directory pool|advertising buyer segment|classified + directory pool\nNODE|combined pool share measurement|percentage share measurement|raises the pool to roughly ...\nNODE|separate reporting|reporting category|not separately reported before ...\n\nEDGE|classified buyers share measurement|MEASURES|classified buyers pool|accounted for at least ...\nEDGE|classified buyers share measurement|SHARE_OF|total US advertising expenditure|of all US advertising spend\nEDGE|classified buyers share measurement|UP_FROM|classified buyers 1950 share measurement|up from ...\nEDGE|classified buyers pool|OPERATES_IN|self-serve per-unit regime|self-serve, per-unit, intent-matched, no-agency pool\nEDGE|directory advertising|USES|self-serve per-unit regime|ran on the same self-serve per-unit regime\nEDGE|directory advertising|NOT_REPORTED_BEFORE|separate reporting|not separately reported before ...\nEDGE|combined classified and directory pool|MEASURES|combined pool share measurement|raises the pool to roughly ...\nEDGE|combined pool share measurement|SHARE_OF|total US advertising expenditure|of total US advertising expenditure\nEDGE|directory advertising|CONTRIBUTES_TO|combined classified and directory pool|adding directory advertising ... raises the pool\nEDGE|combined classified and directory pool|RAISES_TO|combined pool share measurement|raises the pool to roughly ..."
+}

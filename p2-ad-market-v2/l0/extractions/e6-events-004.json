@@ -1,0 +1,132 @@
+{
+ "id": "e6-events-004",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2004,
+ "unit": "year (2004-12), GEICO v. Google bench ruling",
+ "elapsed_s": 100.5,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Judge Brinkema",
+   "type": "person",
+   "clause": "Judge Brinkema"
+  },
+  {
+   "name": "GEICO",
+   "type": "insurance company",
+   "clause": "GEICO"
+  },
+  {
+   "name": "Google",
+   "type": "technology company",
+   "clause": "Google"
+  },
+  {
+   "name": "GEICO v. Google",
+   "type": "legal case",
+   "clause": "the case GEICO v. Google (E.D. Va.)"
+  },
+  {
+   "name": "Eastern District of Virginia",
+   "type": "court jurisdiction",
+   "clause": "E.D. Va."
+  },
+  {
+   "name": "Lanham Act",
+   "type": "statutory law",
+   "clause": "the Lanham Act"
+  },
+  {
+   "name": "written opinion",
+   "type": "judicial document",
+   "clause": "written opinion following on August"
+  },
+  {
+   "name": "Google trademark keyword sale",
+   "type": "advertising practice",
+   "clause": "Google's sale of its trademarks as AdWords keywords"
+  },
+  {
+   "name": "ads using trademarks in headings or text",
+   "type": "ad content practice",
+   "clause": "ads using the marks in their headings or text"
+  },
+  {
+   "name": "earlier reported decision",
+   "type": "court decision",
+   "clause": "the earlier reported decision at 330 F. Supp. 2d 700"
+  },
+  {
+   "name": "motion-to-dismiss stage",
+   "type": "legal procedural stage",
+   "clause": "the motion-to-dismiss stage"
+  },
+  {
+   "name": "use in commerce question",
+   "type": "legal issue",
+   "clause": "'use in commerce' question"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Judge Brinkema",
+   "type": "MADE_RULING_IN",
+   "to": "GEICO v. Google",
+   "clause": "ruled from the bench"
+  },
+  {
+   "from": "Judge Brinkema",
+   "type": "AUTHORED",
+   "to": "written opinion",
+   "clause": "authored written opinion"
+  },
+  {
+   "from": "written opinion",
+   "type": "ISSUED_FOR",
+   "to": "GEICO v. Google",
+   "clause": "issued for case"
+  },
+  {
+   "from": "GEICO v. Google",
+   "type": "FILED_IN",
+   "to": "Eastern District of Virginia",
+   "clause": "filed in Eastern District of Virginia"
+  },
+  {
+   "from": "Google trademark keyword sale",
+   "type": "NOT_VIOLATE",
+   "to": "Lanham Act",
+   "clause": "GEICO had not shown violation"
+  },
+  {
+   "from": "ads using trademarks in headings or text",
+   "type": "POTENTIALLY_INFRINGE",
+   "to": "Lanham Act",
+   "clause": "could infringe trademarks"
+  },
+  {
+   "from": "earlier reported decision",
+   "type": "IS",
+   "to": "motion-to-dismiss stage",
+   "clause": "is the motion-to-dismiss stage"
+  },
+  {
+   "from": "motion-to-dismiss stage",
+   "type": "WENT_AGAINST",
+   "to": "Google",
+   "clause": "went against Google on use in commerce"
+  },
+  {
+   "from": "motion-to-dismiss stage",
+   "type": "CONCERNS",
+   "to": "use in commerce question",
+   "clause": "concerns use in commerce question"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Judge Brinkema|person|Judge Brinkema\nNODE|GEICO|insurance company|GEICO\nNODE|Google|technology company|Google\nNODE|GEICO v. Google|legal case|the case GEICO v. Google (E.D. Va.)\nNODE|Eastern District of Virginia|court jurisdiction|E.D. Va.\nNODE|Lanham Act|statutory law|the Lanham Act\nNODE|written opinion|judicial document|written opinion following on August\nNODE|Google trademark keyword sale|advertising practice|Google's sale of its trademarks as AdWords keywords\nNODE|ads using trademarks in headings or text|ad content practice|ads using the marks in their headings or text\nNODE|earlier reported decision|court decision|the earlier reported decision at 330 F. Supp. 2d 700\nNODE|motion-to-dismiss stage|legal procedural stage|the motion-to-dismiss stage\nNODE|use in commerce question|legal issue|'use in commerce' question\nEDGE|Judge Brinkema|MADE_RULING_IN|GEICO v. Google|ruled from the bench\nEDGE|Judge Brinkema|AUTHORED|written opinion|authored written opinion\nEDGE|written opinion|ISSUED_FOR|GEICO v. Google|issued for case\nEDGE|GEICO v. Google|FILED_IN|Eastern District of Virginia|filed in Eastern District of Virginia\nEDGE|Google trademark keyword sale|NOT_VIOLATE|Lanham Act|GEICO had not shown violation\nEDGE|ads using trademarks in headings or text|POTENTIALLY_INFRINGE|Lanham Act|could infringe trademarks\nEDGE|earlier reported decision|IS|motion-to-dismiss stage|is the motion-to-dismiss stage\nEDGE|motion-to-dismiss stage|WENT_AGAINST|Google|went against Google on use in commerce\nEDGE|motion-to-dismiss stage|CONCERNS|use in commerce question|concerns use in commerce question"
+}

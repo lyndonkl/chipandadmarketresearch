@@ -1,0 +1,79 @@
+{
+ "id": "e6-scale-008",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions, US local advertising 2007",
+ "elapsed_s": 79.3,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 1,
+ "nodes": [
+  {
+   "name": "US local advertising spend",
+   "type": "spend measurement",
+   "clause": "totalled ... in 2002 and ... in 2007"
+  },
+  {
+   "name": "Auction era (2000-2009)",
+   "type": "era",
+   "clause": "the auction era"
+  },
+  {
+   "name": "local budgets",
+   "type": "advertising budget",
+   "clause": "local budgets"
+  },
+  {
+   "name": "search advertising",
+   "type": "advertising channel",
+   "clause": "search"
+  },
+  {
+   "name": "digital directories",
+   "type": "online directory platform",
+   "clause": "directories going digital"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US local advertising spend",
+   "type": "FLAT_IN_NOMINAL_TERMS_ACROSS",
+   "to": "Auction era (2000-2009)",
+   "clause": "essentially flat in nominal terms across the era"
+  },
+  {
+   "from": "US local advertising spend",
+   "type": "SHRINKING_IN_REAL_TERMS",
+   "to": "Auction era (2000-2009)",
+   "clause": "shrinking in real terms"
+  },
+  {
+   "from": "US local advertising spend",
+   "type": "FIRST_VISIBLE_SIGN_OF",
+   "to": "local budgets",
+   "clause": "first visible sign of local budgets leaking to search and directories going digital"
+  },
+  {
+   "from": "local budgets",
+   "type": "LEAKED_TO",
+   "to": "search advertising",
+   "clause": "leaking to search"
+  },
+  {
+   "from": "local budgets",
+   "type": "LEAKED_TO",
+   "to": "digital directories",
+   "clause": "leaking to directories going digital"
+  }
+ ],
+ "repairs": [
+  {
+   "kind": "long_relation_type_kept",
+   "type": "FLAT_IN_NOMINAL_TERMS_ACROSS",
+   "line": "EDGE|US local advertising spend|FLAT_IN_NOMINAL_TERMS_ACROSS|Auction era (2000-2009)|essentially flat in nominal terms across the era"
+  }
+ ],
+ "raw": "NODE|US local advertising spend|spend measurement|totalled ... in 2002 and ... in 2007\nNODE|Auction era (2000-2009)|era|the auction era\nNODE|local budgets|advertising budget|local budgets\nNODE|search advertising|advertising channel|search\nNODE|digital directories|online directory platform|directories going digital\nEDGE|US local advertising spend|FLAT_IN_NOMINAL_TERMS_ACROSS|Auction era (2000-2009)|essentially flat in nominal terms across the era\nEDGE|US local advertising spend|SHRINKING_IN_REAL_TERMS|Auction era (2000-2009)|shrinking in real terms\nEDGE|US local advertising spend|FIRST_VISIBLE_SIGN_OF|local budgets|first visible sign of local budgets leaking to search and directories going digital\nEDGE|local budgets|LEAKED_TO|search advertising|leaking to search\nEDGE|local budgets|LEAKED_TO|digital directories|leaking to directories going digital"
+}

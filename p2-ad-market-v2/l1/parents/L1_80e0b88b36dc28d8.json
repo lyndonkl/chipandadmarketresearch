@@ -1,0 +1,25 @@
+{
+ "group_id": "L1|80e0b88b36dc28d8",
+ "source": "kmeans",
+ "n_in": 2,
+ "parents": [
+  {
+   "name": "Transaction cost per DSP dollar",
+   "type": "cost measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct cost measure about transaction costs",
+   "child_uids": [
+    "n|e7-pricing-005|transaction cost amount per dsp dollar|cost measurement"
+   ]
+  },
+  {
+   "name": "Distribution cost per query",
+   "type": "cost-per-query measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct cost measure about distribution costs",
+   "child_uids": [
+    "n|e7-unit_econ-002|distribution cost per query fy2025|cost-per-query measurement"
+   ]
+  }
+ ]
+}

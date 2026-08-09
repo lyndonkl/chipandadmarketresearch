@@ -1,0 +1,93 @@
+ROLE
+You build a HIGHER rung of an abstraction ladder over a knowledge graph about the history of the US
+advertising market. You are given a GROUP of meta nodes from the layer below — each already an
+abstraction ("Google", "Newspaper national-brand advertising spend"). Your job: define the PARENT
+KIND nodes one level up that group these by the SAME KIND OF THING. Each parent is a NEW node pointing
+DOWN to its children, which are never changed. You group by KIND, not by identity: Google, Yahoo and
+Overture are different companies but the same KIND — a search advertising platform. You name each kind.
+
+WHAT A KIND PARENT IS
+It groups children that are THE SAME KIND OF THING, abstracting away WHICH specific one:
+- Google, Yahoo, Overture, AOL Search -> "search advertising platform".
+- NBC, CBS, ABC -> "broadcast network".
+- newspapers, radio, television, direct mail (as media) -> "advertising medium".
+This is looser than the rung below (which grouped the SAME thing); here, different specific things of
+one kind share a parent. The specific identities live on the children.
+
+PREFER BROAD MARKET ROLES. Different SUB-TYPES of one role belong to ONE kind at this rung. Circulation
+audit, audience audit and directory audit are one "audit" kind — not four. Different auction mechanisms
+are one "auction mechanism" kind. A spend total and a spend-by-medium are one "media-spend measurement"
+kind. Do NOT split a role into its sub-types here — that hair-splitting barely compresses and defeats
+the whole point of the rung.
+
+WHAT YOU SEE
+Each node: [idx] name | type | grain | member types: <histogram of its children's types>. The member
+types are your best signal for kind. GRAIN is Entity, Measurement, or Dimension.
+
+NODE CLASS — the hard rule
+An Entity/Dimension kind has only Entity/Dimension children; a Measurement kind has only Measurement
+children. A company-kind and a spend-measurement-kind never share a parent.
+
+NAME THE KIND BY ITS MARKET ROLE — NEVER GENERICALLY
+BANNED kind names: "company", "organization", "entity", "thing", "measurement", "metric", "concept",
+"business". They carry no information and collapse the ladder. Name the kind by what it DOES in the ad
+market: search advertising platform, broadcast network, advertising agency, ad exchange, audience-
+measurement firm, advertising medium, media-spend measurement, audience-share measurement, circulation
+metric, auction mechanism, pricing rule, cost measurement, ...
+
+WHAT STAYS UNDER DIFFERENT KINDS
+- Different market role: a search platform is not a broadcast network is not an agency is not a
+  measurement firm.
+- Different measured quantity: a spend, a share, a count, a circulation, a duration and a price are
+  DIFFERENT kinds — never one "measurement" blob. The newspaper spend, receipts, count, circulation
+  and share measures are five kinds, not one.
+- When two children are genuinely different kinds, keep them apart even if a generic word would cover
+  both.
+
+GROUP DECISIVELY BY ROLE. The danger at THIS rung is the opposite of the one below: OVER-splitting
+into hair-thin singletons that barely compress. When two children play the SAME role in the ad market,
+put them under one kind — even if their sub-type, period, or wording differs. Split only when the ROLE
+genuinely differs: a search platform vs a broadcast network vs an agency vs a measurement firm; a
+spend measure vs a share measure vs a count vs a price. Reserve a singleton for a child whose market
+role nothing else in the pile shares. Never split a single role into sub-types, and never reach for a
+banned generic name.
+
+PROCEDURE
+1. Read every node; name to yourself its KIND — its role in the ad market — ignoring its specific identity.
+2. Split by node class: Measurement vs Entity/Dimension. Never a parent across both.
+3. Group children that share a market-role kind. Name each kind by its role, never generically.
+4. Assign every node's idx to exactly one kind. A lone kind is a singleton.
+5. Think privately, then print ONLY the output lines.
+
+OUTPUT — line-based pipe, nothing else
+For each kind, one GROUP line then one MEMBER line per child:
+  GROUP|<gid>|<kind_name>|<kind_type>|<grain>|<reason, at most 14 words>
+  MEMBER|<gid>|<idx>
+- <gid> = G1, G2, ... ; <grain> = Entity or Measurement ; <idx> = the [n], copied exactly.
+- Every idx appears in exactly one MEMBER line. A singleton is a GROUP with one MEMBER; begin its
+  reason "singleton: ". No JSON, no prose, no blank lines, no "|" inside a field. First character is "G".
+
+WORKED EXAMPLE — group by kind, ban generic names, keep quantities apart
+INPUT
+[1] Google | company | Entity | member types: company, organization, internet company
+[2] Yahoo | internet company | Entity | member types: company, portal
+[3] Overture | search advertising company | Entity | member types: company, platform
+[4] NBC | broadcast network | Entity | member types: network, company
+[5] CBS | broadcast network | Entity | member types: network
+[6] Newspaper national-brand advertising spend | ad-spend measurement | Measurement | member types: spend measurement
+[7] Newspaper circulation | circulation metric | Measurement | member types: circulation
+OUTPUT
+GROUP|G1|search advertising platform|ad platform kind|Entity|Google, Yahoo, Overture are one kind of platform, not one firm
+MEMBER|G1|1
+MEMBER|G1|2
+MEMBER|G1|3
+GROUP|G2|broadcast network|media network kind|Entity|NBC and CBS are the same kind of network
+MEMBER|G2|4
+MEMBER|G2|5
+GROUP|G3|media-spend measurement|spend metric kind|Measurement|singleton: a spend measure, distinct from a circulation
+MEMBER|G3|6
+GROUP|G4|circulation metric|audience-size metric kind|Measurement|singleton: readers counted, a different quantity from spend
+MEMBER|G4|7
+
+NOW BUILD THE KIND PARENTS FOR THIS GROUP
+{PILE}

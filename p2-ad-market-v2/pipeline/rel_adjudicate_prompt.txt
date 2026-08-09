@@ -1,0 +1,62 @@
+ROLE
+You build the META-RELATION vocabulary for one rung of an abstraction ladder over a knowledge graph
+about the history of the US advertising market. You are given a PILE of raw relationship TYPES (the
+verbs the graph puts on its edges), each with a count and a couple of example edges. Your job: group
+the raw types that express THE SAME RELATION into a parent META-RELATION, and give each a clean
+canonical name. You are not merging edges — you are naming a higher-level relation and listing which
+raw types fall under it. A raw type that shares its meaning with nothing else gets its own singleton.
+
+WHAT SHARES A META-RELATION
+Group raw types that express the SAME kind of relationship, abstracting away wording, tense, and
+inflection:
+- ACQUIRED, ACQUIRES, ACQUIRED_FROM, BOUGHT, PURCHASED, COMPLETED_ACQUISITION_OF -> ACQUIRED.
+- PAID, FUNDED, FINANCED, SPONSORED, PAID_COMMISSION_RATE -> FUNDED.
+- ABANDONED, INCURRED_LOSS, FAILED_DURING, RECORDED_LOSS_FOR, LOST -> INCURRED_LOSS.
+
+WHAT STAYS APART
+- Different relation meaning: ACQUIRED vs PAID vs MEASURES vs EXCLUDES are different relations — never
+  merged on surface word overlap.
+- Opposite meaning: GREW vs SHRANK, INCLUDES vs EXCLUDES, ACQUIRED vs DIVESTED.
+- Different measured quantity: HAS_REVENUE vs HAS_SPEND vs HAS_SHARE are distinct (a revenue, a spend
+  and a share are different things) — keep apart unless plainly identical.
+- A relation and its inverse (RECEIVED vs PAID) may be one relation from two ends OR two relations —
+  judge by meaning; when unsure, keep apart.
+
+DON'T FORCE IT. The pile was clustered loosely; you decide. A raw type with no clear synonym is its
+OWN singleton meta-relation. A missed grouping is safe — the next rung up can still catch it. A WRONG
+grouping (two different relations under one name) corrupts the meta-graph, so when unsure, keep apart.
+
+INPUT
+Each raw type is listed as: [idx] RAW_TYPE (count) e.g. subject -> object; ...
+
+OUTPUT — line-based pipe, nothing else
+For each meta-relation, one METAREL line, then one TYPE line per raw type under it:
+  METAREL|<gid>|<META_RELATION_NAME>|<reason, at most 12 words>
+  TYPE|<gid>|<idx>
+- <gid> = M1, M2, M3, ... ; <META_RELATION_NAME> = UPPER_SNAKE_CASE, a clean canonical verb phrase.
+- <idx> = the [n] of the raw type; copy it exactly; never invent, drop, or renumber.
+- Every idx appears in exactly one TYPE line.
+- A singleton is a METAREL with one TYPE; begin its reason with "singleton: ".
+- No JSON, no prose, no headers, no blank lines, no "|" inside a field. First character is "M".
+
+WORKED EXAMPLE
+INPUT
+[1] ACQUIRED (35) e.g. Google -> YouTube
+[2] ACQUIRES (4) e.g. holding company -> agency
+[3] COMPLETED_ACQUISITION_OF (2) e.g. WPP -> agency
+[4] PAID (12) e.g. publisher -> agent
+[5] FUNDED (3) e.g. investor -> startup
+[6] MEASURES (786) e.g. share measurement -> radio advertising
+OUTPUT
+METAREL|M1|ACQUIRED|acquisition verbs across tense and phrasing
+TYPE|M1|1
+TYPE|M1|2
+TYPE|M1|3
+METAREL|M2|FUNDED|paying and funding money
+TYPE|M2|4
+TYPE|M2|5
+METAREL|M3|MEASURES|singleton: a measurement relation, distinct from money flows
+TYPE|M3|6
+
+NOW BUILD THE META-RELATIONS FOR THIS PILE
+{PILE}

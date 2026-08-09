@@ -1,0 +1,90 @@
+{
+ "id": "e2-buyers-003",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1934,
+ "unit": "agency subscribers to the Cooperative Analysis of Broadcasting in its fourth year",
+ "elapsed_s": 56.5,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Cooperative Analysis of Broadcasting",
+   "type": "organization",
+   "clause": "the CAB"
+  },
+  {
+   "name": "agency subscribers",
+   "type": "subscriber group",
+   "clause": "agency subscribers outnumbered advertiser subscribers"
+  },
+  {
+   "name": "advertiser subscribers",
+   "type": "subscriber group",
+   "clause": "advertiser subscribers ..."
+  },
+  {
+   "name": "agency subscriber count",
+   "type": "count measurement",
+   "clause": "agency subscribers (27)"
+  },
+  {
+   "name": "advertiser subscriber count",
+   "type": "count measurement",
+   "clause": "advertiser subscribers (17)"
+  },
+  {
+   "name": "audience data",
+   "type": "market data product",
+   "clause": "buyer of audience data"
+  }
+ ],
+ "edges": [
+  {
+   "from": "agency subscriber count",
+   "type": "MEASURES",
+   "to": "agency subscribers",
+   "clause": "agency subscriber count measures agency subscribers"
+  },
+  {
+   "from": "advertiser subscriber count",
+   "type": "MEASURES",
+   "to": "advertiser subscribers",
+   "clause": "advertiser subscriber count measures advertiser subscribers"
+  },
+  {
+   "from": "agency subscribers",
+   "type": "OUTNUMBERED",
+   "to": "advertiser subscribers",
+   "clause": "agency subscribers outnumbered advertiser subscribers"
+  },
+  {
+   "from": "agency subscribers",
+   "type": "SUBSCRIBED_TO",
+   "to": "Cooperative Analysis of Broadcasting",
+   "clause": "agency subscribers subscribed to the CAB"
+  },
+  {
+   "from": "advertiser subscribers",
+   "type": "SUBSCRIBED_TO",
+   "to": "Cooperative Analysis of Broadcasting",
+   "clause": "advertiser subscribers subscribed to the CAB"
+  },
+  {
+   "from": "agency subscribers",
+   "type": "REPLACED",
+   "to": "advertiser subscribers",
+   "clause": "agency displaced advertiser as buyer of audience data"
+  },
+  {
+   "from": "agency subscribers",
+   "type": "IS_BUYER_OF",
+   "to": "audience data",
+   "clause": "agency is buyer of audience data"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Cooperative Analysis of Broadcasting|organization|the CAB\nNODE|agency subscribers|subscriber group|agency subscribers outnumbered advertiser subscribers\nNODE|advertiser subscribers|subscriber group|advertiser subscribers ...\nNODE|agency subscriber count|count measurement|agency subscribers (27)\nNODE|advertiser subscriber count|count measurement|advertiser subscribers (17)\nNODE|audience data|market data product|buyer of audience data\nEDGE|agency subscriber count|MEASURES|agency subscribers|agency subscriber count measures agency subscribers\nEDGE|advertiser subscriber count|MEASURES|advertiser subscribers|advertiser subscriber count measures advertiser subscribers\nEDGE|agency subscribers|OUTNUMBERED|advertiser subscribers|agency subscribers outnumbered advertiser subscribers\nEDGE|agency subscribers|SUBSCRIBED_TO|Cooperative Analysis of Broadcasting|agency subscribers subscribed to the CAB\nEDGE|advertiser subscribers|SUBSCRIBED_TO|Cooperative Analysis of Broadcasting|advertiser subscribers subscribed to the CAB\nEDGE|agency subscribers|REPLACED|advertiser subscribers|agency displaced advertiser as buyer of audience data\nEDGE|agency subscribers|IS_BUYER_OF|audience data|agency is buyer of audience data"
+}

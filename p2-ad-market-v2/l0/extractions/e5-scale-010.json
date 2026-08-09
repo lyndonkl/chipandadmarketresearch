@@ -1,0 +1,189 @@
+{
+ "id": "e5-scale-010",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "percent of total US ad spend",
+ "elapsed_s": 99.4,
+ "error": null,
+ "n_nodes": 15,
+ "n_edges": 16,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "national-brand advertising",
+   "type": "advertising category",
+   "clause": "National-brand advertising was ... percent of the US measured advertising market"
+  },
+  {
+   "name": "US measured advertising market",
+   "type": "advertising market",
+   "clause": "... of the US measured advertising market"
+  },
+  {
+   "name": "national-brand advertising share of US measured advertising market",
+   "type": "media-share measurement",
+   "clause": "was ... percent of the US measured advertising market"
+  },
+  {
+   "name": "national-brand advertising spend amount",
+   "type": "revenue measurement",
+   "clause": "about ... of national-brand advertising"
+  },
+  {
+   "name": "television",
+   "type": "advertising medium",
+   "clause": "audience-bought brand money in television"
+  },
+  {
+   "name": "magazines",
+   "type": "advertising medium",
+   "clause": "audience-bought brand money in magazines"
+  },
+  {
+   "name": "business papers",
+   "type": "advertising medium",
+   "clause": "audience-bought brand money in business papers"
+  },
+  {
+   "name": "national newspaper display",
+   "type": "advertising medium",
+   "clause": "audience-bought brand money in national newspaper display"
+  },
+  {
+   "name": "national out-of-home",
+   "type": "advertising medium",
+   "clause": "audience-bought brand money in national out-of-home"
+  },
+  {
+   "name": "national miscellaneous",
+   "type": "advertising medium",
+   "clause": "audience-bought brand money in national miscellaneous"
+  },
+  {
+   "name": "direct-response advertising",
+   "type": "advertising spend category",
+   "clause": "direct-response money that sits inside Coen's National geography"
+  },
+  {
+   "name": "classified advertising",
+   "type": "advertising spend category",
+   "clause": "classified money that sits inside Coen's National geography"
+  },
+  {
+   "name": "Coen's National geography",
+   "type": "advertising dataset",
+   "clause": "Coen's National geography"
+  },
+  {
+   "name": "three lenses",
+   "type": "measurement perspective",
+   "clause": "All three lenses put it first at this anchor"
+  },
+  {
+   "name": "local retail advertising",
+   "type": "advertising category",
+   "clause": "local retail's"
+  }
+ ],
+ "edges": [
+  {
+   "from": "national-brand advertising",
+   "type": "HAS_SHARE",
+   "to": "national-brand advertising share of US measured advertising market",
+   "clause": "was ... percent of the US measured advertising market"
+  },
+  {
+   "from": "national-brand advertising share of US measured advertising market",
+   "type": "SHARE_OF",
+   "to": "US measured advertising market",
+   "clause": "... of the US measured advertising market"
+  },
+  {
+   "from": "national-brand advertising",
+   "type": "HAS_SPEND",
+   "to": "national-brand advertising spend amount",
+   "clause": "about ..."
+  },
+  {
+   "from": "national-brand advertising",
+   "type": "INCLUDES",
+   "to": "television",
+   "clause": "audience-bought brand money in television"
+  },
+  {
+   "from": "national-brand advertising",
+   "type": "INCLUDES",
+   "to": "magazines",
+   "clause": "audience-bought brand money in magazines"
+  },
+  {
+   "from": "national-brand advertising",
+   "type": "INCLUDES",
+   "to": "business papers",
+   "clause": "audience-bought brand money in business papers"
+  },
+  {
+   "from": "national-brand advertising",
+   "type": "INCLUDES",
+   "to": "national newspaper display",
+   "clause": "audience-bought brand money in national newspaper display"
+  },
+  {
+   "from": "national-brand advertising",
+   "type": "INCLUDES",
+   "to": "national out-of-home",
+   "clause": "audience-bought brand money in national out-of-home"
+  },
+  {
+   "from": "national-brand advertising",
+   "type": "INCLUDES",
+   "to": "national miscellaneous",
+   "clause": "audience-bought brand money in national miscellaneous"
+  },
+  {
+   "from": "national-brand advertising share of US measured advertising market",
+   "type": "EXCLUDES",
+   "to": "direct-response advertising",
+   "clause": "after removing the direct-response ... that sits inside Coen's National geography"
+  },
+  {
+   "from": "national-brand advertising share of US measured advertising market",
+   "type": "EXCLUDES",
+   "to": "classified advertising",
+   "clause": "after removing the classified ... that sits inside Coen's National geography"
+  },
+  {
+   "from": "direct-response advertising",
+   "type": "PART_OF",
+   "to": "Coen's National geography",
+   "clause": "sits inside Coen's National geography"
+  },
+  {
+   "from": "classified advertising",
+   "type": "PART_OF",
+   "to": "Coen's National geography",
+   "clause": "sits inside Coen's National geography"
+  },
+  {
+   "from": "three lenses",
+   "type": "RANKED_FIRST",
+   "to": "national-brand advertising",
+   "clause": "All three lenses put it first at this anchor"
+  },
+  {
+   "from": "national-brand advertising",
+   "type": "OVERLAPS_WITH",
+   "to": "local retail advertising",
+   "clause": "its interval overlaps local retail's"
+  },
+  {
+   "from": "national-brand advertising",
+   "type": "CARRIED_AS_UNRANKED",
+   "to": "local retail advertising",
+   "clause": "the pair is carried as unranked"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|national-brand advertising|advertising category|National-brand advertising was ... percent of the US measured advertising market\nNODE|US measured advertising market|advertising market|... of the US measured advertising market\nNODE|national-brand advertising share of US measured advertising market|media-share measurement|was ... percent of the US measured advertising market\nNODE|national-brand advertising spend amount|revenue measurement|about ... of national-brand advertising\nNODE|television|advertising medium|audience-bought brand money in television\nNODE|magazines|advertising medium|audience-bought brand money in magazines\nNODE|business papers|advertising medium|audience-bought brand money in business papers\nNODE|national newspaper display|advertising medium|audience-bought brand money in national newspaper display\nNODE|national out-of-home|advertising medium|audience-bought brand money in national out-of-home\nNODE|national miscellaneous|advertising medium|audience-bought brand money in national miscellaneous\nNODE|direct-response advertising|advertising spend category|direct-response money that sits inside Coen's National geography\n NODE|classified advertising|advertising spend category|classified money that sits inside Coen's National geography\nNODE|Coen's National geography|advertising dataset|Coen's National geography\nNODE|three lenses|measurement perspective|All three lenses put it first at this anchor\nNODE|local retail advertising|advertising category|local retail's\nEDGE|national-brand advertising|HAS_SHARE|national-brand advertising share of US measured advertising market|was ... percent of the US measured advertising market\nEDGE|national-brand advertising share of US measured advertising market|SHARE_OF|US measured advertising market|... of the US measured advertising market\nEDGE|national-brand advertising|HAS_SPEND|national-brand advertising spend amount|about ...\nEDGE|national-brand advertising|INCLUDES|television|audience-bought brand money in television\nEDGE|national-brand advertising|INCLUDES|magazines|audience-bought brand money in magazines\nEDGE|national-brand advertising|INCLUDES|business papers|audience-bought brand money in business papers\nEDGE|national-brand advertising|INCLUDES|national newspaper display|audience-bought brand money in national newspaper display\nEDGE|national-brand advertising|INCLUDES|national out-of-home|audience-bought brand money in national out-of-home\nEDGE|national-brand advertising|INCLUDES|national miscellaneous|audience-bought brand money in national miscellaneous\nEDGE|national-brand advertising share of US measured advertising market|EXCLUDES|direct-response advertising|after removing the direct-response ... that sits inside Coen's National geography\nEDGE|national-brand advertising share of US measured advertising market|EXCLUDES|classified advertising|after removing the classified ... that sits inside Coen's National geography\nEDGE|direct-response advertising|PART_OF|Coen's National geography|sits inside Coen's National geography\nEDGE|classified advertising|PART_OF|Coen's National geography|sits inside Coen's National geography\nEDGE|three lenses|RANKED_FIRST|national-brand advertising|All three lenses put it first at this anchor\nEDGE|national-brand advertising|OVERLAPS_WITH|local retail advertising|its interval overlaps local retail's\nEDGE|national-brand advertising|CARRIED_AS_UNRANKED|local retail advertising|the pair is carried as unranked"
+}

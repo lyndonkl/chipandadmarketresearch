@@ -1,0 +1,72 @@
+{
+ "id": "e2-sellers-004",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1938,
+ "unit": "percent of US broadcast-industry net operating income earned by NBC and CBS (networks plus owned stations), 1938",
+ "elapsed_s": 55.6,
+ "error": null,
+ "n_nodes": 6,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "NBC",
+   "type": "broadcast network",
+   "clause": "NBC"
+  },
+  {
+   "name": "CBS",
+   "type": "broadcast network",
+   "clause": "CBS"
+  },
+  {
+   "name": "US broadcast industry",
+   "type": "broadcast industry",
+   "clause": "the entire US broadcast industry"
+  },
+  {
+   "name": "US broadcast industry net operating income",
+   "type": "industry earnings total",
+   "clause": "the entire US broadcast industry's net operating income"
+  },
+  {
+   "name": "NBC and CBS network group",
+   "type": "broadcast network consortium",
+   "clause": "NBC and CBS, counting network operations plus their owned stations"
+  },
+  {
+   "name": "NBC and CBS share of US broadcast industry net operating income",
+   "type": "media-share measurement",
+   "clause": "earned about ... percent of the entire US broadcast industry's net operating income"
+  }
+ ],
+ "edges": [
+  {
+   "from": "NBC",
+   "type": "MEMBER_OF",
+   "to": "NBC and CBS network group",
+   "clause": "NBC and CBS, counting network operations plus their owned stations"
+  },
+  {
+   "from": "CBS",
+   "type": "MEMBER_OF",
+   "to": "NBC and CBS network group",
+   "clause": "NBC and CBS, counting network operations plus their owned stations"
+  },
+  {
+   "from": "NBC and CBS network group",
+   "type": "HAS_SHARE_MEASUREMENT",
+   "to": "NBC and CBS share of US broadcast industry net operating income",
+   "clause": "earned about ... percent of the entire US broadcast industry's net operating income"
+  },
+  {
+   "from": "NBC and CBS share of US broadcast industry net operating income",
+   "type": "SHARE_OF",
+   "to": "US broadcast industry net operating income",
+   "clause": "of the entire US broadcast industry's net operating income"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|NBC|broadcast network|NBC\nNODE|CBS|broadcast network|CBS\nNODE|US broadcast industry|broadcast industry|the entire US broadcast industry\nNODE|US broadcast industry net operating income|industry earnings total|the entire US broadcast industry's net operating income\nNODE|NBC and CBS network group|broadcast network consortium|NBC and CBS, counting network operations plus their owned stations\nNODE|NBC and CBS share of US broadcast industry net operating income|media-share measurement|earned about ... percent of the entire US broadcast industry's net operating income\nEDGE|NBC|MEMBER_OF|NBC and CBS network group|NBC and CBS, counting network operations plus their owned stations\nEDGE|CBS|MEMBER_OF|NBC and CBS network group|NBC and CBS, counting network operations plus their owned stations\nEDGE|NBC and CBS network group|HAS_SHARE_MEASUREMENT|NBC and CBS share of US broadcast industry net operating income|earned about ... percent of the entire US broadcast industry's net operating income\nEDGE|NBC and CBS share of US broadcast industry net operating income|SHARE_OF|US broadcast industry net operating income|of the entire US broadcast industry's net operating income"
+}

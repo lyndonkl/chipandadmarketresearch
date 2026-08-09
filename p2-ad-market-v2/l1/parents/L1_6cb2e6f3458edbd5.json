@@ -1,0 +1,88 @@
+{
+ "group_id": "L1|6cb2e6f3458edbd5",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "Advertiser claims of invalid clicks",
+   "type": "market claim",
+   "grain": "Entity",
+   "reason": "singleton: distinct market claim entity",
+   "child_uids": [
+    "n|e6-events-007|advertiser claims of invalid clicks|market claim"
+   ]
+  },
+  {
+   "name": "Google's invalid-click detection",
+   "type": "fraud detection practice",
+   "grain": "Entity",
+   "reason": "singleton: specific Google detection practice",
+   "child_uids": [
+    "n|e6-measurement-001|google's invalid-click detection|fraud detection practice"
+   ]
+  },
+  {
+   "name": "Independent click-fraud estimators",
+   "type": "click-fraud estimator",
+   "grain": "Entity",
+   "reason": "singleton: separate estimation entities",
+   "child_uids": [
+    "n|e6-measurement-002|independent click-fraud estimators|click-fraud estimator"
+   ]
+  },
+  {
+   "name": "Ad clicks",
+   "type": "advertising action",
+   "grain": "Entity",
+   "reason": "singleton: generic advertising action entity",
+   "child_uids": [
+    "n|e6-measurement-002|ad clicks|advertising action"
+   ]
+  },
+  {
+   "name": "Click-fraud adjudication",
+   "type": "decision process",
+   "grain": "Entity",
+   "reason": "singleton: distinct adjudication process",
+   "child_uids": [
+    "n|e6-measurement-002|click-fraud adjudication|decision process"
+   ]
+  },
+  {
+   "name": "Media Rating Council accreditation of search click counting",
+   "type": "accreditation",
+   "grain": "Entity",
+   "reason": "singleton: specific accreditation claim",
+   "child_uids": [
+    "n|mech-audit-001|media rating council accreditation of search click counting|accreditation"
+   ]
+  },
+  {
+   "name": "Invalid-click detection metric",
+   "type": "click fraud detection metric",
+   "grain": "Entity",
+   "reason": "singleton: particular detection metric entity",
+   "child_uids": [
+    "n|tu:era:6:event:6|invalid-click detection metric|click fraud detection metric"
+   ]
+  },
+  {
+   "name": "Click fraud",
+   "type": "fraud phenomenon",
+   "grain": "Entity",
+   "reason": "singleton: overarching fraud phenomenon",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|click fraud|fraud phenomenon"
+   ]
+  },
+  {
+   "name": "Invalid-click systems examination",
+   "type": "audit investigation",
+   "grain": "Entity",
+   "reason": "singleton: specific audit investigation entity",
+   "child_uids": [
+    "n|tu:era:6:field:MEASUREMENT|invalid-click systems examination|audit investigation"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "id": "e2-targeting-003",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "US$ millions of US local spot radio advertising, 1949",
+ "elapsed_s": 48.1,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 4,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "local spot radio advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "US$ millions of local spot radio advertising ..."
+  },
+  {
+   "name": "network radio advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "US$ millions of network radio advertising ..."
+  },
+  {
+   "name": "local spot radio",
+   "type": "radio advertising medium",
+   "clause": "local spot radio"
+  },
+  {
+   "name": "network radio",
+   "type": "radio advertising medium",
+   "clause": "network radio"
+  },
+  {
+   "name": "television arrival at scale",
+   "type": "media adoption event",
+   "clause": "television arrived at scale"
+  }
+ ],
+ "edges": [
+  {
+   "from": "local spot radio advertising spend",
+   "type": "MEASURES",
+   "to": "local spot radio",
+   "clause": "reached ... in ..."
+  },
+  {
+   "from": "network radio advertising spend",
+   "type": "MEASURES",
+   "to": "network radio",
+   "clause": "..."
+  },
+  {
+   "from": "local spot radio",
+   "type": "OVERTOOK",
+   "to": "network radio",
+   "clause": "overtaking ... as the largest radio category"
+  },
+  {
+   "from": "local spot radio",
+   "type": "PRECEDES",
+   "to": "television arrival at scale",
+   "clause": "before television arrived at scale"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|local spot radio advertising spend|advertising spend measurement|US$ millions of local spot radio advertising ...\nNODE|network radio advertising spend|advertising spend measurement|US$ millions of network radio advertising ...\nNODE|local spot radio|radio advertising medium|local spot radio\nNODE|network radio|radio advertising medium|network radio\nNODE|television arrival at scale|media adoption event|television arrived at scale\nEDGE|local spot radio advertising spend|MEASURES|local spot radio|reached ... in ...\nEDGE|network radio advertising spend|MEASURES|network radio|... \nEDGE|local spot radio|OVERTOOK|network radio|overtaking ... as the largest radio category\nEDGE|local spot radio|PRECEDES|television arrival at scale|before television arrived at scale"
+}

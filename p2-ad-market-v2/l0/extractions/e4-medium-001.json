@@ -1,0 +1,73 @@
+{
+ "id": "e4-medium-001",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "percent of measured US ad spend",
+ "elapsed_s": 61.2,
+ "error": null,
+ "n_nodes": 5,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Newspapers",
+   "type": "advertising medium",
+   "clause": "Newspapers fell ..."
+  },
+  {
+   "name": "US measured advertising spend",
+   "type": "aggregate ad spend measure",
+   "clause": "US measured advertising spend"
+  },
+  {
+   "name": "Newspapers share of US measured advertising spend",
+   "type": "media-share measurement",
+   "clause": "percentage of US measured advertising spend"
+  },
+  {
+   "name": "Newspapers ad spend",
+   "type": "ad spend measurement",
+   "clause": "dollar amount of newspapers advertising spend"
+  },
+  {
+   "name": "Newspaper ad spend growth factor",
+   "type": "growth multiplier measurement",
+   "clause": "growing ... in dollars"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Newspapers share of US measured advertising spend",
+   "type": "SHARE_OF",
+   "to": "US measured advertising spend",
+   "clause": "percentage of US measured advertising spend"
+  },
+  {
+   "from": "Newspapers share of US measured advertising spend",
+   "type": "MEASURES",
+   "to": "Newspapers",
+   "clause": "share measurement of newspapers"
+  },
+  {
+   "from": "Newspapers ad spend",
+   "type": "PART_OF",
+   "to": "US measured advertising spend",
+   "clause": "dollar amount part of total spend"
+  },
+  {
+   "from": "Newspapers ad spend",
+   "type": "MEASURES",
+   "to": "Newspapers",
+   "clause": "ad spend measurement of newspapers"
+  },
+  {
+   "from": "Newspaper ad spend growth factor",
+   "type": "MEASURES_GROWTH_OF",
+   "to": "Newspapers ad spend",
+   "clause": "growing ... in dollars"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Newspapers|advertising medium|Newspapers fell ...\nNODE|US measured advertising spend|aggregate ad spend measure|US measured advertising spend\nNODE|Newspapers share of US measured advertising spend|media-share measurement|percentage of US measured advertising spend\nNODE|Newspapers ad spend|ad spend measurement|dollar amount of newspapers advertising spend\nNODE|Newspaper ad spend growth factor|growth multiplier measurement|growing ... in dollars\nEDGE|Newspapers share of US measured advertising spend|SHARE_OF|US measured advertising spend|percentage of US measured advertising spend\nEDGE|Newspapers share of US measured advertising spend|MEASURES|Newspapers|share measurement of newspapers\nEDGE|Newspapers ad spend|PART_OF|US measured advertising spend|dollar amount part of total spend\nEDGE|Newspapers ad spend|MEASURES|Newspapers|ad spend measurement of newspapers\nEDGE|Newspaper ad spend growth factor|MEASURES_GROWTH_OF|Newspapers ad spend|growing ... in dollars"
+}

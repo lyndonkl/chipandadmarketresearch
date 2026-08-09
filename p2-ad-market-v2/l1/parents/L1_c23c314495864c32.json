@@ -1,0 +1,79 @@
+{
+ "group_id": "L1|c23c314495864c32",
+ "source": "kmeans",
+ "n_in": 8,
+ "parents": [
+  {
+   "name": "Response success rate",
+   "type": "percentage measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct response success rate measure",
+   "child_uids": [
+    "n|e4-pricing-005|response success rate|percentage measurement"
+   ]
+  },
+  {
+   "name": "Good response rate",
+   "type": "response-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct good response rate measure",
+   "child_uids": [
+    "n|e4-targeting-004|good response rate measurement|response-rate measurement"
+   ]
+  },
+  {
+   "name": "Missed recipient proportion",
+   "type": "miss-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct missed recipient proportion measure",
+   "child_uids": [
+    "n|e4-targeting-004|missed recipient proportion measurement|miss-rate measurement"
+   ]
+  },
+  {
+   "name": "Direct mail response volume per day",
+   "type": "response volume measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct daily response volume measure",
+   "child_uids": [
+    "n|e5-targeting-005|direct mail response volume per day|response volume measurement"
+   ]
+  },
+  {
+   "name": "Pieces read per day",
+   "type": "mail piece consumption measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct pieces\u2011read daily consumption measure",
+   "child_uids": [
+    "n|e5-targeting-005|pieces read per day|mail piece consumption measurement"
+   ]
+  },
+  {
+   "name": "Response rate on pieces read",
+   "type": "response rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct response rate for pieces read",
+   "child_uids": [
+    "n|e5-targeting-005|response rate on pieces read|response rate measurement"
+   ]
+  },
+  {
+   "name": "Response rate on pieces mailed",
+   "type": "response rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct response rate for pieces mailed",
+   "child_uids": [
+    "n|e5-targeting-005|response rate on pieces mailed|response rate measurement"
+   ]
+  },
+  {
+   "name": "Direct mail response rate",
+   "type": "response measurement",
+   "grain": "Measurement",
+   "reason": "singleton: distinct overall direct\u2011mail response rate measure",
+   "child_uids": [
+    "n|tu:era:4:field:PRICING|direct mail response rate|response measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+{
+ "id": "e4-buyers-006",
+ "kind": "claim",
+ "era": 4,
+ "about_year": 1993,
+ "unit": "million USD (current)",
+ "elapsed_s": 75.9,
+ "error": null,
+ "n_nodes": 11,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Classified advertisers",
+   "type": "buyer class",
+   "clause": "individuals and small businesses buying by the line, self\u2011serve, with no agency and no commission"
+  },
+  {
+   "name": "Newspaper Association of America",
+   "type": "industry association",
+   "clause": "NAA"
+  },
+  {
+   "name": "NAA classified line",
+   "type": "advertising product",
+   "clause": "NAA's own published classified line"
+  },
+  {
+   "name": "US newspaper market",
+   "type": "media market",
+   "clause": "US newspapers"
+  },
+  {
+   "name": "total US advertising",
+   "type": "aggregate advertising spend",
+   "clause": "all measured US advertising"
+  },
+  {
+   "name": "local ad spend",
+   "type": "aggregate advertising spend",
+   "clause": "all local money"
+  },
+  {
+   "name": "classified advertising spend 1993",
+   "type": "advertising spend measurement",
+   "clause": "spent ... in US newspapers on NAA classified line"
+  },
+  {
+   "name": "classified advertising share of total US advertising",
+   "type": "media-share measurement",
+   "clause": "... of all measured US advertising"
+  },
+  {
+   "name": "classified advertising share of local ad spend",
+   "type": "media-share measurement",
+   "clause": "... of all local money"
+  },
+  {
+   "name": "classified advertising spend 1976",
+   "type": "advertising spend measurement",
+   "clause": "... in ... (historical)"
+  },
+  {
+   "name": "Segmentation era (1972\u20111994)",
+   "type": "era",
+   "clause": "Era 4 \u2014 Segmentation (1972\u20111994)"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Classified advertisers",
+   "type": "SPENT_ON",
+   "to": "NAA classified line",
+   "clause": "spent ... in US newspapers on NAA's own published classified line"
+  },
+  {
+   "from": "NAA classified line",
+   "type": "PUBLISHED_BY",
+   "to": "Newspaper Association of America",
+   "clause": "NAA's own published classified line"
+  },
+  {
+   "from": "classified advertising spend 1993",
+   "type": "MEASURES_SPEND_OF",
+   "to": "Classified advertisers",
+   "clause": "spent ... measurement"
+  },
+  {
+   "from": "classified advertising spend 1993",
+   "type": "IN_MARKET",
+   "to": "US newspaper market",
+   "clause": "spent ... in US newspapers"
+  },
+  {
+   "from": "classified advertising share of total US advertising",
+   "type": "SHARE_OF",
+   "to": "total US advertising",
+   "clause": "... of all measured US advertising"
+  },
+  {
+   "from": "classified advertising share of local ad spend",
+   "type": "SHARE_OF",
+   "to": "local ad spend",
+   "clause": "... of all local money"
+  },
+  {
+   "from": "classified advertising spend 1976",
+   "type": "MEASURES_SPEND_OF",
+   "to": "Classified advertisers",
+   "clause": "historical spend measurement"
+  },
+  {
+   "from": "classified advertising spend 1976",
+   "type": "IN_MARKET",
+   "to": "US newspaper market",
+   "clause": "... in US newspapers (historical)"
+  },
+  {
+   "from": "Classified advertisers",
+   "type": "QUADRUPLED_OVER",
+   "to": "Segmentation era (1972\u20111994)",
+   "clause": "buyer class roughly quadrupled across the era"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Classified advertisers|buyer class|individuals and small businesses buying by the line, self\u2011serve, with no agency and no commission\nNODE|Newspaper Association of America|industry association|NAA\nNODE|NAA classified line|advertising product|NAA's own published classified line\nNODE|US newspaper market|media market|US newspapers\nNODE|total US advertising|aggregate advertising spend|all measured US advertising\nNODE|local ad spend|aggregate advertising spend|all local money\nNODE|classified advertising spend 1993|advertising spend measurement|spent ... in US newspapers on NAA classified line\nNODE|classified advertising share of total US advertising|media-share measurement|... of all measured US advertising\nNODE|classified advertising share of local ad spend|media-share measurement|... of all local money\nNODE|classified advertising spend 1976|advertising spend measurement|... in ... (historical)\nNODE|Segmentation era (1972\u20111994)|era|Era 4 \u2014 Segmentation (1972\u20111994)\nEDGE|Classified advertisers|SPENT_ON|NAA classified line|spent ... in US newspapers on NAA's own published classified line\nEDGE|NAA classified line|PUBLISHED_BY|Newspaper Association of America|NAA's own published classified line\nEDGE|classified advertising spend 1993|MEASURES_SPEND_OF|Classified advertisers|spent ... measurement\nEDGE|classified advertising spend 1993|IN_MARKET|US newspaper market|spent ... in US newspapers\nEDGE|classified advertising share of total US advertising|SHARE_OF|total US advertising|... of all measured US advertising\nEDGE|classified advertising share of local ad spend|SHARE_OF|local ad spend|... of all local money\nEDGE|classified advertising spend 1976|MEASURES_SPEND_OF|Classified advertisers|historical spend measurement\nEDGE|classified advertising spend 1976|IN_MARKET|US newspaper market|... in US newspapers (historical)\nEDGE|Classified advertisers|QUADRUPLED_OVER|Segmentation era (1972\u20111994)|buyer class roughly quadrupled across the era"
+}

@@ -1,0 +1,130 @@
+{
+ "id": "e7-scale-002",
+ "kind": "claim",
+ "era": 7,
+ "about_year": 2025,
+ "unit": "percent of US nominal GDP",
+ "elapsed_s": 124.4,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 12,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US measured advertising spend",
+   "type": "advertising expenditure",
+   "clause": "US measured advertising spend"
+  },
+  {
+   "name": "nominal GDP",
+   "type": "macroeconomic aggregate",
+   "clause": "nominal GDP"
+  },
+  {
+   "name": "Coen/McCann series",
+   "type": "advertising-spend dataset",
+   "clause": "Coen/McCann series"
+  },
+  {
+   "name": "current advertising spend share of nominal GDP",
+   "type": "media-share measurement",
+   "clause": "about ... percent of nominal GDP"
+  },
+  {
+   "name": "Coen/McCann series advertising spend share of nominal GDP",
+   "type": "media-share measurement",
+   "clause": "... in ... on the Coen/McCann series"
+  },
+  {
+   "name": "peak advertising spend share of nominal GDP",
+   "type": "media-share measurement",
+   "clause": "... peak in ..."
+  },
+  {
+   "name": "US advertising spend amount",
+   "type": "expenditure measurement",
+   "clause": "advertising spend amount"
+  },
+  {
+   "name": "nominal GDP amount",
+   "type": "macroeconomic size measurement",
+   "clause": "nominal GDP amount"
+  }
+ ],
+ "edges": [
+  {
+   "from": "current advertising spend share of nominal GDP",
+   "type": "MEASURES",
+   "to": "US measured advertising spend",
+   "clause": "about ... percent of nominal GDP"
+  },
+  {
+   "from": "current advertising spend share of nominal GDP",
+   "type": "SHARE_OF",
+   "to": "nominal GDP",
+   "clause": "about ... percent of nominal GDP"
+  },
+  {
+   "from": "Coen/McCann series advertising spend share of nominal GDP",
+   "type": "MEASURES",
+   "to": "US measured advertising spend",
+   "clause": "... in ... on the Coen/McCann series"
+  },
+  {
+   "from": "Coen/McCann series advertising spend share of nominal GDP",
+   "type": "SHARE_OF",
+   "to": "nominal GDP",
+   "clause": "... in ... on the Coen/McCann series"
+  },
+  {
+   "from": "Coen/McCann series advertising spend share of nominal GDP",
+   "type": "MEASURED_ON",
+   "to": "Coen/McCann series",
+   "clause": "... on the Coen/McCann series"
+  },
+  {
+   "from": "peak advertising spend share of nominal GDP",
+   "type": "MEASURES",
+   "to": "US measured advertising spend",
+   "clause": "... peak in ..."
+  },
+  {
+   "from": "peak advertising spend share of nominal GDP",
+   "type": "SHARE_OF",
+   "to": "nominal GDP",
+   "clause": "... peak in ..."
+  },
+  {
+   "from": "current advertising spend share of nominal GDP",
+   "type": "DOWN_FROM",
+   "to": "Coen/McCann series advertising spend share of nominal GDP",
+   "clause": "down from ... in ... on the Coen/McCann series"
+  },
+  {
+   "from": "current advertising spend share of nominal GDP",
+   "type": "DOWN_FROM",
+   "to": "peak advertising spend share of nominal GDP",
+   "clause": "down from ... peak in ..."
+  },
+  {
+   "from": "US advertising spend amount",
+   "type": "MEASURES",
+   "to": "US measured advertising spend",
+   "clause": "advertising spend amount"
+  },
+  {
+   "from": "nominal GDP amount",
+   "type": "MEASURES",
+   "to": "nominal GDP",
+   "clause": "nominal GDP amount"
+  },
+  {
+   "from": "US advertising spend amount",
+   "type": "AGAINST",
+   "to": "nominal GDP amount",
+   "clause": "... against ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US measured advertising spend|advertising expenditure|US measured advertising spend\nNODE|nominal GDP|macroeconomic aggregate|nominal GDP\nNODE|Coen/McCann series|advertising-spend dataset|Coen/McCann series\nNODE|current advertising spend share of nominal GDP|media-share measurement|about ... percent of nominal GDP\nNODE|Coen/McCann series advertising spend share of nominal GDP|media-share measurement|... in ... on the Coen/McCann series\nNODE|peak advertising spend share of nominal GDP|media-share measurement|... peak in ...\nNODE|US advertising spend amount|expenditure measurement|advertising spend amount\nNODE|nominal GDP amount|macroeconomic size measurement|nominal GDP amount\nEDGE|current advertising spend share of nominal GDP|MEASURES|US measured advertising spend|about ... percent of nominal GDP\nEDGE|current advertising spend share of nominal GDP|SHARE_OF|nominal GDP|about ... percent of nominal GDP\nEDGE|Coen/McCann series advertising spend share of nominal GDP|MEASURES|US measured advertising spend|... in ... on the Coen/McCann series\nEDGE|Coen/McCann series advertising spend share of nominal GDP|SHARE_OF|nominal GDP|... in ... on the Coen/McCann series\nEDGE|Coen/McCann series advertising spend share of nominal GDP|MEASURED_ON|Coen/McCann series|... on the Coen/McCann series\nEDGE|peak advertising spend share of nominal GDP|MEASURES|US measured advertising spend|... peak in ...\nEDGE|peak advertising spend share of nominal GDP|SHARE_OF|nominal GDP|... peak in ...\nEDGE|current advertising spend share of nominal GDP|DOWN_FROM|Coen/McCann series advertising spend share of nominal GDP|down from ... in ... on the Coen/McCann series\nEDGE|current advertising spend share of nominal GDP|DOWN_FROM|peak advertising spend share of nominal GDP|down from ... peak in ...\nEDGE|US advertising spend amount|MEASURES|US measured advertising spend|advertising spend amount\nEDGE|nominal GDP amount|MEASURES|nominal GDP|nominal GDP amount\nEDGE|US advertising spend amount|AGAINST|nominal GDP amount|... against ..."
+}

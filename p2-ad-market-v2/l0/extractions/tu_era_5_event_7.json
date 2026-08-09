@@ -1,0 +1,137 @@
+{
+ "id": "tu:era:5:event:7",
+ "kind": "prose:event",
+ "era": 5,
+ "about_year": 2000,
+ "unit": null,
+ "elapsed_s": 73.3,
+ "error": null,
+ "n_nodes": 13,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Google",
+   "type": "company",
+   "clause": "Google opened AdWords to self-serve signups"
+  },
+  {
+   "name": "AdWords",
+   "type": "advertising platform",
+   "clause": "Google opened AdWords to self-serve signups"
+  },
+  {
+   "name": "businesses and agencies",
+   "type": "advertiser constituency",
+   "clause": "about ... businesses and agencies"
+  },
+  {
+   "name": "self-serve signup participants count",
+   "type": "count measurement",
+   "clause": "about ... businesses and agencies"
+  },
+  {
+   "name": "short text ads",
+   "type": "ad format",
+   "clause": "selling short text ads beside the search results at fixed rates ..."
+  },
+  {
+   "name": "search results",
+   "type": "ad placement",
+   "clause": "... beside the search results"
+  },
+  {
+   "name": "short text ad CPM rates",
+   "type": "pricing measurement",
+   "clause": "fixed rates ... per thousand impressions by position"
+  },
+  {
+   "name": "thousand impressions",
+   "type": "impression unit",
+   "clause": "per thousand impressions"
+  },
+  {
+   "name": "CPM premium sponsorship programme",
+   "type": "advertising program",
+   "clause": "extension of the CPM 'premium sponsorship' programme"
+  },
+  {
+   "name": "impression pricing",
+   "type": "pricing practice",
+   "clause": "priced the impression for ..."
+  },
+  {
+   "name": "impression pricing duration",
+   "type": "time-duration measurement",
+   "clause": "..."
+  },
+  {
+   "name": "AdWords Select",
+   "type": "product variant",
+   "clause": "the auction arrives with AdWords Select"
+  },
+  {
+   "name": "auction",
+   "type": "auction mechanism",
+   "clause": "the auction arrives with AdWords Select"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Google",
+   "type": "OPENED",
+   "to": "AdWords",
+   "clause": "opened AdWords to self-serve signups"
+  },
+  {
+   "from": "self-serve signup participants count",
+   "type": "COUNT_OF",
+   "to": "businesses and agencies",
+   "clause": "about ... businesses and agencies"
+  },
+  {
+   "from": "Google",
+   "type": "SOLD",
+   "to": "short text ads",
+   "clause": "selling short text ads beside the search results at fixed rates ..."
+  },
+  {
+   "from": "short text ads",
+   "type": "PLACED_BESIDE",
+   "to": "search results",
+   "clause": "beside the search results"
+  },
+  {
+   "from": "short text ad CPM rates",
+   "type": "RATE_PER",
+   "to": "thousand impressions",
+   "clause": "fixed rates ... per thousand impressions by position"
+  },
+  {
+   "from": "AdWords",
+   "type": "EXTENDS",
+   "to": "CPM premium sponsorship programme",
+   "clause": "extension of the CPM 'premium sponsorship' programme"
+  },
+  {
+   "from": "Google",
+   "type": "APPLIED",
+   "to": "impression pricing",
+   "clause": "priced the impression for ..."
+  },
+  {
+   "from": "impression pricing duration",
+   "type": "MEASURES_DURATION_OF",
+   "to": "impression pricing",
+   "clause": "..."
+  },
+  {
+   "from": "AdWords Select",
+   "type": "ARRIVED_WITH",
+   "to": "auction",
+   "clause": "the auction arrives with AdWords Select"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Google|company|Google opened AdWords to self-serve signups\nNODE|AdWords|advertising platform|Google opened AdWords to self-serve signups\nNODE|businesses and agencies|advertiser constituency|about ... businesses and agencies\nNODE|self-serve signup participants count|count measurement|about ... businesses and agencies\nNODE|short text ads|ad format|selling short text ads beside the search results at fixed rates ...\nNODE|search results|ad placement|... beside the search results\nNODE|short text ad CPM rates|pricing measurement|fixed rates ... per thousand impressions by position\nNODE|thousand impressions|impression unit|per thousand impressions\nNODE|CPM premium sponsorship programme|advertising program|extension of the CPM 'premium sponsorship' programme\nNODE|impression pricing|pricing practice|priced the impression for ...\nNODE|impression pricing duration|time-duration measurement|...\nNODE|AdWords Select|product variant|the auction arrives with AdWords Select\nNODE|auction|auction mechanism|the auction arrives with AdWords Select\nEDGE|Google|OPENED|AdWords|opened AdWords to self-serve signups\nEDGE|self-serve signup participants count|COUNT_OF|businesses and agencies|about ... businesses and agencies\nEDGE|Google|SOLD|short text ads|selling short text ads beside the search results at fixed rates ...\nEDGE|short text ads|PLACED_BESIDE|search results|beside the search results\nEDGE|short text ad CPM rates|RATE_PER|thousand impressions|fixed rates ... per thousand impressions by position\nEDGE|AdWords|EXTENDS|CPM premium sponsorship programme|extension of the CPM 'premium sponsorship' programme\nEDGE|Google|APPLIED|impression pricing|priced the impression for ...\nEDGE|impression pricing duration|MEASURES_DURATION_OF|impression pricing|...\nEDGE|AdWords Select|ARRIVED_WITH|auction|the auction arrives with AdWords Select"
+}

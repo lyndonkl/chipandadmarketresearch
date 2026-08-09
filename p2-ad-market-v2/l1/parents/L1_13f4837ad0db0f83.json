@@ -1,0 +1,72 @@
+{
+ "group_id": "L1|13f4837ad0db0f83",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "Advertising Council fundraising amount",
+   "type": "fundraising amount measurement",
+   "grain": "Measurement",
+   "reason": "singleton: unique measure for 1942 launch funding",
+   "child_uids": [
+    "n|e2-events-004|fundraising amount measurement|funding amount measurement"
+   ]
+  },
+  {
+   "name": "US advertising-agency billing amount",
+   "type": "billing amount measurement",
+   "grain": "Measurement",
+   "reason": "singleton: only billing amount node in this set",
+   "child_uids": [
+    "n|e4-creators-002|earlier us advertising-agency billing amount|billing amount measurement"
+   ]
+  },
+  {
+   "name": "US advertising-agency revenue",
+   "type": "agency revenue measurement",
+   "grain": "Measurement",
+   "reason": "same revenue measure across years and sources abstracted",
+   "child_uids": [
+    "n|e4-creators-003|total us advertising-agency income|agency revenue measurement",
+    "n|e4-creators-003|us advertising-agency income prior to 1992|agency revenue measurement"
+   ]
+  },
+  {
+   "name": "US advertising-agency employment",
+   "type": "employee-count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total agency employment figure",
+   "child_uids": [
+    "n|e4-creators-004|us advertising-agency employment|employee-count measurement"
+   ]
+  },
+  {
+   "name": "US advertising-agency paid employee count",
+   "type": "employee-count measurement",
+   "grain": "Measurement",
+   "reason": "singleton: paid employees only, distinct from total employment",
+   "child_uids": [
+    "n|e4-creators-004|us advertising-agency paid employee count|employee-count measurement"
+   ]
+  },
+  {
+   "name": "Fees for services share of US advertising-agency income",
+   "type": "take-rate measurement",
+   "grain": "Measurement",
+   "reason": "singleton: fee\u2011service share of agency revenue",
+   "child_uids": [
+    "n|e4-creators-006|fees for services share of us advertising-agency income|take-rate measurement"
+   ]
+  },
+  {
+   "name": "US advertising-agency fees and PR income share",
+   "type": "share measurement",
+   "grain": "Measurement",
+   "reason": "measure across periods; current and earlier combined",
+   "child_uids": [
+    "n|e5-creators-002|fees and pr share of agency industry income (current)|share measurement",
+    "n|e5-creators-002|fees and pr share of agency industry income (earlier)|share measurement"
+   ]
+  }
+ ]
+}

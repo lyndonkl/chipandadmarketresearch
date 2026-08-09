@@ -1,0 +1,110 @@
+{
+ "id": "tu:era:4:event:9",
+ "kind": "prose:event",
+ "era": 4,
+ "about_year": 1991,
+ "unit": null,
+ "elapsed_s": 74.1,
+ "error": null,
+ "n_nodes": 10,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US advertising spend",
+   "type": "advertising spend amount",
+   "clause": "Measured US advertising spend"
+  },
+  {
+   "name": "US advertising spend decline rate",
+   "type": "percent change measurement",
+   "clause": "fell ... in nominal terms"
+  },
+  {
+   "name": "Coen series",
+   "type": "advertising-spend dataset",
+   "clause": "in the Coen series"
+  },
+  {
+   "name": "Newspapers advertising spend",
+   "type": "advertising spend amount",
+   "clause": "Newspapers took the worst of it, falling from ... to ..."
+  },
+  {
+   "name": "Newspapers advertising spend decline rate",
+   "type": "percent change measurement",
+   "clause": "falling from ... to ..."
+  },
+  {
+   "name": "Direct mail advertising spend",
+   "type": "advertising spend amount",
+   "clause": "direct mail kept growing straight through the recession"
+  },
+  {
+   "name": "Yellow Pages advertising spend",
+   "type": "advertising spend amount",
+   "clause": "Yellow Pages kept growing straight through the recession"
+  },
+  {
+   "name": "Cable advertising spend",
+   "type": "advertising spend amount",
+   "clause": "cable kept growing straight through the recession"
+  },
+  {
+   "name": "recession",
+   "type": "economic downturn",
+   "clause": "the recession"
+  },
+  {
+   "name": "Segmentation era",
+   "type": "advertising era",
+   "clause": "the era"
+  }
+ ],
+ "edges": [
+  {
+   "from": "US advertising spend",
+   "type": "CHANGED_BY",
+   "to": "US advertising spend decline rate",
+   "clause": "fell ... in nominal terms"
+  },
+  {
+   "from": "US advertising spend decline rate",
+   "type": "MEASURED_ON",
+   "to": "Coen series",
+   "clause": "in the Coen series"
+  },
+  {
+   "from": "Newspapers advertising spend",
+   "type": "CHANGED_BY",
+   "to": "Newspapers advertising spend decline rate",
+   "clause": "falling from ... to ..."
+  },
+  {
+   "from": "Direct mail advertising spend",
+   "type": "GREW_DURING",
+   "to": "recession",
+   "clause": "kept growing straight through the recession"
+  },
+  {
+   "from": "Yellow Pages advertising spend",
+   "type": "GREW_DURING",
+   "to": "recession",
+   "clause": "kept growing straight through the recession"
+  },
+  {
+   "from": "Cable advertising spend",
+   "type": "GREW_DURING",
+   "to": "recession",
+   "clause": "kept growing straight through the recession"
+  },
+  {
+   "from": "recession",
+   "type": "STRUCTURAL_STORY_FOR",
+   "to": "Segmentation era",
+   "clause": "which is the era's structural story"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US advertising spend|advertising spend amount|Measured US advertising spend\nNODE|US advertising spend decline rate|percent change measurement|fell ... in nominal terms\nNODE|Coen series|advertising-spend dataset|in the Coen series\nNODE|Newspapers advertising spend|advertising spend amount|Newspapers took the worst of it, falling from ... to ...\nNODE|Newspapers advertising spend decline rate|percent change measurement|falling from ... to ...\nNODE|Direct mail advertising spend|advertising spend amount|direct mail kept growing straight through the recession\nNODE|Yellow Pages advertising spend|advertising spend amount|Yellow Pages kept growing straight through the recession\nNODE|Cable advertising spend|advertising spend amount|cable kept growing straight through the recession\nNODE|recession|economic downturn|the recession\nNODE|Segmentation era|advertising era|the era\nEDGE|US advertising spend|CHANGED_BY|US advertising spend decline rate|fell ... in nominal terms\nEDGE|US advertising spend decline rate|MEASURED_ON|Coen series|in the Coen series\nEDGE|Newspapers advertising spend|CHANGED_BY|Newspapers advertising spend decline rate|falling from ... to ...\nEDGE|Direct mail advertising spend|GREW_DURING|recession|kept growing straight through the recession\nEDGE|Yellow Pages advertising spend|GREW_DURING|recession|kept growing straight through the recession\nEDGE|Cable advertising spend|GREW_DURING|recession|kept growing straight through the recession\nEDGE|recession|STRUCTURAL_STORY_FOR|Segmentation era|which is the era's structural story"
+}

@@ -1,0 +1,144 @@
+{
+ "id": "e5-buyers-012",
+ "kind": "claim",
+ "era": 5,
+ "about_year": 2000,
+ "unit": "USD billions (2000 US ad spend)",
+ "elapsed_s": 84.5,
+ "error": null,
+ "n_nodes": 12,
+ "n_edges": 11,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US classified advertising",
+   "type": "advertising segment",
+   "clause": "US classified advertising"
+  },
+  {
+   "name": "individuals and small businesses",
+   "type": "buyer segment",
+   "clause": "individuals and small businesses"
+  },
+  {
+   "name": "US classified advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "US classified advertising ... was about ..."
+  },
+  {
+   "name": "newspaper classified advertising",
+   "type": "advertising subsegment",
+   "clause": "newspaper classified"
+  },
+  {
+   "name": "newspaper classified advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "newspaper classified ..."
+  },
+  {
+   "name": "non-newspaper print classified advertising",
+   "type": "advertising subsegment",
+   "clause": "non-newspaper print classified"
+  },
+  {
+   "name": "non-newspaper print classified advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "non-newspaper print classified ..."
+  },
+  {
+   "name": "online classified advertising",
+   "type": "advertising subsegment",
+   "clause": "online classified"
+  },
+  {
+   "name": "online classified advertising spend",
+   "type": "advertising spend measurement",
+   "clause": "online classified ..."
+  },
+  {
+   "name": "online migration share of US classified advertising",
+   "type": "share measurement",
+   "clause": "... of the pool had moved online"
+  },
+  {
+   "name": "real online classified money outside published series share",
+   "type": "share measurement",
+   "clause": "roughly half ... sat outside every published advertising series"
+  },
+  {
+   "name": "published advertising series",
+   "type": "advertising data series",
+   "clause": "published advertising series"
+  }
+ ],
+ "edges": [
+  {
+   "from": "individuals and small businesses",
+   "type": "BOUGHT",
+   "to": "US classified advertising",
+   "clause": "bought by individuals and small businesses"
+  },
+  {
+   "from": "US classified advertising",
+   "type": "HAS_SPEND",
+   "to": "US classified advertising spend",
+   "clause": "US classified advertising ... was about ..."
+  },
+  {
+   "from": "newspaper classified advertising",
+   "type": "PART_OF",
+   "to": "US classified advertising",
+   "clause": "newspaper classified part of US classified advertising"
+  },
+  {
+   "from": "newspaper classified advertising",
+   "type": "HAS_SPEND",
+   "to": "newspaper classified advertising spend",
+   "clause": "newspaper classified spend"
+  },
+  {
+   "from": "non-newspaper print classified advertising",
+   "type": "PART_OF",
+   "to": "US classified advertising",
+   "clause": "non-newspaper print classified part of US classified advertising"
+  },
+  {
+   "from": "non-newspaper print classified advertising",
+   "type": "HAS_SPEND",
+   "to": "non-newspaper print classified advertising spend",
+   "clause": "non-newspaper print classified spend"
+  },
+  {
+   "from": "online classified advertising",
+   "type": "PART_OF",
+   "to": "US classified advertising",
+   "clause": "online classified part of US classified advertising"
+  },
+  {
+   "from": "online classified advertising",
+   "type": "HAS_SPEND",
+   "to": "online classified advertising spend",
+   "clause": "online classified spend"
+  },
+  {
+   "from": "online migration share of US classified advertising",
+   "type": "SHARE_OF",
+   "to": "US classified advertising",
+   "clause": "... of the pool had moved online"
+  },
+  {
+   "from": "real online classified money outside published series share",
+   "type": "MEASURES",
+   "to": "online classified advertising",
+   "clause": "roughly half ... sat outside every published advertising series"
+  },
+  {
+   "from": "real online classified money outside published series share",
+   "type": "OUTSIDE_OF",
+   "to": "published advertising series",
+   "clause": "outside published advertising series"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US classified advertising|advertising segment|US classified advertising\nNODE|individuals and small businesses|buyer segment|individuals and small businesses\nNODE|US classified advertising spend|advertising spend measurement|US classified advertising ... was about ...\nNODE|newspaper classified advertising|advertising subsegment|newspaper classified\nNODE|newspaper classified advertising spend|advertising spend measurement|newspaper classified ...\nNODE|non-newspaper print classified advertising|advertising subsegment|non-newspaper print classified\nNODE|non-newspaper print classified advertising spend|advertising spend measurement|non-newspaper print classified ...\nNODE|online classified advertising|advertising subsegment|online classified\nNODE|online classified advertising spend|advertising spend measurement|online classified ...\nNODE|online migration share of US classified advertising|share measurement|... of the pool had moved online\nNODE|real online classified money outside published series share|share measurement|roughly half ... sat outside every published advertising series\nNODE|published advertising series|advertising data series|published advertising series\nEDGE|individuals and small businesses|BOUGHT|US classified advertising|bought by individuals and small businesses\nEDGE|US classified advertising|HAS_SPEND|US classified advertising spend|US classified advertising ... was about ...\nEDGE|newspaper classified advertising|PART_OF|US classified advertising|newspaper classified part of US classified advertising\nEDGE|newspaper classified advertising|HAS_SPEND|newspaper classified advertising spend|newspaper classified spend\nEDGE|non-newspaper print classified advertising|PART_OF|US classified advertising|non-newspaper print classified part of US classified advertising\nEDGE|non-newspaper print classified advertising|HAS_SPEND|non-newspaper print classified advertising spend|non-newspaper print classified spend\nEDGE|online classified advertising|PART_OF|US classified advertising|online classified part of US classified advertising\nEDGE|online classified advertising|HAS_SPEND|online classified advertising spend|online classified spend\nEDGE|online migration share of US classified advertising|SHARE_OF|US classified advertising|... of the pool had moved online\nEDGE|real online classified money outside published series share|MEASURES|online classified advertising|roughly half ... sat outside every published advertising series\nEDGE|real online classified money outside published series share|OUTSIDE_OF|published advertising series|outside published advertising series"
+}

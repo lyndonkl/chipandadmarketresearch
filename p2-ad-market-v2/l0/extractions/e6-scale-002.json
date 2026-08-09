@@ -1,0 +1,100 @@
+{
+ "id": "e6-scale-002",
+ "kind": "claim",
+ "era": 6,
+ "about_year": 2007,
+ "unit": "USD millions, US total advertising expenditure 2007 (Coen total with IAB internet substituted)",
+ "elapsed_s": 83.3,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 7,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "US total advertising expenditure",
+   "type": "advertising expenditure aggregate",
+   "clause": "US total advertising expenditure"
+  },
+  {
+   "name": "Coen",
+   "type": "advertising measurement organization",
+   "clause": "as published by Coen"
+  },
+  {
+   "name": "US total advertising expenditure amount",
+   "type": "expenditure measurement",
+   "clause": "was ... in ..."
+  },
+  {
+   "name": "Coen internet advertising estimate",
+   "type": "advertising spend measurement",
+   "clause": "Coen ..."
+  },
+  {
+   "name": "IAB",
+   "type": "industry association",
+   "clause": "IAB/PwC joint estimate"
+  },
+  {
+   "name": "PwC",
+   "type": "consulting firm",
+   "clause": "IAB/PwC joint estimate"
+  },
+  {
+   "name": "IAB and PwC internet advertising estimate",
+   "type": "advertising spend measurement",
+   "clause": "IAB/PwC ..."
+  },
+  {
+   "name": "US total advertising expenditure corrected amount",
+   "type": "expenditure measurement",
+   "clause": "raises ... to about ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "US total advertising expenditure amount",
+   "type": "MEASURES",
+   "to": "US total advertising expenditure",
+   "clause": "was ... in ..."
+  },
+  {
+   "from": "US total advertising expenditure amount",
+   "type": "PUBLISHED_BY",
+   "to": "Coen",
+   "clause": "as published by Coen"
+  },
+  {
+   "from": "Coen internet advertising estimate",
+   "type": "PUBLISHED_BY",
+   "to": "Coen",
+   "clause": "Coen ..."
+  },
+  {
+   "from": "IAB and PwC internet advertising estimate",
+   "type": "PUBLISHED_BY",
+   "to": "IAB",
+   "clause": "IAB/PwC joint estimate"
+  },
+  {
+   "from": "IAB and PwC internet advertising estimate",
+   "type": "PUBLISHED_BY",
+   "to": "PwC",
+   "clause": "IAB/PwC joint estimate"
+  },
+  {
+   "from": "Coen internet advertising estimate",
+   "type": "UNDERESTIMATES",
+   "to": "IAB and PwC internet advertising estimate",
+   "clause": "Coen ... vs IAB/PwC ..."
+  },
+  {
+   "from": "US total advertising expenditure corrected amount",
+   "type": "RAISES_FROM",
+   "to": "US total advertising expenditure amount",
+   "clause": "correcting ... raises ... to about ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|US total advertising expenditure|advertising expenditure aggregate|US total advertising expenditure\nNODE|Coen|advertising measurement organization|as published by Coen\nNODE|US total advertising expenditure amount|expenditure measurement|was ... in ...\nNODE|Coen internet advertising estimate|advertising spend measurement|Coen ...\nNODE|IAB|industry association|IAB/PwC joint estimate\nNODE|PwC|consulting firm|IAB/PwC joint estimate\nNODE|IAB and PwC internet advertising estimate|advertising spend measurement|IAB/PwC ...\nNODE|US total advertising expenditure corrected amount|expenditure measurement|raises ... to about ...\n\nEDGE|US total advertising expenditure amount|MEASURES|US total advertising expenditure|was ... in ...\nEDGE|US total advertising expenditure amount|PUBLISHED_BY|Coen|as published by Coen\nEDGE|Coen internet advertising estimate|PUBLISHED_BY|Coen|Coen ...\nEDGE|IAB and PwC internet advertising estimate|PUBLISHED_BY|IAB|IAB/PwC joint estimate\nEDGE|IAB and PwC internet advertising estimate|PUBLISHED_BY|PwC|IAB/PwC joint estimate\nEDGE|Coen internet advertising estimate|UNDERESTIMATES|IAB and PwC internet advertising estimate|Coen ... vs IAB/PwC ...\nEDGE|US total advertising expenditure corrected amount|RAISES_FROM|US total advertising expenditure amount|correcting ... raises ... to about ..."
+}

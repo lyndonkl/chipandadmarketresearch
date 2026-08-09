@@ -1,0 +1,88 @@
+{
+ "id": "e2-pricing-001",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1922,
+ "unit": "US$ paid by the Queensboro Corporation for its first WEAF time purchase",
+ "elapsed_s": 69.9,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 5,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Queensboro Corporation",
+   "type": "company",
+   "clause": "the Queensboro Corporation"
+  },
+  {
+   "name": "WEAF",
+   "type": "broadcast station",
+   "clause": "WEAF on 28 August 1922"
+  },
+  {
+   "name": "broadcast-history source",
+   "type": "information source",
+   "clause": "one broadcast-history source reports"
+  },
+  {
+   "name": "ten-minute WEAF airtime slot",
+   "type": "airtime slot",
+   "clause": "for ten minutes"
+  },
+  {
+   "name": "fifteen-minute WEAF airtime slot",
+   "type": "airtime slot",
+   "clause": "for fifteen minutes"
+  },
+  {
+   "name": "Queensboro payment for first WEAF slot",
+   "type": "payment measurement",
+   "clause": "US$ paid by the Queensboro Corporation for its first WEAF time purchase"
+  },
+  {
+   "name": "source-reported payment for fifteen-minute slot",
+   "type": "payment measurement",
+   "clause": "US$ reported by source for fifteen minutes"
+  },
+  {
+   "name": "broadcast airtime sale",
+   "type": "airtime transaction",
+   "clause": "first documented sale of broadcast airtime"
+  }
+ ],
+ "edges": [
+  {
+   "from": "Queensboro Corporation",
+   "type": "PAID",
+   "to": "Queensboro payment for first WEAF slot",
+   "clause": "cost the Queensboro Corporation ... for ..."
+  },
+  {
+   "from": "Queensboro payment for first WEAF slot",
+   "type": "MEASURES",
+   "to": "ten-minute WEAF airtime slot",
+   "clause": "US$ paid by the Queensboro Corporation for its first WEAF time purchase"
+  },
+  {
+   "from": "broadcast-history source",
+   "type": "REPORTED",
+   "to": "source-reported payment for fifteen-minute slot",
+   "clause": "source reports ... for ..."
+  },
+  {
+   "from": "source-reported payment for fifteen-minute slot",
+   "type": "MEASURES",
+   "to": "fifteen-minute WEAF airtime slot",
+   "clause": "US$ reported ... for ..."
+  },
+  {
+   "from": "broadcast airtime sale",
+   "type": "FIRST_DOCUMENTED",
+   "to": "WEAF",
+   "clause": "first documented sale of broadcast airtime"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Queensboro Corporation|company|the Queensboro Corporation\nNODE|WEAF|broadcast station|WEAF on 28 August 1922\nNODE|broadcast-history source|information source|one broadcast-history source reports\nNODE|ten-minute WEAF airtime slot|airtime slot|for ten minutes\nNODE|fifteen-minute WEAF airtime slot|airtime slot|for fifteen minutes\nNODE|Queensboro payment for first WEAF slot|payment measurement|US$ paid by the Queensboro Corporation for its first WEAF time purchase\n NODE|source-reported payment for fifteen-minute slot|payment measurement|US$ reported by source for fifteen minutes\nNODE|broadcast airtime sale|airtime transaction|first documented sale of broadcast airtime\nEDGE|Queensboro Corporation|PAID|Queensboro payment for first WEAF slot|cost the Queensboro Corporation ... for ...\nEDGE|Queensboro payment for first WEAF slot|MEASURES|ten-minute WEAF airtime slot|US$ paid by the Queensboro Corporation for its first WEAF time purchase\nEDGE|broadcast-history source|REPORTED|source-reported payment for fifteen-minute slot|source reports ... for ...\nEDGE|source-reported payment for fifteen-minute slot|MEASURES|fifteen-minute WEAF airtime slot|US$ reported ... for ...\nEDGE|broadcast airtime sale|FIRST_DOCUMENTED|WEAF|first documented sale of broadcast airtime"
+}

@@ -1,0 +1,56 @@
+{
+ "group_id": "L1|da9c970db88de00b",
+ "source": "kmeans",
+ "n_in": 9,
+ "parents": [
+  {
+   "name": "Television advertising share of total ad spend",
+   "type": "media-share measurement",
+   "grain": "Measurement",
+   "reason": "same share measure across years and sources; TV share of total ad spend",
+   "child_uids": [
+    "n|e2-medium-006|television ad share measurement|media-share measurement",
+    "n|tu:era:3:field:BUYERS|television share of total ad spend|media-share measurement",
+    "n|tu:era:3:field:MEDIUM|television advertising share of total ad spend|share measurement"
+   ]
+  },
+  {
+   "name": "Broadcast (TV+radio) total advertising spend",
+   "type": "total broadcast spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: broadcast (TV+radio) total ad spend",
+   "child_uids": [
+    "n|e3-events-002|television plus radio spend|total broadcast spend measurement"
+   ]
+  },
+  {
+   "name": "Broadcast television advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "same spend measure; broadcast television advertising amount across years",
+   "child_uids": [
+    "n|e6-medium-001|broadcast television advertising amount|spend measurement",
+    "n|tu:era:6:field:BUYERS|broadcast tv spend amount|spend measurement",
+    "n|tu:era:6:field:MEDIUM|broadcast television spend|spend measurement"
+   ]
+  },
+  {
+   "name": "Total television advertising spend",
+   "type": "spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: total television advertising spend (including cable)",
+   "child_uids": [
+    "n|e6-medium-001|television advertising amount|spend measurement"
+   ]
+  },
+  {
+   "name": "Broadcaster payment amount",
+   "type": "monetary spend measurement",
+   "grain": "Measurement",
+   "reason": "singleton: broadcaster payment amount measurement",
+   "child_uids": [
+    "n|tu:era:3:event:7|broadcaster payment amount|monetary spend measurement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "id": "e3-events-003",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1971,
+ "unit": "minutes of prime time returned to affiliates per weekday night",
+ "elapsed_s": 95.6,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "Prime Time Access Rule",
+   "type": "policy",
+   "clause": "the Prime Time Access Rule"
+  },
+  {
+   "name": "network affiliates",
+   "type": "broadcast affiliate",
+   "clause": "network affiliates in the top ... markets"
+  },
+  {
+   "name": "top markets",
+   "type": "market segment",
+   "clause": "the top ... markets"
+  },
+  {
+   "name": "prime time minutes returned to affiliates per weekday night",
+   "type": "time-return measurement",
+   "clause": "... minutes a night returned to affiliates on weekdays and Saturdays"
+  },
+  {
+   "name": "Sunday prime time hour loss",
+   "type": "time-loss measurement",
+   "clause": "Sundays lost a full ... in ... blocks under the original rule"
+  },
+  {
+   "name": "broadcast networks",
+   "type": "television network",
+   "clause": "the networks complied nationwide"
+  },
+  {
+   "name": "other markets",
+   "type": "market segment",
+   "clause": "markets beyond the top ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "Prime Time Access Rule",
+   "type": "BARS",
+   "to": "network affiliates",
+   "clause": "barred network affiliates in the top ... markets from carrying more than ... of the ... prime-time hours"
+  },
+  {
+   "from": "Prime Time Access Rule",
+   "type": "RETURNED",
+   "to": "prime time minutes returned to affiliates per weekday night",
+   "clause": "on weekdays and Saturdays it returned ... minutes a night to affiliates"
+  },
+  {
+   "from": "Prime Time Access Rule",
+   "type": "REDUCED",
+   "to": "Sunday prime time hour loss",
+   "clause": "under the original rule Sundays lost a full ... in ... blocks"
+  },
+  {
+   "from": "Prime Time Access Rule",
+   "type": "BOUND_ONLY_TO",
+   "to": "top markets",
+   "clause": "bound only the top ... markets"
+  },
+  {
+   "from": "Prime Time Access Rule",
+   "type": "NOT_BOUND_TO",
+   "to": "other markets",
+   "clause": "excluded other markets"
+  },
+  {
+   "from": "broadcast networks",
+   "type": "COMPLIED_WITH",
+   "to": "Prime Time Access Rule",
+   "clause": "the networks complied nationwide"
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|Prime Time Access Rule|policy|the Prime Time Access Rule\nNODE|network affiliates|broadcast affiliate|network affiliates in the top ... markets\nNODE|top markets|market segment|the top ... markets\nNODE|prime time minutes returned to affiliates per weekday night|time-return measurement|... minutes a night returned to affiliates on weekdays and Saturdays\nNODE|Sunday prime time hour loss|time-loss measurement|Sundays lost a full ... in ... blocks under the original rule\nNODE|broadcast networks|television network|the networks complied nationwide\nNODE|other markets|market segment|markets beyond the top ...\nEDGE|Prime Time Access Rule|BARS|network affiliates|barred network affiliates in the top ... markets from carrying more than ... of the ... prime-time hours\nEDGE|Prime Time Access Rule|RETURNED|prime time minutes returned to affiliates per weekday night|on weekdays and Saturdays it returned ... minutes a night to affiliates\nEDGE|Prime Time Access Rule|REDUCED|Sunday prime time hour loss|under the original rule Sundays lost a full ... in ... blocks\nEDGE|Prime Time Access Rule|BOUND_ONLY_TO|top markets|bound only the top ... markets\nEDGE|Prime Time Access Rule|NOT_BOUND_TO|other markets|excluded other markets\nEDGE|broadcast networks|COMPLIED_WITH|Prime Time Access Rule|the networks complied nationwide"
+}

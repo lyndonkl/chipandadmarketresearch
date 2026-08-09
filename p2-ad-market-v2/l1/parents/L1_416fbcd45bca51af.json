@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|416fbcd45bca51af",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Single sellers in US advertising economy",
+   "type": "market participant group",
+   "grain": "Entity",
+   "reason": "singleton: distinct seller group, not an advertiser cohort",
+   "child_uids": [
+    "n|e4-sellers-005|single sellers in us advertising economy|market participant group"
+   ]
+  },
+  {
+   "name": "US national-brand advertisers",
+   "type": "advertiser group",
+   "grain": "Entity",
+   "reason": "singleton: US national\u2011brand advertisers, separate from large brand group",
+   "child_uids": [
+    "n|e5-buyers-010|us national-brand advertisers|advertiser group"
+   ]
+  },
+  {
+   "name": "Large brand advertisers",
+   "type": "advertiser constituency",
+   "grain": "Entity",
+   "reason": "singleton: large brand advertisers, not limited to US national brands",
+   "child_uids": [
+    "n|tu:era:5:event:3|large brand advertisers|advertiser constituency"
+   ]
+  }
+ ]
+}

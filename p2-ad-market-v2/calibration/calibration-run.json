@@ -1,0 +1,1483 @@
+[
+ {
+  "id": "e4-targeting-004",
+  "kind": "claim",
+  "about_year": 1993,
+  "unit": "percent response rate",
+  "text": "The best-targeted medium of the era still missed 98 out of 100 recipients: a 2% response rate on a rented list was the working definition of a successful direct-mail campaign, with 2-3% treated as good.",
+  "elapsed_s": 52.3,
+  "nodes": [
+   {
+    "name": "best-targeted medium",
+    "type": "advertising medium",
+    "clause": "the best-targeted medium of the era"
+   },
+   {
+    "name": "direct-mail campaign",
+    "type": "marketing tactic",
+    "clause": "successful direct-mail campaign"
+   },
+   {
+    "name": "rented list",
+    "type": "mailing list type",
+    "clause": "on a rented list"
+   },
+   {
+    "name": "missed recipient rate",
+    "type": "response-rate measurement",
+    "clause": "98 out of 100 recipients missed"
+   },
+   {
+    "name": "successful direct-mail response rate",
+    "type": "response-rate measurement",
+    "clause": "2% response rate ... definition"
+   },
+   {
+    "name": "good direct-mail response rate range",
+    "type": "response-rate measurement",
+    "clause": "2-3% treated as good"
+   }
+  ],
+  "edges": [
+   {
+    "from": "best-targeted medium",
+    "type": "MISSED",
+    "to": "missed recipient rate",
+    "clause": "still missed ... recipients"
+   },
+   {
+    "from": "successful direct-mail response rate",
+    "type": "APPLIES_TO",
+    "to": "rented list",
+    "clause": "on a rented list"
+   },
+   {
+    "from": "successful direct-mail response rate",
+    "type": "DEFINES",
+    "to": "direct-mail campaign",
+    "clause": "working definition of a successful direct-mail campaign"
+   },
+   {
+    "from": "good direct-mail response rate range",
+    "type": "CONSIDERED_GOOD_FOR",
+    "to": "direct-mail campaign",
+    "clause": "treated as good"
+   }
+  ],
+  "repairs": [],
+  "raw": "NODE|best-targeted medium|advertising medium|the best-targeted medium of the era\nNODE|direct-mail campaign|marketing tactic|successful direct-mail campaign\nNODE|rented list|mailing list type|on a rented list\nNODE|missed recipient rate|response-rate measurement|98 out of 100 recipients missed\nNODE|successful direct-mail response rate|response-rate measurement|2% response rate ... definition\nNODE|good direct-mail response rate range|response-rate measurement|2-3% treated as good\nEDGE|best-targeted medium|MISSED|missed recipient rate|still missed ... recipients\nEDGE|successful direct-mail response rate|APPLIES_TO|rented list|on a rented list\nEDGE|successful direct-mail response rate|DEFINES|direct-mail campaign|working definition of a successful direct-mail campaign\nEDGE|good direct-mail response rate range|CONSIDERED_GOOD_FOR|direct-mail campaign|treated as good"
+ },
+ {
+  "id": "e7-scale-010",
+  "kind": "claim",
+  "about_year": 2025,
+  "unit": "percentage points of the $398B observed 2025 US total; negative means the four pools over-allocate",
+  "text": "The four reconciled money-type pools sum to 100.6 percent of the $398B observed US total for 2025, over-allocating it by about $2.4 billion. The residual is negative and it is an artefact of the aggregation rather than the evidence: national brand and direct response are constructed complements, so taking each pool's median independently breaks the closure every individual lens enforced.",
+  "elapsed_s": 64.5,
+  "nodes": [
+   {
+    "name": "reconciled money-type pools",
+    "type": "pool set",
+    "clause": "the four reconciled money-type pools"
+   },
+   {
+    "name": "US advertising total 2025",
+    "type": "spend aggregate",
+    "clause": "the $398B observed US total for 2025"
+   },
+   {
+    "name": "allocation share of reconciled pools",
+    "type": "share measurement",
+    "clause": "sum to ... percent of the observed US total"
+   },
+   {
+    "name": "over-allocation amount",
+    "type": "excess spend measurement",
+    "clause": "over-allocating it by ... billion"
+   },
+   {
+    "name": "allocation residual",
+    "type": "residual measurement",
+    "clause": "the residual is negative"
+   },
+   {
+    "name": "aggregation",
+    "type": "data aggregation method",
+    "clause": "artefact of the aggregation rather than the evidence"
+   },
+   {
+    "name": "national brand pool",
+    "type": "advertising pool",
+    "clause": "national brand ... constructed complement"
+   },
+   {
+    "name": "direct response pool",
+    "type": "advertising pool",
+    "clause": "direct response ... constructed complement"
+   },
+   {
+    "name": "pool median calculation",
+    "type": "statistical operation",
+    "clause": "taking each pool's median independently..."
+   },
+   {
+    "name": "lens closure",
+    "type": "consistency condition",
+    "clause": "breaks the closure every individual lens enforced"
+   },
+   {
+    "name": "negative",
+    "type": "(promoted)",
+    "clause": ""
+   }
+  ],
+  "edges": [
+   {
+    "from": "allocation share of reconciled pools",
+    "type": "MEASURES",
+    "to": "reconciled money-type pools",
+    "clause": "sum to ... percent of the observed US total"
+   },
+   {
+    "from": "allocation share of reconciled pools",
+    "type": "SHARE_OF",
+    "to": "US advertising total 2025",
+    "clause": "... percent of the observed US total"
+   },
+   {
+    "from": "over-allocation amount",
+    "type": "EXCEEDS",
+    "to": "US advertising total 2025",
+    "clause": "over-allocating it by ..."
+   },
+   {
+    "from": "allocation residual",
+    "type": "HAS_SIGN",
+    "to": "negative",
+    "clause": "the residual is negative"
+   },
+   {
+    "from": "allocation residual",
+    "type": "IS_ARTEFACT_OF",
+    "to": "aggregation",
+    "clause": "artefact of the aggregation"
+   },
+   {
+    "from": "national brand pool",
+    "type": "COMPLEMENT_OF",
+    "to": "direct response pool",
+    "clause": "constructed complements"
+   },
+   {
+    "from": "pool median calculation",
+    "type": "BREAKS",
+    "to": "lens closure",
+    "clause": "breaks the closure ..."
+   }
+  ],
+  "repairs": [
+   {
+    "kind": "undeclared_endpoint_promoted",
+    "endpoint": "negative",
+    "line": "EDGE|allocation residual|HAS_SIGN|negative|the residual is negative"
+   }
+  ],
+  "raw": "NODE|reconciled money-type pools|pool set|the four reconciled money-type pools\nNODE|US advertising total 2025|spend aggregate|the $398B observed US total for 2025\nNODE|allocation share of reconciled pools|share measurement|sum to ... percent of the observed US total\nNODE|over-allocation amount|excess spend measurement|over-allocating it by ... billion\nNODE|allocation residual|residual measurement|the residual is negative\nNODE|aggregation|data aggregation method|artefact of the aggregation rather than the evidence\nNODE|national brand pool|advertising pool|national brand ... constructed complement\nNODE|direct response pool|advertising pool|direct response ... constructed complement\nNODE|pool median calculation|statistical operation|taking each pool's median independently...\nNODE|lens closure|consistency condition|breaks the closure every individual lens enforced\nEDGE|allocation share of reconciled pools|MEASURES|reconciled money-type pools|sum to ... percent of the observed US total\nEDGE|allocation share of reconciled pools|SHARE_OF|US advertising total 2025|... percent of the observed US total\nEDGE|over-allocation amount|EXCEEDS|US advertising total 2025|over-allocating it by ...\nEDGE|allocation residual|HAS_SIGN|negative|the residual is negative\nEDGE|allocation residual|IS_ARTEFACT_OF|aggregation|artefact of the aggregation\nEDGE|national brand pool|COMPLEMENT_OF|direct response pool|constructed complements\nEDGE|pool median calculation|BREAKS|lens closure|breaks the closure ..."
+ },
+ {
+  "id": "e6-creators-002",
+  "kind": "claim",
+  "about_year": 2003,
+  "unit": "% of advertisers using billings-based agency compensation (2003)",
+  "text": "The share of US advertisers compensating their agency on a billings (commission) basis had fallen to about 10% by 2003, down from 61% in 1994; the collapse followed the 1991-94 unbundling of media buying from creative, not the arrival of search advertising.",
+  "elapsed_s": 67.2,
+  "nodes": [
+   {
+    "name": "billings-based agency compensation share",
+    "type": "media-share measurement",
+    "clause": "share of US advertisers using billings-based agency compensation"
+   },
+   {
+    "name": "US advertisers",
+    "type": "advertiser constituency",
+    "clause": "US advertisers"
+   },
+   {
+    "name": "unbundling of media buying from creative",
+    "type": "industry restructuring practice",
+    "clause": "the unbundling of media buying from creative"
+   },
+   {
+    "name": "arrival of search advertising",
+    "type": "advertising channel emergence",
+    "clause": "the arrival of search advertising"
+   }
+  ],
+  "edges": [
+   {
+    "from": "billings-based agency compensation share",
+    "type": "MEASURES",
+    "to": "US advertisers",
+    "clause": "share of US advertisers using billings-based agency compensation"
+   },
+   {
+    "from": "billings-based agency compensation share",
+    "type": "FOLLOWED_BY",
+    "to": "unbundling of media buying from creative",
+    "clause": "the collapse followed the unbundling of media buying from creative"
+   },
+   {
+    "from": "billings-based agency compensation share",
+    "type": "NOT_CAUSED_BY",
+    "to": "arrival of search advertising",
+    "clause": "not the arrival of search advertising"
+   }
+  ],
+  "repairs": [],
+  "raw": "NODE|billings-based agency compensation share|media-share measurement|share of US advertisers using billings-based agency compensation\nNODE|US advertisers|advertiser constituency|US advertisers\nNODE|unbundling of media buying from creative|industry restructuring practice|the unbundling of media buying from creative\nNODE|arrival of search advertising|advertising channel emergence|the arrival of search advertising\nEDGE|billings-based agency compensation share|MEASURES|US advertisers|share of US advertisers using billings-based agency compensation\nEDGE|billings-based agency compensation share|FOLLOWED_BY|unbundling of media buying from creative|the collapse followed the unbundling of media buying from creative\nEDGE|billings-based agency compensation share|NOT_CAUSED_BY|arrival of search advertising|not the arrival of search advertising"
+ },
+ {
+  "id": "e5-buyers-015",
+  "kind": "claim",
+  "about_year": 2000,
+  "unit": "USD billions (2000 US ad spend)",
+  "text": "On the cross-era comparable rule, where ALL directory money sits in the same intent pool eras 6 and 7 use, US direct-response advertisers' measured media spend in 2000 was about $72.3B, 29.2 percent of the market: direct mail $44.6B, the whole Yellow Pages line $13.2B, performance-priced internet $0.7-1.4B and direct-response money bought inside general media $5-18.5B. That is the era-native pool (e5-buyers-013, $61.2B) plus the local Yellow Pages block, $11.1B. Overture's own filing benchmarked its business against Yellow Pages calls and direct-mail responses, which is the buyer-side reading this rule follows. Under the era-native geographic rule local retail leads direct response, 28.32 to 24.71; under this unified-intent rule direct response leads local retail, 29.21 to 23.82. The flip is exact and this one block is its sole cause. Under BOTH rules the two intervals still overlap, so the pair stays unranked by interval and a chart must not sort these two bars. No 1994-2001 evidence decides which rule is right; both are carried.",
+  "elapsed_s": 185.1,
+  "nodes": [
+   {
+    "name": "cross-era comparable rule",
+    "type": "rule",
+    "clause": "on the cross-era comparable rule where all directory money sits in same intent pool"
+   },
+   {
+    "name": "intent pool",
+    "type": "media intent pool",
+    "clause": "same intent pool eras ... and ... use"
+   },
+   {
+    "name": "era 6",
+    "type": "era",
+    "clause": "era ..."
+   },
+   {
+    "name": "era 7",
+    "type": "era",
+    "clause": "era ..."
+   },
+   {
+    "name": "US direct-response advertisers",
+    "type": "advertiser group",
+    "clause": "US direct-response advertisers' measured media spend in ..."
+   },
+   {
+    "name": "total direct-response spend measurement",
+    "type": "spend measurement",
+    "clause": "US direct-response advertisers' measured media spend ... was about ..."
+   },
+   {
+    "name": "market",
+    "type": "advertising market",
+    "clause": "... of the market"
+   },
+   {
+    "name": "share of market measurement",
+    "type": "share measurement",
+    "clause": "... percent of the market"
+   },
+   {
+    "name": "direct mail spend measurement",
+    "type": "spend measurement",
+    "clause": "direct mail ..."
+   },
+   {
+    "name": "Yellow Pages line spend measurement",
+    "type": "spend measurement",
+    "clause": "whole Yellow Pages line ..."
+   },
+   {
+    "name": "performance-priced internet spend measurement",
+    "type": "spend measurement",
+    "clause": "performance-priced internet ..."
+   },
+   {
+    "name": "general media direct-response spend measurement",
+    "type": "spend measurement",
+    "clause": "direct-response money bought inside general media ..."
+   },
+   {
+    "name": "era-native pool measurement",
+    "type": "pool amount measurement",
+    "clause": "era-native pool ..."
+   },
+   {
+    "name": "local Yellow Pages block measurement",
+    "type": "block amount measurement",
+    "clause": "local Yellow Pages block ..."
+   },
+   {
+    "name": "Overture filing",
+    "type": "corporate filing",
+    "clause": "Overture's own filing benchmarked its business ..."
+   },
+   {
+    "name": "Yellow Pages calls",
+    "type": "advertising call type",
+    "clause": "Yellow Pages calls"
+   },
+   {
+    "name": "direct-mail responses",
+    "type": "response type",
+    "clause": "direct-mail responses"
+   },
+   {
+    "name": "buyer-side reading",
+    "type": "reading interpretation",
+    "clause": "buyer-side reading this rule follows"
+   },
+   {
+    "name": "era-native geographic rule",
+    "type": "rule",
+    "clause": "under the era-native geographic rule"
+   },
+   {
+    "name": "unified-intent rule",
+    "type": "rule",
+    "clause": "under this unified-intent rule"
+   },
+   {
+    "name": "local retail",
+    "type": "advertiser segment",
+    "clause": "local retail"
+   },
+   {
+    "name": "direct response",
+    "type": "advertiser segment",
+    "clause": "direct response"
+   },
+   {
+    "name": "lead direction flip",
+    "type": "event",
+    "clause": "the flip is exact"
+   },
+   {
+    "name": "chart",
+    "type": "visualization",
+    "clause": "a chart must not sort these two bars"
+   },
+   {
+    "name": "pair of bars",
+    "type": "visual element",
+    "clause": "these two bars"
+   },
+   {
+    "name": "1994-2001 evidence",
+    "type": "evidence",
+    "clause": "No ... evidence decides which rule is right"
+   },
+   {
+    "name": "both rules",
+    "type": "rule set",
+    "clause": "both are carried"
+   },
+   {
+    "name": "local retail share under geographic rule measurement",
+    "type": "share measurement",
+    "clause": "local retail ... under geographic rule"
+   },
+   {
+    "name": "direct response share under geographic rule measurement",
+    "type": "share measurement",
+    "clause": "direct response ... under geographic rule"
+   },
+   {
+    "name": "direct response share under unified-intent rule measurement",
+    "type": "share measurement",
+    "clause": "direct response ... under unified-intent rule"
+   },
+   {
+    "name": "local retail share under unified-intent rule measurement",
+    "type": "share measurement",
+    "clause": "local retail ... under unified-intent rule"
+   },
+   {
+    "name": "which rule is right",
+    "type": "(promoted)",
+    "clause": ""
+   }
+  ],
+  "edges": [
+   {
+    "from": "cross-era comparable rule",
+    "type": "USES",
+    "to": "intent pool",
+    "clause": "where all directory money sits in same intent pool"
+   },
+   {
+    "from": "intent pool",
+    "type": "USED_BY",
+    "to": "era 6",
+    "clause": "eras ... use"
+   },
+   {
+    "from": "intent pool",
+    "type": "USED_BY",
+    "to": "era 7",
+    "clause": "eras ... use"
+   },
+   {
+    "from": "US direct-response advertisers",
+    "type": "HAS_SPEND_MEASUREMENT",
+    "to": "total direct-response spend measurement",
+    "clause": "measured media spend ..."
+   },
+   {
+    "from": "total direct-response spend measurement",
+    "type": "MEASURES",
+    "to": "US direct-response advertisers",
+    "clause": "spend measurement of ..."
+   },
+   {
+    "from": "total direct-response spend measurement",
+    "type": "SHARE_OF",
+    "to": "market",
+    "clause": "... percent of the market"
+   },
+   {
+    "from": "share of market measurement",
+    "type": "MEASURES",
+    "to": "market",
+    "clause": "share of ... market"
+   },
+   {
+    "from": "direct mail spend measurement",
+    "type": "PART_OF",
+    "to": "total direct-response spend measurement",
+    "clause": "direct mail part of total spend"
+   },
+   {
+    "from": "Yellow Pages line spend measurement",
+    "type": "PART_OF",
+    "to": "total direct-response spend measurement",
+    "clause": "Yellow Pages line part of total spend"
+   },
+   {
+    "from": "performance-priced internet spend measurement",
+    "type": "PART_OF",
+    "to": "total direct-response spend measurement",
+    "clause": "performance-priced internet part of total spend"
+   },
+   {
+    "from": "general media direct-response spend measurement",
+    "type": "PART_OF",
+    "to": "total direct-response spend measurement",
+    "clause": "direct-response money inside general media part of total spend"
+   },
+   {
+    "from": "era-native pool measurement",
+    "type": "PART_OF",
+    "to": "total direct-response spend measurement",
+    "clause": "era-native pool part of total spend"
+   },
+   {
+    "from": "local Yellow Pages block measurement",
+    "type": "PART_OF",
+    "to": "total direct-response spend measurement",
+    "clause": "local Yellow Pages block part of total spend"
+   },
+   {
+    "from": "Overture filing",
+    "type": "BENCHMARKED_AGAINST",
+    "to": "Yellow Pages calls",
+    "clause": "benchmark against Yellow Pages calls"
+   },
+   {
+    "from": "Overture filing",
+    "type": "BENCHMARKED_AGAINST",
+    "to": "direct-mail responses",
+    "clause": "benchmark against direct-mail responses"
+   },
+   {
+    "from": "cross-era comparable rule",
+    "type": "FOLLOWS_READING",
+    "to": "buyer-side reading",
+    "clause": "rule follows buyer-side reading"
+   },
+   {
+    "from": "local retail",
+    "type": "LEADS_OVER",
+    "to": "direct response",
+    "clause": "under era-native geographic rule"
+   },
+   {
+    "from": "direct response",
+    "type": "LEADS_OVER",
+    "to": "local retail",
+    "clause": "under unified-intent rule"
+   },
+   {
+    "from": "lead direction flip",
+    "type": "CAUSED_BY",
+    "to": "local Yellow Pages block measurement",
+    "clause": "flip caused by this block"
+   },
+   {
+    "from": "chart",
+    "type": "MUST_NOT_SORT",
+    "to": "pair of bars",
+    "clause": "chart must not sort these two bars"
+   },
+   {
+    "from": "1994-2001 evidence",
+    "type": "DOES_NOT_DECIDE",
+    "to": "which rule is right",
+    "clause": "evidence does not decide which rule is right"
+   },
+   {
+    "from": "local retail share under geographic rule measurement",
+    "type": "MEASURES",
+    "to": "local retail",
+    "clause": "local retail ... under geographic rule"
+   },
+   {
+    "from": "direct response share under geographic rule measurement",
+    "type": "MEASURES",
+    "to": "direct response",
+    "clause": "direct response ... under geographic rule"
+   },
+   {
+    "from": "direct response share under unified-intent rule measurement",
+    "type": "MEASURES",
+    "to": "direct response",
+    "clause": "direct response ... under unified-intent rule"
+   },
+   {
+    "from": "local retail share under unified-intent rule measurement",
+    "type": "MEASURES",
+    "to": "local retail",
+    "clause": "local retail ... under unified-intent rule"
+   }
+  ],
+  "repairs": [
+   {
+    "kind": "undeclared_endpoint_promoted",
+    "endpoint": "which rule is right",
+    "line": "EDGE|1994-2001 evidence|DOES_NOT_DECIDE|which rule is right|evidence does not decide which rule is right"
+   }
+  ],
+  "raw": "NODE|cross-era comparable rule|rule|on the cross-era comparable rule where all directory money sits in same intent pool\nNODE|intent pool|media intent pool|same intent pool eras ... and ... use\nNODE|era 6|era|era ...\nNODE|era 7|era|era ...\nNODE|US direct-response advertisers|advertiser group|US direct-response advertisers' measured media spend in ...\nNODE|total direct-response spend measurement|spend measurement|US direct-response advertisers' measured media spend ... was about ...\nNODE|market|advertising market|... of the market\nNODE|share of market measurement|share measurement|... percent of the market\nNODE|direct mail spend measurement|spend measurement|direct mail ...\nNODE|Yellow Pages line spend measurement|spend measurement|whole Yellow Pages line ...\nNODE|performance-priced internet spend measurement|spend measurement|performance-priced internet ...\nNODE|general media direct-response spend measurement|spend measurement|direct-response money bought inside general media ...\nNODE|era-native pool measurement|pool amount measurement|era-native pool ...\nNODE|local Yellow Pages block measurement|block amount measurement|local Yellow Pages block ...\nNODE|Overture filing|corporate filing|Overture's own filing benchmarked its business ...\nNODE|Yellow Pages calls|advertising call type|Yellow Pages calls\nNODE|direct-mail responses|response type|direct-mail responses\nNODE|buyer-side reading|reading interpretation|buyer-side reading this rule follows\nNODE|era-native geographic rule|rule|under the era-native geographic rule\nNODE|unified-intent rule|rule|under this unified-intent rule\nNODE|local retail|advertiser segment|local retail\nNODE|direct response|advertiser segment|direct response\nNODE|lead direction flip|event|the flip is exact\nNODE|chart|visualization|a chart must not sort these two bars\nNODE|pair of bars|visual element|these two bars\nNODE|1994-2001 evidence|evidence|No ... evidence decides which rule is right\nNODE|both rules|rule set|both are carried\nNODE|local retail share under geographic rule measurement|share measurement|local retail ... under geographic rule\nNODE|direct response share under geographic rule measurement|share measurement|direct response ... under geographic rule\nNODE|direct response share under unified-intent rule measurement|share measurement|direct response ... under unified-intent rule\nNODE|local retail share under unified-intent rule measurement|share measurement|local retail ... under unified-intent rule\nEDGE|cross-era comparable rule|USES|intent pool|where all directory money sits in same intent pool\nEDGE|intent pool|USED_BY|era 6|eras ... use\nEDGE|intent pool|USED_BY|era 7|eras ... use\nEDGE|US direct-response advertisers|HAS_SPEND_MEASUREMENT|total direct-response spend measurement|measured media spend ...\nEDGE|total direct-response spend measurement|MEASURES|US direct-response advertisers|spend measurement of ...\nEDGE|total direct-response spend measurement|SHARE_OF|market|... percent of the market\nEDGE|share of market measurement|MEASURES|market|share of ... market\nEDGE|direct mail spend measurement|PART_OF|total direct-response spend measurement|direct mail part of total spend\nEDGE|Yellow Pages line spend measurement|PART_OF|total direct-response spend measurement|Yellow Pages line part of total spend\nEDGE|performance-priced internet spend measurement|PART_OF|total direct-response spend measurement|performance-priced internet part of total spend\nEDGE|general media direct-response spend measurement|PART_OF|total direct-response spend measurement|direct-response money inside general media part of total spend\nEDGE|era-native pool measurement|PART_OF|total direct-response spend measurement|era-native pool part of total spend\nEDGE|local Yellow Pages block measurement|PART_OF|total direct-response spend measurement|local Yellow Pages block part of total spend\nEDGE|Overture filing|BENCHMARKED_AGAINST|Yellow Pages calls|benchmark against Yellow Pages calls\nEDGE|Overture filing|BENCHMARKED_AGAINST|direct-mail responses|benchmark against direct-mail responses\nEDGE|cross-era comparable rule|FOLLOWS_READING|buyer-side reading|rule follows buyer-side reading\nEDGE|local retail|LEADS_OVER|direct response|under era-native geographic rule\nEDGE|direct response|LEADS_OVER|local retail|under unified-intent rule\nEDGE|lead direction flip|CAUSED_BY|local Yellow Pages block measurement|flip caused by this block\nEDGE|chart|MUST_NOT_SORT|pair of bars|chart must not sort these two bars\nEDGE|1994-2001 evidence|DOES_NOT_DECIDE|which rule is right|evidence does not decide which rule is right\nEDGE|local retail share under geographic rule measurement|MEASURES|local retail|local retail ... under geographic rule\nEDGE|direct response share under geographic rule measurement|MEASURES|direct response|direct response ... under geographic rule\nEDGE|direct response share under unified-intent rule measurement|MEASURES|direct response|direct response ... under unified-intent rule\nEDGE|local retail share under unified-intent rule measurement|MEASURES|local retail|local retail ... under unified-intent rule"
+ },
+ {
+  "id": "e7-pricing-005",
+  "kind": "claim",
+  "about_year": 2023,
+  "unit": "cents of each DSP dollar reaching the consumer",
+  "text": "The ANA's programmatic transparency study found about 36 cents of every dollar entering a demand-side platform reached a consumer \u2014 transaction costs took 29 cents and media-productivity loss (non-viewable, invalid traffic, unmeasurable and made-for-advertising inventory) took 35 cents. Of the roughly $88B open-web programmatic pool the study sized, the ANA identified about $22B \u2014 a quarter \u2014 as recoverable efficiency gain; that is not the same as the 64 cents on the dollar that fails to reach a consumer, which on the same pool is about $56B. Made-for-advertising sites absorbed about 15% of spend on the June 2023 first look, and $10B of the $88B pool (11.4%) on the December full report. BASIS CAVEAT: the study's participants are 21 US marketers, but the $88B pool is described as the open-web programmatic market excluding $20.3B of CTV, and whether that pool is US-only or global could not be confirmed from a reachable primary source. Do not treat $88B as a US total.",
+  "elapsed_s": 173.5,
+  "nodes": [
+   {
+    "name": "ANA programmatic transparency study",
+    "type": "research study",
+    "clause": "the ANA's programmatic transparency study"
+   },
+   {
+    "name": "demand-side platform dollar",
+    "type": "monetary unit",
+    "clause": "every dollar entering a demand-side platform"
+   },
+   {
+    "name": "consumer reach share of DSP spend",
+    "type": "share measurement",
+    "clause": "about ... cents per dollar reached a consumer"
+   },
+   {
+    "name": "transaction cost share of DSP spend",
+    "type": "share measurement",
+    "clause": "... cents transaction costs took"
+   },
+   {
+    "name": "media productivity loss share of DSP spend",
+    "type": "share measurement",
+    "clause": "... cents media-productivity loss took"
+   },
+   {
+    "name": "open-web programmatic market",
+    "type": "advertising market",
+    "clause": "the open-web programmatic pool"
+   },
+   {
+    "name": "open-web programmatic pool size",
+    "type": "market-size measurement",
+    "clause": "size of roughly ...B open-web programmatic pool"
+   },
+   {
+    "name": "recoverable efficiency gain amount",
+    "type": "efficiency gain measurement",
+    "clause": "identified about ...B as recoverable efficiency gain"
+   },
+   {
+    "name": "consumer miss share of DSP spend",
+    "type": "share measurement",
+    "clause": "... cents on the dollar that fails to reach a consumer"
+   },
+   {
+    "name": "consumer miss dollar amount",
+    "type": "dollar amount measurement",
+    "clause": "about ...B not reaching a consumer"
+   },
+   {
+    "name": "made-for-advertising sites",
+    "type": "ad inventory type",
+    "clause": "made-for-advertising sites"
+   },
+   {
+    "name": "June 2023 first look report",
+    "type": "report",
+    "clause": "the June ... first look"
+   },
+   {
+    "name": "June 2023 first look spend",
+    "type": "spend amount",
+    "clause": "spend on the June ... first look"
+   },
+   {
+    "name": "share of spend absorbed by MFA sites in June 2023",
+    "type": "share measurement",
+    "clause": "absorbed about ...% of spend on the June ... first look"
+   },
+   {
+    "name": "December full report",
+    "type": "report",
+    "clause": "the December full report"
+   },
+   {
+    "name": "December full report spend",
+    "type": "spend amount",
+    "clause": "spend on the December full report"
+   },
+   {
+    "name": "amount absorbed by MFA sites in December",
+    "type": "dollar amount measurement",
+    "clause": "absorbed about ...B of the ...B pool on the December full report"
+   },
+   {
+    "name": "share of spend absorbed by MFA sites in December",
+    "type": "share measurement",
+    "clause": "...% on the December full report"
+   },
+   {
+    "name": "study participant count",
+    "type": "count measurement",
+    "clause": "participants are ... US marketers"
+   },
+   {
+    "name": "US marketer",
+    "type": "advertiser type",
+    "clause": "US marketers"
+   },
+   {
+    "name": "CTV exclusion amount",
+    "type": "dollar amount measurement",
+    "clause": "pool excludes ...B of CTV"
+   },
+   {
+    "name": "US-only classification",
+    "type": "market scope classification",
+    "clause": "whether pool is US-only or global"
+   }
+  ],
+  "edges": [
+   {
+    "from": "ANA programmatic transparency study",
+    "type": "FOUND",
+    "to": "consumer reach share of DSP spend",
+    "clause": "found ... cents per dollar reached a consumer"
+   },
+   {
+    "from": "demand-side platform dollar",
+    "type": "HAS_SHARE",
+    "to": "consumer reach share of DSP spend",
+    "clause": "... cents per dollar reached a consumer"
+   },
+   {
+    "from": "demand-side platform dollar",
+    "type": "HAS_SHARE",
+    "to": "transaction cost share of DSP spend",
+    "clause": "... cents transaction costs took"
+   },
+   {
+    "from": "demand-side platform dollar",
+    "type": "HAS_SHARE",
+    "to": "media productivity loss share of DSP spend",
+    "clause": "... cents media-productivity loss took"
+   },
+   {
+    "from": "open-web programmatic market",
+    "type": "MEASURES",
+    "to": "open-web programmatic pool size",
+    "clause": "size of roughly ...B open-web programmatic pool"
+   },
+   {
+    "from": "ANA programmatic transparency study",
+    "type": "IDENTIFIED",
+    "to": "recoverable efficiency gain amount",
+    "clause": "identified about ...B as recoverable efficiency gain"
+   },
+   {
+    "from": "consumer miss share of DSP spend",
+    "type": "NOT_SAME_AS",
+    "to": "recoverable efficiency gain amount",
+    "clause": "that is not the same as ... cents on the dollar that fails to reach a consumer"
+   },
+   {
+    "from": "demand-side platform dollar",
+    "type": "HAS_SHARE",
+    "to": "consumer miss share of DSP spend",
+    "clause": "... cents fail to reach a consumer"
+   },
+   {
+    "from": "open-web programmatic market",
+    "type": "MEASURES",
+    "to": "consumer miss dollar amount",
+    "clause": "about ...B not reaching a consumer"
+   },
+   {
+    "from": "made-for-advertising sites",
+    "type": "ABSORBED_SHARE",
+    "to": "share of spend absorbed by MFA sites in June 2023",
+    "clause": "absorbed about ...% of spend on the June ... first look"
+   },
+   {
+    "from": "share of spend absorbed by MFA sites in June 2023",
+    "type": "SHARE_OF",
+    "to": "June 2023 first look spend",
+    "clause": "share of spend absorbed by MFA sites in June 2023"
+   },
+   {
+    "from": "made-for-advertising sites",
+    "type": "ABSORBED_AMOUNT",
+    "to": "amount absorbed by MFA sites in December",
+    "clause": "absorbed about ...B of the ...B pool on the December full report"
+   },
+   {
+    "from": "amount absorbed by MFA sites in December",
+    "type": "MEASURES",
+    "to": "made-for-advertising sites",
+    "clause": "amount absorbed by MFA sites in December"
+   },
+   {
+    "from": "share of spend absorbed by MFA sites in December",
+    "type": "SHARE_OF",
+    "to": "December full report spend",
+    "clause": "...% on the December full report"
+   },
+   {
+    "from": "ANA programmatic transparency study",
+    "type": "HAS_PARTICIPANT_COUNT",
+    "to": "study participant count",
+    "clause": "participants are ... US marketers"
+   },
+   {
+    "from": "US marketer",
+    "type": "PARTICIPATED_IN",
+    "to": "ANA programmatic transparency study",
+    "clause": "... US marketers participated"
+   },
+   {
+    "from": "CTV exclusion amount",
+    "type": "EXCLUDED_FROM",
+    "to": "open-web programmatic market",
+    "clause": "pool excludes ...B of CTV"
+   },
+   {
+    "from": "open-web programmatic market",
+    "type": "SCOPE_UNCERTAIN",
+    "to": "US-only classification",
+    "clause": "could not be confirmed whether pool is US-only or global"
+   }
+  ],
+  "repairs": [],
+  "raw": "NODE|ANA programmatic transparency study|research study|the ANA's programmatic transparency study\nNODE|demand-side platform dollar|monetary unit|every dollar entering a demand-side platform\nNODE|consumer reach share of DSP spend|share measurement|about ... cents per dollar reached a consumer\nNODE|transaction cost share of DSP spend|share measurement|... cents transaction costs took\nNODE|media productivity loss share of DSP spend|share measurement|... cents media-productivity loss took\nNODE|open-web programmatic market|advertising market|the open-web programmatic pool\nNODE|open-web programmatic pool size|market-size measurement|size of roughly ...B open-web programmatic pool\nNODE|recoverable efficiency gain amount|efficiency gain measurement|identified about ...B as recoverable efficiency gain\nNODE|consumer miss share of DSP spend|share measurement|... cents on the dollar that fails to reach a consumer\nNODE|consumer miss dollar amount|dollar amount measurement|about ...B not reaching a consumer\nNODE|made-for-advertising sites|ad inventory type|made-for-advertising sites\nNODE|June 2023 first look report|report|the June ... first look\nNODE|June 2023 first look spend|spend amount|spend on the June ... first look\nNODE|share of spend absorbed by MFA sites in June 2023|share measurement|absorbed about ...% of spend on the June ... first look\nNODE|December full report|report|the December full report\nNODE|December full report spend|spend amount|spend on the December full report\nNODE|amount absorbed by MFA sites in December|dollar amount measurement|absorbed about ...B of the ...B pool on the December full report\nNODE|share of spend absorbed by MFA sites in December|share measurement|...% on the December full report\nNODE|study participant count|count measurement|participants are ... US marketers\nNODE|US marketer|advertiser type|US marketers\nNODE|CTV exclusion amount|dollar amount measurement|pool excludes ...B of CTV\nNODE|US-only classification|market scope classification|whether pool is US-only or global\nEDGE|ANA programmatic transparency study|FOUND|consumer reach share of DSP spend|found ... cents per dollar reached a consumer\nEDGE|demand-side platform dollar|HAS_SHARE|consumer reach share of DSP spend|... cents per dollar reached a consumer\nEDGE|demand-side platform dollar|HAS_SHARE|transaction cost share of DSP spend|... cents transaction costs took\nEDGE|demand-side platform dollar|HAS_SHARE|media productivity loss share of DSP spend|... cents media-productivity loss took\nEDGE|open-web programmatic market|MEASURES|open-web programmatic pool size|size of roughly ...B open-web programmatic pool\nEDGE|ANA programmatic transparency study|IDENTIFIED|recoverable efficiency gain amount|identified about ...B as recoverable efficiency gain\nEDGE|consumer miss share of DSP spend|NOT_SAME_AS|recoverable efficiency gain amount|that is not the same as ... cents on the dollar that fails to reach a consumer\nEDGE|demand-side platform dollar|HAS_SHARE|consumer miss share of DSP spend|... cents fail to reach a consumer\nEDGE|open-web programmatic market|MEASURES|consumer miss dollar amount|about ...B not reaching a consumer\nEDGE|made-for-advertising sites|ABSORBED_SHARE|share of spend absorbed by MFA sites in June 2023|absorbed about ...% of spend on the June ... first look\nEDGE|share of spend absorbed by MFA sites in June 2023|SHARE_OF|June 2023 first look spend|share of spend absorbed by MFA sites in June 2023\nEDGE|made-for-advertising sites|ABSORBED_AMOUNT|amount absorbed by MFA sites in December|absorbed about ...B of the ...B pool on the December full report\nEDGE|amount absorbed by MFA sites in December|MEASURES|made-for-advertising sites|amount absorbed by MFA sites in December\nEDGE|share of spend absorbed by MFA sites in December|SHARE_OF|December full report spend|...% on the December full report\nEDGE|ANA programmatic transparency study|HAS_PARTICIPANT_COUNT|study participant count|participants are ... US marketers\nEDGE|US marketer|PARTICIPATED_IN|ANA programmatic transparency study|... US marketers participated\nEDGE|CTV exclusion amount|EXCLUDED_FROM|open-web programmatic market|pool excludes ...B of CTV\nEDGE|open-web programmatic market|SCOPE_UNCERTAIN|US-only classification|could not be confirmed whether pool is US-only or global"
+ },
+ {
+  "id": "e6-scale-003",
+  "kind": "claim",
+  "about_year": 2007,
+  "unit": "% of US GDP spent on advertising, 2007",
+  "text": "US advertising as a share of GDP FELL during the auction era: both series peak in 2000 - Silk & Berndt put the peak at 2.3% (McCann) and 2.4% (IRS), while Galbi's own %-of-GDP column shows the McCann series at 2.5% in 2000; the 0.2pp gap is a GDP-vintage difference, not a data conflict, and the direction is identical in every vintage and drop below 2% thereafter, with Coen's own %-of-GDP column showing 2.3% (2002) falling to 2.0% (2007).",
+  "elapsed_s": 143.4,
+  "nodes": [
+   {
+    "name": "US advertising share of GDP",
+    "type": "advertising share measurement",
+    "clause": "US advertising as a share of GDP"
+   },
+   {
+    "name": "auction era",
+    "type": "advertising era",
+    "clause": "the auction era"
+   },
+   {
+    "name": "Silk & Berndt series",
+    "type": "advertising spend dataset",
+    "clause": "Silk & Berndt series"
+   },
+   {
+    "name": "IRS series",
+    "type": "advertising spend dataset",
+    "clause": "IRS series"
+   },
+   {
+    "name": "McCann series",
+    "type": "advertising spend dataset",
+    "clause": "McCann series"
+   },
+   {
+    "name": "Galbi %-of-GDP column",
+    "type": "dataset column",
+    "clause": "Galbi's own %-of-GDP column"
+   },
+   {
+    "name": "Coen %-of-GDP column",
+    "type": "dataset column",
+    "clause": "Coen's own %-of-GDP column"
+   },
+   {
+    "name": "US GDP",
+    "type": "economic aggregate",
+    "clause": "US GDP"
+   },
+   {
+    "name": "Silk & Berndt peak advertising share measurement",
+    "type": "media-share measurement",
+    "clause": "peak advertising share for Silk & Berndt series"
+   },
+   {
+    "name": "IRS peak advertising share measurement",
+    "type": "media-share measurement",
+    "clause": "peak advertising share for IRS series"
+   },
+   {
+    "name": "McCann series 2000 advertising share measurement",
+    "type": "media-share measurement",
+    "clause": "advertising share measurement for McCann series in ..."
+   },
+   {
+    "name": "Coen 2002 advertising share measurement",
+    "type": "media-share measurement",
+    "clause": "advertising share measurement for Coen column in ..."
+   },
+   {
+    "name": "Coen 2007 advertising share measurement",
+    "type": "media-share measurement",
+    "clause": "advertising share measurement for Coen column in ..."
+   },
+   {
+    "name": "advertising share gap between series",
+    "type": "measurement difference",
+    "clause": "the ... gap between series"
+   },
+   {
+    "name": "GDP vintage difference",
+    "type": "difference cause",
+    "clause": "a GDP-vintage difference"
+   },
+   {
+    "name": "data conflict",
+    "type": "conflict concept",
+    "clause": "a data conflict"
+   }
+  ],
+  "edges": [
+   {
+    "from": "US advertising share of GDP",
+    "type": "FELL_DURING",
+    "to": "auction era",
+    "clause": "fell during the auction era"
+   },
+   {
+    "from": "Silk & Berndt series",
+    "type": "HAS_PEAK_MEASUREMENT",
+    "to": "Silk & Berndt peak advertising share measurement",
+    "clause": "peak ..."
+   },
+   {
+    "from": "IRS series",
+    "type": "HAS_PEAK_MEASUREMENT",
+    "to": "IRS peak advertising share measurement",
+    "clause": "peak ..."
+   },
+   {
+    "from": "Silk & Berndt peak advertising share measurement",
+    "type": "MEASURES",
+    "to": "US advertising share of GDP",
+    "clause": "measurement of share"
+   },
+   {
+    "from": "Silk & Berndt peak advertising share measurement",
+    "type": "SHARE_OF",
+    "to": "US GDP",
+    "clause": "share of US GDP"
+   },
+   {
+    "from": "IRS peak advertising share measurement",
+    "type": "MEASURES",
+    "to": "US advertising share of GDP",
+    "clause": "measurement of share"
+   },
+   {
+    "from": "IRS peak advertising share measurement",
+    "type": "SHARE_OF",
+    "to": "US GDP",
+    "clause": "share of US GDP"
+   },
+   {
+    "from": "Galbi %-of-GDP column",
+    "type": "SHOWS",
+    "to": "McCann series 2000 advertising share measurement",
+    "clause": "shows ... in ..."
+   },
+   {
+    "from": "Coen %-of-GDP column",
+    "type": "SHOWS",
+    "to": "Coen 2002 advertising share measurement",
+    "clause": "shows ... in ..."
+   },
+   {
+    "from": "Coen %-of-GDP column",
+    "type": "SHOWS",
+    "to": "Coen 2007 advertising share measurement",
+    "clause": "shows ... in ..."
+   },
+   {
+    "from": "Coen 2002 advertising share measurement",
+    "type": "MEASURES",
+    "to": "US advertising share of GDP",
+    "clause": "measurement of share"
+   },
+   {
+    "from": "Coen 2002 advertising share measurement",
+    "type": "SHARE_OF",
+    "to": "US GDP",
+    "clause": "share of US GDP"
+   },
+   {
+    "from": "Coen 2007 advertising share measurement",
+    "type": "MEASURES",
+    "to": "US advertising share of GDP",
+    "clause": "measurement of share"
+   },
+   {
+    "from": "Coen 2007 advertising share measurement",
+    "type": "SHARE_OF",
+    "to": "US GDP",
+    "clause": "share of US GDP"
+   },
+   {
+    "from": "advertising share gap between series",
+    "type": "TYPE_OF",
+    "to": "GDP vintage difference",
+    "clause": "gap is a ... difference"
+   },
+   {
+    "from": "advertising share gap between series",
+    "type": "EXCLUDES",
+    "to": "data conflict",
+    "clause": "not a ..."
+   }
+  ],
+  "repairs": [],
+  "raw": "NODE|US advertising share of GDP|advertising share measurement|US advertising as a share of GDP\nNODE|auction era|advertising era|the auction era\nNODE|Silk & Berndt series|advertising spend dataset|Silk & Berndt series\nNODE|IRS series|advertising spend dataset|IRS series\nNODE|McCann series|advertising spend dataset|McCann series\nNODE|Galbi %-of-GDP column|dataset column|Galbi's own %-of-GDP column\nNODE|Coen %-of-GDP column|dataset column|Coen's own %-of-GDP column\nNODE|US GDP|economic aggregate|US GDP\nNODE|Silk & Berndt peak advertising share measurement|media-share measurement|peak advertising share for Silk & Berndt series\nNODE|IRS peak advertising share measurement|media-share measurement|peak advertising share for IRS series\nNODE|McCann series 2000 advertising share measurement|media-share measurement|advertising share measurement for McCann series in ...\nNODE|Coen 2002 advertising share measurement|media-share measurement|advertising share measurement for Coen column in ...\nNODE|Coen 2007 advertising share measurement|media-share measurement|advertising share measurement for Coen column in ...\nNODE|advertising share gap between series|measurement difference|the ... gap between series\nNODE|GDP vintage difference|difference cause|a GDP-vintage difference\nNODE|data conflict|conflict concept|a data conflict\nEDGE|US advertising share of GDP|FELL_DURING|auction era|fell during the auction era\nEDGE|Silk & Berndt series|HAS_PEAK_MEASUREMENT|Silk & Berndt peak advertising share measurement|peak ...\nEDGE|IRS series|HAS_PEAK_MEASUREMENT|IRS peak advertising share measurement|peak ...\nEDGE|Silk & Berndt peak advertising share measurement|MEASURES|US advertising share of GDP|measurement of share\nEDGE|Silk & Berndt peak advertising share measurement|SHARE_OF|US GDP|share of US GDP\nEDGE|IRS peak advertising share measurement|MEASURES|US advertising share of GDP|measurement of share\nEDGE|IRS peak advertising share measurement|SHARE_OF|US GDP|share of US GDP\nEDGE|Galbi %-of-GDP column|SHOWS|McCann series 2000 advertising share measurement|shows ... in ...\nEDGE|Coen %-of-GDP column|SHOWS|Coen 2002 advertising share measurement|shows ... in ...\nEDGE|Coen %-of-GDP column|SHOWS|Coen 2007 advertising share measurement|shows ... in ...\nEDGE|Coen 2002 advertising share measurement|MEASURES|US advertising share of GDP|measurement of share\nEDGE|Coen 2002 advertising share measurement|SHARE_OF|US GDP|share of US GDP\nEDGE|Coen 2007 advertising share measurement|MEASURES|US advertising share of GDP|measurement of share\nEDGE|Coen 2007 advertising share measurement|SHARE_OF|US GDP|share of US GDP\nEDGE|advertising share gap between series|TYPE_OF|GDP vintage difference|gap is a ... difference\nEDGE|advertising share gap between series|EXCLUDES|data conflict|not a ..."
+ },
+ {
+  "id": "e1-creators-002",
+  "kind": "claim",
+  "about_year": 1849,
+  "unit": "newspapers represented",
+  "text": "Palmer's agency claimed in 1849 to be the sole representative of 1,300 of the roughly 2,000 newspapers then published in the United States. This is a self-reported claim from the agency's own advertising.",
+  "elapsed_s": 45.6,
+  "nodes": [
+   {
+    "name": "Palmer's agency",
+    "type": "advertising agency",
+    "clause": "Palmer's agency"
+   },
+   {
+    "name": "newspapers represented count",
+    "type": "newspaper-representation measurement",
+    "clause": "sole representative of ... newspapers"
+   },
+   {
+    "name": "United States newspapers",
+    "type": "advertising medium",
+    "clause": "newspapers then published in the United States"
+   },
+   {
+    "name": "self-reported claim",
+    "type": "agency claim",
+    "clause": "self-reported claim from the agency's own advertising"
+   },
+   {
+    "name": "agency advertising",
+    "type": "advertising content",
+    "clause": "the agency's own advertising"
+   }
+  ],
+  "edges": [
+   {
+    "from": "Palmer's agency",
+    "type": "MADE_CLAIM",
+    "to": "self-reported claim",
+    "clause": "claimed ... to be sole representative of ..."
+   },
+   {
+    "from": "self-reported claim",
+    "type": "DESCRIBES",
+    "to": "newspapers represented count",
+    "clause": "self-reported claim describes representation"
+   },
+   {
+    "from": "newspapers represented count",
+    "type": "MEASURES",
+    "to": "United States newspapers",
+    "clause": "representation of ... newspapers"
+   },
+   {
+    "from": "agency advertising",
+    "type": "ORIGINATES_FROM",
+    "to": "Palmer's agency",
+    "clause": "the agency's own advertising originates from Palmer's agency"
+   },
+   {
+    "from": "self-reported claim",
+    "type": "SOURCE",
+    "to": "agency advertising",
+    "clause": "self-reported claim from the agency's own advertising"
+   }
+  ],
+  "repairs": [],
+  "raw": "NODE|Palmer's agency|advertising agency|Palmer's agency\nNODE|newspapers represented count|newspaper-representation measurement|sole representative of ... newspapers\nNODE|United States newspapers|advertising medium|newspapers then published in the United States\nNODE|self-reported claim|agency claim|self-reported claim from the agency's own advertising\nNODE|agency advertising|advertising content|the agency's own advertising\nEDGE|Palmer's agency|MADE_CLAIM|self-reported claim|claimed ... to be sole representative of ...\nEDGE|self-reported claim|DESCRIBES|newspapers represented count|self-reported claim describes representation\nEDGE|newspapers represented count|MEASURES|United States newspapers|representation of ... newspapers\nEDGE|agency advertising|ORIGINATES_FROM|Palmer's agency|the agency's own advertising originates from Palmer's agency\nEDGE|self-reported claim|SOURCE|agency advertising|self-reported claim from the agency's own advertising"
+ },
+ {
+  "id": "tu:era:6:event:0",
+  "kind": "prose:event",
+  "about_year": 2002,
+  "unit": null,
+  "text": "Google replaces the CPM AdWords launched in October 2000 with AdWords Select: cost-per-click pricing, ranking by a combination of click-through rate and bid, and an automatic discounter that charges one cent above the next bid. Self-serve, four steps, most ads live immediately.",
+  "elapsed_s": 76.7,
+  "nodes": [
+   {
+    "name": "Google",
+    "type": "company",
+    "clause": "Google replaces the CPM AdWords..."
+   },
+   {
+    "name": "CPM AdWords",
+    "type": "advertising product",
+    "clause": "the CPM AdWords launched in October ..."
+   },
+   {
+    "name": "AdWords Select",
+    "type": "advertising product",
+    "clause": "with AdWords Select"
+   },
+   {
+    "name": "cost-per-click pricing",
+    "type": "pricing model",
+    "clause": "cost-per-click pricing"
+   },
+   {
+    "name": "click-through rate",
+    "type": "performance metric",
+    "clause": "click-through rate"
+   },
+   {
+    "name": "bid",
+    "type": "price component",
+    "clause": "bid"
+   },
+   {
+    "name": "CTR-bid combination",
+    "type": "ranking factor",
+    "clause": "combination of click-through rate and bid"
+   },
+   {
+    "name": "automatic discounter",
+    "type": "pricing mechanism",
+    "clause": "automatic discounter that charges ... above the next bid"
+   },
+   {
+    "name": "next bid",
+    "type": "reference price",
+    "clause": "the next bid"
+   },
+   {
+    "name": "automatic discounter charge amount",
+    "type": "price-difference measurement",
+    "clause": "charges ... above the next bid"
+   },
+   {
+    "name": "self-serve",
+    "type": "service mode",
+    "clause": "Self-serve"
+   },
+   {
+    "name": "four-step workflow",
+    "type": "process",
+    "clause": "four steps"
+   },
+   {
+    "name": "immediate ad activation",
+    "type": "ad outcome",
+    "clause": "most ads live immediately"
+   }
+  ],
+  "edges": [
+   {
+    "from": "Google",
+    "type": "REPLACES",
+    "to": "CPM AdWords",
+    "clause": "replaces the CPM AdWords ..."
+   },
+   {
+    "from": "Google",
+    "type": "INTRODUCED",
+    "to": "AdWords Select",
+    "clause": "with AdWords Select"
+   },
+   {
+    "from": "AdWords Select",
+    "type": "USES",
+    "to": "cost-per-click pricing",
+    "clause": "cost-per-click pricing"
+   },
+   {
+    "from": "AdWords Select",
+    "type": "RANKED_BY",
+    "to": "CTR-bid combination",
+    "clause": "ranking by a combination of click-through rate and bid"
+   },
+   {
+    "from": "CTR-bid combination",
+    "type": "COMBINES",
+    "to": "click-through rate",
+    "clause": "combination of click-through rate ..."
+   },
+   {
+    "from": "CTR-bid combination",
+    "type": "COMBINES",
+    "to": "bid",
+    "clause": "... and bid"
+   },
+   {
+    "from": "AdWords Select",
+    "type": "INCLUDES",
+    "to": "automatic discounter",
+    "clause": "automatic discounter that charges ... above the next bid"
+   },
+   {
+    "from": "automatic discounter",
+    "type": "HAS_MEASUREMENT",
+    "to": "automatic discounter charge amount",
+    "clause": "automatic discounter ... charges ... above the next bid"
+   },
+   {
+    "from": "automatic discounter charge amount",
+    "type": "CHARGED_ABOVE",
+    "to": "next bid",
+    "clause": "charges ... above the next bid"
+   },
+   {
+    "from": "AdWords Select",
+    "type": "HAS_MODE",
+    "to": "self-serve",
+    "clause": "Self-serve"
+   },
+   {
+    "from": "AdWords Select",
+    "type": "USES",
+    "to": "four-step workflow",
+    "clause": "four steps"
+   },
+   {
+    "from": "AdWords Select",
+    "type": "RESULTS_IN",
+    "to": "immediate ad activation",
+    "clause": "most ads live immediately"
+   }
+  ],
+  "repairs": [],
+  "raw": "NODE|Google|company|Google replaces the CPM AdWords...\nNODE|CPM AdWords|advertising product|the CPM AdWords launched in October ...\nNODE|AdWords Select|advertising product|with AdWords Select\nNODE|cost-per-click pricing|pricing model|cost-per-click pricing\nNODE|click-through rate|performance metric|click-through rate\nNODE|bid|price component|bid\nNODE|CTR-bid combination|ranking factor|combination of click-through rate and bid\nNODE|automatic discounter|pricing mechanism|automatic discounter that charges ... above the next bid\nNODE|next bid|reference price|the next bid\nNODE|automatic discounter charge amount|price-difference measurement|charges ... above the next bid\n NODE|self-serve|service mode|Self-serve\nNODE|four-step workflow|process|four steps\nNODE|immediate ad activation|ad outcome|most ads live immediately\nEDGE|Google|REPLACES|CPM AdWords|replaces the CPM AdWords ...\nEDGE|Google|INTRODUCED|AdWords Select|with AdWords Select\nEDGE|AdWords Select|USES|cost-per-click pricing|cost-per-click pricing\nEDGE|AdWords Select|RANKED_BY|CTR-bid combination|ranking by a combination of click-through rate and bid\nEDGE|CTR-bid combination|COMBINES|click-through rate|combination of click-through rate ...\nEDGE|CTR-bid combination|COMBINES|bid|... and bid\nEDGE|AdWords Select|INCLUDES|automatic discounter|automatic discounter that charges ... above the next bid\nEDGE|automatic discounter|HAS_MEASUREMENT|automatic discounter charge amount|automatic discounter ... charges ... above the next bid\nEDGE|automatic discounter charge amount|CHARGED_ABOVE|next bid|charges ... above the next bid\nEDGE|AdWords Select|HAS_MODE|self-serve|Self-serve\nEDGE|AdWords Select|USES|four-step workflow|four steps\nEDGE|AdWords Select|RESULTS_IN|immediate ad activation|most ads live immediately"
+ },
+ {
+  "id": "tu:era:1:field:CREATORS",
+  "kind": "prose:field:CREATORS",
+  "about_year": null,
+  "unit": null,
+  "text": "Nobody in this era was hired to make advertisements. The agency was invented as a space broker: Volney B. Palmer opened in Philadelphia in 1841-42 and was paid by publishers, taking roughly 25 percent of what he sold. By the 1850s a dozen rivals each claimed to represent every paper of importance, and the commission an agent could extract ranged from about 10 to 50 percent. George P. Rowell (Boston, 1865) industrialised the model by buying space in bulk and reselling it in slices. The decisive break came in 1875, when N. W. Ayer & Son offered advertisers the 'open contract': the agent would work for the buyer, disclose the rate, and take a fixed percentage. Once the agent's income no longer depended on hiding the price, the agency had to sell something else - market research (Ayer's Nichols-Shepard study, 1880), then copy and art (from the 1890s). By 1904-07 Lord & Thomas under Albert Lasker had turned copy into the product, hiring John E. Kennedy ('advertising is salesmanship in print') and then Claude Hopkins, who tested headlines against keyed coupons. The full-service agency, the pitch, and the fixed commission all existed before 1917; the trade body that froze them, the 4As, was founded in June of that year.",
+  "elapsed_s": 113.4,
+  "nodes": [
+   {
+    "name": "advertising agency",
+    "type": "organization",
+    "clause": "the agency was invented as a space broker"
+   },
+   {
+    "name": "Philadelphia",
+    "type": "city",
+    "clause": "opened in Philadelphia"
+   },
+   {
+    "name": "publishers",
+    "type": "actor class",
+    "clause": "was paid by publishers"
+   },
+   {
+    "name": "agency commission rate",
+    "type": "take-rate measurement",
+    "clause": "taking ... of what he sold"
+   },
+   {
+    "name": "advertising space revenue",
+    "type": "published space price",
+    "clause": "... of what he sold"
+   },
+   {
+    "name": "advertising agents",
+    "type": "occupation",
+    "clause": "a dozen rivals each claimed to represent..."
+   },
+   {
+    "name": "important newspapers",
+    "type": "media outlet category",
+    "clause": "represent every paper of importance"
+   },
+   {
+    "name": "agent commission range",
+    "type": "commission rate range measurement",
+    "clause": "commission ... ranged from ..."
+   },
+   {
+    "name": "open contract",
+    "type": "contract type",
+    "clause": "offered advertisers the open contract"
+   },
+   {
+    "name": "fixed commission rate",
+    "type": "take-rate measurement",
+    "clause": "take a fixed percentage"
+   },
+   {
+    "name": "advertisers",
+    "type": "actor class",
+    "clause": "offered advertisers..."
+   },
+   {
+    "name": "buyer",
+    "type": "actor class",
+    "clause": "agent would work for the buyer"
+   },
+   {
+    "name": "market research services",
+    "type": "service",
+    "clause": "agency had to sell market research"
+   },
+   {
+    "name": "copy and art services",
+    "type": "service",
+    "clause": "then copy and art"
+   },
+   {
+    "name": "copy product",
+    "type": "advertising output",
+    "clause": "turned copy into the product"
+   },
+   {
+    "name": "headline testing method",
+    "type": "testing practice",
+    "clause": "tested headlines against keyed coupons"
+   },
+   {
+    "name": "keyed coupons",
+    "type": "measurement tool",
+    "clause": "tested headlines against keyed coupons"
+   },
+   {
+    "name": "full-service agency",
+    "type": "agency type",
+    "clause": "the full-service agency..."
+   },
+   {
+    "name": "pitch",
+    "type": "sales technique",
+    "clause": "the pitch..."
+   },
+   {
+    "name": "trade body 4As",
+    "type": "industry association",
+    "clause": "the trade body that froze them"
+   }
+  ],
+  "edges": [
+   {
+    "from": "advertising agency",
+    "type": "OPENED_IN",
+    "to": "Philadelphia",
+    "clause": "opened in Philadelphia"
+   },
+   {
+    "from": "publishers",
+    "type": "PAID",
+    "to": "advertising agency",
+    "clause": "was paid by publishers"
+   },
+   {
+    "from": "advertising agency",
+    "type": "HAS_RATE",
+    "to": "agency commission rate",
+    "clause": "taking ... of what he sold"
+   },
+   {
+    "from": "agency commission rate",
+    "type": "SHARE_OF",
+    "to": "advertising space revenue",
+    "clause": "... of what he sold"
+   },
+   {
+    "from": "advertising agents",
+    "type": "CLAIMED_REPRESENTATION_OF",
+    "to": "important newspapers",
+    "clause": "each claimed to represent every paper of importance"
+   },
+   {
+    "from": "advertising agents",
+    "type": "HAS_RANGE",
+    "to": "agent commission range",
+    "clause": "commission ... ranged from ..."
+   },
+   {
+    "from": "open contract",
+    "type": "OFFERED_TO",
+    "to": "advertisers",
+    "clause": "offered advertisers the open contract"
+   },
+   {
+    "from": "open contract",
+    "type": "HAS_RATE",
+    "to": "fixed commission rate",
+    "clause": "take a fixed percentage"
+   },
+   {
+    "from": "open contract",
+    "type": "WORKS_FOR",
+    "to": "buyer",
+    "clause": "agent would work for the buyer"
+   },
+   {
+    "from": "advertising agency",
+    "type": "ADOPTED_SERVICE",
+    "to": "market research services",
+    "clause": "agency had to sell market research"
+   },
+   {
+    "from": "advertising agency",
+    "type": "ADOPTED_SERVICE",
+    "to": "copy and art services",
+    "clause": "then copy and art"
+   },
+   {
+    "from": "advertising agency",
+    "type": "TURNED_INTO_PRODUCT",
+    "to": "copy product",
+    "clause": "turned copy into the product"
+   },
+   {
+    "from": "headline testing method",
+    "type": "EMPLOYED_TOOL",
+    "to": "keyed coupons",
+    "clause": "tested headlines against keyed coupons"
+   },
+   {
+    "from": "full-service agency",
+    "type": "INCLUDES",
+    "to": "pitch",
+    "clause": "the pitch..."
+   },
+   {
+    "from": "trade body 4As",
+    "type": "FROZE",
+    "to": "full-service agency",
+    "clause": "trade body that froze them"
+   }
+  ],
+  "repairs": [],
+  "raw": "NODE|advertising agency|organization|the agency was invented as a space broker\nNODE|Philadelphia|city|opened in Philadelphia\nNODE|publishers|actor class|was paid by publishers\nNODE|agency commission rate|take-rate measurement|taking ... of what he sold\nNODE|advertising space revenue|published space price|... of what he sold\nNODE|advertising agents|occupation|a dozen rivals each claimed to represent...\nNODE|important newspapers|media outlet category|represent every paper of importance\nNODE|agent commission range|commission rate range measurement|commission ... ranged from ...\nNODE|open contract|contract type|offered advertisers the open contract\nNODE|fixed commission rate|take-rate measurement|take a fixed percentage\nNODE|advertisers|actor class|offered advertisers...\nNODE|buyer|actor class|agent would work for the buyer\nNODE|market research services|service|agency had to sell market research\nNODE|copy and art services|service|then copy and art\nNODE|copy product|advertising output|turned copy into the product\nNODE|headline testing method|testing practice|tested headlines against keyed coupons\nNODE|keyed coupons|measurement tool|tested headlines against keyed coupons\nNODE|full-service agency|agency type|the full-service agency...\nNODE|pitch|sales technique|the pitch...\nNODE|trade body 4As|industry association|the trade body that froze them\nEDGE|advertising agency|OPENED_IN|Philadelphia|opened in Philadelphia\nEDGE|publishers|PAID|advertising agency|was paid by publishers\nEDGE|advertising agency|HAS_RATE|agency commission rate|taking ... of what he sold\nEDGE|agency commission rate|SHARE_OF|advertising space revenue|... of what he sold\nEDGE|advertising agents|CLAIMED_REPRESENTATION_OF|important newspapers|each claimed to represent every paper of importance\nEDGE|advertising agents|HAS_RANGE|agent commission range|commission ... ranged from ...\nEDGE|open contract|OFFERED_TO|advertisers|offered advertisers the open contract\nEDGE|open contract|HAS_RATE|fixed commission rate|take a fixed percentage\nEDGE|open contract|WORKS_FOR|buyer|agent would work for the buyer\nEDGE|advertising agency|ADOPTED_SERVICE|market research services|agency had to sell market research\nEDGE|advertising agency|ADOPTED_SERVICE|copy and art services|then copy and art\nEDGE|advertising agency|TURNED_INTO_PRODUCT|copy product|turned copy into the product\nEDGE|headline testing method|EMPLOYED_TOOL|keyed coupons|tested headlines against keyed coupons\nEDGE|full-service agency|INCLUDES|pitch|the pitch...\nEDGE|trade body 4As|FROZE|full-service agency|trade body that froze them"
+ },
+ {
+  "id": "e1-creators-004",
+  "kind": "claim",
+  "about_year": 1917,
+  "unit": "percent of total US advertising outlay",
+  "text": "One of the largest US agencies (Ayer) handled roughly 1.2 percent of total US advertising outlay in 1917, so the agency layer was highly fragmented at the end of the era.",
+  "elapsed_s": 41.0,
+  "nodes": [
+   {
+    "name": "Ayer",
+    "type": "advertising agency",
+    "clause": "one of the largest US agencies"
+   },
+   {
+    "name": "US advertising agency",
+    "type": "agency class",
+    "clause": "US advertising agencies"
+   },
+   {
+    "name": "total US advertising outlay",
+    "type": "aggregate ad spend",
+    "clause": "total US advertising outlay"
+   },
+   {
+    "name": "Ayer share of total US advertising outlay",
+    "type": "share measurement",
+    "clause": "handled ... percent of total US advertising outlay"
+   },
+   {
+    "name": "agency layer",
+    "type": "advertising market structure",
+    "clause": "the agency layer"
+   },
+   {
+    "name": "high fragmentation",
+    "type": "market condition",
+    "clause": "highly fragmented"
+   }
+  ],
+  "edges": [
+   {
+    "from": "Ayer",
+    "type": "WAS_ONE_OF_LARGEST",
+    "to": "US advertising agency",
+    "clause": "one of the largest US agencies"
+   },
+   {
+    "from": "Ayer",
+    "type": "HANDLED",
+    "to": "Ayer share of total US advertising outlay",
+    "clause": "handled ... percent of total US advertising outlay"
+   },
+   {
+    "from": "Ayer share of total US advertising outlay",
+    "type": "SHARE_OF",
+    "to": "total US advertising outlay",
+    "clause": "... of total US advertising outlay"
+   },
+   {
+    "from": "agency layer",
+    "type": "HIGHLY_FRAGMENTED",
+    "to": "high fragmentation",
+    "clause": "highly fragmented at the end of the era"
+   }
+  ],
+  "repairs": [],
+  "raw": "NODE|Ayer|advertising agency|one of the largest US agencies\nNODE|US advertising agency|agency class|US advertising agencies\nNODE|total US advertising outlay|aggregate ad spend|total US advertising outlay\nNODE|Ayer share of total US advertising outlay|share measurement|handled ... percent of total US advertising outlay\nNODE|agency layer|advertising market structure|the agency layer\nNODE|high fragmentation|market condition|highly fragmented\nEDGE|Ayer|WAS_ONE_OF_LARGEST|US advertising agency|one of the largest US agencies\nEDGE|Ayer|HANDLED|Ayer share of total US advertising outlay|handled ... percent of total US advertising outlay\nEDGE|Ayer share of total US advertising outlay|SHARE_OF|total US advertising outlay|... of total US advertising outlay\nEDGE|agency layer|HIGHLY_FRAGMENTED|high fragmentation|highly fragmented at the end of the era"
+ }
+]

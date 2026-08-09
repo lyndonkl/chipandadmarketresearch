@@ -1,0 +1,51 @@
+{
+ "id": "e1-sellers-002",
+ "kind": "claim",
+ "era": 1,
+ "about_year": 1914,
+ "unit": "millions of copies per issue",
+ "elapsed_s": 46.5,
+ "error": null,
+ "n_nodes": 3,
+ "n_edges": 3,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "aggregate circulation per issue",
+   "type": "circulation measurement",
+   "clause": "the aggregate circulation per issue of all US newspapers and periodicals"
+  },
+  {
+   "name": "US newspapers and periodicals",
+   "type": "media market",
+   "clause": "all US newspapers and periodicals"
+  },
+  {
+   "name": "copies per issue",
+   "type": "unit of measure",
+   "clause": "millions of copies per issue"
+  }
+ ],
+ "edges": [
+  {
+   "from": "aggregate circulation per issue",
+   "type": "MEASURES",
+   "to": "US newspapers and periodicals",
+   "clause": "the aggregate circulation per issue of all US newspapers and periodicals"
+  },
+  {
+   "from": "aggregate circulation per issue",
+   "type": "MEASURED_IN",
+   "to": "copies per issue",
+   "clause": "in millions of copies per issue"
+  },
+  {
+   "from": "aggregate circulation per issue",
+   "type": "UP_BY_PERCENT",
+   "to": "aggregate circulation per issue",
+   "clause": "up ... from ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|aggregate circulation per issue|circulation measurement|the aggregate circulation per issue of all US newspapers and periodicals\nNODE|US newspapers and periodicals|media market|all US newspapers and periodicals\nNODE|copies per issue|unit of measure|millions of copies per issue\nEDGE|aggregate circulation per issue|MEASURES|US newspapers and periodicals|the aggregate circulation per issue of all US newspapers and periodicals\nEDGE|aggregate circulation per issue|MEASURED_IN|copies per issue|in millions of copies per issue\nEDGE|aggregate circulation per issue|UP_BY_PERCENT|aggregate circulation per issue|up ... from ..."
+}

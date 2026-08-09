@@ -1,0 +1,54 @@
+{
+ "group_id": "L1|0a2423fc97f672f1",
+ "source": "kmeans",
+ "n_in": 7,
+ "parents": [
+  {
+   "name": "Price floor",
+   "type": "price floor",
+   "grain": "Entity",
+   "reason": "same price floor concept across historical and seller\u2011set variants",
+   "child_uids": [
+    "n|e7-unit_econ-007|old floor price|price floor",
+    "n|mech-quality_score-001|seller-set price floor|pricing mechanism"
+   ]
+  },
+  {
+   "name": "Reserve price",
+   "type": "reserve price",
+   "grain": "Entity",
+   "reason": "same reserve price concept across generic and plural forms",
+   "child_uids": [
+    "n|mech-discounter-001|seller reserve|reserve price",
+    "n|mech-tuning-001|reserve prices|pricing element"
+   ]
+  },
+  {
+   "name": "Seller inventory restriction practice",
+   "type": "business practice",
+   "grain": "Entity",
+   "reason": "singleton: business practice of sellers restricting inventory",
+   "child_uids": [
+    "n|tu:era:1:event:4|seller inventory restriction practice|business practice"
+   ]
+  },
+  {
+   "name": "Scatter",
+   "type": "selling method",
+   "grain": "Entity",
+   "reason": "singleton: specific selling method named scatter",
+   "child_uids": [
+    "n|tu:era:4:field:PRICING|scatter|selling method"
+   ]
+  },
+  {
+   "name": "Bigger cheque",
+   "type": "financial instrument",
+   "grain": "Entity",
+   "reason": "singleton: financial instrument referred to as a larger cheque",
+   "child_uids": [
+    "n|tu:era:6:field:SELLERS|bigger cheque|financial instrument"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "group_id": "L1|7bf699802ca5cec4",
+ "source": "kmeans",
+ "n_in": 3,
+ "parents": [
+  {
+   "name": "Clearing price",
+   "type": "price measure",
+   "grain": "Entity",
+   "reason": "singleton: unique price concept separate from model entities",
+   "child_uids": [
+    "n|tu:era:7:event:4|clearing price|price measure"
+   ]
+  },
+  {
+   "name": "Buyer model",
+   "type": "pricing model",
+   "grain": "Entity",
+   "reason": "singleton: distinct pricing model not same as price or method",
+   "child_uids": [
+    "n|tu:era:7:event:4|buyer model|pricing model"
+   ]
+  },
+  {
+   "name": "Buyer model price setting",
+   "type": "pricing method",
+   "grain": "Entity",
+   "reason": "singleton: specific pricing method of buyer model, separate entity",
+   "child_uids": [
+    "n|tu:era:7:field:PRICING|buyer model price setting|pricing method"
+   ]
+  }
+ ]
+}

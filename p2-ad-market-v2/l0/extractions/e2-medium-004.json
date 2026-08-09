@@ -1,0 +1,107 @@
+{
+ "id": "e2-medium-004",
+ "kind": "claim",
+ "era": 2,
+ "about_year": 1949,
+ "unit": "percent of US ad spend taken by direct mail, 1949",
+ "elapsed_s": 129.8,
+ "error": null,
+ "n_nodes": 7,
+ "n_edges": 9,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "Direct mail..."
+  },
+  {
+   "name": "US advertising spend",
+   "type": "advertising expenditure aggregate",
+   "clause": "US advertising spend"
+  },
+  {
+   "name": "direct mail share of US advertising spend",
+   "type": "share measurement",
+   "clause": "percentage of US ad spend taken by direct mail"
+  },
+  {
+   "name": "named medium series",
+   "type": "media ranking series",
+   "clause": "most years the series splits by medium"
+  },
+  {
+   "name": "radio",
+   "type": "advertising medium",
+   "clause": "radio..."
+  },
+  {
+   "name": "magazines",
+   "type": "advertising medium",
+   "clause": "magazines..."
+  },
+  {
+   "name": "direct mail ranking position",
+   "type": "rank measurement",
+   "clause": "ranking of direct mail among named media"
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct mail",
+   "type": "HAS_SHARE",
+   "to": "direct mail share of US advertising spend",
+   "clause": "took ... in ..."
+  },
+  {
+   "from": "direct mail share of US advertising spend",
+   "type": "SHARE_OF",
+   "to": "US advertising spend",
+   "clause": "percentage of US ad spend taken by direct mail"
+  },
+  {
+   "from": "direct mail",
+   "type": "SECOND_LARGEST_IN",
+   "to": "named medium series",
+   "clause": "second-largest named medium in most years"
+  },
+  {
+   "from": "direct mail",
+   "type": "OVERTAKEN_BY",
+   "to": "radio",
+   "clause": "during war when radio overtook it"
+  },
+  {
+   "from": "direct mail",
+   "type": "OVERTAKEN_BY",
+   "to": "magazines",
+   "clause": "during war when magazines overtook it"
+  },
+  {
+   "from": "direct mail",
+   "type": "HAS_RANKING",
+   "to": "direct mail ranking position",
+   "clause": "ranked third in ..."
+  },
+  {
+   "from": "direct mail",
+   "type": "HAS_RANKING",
+   "to": "direct mail ranking position",
+   "clause": "ranked fourth in ..."
+  },
+  {
+   "from": "direct mail",
+   "type": "HAS_SHARE",
+   "to": "direct mail share of US advertising spend",
+   "clause": "peak share ... in ..."
+  },
+  {
+   "from": "direct mail",
+   "type": "HAS_SHARE",
+   "to": "direct mail share of US advertising spend",
+   "clause": "fell to ... in ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct mail|advertising medium|Direct mail...\nNODE|US advertising spend|advertising expenditure aggregate|US advertising spend\nNODE|direct mail share of US advertising spend|share measurement|percentage of US ad spend taken by direct mail\nNODE|named medium series|media ranking series|most years the series splits by medium\nNODE|radio|advertising medium|radio...\nNODE|magazines|advertising medium|magazines...\nNODE|direct mail ranking position|rank measurement|ranking of direct mail among named media\nEDGE|direct mail|HAS_SHARE|direct mail share of US advertising spend|took ... in ...\nEDGE|direct mail share of US advertising spend|SHARE_OF|US advertising spend|percentage of US ad spend taken by direct mail\nEDGE|direct mail|SECOND_LARGEST_IN|named medium series|second-largest named medium in most years\nEDGE|direct mail|OVERTAKEN_BY|radio|during war when radio overtook it\nEDGE|direct mail|OVERTAKEN_BY|magazines|during war when magazines overtook it\nEDGE|direct mail|HAS_RANKING|direct mail ranking position|ranked third in ...\nEDGE|direct mail|HAS_RANKING|direct mail ranking position|ranked fourth in ...\nEDGE|direct mail|HAS_SHARE|direct mail share of US advertising spend|peak share ... in ...\nEDGE|direct mail|HAS_SHARE|direct mail share of US advertising spend|fell to ... in ..."
+}

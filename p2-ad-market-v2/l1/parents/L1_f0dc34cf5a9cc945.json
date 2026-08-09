@@ -1,0 +1,44 @@
+{
+ "group_id": "L1|f0dc34cf5a9cc945",
+ "source": "kmeans",
+ "n_in": 5,
+ "parents": [
+  {
+   "name": "Directory advertising pool",
+   "type": "advertising pool",
+   "grain": "Entity",
+   "reason": "two directory-related pools abstracted from specifics",
+   "child_uids": [
+    "n|e5-medium-003|intent-matched directory pool|advertising inventory pool",
+    "n|e5-targeting-005|directory and mail pool|target audience pool"
+   ]
+  },
+  {
+   "name": "Advertising pools (category)",
+   "type": "pool category",
+   "grain": "Entity",
+   "reason": "singleton: a category of pools, not a specific pool",
+   "child_uids": [
+    "n|e7-scale-006|advertising pools|pool category"
+   ]
+  },
+  {
+   "name": "Local advertising pool",
+   "type": "advertising pool",
+   "grain": "Entity",
+   "reason": "singleton: a geographically defined pool distinct from other types",
+   "child_uids": [
+    "n|e7-scale-006|local pool|advertising pool"
+   ]
+  },
+  {
+   "name": "Leading pool flip",
+   "type": "market outcome",
+   "grain": "Entity",
+   "reason": "singleton: an event/outcome, not a pool entity itself",
+   "child_uids": [
+    "n|tu:era:5:field:BUYERS|leading pool flip|market outcome"
+   ]
+  }
+ ]
+}

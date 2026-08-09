@@ -1,0 +1,94 @@
+{
+ "id": "e3-targeting-005",
+ "kind": "claim",
+ "era": 3,
+ "about_year": 1975,
+ "unit": "thousand addressable US households",
+ "elapsed_s": 88.5,
+ "error": null,
+ "n_nodes": 8,
+ "n_edges": 6,
+ "n_repairs": 0,
+ "nodes": [
+  {
+   "name": "direct mail",
+   "type": "advertising medium",
+   "clause": "Direct mail"
+  },
+  {
+   "name": "addressable universe size",
+   "type": "household-count measurement",
+   "clause": "addressable universe was ... individual US households"
+  },
+  {
+   "name": "US households",
+   "type": "household aggregate",
+   "clause": "total US households"
+  },
+  {
+   "name": "total US households count",
+   "type": "household-count measurement",
+   "clause": "television-universe count is ... million"
+  },
+  {
+   "name": "unit spot television",
+   "type": "advertising medium",
+   "clause": "average unit spot television"
+  },
+  {
+   "name": "targeting granularity of direct mail",
+   "type": "granularity concept",
+   "clause": "each reachable one at a time"
+  },
+  {
+   "name": "unit spot television granularity",
+   "type": "granularity concept",
+   "clause": "average unit spot television could sell"
+  },
+  {
+   "name": "granularity fineness factor",
+   "type": "ratio measurement",
+   "clause": "granularity roughly ... times finer than ..."
+  }
+ ],
+ "edges": [
+  {
+   "from": "direct mail",
+   "type": "HAS_MEASUREMENT",
+   "to": "addressable universe size",
+   "clause": "Direct mail's addressable universe was ..."
+  },
+  {
+   "from": "total US households count",
+   "type": "MEASURES",
+   "to": "US households",
+   "clause": "Nielsen's television-universe count of total US households ..."
+  },
+  {
+   "from": "direct mail",
+   "type": "HAS_GRANULARITY",
+   "to": "targeting granularity of direct mail",
+   "clause": "each reachable one at a time"
+  },
+  {
+   "from": "unit spot television",
+   "type": "HAS_GRANULARITY",
+   "to": "unit spot television granularity",
+   "clause": "average unit spot television could sell"
+  },
+  {
+   "from": "granularity fineness factor",
+   "type": "MEASURES",
+   "to": "targeting granularity of direct mail",
+   "clause": "granularity roughly ... times finer than ..."
+  },
+  {
+   "from": "granularity fineness factor",
+   "type": "MEASURES",
+   "to": "unit spot television granularity",
+   "clause": "granularity roughly ... times finer than ..."
+  }
+ ],
+ "repairs": [],
+ "raw": "NODE|direct mail|advertising medium|Direct mail\nNODE|addressable universe size|household-count measurement|addressable universe was ... individual US households\nNODE|US households|household aggregate|total US households\nNODE|total US households count|household-count measurement|television-universe count is ... million\nNODE|unit spot television|advertising medium|average unit spot television\nNODE|targeting granularity of direct mail|granularity concept|each reachable one at a time\nNODE|unit spot television granularity|granularity concept|average unit spot television could sell\nNODE|granularity fineness factor|ratio measurement|granularity roughly ... times finer than ...\nEDGE|direct mail|HAS_MEASUREMENT|addressable universe size|Direct mail's addressable universe was ...\nEDGE|total US households count|MEASURES|US households|Nielsen's television-universe count of total US households ...\nEDGE|direct mail|HAS_GRANULARITY|targeting granularity of direct mail|each reachable one at a time\nEDGE|unit spot television|HAS_GRANULARITY|unit spot television granularity|average unit spot television could sell\nEDGE|granularity fineness factor|MEASURES|targeting granularity of direct mail|granularity roughly ... times finer than ...\nEDGE|granularity fineness factor|MEASURES|unit spot television granularity|granularity roughly ... times finer than ..."
+}
