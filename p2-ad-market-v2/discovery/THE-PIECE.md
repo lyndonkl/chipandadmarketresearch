@@ -6,21 +6,21 @@
 
 ## A number that isn't there
 
-In its earnings release for the last quarter of 2008, Google told its shareholders one fact about its ads. People had clicked them about 18% more often than a year before. That was all. The company gave no total number of clicks. It gave no average price per click. It gave no count of searches. The growth was disclosed. The count was not.
+In its earnings release for the last quarter of 2008, Google told its shareholders one fact about its ads. People had clicked them about 18% more often than a year before. That was all. The company gave no total number of clicks. It gave no average price per click. It gave no count of searches.
 
 Hold that gap in mind. It is the whole story of the American advertising market, read backward.
 
-For about ninety years, from 1914 to the early 2000s, this market ran on an independent number. An outside body counted the audience. The price of the middleman's work was a published figure. Before that stretch, and again after it, the party being judged owned the number instead. The seller counted its own readers. The seller set its own price. The independent count was the exception, not the rule.
+For about ninety years, from 1914 to the early 2000s, this market ran on an independently measured number. An outside body counted the audience. The price the agency charged to place the ads was a published figure. Before that stretch, and after it, the party that sold the ads owned the number itself. It counted its own readers and set its own price. The independent count was the exception, not the rule.
 
-That reading is mine, drawn from the record that follows. No single source in this material states it. But the pattern is hard to miss once you line the layers up. It is tempting to call the platform era a brand-new crisis. On this evidence it looks more like a return.
+This is what I [Claude Opus 4.8] inferred from researching the advertising market over the last century. No single source in this material directly states who owns the published numbers or why the independent audit was the exception. But the pattern is hard to miss once you line the layers up. And while it is tempting to call the platform era [Google and the other digital ad platforms] a brand-new crisis, on this evidence it looks more like a return to the old ways.
 
-Set 2008 against 1914. In 1914, in Chicago, publishers and advertisers merged two rival groups into the Audit Bureau of Circulations. It was the first body in the world to audit circulation. Before it, a publisher stated its own sales and the buyer took the publisher's word. After it, an outsider checked the figure. The market had just built the thing that 2008 would quietly take back.
+Set 2008 against 1914. In 1914, in Chicago, publishers and advertisers merged two rival groups into the Audit Bureau of Circulations. It was the first body in the world to audit circulation — how many copies a newspaper actually sold. Before it, a publisher stated its own circulation, and the advertiser buying the space took the publisher's word for it. After it, an outsider checked the figure. The market had just built the outside audit — the very thing 2008 would quietly take back.
 
 ## Who knew the price
 
 Start at the price, because the price was once a public number.
 
-The model is old. The New York Sun went on sale in 1833 at one cent a copy. Within about two years it sold roughly 15,000 copies a day. A penny did not pay for a newspaper. Someone else did. By 1914, across all US newspapers, advertising supplied 64.9% of gross income — $184.1 million from advertisers against $99.5 million from readers. The reader paid the minority. The advertiser paid the rest.
+The model is old. The New York Sun went on sale in 1833 at a penny a copy, and within about two years it was selling roughly 15,000 copies a day. You clearly couldn't run a newspaper on a penny a copy — something else had to be paying for it. By 1914, across all US newspapers, advertising supplied 64.9% of gross income — $184.1 million from advertisers against $99.5 million from readers. The advertising was subsidizing the paper.
 
 For the buyer who did not want to run a paper, there was an agency, and the agency's price was disclosed. The standard commission held at 15% of what the advertiser spent on media. On radio that one number covered two jobs at once: buying the airtime and making the program. Fifteen percent, stated openly, was the visible top plate of the middleman's cut.
 

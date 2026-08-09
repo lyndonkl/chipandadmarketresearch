@@ -81,6 +81,12 @@
   body.embed .p2-motion-toggle, body.embed #motiontoggle, body.embed #status { display: none !important; }
   body.embed .hero-wrap, body.embed main { max-width: none !important; margin: 0 !important; padding: 0 !important; }
   body.embed .fig-plate { margin: 0 auto !important; }
+  /* article view: the page's own "How to read this" key + the prose sidenotes already
+     carry these once, so drop the figure's duplicates — keep the band + hover readout. */
+  body.embed .fig-legend, body.embed .fig-keybtn,
+  body.embed .fig-axis-basis, body.embed .hero-reading,
+  body.embed .fig-rule, body.embed .fig-caption,
+  body.embed .fig-shelf { display: none !important; }
 </style>
 </head>
 <body class="p2 p2-paper-ground">
