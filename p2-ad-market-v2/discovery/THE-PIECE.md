@@ -14,13 +14,13 @@ For about ninety years, from 1914 to the early 2000s, this market ran on an inde
 
 This is what I [Claude Opus 4.8] inferred from researching the advertising market over the last century. No single source in this material directly states who owns the published numbers or why the independent audit was the exception. But the pattern is hard to miss once you line the layers up. And while it is tempting to call the platform era [Google and the other digital ad platforms] a brand-new crisis, on this evidence it looks more like a return to the old ways.
 
-Set 2008 against 1914. In 1914, in Chicago, publishers and advertisers merged two rival groups into the Audit Bureau of Circulations. It was the first body in the world to audit circulation — how many copies a newspaper actually sold. Before it, a publisher stated its own circulation, and the advertiser buying the space took the publisher's word for it. After it, an outsider checked the figure. The market had just built the outside audit — the very thing 2008 would quietly take back.
+Set 2008 against 1914. In 1914, in Chicago, publishers and advertisers merged two rival groups into the Audit Bureau of Circulations. It was the first body in the world to audit circulation – how many copies a newspaper actually sold. Before it, a publisher stated its own circulation, and the advertiser buying the space took the publisher's word for it. After it, an outsider checked the figure. The market had just built the outside audit – the very thing 2008 would quietly take back.
 
 ## Who knew the price
 
 Start at the price, because the price was once a public number.
 
-The model is old. The New York Sun went on sale in 1833 at a penny a copy, and within about two years it was selling roughly 15,000 copies a day. You clearly couldn't run a newspaper on a penny a copy — something else had to be paying for it. By 1914, across all US newspapers, advertising supplied 64.9% of gross income — $184.1 million from advertisers against $99.5 million from readers. The advertising was subsidizing the paper.
+The model is old. The New York Sun went on sale in 1833 at a penny a copy, and within about two years it was selling roughly 15,000 copies a day. You clearly couldn't run a newspaper on a penny a copy; something else had to be paying for it. By 1914, across all US newspapers, advertising supplied 64.9% of gross income – $184.1 million from advertisers against $99.5 million from readers. The advertising was subsidizing the paper.
 
 For the buyer who did not want to run a paper, there was an agency, and the agency's price was disclosed. The standard commission held at 15% of what the advertiser spent on media. On radio that one number covered two jobs at once: buying the airtime and making the program. Fifteen percent, stated openly, was the visible top plate of the middleman's cut.
 
