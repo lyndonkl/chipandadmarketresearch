@@ -30,9 +30,11 @@ This open pricing is usually traced to N. W. Ayer, a leading early ad agency, an
 
 ## Who counted the readers
 
-Now the count. This is where the audit begins, and where the ninety-year exception begins with it.
+Now the count. This is where the audit begins, and with it the ninety-year exception.
 
-The Audit Bureau of Circulations, founded in 1914, was a merger of a publisher-led body and an advertiser-led one. Its job was to correct a habit. Before it, a publisher simply stated its own circulation. The Bureau put an outsider between the seller's claim and the buyer's cheque. For the first time, the number that set the price did not belong to the party being paid.
+The Audit Bureau of Circulations, founded in Chicago in 1914, was the world's first body to audit circulation. In 1914 the medium was print, so "circulation" meant the number of copies a newspaper or magazine actually sold; that number stood in for how many readers an advertiser was reaching. Until then, a publisher simply stated its own circulation, and the advertiser had to take the figure on faith.
+
+The Bureau put a stop to that. It was built by both sides of the market at once: it merged a group led by the publishers who sold the space with a group led by the advertisers who bought it. That gave it the standing to check the publishers' claims as a neutral outsider. For the first time, the number that set an ad's price no longer belonged to the seller being paid for it.
 
 Read against the opener, the shape of the whole piece is already visible. The market spent 1914 building an independent count. Ninety years later it would report a growth rate and keep the count to itself.
 
