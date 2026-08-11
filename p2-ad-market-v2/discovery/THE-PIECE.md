@@ -48,13 +48,13 @@ By the end of the decade, that number had a price tag on it. Radio measured its 
 
 ## How many hands took a cut
 
-The 15% was never the whole cut. It was the one plate the trade published. Behind it stood a stack of hands, and most of them were not public.
+The 15% was only the cut everyone could see. Behind it, several other parties each took a piece of the same ad dollar, and most of those cuts were never public.
 
-The deepest split surfaced only because a regulator forced it into the open. In 1938 the FCC audited the networks. NBC and CBS together kept 73% of their network time sales — $32,046,218 — and paid the other 27%, $12,267,560, to the 253 stations that carried the programs. That 73/27 split was not a published rate. It was extracted by an audit.
+One of those hidden splits came out only because a regulator pried it open. In 1938 the FCC audited the radio networks. NBC and CBS did not reach listeners directly; they sold national air time to advertisers and then fed their programs to local stations that broadcast them in each city. The audit showed how the networks divided that money: they kept 73% of their network time sales ($32,046,218) and passed the other 27% ($12,267,560) to the 253 local stations that carried the programs. That 73/27 split had never been published. It took a government audit to make it visible.
 
-The chain had started earlier, and with the phone company. By the end of 1925, AT&T was selling time on its basic thirteen-station network at $2,600 an hour, taking in about $750,000 a year, before RCA bought the business. On top of the agency's 15%, a station representative firm took a further cut for selling local airtime to national buyers — a negotiated 5% to 20%, figured on what was left after the agency's share. The source gives that range and no typical figure, so it stays a range. And on top of that sat a 2% cash discount for paying the media quickly, a plate usually left out of any comparison.
+There were still more cuts stacked on the agency's 15%. A station representative firm, a company that sold a local station's air time to national advertisers, took a further 5% to 20%, figured on whatever was left after the agency's share. And the seller usually gave a 2% discount for paying the bill fast, which the agency pocketed rather than passed on. Neither of these ever appeared in the headline 15%.
 
-So the middleman's cut was not a stable single 15%. It was three or four plates on different bases, and they cannot be added into one honest total. The public one was the smallest.
+So the middleman's take was never a clean 15%. It was three or four separate cuts, charged by different parties on different bases, and they cannot be honestly added into one number. The 15% was simply the one that was public, and it was the smallest of them.
 
 ## Did the 15% die?
 
