@@ -146,15 +146,15 @@ The same warning applies to advertising's size relative to the whole economy. On
 
 ## Back to the hole
 
-The count is still a hole, and the hole is where we started.
+The count is still a hole, and that hole is where we began.
 
-The industry knows it. The IAB estimates that better, AI-driven measurement could unlock more than $26 billion of misallocated US media spending within a year or two — its own reading of how much money the measurement failure is moving to the wrong places. That is an estimate of what might be recovered, not a settled figure.
+The industry knows the count is broken. The IAB, the online-advertising trade body, estimates that better, AI-driven measurement could recover more than $26 billion of US ad money now being spent in the wrong places, within a year or two. That figure is the industry's own guess at how much the measurement failure is misdirecting. It is an estimate of what might be recovered, not a settled fact.
 
-Return to the opener. Google still reports the growth of its paid clicks, not their number. And the model is reappearing inside the answer box. Pew found that users clicked a search result on 8% of visits where an AI summary appeared, against 15% of visits where none did. Google disputes that study, so both figures stand, unresolved. Google's AI Overviews reached more than two billion monthly users by July 2025, and Google's chief business officer said the format earns money at approximately the same rate as ordinary search — his account, not an audited fact.
+Go back to where this began. Google still reports how fast its paid clicks are growing, not how many there are. And the old pattern is reappearing in the new answer box, the AI summary that now sits at the top of a search page. The Pew Research Center found that users clicked a search result on 8% of visits where one of those AI summaries appeared, against 15% of visits where none did. Google disputes that study, so both figures stand, unresolved. Google's AI Overviews reached more than two billion monthly users by July 2025, and Google's chief business officer said the format makes money at roughly the same rate as ordinary search. That, again, is Google's own account, not an audited fact.
 
-Here is the reading the record leaves, stated plainly and owned as a reading. The platform era is not a new medium's conquest. It is the condition of 1913 at a far larger scale — the party being judged owning the number — but without the outside auditor the market built in 1914 and then let go. No source says this in one sentence. It is the shape the layers make when you stack them.
+Here is the reading the record leaves, stated plainly and owned as a reading. The platform era is not one new medium conquering the last. It is the situation of 1913, before the first audit, playing out at a far larger scale: the party being judged owns the number. And this time there is no outside auditor, the kind the market built in 1914 and then let go. No single source says this in one sentence. It is the shape the layers make once you stack them up.
 
-And there is no ending to report. No source records a single moment when the whole market saw this and turned. Reform came in pieces — a government audit here, a rating council there — era by era, never all at once. The count is still a hole. The story is still running.
+And there is no ending to report. No source records a single moment when the whole market saw this and turned. Reform came in pieces instead: a government audit in one era, a ratings council in another, never all at once. The count is still a hole. The story is still running.
 
 ---
 
