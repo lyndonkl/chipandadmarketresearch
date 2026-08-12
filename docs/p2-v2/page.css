@@ -502,3 +502,67 @@ body {
   .spine__marker { transition: none; }
   .sidenote { transition: none; }
 }
+
+/* ---------------------------------------------------------------------------
+ * 15 · READING-FIRST SIMPLIFICATION — strip the citation / instrument apparatus
+ *   down to a clean editorial read. The spine and toggle nodes stay in the DOM
+ *   (scripts hold ID refs to them) and are hidden here; the provenance note and
+ *   the footer now point to claims.json instead of an on-page citation system.
+ * ------------------------------------------------------------------------- */
+.sidenote            { display: none !important; }   /* right-margin citations + stat pull-numbers */
+.spine,
+.scroll-progress     { display: none !important; }   /* the left ownership rail + its progress bar */
+.movement__index     { display: none !important; }   /* the big rail scene numbers 00-14 */
+.howto-key           { display: none !important; }   /* the "How to read this" key box */
+.masthead__controls  { display: none !important; }   /* the Sources: shown / dimmed toggle */
+.reading .own-cyan,
+.reading .own-amber  { color: inherit !important; }  /* monochrome prose; figures keep their colour */
+.act-break + .movement { margin-top: calc(var(--u) * 1.5); }  /* tighten the gap below each Act label */
+.prov-link { color: var(--graphite); text-decoration: underline; text-underline-offset: 2px; }
+
+/* tighter vertical rhythm — the citation apparatus is gone, so the page reads close */
+.movement     { margin-top: calc(var(--u) * 3); }                      /* was 6u — between sections / under a figure */
+.act-break    { margin-top: calc(var(--u) * 5); max-width: 1000px; }   /* was 10u — the run-up to a new Act */
+.figure-embed { margin: calc(var(--u) * 1) 0; max-width: 1000px; }     /* was 1.5u + a negative gutter margin */
+/* the citation gutter is gone: widen the prose to the figure width, both aligned left */
+.movement__body { padding-right: 0; max-width: 1000px; }
+/* retire the 700px reading-measure cap on every prose block so text runs the figure width */
+.movement__body > p,
+.movement__body .a-reading,
+.movement__body .dead-legend,
+.movement__body .contested-legend,
+.movement__standfirst { max-width: none; }
+
+/* one centred column: the left rail and right citation gutter are both retired, so
+ * nothing is offset. The masthead, prose, figures, act rules and footer all share
+ * one width and centre on the page (supersedes the width caps above). */
+:root { --rail-w: 0rem; --rail-gap: 0rem; --measure-inset: 0px; --page-max: 1064px; }
+.masthead__inner,
+.appendix__inner { max-width: none; margin-left: 0; }
+.masthead__dek,
+.masthead__provenance { max-width: none; }   /* were 56ch / 60ch — match the body width */
+.reading         { max-width: none; }
+.movement__body  { max-width: none; }
+.act-break       { max-width: none; }
+.figure-embed    { max-width: none; }
+
+/* ============================================================================
+ * LETTER HAND — the reading copy set in Bradley Hand (a macOS/Windows system font
+ *   the user chose), with Kalam embedded as the cross-device fallback so non-Apple
+ *   visitors still get a handwriting hand. Section labels (eyebrow, act, reading
+ *   tag) stay as clean small type for contrast. Figures are untouched.
+ * ========================================================================== */
+.masthead__title, .masthead__dek, .masthead__provenance,
+.movement__title, .movement__standfirst,
+.movement__body, .movement__body > p, .movement__body .a-reading,
+.movement__body .dead-legend, .dead-claim, .dead-fix,
+.appendix__note, .prov-link, .num {
+  font-family: "Bradley Hand", "Bradley Hand ITC", "Kalam", cursive !important;
+}
+.movement__body > p { line-height: 1.62; }         /* a touch more leading for the hand */
+/* the hand runs small — nudge the whole reading copy up a touch (~+10%) */
+.reading { font-size: 23px; }                       /* body + "A reading", was 21px */
+.masthead__dek { font-size: 23px; }                 /* was 21px */
+.masthead__provenance { font-size: 13px; }          /* was 12px */
+.movement__title { font-size: clamp(25px, 3.9vw, 37px); }   /* was 34px */
+.movement__standfirst { font-size: 26px; }          /* was 24px */

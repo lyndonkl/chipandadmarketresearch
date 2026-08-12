@@ -20,7 +20,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Who Holds the Yardstick — a history of the US advertising market</title>
 <meta name="description" content="A history of the US advertising market, read through one question: who owns the number?">
-<link rel="stylesheet" href="page.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="page.css?v=7">
 
 <div class="wrap">
 
@@ -33,13 +36,12 @@
       <h1 class="masthead__title">Who Holds the Yardstick</h1>
       <p class="masthead__dek">A history of the US advertising market, read through one question.</p>
       <p class="masthead__provenance">
-        Every figure here comes from an outside source, and carries a grade – A, B,
-        or C – for how solid that source is. We have not verified those sources
-        ourselves. The grade tells you where a number came from and how firmly it is
-        reported, not that we checked it against the world. The grades and intervals
-        are derived from those sources. This research was assembled with AI, which can occasionally get
-        something wrong. So if a figure matters to you, we strongly recommend
-        cross-checking it against the source itself.
+        Every figure here comes from an outside source. We did not verify those
+        sources ourselves, and this research was assembled with AI, which can
+        occasionally get something wrong. Every claim in the piece was built by Claude
+        from the research material it gathered. The full set, each figure with its
+        source and a grade for how solid that source is, sits in one file you can open:
+        <a class="prov-link" href="https://github.com/lyndonkl/chipandadmarketresearch/blob/main/p2-ad-market/data/claims.json">claims.json</a>.
       </p>
       <div class="masthead__controls">
         <button class="sources-toggle" id="sourcesToggle" type="button"
@@ -133,7 +135,7 @@
 <section class="movement" data-slot="s0" data-ownership="amber">
   <span class="movement__index" aria-hidden="true">00</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S0 · 2008 · A NUMBER THAT ISN'T THERE</p>
+    <p class="movement__eyebrow">2008 · A NUMBER THAT ISN'T THERE</p>
     <h2 class="movement__title">A number that isn't there</h2>
 
     <p><span class="sidenote">
@@ -218,7 +220,7 @@
 <section class="movement" data-slot="s1" data-ownership="amber">
   <span class="movement__index" aria-hidden="true">01</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S1 · 1833–1914 · WHO KNEW THE REAL PRICE</p>
+    <p class="movement__eyebrow">1833–1914 · WHO KNEW THE REAL PRICE</p>
     <h2 class="movement__title">Who knew the real price</h2>
     <p class="movement__standfirst">Start at the price, because the price was once a
        public number.</p>
@@ -289,7 +291,7 @@
 <section class="movement" data-slot="s2" data-ownership="cyan">
   <span class="movement__index" aria-hidden="true">02</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S2 · 1914 · WHO COUNTED THE READERS</p>
+    <p class="movement__eyebrow">1914 · WHO COUNTED THE READERS</p>
     <h2 class="movement__title">Who counted the readers</h2>
     <p class="movement__standfirst">Now the count. This is where the audit begins, and with it the
        ninety-year exception.</p>
@@ -360,7 +362,7 @@
 <section class="movement" data-slot="s3" data-ownership="cyan">
   <span class="movement__index" aria-hidden="true">03</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S3 · 1944–1949 · THE COUNT STARTS TO SLIP</p>
+    <p class="movement__eyebrow">1944–1949 · THE COUNT STARTS TO SLIP</p>
     <h2 class="movement__title">The count starts to slip</h2>
     <p class="movement__standfirst">The independent count did not hold for long. It
        began slipping almost as soon as it appeared. Where you first see this play out
@@ -411,7 +413,7 @@
 <section class="movement" data-slot="s4" data-ownership="cyan">
   <span class="movement__index" aria-hidden="true">04</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S4 · 1925–1938 · WHO ELSE TOOK A CUT</p>
+    <p class="movement__eyebrow">1925–1938 · WHO ELSE TOOK A CUT</p>
     <h2 class="movement__title">Who else took a cut</h2>
 
     <p><span class="sidenote">
@@ -487,7 +489,7 @@
 <section class="movement" data-slot="s5" data-ownership="cyan">
   <span class="movement__index" aria-hidden="true">05</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S5 · 1956–2003 · DID THE 15% DIE?</p>
+    <p class="movement__eyebrow">1956–2003 · DID THE 15% DIE?</p>
     <h2 class="movement__title">Did the 15% die?</h2>
 
     <p>The neat story is easy to tell: <span class="dead-inline"><span class="dead-tag">DEAD</span>the
@@ -579,7 +581,7 @@
 <section class="movement" data-slot="s6" data-ownership="cyan">
   <span class="movement__index" aria-hidden="true">06</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S6 · 1987 · WHEN THE RULER CHANGED</p>
+    <p class="movement__eyebrow">1987 · WHEN THE RULER CHANGED</p>
     <h2 class="movement__title">When the ruler changed</h2>
     <p class="movement__standfirst">In September 1987 the count changed again, and this
        time the change was in the ruler, not the world.</p>
@@ -591,21 +593,30 @@
              network prime time — CBS/ABC each −13%, NBC −4%. The honest count cut the
              sellers' own numbers. (e4-measurement-001, B)</span>
          </span>
-       </span>Nielsen's people meters became the national television currency that
-       month. They measured about 10% fewer people watching network prime time than the
-       old method had. CBS and ABC each fell 13%. NBC fell 4%. No viewer got up off the
-       couch. The audience did not shrink. The instrument that measured it changed, and
-       the measured number dropped.</p>
+       </span>By the 1980s a single company, Nielsen, produced the audience numbers the
+       whole television business ran on. That count was the currency: advertisers and
+       networks set the price of a commercial by how many people Nielsen said were
+       watching. In September 1987 Nielsen switched the national standard to the <a
+       class="prov-link" href="https://www.csmonitor.com/1988/0106/fmeter.html">people
+       meter</a>. It put a small box in each sampled home with a labelled button for every
+       household member, set to their age and sex. When a person started watching, stopped,
+       or left the room, they were meant to press their button, so the count was built from
+       who actually said they were there. The method it replaced was a paper diary each
+       household filled in by hand. Measured this new way, network prime time came in about
+       10% lower. The three big networks took the drop unevenly: CBS and ABC each fell 13%,
+       NBC 4%. Nothing had happened to the audience. The same people sat on the same
+       couches. What changed was the way they were counted.</p>
 
     <!-- the §4 residual, stated as a reading: the honest count hurt the seller -->
     <div class="a-reading">
       <span class="reading-tag">A reading</span>
-      <p>Note who got hurt. The more honest count cut the sellers' own figures. The
-         networks were the sellers, and it was their numbers that fell. A market where
-         the seller simply inflates its own count does not predict a seller adopting a
-         ruler that shrinks its numbers. This is one of several moments where the honest
-         number cost whoever was being measured — a fact the tidy "sellers rig
-         everything" story cannot hold.</p>
+      <p>Notice who this hurt. The networks were the sellers of that airtime, and the
+         lower count cut their own numbers, so they could charge less for it. The newer
+         count is the more honest one, and that is what makes this strange: if sellers
+         always just inflated the count in their favour, they would not adopt a standard
+         that shrank their own numbers. Yet here they did. This is one of several moments
+         in the story where the more honest number cost whoever was being measured. The
+         neat "the seller always rigs it" version cannot explain them.</p>
     </div>
   </div>
 </section>
@@ -626,7 +637,7 @@
 <section class="movement" data-slot="s7" data-ownership="amber">
   <span class="movement__index" aria-hidden="true">07</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S7 · 1914–2008 · THE BUYER'S OWN METER</p>
+    <p class="movement__eyebrow">1914–2008 · THE BUYER'S OWN METER</p>
     <h2 class="movement__title">The buyer's own meter</h2>
     <p class="movement__standfirst">One buyer never trusted the seller's audience count and never had to. That is the direct-response buyer, and its meter is the oldest independent number in the market.</p>
 
@@ -673,7 +684,7 @@
 <section class="movement" data-slot="s8" data-ownership="amber">
   <span class="movement__index" aria-hidden="true">08</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S8 · 1914–1971 · WHO GETS IN THE DOOR</p>
+    <p class="movement__eyebrow">1914–1971 · WHO GETS IN THE DOOR</p>
     <h2 class="movement__title">Who gets in the door</h2>
     <p class="movement__standfirst">Two questions get merged here that should stay apart. Who is allowed to buy? And who takes a cut at the door?</p>
 
@@ -727,7 +738,7 @@
 <section class="movement" data-slot="s9" data-ownership="amber">
   <span class="movement__index" aria-hidden="true">09</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S9 · 1975–2025 · THE DIAL</p>
+    <p class="movement__eyebrow">1975–2025 · THE DIAL</p>
     <h2 class="movement__title">The dial</h2>
     <p class="movement__standfirst">Targeting got extraordinarily fine, and fineness turns out not to be the point.</p>
 
@@ -805,7 +816,7 @@
 <section class="movement" data-slot="s10" data-ownership="amber">
   <span class="movement__index" aria-hidden="true">10</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S10 · 2002–2024 · THE GOVERNED PRICE</p>
+    <p class="movement__eyebrow">2002–2024 · THE GOVERNED PRICE</p>
     <h2 class="movement__title">The governed price</h2>
     <p class="movement__standfirst">The clearing price came dressed as a neutral machine. It was not neutral. The seller set it.</p>
 
@@ -871,7 +882,7 @@
 <section class="movement" data-slot="s11" data-ownership="amber">
   <span class="movement__index" aria-hidden="true">11</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S11 · 1943–2024 · THE STATE MOVES THE TOP OF THE STACK</p>
+    <p class="movement__eyebrow">1943–2024 · THE STATE MOVES THE TOP OF THE STACK</p>
     <h2 class="movement__title">The state moves the top of the stack</h2>
     <p class="movement__standfirst">Concentration in this market is built with capital. The state moves it around and caps it, and only rarely breaks it.</p>
 
@@ -951,7 +962,7 @@
 <section class="movement" data-slot="s12" data-ownership="amber">
   <span class="movement__index" aria-hidden="true">12</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S12 · 1919–2025 · EVERY NEW UNIT IS BORN UNCOUNTED</p>
+    <p class="movement__eyebrow">1919–2025 · EVERY NEW UNIT IS BORN UNCOUNTED</p>
     <h2 class="movement__title">Every new unit is born uncounted</h2>
 
     <div class="a-reading">
@@ -1022,7 +1033,7 @@
 <section class="movement" data-slot="s13" data-ownership="amber">
   <span class="movement__index" aria-hidden="true">13</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S13 · 1922–2025 · WHICH TOTAL?</p>
+    <p class="movement__eyebrow">1922–2025 · WHICH TOTAL?</p>
     <h2 class="movement__title">Which total?</h2>
     <p class="movement__standfirst">Every "share of advertising" is a claim about a basis. It is not a plain fact, and direct mail is the tell.</p>
 
@@ -1092,7 +1103,7 @@
 <section class="movement" data-slot="s14" data-ownership="amber">
   <span class="movement__index" aria-hidden="true">14</span>
   <div class="movement__body">
-    <p class="movement__eyebrow">S14 · 2025 · BACK TO THE HOLE</p>
+    <p class="movement__eyebrow">2025 · BACK TO THE HOLE</p>
     <h2 class="movement__title">Back to the hole</h2>
     <p class="movement__standfirst">The count is still a hole, and the hole is where we started.</p>
 
@@ -1166,169 +1177,11 @@
        ==================================================================== -->
   <footer class="appendix" id="appendix">
     <div class="appendix__inner">
-      <!-- ACT I + ACT II claim-entries (authored by the stitcher; the two fragments
-     both link #e6-measurement-006 and #e1-measurement-002 here). -->
-<p class="claim-entry" id="e6-measurement-006">
-  <span class="claim-id-ref">e6-measurement-006</span> (A) — ~18% YoY paid-click growth, Q4 2008; no count, CPC, or query total disclosed.
-</p>
-<p class="claim-entry" id="e1-measurement-002">
-  <span class="claim-id-ref">e1-measurement-002</span> (B) — ABC founded 1914 in Chicago — the world's first circulation auditor. The 1914 anchor sits under an L5 reading: the reversion is the author's synthesis, marked as a reading.
-</p>
-<p class="claim-entry" id="e1-events-001">
-  <span class="claim-id-ref">e1-events-001</span> (B) — Penny <i>Sun</i>, 1833: ~15,000 copies/day within ~2 years — the advertiser-funded model.
-</p>
-<p class="claim-entry" id="e2-creators-002">
-  <span class="claim-id-ref">e2-creators-002</span> (B) — Standard 15% agency commission; on radio it covered production too — the one disclosed plate.
-</p>
-<p class="claim-entry" id="e4-pricing-001">
-  <span class="claim-id-ref">e4-pricing-001</span> (A) — Census commissions-received held near 14%: 14.13% (1977), 13.92% (1982), 14.16% (1987), 13.18% (1992). No 1875 Ayer open-contract artifact survives in the corpus.
-</p>
-<p class="claim-entry" id="e2-measurement-008">
-  <span class="claim-id-ref">e2-measurement-008</span> (B) — CBS guaranteed $3,000/wk per Hooper point Jack Benny lost, Jan 1949 — the vendor rating written into a deal term.
-</p>
-<p class="claim-entry" id="e2-pricing-002">
-  <span class="claim-id-ref">e2-pricing-002</span> (A) — AT&amp;T sold network time at $2,600/hr, ~$750k/yr, end-1925 — scaffolding for the origin of the chain.
-</p>
-<p class="claim-entry" id="e3-pricing-003">
-  <span class="claim-id-ref">e3-pricing-003</span> (C) — Station reps took 5–20% on the net after the agency's cut — a range, no typical value; a hidden, unpublished plate.
-</p>
-<p class="claim-entry" id="e3-pricing-002">
-  <span class="claim-id-ref">e3-pricing-002</span> (B) — A 2% cash discount on the net, usually left out of take-rate comparisons.
-</p>
-<p class="claim-entry" id="e3-creators-001">
-  <span class="claim-id-ref">e3-creators-001</span> (A) — AAAA consent decree, 1 Feb 1956 — ended collective 15% enforcement. It changed the law, not the price.
-</p>
-<p class="claim-entry" id="e3-creators-002">
-  <span class="claim-id-ref">e3-creators-002</span> (B) — 71% of the largest US national advertisers still on media commission in 1982 (ANA tracking).
-</p>
-<p class="claim-entry" id="e6-creators-002">
-  <span class="claim-id-ref">e6-creators-002</span> (B) — Commission basis fell to ~10% by 2003 from 61% in 1994 — followed unbundling, not search.
-</p>
-<!-- ======================================================================
-     APPENDIX:INSERT  —  claim-entry back-matter for ACT III + ACT IV.
-     Sidenote claim-id hrefs (#id) resolve here. Ordered by first appearance.
-     Excludes e6-measurement-006 and e1-measurement-002 (authored by ACT I).
-     ==================================================================== -->
-<p class="claim-entry" id="e1-buyers-008">
-  <span class="claim-id-ref">e1-buyers-008</span> (C) — Direct-response pool ~$192M in 1914, ~16% of the benchmark; wide, low-confidence, held as a range.
-</p>
-<p class="claim-entry" id="e3-buyers-001">
-  <span class="claim-id-ref">e3-buyers-001</span> (B) — Direct mail = 24% of US national advertising in 1956, more than broadcast.
-</p>
-<p class="claim-entry" id="e6-buyers-008">
-  <span class="claim-id-ref">e6-buyers-008</span> (A) — 57% of US internet ad revenue bought pay-per-action in 2008 (up from 51%); 39% CPM.
-</p>
-<p class="claim-entry" id="e1-buyers-007">
-  <span class="claim-id-ref">e1-buyers-007</span> (C) — 1914 newspaper classified carried no agency commission and no cost of preparation.
-</p>
-<p class="claim-entry" id="e6-buyers-005">
-  <span class="claim-id-ref">e6-buyers-005</span> (B) — National share of US ad spend rose 61.4% (2002) → 66.3% (2007).
-</p>
-<p class="claim-entry" id="e3-buyers-004">
-  <span class="claim-id-ref">e3-buyers-004</span> (B) — Cigarette makers paid broadcasters ~$225M/yr before the 2 Jan 1971 ban.
-</p>
-<p class="claim-entry" id="e3-medium-011">
-  <span class="claim-id-ref">e3-medium-011</span> (B) — 1971 was the era's only down year for US TV advertising, −1.7%.
-</p>
-<p class="claim-entry" id="e3-targeting-005">
-  <span class="claim-id-ref">e3-targeting-005</span> (A) — Direct mail addressed 71.1M US households in 1975 — ~279,000× finer than a TV spot (census/Nielsen counts, not blended).
-</p>
-<p class="claim-entry" id="e4-targeting-004">
-  <span class="claim-id-ref">e4-targeting-004</span> (B) — A 2% reply on a rented list was a successful campaign — a rate on pieces mailed.
-</p>
-<p class="claim-entry" id="e5-targeting-005">
-  <span class="claim-id-ref">e5-targeting-005</span> (B) — Read-vs-mailed guard: Overture's implied 15.9% reply is on pieces read, not mailed.
-</p>
-<p class="claim-entry" id="e5-targeting-004">
-  <span class="claim-id-ref">e5-targeting-004</span> (A) — Overture: 442M paid clicks in Q4 2001, no cookie/profile, ~53,000 advertisers.
-</p>
-<p class="claim-entry" id="e7-buyers-003">
-  <span class="claim-id-ref">e7-buyers-003</span> (C) — Vendor survey: 71% ran Performance Max in 2025 (up from 60%); soft endpoint, wide band.
-</p>
-<p class="claim-entry" id="e7-targeting-002">
-  <span class="claim-id-ref">e7-targeting-002</span> (B) — Apple ATT opt-in ~16% at launch (May 2021) → ~25% by mid-2022.
-</p>
-<p class="claim-entry" id="mech-adwords-001">
-  <span class="claim-id-ref">mech-adwords-001</span> (A) — AdWords Select, 20 Feb 2002: advertisers "pay the lowest amount possible".
-</p>
-<p class="claim-entry" id="e5-pricing-004">
-  <span class="claim-id-ref">e5-pricing-004</span> (A) — Overture was pure first-price, ~$0.23/click; listings needed editorial approval.
-</p>
-<p class="claim-entry" id="mech-rgsp-001">
-  <span class="claim-id-ref">mech-rgsp-001</span> (A) — rGSP (2019): +5.91% top-slot CPC on PC/tablet, +4.85% mobile; advertisers cannot opt out. Seller-owned number surfaced by a court finding.
-</p>
-<p class="claim-entry" id="mech-knobs-001">
-  <span class="claim-id-ref">mech-knobs-001</span> (A) — Three pricing knobs — 'Butternut Squash', format pricing, rGSP — 'intentional pricing'; exponent never disclosed. Surfaced by a court finding.
-</p>
-<p class="claim-entry" id="mech-mehta-004">
-  <span class="claim-id-ref">mech-mehta-004</span> (A) — Court: Google tested raising text-ad prices 5%+ — "the results have been largely consistent — it can"; the court called the prices "supracompetitive".
-</p>
-<p class="claim-entry" id="mech-tac-003">
-  <span class="claim-id-ref">mech-tac-003</span> (A) — Syndicated take rate ~9% (2002) → 24.7% (2006) → 21.3% (2008); the ratchet reversed — a residual a pure maximiser would not produce.
-</p>
-<p class="claim-entry" id="e6-sellers-001">
-  <span class="claim-id-ref">e6-sellers-001</span> (A) — Overture led paid search: $667.7M revenue 2002 vs Google's $439.5M total.
-</p>
-<p class="claim-entry" id="e2-events-006">
-  <span class="claim-id-ref">e2-events-006</span> (B) — Edward J. Noble bought NBC's Blue Network for $8M, 12 Oct 1943 — a sale, not a build; what forced it is not in this record.
-</p>
-<p class="claim-entry" id="e3-sellers-002">
-  <span class="claim-id-ref">e3-sellers-002</span> (A) — From 1954 the FCC capped owners at 7 TV stations, max 5 VHF.
-</p>
-<p class="claim-entry" id="e4-sellers-004">
-  <span class="claim-id-ref">e4-sellers-004</span> (B) — RBOC Yellow Pages sold $9,517M of advertising in 1993 — more than radio or magazines.
-</p>
-<p class="claim-entry" id="e6-targeting-004">
-  <span class="claim-id-ref">e6-targeting-004</span> (A) — Targeting entered by purchase: DoubleClick $3.1bn (Apr 2007), aQuantive ~$6bn, Right Media $680M, 24/7 $649M — the largest such deals of the year, not typical ones.
-</p>
-<p class="claim-entry" id="e2-sellers-006">
-  <span class="claim-id-ref">e2-sellers-006</span> (B) — Postwar boom tripled the AM dial: ~900 stations (1945) → ~2,500 (early 1950s).
-</p>
-<p class="claim-entry" id="e7-events-009">
-  <span class="claim-id-ref">e7-events-009</span> (A) — Court found Google paid $26.3B in search default revenue share in 2021 — spending it ruled foreclosed competition. Seller-owned number surfaced by a court finding.
-</p>
-<p class="claim-entry" id="e6-medium-006">
-  <span class="claim-id-ref">e6-medium-006</span> (A) — Coen series understates internet by ~half ($10,529M vs $21,206M, 2007) and stops at 2007.
-</p>
-<p class="claim-entry" id="e2-medium-006">
-  <span class="claim-id-ref">e2-medium-006</span> (B) — TV entered the series in 1949 at $58M, 1.1% of total.
-</p>
-<p class="claim-entry" id="e4-medium-002">
-  <span class="claim-id-ref">e4-medium-002</span> (B) — Total TV first passed newspapers in 1992 — $31,079M vs $30,737M.
-</p>
-<p class="claim-entry" id="e7-medium-001">
-  <span class="claim-id-ref">e7-medium-001</span> (A) — US internet ad revenue $23,448M (2008) → $294,593M (2025), 12.6×; only down year 2009.
-</p>
-<p class="claim-entry" id="e6-scale-009">
-  <span class="claim-id-ref">e6-scale-009</span> (A) — Help-wanted classified fell 91% from its 2000 peak; real-estate classified fell with housing, not search.
-</p>
-<p class="claim-entry" id="e2-medium-004">
-  <span class="claim-id-ref">e2-medium-004</span> (B) — Direct mail: 14.5% of US ad spend in 1949, peak 16.8% in 1938.
-</p>
-<p class="claim-entry" id="e7-scale-001">
-  <span class="claim-id-ref">e7-scale-001</span> (B) — 2025 US total ~$405B on media-owner basis (MAGNA $398B); excludes direct mail entirely.
-</p>
-<p class="claim-entry" id="e7-scale-006">
-  <span class="claim-id-ref">e7-scale-006</span> (C) — National-brand pool ~$145.7B, 36.6% of $398B; IRS $473B vs MAGNA $325B (2022) = a $148B rail wedge. Name the rail on the axis.
-</p>
-<p class="claim-entry" id="e2-scale-004">
-  <span class="claim-id-ref">e2-scale-004</span> (B) — Advertising peaked at 3.0% of US GDP in 1922.
-</p>
-<p class="claim-entry" id="e2-scale-005">
-  <span class="claim-id-ref">e2-scale-005</span> (B) — Advertising bottomed at 1.2% of US GDP in 1944.
-</p>
-<p class="claim-entry" id="e7-scale-002">
-  <span class="claim-id-ref">e7-scale-002</span> (C) — ~1.32% of US GDP in 2025 — a different basis, not commensurable with the old Coen series.
-</p>
-<p class="claim-entry" id="e7-measurement-005">
-  <span class="claim-id-ref">e7-measurement-005</span> (B) — IAB estimates >$26B of misallocated US media spend could be unlocked in 1–2 years; an estimate of what might be recovered, not a settled figure.
-</p>
-<p class="claim-entry" id="e7-events-008">
-  <span class="claim-id-ref">e7-events-008</span> (B) — Pew: result clicked on 8% of AI-summary visits vs 15% without; Google disputes the study — CONTESTED, both values stand.
-</p>
-<p class="claim-entry" id="e7-targeting-004">
-  <span class="claim-id-ref">e7-targeting-004</span> (B) — AI Overviews >2B monthly users by Jul 2025; the CBO's attributed claim that it monetises at ~the same rate as search — his account, not an audited fact.
-</p>
+      <p class="appendix__note">We strongly recommend cross-checking any figure that
+        matters to you against the source itself. Every claim in this piece was built
+        by Claude from the research material it gathered; the complete set, each figure
+        with its source and a grade for how solid that source is, is in one file you
+        can open: <a class="prov-link" href="https://github.com/lyndonkl/chipandadmarketresearch/blob/main/p2-ad-market/data/claims.json">claims.json</a>.</p>
     </div>
   </footer>
 
@@ -1356,12 +1209,18 @@
     try {
       var d = f.contentDocument || (f.contentWindow && f.contentWindow.document);
       if (!d || !d.documentElement) return;
+      /* Measure the figure's OWN content, never documentElement.scrollHeight — that
+       * is floored to the iframe's current height, so it can only grow (a transient
+       * tall reflow then sticks forever, leaving a huge gap). The plate is intrinsic. */
+      var plate = d.querySelector(".fig-plate");
       var h = Math.ceil(
-        Math.max(
-          d.documentElement.getBoundingClientRect().height,
-          d.documentElement.scrollHeight,
-          d.body ? d.body.scrollHeight : 0
-        )
+        plate
+          ? plate.getBoundingClientRect().bottom
+          : Math.max(
+              d.documentElement.getBoundingClientRect().height,
+              d.body ? d.body.getBoundingClientRect().height : 0,
+              d.body ? d.body.scrollHeight : 0
+            )
       );
       if (h > 0) f.style.height = h + "px";
     } catch (e) { /* cross-origin or not ready — leave the placeholder height */ }
@@ -1471,7 +1330,7 @@
       <section class="movement" data-slot="s7" data-ownership="amber">
         <span class="movement__index" aria-hidden="true">07</span>
         <div class="movement__body">
-          <p class="movement__eyebrow">S7 · 1914–2008 · THE DEMAND SIDE</p>
+          <p class="movement__eyebrow">1914–2008 · THE DEMAND SIDE</p>
           <h2 class="movement__title">The buyer's own meter</h2>
           <p class="movement__standfirst">The one-line opener each movement runs.</p>
           <p>Body paragraph. Prose is rendered VERBATIM from THE-PIECE.md — never
