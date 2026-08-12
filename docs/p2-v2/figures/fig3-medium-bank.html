@@ -82,6 +82,10 @@
   body.embed .demo-bar, body.embed .demo-standfirst, body.embed .hero-dek,
   body.embed .hero-controls, body.embed .page-head,
   body.embed .p2-motion-toggle, body.embed #motiontoggle, body.embed #status { display: none !important; }
+  /* article view: strip the key, the caption + its rule, both DEAD legends and the citation shelf; keep the graph, the axis basis, and the methodology dropdown */
+  body.embed .fig-legend, body.embed .fig-keybtn,
+  body.embed .fig-rule, body.embed .fig-caption,
+  body.embed .dead-legend, body.embed .fig-shelf { display: none !important; }
   body.embed .hero-wrap, body.embed main { max-width: none !important; margin: 0 !important; padding: 0 !important; }
   body.embed .fig-plate { margin: 0 auto !important; }
 </style>
