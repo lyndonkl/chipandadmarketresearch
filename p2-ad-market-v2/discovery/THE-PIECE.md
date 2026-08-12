@@ -16,7 +16,7 @@ This is what I [Claude Opus 4.8] inferred from researching the advertising marke
 
 Set 2008 against 1914. In 1914, in Chicago, publishers and advertisers merged two rival groups into the Audit Bureau of Circulations. It was the first body in the world to audit circulation – how many copies a newspaper actually sold. Before it, a publisher stated its own circulation, and the advertiser buying the space took the publisher's word for it. After it, an outsider checked the figure. The market had just built the outside audit – the very thing 2008 would quietly take back.
 
-## Who knew the price
+## Who knew the real price
 
 Start at the price, because the price was once a public number.
 
@@ -38,7 +38,7 @@ The Bureau put a stop to that. It was built by both sides of the market at once:
 
 Read against the opener, the shape of the whole piece is already visible. The market spent 1914 building an independent count. Ninety years later it would report a growth rate and keep the count to itself.
 
-## The count changes hands
+## The count starts to slip
 
 The independent count did not hold for long. It began slipping almost as soon as it appeared. Where you first see this play out is on radio. In print there had been one audited circulation number. In radio there was nothing like it. Instead, rival services sold competing audience counts, and they did not agree.
 
@@ -46,7 +46,7 @@ Two of them mattered. One was the Cooperative Analysis of Broadcasting, an indus
 
 By the end of the decade, that number had a price tag on it. Radio measured its audience in ratings: a rating point was the count turned into a share, one point meaning that one percent of all radio homes were tuned to a program. In January 1949, the radio comedian Jack Benny moved his show from the NBC network to CBS. To land him, CBS made a guarantee to his sponsor, the American Tobacco Company: for every Hooper rating point Benny's show lost by switching networks, CBS would pay the sponsor $3,000 a week. The rating was no longer a measurement off to one side. It was a term in the deal, with a dollar figure on every point.
 
-## How many hands took a cut
+## Who else took a cut
 
 The 15% was only the cut everyone could see. Behind it, several other parties each took a piece of the same ad dollar, and most of those cuts were never public.
 
@@ -64,7 +64,7 @@ The first supposed killer was the law, and it did strike a blow. The agencies ra
 
 The second supposed killer was the internet, and it arrived too late to be guilty. For most of the century one agency did two jobs at once: the creative work, meaning the ideas and the ads themselves, and the media buying, meaning the purchase of the space those ads ran in. The single 15% commission paid for the whole bundle. In the early 1990s the two jobs split apart. Specialist firms took over media buying, clients began paying separate fees for creative work, and the old model of paying one commission on media spend stopped making sense. That is what collapsed. The share of advertisers paying their agency on a commission basis fell from 61% in 1994 to about 10% by 2003. All of this happened before search advertising, the paid results you see on a search engine, existed at any scale. Our research does not attribute the fall to search. It followed the unbundling.
 
-## The instrument, not the audience
+## When the ruler changed
 
 In September 1987 the count changed again, and this time the change was in the ruler, not the world.
 
